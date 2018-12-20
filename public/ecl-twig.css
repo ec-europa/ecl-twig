@@ -1,0 +1,63 @@
+
+.name {
+  /* This should not apply if Shadow DOM is working */
+  color: red;
+}
+
+body {
+  min-width: 320px;
+  font-family: Arial,sans-serif;
+  font-weight: 400;
+  line-height: 1.667;
+  overflow-x: hidden;
+  text-rendering: optimizelegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 15px;
+  font-size: 1.5rem;
+  color: #404040;
+}
+
+.header {
+  margin: 0;
+  background-color: #004494;
+  color: #fff;
+  border-bottom: none;
+  padding: 0.4rem 2rem 1rem;
+}
+
+h2 {
+  border-bottom: 1px solid #404040;
+}
+
+.content {
+  background: white;
+}
+
+.component {
+  padding: 20px;
+  margin-bottom: 20px;
+  max-width: 600px;
+}
+
+.component-demo {
+  background: white;
+  padding: 20px 30px 20px 30px;
+  margin-bottom: 10px;
+  border-left: 20px solid lightgray;
+}
+code {
+  padding: 1rem;
+  margin: 1rem 0 1rem;
+  display: block;
+  background: #f3f3f3;
+}
+ul {
+  list-style: none;
+  margin: 1rem;
+  padding-left: .5rem;
+  border-left: 2px solid #e4e4e4;
+}
+ul i {
+  margin-right: .5rem;
+}
