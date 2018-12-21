@@ -1,5 +1,7 @@
 const path = require('path');
 const MinifyPlugin = require('babel-minify-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const fs = require('fs');
 const glob = require('glob');
 
@@ -16,6 +18,10 @@ const module_config = {
       },
     },
     {
+      test: /\.css$/,
+      use: ExtractTextPlugin.extract({ fallback: 'style-loader', use: ['css-loader']})
+    },
+    {
       test: /\.twig$/,
       use: [
         { loader: 'twig-loader' },
@@ -25,10 +31,7 @@ const module_config = {
     },
     {
       test: /\.scss$/,
-      use: [
-        { loader: 'css-loader' },
-        { loader: 'sass-loader' },
-      ],
+      use: [{ loader: 'css-loader' }, { loader: 'sass-loader' }],
     },
   ],
 };
@@ -45,7 +48,7 @@ const module_config = {
  * ];
  * The property names in entryObject matches the output filename in dist.
  */
-const matches = glob.sync('./src/components/*/*.js');
+const matches = glob.sync('./src/systems/*/*/*/*.js');
 let entryObject = {}, entryArray = [], name;
 for (let i in matches) {
   if (matches.hasOwnProperty(i)) {
@@ -66,7 +69,7 @@ module.exports = [
       './node_modules/@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js',
     ].concat(entryArray),
     output: {
-      filename: 'components.bundled.js',
+      filename: 'ecl-twig.bundled.js',
     },
     devServer: {
       open: true,
@@ -77,15 +80,15 @@ module.exports = [
       'vertx': 'vertx',
     },
     module: module_config,
-    plugins: [
-      new MinifyPlugin(),
+    plugins: [ 
+      new MinifyPlugin()
     ],
   },
   {
     mode: mode,
     entry: entryArray,
     output: {
-      filename: 'components.js',
+      filename: 'ecl-twig.js',
     },
     externals: {
       'twig': 'Twig',
@@ -115,12 +118,12 @@ module.exports = [
       './node_modules/@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js',
     ].concat(entryArray),
     output: {
-      filename: 'components.bundled.js',
+      filename: 'ecl-twig.bundled.js',
     },
     devServer: {
       open: true,
       host: 'localhost',
-      publicPath: '/dist/',
+      publicPath: path.resolve(__dirname, 'dist'),
     },
     externals: {
       'vertx': 'vertx',
@@ -128,6 +131,7 @@ module.exports = [
     module: module_config,
     plugins: [
       new MinifyPlugin(),
+      new ExtractTextPlugin("styles.css")
     ],
   }
 ];
