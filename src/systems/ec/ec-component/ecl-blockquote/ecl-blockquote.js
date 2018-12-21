@@ -1,7 +1,7 @@
 import TwigBase from 'twig-components/twig-base';
 import data from '../../demo/ecl-blockquote/data';
 
-export default class EclBlockquote extends TwigBase {
+export default class EclBlockquote extends TwigBase {  
   static get observedAttributes() {
     return ['css_class', 'blockquote_body', 'blockquote_author', 'extra_attributes'];
   }

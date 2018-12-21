@@ -5,19 +5,22 @@
   "version": "0.0.1-alpha",
   "description": "ECL Blockquotes",
   "dependencies": {
-    "@ecl-twig/ecl-icon": "^0.0.1-alpha"
+    "@ecl/ec-base": "^2.0.0",
+    "@ecl/ec-theme-default": "^2.0.0",
+    "@ecl/ec-component-blockquote": "^2.0.0",
+    "@ecl/ec-preset-full": "^2.0.0"
   },
   "publishConfig": {
     "access": "public"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ec-europa/ecl-twig-components.git"
+    "url": "git+https://github.com/ec-europa/ecl-twig.git"
   },
   "bugs": {
-    "url": "https://github.com/ec-europa/ecl-twig-components/issues"
+    "url": "https://github.com/ec-europa/ecl-twig/issues"
   },
-  "homepage": "https://github.com/ec-europa/ecl-twig-components",
+  "homepage": "https://github.com/ec-europa/ecl-twig",
   "keywords": [
     "ecl",
     "europa-component-library",
