@@ -1,0 +1,9 @@
+pipeline:
+  install:
+    image: node:dubnium
+    commands:
+      - yarn install --frozen-lockfile
+  conventions:
+    image: node:dubnium
+    commands:
+      - yarn eslint
