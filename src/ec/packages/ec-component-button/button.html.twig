@@ -42,7 +42,8 @@
     </svg>{% endif %}
 </span></button>
 
-{% include '../blockquote/blockquote.html.twig' with {
-  blockquote_body:blockquote_body,
-  blockquote_author:blockquote_author
+{# Demo: how to include another component #}
+{% include '../ec-component-blockquote/blockquote.html.twig' with {
+  blockquote_body: blockquote_body,
+  blockquote_author: blockquote_author
 } %}
