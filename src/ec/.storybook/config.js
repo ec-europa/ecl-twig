@@ -8,7 +8,10 @@ addDecorator(
   })
 );
 
-const contexts = [require.context('../packages', true, /stories.*\.js$/)];
+const contexts = [
+  require.context('../packages', true, /stories.*\.js$/),
+  require.context('../examples', true, /.*\.story\.js$/),
+];
 
 configure(() => {
   contexts.forEach(context => {

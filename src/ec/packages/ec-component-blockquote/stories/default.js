@@ -3,7 +3,7 @@ import { withKnobs, text } from '@storybook/addon-knobs';
 
 import blockquote from '../blockquote.html.twig';
 
-storiesOf('Blockquote', module)
+storiesOf('Components/Blockquote', module)
   .addDecorator(withKnobs)
   .add('default', () =>
     blockquote({

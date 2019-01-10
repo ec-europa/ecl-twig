@@ -1,0 +1,9 @@
+{# Demo: how to include another component #}
+{% include '../../packages/ec-component-button/button.html.twig' with {
+  label: button_label,
+} %}
+
+{% include '../../packages/ec-component-blockquote/blockquote.html.twig' with {
+  blockquote_body: blockquote_body,
+  blockquote_author: blockquote_author
+} %}

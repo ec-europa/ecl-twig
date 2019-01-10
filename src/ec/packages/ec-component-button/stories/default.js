@@ -1,11 +1,12 @@
 import { storiesOf } from '@storybook/html';
+import { withKnobs, text } from '@storybook/addon-knobs';
 
 import button from '../button.html.twig';
 
-storiesOf('Button', module).add('default', () =>
-  button({
-    label: 'Example button',
-    blockquote_body: 'Example body',
-    blockquote_author: 'Author name',
-  })
-);
+storiesOf('Components/Button', module)
+  .addDecorator(withKnobs)
+  .add('default', () =>
+    button({
+      label: text('Label', 'Example button'),
+    })
+  );
