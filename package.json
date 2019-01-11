@@ -1,8 +1,5 @@
 {
   "private": true,
-  "author": "European Commission",
-  "description": "ECL Twig Components",
-  "license": "EUPL-1.1",
   "scripts": {
     "build:ec": "build-storybook -c src/ec/.storybook -o build/ec",
     "build:eu": "build-storybook -c src/eu/.storybook -o build/eu",
@@ -12,16 +9,11 @@
     "start:eu": "start-storybook -p 9001 -c src/eu/.storybook",
     "lint:js": "eslint .",
     "lint": "npm run lint:js",
-    "postinstall": "lerna run postinstall && lerna run prepublish"
+    "postinstall": "lerna run postinstall && lerna run prepublish",
+    "publish": "lerna publish",
+    "publish-canary": "lerna publish --canary --yes",
+    "publish-next": "lerna publish --npm-tag=next --bump=prerelease"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ec-europa/ecl-twig.git"
-  },
-  "bugs": {
-    "url": "https://github.com/ec-europa/ecl-twig/issues"
-  },
-  "homepage": "https://github.com/ec-europa/ecl-twig",
   "devDependencies": {
     "@babel/core": "7.2.2",
     "@storybook/addon-knobs": "4.1.6",
