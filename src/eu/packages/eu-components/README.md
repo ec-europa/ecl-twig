@@ -1,3 +1,3 @@
-# EC Components
+# ECL Twig - EU Components
 
-Preset package depending on every EC twig components.
+Preset package depending on every EU twig components.
