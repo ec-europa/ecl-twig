@@ -5,16 +5,16 @@
     },
     "publish": {
       "allowBranch": "master",
-      "bump": "patch",
       "conventionalCommits": true,
+      "ignoreChanges": ["CHANGELOG.md"],
       "message": "chore(release): Publish",
-      "ignoreChanges": ["CHANGELOG.md"]
+      "npmClient": "npm",
+      "registry": "https://registry.npmjs.org/"
     }
   },
   "loglevel": "success",
   "packages": ["src/ec/packages/*", "src/eu/packages/*"],
   "version": "independent",
   "npmClient": "yarn",
-  "registry": "https://registry.npmjs.org/",
   "useWorkspaces": true
 }
