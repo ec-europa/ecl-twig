@@ -9,7 +9,7 @@ addDecorator(
 );
 
 const contexts = [
-  require.context('../packages', true, /stories.*\.js$/),
+  require.context('../packages', true, /.*\.story\.js$/),
   require.context('../examples', true, /.*\.story\.js$/),
 ];
 

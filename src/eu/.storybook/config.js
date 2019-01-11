@@ -5,11 +5,13 @@ addDecorator(
   withOptions({
     name: 'ECL v2 - EU Twig',
     url: 'https://github.com/ec-europa/ecl-twig',
-    sidebarAnimations: false,
   })
 );
 
-const contexts = [require.context('../packages', true, /stories.*\.js$/)];
+const contexts = [
+  require.context('../packages', true, /.*\.story\.js$/),
+  // require.context('../examples', true, /.*\.story\.js$/),
+];
 
 configure(() => {
   contexts.forEach(context => {

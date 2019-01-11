@@ -1,7 +1,7 @@
 import { storiesOf } from '@storybook/html';
 import { withKnobs, text } from '@storybook/addon-knobs';
 
-import blockquote from '../blockquote.html.twig';
+import blockquote from './blockquote.html.twig';
 
 storiesOf('Blockquote', module)
   .addDecorator(withKnobs)
