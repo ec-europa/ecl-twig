@@ -1,0 +1,20 @@
+{
+  "command": {
+    "create": {
+      "license": "EUPL-1.1"
+    },
+    "publish": {
+      "allowBranch": "master",
+      "conventionalCommits": true,
+      "ignoreChanges": ["CHANGELOG.md"],
+      "message": "chore(release): Publish",
+      "npmClient": "npm",
+      "registry": "https://registry.npmjs.org/"
+    }
+  },
+  "loglevel": "success",
+  "packages": ["src/ec/packages/*", "src/eu/packages/*"],
+  "version": "independent",
+  "npmClient": "yarn",
+  "useWorkspaces": true
+}
