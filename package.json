@@ -5,15 +5,16 @@
     "build:eu": "build-storybook -c src/eu/.storybook -o build/eu",
     "clean": "rimraf build",
     "dist": "npm run clean && npm run build:ec && npm run build:eu",
-    "start:ec": "start-storybook -p 9001 -c src/ec/.storybook",
-    "start:eu": "start-storybook -p 9001 -c src/eu/.storybook",
+    "jest": "jest",
     "lint:js": "eslint .",
     "lint": "npm run lint:js",
     "postinstall": "lerna run postinstall && lerna run prepublish",
     "publish": "lerna publish",
     "publish-canary": "lerna publish --canary --yes",
     "publish-next": "lerna publish --npm-tag=next --bump=prerelease",
-    "test": "jest"
+    "start:ec": "start-storybook -p 9001 -c src/ec/.storybook",
+    "start:eu": "start-storybook -p 9001 -c src/eu/.storybook",
+    "test": "npm run jest"
   },
   "devDependencies": {
     "@babel/core": "7.2.2",
@@ -66,7 +67,6 @@
     "src/eu/packages/*"
   ],
   "jest": {
-    "verbose": true,
-    "cache": false
+    "verbose": true
   }
 }

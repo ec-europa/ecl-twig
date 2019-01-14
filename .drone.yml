@@ -1,13 +1,24 @@
+matrix:
+  TEST:
+    - jest
+    - lint
+
 pipeline:
   install:
     image: node:dubnium
     commands:
       - yarn install --frozen-lockfile
-  conventions:
+  jest:
+    image: node:dubnium
+    commands:
+      - yarn jest
+    when:
+      matrix:
+        TEST: jest
+  lint:
     image: node:dubnium
     commands:
       - yarn lint
-  test:
-    image: node:dubnium
-    commands:
-      - yarn test
+    when:
+      matrix:
+        TEST: lint
