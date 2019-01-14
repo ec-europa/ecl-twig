@@ -5,13 +5,14 @@ module.exports = {
     'plugin:unicorn/recommended',
     'plugin:prettier/recommended',
     'prettier/unicorn',
+    'plugin:jest/recommended',
   ],
   env: {
     node: true,
   },
   overrides: [
     {
-      files: ['src/**/*.story.js'],
+      files: ['src/**/*.{story,test}.js'],
       rules: {
         'import/no-extraneous-dependencies': false,
       },

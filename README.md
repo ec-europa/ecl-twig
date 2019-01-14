@@ -60,6 +60,20 @@ Check coding conventions (JS only):
 yarn lint
 ```
 
+## Test
+
+Check snpashots with:
+
+```bash
+yarn jest
+```
+
+Update snapshots with:
+
+```bash
+yarn jest-update
+```
+
 ## Dist
 
 Build the dist:
@@ -71,5 +85,5 @@ yarn dist
 Test the dist:
 
 ```bash
- npx serve build
+npx serve build
 ```
