@@ -1,9 +1,45 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`EC - Button renders correctly 1`] = `
+exports[`EC - Button CTA renders correctly 1`] = `
+"<button class=\\"ecl-button ecl-button--call\\" type=\\"button\\">
+  <span class=\\"ecl-button__container\\"
+    ><span class=\\"ecl-button__label\\">Call to action button</span>
+  </span>
+</button>
+"
+`;
+
+exports[`EC - Button Ghost renders correctly 1`] = `
+"<button class=\\"ecl-button ecl-button--ghost\\" type=\\"button\\">
+  <span class=\\"ecl-button__container\\"
+    ><span class=\\"ecl-button__label\\">Ghost button</span>
+  </span>
+</button>
+"
+`;
+
+exports[`EC - Button Primary renders correctly 1`] = `
 "<button class=\\"ecl-button ecl-button--primary\\" type=\\"button\\">
   <span class=\\"ecl-button__container\\"
-    ><span class=\\"ecl-button__label\\">Example button</span>
+    ><span class=\\"ecl-button__label\\">Primary button</span>
+  </span>
+</button>
+"
+`;
+
+exports[`EC - Button Search renders correctly 1`] = `
+"<button class=\\"ecl-button ecl-button--search\\" type=\\"button\\">
+  <span class=\\"ecl-button__container\\"
+    ><span class=\\"ecl-button__label\\">Search button</span>
+  </span>
+</button>
+"
+`;
+
+exports[`EC - Button Secondary renders correctly 1`] = `
+"<button class=\\"ecl-button ecl-button--secondary\\" type=\\"button\\">
+  <span class=\\"ecl-button__container\\"
+    ><span class=\\"ecl-button__label\\">Secondary button</span>
   </span>
 </button>
 "

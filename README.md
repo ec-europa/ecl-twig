@@ -65,7 +65,13 @@ yarn lint
 Check snpashots with:
 
 ```bash
-yarn test
+yarn jest
+```
+
+Update snapshots with:
+
+```bash
+yarn jest-update
 ```
 
 ## Dist

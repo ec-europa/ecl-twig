@@ -8,7 +8,7 @@ describe('EC - Composition', () => {
     const template = path.resolve(__dirname, './composition.html.twig');
     const data = {
       button_label: 'Example button',
-      blockquote_body: 'Example body',
+      blockquote_citation: 'Example body',
       blockquote_author: 'Author name',
     };
 

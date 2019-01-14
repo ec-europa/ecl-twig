@@ -12,7 +12,7 @@ module.exports = {
   },
   overrides: [
     {
-      files: ['src/**/*.story.js'],
+      files: ['src/**/*.{story,test}.js'],
       rules: {
         'import/no-extraneous-dependencies': false,
       },
