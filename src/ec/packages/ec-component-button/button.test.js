@@ -1,18 +1,18 @@
 import path from 'path';
-import Twig from 'twig';
-import { format } from 'prettier';
+import { renderTwigFile } from '@ecl-twig/test-utils';
 
-test('Button renders correctly', done => {
-  expect.assertions(1);
+describe('EC - Button', () => {
+  test('renders correctly', done => {
+    expect.assertions(1);
 
-  Twig.renderFile(
-    path.resolve(__dirname, './button.html.twig'),
-    {
+    const template = path.resolve(__dirname, './button.html.twig');
+    const data = {
       label: 'Example button',
-    },
-    (err, html) => {
-      expect(format(html, { parser: 'html' })).toMatchSnapshot();
+    };
+
+    renderTwigFile(template, data, (err, html) => {
+      expect(html).toMatchSnapshot();
       done();
-    }
-  );
+    });
+  });
 });

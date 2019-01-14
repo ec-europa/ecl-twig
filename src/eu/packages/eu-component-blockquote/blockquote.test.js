@@ -1,15 +1,14 @@
 import path from 'path';
 import { renderTwigFile } from '@ecl-twig/test-utils';
 
-describe('EC - Composition', () => {
+describe('EU - Blockquote', () => {
   test('renders correctly', done => {
     expect.assertions(1);
 
-    const template = path.resolve(__dirname, './composition.html.twig');
+    const template = path.resolve(__dirname, './blockquote.html.twig');
     const data = {
-      button_label: 'Example button',
-      blockquote_body: 'Example body',
-      blockquote_author: 'Author name',
+      body: 'Example body',
+      author: 'Author name',
     };
 
     renderTwigFile(template, data, (err, html) => {
