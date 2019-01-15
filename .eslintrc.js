@@ -1,12 +1,14 @@
 module.exports = {
   root: true,
   extends: [
-    'airbnb-base',
+    'airbnb',
     'plugin:unicorn/recommended',
     'plugin:prettier/recommended',
     'prettier/unicorn',
+    'prettier/react',
     'plugin:jest/recommended',
   ],
+  plugins: ['react', 'jsx-a11y'],
   env: {
     node: true,
   },

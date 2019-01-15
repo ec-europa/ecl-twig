@@ -1,5 +1,6 @@
 import { storiesOf } from '@storybook/html';
 import { withKnobs, text } from '@storybook/addon-knobs';
+import withCode from '@ecl-twig/storybook-addon-code';
 
 // Import data for demos
 import dataPrimary from '@ecl/ec-specs-button/demo/data--primary';
@@ -12,6 +13,7 @@ import button from './button.html.twig';
 
 storiesOf('Components/Button', module)
   .addDecorator(withKnobs)
+  .addDecorator(withCode)
   .add('primary', () =>
     button({
       label: text('Label', dataPrimary.label),
