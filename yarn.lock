@@ -680,6 +680,9 @@
 "@ecl-twig/storybook-addon-code@file:utils/storybook-addon-code":
   version "0.0.0-dev-only"
 
+"@ecl-twig/storybook-addon-notes@file:utils/storybook-addon-notes":
+  version "0.0.0-dev-only"
+
 "@ecl-twig/test-utils@file:utils/test-utils":
   version "0.0.0-test-only"
 
@@ -4188,9 +4191,9 @@ ejs@^2.6.1:
   integrity sha512-0xy4A/twfrRCnkhfk8ErDi5DqdAsAqeGxht4xkCUrsvhhbQNs7E+4jV0CN7+NKIY0aHE72+XvqtBIXzD31ZbXQ==
 
 electron-to-chromium@^1.3.100, electron-to-chromium@^1.3.62:
-  version "1.3.102"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.102.tgz#3ac43a037c8a63bca3dfa189eb3d90f097196787"
-  integrity sha512-2nzZuXw/KBPnI3QX3UOCSRvJiVy7o9+VHRDQ3D/EHCvVc89X6aj/GlNmEgiR2GBIhmSWXIi4W1M5okA5ScSlNg==
+  version "1.3.103"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.103.tgz#a695777efdbc419cad6cbb0e58458251302cd52f"
+  integrity sha512-tObPqGmY9X8MUM8i3MEimYmbnLLf05/QV5gPlkR8MQ3Uj8G8B2govE1U4cQcBYtv3ymck9Y8cIOu4waoiykMZQ==
 
 elegant-spinner@^1.0.1:
   version "1.0.1"
@@ -7442,6 +7445,11 @@ map-visit@^1.0.0:
   dependencies:
     object-visit "^1.0.0"
 
+marked@0.6.0:
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/marked/-/marked-0.6.0.tgz#a18d01cfdcf8d15c3c455b71c8329e5e0f01faa1"
+  integrity sha512-HduzIW2xApSXKXJSpCipSxKyvMbwRRa/TwMbepmlZziKdH8548WSoDP4SxzulEKjlo8BE39l+2fwJZuRKOln6g==
+
 matcher@^1.0.0:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/matcher/-/matcher-1.1.1.tgz#51d8301e138f840982b338b116bb0c09af62c1c2"
@@ -7455,9 +7463,9 @@ material-colors@^1.2.1:
   integrity sha512-6qE4B9deFBIa9YSpOc9O0Sgc43zTeVYbgDT5veRKSlB2+ZuHNoVVxA1L/ckMUayV9Ay9y7Z/SZCLcGteW9i7bg==
 
 math-random@^1.0.1:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/math-random/-/math-random-1.0.2.tgz#8ab7f026363816c1e00b774d87dee67f61e37ad6"
-  integrity sha512-Bp2Bx2wFaUymE7pWi0bbldiheIXMvyzC3hRkT5YAv2qiqqJO5VB8KafgYgZmGCxkTmloLuAx3Jv2OmJ66990mg==
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/math-random/-/math-random-1.0.3.tgz#5843d8307f8d2fd83de240701eeb2dc7bc77a104"
+  integrity sha512-hULdrPg17lCyaJOrDwS4RSGQcc/MFyv1aujidohCsBq2zotkhIns8mMDQ7B8VnKG23xcpa+haU5MLDNyNzCesQ==
 
 md5.js@^1.3.4:
   version "1.3.5"
@@ -8390,9 +8398,9 @@ p-waterfall@^1.0.0:
     p-reduce "^1.0.0"
 
 pacote@^9.2.3:
-  version "9.3.0"
-  resolved "https://registry.yarnpkg.com/pacote/-/pacote-9.3.0.tgz#ec0d21b739a625d81a19ae546386fedee3300bc1"
-  integrity sha512-uy5xghB5wUtmFS+uNhQGhlsIF9rfsfxw6Zsu2VpmSz4/f+8D2+5V1HwjHdSn7W6aQTrxNNmmoUF5qNE10/EVdA==
+  version "9.4.0"
+  resolved "https://registry.yarnpkg.com/pacote/-/pacote-9.4.0.tgz#af979abdeb175cd347c3e33be3241af1ed254807"
+  integrity sha512-WQ1KL/phGMkedYEQx9ODsjj7xvwLSpdFJJdEXrLyw5SILMxcTNt5DTxT2Z93fXuLFYJBlZJdnwdalrQdB/rX5w==
   dependencies:
     bluebird "^3.5.3"
     cacache "^11.3.2"
@@ -8423,9 +8431,9 @@ pacote@^9.2.3:
     which "^1.3.1"
 
 pako@~1.0.5:
-  version "1.0.7"
-  resolved "https://registry.yarnpkg.com/pako/-/pako-1.0.7.tgz#2473439021b57f1516c82f58be7275ad8ef1bb27"
-  integrity sha512-3HNK5tW4x8o5mO8RuHZp3Ydw9icZXx0RANAOMzlMzx7LVXhMJ4mo3MOBpzyd7r/+RUu8BmndP47LXT+vzjtWcQ==
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/pako/-/pako-1.0.8.tgz#6844890aab9c635af868ad5fecc62e8acbba3ea4"
+  integrity sha512-6i0HVbUfcKaTv+EG8ZTr75az7GFXcLYk9UyLEg7Notv/Ma+z/UG3TCoz6GiNeOrn1E/e63I0X/Hpw18jHOTUnA==
 
 parallel-transform@^1.1.0:
   version "1.1.0"
@@ -9169,9 +9177,9 @@ react-textarea-autosize@^7.0.4:
     prop-types "^15.6.0"
 
 react-transition-group@^2.0.0:
-  version "2.5.2"
-  resolved "https://registry.yarnpkg.com/react-transition-group/-/react-transition-group-2.5.2.tgz#9457166a9ba6ce697a3e1b076b3c049b9fb2c408"
-  integrity sha512-vwHP++S+f6KL7rg8V1mfs62+MBKtbMeZDR8KiNmD7v98Gs3UPGsDZDahPJH2PVprFW5YHJfh6cbNim3zPndaSQ==
+  version "2.5.3"
+  resolved "https://registry.yarnpkg.com/react-transition-group/-/react-transition-group-2.5.3.tgz#26de363cab19e5c88ae5dbae105c706cf953bb92"
+  integrity sha512-2DGFck6h99kLNr8pOFk+z4Soq3iISydwOFeeEVPjTN6+Y01CmvbWmnN02VuTWyFdnRtIDPe+wy2q6Ui8snBPZg==
   dependencies:
     dom-helpers "^3.3.1"
     loose-envify "^1.4.0"
@@ -10473,9 +10481,9 @@ symbol.prototype.description@^1.0.0:
     has-symbols "^1.0.0"
 
 table@^5.0.2:
-  version "5.2.0"
-  resolved "https://registry.yarnpkg.com/table/-/table-5.2.0.tgz#2e38bd1f16dd3f97085ac80cdc574ad9198af04d"
-  integrity sha512-hAdBBAMCZl4/U3eQhsPN2Z8wRJC98lpRhDW2I86VQbPBqyj4E681VhvUkfb90qUJ4rnRfu8t4/8SGHPsAH1ygg==
+  version "5.2.1"
+  resolved "https://registry.yarnpkg.com/table/-/table-5.2.1.tgz#e78463702b1be9f7131c39860bcfb1b81114c2a1"
+  integrity sha512-qmhNs2GEHNqY5fd2Mo+8N1r2sw/rvTAAvBZTaTx+Y7PHLypqyrxr1MdIu0pLw6Xvl/Gi4ONu/sdceP8vvUjkyA==
   dependencies:
     ajv "^6.6.1"
     lodash "^4.17.11"

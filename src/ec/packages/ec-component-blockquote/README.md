@@ -1,1 +1,23 @@
 # ECL Twig - EC Blockquote component
+
+npm package: `@ecl-twig/ec-component-blockquote`
+
+```shell
+npm install --save @ecl-twig/ec-component-blockquote
+```
+
+## Parameters
+
+- "citation" (string) (default: '')
+- "author" (string) (default: '')
+- "extra_classes" (string) (default: '')
+- "extra_attributes" (array) (default: [])
+
+## Example:
+
+```twig
+{% include 'path/to/blockquote.html.twig' with {
+  citation: 'Twenty years from now you will be more disappointed by the things that you didn’t do than by the ones you did do.',
+  author: 'Mark Twain'
+} %}
+```
