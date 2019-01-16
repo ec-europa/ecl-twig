@@ -1,0 +1,51 @@
+{#
+  Parameters:
+    - "icon" (associative array) (default: predefined structure): format: 
+        {
+          path: '/static/media/icons.cbfd6efe.svg',
+          type: '',
+          name: '',
+          size: 'm' (available options: 'xs','s','m','l','xl','2xl','fluid'),
+          transform: 'rotate-0' (available options: 'rotate-0', 'rotate-90', 'rotate-180', 'rotate-270', 'flip-horizontal', 'flip-vertical'),
+          color: 'default' (available options: 'default', 'inverted', 'primary')
+        }
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
+      ]
+#}
+
+{# Internal properties #}
+{% set _icon={
+  path: '/static/media/icons.cbfd6efe.svg',
+  type: '',
+  name: '',
+  size: 'm',
+  transform: 'rotate-0',
+  color: 'default'
+}|merge(icon) %}
+
+{% set _css_class = ['ecl-icon','ecl-icon--'~_icon.size,'ecl-icon--'~_icon.transform,'ecl-icon--'~_icon.color]|join(' ') %}
+{% set _extra_attributes = '' %}
+
+{# Internal logic - Process properties #}
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+{% if _icon %}
+  <svg class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+    <use xlink:href="{{ _icon.path }}#{{ _icon.type }}--{{ _icon.name}}"></use>
+  </svg>
+{% endif %}
