@@ -1,6 +1,6 @@
 {#
   Parameters:
-    - "icon" (associative array) (default: predefined structure): format: 
+    - "icon" (associative array) (default: predefined structure): format:
         {
           path: '/static/media/icons.cbfd6efe.svg',
           type: '',
@@ -21,15 +21,23 @@
 
 {# Internal properties #}
 {% set _icon={
-  path: '/static/media/icons.cbfd6efe.svg',
+  path: '',
   type: '',
   name: '',
   size: 'm',
-  transform: 'rotate-0',
-  color: 'default'
+  transform: '',
+  color: ''
 }|merge(icon) %}
 
-{% set _css_class = ['ecl-icon','ecl-icon--'~_icon.size,'ecl-icon--'~_icon.transform,'ecl-icon--'~_icon.color]|join(' ') %}
+{% set _css_class = ['ecl-icon'] %}
+
+{% for property in ['size','transform','color'] %}
+    {% if _icon[property] is defined and _icon[property] is not empty %}
+        {% set _css_class=_css_class|merge(['ecl-icon--'~_icon[property]]) %}
+    {% endif %}
+{% endfor %}
+
+{% set _css_class=_css_class|join(' ') %}
 {% set _extra_attributes = '' %}
 
 {# Internal logic - Process properties #}
