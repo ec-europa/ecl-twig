@@ -22,8 +22,8 @@ describe('EC - Icon', () => {
       test(`- icon ${icon} renders correctly`, done => {
         expect.assertions(1);
 
-        defaultDataStructure.name = icon;
-        defaultDataStructure.type = 'branded';
+        defaultDataStructure.icon.name = icon;
+        defaultDataStructure.icon.type = 'branded';
 
         renderTwigFile(template, defaultDataStructure, (err, html) => {
           expect(html).toMatchSnapshot();
@@ -38,8 +38,8 @@ describe('EC - Icon', () => {
       test(`- icon ${icon} renders correctly`, done => {
         expect.assertions(1);
 
-        defaultDataStructure.name = icon;
-        defaultDataStructure.type = 'notifications';
+        defaultDataStructure.icon.name = icon;
+        defaultDataStructure.icon.type = 'notifications';
 
         renderTwigFile(template, defaultDataStructure, (err, html) => {
           expect(html).toMatchSnapshot();
@@ -54,8 +54,8 @@ describe('EC - Icon', () => {
       test(`- icon ${icon} renders correctly`, done => {
         expect.assertions(1);
 
-        defaultDataStructure.name = icon;
-        defaultDataStructure.type = 'general';
+        defaultDataStructure.icon.name = icon;
+        defaultDataStructure.icon.type = 'general';
 
         renderTwigFile(template, defaultDataStructure, (err, html) => {
           expect(html).toMatchSnapshot();
@@ -70,8 +70,8 @@ describe('EC - Icon', () => {
       test(`- icon ${icon} renders correctly`, done => {
         expect.assertions(1);
 
-        defaultDataStructure.name = icon;
-        defaultDataStructure.type = 'ui';
+        defaultDataStructure.icon.name = icon;
+        defaultDataStructure.icon.type = 'ui';
 
         renderTwigFile(template, defaultDataStructure, (err, html) => {
           expect(html).toMatchSnapshot();
