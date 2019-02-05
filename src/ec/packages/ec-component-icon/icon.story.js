@@ -7,6 +7,7 @@ import brandedIcons from '@ecl/ec-resources-icons/dist/lists/branded.json';
 import generalIcons from '@ecl/ec-resources-icons/dist/lists/general.json';
 import notificationsIcons from '@ecl/ec-resources-icons/dist/lists/notifications.json';
 import uiIcons from '@ecl/ec-resources-icons/dist/lists/ui.json';
+import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 
 import iconDocs from './docs/icon.md';
 
@@ -42,7 +43,7 @@ const transforms = {
 
 const defaultTransform = '';
 
-const defaultIconPath = '/static/media/icons.cbfd6efe.svg';
+const defaultIconPath = defaultSprite;
 
 storiesOf('Components/Icon', module)
   .addDecorator(withKnobs)
