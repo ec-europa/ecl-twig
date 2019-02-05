@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EC - Link Default - link default renders correctly 1`] = `
+"<a href=\\"/path\\" class=\\"ecl-link ecl-link--default\\">
+  <span class=\\"ecl-link__label\\"></span>
+</a>
+"
+`;
+
+exports[`EC - Link Standalone - link standalone renders correctly 1`] = `
+"<a href=\\"/path\\" class=\\"ecl-link ecl-link--standalone\\">
+  <span class=\\"ecl-link__label\\"></span>
+</a>
+"
+`;
+
+exports[`EC - Link With icon - link with icon renders correctly 1`] = `
+"<a
+  href=\\"/path\\"
+  class=\\"ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after\\"
+>
+  <span class=\\"ecl-link__label\\"></span> &nbsp;
+
+  <svg class=\\"ecl-icon ecl-icon--fluid ecl-link__icon\\">
+    <use xlink:href=\\"static/icons.svg#ui--external\\"></use>
+  </svg>
+</a>
+"
+`;
