@@ -16,7 +16,7 @@ npm install --save @ecl-twig/eu-component-button
 
 ```twig
 {% include 'path/to/button.html.twig' with {
-  variant: 'primary',
+  variant: 'primary ',
   label: 'Example button'
 } %}
 ```
