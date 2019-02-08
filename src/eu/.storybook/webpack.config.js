@@ -10,6 +10,17 @@ module.exports = {
         test: /\.twig$/,
         loader: 'twig-loader',
       },
+      {
+        test: /\.svg$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: 'static/icons.svg',
+            },
+          },
+        ],
+      },
     ],
   },
   node: {
