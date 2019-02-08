@@ -4,11 +4,11 @@ import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
 
 // Import data for demos
-import dataPrimary from '@ecl/ec-specs-button/demo/data--primary';
-import dataSecondary from '@ecl/ec-specs-button/demo/data--secondary';
-import dataCall from '@ecl/ec-specs-button/demo/data--call';
-import dataGhost from '@ecl/ec-specs-button/demo/data--ghost';
-import dataSearch from '@ecl/ec-specs-button/demo/data--search';
+import dataPrimary from '@ecl/eu-specs-button/demo/data--primary';
+import dataSecondary from '@ecl/eu-specs-button/demo/data--secondary';
+import dataCall from '@ecl/eu-specs-button/demo/data--call';
+import dataGhost from '@ecl/eu-specs-button/demo/data--ghost';
+import dataSearch from '@ecl/eu-specs-button/demo/data--search';
 
 import button from './button.html.twig';
 

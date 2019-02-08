@@ -2,11 +2,11 @@ import path from 'path';
 import { renderTwigFile } from '@ecl-twig/test-utils';
 
 // Import data for tests
-import dataPrimary from '@ecl/ec-specs-button/demo/data--primary';
-import dataSecondary from '@ecl/ec-specs-button/demo/data--secondary';
-import dataCall from '@ecl/ec-specs-button/demo/data--call';
-import dataGhost from '@ecl/ec-specs-button/demo/data--ghost';
-import dataSearch from '@ecl/ec-specs-button/demo/data--search';
+import dataPrimary from '@ecl/eu-specs-button/demo/data--primary';
+import dataSecondary from '@ecl/eu-specs-button/demo/data--secondary';
+import dataCall from '@ecl/eu-specs-button/demo/data--call';
+import dataGhost from '@ecl/eu-specs-button/demo/data--ghost';
+import dataSearch from '@ecl/eu-specs-button/demo/data--search';
 
 describe('EU - Button', () => {
   const template = path.resolve(__dirname, './button.html.twig');
