@@ -1,0 +1,95 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EC - Card Default - default card renders correctly 1`] = `
+"<article class=\\"ecl-card\\">
+  <header class=\\"ecl-card__header\\">
+    <div
+      class=\\"ecl-card__image\\"
+      alt=\\"card image\\"
+      style=\\"background-image:url('https://v2--europa-component-library.netlify.com/example-image.jpg')\\"
+    ></div>
+
+    <h1 class=\\"ecl-card__title\\">
+      <a href=\\"/example\\" class=\\"ecl-link ecl-link--standalone\\">
+        <span class=\\"ecl-link__label\\">Better regulation</span>
+      </a>
+    </h1>
+  </header>
+  <section class=\\"ecl-card__body\\">
+    <div class=\\"ecl-card__description\\">
+      Transparently designing and evaluating evidence-based EU legislation,
+      backed by citizens views.
+    </div>
+  </section>
+  <footer class=\\"ecl-card__footer\\">
+    <ul class=\\"ecl-card__info-container\\">
+      <li class=\\"ecl-card__info-item\\">
+        <svg class=\\"ecl-icon ecl-icon--xs\\">
+          <use xlink:href=\\"static/icons.svg#general--calendar\\"></use>
+        </svg>
+
+        <span class=\\"ecl-card__info-label\\">2018/10/22</span>
+      </li>
+
+      <li class=\\"ecl-card__info-item\\">
+        <svg class=\\"ecl-icon ecl-icon--xs\\">
+          <use xlink:href=\\"static/icons.svg#general--location\\"></use>
+        </svg>
+
+        <span class=\\"ecl-card__info-label\\">Luxembourg</span>
+      </li>
+    </ul>
+
+    <ul class=\\"ecl-card__tag-container\\">
+      <li class=\\"ecl-card__tag-item\\">
+        <a href=\\"/example-1\\" class=\\"ecl-tag ecl-card__tag\\"> Tag 1 </a>
+      </li>
+
+      <li class=\\"ecl-card__tag-item\\">
+        <a href=\\"/example-1\\" class=\\"ecl-tag ecl-card__tag\\"> Tag 1 </a>
+      </li>
+
+      <li class=\\"ecl-card__tag-item\\">
+        <a href=\\"/example-1\\" class=\\"ecl-tag ecl-card__tag\\"> Tag 1 </a>
+      </li>
+    </ul>
+  </footer>
+</article>
+"
+`;
+
+exports[`EC - Card Tile - tile card renders correctly 1`] = `
+"<article class=\\"ecl-card ecl-card--tile\\">
+  <header class=\\"ecl-card__header\\">
+    <h1 class=\\"ecl-card__title\\">Better regulation</h1>
+  </header>
+  <section class=\\"ecl-card__body\\">
+    <div class=\\"ecl-card__description\\">
+      Transparently designing and evaluating evidence-based EU legislation,
+      backed by citizens views.
+    </div>
+
+    <ul class=\\"ecl-card__link-container\\">
+      <li class=\\"ecl-card__link-item\\">
+        <a
+          href=\\"/example-1\\"
+          class=\\"ecl-link ecl-link--standalone ecl-card__link\\"
+        >
+          <span class=\\"ecl-link__label\\">link 1</span>
+        </a>
+      </li>
+
+      <li class=\\"ecl-card__link-item\\">
+        <a
+          href=\\"/example-2\\"
+          class=\\"ecl-link ecl-link--standalone ecl-card__link\\"
+        >
+          <span class=\\"ecl-link__label\\">link 2</span>
+        </a>
+      </li>
+    </ul>
+  </section>
+  <footer class=\\"ecl-card__footer\\"></footer>
+</article>
+"
+`;
