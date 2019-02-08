@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EC - Tag Button - button tag renders correctly 1`] = `
+"<button class=\\"ecl-tag\\" type=\\"button\\">Button tag</button>
+"
+`;
+
+exports[`EC - Tag Link - link tag renders correctly 1`] = `
+"<a href=\\"/example-path\\" class=\\"ecl-tag\\"> Link tag </a>
+"
+`;
+
+exports[`EC - Tag Removable - removable tag renders correctly 1`] = `
+"<button class=\\"ecl-tag ecl-tag--removable\\" type=\\"button\\">
+  Removable tag
+
+  <span class=\\"ecl-tag__icon\\">
+    <svg class=\\"ecl-icon ecl-icon--xs ecl-tag__icon-close\\">
+      <use xlink:href=\\"static/icons.svg#ui--close\\"></use>
+    </svg>
+
+    <svg class=\\"ecl-icon ecl-icon--xs ecl-tag__icon-close-filled\\">
+      <use xlink:href=\\"static/icons.svg#ui--close-filled\\"></use>
+    </svg>
+  </span>
+</button>
+"
+`;
