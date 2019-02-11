@@ -1,9 +1,9 @@
-# ECL Twig - EC Icon component
+# ECL Twig - EU Icon component
 
-npm package: `@ecl-twig/ec-component-icon`
+npm package: `@ecl-twig/eu-component-icon`
 
 ```shell
-npm install --save @ecl-twig/ec-component-icon
+npm install --save @ecl-twig/eu-component-icon
 ```
 
 ## Icon

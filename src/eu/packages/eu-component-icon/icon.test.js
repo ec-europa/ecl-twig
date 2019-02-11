@@ -1,10 +1,10 @@
 import path from 'path';
 import { renderTwigFile } from '@ecl-twig/test-utils';
 
-import brandedIcons from '@ecl/ec-resources-icons/dist/lists/branded.json';
-import generalIcons from '@ecl/ec-resources-icons/dist/lists/general.json';
-import notificationsIcons from '@ecl/ec-resources-icons/dist/lists/notifications.json';
-import uiIcons from '@ecl/ec-resources-icons/dist/lists/ui.json';
+import brandedIcons from '@ecl/eu-resources-icons/dist/lists/branded.json';
+import generalIcons from '@ecl/eu-resources-icons/dist/lists/general.json';
+import notificationsIcons from '@ecl/eu-resources-icons/dist/lists/notifications.json';
+import uiIcons from '@ecl/eu-resources-icons/dist/lists/ui.json';
 
 describe('EU - Icon', () => {
   const template = path.resolve(__dirname, './icon.html.twig');
