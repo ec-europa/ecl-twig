@@ -38,7 +38,7 @@
 {% endfor %}
 
 {% set _css_class=_css_class|join(' ') %}
-{% set _extra_attributes = ' focusable="false"' %}
+{% set _extra_attributes = ' focusable="false" aria-hidden="true"' %}
 
 {# Internal logic - Process properties #}
 {% if extra_classes is defined and extra_classes is not empty %}
