@@ -3,11 +3,11 @@ import { withKnobs, select } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
 
-import brandedIcons from '@ecl/eu-resources-icons/dist/lists/branded.json';
-import generalIcons from '@ecl/eu-resources-icons/dist/lists/general.json';
-import notificationsIcons from '@ecl/eu-resources-icons/dist/lists/notifications.json';
-import uiIcons from '@ecl/eu-resources-icons/dist/lists/ui.json';
-import defaultSprite from '@ecl/eu-resources-icons/dist/sprites/icons.svg';
+import brandedIcons from '@ecl/ec-resources-icons/dist/lists/branded.json';
+import generalIcons from '@ecl/ec-resources-icons/dist/lists/general.json';
+import notificationsIcons from '@ecl/ec-resources-icons/dist/lists/notifications.json';
+import uiIcons from '@ecl/ec-resources-icons/dist/lists/ui.json';
+import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 
 import iconDocs from './docs/icon.md';
 
