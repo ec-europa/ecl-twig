@@ -4,7 +4,8 @@
       {
         type: 'default' (can be 'default', 'standalone')
         label: '' (string),
-        path: ''
+        path: '', (string) (Link url)
+        icon_position: 'after' (string) (Can be 'before' or 'after'. Is required only if Icon is specified)
       }
     - "icon" (associative array) (default: {}): predefined structure for Icon component
     - "extra_classes" (string) (default: '')
@@ -49,8 +50,11 @@
 
 {# Print the result #}
 <a href="{{ _link.path }}" class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+  {% if icon is defined and icon is not empty and link.icon_position == 'before' %}
+    {% include '../ec-component-icon/icon.html.twig' with { icon: icon|merge({ size: 'fluid' }), extra_classes: 'ecl-link__icon' } %} &nbsp;
+  {% endif %}
   <span class="ecl-link__label">{{ _link.label }}</span>
-  {% if icon is defined and icon is not empty %}
-      &nbsp; {% include '../ec-component-icon/icon.html.twig' with { icon: icon|merge({ size: 'fluid' }), extra_classes: 'ecl-link__icon' } %}
+  {% if icon is defined and icon is not empty and link.icon_position == 'after' %}
+    &nbsp; {% include '../ec-component-icon/icon.html.twig' with { icon: icon|merge({ size: 'fluid' }), extra_classes: 'ecl-link__icon' } %}
   {% endif %}
 </a>

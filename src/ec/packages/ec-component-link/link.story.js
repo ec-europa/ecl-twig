@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/html';
-import { withKnobs, text } from '@storybook/addon-knobs';
+import { withKnobs, text, select } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
 
@@ -25,8 +25,17 @@ storiesOf('Components/Link', module)
         link: {
           type: 'default',
           label: text('Label', 'Default link'),
-          path: text('Path', '/path'),
+          path: '/example#link-default',
+          icon_position: select(
+            'Icon position',
+            {
+              before: 'before',
+              after: 'after',
+            },
+            'after'
+          ),
         },
+        icon: defaultIconSettings,
       }),
     {
       notes: { markdown: linkDocs },
@@ -39,21 +48,15 @@ storiesOf('Components/Link', module)
         link: {
           type: 'standalone',
           label: text('Label', 'Standalone link'),
-          path: text('Path', '/path'),
-        },
-      }),
-    {
-      notes: { markdown: linkDocs },
-    }
-  )
-  .add(
-    'with icon',
-    () =>
-      link({
-        link: {
-          type: 'standalone',
-          label: text('Label', 'Standalone link with icon'),
-          path: text('Path', '/path'),
+          path: '/example#standalone-link',
+          icon_position: select(
+            'Icon position',
+            {
+              before: 'before',
+              after: 'after',
+            },
+            'after'
+          ),
         },
         icon: defaultIconSettings,
       }),

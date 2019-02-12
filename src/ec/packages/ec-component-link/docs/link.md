@@ -14,6 +14,7 @@ npm install --save @ecl-twig/ec-component-link
   - "type" (string) (default: '') - type of link. Available types are 'default' or standalone
   - "label" (string) (default: '') - Content of link
   - "path" (string) (default: '') - Link url (href attribute)
+  - "icon_position" (string) (default: 'after') - Position of link icon (can be 'before' or 'after') if icon is available
 - "icon" [optional] (associative array) default: A predefined structure such as in the Icon component. All parameters can be freely set, except for the 'size' parameter, which is set permanently as 'fluid'.
 - "extra_classes" (optional) (string) (default: '') Extra classes (space separated) for the icon
 - "extra_attributes" (optional) (array) (default: []) Extra attributes for icon
@@ -27,10 +28,11 @@ npm install --save @ecl-twig/ec-component-link
   link: {
     type: 'standalone',
     label: 'Standalone link',
-    path: 'http://google.com'
+    path: 'http://google.com',
+    icon_position: 'after',
   },
   icon: {
-    path: '/static/media/icons.cbfd6efe.svg',
+    path: '/path-to-the-icon-file',
     type: 'ui',
     name: 'external',
   },

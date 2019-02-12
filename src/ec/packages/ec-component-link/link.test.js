@@ -40,7 +40,28 @@ describe('EC - Link', () => {
     });
   });
 
-  describe('With icon', () => {
+  describe('With icon before', () => {
+    test(`- link with icon renders correctly`, done => {
+      expect.assertions(1);
+
+      defaultDataStructure.link.type = 'standalone';
+      defaultDataStructure.link.text = 'Standalone link with icon';
+      defaultDataStructure.link.icon_position = 'before';
+      defaultDataStructure.icon = {
+        type: 'ui',
+        name: 'external',
+        size: 'fluid',
+        path: defaultIconPath,
+      };
+
+      renderTwigFile(template, defaultDataStructure, (err, html) => {
+        expect(html).toMatchSnapshot();
+        done();
+      });
+    });
+  });
+
+  describe('With icon after', () => {
     test(`- link with icon renders correctly`, done => {
       expect.assertions(1);
 
