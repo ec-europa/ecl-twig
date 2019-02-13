@@ -1,1 +1,1 @@
-# ECL Twig - EC Icon component
+# ECL Twig - EC Text Input component

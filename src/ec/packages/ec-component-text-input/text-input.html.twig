@@ -1,0 +1,57 @@
+{#
+  Parameters:
+  - "id" (string) (default: '')
+  - "disabled" (boolean) (default: false)
+  - "invalid" (boolean) (default: false)
+  - "invalidIconLabel" (string) (default: '')
+  - "name" (string) (default: '')
+  - "hideLabel" (boolean) (default: '')
+  - "placeholder" (string) (default: '')
+  - "type" (string) (default: 'text')
+  - "extra_classes" (optional) (string) (default: '') Extra classes (space separated) for the icon
+  - "extra_attributes" (optional) (array) (default: []) Extra attributes for icon
+    - "name" (string) Attribute name, eg. 'data-test'
+    - "value" (string) Attribute value, eg: 'data-test-1'
+  Blocks:
+  - "helperText"
+  - "invalidText"
+  - "label"
+#}
+
+{# Internal properties #}
+{% set _id = id|default('') %}
+{% set _disabled = disabled|default(false) %}
+{% set _invalid = invalid|default(false) %}
+{% set _invalidIconLabel = invalidIconLabel|default('') %}
+{% set _name = name|default('') %}
+{% set _hideLabel = hideLabel|default(false) %}
+{% set _placeholder = placeholder|default('') %}
+{% set _type = type|default('') %}
+
+{% set _helperText = helperText|default('') %}
+{% set _invalidText = invalidText|default('') %}
+{% set _label = label|default('') %}
+
+{% set _css_class = ['ecl-text-input'] %}
+{% if _invalid %}
+  {% set _css_class=_css_class|merge(['ecl-text-input--invalid']) %}
+{% endif %}
+{% set _css_class=_css_class|join(' ') %}
+
+{% set _extra_attributes = '' %}
+
+{# Internal logic - Process properties #}
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+<div class="ecl-form-group ecl-form-group--text-input">
+
+</div>
