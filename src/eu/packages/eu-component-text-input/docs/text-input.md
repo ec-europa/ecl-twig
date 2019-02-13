@@ -1,9 +1,9 @@
-# ECL Twig - EC Text Input component
+# ECL Twig - EU Text Input component
 
-npm package: `@ecl-twig/ec-component-text-input`
+npm package: `@ecl-twig/eu-component-text-input`
 
 ```shell
-npm install --save @ecl-twig/ec-component-text-input
+npm install --save @ecl-twig/eu-component-text-input
 ```
 
 ## Text input

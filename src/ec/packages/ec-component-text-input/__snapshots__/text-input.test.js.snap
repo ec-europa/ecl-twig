@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EC - Text input Default renders correctly 1`] = `
+"<div class=\\"ecl-form-group ecl-form-group--text-input\\">
+  <label class=\\"ecl-form-label\\" for=\\"example-input-id-1\\"> Label </label>
+
+  <input
+    id=\\"example-input-id-1\\"
+    name=\\"\\"
+    type=\\"text\\"
+    placeholder=\\"Placeholder\\"
+    class=\\"ecl-text-input\\"
+  />
+</div>
+"
+`;
+
+exports[`EC - Text input Disabled renders correctly 1`] = `
+"<div class=\\"ecl-form-group ecl-form-group--text-input\\">
+  <input
+    id=\\"example-input-id-2\\"
+    name=\\"\\"
+    type=\\"text\\"
+    placeholder=\\"Placeholder\\"
+    class=\\"ecl-text-input\\"
+  />
+</div>
+"
+`;
+
+exports[`EC - Text input With error renders correctly 1`] = `
+"<div class=\\"ecl-form-group ecl-form-group--text-input\\">
+  <input
+    id=\\"example-input-id-3\\"
+    name=\\"\\"
+    type=\\"text\\"
+    placeholder=\\"Placeholder\\"
+    class=\\"ecl-text-input\\"
+  />
+</div>
+"
+`;
