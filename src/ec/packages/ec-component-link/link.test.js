@@ -67,6 +67,7 @@ describe('EC - Link', () => {
 
       defaultDataStructure.link.type = 'standalone';
       defaultDataStructure.link.text = 'Standalone link with icon';
+      defaultDataStructure.link.icon_position = 'after';
       defaultDataStructure.icon = {
         type: 'ui',
         name: 'external',
