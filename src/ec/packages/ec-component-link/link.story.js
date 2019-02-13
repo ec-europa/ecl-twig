@@ -9,12 +9,17 @@ import uiIcons from '@ecl/ec-resources-icons/dist/lists/ui.json';
 import linkDocs from './docs/link.md';
 import link from './link.html.twig';
 
-uiIcons.push('none');
-
 const iconPositionSettings = {
   before: 'before',
   after: 'after',
 };
+
+const iconsList = {};
+iconsList.none = null;
+
+uiIcons.forEach(icon => {
+  iconsList[icon] = { type: 'ui', name: icon, path: defaultSprite };
+});
 
 storiesOf('Components/Link', module)
   .addDecorator(withKnobs)
@@ -23,17 +28,13 @@ storiesOf('Components/Link', module)
   .add(
     'default',
     () => {
-      const icons = {
-        type: 'ui',
-        name: select('Icon (sample)', uiIcons, 'none'),
-        path: defaultSprite,
-      };
-
       const iconPosition = select(
         'Icon position',
         iconPositionSettings,
         'after'
       );
+
+      const iconsListSelect = select('Icon (sample)', iconsList, null);
 
       return link({
         link: {
@@ -42,7 +43,7 @@ storiesOf('Components/Link', module)
           path: '/example#link-default',
           icon_position: iconPosition,
         },
-        icon: icons,
+        icon: iconsListSelect,
       });
     },
     {
@@ -52,17 +53,13 @@ storiesOf('Components/Link', module)
   .add(
     'standalone',
     () => {
-      const icons = {
-        type: 'ui',
-        name: select('Icon (sample)', uiIcons, 'none'),
-        path: defaultSprite,
-      };
-
       const iconPosition = select(
         'Icon position',
         iconPositionSettings,
         'after'
       );
+
+      const iconsListSelect = select('tescik', iconsList, null);
 
       return link({
         link: {
@@ -71,7 +68,7 @@ storiesOf('Components/Link', module)
           path: '/example#standalone-link',
           icon_position: iconPosition,
         },
-        icon: icons,
+        icon: iconsListSelect,
       });
     },
     {
