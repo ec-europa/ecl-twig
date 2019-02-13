@@ -4,14 +4,16 @@ import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
 
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
+import uiIcons from '@ecl/ec-resources-icons/dist/lists/ui.json';
 
 import linkDocs from './docs/link.md';
 import link from './link.html.twig';
 
-const defaultIconSettings = {
-  type: 'ui',
-  name: 'external',
-  path: defaultSprite,
+uiIcons.push('none');
+
+const iconPositionSettings = {
+  before: 'before',
+  after: 'after',
 };
 
 storiesOf('Components/Link', module)
@@ -20,46 +22,58 @@ storiesOf('Components/Link', module)
   .addDecorator(withCode)
   .add(
     'default',
-    () =>
-      link({
+    () => {
+      const icons = {
+        type: 'ui',
+        name: select('Icon (sample)', uiIcons, 'none'),
+        path: defaultSprite,
+      };
+
+      const iconPosition = select(
+        'Icon position',
+        iconPositionSettings,
+        'after'
+      );
+
+      return link({
         link: {
           type: 'default',
           label: text('Label', 'Default link'),
           path: '/example#link-default',
-          icon_position: select(
-            'Icon position',
-            {
-              before: 'before',
-              after: 'after',
-            },
-            'after'
-          ),
+          icon_position: iconPosition,
         },
-        icon: defaultIconSettings,
-      }),
+        icon: icons,
+      });
+    },
     {
       notes: { markdown: linkDocs },
     }
   )
   .add(
     'standalone',
-    () =>
-      link({
+    () => {
+      const icons = {
+        type: 'ui',
+        name: select('Icon (sample)', uiIcons, 'none'),
+        path: defaultSprite,
+      };
+
+      const iconPosition = select(
+        'Icon position',
+        iconPositionSettings,
+        'after'
+      );
+
+      return link({
         link: {
           type: 'standalone',
           label: text('Label', 'Standalone link'),
           path: '/example#standalone-link',
-          icon_position: select(
-            'Icon position',
-            {
-              before: 'before',
-              after: 'after',
-            },
-            'after'
-          ),
+          icon_position: iconPosition,
         },
-        icon: defaultIconSettings,
-      }),
+        icon: icons,
+      });
+    },
     {
       notes: { markdown: linkDocs },
     }
