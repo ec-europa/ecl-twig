@@ -18,7 +18,7 @@ const iconsList = {};
 iconsList.none = null;
 
 uiIcons.forEach(icon => {
-  iconsList[icon] = { type: 'ui', name: icon, path: defaultSprite };
+  iconsList[icon] = icon;
 });
 
 storiesOf('Components/Link', module)
@@ -43,7 +43,11 @@ storiesOf('Components/Link', module)
           path: '/example#link-default',
           icon_position: iconPosition,
         },
-        icon: iconsListSelect,
+        icon: {
+          type: 'ui',
+          name: iconsListSelect,
+          path: defaultSprite,
+        },
       });
     },
     {
@@ -59,7 +63,7 @@ storiesOf('Components/Link', module)
         'after'
       );
 
-      const iconsListSelect = select('tescik', iconsList, null);
+      const iconsListSelect = select('Icon (sample)', iconsList, null);
 
       return link({
         link: {
@@ -68,7 +72,11 @@ storiesOf('Components/Link', module)
           path: '/example#standalone-link',
           icon_position: iconPosition,
         },
-        icon: iconsListSelect,
+        icon: {
+          type: 'ui',
+          name: iconsListSelect,
+          path: defaultSprite,
+        },
       });
     },
     {
