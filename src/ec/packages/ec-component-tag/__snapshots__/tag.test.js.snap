@@ -14,11 +14,19 @@ exports[`EC - Tag Removable - removable tag renders correctly 1`] = `
 "<button class=\\"ecl-tag ecl-tag--removable\\" type=\\"button\\">
   Removable tag
   <span class=\\"ecl-tag__icon\\">
-    <svg class=\\"ecl-icon ecl-icon--xs ecl-tag__icon-close\\">
+    <svg
+      class=\\"ecl-icon ecl-icon--xs ecl-tag__icon-close\\"
+      focusable=\\"false\\"
+      aria-hidden=\\"true\\"
+    >
       <use xlink:href=\\"static/icons.svg#ui--close\\"></use>
     </svg>
 
-    <svg class=\\"ecl-icon ecl-icon--xs ecl-tag__icon-close-filled\\">
+    <svg
+      class=\\"ecl-icon ecl-icon--xs ecl-tag__icon-close-filled\\"
+      focusable=\\"false\\"
+      aria-hidden=\\"true\\"
+    >
       <use xlink:href=\\"static/icons.svg#ui--close-filled\\"></use>
     </svg>
   </span>
