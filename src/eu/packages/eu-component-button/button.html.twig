@@ -2,6 +2,7 @@
   Parameters:
     - "variant" (string) (default: 'primary'): can be 'primary', 'secondary', 'call', 'ghost', 'search'
     - "type" (string) (default: 'button'): can be the same type as HTML button - 'submit', 'reset', 'button'
+    - "icon" (associative array) (default: {}): predefined structure for Icon component
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
         {
@@ -36,5 +37,11 @@
 {% endif %}
 
 {# Print the result #}
-<button class="{{ _css_class }}" type="{{ _type }}"{{ _extra_attributes|raw }}><span class="ecl-button__container"><span class="ecl-button__label">{% block label _label %}</span>
-</span></button>
+<button class="{{ _css_class }}" type="{{ _type }}"{{ _extra_attributes|raw }}>
+  <span class="ecl-button__container">
+    <span class="ecl-button__label">{% block label _label %}</span>
+    {% if icon is defined and icon is not empty %}
+      {% include '../eu-component-icon/icon.html.twig' with { icon: icon|merge({ size: 'xs' }), extra_classes: 'ecl-button__icon ecl-button__icon--after' } %}
+    {% endif %}
+  </span>
+</button>

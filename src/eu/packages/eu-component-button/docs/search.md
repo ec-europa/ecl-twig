@@ -6,7 +6,7 @@ npm package: `@ecl-twig/eu-component-button`
 npm install --save @ecl-twig/eu-component-button
 ```
 
-## Primary button
+## Search button
 
 ### Parameters
 
@@ -23,7 +23,7 @@ npm install --save @ecl-twig/eu-component-button
 
 ```twig
 {% include 'path/to/button.html.twig' with {
-  variant: 'primary',
+  variant: 'search',
   label: 'Example button',
   icon: {
     path: '/path-to-the-icon-file',

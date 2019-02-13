@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/html';
-import { withKnobs, text } from '@storybook/addon-knobs';
+import { withKnobs, text, select } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
 
@@ -10,10 +10,23 @@ import dataCall from '@ecl/eu-specs-button/demo/data--call';
 import dataGhost from '@ecl/eu-specs-button/demo/data--ghost';
 import dataSearch from '@ecl/eu-specs-button/demo/data--search';
 
+import defaultSprite from '@ecl/eu-resources-icons/dist/sprites/icons.svg';
+import uiIcons from '@ecl/eu-resources-icons/dist/lists/ui.json';
+
 import button from './button.html.twig';
 
 import primaryDocs from './docs/primary.md';
 import secondaryDocs from './docs/secondary.md';
+import ctaDocs from './docs/cta.md';
+import searchDocs from './docs/search.md';
+import ghostDocs from './docs/ghost.md';
+
+const iconsList = {};
+iconsList.none = null;
+
+uiIcons.forEach(icon => {
+  iconsList[icon] = { type: 'ui', name: icon, path: defaultSprite };
+});
 
 storiesOf('Components/Button', module)
   .addDecorator(withKnobs)
@@ -21,41 +34,76 @@ storiesOf('Components/Button', module)
   .addDecorator(withNotes)
   .add(
     'primary',
-    () =>
-      button({
+    () => {
+      const iconsListSelect = select('Icon (sample)', iconsList, null);
+
+      return button({
         label: text('Label', dataPrimary.label),
         variant: dataPrimary.variant,
-      }),
+        icon: iconsListSelect,
+      });
+    },
     {
       notes: { markdown: primaryDocs },
     }
   )
   .add(
     'secondary',
-    () =>
-      button({
+    () => {
+      const iconsListSelect = select('Icon (sample)', iconsList, null);
+
+      return button({
         label: text('Label', dataSecondary.label),
         variant: dataSecondary.variant,
-      }),
+        icon: iconsListSelect,
+      });
+    },
     {
       notes: { markdown: secondaryDocs },
     }
   )
-  .add('call-to-action', () =>
-    button({
-      label: text('Label', dataCall.label),
-      variant: dataCall.variant,
-    })
+  .add(
+    'call-to-action',
+    () => {
+      const iconsListSelect = select('Icon (sample)', iconsList, null);
+
+      return button({
+        label: text('Label', dataCall.label),
+        variant: dataCall.variant,
+        icon: iconsListSelect,
+      });
+    },
+    {
+      notes: { markdown: ctaDocs },
+    }
   )
-  .add('ghost', () =>
-    button({
-      label: text('Label', dataGhost.label),
-      variant: dataGhost.variant,
-    })
+  .add(
+    'ghost',
+    () => {
+      const iconsListSelect = select('Icon (sample)', iconsList, null);
+
+      return button({
+        label: text('Label', dataGhost.label),
+        variant: dataGhost.variant,
+        icon: iconsListSelect,
+      });
+    },
+    {
+      notes: { markdown: ghostDocs },
+    }
   )
-  .add('search', () =>
-    button({
-      label: text('Label', dataSearch.label),
-      variant: dataSearch.variant,
-    })
+  .add(
+    'search',
+    () => {
+      const iconsListSelect = select('Icon (sample)', iconsList, null);
+
+      return button({
+        label: text('Label', dataSearch.label),
+        variant: dataSearch.variant,
+        icon: iconsListSelect,
+      });
+    },
+    {
+      notes: { markdown: searchDocs },
+    }
   );

@@ -37,6 +37,10 @@ describe('EU - Button', () => {
     test('renders correctly', done => {
       expect.assertions(1);
 
+      dataCall.icon.path = 'static/icons.svg';
+      dataCall.icon.type = 'ui';
+      dataCall.icon.name = 'corner-arrow';
+
       renderTwigFile(template, dataCall, (err, html) => {
         expect(html).toMatchSnapshot();
         done();
