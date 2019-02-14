@@ -30,11 +30,21 @@
   {% set _link=_link|merge(link) %}
 {% endif %}
 
+{% set _icon={
+  type: '',
+  name: '',
+  path: ''
+}%}
+
+{% if icon is defined %}
+  {% set _icon=_icon|merge(icon) %}
+{% endif %}
+
 {% set _css_class = ['ecl-link','ecl-link--'~_link.type]|join(' ') %}
 {% set _extra_attributes = '' %}
 
 {# Set extra classes if icon defined #}
-{% if icon is defined and icon is not empty %}
+{% if _icon.name is not empty %}
   {% set _css_class=_css_class~' ecl-link--icon ecl-link--icon-'~_link.icon_position %}
 {% endif %}
 
@@ -51,11 +61,11 @@
 
 {# Print the result #}
 <a href="{{ _link.path }}" class="{{ _css_class }}"{{ _extra_attributes|raw }}>
-  {% if icon is defined and icon is not empty and _link.icon_position == 'before' %}
+  {% if _icon.name is not empty and _link.icon_position == 'before' %}
     {% include '../ec-component-icon/icon.html.twig' with { icon: icon|merge({ size: 'fluid' }), extra_classes: 'ecl-link__icon' } %} &nbsp;
   {% endif %}
   <span class="ecl-link__label">{{ _link.label }}</span>
-  {% if icon is defined and icon is not empty and _link.icon_position == 'after' %}
+  {% if _icon.name is not empty and _link.icon_position == 'after' %}
     &nbsp; {% include '../ec-component-icon/icon.html.twig' with { icon: icon|merge({ size: 'fluid' }), extra_classes: 'ecl-link__icon' } %}
   {% endif %}
 </a>
