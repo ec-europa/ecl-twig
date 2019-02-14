@@ -21,6 +21,11 @@ import ctaDocs from './docs/cta.md';
 import searchDocs from './docs/search.md';
 import ghostDocs from './docs/ghost.md';
 
+const iconPositionSettings = {
+  before: 'before',
+  after: 'after',
+};
+
 const iconsList = {};
 iconsList.none = null;
 
@@ -37,15 +42,22 @@ storiesOf('Components/Button', module)
     () => {
       const iconsListSelect = select('Icon (sample)', iconsList, null);
 
+      const iconPosition = select(
+        'Icon position',
+        iconPositionSettings,
+        'after'
+      );
+
       return button({
         label: text('Label', dataPrimary.label),
         variant: dataPrimary.variant,
+        disabled: boolean('Disabled', false),
+        icon_position: iconPosition,
         icon: {
           type: 'ui',
           name: iconsListSelect,
           path: defaultSprite,
         },
-        disabled: boolean('Disabled', false),
       });
     },
     {
@@ -57,15 +69,22 @@ storiesOf('Components/Button', module)
     () => {
       const iconsListSelect = select('Icon (sample)', iconsList, null);
 
+      const iconPosition = select(
+        'Icon position',
+        iconPositionSettings,
+        'after'
+      );
+
       return button({
         label: text('Label', dataSecondary.label),
         variant: dataSecondary.variant,
+        disabled: boolean('Disabled', false),
+        icon_position: iconPosition,
         icon: {
           type: 'ui',
           name: iconsListSelect,
           path: defaultSprite,
         },
-        disabled: boolean('Disabled', false),
       });
     },
     {
@@ -77,15 +96,22 @@ storiesOf('Components/Button', module)
     () => {
       const iconsListSelect = select('Icon (sample)', iconsList, null);
 
+      const iconPosition = select(
+        'Icon position',
+        iconPositionSettings,
+        'after'
+      );
+
       return button({
         label: text('Label', dataCall.label),
         variant: dataCall.variant,
+        disabled: boolean('Disabled', false),
+        icon_position: iconPosition,
         icon: {
           type: 'ui',
           name: iconsListSelect,
           path: defaultSprite,
         },
-        disabled: boolean('Disabled', false),
       });
     },
     {
@@ -97,15 +123,22 @@ storiesOf('Components/Button', module)
     () => {
       const iconsListSelect = select('Icon (sample)', iconsList, null);
 
+      const iconPosition = select(
+        'Icon position',
+        iconPositionSettings,
+        'after'
+      );
+
       return button({
         label: text('Label', dataGhost.label),
         variant: dataGhost.variant,
+        disabled: boolean('Disabled', false),
+        icon_position: iconPosition,
         icon: {
           type: 'ui',
           name: iconsListSelect,
           path: defaultSprite,
         },
-        disabled: boolean('Disabled', false),
       });
     },
     {
@@ -117,15 +150,22 @@ storiesOf('Components/Button', module)
     () => {
       const iconsListSelect = select('Icon (sample)', iconsList, null);
 
+      const iconPosition = select(
+        'Icon position',
+        iconPositionSettings,
+        'after'
+      );
+
       return button({
         label: text('Label', dataSearch.label),
         variant: dataSearch.variant,
+        disabled: boolean('Disabled', false),
+        icon_position: iconPosition,
         icon: {
           type: 'ui',
           name: iconsListSelect,
           path: defaultSprite,
         },
-        disabled: boolean('Disabled', false),
       });
     },
     {

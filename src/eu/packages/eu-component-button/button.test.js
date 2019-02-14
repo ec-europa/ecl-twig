@@ -69,4 +69,41 @@ describe('EU - Button', () => {
       });
     });
   });
+
+  describe('CTA button - icon before', () => {
+    test('renders correctly', done => {
+      expect.assertions(1);
+
+      dataCall.icon.path = 'static/icons.svg';
+      dataCall.icon.type = 'ui';
+      dataCall.icon.name = 'corner-arrow';
+      dataCall.icon_position = 'before';
+
+      renderTwigFile(template, dataCall, (err, html) => {
+        expect(html).toMatchSnapshot();
+        done();
+      });
+    });
+  });
+
+  describe('CTA button - icon after', () => {
+    test('renders correctly', done => {
+      expect.assertions(1);
+
+      const buttonData = {
+        label: 'CTA Button with icon',
+        variant: 'call',
+        icon: {
+          path: 'static/icons.svg',
+          type: 'ui',
+          name: 'corner-arrow',
+        },
+      };
+
+      renderTwigFile(template, buttonData, (err, html) => {
+        expect(html).toMatchSnapshot();
+        done();
+      });
+    });
+  });
 });

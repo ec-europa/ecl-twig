@@ -4,6 +4,7 @@
     - "type" (string) (default: 'button'): can be the same type as HTML button - 'submit', 'reset', 'button'
     - "icon" (associative array) (default: {}): predefined structure for Icon component
     - "disabled" (bool) (default: false): Defined if button should be active or not (HTML disabled attribute)
+    - "icon_position" (string) (default: after): Define icon position, can be 'before' or 'after'
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
         {
@@ -23,6 +24,8 @@
 {% set _label = label|default('') %}
 {% set _variant = variant|default('primary') %}
 {% set _type = type|default('button') %}
+{% set _icon_position = icon_position|default('after') %}
+{% set _disabled = disabled|default(false) %}
 
 {# Internal logic - Process properties #}
 {% set _css_class = _css_class ~ ' ecl-button--' ~ _variant %}
@@ -38,7 +41,7 @@
 {% endif %}
 
 {# Add disabled option if defined #}
-{% if disabled is defined and disabled == true %}
+{% if disabled %}
   {% set _extra_attributes = ' disabled' %}
 {% endif %}
 
@@ -52,8 +55,11 @@
 {# Print the result #}
 <button class="{{ _css_class }}" type="{{ _type }}"{{ _extra_attributes|raw }}>
   <span class="ecl-button__container">
+    {% if icon and _icon_position == 'before' %}
+      {% include '../eu-component-icon/icon.html.twig' with { icon: icon|merge({ size: 'xs' }), extra_classes: 'ecl-button__icon ecl-button__icon--before' } %}
+    {% endif %}
     <span class="ecl-button__label">{% block label _label %}</span>
-    {% if icon %}
+    {% if icon and _icon_position == 'after' %}
       {% include '../eu-component-icon/icon.html.twig' with { icon: icon|merge({ size: 'xs' }), extra_classes: 'ecl-button__icon ecl-button__icon--after' } %}
     {% endif %}
   </span>
