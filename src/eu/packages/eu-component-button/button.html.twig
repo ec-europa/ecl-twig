@@ -3,6 +3,7 @@
     - "variant" (string) (default: 'primary'): can be 'primary', 'secondary', 'call', 'ghost', 'search'
     - "type" (string) (default: 'button'): can be the same type as HTML button - 'submit', 'reset', 'button'
     - "icon" (associative array) (default: {}): predefined structure for Icon component
+    - "disabled" (bool) (default: false): Defined if button should be active or not (HTML disabled attribute)
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
         {
@@ -36,11 +37,23 @@
   {% endfor %}
 {% endif %}
 
+{# Add disabled option if defined #}
+{% if disabled is defined and disabled == true %}
+  {% set _extra_attributes = ' disabled' %}
+{% endif %}
+
+{# validate icon #}
+{% if icon is defined and icon is not empty %}
+  {% if (icon.type is not defined or icon.type is empty) or (icon.name is not defined or icon.name is empty) %}
+    {% set icon = null %}
+  {% endif %}
+{% endif %}
+
 {# Print the result #}
 <button class="{{ _css_class }}" type="{{ _type }}"{{ _extra_attributes|raw }}>
   <span class="ecl-button__container">
     <span class="ecl-button__label">{% block label _label %}</span>
-    {% if icon is defined and icon is not empty %}
+    {% if icon %}
       {% include '../eu-component-icon/icon.html.twig' with { icon: icon|merge({ size: 'xs' }), extra_classes: 'ecl-button__icon ecl-button__icon--after' } %}
     {% endif %}
   </span>

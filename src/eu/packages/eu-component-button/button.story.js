@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/html';
-import { withKnobs, text, select } from '@storybook/addon-knobs';
+import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
 
@@ -25,7 +25,7 @@ const iconsList = {};
 iconsList.none = null;
 
 uiIcons.forEach(icon => {
-  iconsList[icon] = { type: 'ui', name: icon, path: defaultSprite };
+  iconsList[icon] = icon;
 });
 
 storiesOf('Components/Button', module)
@@ -40,7 +40,12 @@ storiesOf('Components/Button', module)
       return button({
         label: text('Label', dataPrimary.label),
         variant: dataPrimary.variant,
-        icon: iconsListSelect,
+        icon: {
+          type: 'ui',
+          name: iconsListSelect,
+          path: defaultSprite,
+        },
+        disabled: boolean('Disabled', false),
       });
     },
     {
@@ -55,7 +60,12 @@ storiesOf('Components/Button', module)
       return button({
         label: text('Label', dataSecondary.label),
         variant: dataSecondary.variant,
-        icon: iconsListSelect,
+        icon: {
+          type: 'ui',
+          name: iconsListSelect,
+          path: defaultSprite,
+        },
+        disabled: boolean('Disabled', false),
       });
     },
     {
@@ -70,7 +80,12 @@ storiesOf('Components/Button', module)
       return button({
         label: text('Label', dataCall.label),
         variant: dataCall.variant,
-        icon: iconsListSelect,
+        icon: {
+          type: 'ui',
+          name: iconsListSelect,
+          path: defaultSprite,
+        },
+        disabled: boolean('Disabled', false),
       });
     },
     {
@@ -85,7 +100,12 @@ storiesOf('Components/Button', module)
       return button({
         label: text('Label', dataGhost.label),
         variant: dataGhost.variant,
-        icon: iconsListSelect,
+        icon: {
+          type: 'ui',
+          name: iconsListSelect,
+          path: defaultSprite,
+        },
+        disabled: boolean('Disabled', false),
       });
     },
     {
@@ -100,7 +120,12 @@ storiesOf('Components/Button', module)
       return button({
         label: text('Label', dataSearch.label),
         variant: dataSearch.variant,
-        icon: iconsListSelect,
+        icon: {
+          type: 'ui',
+          name: iconsListSelect,
+          path: defaultSprite,
+        },
+        disabled: boolean('Disabled', false),
       });
     },
     {
