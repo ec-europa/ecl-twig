@@ -12,7 +12,7 @@ npm install --save @ecl-twig/eu-component-button
 
 - "label" (string) (default: '')
 - "variant" (string) (default: 'primary'): variant of button (can be 'primary', 'secondary', 'call', 'ghost', 'search')
-- "type" (string) (default: 'button'): can be the same type as HTML button - 'submit', 'reset', 'button'
+- "type" (string) (default: 'submit'): can be the same type as HTML button - 'submit', 'reset', 'button'
 - "disabled" (bool) (default: false): define if button should be disabled (HTML disabled attribute)
 - "icon_position" [optional] (string) (default: after): Define icon position, can be 'before' or 'after'
 - "icon" [optional] (associative array) default: A predefined structure such as in the Icon component. All parameters can be freely set, except for the 'size' parameter, which is set permanently as 'xs'.
