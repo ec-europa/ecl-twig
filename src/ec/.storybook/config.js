@@ -3,7 +3,7 @@ import { withOptions } from '@storybook/addon-options';
 
 addDecorator(
   withOptions({
-    name: 'ECL v2 - EC Twig',
+    name: 'ECL v2.1 - EC Twig',
     url: 'https://github.com/ec-europa/ecl-twig',
   })
 );
