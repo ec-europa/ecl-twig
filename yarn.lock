@@ -753,6 +753,16 @@
   resolved "https://registry.yarnpkg.com/@ecl/ec-specs-icon/-/ec-specs-icon-2.1.0.tgz#0177cdbd8000a4c149542626fc704b128cec5627"
   integrity sha512-1YObv0apHhb/cngfRQIPdedt4ADz4X8ae0GDdWwvdovALT9FUH9jxCPVC5P1Qny+4SQ0psxz8EBsWyBzaBmlwA==
 
+"@ecl/ec-specs-link@~2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@ecl/ec-specs-link/-/ec-specs-link-2.1.0.tgz#bb91cf9d5b6e8b83f37d75c8de7d87526d256cc9"
+  integrity sha512-nn+ve4u72YgLeja4psV0cpioH2+i6e4n7BWPYBgLd2gfhQtAuti+eIHqqjUoQMSLQVyR2/V15M+zxw9ox20lqQ==
+
+"@ecl/ec-specs-tag@~2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@ecl/ec-specs-tag/-/ec-specs-tag-2.1.0.tgz#5ac7dc3b7a5b3d56993ebc8ceba4bd4a22b3120a"
+  integrity sha512-IfAHmO6+XKPz0sYpn0V1CV0ucoKe7cVfxAb0izePEvR2JpnAF6ZIB049vhv6vdGGMN6STuNzXzPKyt+DBNxxfg==
+
 "@ecl/ec-specs-text-input@^2.1.0":
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/@ecl/ec-specs-text-input/-/ec-specs-text-input-2.1.0.tgz#482bd4655ea8dde8b68bffacfb21e9d0936fe73c"
@@ -798,10 +808,17 @@
   dependencies:
     "@ecl/eu-base" "^2.1.0"
 
-"@ecl/eu-resources-icons@~2.1.0":
+"@ecl/eu-resources-icons@^2.1.0", "@ecl/eu-resources-icons@~2.1.0":
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/@ecl/eu-resources-icons/-/eu-resources-icons-2.1.0.tgz#1b540156dc3e6bb64ce1e7e6e586cb001a2bb239"
   integrity sha512-cDNaQyNxQPlt5wgFqKqvX/gqjs63opquKyk0FoAQg7Zt5pdojYWu9Ytl81JW0UbUxxanhM14HTpJ0Fjsir2jIg==
+
+"@ecl/eu-specs-button@~2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@ecl/eu-specs-button/-/eu-specs-button-2.1.0.tgz#a1dd24d082e4a45fba9834cf73be25c732a3391a"
+  integrity sha512-dc3YDAQWgbdR2knaneG4pNIjKfVy1rDcaMA8utCuj3ldYiIClKm0gNZ7wgiBNn+pp1RtQ4T+OLSwdMfkUhOQYg==
+  dependencies:
+    "@ecl/eu-resources-icons" "^2.1.0"
 
 "@ecl/eu-specs-icon@~2.1.0":
   version "2.1.0"
