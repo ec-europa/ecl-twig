@@ -10,26 +10,27 @@ import card from './card.html.twig';
 
 storiesOf('Components/Card', module)
   .addDecorator(withKnobs)
-  .addDecorator(withNotes)
   .addDecorator(withCode)
+  .addDecorator(withNotes)
   .add(
     'card',
     () =>
       card({
         card: {
-          description: text(
-            'Description',
-            'Transparently designing and evaluating evidence-based EU legislation, backed by citizens views.'
-          ),
-          image: text(
-            'Image',
-            'https://v2--europa-component-library.netlify.com/example-image.jpg'
-          ),
           title: {
             type: 'standalone',
             path: text('Title path', '/example'),
             label: text('Title', 'Better regulation'),
           },
+          description: text(
+            'Description',
+            'Transparently designing and evaluating evidence-based EU legislation, backed by citizens views.'
+          ),
+          meta: text('Meta', 'Meta 1 | Meta 2 | Meta 3'),
+          image: text(
+            'Image',
+            'https://v2--europa-component-library.netlify.com/example-image.jpg'
+          ),
           infos: [
             {
               label: '2018/10/22',
@@ -50,22 +51,16 @@ storiesOf('Components/Card', module)
           ],
           tags: [
             {
-              tag: {
-                label: 'Tag 1',
-                path: '/example-1',
-              },
+              label: 'Tag 1',
+              path: '/example-1',
             },
             {
-              tag: {
-                label: 'Tag 1',
-                path: '/example-1',
-              },
+              label: 'Tag 2',
+              path: '/example-2',
             },
             {
-              tag: {
-                label: 'Tag 1',
-                path: '/example-1',
-              },
+              label: 'Tag 3',
+              path: '/example-3',
             },
           ],
         },
