@@ -9,8 +9,9 @@ pipeline:
     image: node:dubnium
     commands:
       - ./scripts/check-lockfile.sh
-    matrix:
-      TEST: dependencies
+    when:
+      matrix:
+        TEST: dependencies
   jest:
     image: node:dubnium
     commands:
