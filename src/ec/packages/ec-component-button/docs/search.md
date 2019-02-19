@@ -6,7 +6,7 @@ npm package: `@ecl-twig/ec-component-button`
 npm install --save @ecl-twig/ec-component-button
 ```
 
-## Secondary button
+## Search button
 
 ### Parameters
 
@@ -25,7 +25,7 @@ npm install --save @ecl-twig/ec-component-button
 
 ```twig
 {% include 'path/to/button.html.twig' with {
-  variant: 'secondary',
+  variant: 'search',
   label: 'Example button',
   disabled: false,
   icon: {
