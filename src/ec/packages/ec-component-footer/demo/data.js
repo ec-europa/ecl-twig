@@ -1,13 +1,11 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
-
 export const backToTop = {
   link: {
     label: 'Go to top',
     path: '#top',
   },
   icon: {
-    path: defaultSprite,
+    path: 'static/icons.svg',
     size: 'fluid',
   },
 };
@@ -24,7 +22,7 @@ export const identity = {
           icon_position: 'before',
         },
         icon: {
-          path: defaultSprite,
+          path: 'static/icons.svg',
           type: 'branded',
           name: 'facebook',
         },
@@ -36,7 +34,7 @@ export const identity = {
           icon_position: 'before',
         },
         icon: {
-          path: defaultSprite,
+          path: 'static/icons.svg',
           type: 'branded',
           name: 'twitter',
         },
@@ -48,7 +46,7 @@ export const identity = {
           icon_position: 'before',
         },
         icon: {
-          path: defaultSprite,
+          path: 'static/icons.svg',
           type: 'ui',
           name: 'external',
         },
@@ -111,7 +109,7 @@ export const sections = [
           icon_position: 'before',
         },
         icon: {
-          path: defaultSprite,
+          path: 'static/icons.svg',
           type: 'branded',
           name: 'facebook',
         },
@@ -123,7 +121,7 @@ export const sections = [
           icon_position: 'before',
         },
         icon: {
-          path: defaultSprite,
+          path: 'static/icons.svg',
           type: 'branded',
           name: 'twitter',
         },
@@ -135,7 +133,7 @@ export const sections = [
           icon_position: 'before',
         },
         icon: {
-          path: defaultSprite,
+          path: 'static/icons.svg',
           type: 'ui',
           name: 'external',
         },
@@ -152,7 +150,7 @@ export const sections = [
           icon_position: 'after',
         },
         icon: {
-          path: defaultSprite,
+          path: 'static/icons.svg',
           type: 'ui',
           name: 'external',
         },
@@ -164,7 +162,7 @@ export const sections = [
           icon_position: 'after',
         },
         icon: {
-          path: defaultSprite,
+          path: 'static/icons.svg',
           type: 'ui',
           name: 'external',
         },
