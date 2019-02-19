@@ -41,6 +41,7 @@ npm install --save @ecl-twig/ec-component-card
       path:  '/example',
       label: Better regulation',
     },
+    meta: [ 'Meta 1', 'Meta 2', 'Meta 3' ],
     infos: [
       {
         label: '2018/10/22',

@@ -75,7 +75,7 @@
       <div class="ecl-card__image" alt="card image" style="background-image:url('{{ _card.image }}')"></div>
     {% endif %}
     {% if _card.meta is not empty %}
-      <div class="ecl-card__meta">{{ _card.meta }}</div>
+      <div class="ecl-card__meta">{{ _card.meta|join(" | ") }}</div>
     {% endif %}
     <h1 class="ecl-card__title">
       {% if _card.title.path %}
