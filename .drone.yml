@@ -7,7 +7,8 @@ pipeline:
   install:
     image: node:dubnium
     commands:
-      - yarn install --frozen-lockfile
+      - ./scripts/ci-install.sh
+
   jest:
     image: node:dubnium
     commands:
