@@ -3,9 +3,9 @@
   - "id" (string) (default: '')
   - "disabled" (boolean) (default: false)
   - "invalid" (boolean) (default: false)
-  - "invalidIconLabel" (string) (default: '')
+  - "invalid_icon_label" (string) (default: '')
   - "name" (string) (default: '')
-  - "hideLabel" (boolean) (default: '')
+  - "hide_label" (boolean) (default: '')
   - "placeholder" (string) (default: '')
   - "type" (string) (default: 'text')
   - "extra_classes" (optional) (string) (default: '') Extra classes (space separated) for the icon
@@ -13,8 +13,8 @@
     - "name" (string) Attribute name, eg. 'data-test'
     - "value" (string) Attribute value, eg: 'data-test-1'
   Blocks:
-  - "helperText"
-  - "invalidText"
+  - "helper_text"
+  - "invalid_text"
   - "label"
 #}
 
@@ -22,14 +22,14 @@
 {% set _id = id|default('') %}
 {% set _disabled = disabled|default(false) %}
 {% set _invalid = invalid|default(false) %}
-{% set _invalidIconLabel = invalidIconLabel|default('') %}
+{% set _invalid_icon_label = invalid_icon_label|default('') %}
 {% set _name = name|default('') %}
-{% set _hideLabel = hideLabel|default(false) %}
+{% set _hide_label = hide_label|default(false) %}
 {% set _placeholder = placeholder|default('') %}
 {% set _type = type|default('text') %}
 
-{% set _helperText = helperText|default('') %}
-{% set _invalidText = invalidText|default('') %}
+{% set _helper_text = helper_text|default('') %}
+{% set _invalid_text = invalid_text|default('') %}
 {% set _label = label|default('') %}
 
 {% set _css_class = ['ecl-text-input'] %}
@@ -55,7 +55,7 @@
 <div class="ecl-form-group ecl-form-group--text-input">
   {% if _label is not empty %}
     <label 
-      class="ecl-form-label{{invalid ? ' ecl-form-label--invalid'}}{{hideLabel ? ' ecl-form-label--hidden'}}"
+      class="ecl-form-label{{invalid ? ' ecl-form-label--invalid'}}{{hide_label ? ' ecl-form-label--hidden'}}"
       for={{_id}}
     >
       {% block label _label %}
@@ -72,11 +72,11 @@
     {{ _extra_attributes|raw }} 
   />
 
-  {% if _invalid and _invalidText is not empty %}
-    <div class="ecl-feedback-message">{% block invalidText _invalidText %}</div>
+  {% if _invalid and _invalid_text is not empty %}
+    <div class="ecl-feedback-message">{% block invalid_text _invalid_text %}</div>
   {% endif %}
 
-  {% if _helperText is not empty %}
-    <div class="ecl-help-block">{% block helperText _helperText %}</div>
+  {% if _helper_text is not empty %}
+    <div class="ecl-help-block">{% block helper_text _helper_text %}</div>
   {% endif %}
 </div>

@@ -13,9 +13,9 @@ npm install --save @ecl-twig/ec-component-text-input
 - "id" (string) (default: '')
 - "disabled" (boolean) (default: false)
 - "invalid" (boolean) (default: false)
-- "invalidIconLabel" (string) (default: '')
+- "invalid_icon_label" (string) (default: '')
 - "name" (string) (default: '')
-- "hideLabel" (boolean) (default: '')
+- "hide_label" (boolean) (default: '')
 - "placeholder" (string) (default: '')
 - "type" (string) (default: 'text')
 - "extra_classes" (optional) (string) (default: '') Extra classes (space separated) for the icon
@@ -25,8 +25,8 @@ npm install --save @ecl-twig/ec-component-text-input
 
 ### Blocks:
 
-- "helperText"
-- "invalidText"
+- "helper_text"
+- "invalid_text"
 - "label"
 
 ### Example:
@@ -35,8 +35,8 @@ npm install --save @ecl-twig/ec-component-text-input
 {% include 'path/to/text-input.html.twig' with {
   label: 'Email address',
   placeholder: 'Please enter your email address',
-  invalidText: "Invalid email address. Valid e-mail can contain only latin letters, numbers, '@' and '.'",
-  helperText: 'This address will be used for contact purpose',
+  invalid_text: "Invalid email address. Valid e-mail can contain only latin letters, numbers, '@' and '.'",
+  helper_text: 'This address will be used for contact purpose',
   id: 'input-email',
   name: 'email',
   extra_classes: 'my-extra-class-1 my-extra-class-2',

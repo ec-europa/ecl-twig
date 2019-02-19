@@ -2,41 +2,56 @@
 
 exports[`EU - Text input Default renders correctly 1`] = `
 "<div class=\\"ecl-form-group ecl-form-group--text-input\\">
-  <label class=\\"ecl-form-label\\" for=\\"example-input-id-1\\"> Label </label>
+  <label class=\\"ecl-form-label\\" for=\\"example-id\\"> Label </label>
 
   <input
-    id=\\"example-input-id-1\\"
-    name=\\"\\"
+    id=\\"example-id\\"
+    name=\\"example-name\\"
     type=\\"text\\"
     placeholder=\\"Placeholder\\"
     class=\\"ecl-text-input\\"
   />
+
+  <div class=\\"ecl-help-block\\">Help message</div>
 </div>
 "
 `;
 
 exports[`EU - Text input Disabled renders correctly 1`] = `
 "<div class=\\"ecl-form-group ecl-form-group--text-input\\">
+  <label class=\\"ecl-form-label\\" for=\\"example-id\\"> Label </label>
+
   <input
-    id=\\"example-input-id-2\\"
+    id=\\"example-id\\"
     name=\\"\\"
     type=\\"text\\"
     placeholder=\\"Placeholder\\"
     class=\\"ecl-text-input\\"
+    disabled
   />
+
+  <div class=\\"ecl-help-block\\">Help message</div>
 </div>
 "
 `;
 
 exports[`EU - Text input With error renders correctly 1`] = `
 "<div class=\\"ecl-form-group ecl-form-group--text-input\\">
+  <label class=\\"ecl-form-label ecl-form-label--invalid\\" for=\\"example-id\\">
+    Label
+  </label>
+
   <input
-    id=\\"example-input-id-3\\"
-    name=\\"\\"
+    id=\\"example-id\\"
+    name=\\"example-name\\"
     type=\\"text\\"
     placeholder=\\"Placeholder\\"
-    class=\\"ecl-text-input\\"
+    class=\\"ecl-text-input ecl-text-input--invalid\\"
   />
+
+  <div class=\\"ecl-feedback-message\\">Error message</div>
+
+  <div class=\\"ecl-help-block\\">Help message</div>
 </div>
 "
 `;
