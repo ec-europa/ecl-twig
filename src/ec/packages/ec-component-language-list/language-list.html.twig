@@ -1,0 +1,80 @@
+{#
+  Parameters:
+  - "items" (array) (default: []): array of link items
+    - "lang" (string) (default: '')
+    - "label" (string) (default: '')
+    - "path" (string) (default: '')
+    - "active (boolean) (default: false)
+  - "overlay" (boolean) (default: false): is the list an overlay?
+  - "icon_path" (string) (default: ''): file containing the svg icons
+  - "logo_alt" (string) (default: ''): alt text for the logo
+  - "extra_classes" (optional) (string) (default: '') Extra classes (space separated) for the icon
+  - "extra_attributes" (optional) (array) (default: []) Extra attributes for icon
+    - "name" (string) Attribute name, eg. 'data-test'
+    - "value" (string) Attribute value, eg: 'data-test-1'
+#}
+
+{# Internal properties #}
+
+{% set _items = items|default([]) %}
+{% set _overlay = overlay|default(false) %}
+{% set _icon_path = icon_path|default('') %}
+{% set _logo_alt = logo_alt|default('') %}
+
+{% set _css_class = 'ecl-language-list' %}
+{% set _extra_attributes = '' %}
+
+{# Internal logic - Process properties #}
+
+{% if _overlay %}
+  {% set _css_class =  _css_class ~ ' ecl-language-list--overlay' %}
+{% else %}
+  {% set _css_class =  _css_class ~ ' ecl-language-list--splash' %}
+{% endif %}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+  {% endfor %}
+{% endif %}
+
+{% set _column1 = _items|slice(0, (items.length / 2)|round(0, 'ceil')) %}
+{% set _column2 = _items|slice((items.length / 2)|round(0, 'ceil'), items.length) %}
+
+{# Print the result #}
+
+<div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+{% if overlay %}
+
+{% else %}
+
+  <header class="ecl-language-list__header">
+    <img class="ecl-language-list__logo" src="" alt="{{logo_alt}}" />
+  </header>
+  <div class="ecl-language-list__container ecl-container">
+    <div class="ecl-row">
+      <div class="ecl-language-list__column ecl-col-12 ecl-col-lg-4 ecl-offset-lg-2">
+        <ul class="ecl-language-list__list">
+          {% for _item in _column1 %}
+            {% include './language-list-item.html.twig' with { item: _item, overlay: _overlay, icon_path: _icon_path } %}
+          {% endfor %}
+        </ul>
+      </div>
+      <div class="ecl-language-list__column ecl-col-12 ecl-col-lg-4">
+        <ul class="ecl-language-list__list">
+          {% for _item in _column2 %}
+            {% include './language-list-item.html.twig' with { item: _item, overlay: _overlay, icon_path: _icon_path } %}
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+
+{% endif %}
+</div>
+
+

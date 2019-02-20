@@ -702,10 +702,52 @@
 "@ecl-twig/test-utils@file:utils/test-utils":
   version "0.0.0-test-only"
 
+"@ecl/ec-base@^2.1.1":
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/@ecl/ec-base/-/ec-base-2.1.1.tgz#7dcb382ebe55d19511a2a112d8603111c334db6b"
+  integrity sha512-q+IXLQcoumzdO/pHlX9R+JPtqYjiZYKZkLVzxTHZx+9L/UR4pRZo9aN3nKBgm78YzoeP137KRrItKZ7qgl1TaQ==
+
+"@ecl/ec-component-icon@^2.1.1":
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/@ecl/ec-component-icon/-/ec-component-icon-2.1.1.tgz#15fbb83e5fd940c208fc05d482d12cfa51f655c2"
+  integrity sha512-6aUDaXCWZgdyFv9B+zix6mBADPb9OzuoPxvfsARC689zToCPYl+zcYzsFPT9b4wW3+naqRnngl9RVQUG8ksheg==
+  dependencies:
+    "@ecl/ec-base" "^2.1.1"
+
+"@ecl/ec-component-language-list@^2.1.1":
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/@ecl/ec-component-language-list/-/ec-component-language-list-2.1.1.tgz#10c007d0473db20e1dbe47dbc64fc1dc90e8d4ef"
+  integrity sha512-DxWdZpYSQWd40ychV/yLNACCCEJDxvBgaoZHjLix+fZ4V3v5Nc1Hr2fSRsoR9/BPKozAfBeeY2f1Gs6ZRJE27w==
+  dependencies:
+    "@ecl/ec-base" "^2.1.1"
+    "@ecl/ec-component-icon" "^2.1.1"
+    "@ecl/ec-component-link" "^2.1.1"
+    "@ecl/ec-layout-grid" "^2.1.1"
+
+"@ecl/ec-component-link@^2.1.1":
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/@ecl/ec-component-link/-/ec-component-link-2.1.1.tgz#9addd148e8032eafd467689d4e98b6979cf30456"
+  integrity sha512-hoHLgHdE8vZigRrtWjsfpl9ASeL/uhzYzMg/Hmh2R4rr6ZisXx1t/yUs8JPJx0URPYxikUhb8dcEWcU13CqKaA==
+  dependencies:
+    "@ecl/ec-base" "^2.1.1"
+    "@ecl/ec-component-icon" "^2.1.1"
+
+"@ecl/ec-layout-grid@^2.1.1":
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/@ecl/ec-layout-grid/-/ec-layout-grid-2.1.1.tgz#af07c763239f13fdda622d48c0b7668a1bb6f64c"
+  integrity sha512-Ebj4s7awNjaoISZ0Hv/D1QqVyOVCjj1yh9vt2cdKWXvak7eombVU3GWOiHCbICHNmwCN5YfYPXodCzhswJwzYQ==
+  dependencies:
+    "@ecl/ec-base" "^2.1.1"
+
 "@ecl/ec-resources-icons@^2.1.1", "@ecl/ec-resources-icons@~2.1.0":
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/@ecl/ec-resources-icons/-/ec-resources-icons-2.1.1.tgz#e0a034a3c9aa499d9179a137ebe02e5518033eec"
   integrity sha512-2owW44HMwW7Yx+P0CjLayxF9hWHKgksozugXZ+bPrVs02afOTU9OumXkXB+n3Q5LKjYw/cRxQ0+7CL2WrwY3Jg==
+
+"@ecl/ec-resources-logo@^2.1.1":
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/@ecl/ec-resources-logo/-/ec-resources-logo-2.1.1.tgz#b7c821eb53335b3612289a3d1ecfaec9d9ae5207"
+  integrity sha512-7NvNBTvoObwNajvH9XxFUing+OrpvMHtOQF9qBlhoWtu4VKivxCqPfwv/mdEve3E/Y92rPbciOb3bP0nzrPadQ==
 
 "@ecl/ec-specs-blockquote@2.0.0":
   version "2.0.0"
@@ -723,6 +765,11 @@
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/@ecl/ec-specs-icon/-/ec-specs-icon-2.1.1.tgz#6b178fccc898a00ed8b9e00655074229339ee7dc"
   integrity sha512-TrNIBfYfGtc/5/kppHuYSlTQIVMBlohQFSSHCT+1e/ZQLiPm6MpxlR3gpSl0Ssg1oufVb7K3EmnL21LIL9hdtQ==
+
+"@ecl/ec-specs-language-list@^2.1.1":
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/@ecl/ec-specs-language-list/-/ec-specs-language-list-2.1.1.tgz#ee01df71f61d2bacfade7f4f99ec9a5af7e713d8"
+  integrity sha512-5ysf9s7wfv3cGgZ1bbIuwpv9BsYUySBB3x+XJDvt1wHUzzVuBYuK24KWMrKonAq8lswoeu1nuSrht5f53YKzaQ==
 
 "@ecl/ec-specs-link@~2.1.0":
   version "2.1.1"
