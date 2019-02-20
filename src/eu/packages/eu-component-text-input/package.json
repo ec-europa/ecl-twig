@@ -1,17 +1,19 @@
 {
-  "name": "@ecl-twig/ec-components",
+  "name": "@ecl-twig/eu-component-text-input",
   "author": "European Commission",
   "license": "EUPL-1.1",
   "version": "0.0.1-alpha",
-  "description": "ECL Twig - EC Components",
+  "description": "ECL Twig - EU Text Input",
   "publishConfig": {
     "access": "public"
   },
-  "dependencies": {
-    "@ecl-twig/ec-component-blockquote": "^0.0.1-alpha",
-    "@ecl-twig/ec-component-button": "^0.0.1-alpha",
-    "@ecl-twig/ec-component-footer": "^0.0.1-alpha",
-    "@ecl-twig/ec-component-text-input": "^0.0.1-alpha"
+  "devDependencies": {
+    "@ecl/eu-component-form-feedback-message": "^2.1.0",
+    "@ecl/eu-component-form-form-group": "^2.1.0",
+    "@ecl/eu-component-form-help-block": "^2.1.0",
+    "@ecl/eu-component-form-label": "^2.1.0",
+    "@ecl/eu-component-form-text-input": "^2.1.0",
+    "@ecl/eu-specs-text-input": "^2.1.0"
   },
   "repository": {
     "type": "git",
