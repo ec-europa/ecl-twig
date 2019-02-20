@@ -58,7 +58,7 @@ storiesOf('Components/Card', module)
         card: {
           title: {
             type: 'standalone',
-            path: text('Title path', '/example'),
+            path: '/example',
             label: text('Title', 'Better regulation'),
           },
           description: text(
