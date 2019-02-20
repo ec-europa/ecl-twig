@@ -19,5 +19,11 @@ module.exports = {
         'import/no-extraneous-dependencies': false,
       },
     },
+    {
+      files: ['utils/**/*.js'],
+      rules: {
+        'import/no-extraneous-dependencies': false,
+      },
+    },
   ],
 };

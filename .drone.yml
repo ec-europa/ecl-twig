@@ -1,16 +1,21 @@
 matrix:
   TEST:
+    - dependencies
     - jest
     - lint
 
 pipeline:
-  install:
+  dependencies:
     image: node:dubnium
     commands:
-      - yarn install --frozen-lockfile
+      - ./scripts/check-lockfile.sh
+    when:
+      matrix:
+        TEST: dependencies
   jest:
     image: node:dubnium
     commands:
+      - yarn install --frozen-lockfile
       - yarn jest
     when:
       matrix:
@@ -18,6 +23,7 @@ pipeline:
   lint:
     image: node:dubnium
     commands:
+      - yarn install --frozen-lockfile
       - yarn lint
     when:
       matrix:
