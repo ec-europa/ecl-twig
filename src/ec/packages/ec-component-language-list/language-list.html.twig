@@ -7,7 +7,9 @@
     - "active (boolean) (default: false)
   - "overlay" (boolean) (default: false): is the list an overlay?
   - "icon_path" (string) (default: ''): file containing the svg icons
-  - "logo_alt" (string) (default: ''): alt text for the logo
+  - "logo" (object) (default: {}): 
+    - "alt" (string) (default: ''): alt text for the logo
+    - "path" (string) (default: ''): path to the logo svg
   - "extra_classes" (optional) (string) (default: '') Extra classes (space separated) for the icon
   - "extra_attributes" (optional) (array) (default: []) Extra attributes for icon
     - "name" (string) Attribute name, eg. 'data-test'
@@ -19,7 +21,7 @@
 {% set _items = items|default([]) %}
 {% set _overlay = overlay|default(false) %}
 {% set _icon_path = icon_path|default('') %}
-{% set _logo_alt = logo_alt|default('') %}
+{% set _logo = logo|default({}) %}
 
 {% set _css_class = 'ecl-language-list' %}
 {% set _extra_attributes = '' %}
@@ -53,7 +55,7 @@
 {% else %}
 
   <header class="ecl-language-list__header">
-    <img class="ecl-language-list__logo" src="" alt="{{logo_alt}}" />
+    <img class="ecl-language-list__logo" src="{{_logo.path}}" alt="{{_logo.alt}}" />
   </header>
   <div class="ecl-language-list__container ecl-container">
     <div class="ecl-row">

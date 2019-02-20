@@ -34,14 +34,16 @@
 
 {# Print the result #}
 
-{% include '../ec-component-link/link.html.twig' with {
-  link: {
-    type: 'standalone',
-    label: _item.label,
-    path: _item.path,
-    icon_position: 'after'
-  },
-  icon: _item_icon,
-  extra_classes: 'ecl-language-list__link',
-  extra_attributes: _item_attribute
-} %}
+<li class="ecl-language-list__item">
+  {% include '../ec-component-link/link.html.twig' with {
+    link: {
+      type: 'standalone',
+      label: _item.label,
+      path: _item.path,
+      icon_position: 'after'
+    },
+    icon: _item_icon,
+    extra_classes: 'ecl-language-list__link',
+    extra_attributes: _item_attribute
+  } %}
+</li>
