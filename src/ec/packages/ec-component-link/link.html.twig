@@ -33,7 +33,8 @@
 {% set _icon={
   type: '',
   name: '',
-  path: ''
+  path: '',
+  size: ''
 }%}
 
 {% if icon is defined %}
@@ -62,10 +63,10 @@
 {# Print the result #}
 <a href="{{ _link.path }}" class="{{ _css_class }}"{{ _extra_attributes|raw }}>
   {% if _icon.name is not empty and _link.icon_position == 'before' %}
-    {% include '../ec-component-icon/icon.html.twig' with { icon: icon|merge({ size: 'fluid' }), extra_classes: 'ecl-link__icon' } %} &nbsp;
+    {% include '../ec-component-icon/icon.html.twig' with icon|merge({extra_classes: 'ecl-link__icon'}) %} &nbsp;
   {% endif %}
   <span class="ecl-link__label">{{ _link.label }}</span>
   {% if _icon.name is not empty and _link.icon_position == 'after' %}
-    &nbsp; {% include '../ec-component-icon/icon.html.twig' with { icon: icon|merge({ size: 'fluid' }), extra_classes: 'ecl-link__icon' } %}
+    &nbsp; {% include '../ec-component-icon/icon.html.twig' with icon|merge({extra_classes: 'ecl-link__icon'}) %}
   {% endif %}
 </a>
