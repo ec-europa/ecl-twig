@@ -46,21 +46,14 @@
   {% set _extra_attributes = ' disabled' %}
 {% endif %}
 
-{# validate icon #}
-{% if _icon is not empty %}
-  {% if (_icon.type is not defined or _icon.type is empty) or (_icon.name is not defined or _icon.name is empty) %}
-    {% set _icon = null %}
-  {% endif %}
-{% endif %}
-
 {# Print the result #}
 <button class="{{ _css_class }}" type="{{ _type }}"{{ _extra_attributes|raw }}>
   <span class="ecl-button__container">
-    {% if _icon and _icon_position == 'before' %}
+    {% if _icon.name is not empty and _icon_position == 'before' %}
       {% include '../ec-component-icon/icon.html.twig' with { icon: _icon, extra_classes: 'ecl-button__icon ecl-button__icon--before' } %}
     {% endif %}
     <span class="ecl-button__label">{% block label _label %}</span>
-    {% if _icon and _icon_position == 'after' %}
+    {% if _icon.name is not empty and _icon_position == 'after' %}
       {% include '../ec-component-icon/icon.html.twig' with { icon: _icon, extra_classes: 'ecl-button__icon ecl-button__icon--after' } %}
     {% endif %}
   </span>

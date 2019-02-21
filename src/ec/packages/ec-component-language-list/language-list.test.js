@@ -2,7 +2,6 @@ import path from 'path';
 import { renderTwigFile } from '@ecl-twig/test-utils';
 
 // Import data for tests
-import logo from '@ecl/ec-resources-logo/logo--mute.svg';
 import { common, items, splash, overlay } from './demo/data';
 
 describe('EC - Language List', () => {
@@ -19,7 +18,7 @@ describe('EC - Language List', () => {
           overlay: splash.overlay,
           logo: {
             alt: splash.logoAlt,
-            path: logo,
+            path: '/static/logo--mute.svg',
           },
           icon_path: common.iconPath,
         },
