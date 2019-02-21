@@ -85,22 +85,20 @@
         {{_title}}
       </div>
     </div>
-    <div class="ecl-language-list__container ecl-container">
-      <div class="ecl-row">
-        <div class="ecl-language-list__column ecl-col-12 ecl-col-lg-4 ecl-offset-lg-2">
-          <ul class="ecl-language-list__list">
-            {% for _item in _column1 %}
-              {% include './language-list-item.html.twig' with { item: _item, overlay: _overlay, icon_path: _icon_path } %}
-            {% endfor %}
-          </ul>
-        </div>
-        <div class="ecl-language-list__column ecl-col-12 ecl-col-lg-4">
-          <ul class="ecl-language-list__list">
-            {% for _item in _column2 %}
-              {% include './language-list-item.html.twig' with { item: _item, overlay: _overlay, icon_path: _icon_path } %}
-            {% endfor %}
-          </ul>
-        </div>
+    <div class="ecl-row">
+      <div class="ecl-language-list__column ecl-col-12 ecl-col-lg-4 ecl-offset-lg-2">
+        <ul class="ecl-language-list__list">
+          {% for _item in _column1 %}
+            {% include './language-list-item.html.twig' with { item: _item, overlay: _overlay, icon_path: _icon_path } %}
+          {% endfor %}
+        </ul>
+      </div>
+      <div class="ecl-language-list__column ecl-col-12 ecl-col-lg-4">
+        <ul class="ecl-language-list__list">
+          {% for _item in _column2 %}
+            {% include './language-list-item.html.twig' with { item: _item, overlay: _overlay, icon_path: _icon_path } %}
+          {% endfor %}
+        </ul>
       </div>
     </div>
   </div>
