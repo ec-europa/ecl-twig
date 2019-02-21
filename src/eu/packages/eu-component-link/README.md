@@ -1,1 +1,1 @@
-# ECL Twig - EC Link component
+# ECL Twig - EU Link component
