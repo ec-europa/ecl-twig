@@ -707,6 +707,19 @@
   resolved "https://registry.yarnpkg.com/@ecl/ec-base/-/ec-base-2.1.0.tgz#a5f4ff88417563195045d66ed0cc8bb1f6ab0da1"
   integrity sha512-VAymf9N9+afEPuErE0ABg5sH96+maUYqHCnYElaTCpjj/EAu7PeybU57k1rnlOXkXjnzEGmrqODC8Hu7XXXZJA==
 
+"@ecl/ec-base@^2.1.1":
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/@ecl/ec-base/-/ec-base-2.1.1.tgz#7dcb382ebe55d19511a2a112d8603111c334db6b"
+  integrity sha512-q+IXLQcoumzdO/pHlX9R+JPtqYjiZYKZkLVzxTHZx+9L/UR4pRZo9aN3nKBgm78YzoeP137KRrItKZ7qgl1TaQ==
+
+"@ecl/ec-component-button@^2.1.1":
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/@ecl/ec-component-button/-/ec-component-button-2.1.1.tgz#7ea70e9e4c8b1744831ac33ad0e0c9d5cce521d4"
+  integrity sha512-5w4EIsLLwklr6GEvP9S4wVHs1HPFnFAfzmXaDMKRXz8ok0iyPU7vvWw5FLOEutlvoCy33kALE9W3AC4Ws/W3aA==
+  dependencies:
+    "@ecl/ec-base" "^2.1.1"
+    "@ecl/ec-component-icon" "^2.1.1"
+
 "@ecl/ec-component-form-feedback-message@^2.1.0":
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/@ecl/ec-component-form-feedback-message/-/ec-component-form-feedback-message-2.1.0.tgz#2b885399ab9eff231a244f271fa02241d5734df5"
@@ -742,6 +755,31 @@
   dependencies:
     "@ecl/ec-base" "^2.1.0"
 
+"@ecl/ec-component-form-text-input@^2.1.1":
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/@ecl/ec-component-form-text-input/-/ec-component-form-text-input-2.1.1.tgz#ef684f47103c875c73bdd976ebce11e3251ae185"
+  integrity sha512-izSvOKnAXlRik3qbEb5XqlvCn5CdiBn8TkoVBloIEr8FsxHd0KpZINGAs+vqLCbswSmZR04w/MEGuuobpb/0dA==
+  dependencies:
+    "@ecl/ec-base" "^2.1.1"
+
+"@ecl/ec-component-icon@^2.1.1":
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/@ecl/ec-component-icon/-/ec-component-icon-2.1.1.tgz#15fbb83e5fd940c208fc05d482d12cfa51f655c2"
+  integrity sha512-6aUDaXCWZgdyFv9B+zix6mBADPb9OzuoPxvfsARC689zToCPYl+zcYzsFPT9b4wW3+naqRnngl9RVQUG8ksheg==
+  dependencies:
+    "@ecl/ec-base" "^2.1.1"
+
+"@ecl/ec-component-search-form@^2.1.0":
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/@ecl/ec-component-search-form/-/ec-component-search-form-2.1.1.tgz#b9cbbd15b3536fc083b8090cf43318cf80530bc8"
+  integrity sha512-Y8HmmksmjjecB6ErHQtotEPm+0cUvMvGUEvGS/c+dRYJJGzytJiKsaqyTlYzj4OD/iugpNrztuaW/WS8QDe56g==
+  dependencies:
+    "@ecl/ec-base" "^2.1.1"
+    "@ecl/ec-component-button" "^2.1.1"
+    "@ecl/ec-component-form-text-input" "^2.1.1"
+    "@ecl/ec-component-icon" "^2.1.1"
+    "@ecl/ec-utility-screen-reader" "^2.1.1"
+
 "@ecl/ec-resources-icons@^2.1.1", "@ecl/ec-resources-icons@~2.1.0":
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/@ecl/ec-resources-icons/-/ec-resources-icons-2.1.1.tgz#e0a034a3c9aa499d9179a137ebe02e5518033eec"
@@ -774,6 +812,11 @@
   resolved "https://registry.yarnpkg.com/@ecl/ec-specs-link/-/ec-specs-link-2.1.1.tgz#35a576c0e9a7d7db8b862f480171b172b9e36c86"
   integrity sha512-Dt1MK3S/e4neDATp6ymzYKeF1+vOoO28/stJaNPLpQHT2mOIqa2rKmvlyqU5WjF2CcUvzfBmrLw+vyPKBnkwrA==
 
+"@ecl/ec-specs-search-form@~2.1.0":
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/@ecl/ec-specs-search-form/-/ec-specs-search-form-2.1.1.tgz#2dce0524030efd55e823bcacc1c419381aec6d27"
+  integrity sha512-MpYlOXUpZ2oBx56KakpmV/ARsWEfJPM6L9tnKOU6vdPjdj3cUofklCWKB23P+Oy0v8xnWA9cjjpQKQBCTPql9A==
+
 "@ecl/ec-specs-tag@~2.1.0":
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/@ecl/ec-specs-tag/-/ec-specs-tag-2.1.1.tgz#2923e92b939e335387093cf75a8094fef4aa4b6a"
@@ -783,6 +826,13 @@
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/@ecl/ec-specs-text-input/-/ec-specs-text-input-2.1.0.tgz#482bd4655ea8dde8b68bffacfb21e9d0936fe73c"
   integrity sha512-u/1UHaZXgDkI6BbmRQVVGleI7IM1dUc/lV23rdNy6xylMgLE0DcmMKz+gUiVilcrd8AOGgm6UVCb4T/GYQzHqA==
+
+"@ecl/ec-utility-screen-reader@^2.1.1":
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/@ecl/ec-utility-screen-reader/-/ec-utility-screen-reader-2.1.1.tgz#1b3808b7e43281986c14cc2b598a7974a4fdea01"
+  integrity sha512-E8CARlHky++r90+92/6MY720vEt+jdhWRcTvjtcZfh8gxqxc7bIxasLOxNNibE0DNQoRxlk9pb018mfIdyeUlw==
+  dependencies:
+    "@ecl/ec-base" "^2.1.1"
 
 "@ecl/eu-base@^2.1.0":
   version "2.1.0"
