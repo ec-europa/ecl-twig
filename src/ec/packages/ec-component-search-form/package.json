@@ -7,9 +7,11 @@
   "publishConfig": {
     "access": "public"
   },
+  "dependencies": {
+    "@ecl-twig/ec-component-text-input": "^0.0.1-alpha" ,
+    "@ecl-twig/ec-component-button": "^0.0.1-alpha"
+  },
   "devDependencies": {
-    "@ecl/ec-component-form-text-input": "^2.1.0",
-    "@ecl/ec-component-button": "^2.1.0",
     "@ecl/ec-specs-search-form": "~2.1.0",
     "@ecl/ec-component-search-form": "^2.1.0"
   },
