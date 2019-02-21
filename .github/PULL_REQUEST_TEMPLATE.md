@@ -9,4 +9,4 @@ In order to ensure a safe and quick review, please check that your PR follow tho
 * [ ] I have put the original css as dependency
 * [ ] I have provided tests
 * [ ] My local `yarn.lock` was commited
-* [ ] I have given the PR label “review needed” 
+* [ ] I have given the PR label “pr: review needed” 
