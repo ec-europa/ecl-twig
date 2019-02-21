@@ -40,7 +40,7 @@ describe('EC - Button', () => {
       dataCall.icon.path = 'static/icons.svg';
       dataCall.icon.type = 'ui';
       dataCall.icon.name = 'corner-arrow';
-      dataCall.icon.size = 'xs';
+      dataCall.icon.size = 'fluid';
 
       renderTwigFile(template, dataCall, (err, html) => {
         expect(html).toMatchSnapshot();
@@ -78,7 +78,7 @@ describe('EC - Button', () => {
       dataCall.icon.path = 'static/icons.svg';
       dataCall.icon.type = 'ui';
       dataCall.icon.name = 'corner-arrow';
-      dataCall.icon.size = 'xs';
+      dataCall.icon.size = 'fluid';
       dataCall.icon_position = 'before';
 
       renderTwigFile(template, dataCall, (err, html) => {
@@ -99,7 +99,7 @@ describe('EC - Button', () => {
           path: 'static/icons.svg',
           type: 'ui',
           name: 'corner-arrow',
-          size: 'xs',
+          size: 'fluid',
         },
       };
 

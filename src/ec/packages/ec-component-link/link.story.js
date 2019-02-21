@@ -47,6 +47,7 @@ storiesOf('Components/Link', module)
           type: 'ui',
           name: iconsListSelect,
           path: defaultSprite,
+          size: 'fluid',
         },
       });
     },
@@ -76,6 +77,7 @@ storiesOf('Components/Link', module)
           type: 'ui',
           name: iconsListSelect,
           path: defaultSprite,
+          size: 'fluid',
         },
       });
     },
