@@ -10,7 +10,7 @@ describe('EC - Search Form', () => {
       expect.assertions(1);
 
       const defaultDataStructure = {
-        textInput: {
+        text_input: {
           id: 'input-email',
           name: 'email',
           extra_classes: 'ecl-search-form__text-input',

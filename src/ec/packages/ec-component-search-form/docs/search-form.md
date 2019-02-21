@@ -10,7 +10,7 @@ npm install --save @ecl-twig/ec-component-search-form
 
 ### Parameters
 
-- "textInput" (associative array) default: A predefined structure for EC Text Input
+- "text_input" (associative array) default: A predefined structure for EC Text Input
 - "button" (associative array) default: A predefined structure for EC Button
 - "extra_classes" (optional) (string) (default: '') Extra classes (space separated) for the form
 - "extra_attributes" (optional) (array) (default: []) Extra attributes for the form
@@ -21,7 +21,7 @@ npm install --save @ecl-twig/ec-component-search-form
 
 ```twig
 {% include 'path/to/icon.html.twig' with {
-  textInput: {
+  text_input: {
     id: 'input-search',
     name: 'search',
     extra_classes: 'ecl-search-form__text-input'

@@ -8,7 +8,7 @@ import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import searchFormDocs from './docs/search-form.md';
 import searchForm from './search-form.html.twig';
 
-storiesOf('Components/SearchForm', module)
+storiesOf('Components/Search Form', module)
   .addDecorator(withKnobs)
   .addDecorator(withNotes)
   .addDecorator(withCode)
@@ -16,10 +16,11 @@ storiesOf('Components/SearchForm', module)
     'default',
     () =>
       searchForm({
-        textInput: {
+        text_input: {
           id: 'input-search',
           name: 'search',
           extra_classes: 'ecl-search-form__text-input',
+          hide_label: true,
         },
         button: {
           variant: 'search',
