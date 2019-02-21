@@ -24,6 +24,7 @@
 {% set _label = label|default('') %}
 {% set _variant = variant|default('primary') %}
 {% set _type = type|default('submit') %}
+{% set _icon = icon|default({}) %}
 {% set _icon_position = icon_position|default('after') %}
 {% set _disabled = disabled|default(false) %}
 
@@ -46,21 +47,21 @@
 {% endif %}
 
 {# validate icon #}
-{% if icon is defined and icon is not empty %}
-  {% if (icon.type is not defined or icon.type is empty) or (icon.name is not defined or icon.name is empty) %}
-    {% set icon = null %}
+{% if _icon is not empty %}
+  {% if (_icon.type is not defined or _icon.type is empty) or (_icon.name is not defined or _icon.name is empty) %}
+    {% set _icon = null %}
   {% endif %}
 {% endif %}
 
 {# Print the result #}
 <button class="{{ _css_class }}" type="{{ _type }}"{{ _extra_attributes|raw }}>
   <span class="ecl-button__container">
-    {% if icon and _icon_position == 'before' %}
-      {% include '../eu-component-icon/icon.html.twig' with { icon: icon|merge({ size: 'xs' }), extra_classes: 'ecl-button__icon ecl-button__icon--before' } %}
+    {% if _icon and _icon_position == 'before' %}
+      {% include '../eu-component-icon/icon.html.twig' with { icon: _icon, extra_classes: 'ecl-button__icon ecl-button__icon--before' } %}
     {% endif %}
     <span class="ecl-button__label">{% block label _label %}</span>
-    {% if icon and _icon_position == 'after' %}
-      {% include '../eu-component-icon/icon.html.twig' with { icon: icon|merge({ size: 'xs' }), extra_classes: 'ecl-button__icon ecl-button__icon--after' } %}
+    {% if _icon and _icon_position == 'after' %}
+      {% include '../eu-component-icon/icon.html.twig' with { icon: _icon, extra_classes: 'ecl-button__icon ecl-button__icon--after' } %}
     {% endif %}
   </span>
 </button>

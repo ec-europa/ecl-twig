@@ -23,6 +23,11 @@
     : {} 
 %}
 
+{% set _item_class = "ecl-language-list__item" %}
+{% if _item.active %}
+  {% set _item_class = _item_class ~ " ecl-language-list__item--is-active" %}
+{% endif %}
+
 {% set _item_attribute = [] %}
 {% if _item.lang is not empty %}
   {% set _item_attribute = _item_attribute|merge([{name: 'lang', value: _item.lang}]) %}
@@ -34,7 +39,7 @@
 
 {# Print the result #}
 
-<li class="ecl-language-list__item">
+<li class="{{_item_class}}">
   {% include '../ec-component-link/link.html.twig' with {
     link: {
       type: 'standalone',

@@ -37,5 +37,11 @@ export const items = [
 
 export const splash = {
   overlay: false,
-  logo_alt: 'European Commission logo',
+  logoAlt: 'European Commission logo',
+};
+
+export const overlay = {
+  overlay: true,
+  closeLabel: 'Close',
+  title: 'Select your language',
 };

@@ -16,7 +16,7 @@ module.exports = {
           {
             loader: 'file-loader',
             options: {
-              name: 'static/icons.svg',
+              name: 'static/[name].[ext]',
             },
           },
         ],

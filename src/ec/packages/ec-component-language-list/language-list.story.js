@@ -5,7 +5,7 @@ import withCode from '@ecl-twig/storybook-addon-code';
 
 import logo from '@ecl/ec-resources-logo/logo--mute.svg';
 
-import { common, items, splash } from './demo/data';
+import { common, items, splash, overlay } from './demo/data';
 
 import languageList from './language-list.html.twig';
 
@@ -17,10 +17,19 @@ storiesOf('Components/Language list', module)
     languageList({
       items,
       overlay: splash.overlay,
-      icon_path: common.iconPath,
       logo: {
-        alt: splash.logo_alt,
+        alt: splash.logoAlt,
         path: logo,
       },
+      icon_path: common.iconPath,
+    })
+  )
+  .add('overlay', () =>
+    languageList({
+      items,
+      overlay: overlay.overlay,
+      close_label: overlay.closeLabel,
+      title: overlay.title,
+      icon_path: common.iconPath,
     })
   );

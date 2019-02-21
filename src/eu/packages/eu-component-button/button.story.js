@@ -57,6 +57,7 @@ storiesOf('Components/Button', module)
           type: 'ui',
           name: iconsListSelect,
           path: defaultSprite,
+          size: 'xs',
         },
       });
     },
@@ -84,6 +85,7 @@ storiesOf('Components/Button', module)
           type: 'ui',
           name: iconsListSelect,
           path: defaultSprite,
+          size: 'xs',
         },
       });
     },
@@ -111,6 +113,7 @@ storiesOf('Components/Button', module)
           type: 'ui',
           name: iconsListSelect,
           path: defaultSprite,
+          size: 'xs',
         },
       });
     },
@@ -138,6 +141,7 @@ storiesOf('Components/Button', module)
           type: 'ui',
           name: iconsListSelect,
           path: defaultSprite,
+          size: 'xs',
         },
       });
     },
@@ -165,6 +169,7 @@ storiesOf('Components/Button', module)
           type: 'ui',
           name: iconsListSelect,
           path: defaultSprite,
+          size: 'xs',
         },
       });
     },
