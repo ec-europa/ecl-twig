@@ -870,6 +870,11 @@
   resolved "https://registry.yarnpkg.com/@ecl/eu-base/-/eu-base-2.1.0.tgz#a2987c4d3298c2ee822d726cc1d70e91d6b81ed2"
   integrity sha512-rLWpOKfFfOInb5x35GctaAFcqN5I5bwBAn4dikHPtfo50/7fDFwP7nR271kA3Cv6A6LaLT9jrRa91/iPavqkfg==
 
+"@ecl/eu-base@^2.1.1":
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/@ecl/eu-base/-/eu-base-2.1.1.tgz#1e64b748c6a7ac9f3e09bcb06594d8707124c78e"
+  integrity sha512-o9FM9xhMXPi/Fg5heCcMVj7LB/lATarW/RBWv6BeYCRvRzvcJMLEJiJ9KkwhV7bxBjFfBqr3Zsyg+QRmSJLFeA==
+
 "@ecl/eu-component-form-feedback-message@^2.1.0":
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/@ecl/eu-component-form-feedback-message/-/eu-component-form-feedback-message-2.1.0.tgz#371cd4da3a18b415018a98ce128729a68c4899c6"
@@ -905,6 +910,21 @@
   dependencies:
     "@ecl/eu-base" "^2.1.0"
 
+"@ecl/eu-component-icon@^2.1.1":
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/@ecl/eu-component-icon/-/eu-component-icon-2.1.1.tgz#bb18207b5c43fececead686006777efe8252b490"
+  integrity sha512-PdvTyWBP99JqqCrRvZ8N+Vtl4N4XjhmbLfxO4/4Q50wc/AyFBGuXZx1SgG6YCV+5wKQwXBYlyaH4mHeShi6aTQ==
+  dependencies:
+    "@ecl/eu-base" "^2.1.1"
+
+"@ecl/eu-component-link@^2.1.1":
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/@ecl/eu-component-link/-/eu-component-link-2.1.1.tgz#df650f153f0cac5516b3a65410efbde7920efcb0"
+  integrity sha512-Po9azzcyVZvz76ilM/4JntSMsAz0tQ1owm4WGDW4TKceLv81O3VLwqC+vPYyEJyB4XM54bwHPD6czndXEDmHQA==
+  dependencies:
+    "@ecl/eu-base" "^2.1.1"
+    "@ecl/eu-component-icon" "^2.1.1"
+
 "@ecl/eu-resources-icons@^2.1.0":
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/@ecl/eu-resources-icons/-/eu-resources-icons-2.1.0.tgz#1b540156dc3e6bb64ce1e7e6e586cb001a2bb239"
@@ -926,6 +946,11 @@
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/@ecl/eu-specs-icon/-/eu-specs-icon-2.1.1.tgz#92dd8cf4f77a4b352eb9acc8d12302cabdb1c301"
   integrity sha512-BmkypD85JWiDFEHMwnw8xPckOc5KsFnQNRxaSGB/9KxnBHH9JwO0KNiS7lFxesM8SyUety53csO6JHmFM79Gig==
+
+"@ecl/eu-specs-link@~2.1.0":
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/@ecl/eu-specs-link/-/eu-specs-link-2.1.1.tgz#ba39c2b0bc0f2c4a00b52b02f4cbc6e0eb214b0d"
+  integrity sha512-SU4xhyTZ73LbYFUjfF7LSdTFxyFivZX9n1MqsTOG5BSCTfdsT6q6otoqAIiPDhe7dde+mS6lLvgRD3F7NR0tCw==
 
 "@ecl/eu-specs-text-input@^2.1.0":
   version "2.1.0"
