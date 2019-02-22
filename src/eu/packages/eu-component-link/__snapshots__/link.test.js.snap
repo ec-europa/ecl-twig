@@ -1,16 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`EU - Link Default - link default renders correctly 1`] = `
-"<a href=\\"/path\\" class=\\"ecl-link ecl-link--default\\">
-  <span class=\\"ecl-link__label\\"></span>
-</a>
+"<a href=\\"/path\\" class=\\"ecl-link ecl-link--default\\"> </a>
 "
 `;
 
 exports[`EU - Link Standalone - link standalone renders correctly 1`] = `
-"<a href=\\"/path\\" class=\\"ecl-link ecl-link--standalone\\">
-  <span class=\\"ecl-link__label\\"></span>
-</a>
+"<a href=\\"/path\\" class=\\"ecl-link ecl-link--standalone\\"> </a>
 "
 `;
 
@@ -20,6 +16,7 @@ exports[`EU - Link With icon after - link with icon renders correctly 1`] = `
   class=\\"ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after\\"
 >
   <span class=\\"ecl-link__label\\"></span>
+
   &nbsp;
 
   <svg
@@ -45,7 +42,9 @@ exports[`EU - Link With icon before - link with icon renders correctly 1`] = `
   >
     <use xlink:href=\\"static/icons.svg#ui--external\\"></use>
   </svg>
+
   &nbsp;
+
   <span class=\\"ecl-link__label\\"></span>
 </a>
 "
