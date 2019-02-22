@@ -22,7 +22,7 @@ npm install --save @ecl-twig/eu-component-link
   - "value" (string) Attribute value, eg: 'data-test-1'
 
 ### Example:
-
+<!-- prettier-ignore -->
 ```twig
 {% include 'path/to/icon.html.twig' with {  
   link: {  

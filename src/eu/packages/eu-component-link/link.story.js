@@ -45,6 +45,7 @@ storiesOf('Components/Link', module)
         },
         icon: {
           type: 'ui',
+          size: 'fluid',
           name: iconsListSelect,
           path: defaultSprite,
         },
@@ -74,6 +75,7 @@ storiesOf('Components/Link', module)
         },
         icon: {
           type: 'ui',
+          size: 'fluid',
           name: iconsListSelect,
           path: defaultSprite,
         },
