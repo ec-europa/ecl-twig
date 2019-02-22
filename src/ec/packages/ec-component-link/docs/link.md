@@ -23,20 +23,24 @@ npm install --save @ecl-twig/ec-component-link
 
 ### Example:
 
+<!-- prettier-ignore -->
 ```twig
-{% include 'path/to/icon.html.twig' with {
-  link: {
-    type: 'standalone',
-    label: 'Standalone link',
-    path: 'http://google.com',
-    icon_position: 'after',
-  },
-  icon: {
-    path: '/path-to-the-icon-file',
-    type: 'ui',
-    name: 'external',
-  },
-  extra_classes: 'my-extra-class-1 my-extra-class-2',
-  extra_attributes: [{ name: 'data-test', value: 'data-test-value' },{ name: 'data-test-1', value: 'data-test-value-1' }]
+{% include 'path/to/icon.html.twig' with { 
+  link: { 
+    type: 'standalone', 
+    label: 'Standalone link', 
+    path: 'http://google.com', 
+    icon_position: 'after', 
+  }, 
+  icon: { 
+    path: '/path-to-the-icon-file', 
+    type: 'ui', 
+    name: 'external', 
+  }, 
+  extra_classes: 'my-extra-class-1 my-extra-class-2', 
+  extra_attributes: [ 
+    { name: 'data-test', value: 'data-test-value' }, 
+    { name: 'data-test-1', value: 'data-test-value-1' } 
+  ] 
 } %}
 ```

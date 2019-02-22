@@ -23,17 +23,21 @@ npm install --save @ecl-twig/ec-component-button
 
 ### Example:
 
+<!-- prettier-ignore -->
 ```twig
-{% include 'path/to/button.html.twig' with {
-  variant: 'search',
-  label: 'Example button',
-  disabled: false,
-  icon: {
-    path: '/path-to-the-icon-file',
-    type: 'ui',
-    name: 'corner-arrow',
-  },
-  extra_classes: 'my-extra-class-1 my-extra-class-2',
-  extra_attributes: [{ name: 'data-test', value: 'data-test-value' },{ name: 'data-test-1', value: 'data-test-value-1' }]
+{% include 'path/to/button.html.twig' with { 
+  variant: 'search', 
+  label: 'Example button', 
+  disabled: false, 
+  icon: { 
+    path: '/path-to-the-icon-file', 
+    type: 'ui', 
+    name: 'corner-arrow', 
+  }, 
+  extra_classes: 'my-extra-class-1 my-extra-class-2', 
+  extra_attributes: [ 
+    { name: 'data-test', value: 'data-test-value' }, 
+    { name: 'data-test-1', value: 'data-test-value-1' } 
+  ] 
 } %}
 ```

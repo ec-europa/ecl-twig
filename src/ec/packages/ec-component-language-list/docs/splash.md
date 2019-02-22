@@ -41,7 +41,10 @@ npm install --save @ecl-twig/ec-component-language-list
     path: /path-to-the-logo-file,  
   },  
   icon_path: /path-to-the-icon-file,  
-  extra_classes: 'my-extra-class-1 my-extra-class-2',  
-  extra_attributes: [{ name: 'data-test', value: 'data-test-value' },{ name: 'data-test-1', value: 'data-test-value-1' }]  
+  extra_classes: 'my-extra-class-1 my-extra-class-2', 
+  extra_attributes: [ 
+    { name: 'data-test', value: 'data-test-value' }, 
+    { name: 'data-test-1', value: 'data-test-value-1' } 
+  ] 
 } %}
 ```
