@@ -26,71 +26,72 @@ npm install --save @ecl-twig/ec-component-footer
 
 ## Example:
 
+<!-- prettier-ignore -->
 ```twig
-{% include 'path/to/footer.html.twig' with {
-  back_to_top: {
-    link: {
-      label: 'Go to top',
-      path: '#top',
-    },
-    icon: {
-      path: defaultSprite,
-      size: 'fluid',
-    },
-  },
-  identity: {
-    title: 'Site identification',
-    follow: {
-      label: 'Follow us:',
-      links: [
-        {
-          link: {
-            label: 'Facebook',
-            path: '/example',
-            icon_position: 'before',
-          },
-          icon: {
-            path: defaultSprite,
-            type: 'branded',
-            name: 'facebook',
-          },
-        },
-        ...
-      ],
-    },
-    info: [
-      {
-        link: {
-          label: 'Contact',
-          path: '/example',
-        },
-      },
-      ...
-    ],
-  },
-  sections: [
-    {
-      title: 'European Commission',
-      links: [
-        {
-          link: {
-            label: 'Commission and its priorities',
-            path: '/example',
-          },
-        },
-        ...
-      ],
-    },
-    ...
-  ],
-  common: [
-  {
-    link: {
-      label: "About the Commission's new web presence",
-      path: '/example',
-    },
-  },
-  ...
-  ]
+{% include 'path/to/footer.html.twig' with { 
+  back_to_top: { 
+    link: { 
+      label: 'Go to top', 
+      path: '#top', 
+    }, 
+    icon: { 
+      path: defaultSprite, 
+      size: 'fluid', 
+    }, 
+  }, 
+  identity: { 
+    title: 'Site identification', 
+    follow: { 
+      label: 'Follow us:', 
+      links: [ 
+        { 
+          link: { 
+            label: 'Facebook', 
+            path: '/example', 
+            icon_position: 'before', 
+          }, 
+          icon: { 
+            path: defaultSprite, 
+            type: 'branded', 
+            name: 'facebook', 
+          }, 
+        }, 
+        ... 
+      ] 
+    }, 
+    info: [ 
+      { 
+        link: { 
+          label: 'Contact', 
+          path: '/example', 
+        }, 
+      }, 
+      ... 
+    ], 
+  }, 
+  sections: [ 
+    { 
+      title: 'European Commission', 
+      links: [ 
+        { 
+          link: { 
+            label: 'Commission and its priorities', 
+            path: '/example', 
+          }, 
+        }, 
+        ... 
+      ], 
+    }, 
+    ... 
+  ], 
+  common: [ 
+  { 
+    link: { 
+      label: "About the Commission's new web presence", 
+      path: '/example', 
+    }, 
+  }, 
+  ... 
+  ] 
 } %}
 ```
