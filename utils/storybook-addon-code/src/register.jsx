@@ -102,7 +102,7 @@ class Notes extends React.Component {
 addons.register('ecl/code', api => {
   // Also need to set a unique name to the panel.
   addons.addPanel('ecl/code/panel', {
-    title: 'Code',
+    title: 'HTML',
     // eslint-disable-next-line react/prop-types
     render: ({ active }) => (
       <Notes channel={addons.getChannel()} api={api} active={active} />
