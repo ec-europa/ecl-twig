@@ -19,22 +19,23 @@ npm install --save @ecl-twig/ec-component-search-form
 
 ### Example:
 
+<!-- prettier-ignore -->
 ```twig
-{% include 'path/to/icon.html.twig' with {  
-  text_input: {  
-    id: 'input-search',  
-    name: 'search',  
-    extra_classes: 'ecl-search-form__text-input'  
-  },  
-  button: {  
-    variant: 'search',  
-    icon: {  
-      type: 'general',  
-      name: 'search',  
-      path: '/path-to-the-icon-file',  
-    },  
-    label: 'Search',  
-    extra_classes: 'ecl-search-form__button'  
-  }  
+{% include 'path/to/icon.html.twig' with { 
+  text_input: { 
+    id: 'input-search', 
+    name: 'search', 
+    extra_classes: 'ecl-search-form__text-input' 
+  }, 
+  button: { 
+    variant: 'search', 
+    icon: { 
+      type: 'general', 
+      name: 'search', 
+      path: '/path-to-the-icon-file', 
+    }, 
+    label: 'Search', 
+    extra_classes: 'ecl-search-form__button' 
+  } 
 } %}
 ```

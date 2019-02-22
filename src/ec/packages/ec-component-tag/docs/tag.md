@@ -22,15 +22,19 @@ npm install --save @ecl-twig/ec-component-tag
 
 ### Example:
 
+<!-- prettier-ignore -->
 ```twig
-{% include 'path/to/tag.html.twig' with {
-  tag: {
-    type: 'removable',
-    path: '/example',
-    label: 'Tag 1'
-  },
-  default_icon_path: '/path-to-the-icon-file',
-  extra_classes: 'my-extra-class-1 my-extra-class-2',
-  extra_attributes: [{ name: 'data-test', value: 'data-test-value' },{ name: 'data-test-1', value: 'data-test-value-1' }]
+{% include 'path/to/tag.html.twig' with { 
+  tag: { 
+    type: 'removable', 
+    path: '/example', 
+    label: 'Tag 1' 
+  }, 
+  default_icon_path: '/path-to-the-icon-file', 
+  extra_classes: 'my-extra-class-1 my-extra-class-2', 
+  extra_attributes: [ 
+    { name: 'data-test', value: 'data-test-value' }, 
+    { name: 'data-test-1', value: 'data-test-value-1' } 
+  ] 
 } %}
 ```

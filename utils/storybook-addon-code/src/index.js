@@ -8,11 +8,14 @@ const withCode = makeDecorator({
     const story = getStory(context);
     const formattedCode = beautifyHtml(story, {
       indent_size: 2,
-      wrap_line_length: 120,
+      max_preserve_newlines: -1,
+      preserve_newlines: false,
+      indent_scripts: 'normal',
     });
-    channel.emit('ecl/code/add_code', formattedCode); // parameters);
 
-    return story;
+    channel.emit('ecl/code/add_code', formattedCode);
+
+    return formattedCode;
   },
 });
 
