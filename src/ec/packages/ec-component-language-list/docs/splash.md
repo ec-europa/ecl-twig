@@ -30,17 +30,17 @@ npm install --save @ecl-twig/ec-component-language-list
 <!-- prettier-ignore -->
 ```twig
 {% include 'path/to/language-list.html.twig' with { 
-  items: { 
+  items: [ 
     { lang: 'bg', label: 'български', path: '/example' }, 
     { lang: 'es', label: 'español', path: '/example' }, 
     ... 
-  }, 
+  ], 
   overlay: false, 
   logo: { 
     alt: 'European Commission Logo', 
-    path: /path-to-the-logo-file, 
+    path: '/path-to-the-logo-file', 
   }, 
-  icon_path: /path-to-the-icon-file, 
+  icon_path: '/path-to-the-icon-file', 
   extra_classes: 'my-extra-class-1 my-extra-class-2', 
   extra_attributes: [ 
     { name: 'data-test', value: 'data-test-value' }, 
