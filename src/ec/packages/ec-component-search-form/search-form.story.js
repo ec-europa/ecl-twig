@@ -29,7 +29,7 @@ storiesOf('Components/Search Form', module)
             type: 'general',
             name: 'search',
             path: defaultSprite,
-            size: 'xs',
+            size: 'fluid',
           },
           label: text('Button label', 'Search'),
           extra_classes: 'ecl-search-form__button',

@@ -3,7 +3,7 @@ import { renderTwigFile } from '@ecl-twig/test-utils';
 
 describe('EU - Link', () => {
   const template = path.resolve(__dirname, './link.html.twig');
-  const defaultIconPath = 'static/icons.svg';
+  const defaultIconPath = 'static/icons-cbfd6efe.svg';
   const defaultDataStructure = {
     link: {
       type: '',

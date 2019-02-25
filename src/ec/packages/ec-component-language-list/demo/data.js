@@ -1,6 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 export const common = {
-  iconPath: 'static/icons.svg',
+  iconPath: 'static/icons-cbfd6efe.svg',
 };
 
 export const items = [

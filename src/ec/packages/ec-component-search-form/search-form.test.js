@@ -3,7 +3,7 @@ import { renderTwigFile } from '@ecl-twig/test-utils';
 
 describe('EC - Search Form', () => {
   const template = path.resolve(__dirname, './search-form.html.twig');
-  const defaultIconPath = 'static/icons.svg';
+  const defaultIconPath = 'static/icons-cbfd6efe.svg';
 
   describe('Default', () => {
     test(`- search form renders correctly`, done => {
@@ -21,7 +21,7 @@ describe('EC - Search Form', () => {
             type: 'general',
             name: 'search',
             path: defaultIconPath,
-            size: 'xs',
+            size: 'fluid',
           },
           label: 'Search',
           extra_classes: 'ecl-search-form__button',

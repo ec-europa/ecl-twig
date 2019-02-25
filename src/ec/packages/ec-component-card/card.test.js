@@ -3,7 +3,7 @@ import { renderTwigFile } from '@ecl-twig/test-utils';
 
 describe('EC - Card', () => {
   const template = path.resolve(__dirname, './card.html.twig');
-  const defaultIconPath = 'static/icons.svg';
+  const defaultIconPath = 'static/icons-cbfd6efe.svg';
 
   describe('Card default', () => {
     test(`- renders correctly`, done => {

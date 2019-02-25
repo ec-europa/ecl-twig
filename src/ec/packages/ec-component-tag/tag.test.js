@@ -3,7 +3,7 @@ import { renderTwigFile } from '@ecl-twig/test-utils';
 
 describe('EC - Tag', () => {
   const template = path.resolve(__dirname, './tag.html.twig');
-  const defaultIconPath = 'static/icons.svg';
+  const defaultIconPath = 'static/icons-cbfd6efe.svg';
   const defaultDataStructure = {
     tag: {
       path: '',
