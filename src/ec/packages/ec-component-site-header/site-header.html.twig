@@ -1,22 +1,22 @@
 {#
   Parameters:
     - "search_form" (associative array) (default: predefined structure): EC Search Form component structure
-    - "language" (associative array) (default: predefined structure): Language switcher settings. Default settings for English. format:
+    - "language" (associative array) (default: predefined structure): Language switcher settings. format:
         {
           url: (string) (default: ''): URL for switcher
-          label: (string) (default: 'English'): Switcher language label, eg. 'English', 'Français', etc.
-          code: (string) (default: 'en'): Switcher language code, eg. 'en', 'fr', etc.
+          label: (string) (default: ''): Switcher language label, eg. 'English', 'Français', etc.
+          code: (string) (default: ''): Switcher language code, eg. 'en', 'fr', etc.
         },
     - "header_link" (associative array) (default: predefined structure): Link settings for header link. format:
         {
           url: (string) (default: ''): URL for link
-          aria_label: (string) (default: 'European Comission'): Aria-label attribute value
+          aria_label: (string) (default: ''): Aria-label attribute value
         },
     - "header_image" (associative array) (default: predefined structure): Heading image settings. format:
         {
           src: (string) (default: ''): URL for image
-          alt: (string) (default: 'European Commission logo'): Alt attribute for image
-          title: (string) (default: 'European Comission'): Title attribute for image
+          alt: (string) (default: ''): Alt attribute for image
+          title: (string) (default: ''): Title attribute for image
         }
     - "icon_file_path" (string) (default: ''): URL to icons file
     - "extra_classes" (string) (default: '')
@@ -51,21 +51,21 @@
 
 {% set _language = {
   url: '',
-  label: 'English',
-  code: 'en'
+  label: '',
+  code: ''
 }
 %}
 
 {% set _header_link = {
   url: '',
-  aria_label: 'European Comission'
+  aria_label: ''
 }
 %}
 
 {% set _header_image = {
-  src: 'static/media/logo--en.30b933cc.svg',
-  alt: 'European Commission logo',
-  title: 'European Comission',
+  src: '',
+  alt: '',
+  title: '',
 }
 %}
 

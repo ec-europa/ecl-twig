@@ -4,21 +4,11 @@ exports[`EC - Site Header Site Header default - renders correctly 1`] = `
 "<header class=\\"ecl-site-header\\">
   <div class=\\"ecl-site-header__container ecl-container\\">
     <div class=\\"ecl-site-header__banner\\">
-      <a
-        class=\\"ecl-link ecl-link--standalone\\"
-        href=\\"/example-1\\"
-        aria-label=\\"European Comission\\"
-      >
-        <img
-          alt=\\"European Commission logo\\"
-          title=\\"European Comission\\"
-          class=\\"ecl-site-header__logo-image\\"
-          src=\\"static/media/logo--en.30b933cc.svg\\"
-        />
+      <a class=\\"ecl-link ecl-link--standalone\\" href=\\"/example-1\\" aria-label=\\"\\">
+        <img alt=\\"\\" title=\\"\\" class=\\"ecl-site-header__logo-image\\" src=\\"\\" />
       </a>
       <div class=\\"ecl-site-header__selector\\">
         <a class=\\"ecl-link ecl-link--standalone\\" href=\\"\\">
-          English
           <span class=\\"ecl-site-header__language-icon\\">
             <svg
               class=\\"ecl-icon ecl-icon--m\\"
@@ -27,7 +17,8 @@ exports[`EC - Site Header Site Header default - renders correctly 1`] = `
             >
               <use xlink:href=\\"static/icons.svg#general--language\\"></use>
             </svg>
-            <span class=\\"ecl-site-header__language-code\\">en</span>
+
+            <span class=\\"ecl-site-header__language-code\\"></span>
           </span>
         </a>
       </div>
@@ -93,6 +84,7 @@ exports[`EC - Site Header Site Header translated - renders correctly 1`] = `
             >
               <use xlink:href=\\"static/icons.svg#general--language\\"></use>
             </svg>
+
             <span class=\\"ecl-site-header__language-code\\">fr</span>
           </span>
         </a>
