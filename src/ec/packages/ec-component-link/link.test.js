@@ -7,7 +7,7 @@ describe('EC - Link', () => {
   const defaultDataStructure = {
     link: {
       type: '',
-      text: '',
+      label: '',
       path: '/path',
     },
   };
@@ -17,7 +17,7 @@ describe('EC - Link', () => {
       expect.assertions(1);
 
       defaultDataStructure.link.type = 'default';
-      defaultDataStructure.link.text = 'Default link';
+      defaultDataStructure.link.label = 'Default link';
 
       renderTwigFile(template, defaultDataStructure, (err, html) => {
         expect(html).toMatchSnapshot();
@@ -31,7 +31,7 @@ describe('EC - Link', () => {
       expect.assertions(1);
 
       defaultDataStructure.link.type = 'standalone';
-      defaultDataStructure.link.text = 'Standalone link';
+      defaultDataStructure.link.label = 'Standalone link';
 
       renderTwigFile(template, defaultDataStructure, (err, html) => {
         expect(html).toMatchSnapshot();
@@ -45,7 +45,7 @@ describe('EC - Link', () => {
       expect.assertions(1);
 
       defaultDataStructure.link.type = 'standalone';
-      defaultDataStructure.link.text = 'Standalone link with icon';
+      defaultDataStructure.link.label = 'Standalone link with icon';
       defaultDataStructure.link.icon_position = 'before';
       defaultDataStructure.icon = {
         type: 'ui',
@@ -66,7 +66,7 @@ describe('EC - Link', () => {
       expect.assertions(1);
 
       defaultDataStructure.link.type = 'standalone';
-      defaultDataStructure.link.text = 'Standalone link with icon';
+      defaultDataStructure.link.label = 'Standalone link with icon';
       defaultDataStructure.link.icon_position = 'after';
       defaultDataStructure.icon = {
         type: 'ui',
