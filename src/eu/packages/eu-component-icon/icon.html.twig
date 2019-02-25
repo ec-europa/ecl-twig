@@ -52,8 +52,10 @@
 {% endif %}
 
 {# Print the result #}
-{% if _icon %}
+{% spaceless %}
+{%- if _icon -%}
   <svg class="{{ _css_class }}"{{ _extra_attributes|raw }}>
-    <use xlink:href="{{ _icon.path }}#{{ _icon.type }}--{{ _icon.name}}"></use>
+    <use xlink:href="{{- _icon.path -}}#{{- _icon.type -}}--{{- _icon.name -}}"></use>
   </svg>
-{% endif %}
+{%- endif -%}
+{% endspaceless %}

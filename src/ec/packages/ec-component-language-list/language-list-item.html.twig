@@ -39,8 +39,9 @@
 
 {# Print the result #}
 
+{% spaceless %}
 <li class="{{_item_class}}">
-  {% include '../ec-component-link/link.html.twig' with {
+  {%- include '../ec-component-link/link.html.twig' with {
     link: {
       type: 'standalone',
       label: _item.label,
@@ -50,5 +51,6 @@
     icon: _item_icon,
     extra_classes: 'ecl-language-list__link',
     extra_attributes: _item_attribute
-  } %}
+  } -%}
 </li>
+{% endspaceless %}
