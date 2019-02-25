@@ -2,7 +2,7 @@ import path from 'path';
 import { renderTwigFile } from '@ecl-twig/test-utils';
 
 // Import data for tests
-import { common, items, splash, overlay } from './demo/data';
+import { dataSplash, dataOverlay } from './demo/data';
 
 describe('EC - Language List', () => {
   const template = path.resolve(__dirname, './language-list.html.twig');
@@ -14,13 +14,13 @@ describe('EC - Language List', () => {
       renderTwigFile(
         template,
         {
-          items,
-          overlay: splash.overlay,
+          items: dataSplash.items,
+          overlay: false,
           logo: {
-            alt: splash.logoAlt,
+            alt: dataSplash.logoAlt,
             path: '/static/logo--mute.svg',
           },
-          icon_path: common.iconPath,
+          icon_path: '/static/icons.svg',
         },
         (err, html) => {
           expect(html).toMatchSnapshot();
@@ -37,11 +37,11 @@ describe('EC - Language List', () => {
       renderTwigFile(
         template,
         {
-          items,
-          overlay: overlay.overlay,
-          close_label: overlay.closeLabel,
-          title: overlay.title,
-          icon_path: common.iconPath,
+          items: dataOverlay.items,
+          overlay: true,
+          close_label: dataOverlay.closeLabel,
+          title: dataOverlay.title,
+          icon_path: '/static/icons.svg',
         },
         (err, html) => {
           expect(html).toMatchSnapshot();

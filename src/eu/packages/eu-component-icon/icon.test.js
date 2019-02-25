@@ -8,7 +8,7 @@ import uiIcons from '@ecl/eu-resources-icons/dist/lists/ui.json';
 
 describe('EU - Icon', () => {
   const template = path.resolve(__dirname, './icon.html.twig');
-  const defaultPath = 'static/icons-cbfd6efe.svg';
+  const defaultPath = 'static/icons.svg';
   const defaultDataStructure = {
     icon: {
       name: '',

@@ -37,7 +37,7 @@ describe('EC - Button', () => {
     test('renders correctly', done => {
       expect.assertions(1);
 
-      dataCall.icon.path = 'static/icons-cbfd6efe.svg';
+      dataCall.icon.path = 'static/icons.svg';
       dataCall.icon.type = 'ui';
       dataCall.icon.name = 'corner-arrow';
       dataCall.icon.size = 'fluid';
@@ -75,7 +75,7 @@ describe('EC - Button', () => {
     test('renders correctly', done => {
       expect.assertions(1);
 
-      dataCall.icon.path = 'static/icons-cbfd6efe.svg';
+      dataCall.icon.path = 'static/icons.svg';
       dataCall.icon.type = 'ui';
       dataCall.icon.name = 'corner-arrow';
       dataCall.icon.size = 'fluid';
@@ -96,7 +96,7 @@ describe('EC - Button', () => {
         label: 'CTA Button with icon',
         variant: 'call',
         icon: {
-          path: 'static/icons-cbfd6efe.svg',
+          path: 'static/icons.svg',
           type: 'ui',
           name: 'corner-arrow',
           size: 'fluid',
