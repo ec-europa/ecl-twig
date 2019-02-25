@@ -5,7 +5,7 @@ export const backToTop = {
     path: '#top',
   },
   icon: {
-    path: 'static/icons-cbfd6efe.svg',
+    path: 'static/icons.svg',
     size: 'fluid',
   },
 };
@@ -22,7 +22,7 @@ export const identity = {
           icon_position: 'before',
         },
         icon: {
-          path: 'static/icons-cbfd6efe.svg',
+          path: 'static/icons.svg',
           type: 'branded',
           name: 'facebook',
         },
@@ -34,7 +34,7 @@ export const identity = {
           icon_position: 'before',
         },
         icon: {
-          path: 'static/icons-cbfd6efe.svg',
+          path: 'static/icons.svg',
           type: 'branded',
           name: 'twitter',
         },
@@ -46,7 +46,7 @@ export const identity = {
           icon_position: 'before',
         },
         icon: {
-          path: 'static/icons-cbfd6efe.svg',
+          path: 'static/icons.svg',
           type: 'ui',
           name: 'external',
         },
@@ -109,7 +109,7 @@ export const sections = [
           icon_position: 'before',
         },
         icon: {
-          path: 'static/icons-cbfd6efe.svg',
+          path: 'static/icons.svg',
           type: 'branded',
           name: 'facebook',
         },
@@ -121,7 +121,7 @@ export const sections = [
           icon_position: 'before',
         },
         icon: {
-          path: 'static/icons-cbfd6efe.svg',
+          path: 'static/icons.svg',
           type: 'branded',
           name: 'twitter',
         },
@@ -133,7 +133,7 @@ export const sections = [
           icon_position: 'before',
         },
         icon: {
-          path: 'static/icons-cbfd6efe.svg',
+          path: 'static/icons.svg',
           type: 'ui',
           name: 'external',
         },
@@ -150,7 +150,7 @@ export const sections = [
           icon_position: 'after',
         },
         icon: {
-          path: 'static/icons-cbfd6efe.svg',
+          path: 'static/icons.svg',
           type: 'ui',
           name: 'external',
         },
@@ -162,7 +162,7 @@ export const sections = [
           icon_position: 'after',
         },
         icon: {
-          path: 'static/icons-cbfd6efe.svg',
+          path: 'static/icons.svg',
           type: 'ui',
           name: 'external',
         },
