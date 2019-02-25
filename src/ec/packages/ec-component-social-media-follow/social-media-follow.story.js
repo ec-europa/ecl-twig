@@ -17,6 +17,7 @@ storiesOf('Components/Social Media Follow', module)
     () =>
       SocialMediaFollow({
         description: text('Description', data.description),
+        links: data.links,
       }),
     {
       notes: { markdown: notes },

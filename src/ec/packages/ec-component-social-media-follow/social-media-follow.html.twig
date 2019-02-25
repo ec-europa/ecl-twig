@@ -1,6 +1,22 @@
 {#
   Parameters:
     - "description" (string) (default: '')
+    - "links" (array) (default: []): format: [
+        {
+          "href" (string) (default: ''),
+          "label" (string) (default: ''),
+          "variant" (string) (default: ''),
+          "icon-position" (string) (default: ''),
+          "icon": (array) (default: []): format: [
+            {
+              "shape" (string) (default: ''),
+              "size" (string) (default: '')
+            },
+            ...
+          ]
+        },
+        ...
+      ]
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
         {
@@ -16,6 +32,7 @@
 {% set _css_class = 'ecl-social-media-follow' %}
 {% set _extra_attributes = '' %}
 {% set _description = description|default('') %}
+{% set _links = links|default({}) %}
 
 {# Internal logic - Process properties #}
 
@@ -32,32 +49,21 @@
 {# Print the result #}
 <div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
   <p class="ecl-social-media-follow__description">{{ _description }}</p>
+  {% if _links is defined and _links is not empty %}
   <ul class="ecl-social-media-follow__list">
-    <li class="ecl-social-media-follow__item"><a href="/example" class="ecl-social-media-follow__link ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-before"><svg
+    {% for link in _links %}
+    <li class="ecl-social-media-follow__item">
+      {% include '../ec-component-link/link.html.twig' with link|merge({
+        extra_classes: 'ecl-ecl-social-media-follow__link',
+      }) %}    
+      {# <a href="/example" class=" ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-before"><svg
           focusable="false" aria-hidden="true" class="ecl-social-media-follow__icon ecl-link__icon ecl-icon ecl-icon--xl">
           <use xlink:href="/static/media/icons-social.92a84a3f.svg#twitter"></use>
         </svg><svg focusable="false" aria-hidden="true" class="ecl-social-media-follow__icon-hover ecl-link__icon ecl-icon ecl-icon--xl">
           <use xlink:href="/static/media/icons-social.92a84a3f.svg#twitter_hover"></use>
-        </svg> <span class="ecl-link__label">Twitter</span></a></li>
-    <li class="ecl-social-media-follow__item"><a href="/example" class="ecl-social-media-follow__link ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-before"><svg
-          focusable="false" aria-hidden="true" class="ecl-social-media-follow__icon ecl-link__icon ecl-icon ecl-icon--xl">
-          <use xlink:href="/static/media/icons-social.92a84a3f.svg#facebook"></use>
-        </svg><svg focusable="false" aria-hidden="true" class="ecl-social-media-follow__icon-hover ecl-link__icon ecl-icon ecl-icon--xl">
-          <use xlink:href="/static/media/icons-social.92a84a3f.svg#facebook_hover"></use>
-        </svg> <span class="ecl-link__label">Facebook</span></a></li>
-    <li class="ecl-social-media-follow__item"><a href="/example" class="ecl-social-media-follow__link ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-before"><svg
-          focusable="false" aria-hidden="true" class="ecl-social-media-follow__icon ecl-link__icon ecl-icon ecl-icon--xl">
-          <use xlink:href="/static/media/icons-social.92a84a3f.svg#gplus"></use>
-        </svg><svg focusable="false" aria-hidden="true" class="ecl-social-media-follow__icon-hover ecl-link__icon ecl-icon ecl-icon--xl">
-          <use xlink:href="/static/media/icons-social.92a84a3f.svg#gplus_hover"></use>
-        </svg> <span class="ecl-link__label">Google+</span></a></li>
-    <li class="ecl-social-media-follow__item"><a href="/example" class="ecl-social-media-follow__link ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-before"><svg
-          focusable="false" aria-hidden="true" class="ecl-social-media-follow__icon ecl-link__icon ecl-icon ecl-icon--xl">
-          <use xlink:href="/static/media/icons-social.92a84a3f.svg#linkedin"></use>
-        </svg><svg focusable="false" aria-hidden="true" class="ecl-social-media-follow__icon-hover ecl-link__icon ecl-icon ecl-icon--xl">
-          <use xlink:href="/static/media/icons-social.92a84a3f.svg#linkedin_hover"></use>
-        </svg> <span class="ecl-link__label">Linkedin</span></a></li>
-    <li class="ecl-social-media-follow__item"><a href="/example" class="ecl-social-media-follow__link ecl-link ecl-link--standalone">Other
-        social networks</a></li>
+        </svg> <span class="ecl-link__label">Twitter</span></a> #}
+    </li>
+    {% endfor %}
   </ul>
+  {% endif %}
 </div>
