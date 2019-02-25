@@ -2,14 +2,14 @@
 
 exports[`EC - Link Default - link default renders correctly 1`] = `
 "<a href=\\"/path\\" class=\\"ecl-link ecl-link--default\\">
-  <span class=\\"ecl-link__label\\"></span>
+  Default link
 </a>
 "
 `;
 
 exports[`EC - Link Standalone - link standalone renders correctly 1`] = `
 "<a href=\\"/path\\" class=\\"ecl-link ecl-link--standalone\\">
-  <span class=\\"ecl-link__label\\"></span>
+  Standalone link
 </a>
 "
 `;
@@ -19,7 +19,7 @@ exports[`EC - Link With icon after - link with icon renders correctly 1`] = `
   href=\\"/path\\"
   class=\\"ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after\\"
 >
-  <span class=\\"ecl-link__label\\"></span>
+  <span class=\\"ecl-link__label\\">Standalone link with icon</span>
   &nbsp;
 
   <svg
@@ -46,7 +46,7 @@ exports[`EC - Link With icon before - link with icon renders correctly 1`] = `
     <use xlink:href=\\"static/icons.svg#ui--external\\"></use>
   </svg>
   &nbsp;
-  <span class=\\"ecl-link__label\\"></span>
+  <span class=\\"ecl-link__label\\">Standalone link with icon</span>
 </a>
 "
 `;
