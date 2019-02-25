@@ -6,7 +6,7 @@
           "href" (string) (default: ''),
           "label" (string) (default: ''),
           "variant" (string) (default: ''),
-          "icon-position" (string) (default: ''),
+          "icon_position" (string) (default: ''),
           "icon": (array) (default: []): format: [
             {
               "shape" (string) (default: ''),
@@ -54,9 +54,10 @@
     {% for link in _links %}
     <li class="ecl-social-media-follow__item">
       {% include '../ec-component-link/link.html.twig' with link|merge({
-        extra_classes: 'ecl-ecl-social-media-follow__link',
+        extra_classes: 'ecl-link--icon ecl-link--icon-before',
       }) %}    
-      {# <a href="/example" class=" ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-before"><svg
+      {# <a href="/example" class=" ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-before">
+      <svg
           focusable="false" aria-hidden="true" class="ecl-social-media-follow__icon ecl-link__icon ecl-icon ecl-icon--xl">
           <use xlink:href="/static/media/icons-social.92a84a3f.svg#twitter"></use>
         </svg><svg focusable="false" aria-hidden="true" class="ecl-social-media-follow__icon-hover ecl-link__icon ecl-icon ecl-icon--xl">
