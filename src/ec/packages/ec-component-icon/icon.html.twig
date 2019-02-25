@@ -32,9 +32,9 @@
 {% set _css_class = ['ecl-icon'] %}
 
 {% for property in ['size','transform','color'] %}
-    {% if _icon[property] is defined and _icon[property] is not empty %}
-        {% set _css_class=_css_class|merge(['ecl-icon--'~_icon[property]]) %}
-    {% endif %}
+  {% if _icon[property] is defined and _icon[property] is not empty %}
+    {% set _css_class=_css_class|merge(['ecl-icon--'~_icon[property]]) %}
+  {% endif %}
 {% endfor %}
 
 {% set _css_class=_css_class|join(' ') %}
