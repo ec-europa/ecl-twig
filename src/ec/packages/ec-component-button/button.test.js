@@ -1,5 +1,5 @@
 import path from 'path';
-import { renderTwigFileAsNode as renderTwigFile } from '@ecl-twig/test-utils';
+import { renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
 // Import data for tests
 import dataPrimary from '@ecl/ec-specs-button/demo/data--primary';
@@ -10,14 +10,13 @@ import dataSearch from '@ecl/ec-specs-button/demo/data--search';
 
 describe('EC - Button', () => {
   const template = path.resolve(__dirname, './button.html.twig');
+  const render = params => renderTwigFileAsNode(template, params);
 
   describe('Primary', () => {
     test('renders correctly', () => {
       expect.assertions(1);
 
-      return expect(
-        renderTwigFile(template, dataPrimary)
-      ).resolves.toMatchSnapshot();
+      return expect(render(dataPrimary)).resolves.toMatchSnapshot();
     });
   });
 
@@ -25,9 +24,7 @@ describe('EC - Button', () => {
     test('renders correctly', () => {
       expect.assertions(1);
 
-      return expect(
-        renderTwigFile(template, dataSecondary)
-      ).resolves.toMatchSnapshot();
+      return expect(render(dataSecondary)).resolves.toMatchSnapshot();
     });
   });
 
@@ -40,9 +37,7 @@ describe('EC - Button', () => {
       dataCall.icon.name = 'corner-arrow';
       dataCall.icon.size = 'fluid';
 
-      return expect(
-        renderTwigFile(template, dataCall)
-      ).resolves.toMatchSnapshot();
+      return expect(render(dataCall)).resolves.toMatchSnapshot();
     });
   });
 
@@ -50,9 +45,7 @@ describe('EC - Button', () => {
     test('renders correctly', () => {
       expect.assertions(1);
 
-      return expect(
-        renderTwigFile(template, dataGhost)
-      ).resolves.toMatchSnapshot();
+      return expect(render(dataGhost)).resolves.toMatchSnapshot();
     });
   });
 
@@ -60,9 +53,7 @@ describe('EC - Button', () => {
     test('renders correctly', () => {
       expect.assertions(1);
 
-      return expect(
-        renderTwigFile(template, dataSearch)
-      ).resolves.toMatchSnapshot();
+      return expect(render(dataSearch)).resolves.toMatchSnapshot();
     });
   });
 
@@ -76,9 +67,7 @@ describe('EC - Button', () => {
       dataCall.icon.size = 'fluid';
       dataCall.icon_position = 'before';
 
-      return expect(
-        renderTwigFile(template, dataCall)
-      ).resolves.toMatchSnapshot();
+      return expect(render(dataCall)).resolves.toMatchSnapshot();
     });
   });
 
@@ -97,9 +86,7 @@ describe('EC - Button', () => {
         },
       };
 
-      return expect(
-        renderTwigFile(template, buttonData)
-      ).resolves.toMatchSnapshot();
+      return expect(render(buttonData)).resolves.toMatchSnapshot();
     });
   });
 });
