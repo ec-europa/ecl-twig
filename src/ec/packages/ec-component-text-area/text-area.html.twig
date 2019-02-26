@@ -56,19 +56,19 @@
 <div class="ecl-form-group ecl-form-group--text-area">
   {%- if _label is not empty -%}
     <label 
-      class="ecl-form-label{{invalid ? ' ecl-form-label--invalid'}}{{hide_label ? ' ecl-form-label--hidden'}}"
-      for={{_id}}
+      class="ecl-form-label{{- invalid ? ' ecl-form-label--invalid' -}}{{- hide_label ? ' ecl-form-label--hidden' -}}"
+      for={{- _id -}}
     >
       {%- block label _label -%}
     </label>
   {%- endif -%}
-  
+
   <textarea
-    id="{{_id}}"
-    name="{{_name}}"
-    rows="{{_rows}}"
-    placeholder="{{_placeholder}}"
-    class="{{_css_class}}"
+    id="{{- _id -}}"
+    name="{{- _name -}}"
+    rows="{{- _rows -}}"
+    placeholder="{{- _placeholder -}}"
+    class="{{- _css_class -}}"
     {{- _disabled ? "disabled" -}}
     {{- _extra_attributes|raw -}} 
   >

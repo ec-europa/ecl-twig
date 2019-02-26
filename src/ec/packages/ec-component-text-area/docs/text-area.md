@@ -17,7 +17,7 @@ npm install --save @ecl-twig/ec-component-text-area
 - "name" (string) (default: '')
 - "hide_label" (boolean) (default: '')
 - "placeholder" (string) (default: '')
-- "type" (string) (default: 'text')
+- "rows" (int) (default: 4)
 - "extra_classes" (optional) (string) (default: '') Extra classes (space separated) for the icon
 - "extra_attributes" (optional) (array) (default: []) Extra attributes for icon
   - "name" (string) Attribute name, eg. 'data-test'
@@ -34,12 +34,13 @@ npm install --save @ecl-twig/ec-component-text-area
 <!-- prettier-ignore -->
 ```twig
 {% include 'path/to/text-area.html.twig' with { 
-  label: 'Email address', 
-  placeholder: 'Please enter your email address', 
-  invalid_text: "Invalid email address. Valid e-mail can contain only latin letters, numbers, '@' and '.'", 
-  helper_text: 'This address will be used for contact purpose', 
-  id: 'input-email', 
-  name: 'email', 
+  label: 'Comment', 
+  placeholder: 'Please enter your comment', 
+  invalid_text: "Comment have been locked on this article", 
+  helper_text: 'Your comment may be 255 characters long maximum', 
+  id: 'input-comment', 
+  name: 'comment', 
+  rows: 4, 
   extra_classes: 'my-extra-class-1 my-extra-class-2', 
   extra_attributes: [ 
     { name: 'data-test-1', value: 'data-test-value-1' }, 
