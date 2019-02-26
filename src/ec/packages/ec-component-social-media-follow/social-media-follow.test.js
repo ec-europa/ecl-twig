@@ -3,6 +3,14 @@ import { renderTwigFile } from '@ecl-twig/test-utils';
 
 import demoData from './demo/data';
 
+demoData.links.forEach(link => {
+  if (link.icons) {
+    link.icons.forEach(icon => {
+      icon.path = 'example'; // eslint-disable-line no-param-reassign
+    });
+  }
+});
+
 describe('EC - Social Media Follow', () => {
   const template = path.resolve(__dirname, './social-media-follow.html.twig');
 
