@@ -31,15 +31,19 @@ npm install --save @ecl-twig/eu-component-text-input
 
 ### Example:
 
+<!-- prettier-ignore -->
 ```twig
-{% include 'path/to/text-input.html.twig' with {
-  label: 'Email address',
-  placeholder: 'Please enter your email address',
-  invalid_text: "Invalid email address. Valid e-mail can contain only latin letters, numbers, '@' and '.'",
-  helper_text: 'This address will be used for contact purpose',
-  id: 'input-email',
-  name: 'email',
-  extra_classes: 'my-extra-class-1 my-extra-class-2',
-  extra_attributes: [{ name: 'data-test-1', value: 'data-test-value-1' },{ name: 'data-test-2', value: 'data-test-value-2' }]
+{% include 'path/to/text-input.html.twig' with { 
+  label: 'Email address', 
+  placeholder: 'Please enter your email address', 
+  invalid_text: "Invalid email address. Valid e-mail can contain only latin letters, numbers, '@' and '.'", 
+  helper_text: 'This address will be used for contact purpose', 
+  id: 'input-email', 
+  name: 'email', 
+  extra_classes: 'my-extra-class-1 my-extra-class-2', 
+  extra_attributes: [ 
+    { name: 'data-test-1', value: 'data-test-value-1' }, 
+    { name: 'data-test-2', value: 'data-test-value-2' } 
+  ] 
 } %}
 ```

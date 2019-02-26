@@ -30,75 +30,79 @@ npm install --save @ecl-twig/ec-component-card
 
 ### Example for default Card:
 
+<!-- prettier-ignore -->
 ```twig
-{% include 'path/to/card.html.twig' with {  
-  card: {  
-    type: 'default',  
-    description: 'Transparently designing and evaluating evidence-based EU legislation, backed by citizens views.',  
-    image: 'https://v2--europa-component-library.netlify.com/example-image.jpg',  
-    title: {  
-      type: 'standalone',  
-      path:  '/example',  
-      label: Better regulation',  
-    },  
-    meta: [ 'Meta 1', 'Meta 2', 'Meta 3' ],  
-    infos: [  
-      {  
-        label: '2018/10/22',  
-        icon: {  
-          type: 'general',  
-          name: 'calendar',  
-          path: '/path-to-the-icon-file',  
-        },  
-      },  
-      {  
-        label: 'Luxembourg',  
-        icon: {  
-          type: 'general',  
-          name: 'location',  
-          path: '/path-to-the-icon-file',  
-        },  
-      },  
-    ],  
-    tags: [  
-      {  
-        label: 'Tag 1',  
-        path: '/example-1',  
-      },  
-      {  
-        label: 'Tag 2',  
-        path: '/example-2',  
-      },  
-      {  
-        label: 'Tag 3',  
-        path: '/example-3',  
-      },  
-    ],  
-  }  
+{% include 'path/to/card.html.twig' with { 
+  card: { 
+    type: 'default', 
+    description: 'Transparently designing and evaluating evidence-based EU legislation, backed by citizens views.', 
+    image: 'https://v2--europa-component-library.netlify.com/example-image.jpg', 
+    title: { 
+      type: 'standalone', 
+      path:  '/example', 
+      label: Better regulation', 
+    }, 
+    meta: [ 'Meta 1', 'Meta 2', 'Meta 3' ], 
+    infos: [ 
+      { 
+        label: '2018/10/22', 
+        icon: { 
+          type: 'general', 
+          name: 'calendar', 
+          path: '/path-to-the-icon-file', 
+        }, 
+      }, 
+      { 
+        label: 'Luxembourg', 
+        icon: { 
+          type: 'general', 
+          name: 'location', 
+          path: '/path-to-the-icon-file', 
+        }, 
+      }, 
+    ], 
+    tags: [ 
+      { 
+        label: 'Tag 1', 
+        path: '/example-1', 
+      }, 
+      { 
+        label: 'Tag 2', 
+        path: '/example-2', 
+      }, 
+      { 
+        label: 'Tag 3', 
+        path: '/example-3', 
+      }, 
+    ], 
+  } 
 } %}
 ```
+
 ### Example for tile Card:
+
+<!-- prettier-ignore -->
 ```twig
-{% include 'path/to/card.html.twig' with {  
-  card: {  
-    description: 'Transparently designing and evaluating evidence-based EU legislation, backed by citizens views',  
-    title: {  
-      label: 'Better regulation',  
-    },  
-    type: 'tile',  
-    links: [  
-      {  
-        label: 'link 1',  
-        path: '/example-1',  
-      },  
-      {  
-        label: 'link 2',  
-        path: '/example-2',  
-      },  
-      {  
-        label: 'link 3',  
-        path: '/example-3',  
-      },  
-    ]  
+{% include 'path/to/card.html.twig' with { 
+  card: { 
+    description: 'Transparently designing and evaluating evidence-based EU legislation, backed by citizens views', 
+    title: { 
+      label: 'Better regulation', 
+    }, 
+    type: 'tile', 
+    links: [ 
+      { 
+        label: 'link 1', 
+        path: '/example-1', 
+      }, 
+      { 
+        label: 'link 2', 
+        path: '/example-2', 
+      }, 
+      { 
+        label: 'link 3', 
+        path: '/example-3', 
+      }, 
+    ] 
 } %}
 ```

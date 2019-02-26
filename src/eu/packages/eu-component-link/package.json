@@ -1,11 +1,19 @@
 {
-  "name": "@ecl-twig/eu-component-blockquote",
+  "name": "@ecl-twig/eu-component-link",
   "author": "European Commission",
   "license": "EUPL-1.1",
   "version": "0.0.1-alpha",
-  "description": "ECL Twig - EU Blockquote",
+  "description": "ECL Twig - EU Link",
   "publishConfig": {
     "access": "public"
+  },
+  "dependencies": {
+    "@ecl-twig/eu-component-icon": "^0.0.1-alpha"
+  },
+  "devDependencies": {
+    "@ecl/eu-resources-icons": "~2.1.0",
+    "@ecl/eu-specs-link": "~2.1.0",
+    "@ecl/eu-component-link": "^2.1.1"
   },
   "repository": {
     "type": "git",
