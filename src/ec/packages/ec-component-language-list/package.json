@@ -1,15 +1,20 @@
 {
-  "name": "@ecl-twig/ec-component-footer",
+  "name": "@ecl-twig/ec-component-language-list",
   "author": "European Commission",
   "license": "EUPL-1.1",
   "version": "0.0.1-alpha",
-  "description": "ECL Twig - EC Footer",
+  "description": "ECL Twig - EC Language List",
   "dependencies": {
+    "@ecl-twig/ec-component-button": "^0.0.1-alpha",
+    "@ecl-twig/ec-component-icon": "^0.0.1-alpha",
     "@ecl-twig/ec-component-link": "^0.0.1-alpha"
   },
   "devDependencies": {
+    "@ecl/ec-component-language-list": "^2.1.1",
     "@ecl/ec-resources-icons": "^2.1.1",
-    "@ecl/ec-specs-footer": "^2.1.1"
+    "@ecl/ec-resources-logo": "^2.1.1",
+    "@ecl/ec-specs-language-list": "^2.1.1",
+    "@ecl/ec-layout-grid": "^2.1.1"
   },
   "publishConfig": {
     "access": "public"
