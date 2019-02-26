@@ -7,8 +7,6 @@ const demoData = {
     {
       path: '/example',
       label: 'Twitter',
-      type: 'standalone',
-      icon_position: 'before',
       icons: [
         {
           name: 'twitter',
@@ -25,8 +23,6 @@ const demoData = {
     {
       path: '/example',
       label: 'Facebook',
-      type: 'standalone',
-      icon_position: 'before',
       icons: [
         {
           name: 'facebook',
@@ -43,8 +39,6 @@ const demoData = {
     {
       path: '/example',
       label: 'Google+',
-      type: 'standalone',
-      icon_position: 'before',
       icons: [
         {
           name: 'gplus',
@@ -61,8 +55,6 @@ const demoData = {
     {
       path: '/example',
       label: 'Linkedin',
-      type: 'standalone',
-      icon_position: 'before',
       icons: [
         {
           name: 'linkedin',
@@ -79,7 +71,6 @@ const demoData = {
     {
       path: '/example',
       label: 'Other social networks',
-      type: 'standalone',
     },
   ],
 };

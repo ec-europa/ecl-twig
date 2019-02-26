@@ -22,4 +22,16 @@ storiesOf('Components/Social Media Follow', module)
     {
       notes: { markdown: notes },
     }
+  )
+  .add(
+    'vertical',
+    () =>
+      SocialMediaFollow({
+        description: text('Description', data.description),
+        links: data.links,
+        variant: 'vertical',
+      }),
+    {
+      notes: { markdown: notes },
+    }
   );
