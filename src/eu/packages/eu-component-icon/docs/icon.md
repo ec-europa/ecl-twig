@@ -24,17 +24,21 @@ npm install --save @ecl-twig/eu-component-icon
 
 ### Example:
 
+<!-- prettier-ignore -->
 ```twig
-{% include 'path/to/icon.html.twig' with {
-  icon: {
-    path: '/static/media/icons.cbfd6efe.svg',
-    type: 'branded',
-    name: 'facebook',
-    size: 'm',
-    transform: 'rotate-90',
-    color: 'primary'
-  },
-  extra_classes: 'my-extra-class-1 my-extra-class-2',
-  extra_attributes: [{ name: 'data-test', value: 'data-test-value' },{ name: 'data-test-1', value: 'data-test-value-1' }]
+{% include 'path/to/icon.html.twig' with { 
+  icon: { 
+    path: '/static/media/icons.cbfd6efe.svg', 
+    type: 'branded', 
+    name: 'facebook', 
+    size: 'm', 
+    transform: 'rotate-90', 
+    color: 'primary' 
+  }, 
+  extra_classes: 'my-extra-class-1 my-extra-class-2', 
+  extra_attributes: [ 
+    { name: 'data-test', value: 'data-test-value' }, 
+    { name: 'data-test-1', value: 'data-test-value-1' } 
+  ] 
 } %}
 ```

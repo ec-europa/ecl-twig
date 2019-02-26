@@ -1,7 +1,7 @@
 {#
   Parameters:
-    - "blockquote_body" (string) (default: '')
-    - "blockquote_footer" (string) (default: '')
+    - "text_input" (associative array) default: A predefined structure for EC Text Input
+    - "button" (associative array) default: A predefined structure for EC Button
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
         {
@@ -12,15 +12,10 @@
       ]
 #}
 
-{# Internal properties #}
-
-{% set _css_class = 'ecl-blockquote' %}
+{% set _css_class = ['ecl-search-form'] %}
 {% set _extra_attributes = '' %}
-{% set _blockquote_body = blockquote_body|default('') %}
-{% set _blockquote_author = blockquote_author|default('') %}
 
 {# Internal logic - Process properties #}
-
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
 {% endif %}
@@ -31,9 +26,12 @@
   {% endfor %}
 {% endif %}
 
-{# Print the result #}
+<form class="{{ _css_class }}" role="search"{{ _extra_attributes|raw }}>
+  {% if text_input is defined %}
+    {% include '../ec-component-text-input/text-input.html.twig' with text_input %}
+  {% endif %}
 
-<blockquote class="{{ _css_class }}"{{ _extra_attributes|raw }}>
-  <p class="ecl-blockquote__body">{{ _blockquote_body }}</p>
-  <footer class="ecl-blockquote__attribution"><cite class="ecl-blockquote__author">{{ _blockquote_author }}</cite></footer>
-</blockquote>
+  {% if button is defined %}
+    {% include '../ec-component-button/button.html.twig' with button %}
+  {% endif %}
+</form>
