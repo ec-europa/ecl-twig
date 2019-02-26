@@ -1,0 +1,170 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EC - Site Header Breadcrumb long - renders correctly 1`] = `
+"<nav
+  class=\\"ecl-breadcrumb\\"
+  aria-label=\\"You are here:\\"
+  data-ecl-breadcrumb=\\"true\\"
+>
+  <ol class=\\"ecl-breadcrumb__container\\">
+    <li
+      class=\\"ecl-breadcrumb__segment\\"
+      data-ecl-breadcrumb-item=\\"static\\"
+      aria-hidden=\\"false\\"
+    >
+      <a
+        href=\\"/example\\"
+        class=\\"ecl-link ecl-link--standalone ecl-breadcrumb__link\\"
+        >Home</a
+      ><svg
+        class=\\"ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-icon--inverted ecl-breadcrumb__icon\\"
+        focusable=\\"false\\"
+        aria-hidden=\\"true\\"
+        role=\\"presentation\\"
+      >
+        <use xlink:href=\\"static/icons.svg#ui--corner-arrow\\"></use>
+      </svg>
+    </li>
+    <li
+      class=\\"ecl-breadcrumb__segment ecl-breadcrumb__segment--ellipsis\\"
+      aria-hidden=\\"false\\"
+      data-ecl-breadcrumb-ellipsis=\\"true\\"
+    >
+      <button
+        type=\\"button\\"
+        class=\\"ecl-breadcrumb__ellipsis\\"
+        aria-label=\\"Click to expand\\"
+        data-ecl-breadcrumb-ellipsis-button=\\"true\\"
+      >
+        …</button
+      ><svg
+        class=\\"ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-icon--inverted ecl-breadcrumb__icon\\"
+        focusable=\\"false\\"
+        aria-hidden=\\"true\\"
+        role=\\"presentation\\"
+      >
+        <use xlink:href=\\"static/icons.svg#ui--corner-arrow\\"></use>
+      </svg>
+    </li>
+    <li
+      class=\\"ecl-breadcrumb__segment\\"
+      data-ecl-breadcrumb-item=\\"expandable\\"
+      aria-hidden=\\"true\\"
+    >
+      <a
+        href=\\"/example\\"
+        class=\\"ecl-link ecl-link--standalone ecl-breadcrumb__link\\"
+        >About the European Commission</a
+      ><svg
+        class=\\"ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-icon--inverted ecl-breadcrumb__icon\\"
+        focusable=\\"false\\"
+        aria-hidden=\\"true\\"
+        role=\\"presentation\\"
+      >
+        <use xlink:href=\\"static/icons.svg#ui--corner-arrow\\"></use>
+      </svg>
+    </li>
+    <li
+      class=\\"ecl-breadcrumb__segment\\"
+      data-ecl-breadcrumb-item=\\"expandable\\"
+      aria-hidden=\\"true\\"
+    >
+      <a
+        href=\\"/example\\"
+        class=\\"ecl-link ecl-link--standalone ecl-breadcrumb__link\\"
+        >Organisational structure</a
+      ><svg
+        class=\\"ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-icon--inverted ecl-breadcrumb__icon\\"
+        focusable=\\"false\\"
+        aria-hidden=\\"true\\"
+        role=\\"presentation\\"
+      >
+        <use xlink:href=\\"static/icons.svg#ui--corner-arrow\\"></use>
+      </svg>
+    </li>
+    <li
+      class=\\"ecl-breadcrumb__segment\\"
+      data-ecl-breadcrumb-item=\\"static\\"
+      aria-hidden=\\"false\\"
+    >
+      <a
+        href=\\"/example\\"
+        class=\\"ecl-link ecl-link--standalone ecl-breadcrumb__link\\"
+        >How the Commission is organised</a
+      ><svg
+        class=\\"ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-icon--inverted ecl-breadcrumb__icon\\"
+        focusable=\\"false\\"
+        aria-hidden=\\"true\\"
+        role=\\"presentation\\"
+      >
+        <use xlink:href=\\"static/icons.svg#ui--corner-arrow\\"></use>
+      </svg>
+    </li>
+    <li
+      class=\\"ecl-breadcrumb__segment ecl-breadcrumb__current-page\\"
+      data-ecl-breadcrumb-item=\\"static\\"
+      aria-hidden=\\"false\\"
+      aria-current=\\"page\\"
+    >
+      News
+    </li>
+  </ol>
+</nav>
+"
+`;
+
+exports[`EC - Site Header Breadcrumb simple - renders correctly 1`] = `
+"<nav
+  class=\\"ecl-breadcrumb\\"
+  aria-label=\\"You are here:\\"
+  data-ecl-breadcrumb=\\"true\\"
+>
+  <ol class=\\"ecl-breadcrumb__container\\">
+    <li
+      class=\\"ecl-breadcrumb__segment\\"
+      data-ecl-breadcrumb-item=\\"static\\"
+      aria-hidden=\\"false\\"
+    >
+      <a
+        href=\\"/example\\"
+        class=\\"ecl-link ecl-link--standalone ecl-breadcrumb__link\\"
+        >Home</a
+      ><svg
+        class=\\"ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-icon--inverted ecl-breadcrumb__icon\\"
+        focusable=\\"false\\"
+        aria-hidden=\\"true\\"
+        role=\\"presentation\\"
+      >
+        <use xlink:href=\\"static/icons.svg#ui--corner-arrow\\"></use>
+      </svg>
+    </li>
+    <li
+      class=\\"ecl-breadcrumb__segment\\"
+      data-ecl-breadcrumb-item=\\"static\\"
+      aria-hidden=\\"false\\"
+    >
+      <a
+        href=\\"/example\\"
+        class=\\"ecl-link ecl-link--standalone ecl-breadcrumb__link\\"
+        >About the European Commission</a
+      ><svg
+        class=\\"ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-icon--inverted ecl-breadcrumb__icon\\"
+        focusable=\\"false\\"
+        aria-hidden=\\"true\\"
+        role=\\"presentation\\"
+      >
+        <use xlink:href=\\"static/icons.svg#ui--corner-arrow\\"></use>
+      </svg>
+    </li>
+    <li
+      class=\\"ecl-breadcrumb__segment ecl-breadcrumb__current-page\\"
+      data-ecl-breadcrumb-item=\\"static\\"
+      aria-hidden=\\"false\\"
+      aria-current=\\"page\\"
+    >
+      News
+    </li>
+  </ol>
+</nav>
+"
+`;
