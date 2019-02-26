@@ -1,7 +1,7 @@
 import path from 'path';
 import { renderTwigFile } from '@ecl-twig/test-utils';
 
-import data from './demo/data';
+import demoData from './demo/data';
 
 describe('EC - Social Media Follow', () => {
   const template = path.resolve(__dirname, './social-media-follow.html.twig');
@@ -10,7 +10,7 @@ describe('EC - Social Media Follow', () => {
     test('renders correctly', done => {
       expect.assertions(1);
 
-      renderTwigFile(template, data, (err, html) => {
+      renderTwigFile(template, demoData, (err, html) => {
         expect(html).toMatchSnapshot();
         done();
       });
@@ -24,7 +24,7 @@ describe('EC - Social Media Follow', () => {
       renderTwigFile(
         template,
         {
-          ...data,
+          ...demoData,
           variant: 'vertical',
         },
         (err, html) => {

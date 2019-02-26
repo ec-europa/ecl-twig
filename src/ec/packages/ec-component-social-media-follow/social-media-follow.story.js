@@ -3,10 +3,19 @@ import { withKnobs, text } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
 
-import data from './demo/data';
+import defaultSprite from '@ecl/ec-resources-social-icons/dist/sprites/icons-social.svg';
+import demoData from './demo/data';
 
 import SocialMediaFollow from './social-media-follow.html.twig';
 import notes from './README.md';
+
+demoData.links.forEach(link => {
+  if (link.icons) {
+    link.icons.forEach(icon => {
+      icon.path = defaultSprite; // eslint-disable-line no-param-reassign
+    });
+  }
+});
 
 storiesOf('Components/Social Media Follow', module)
   .addDecorator(withKnobs)
@@ -16,8 +25,8 @@ storiesOf('Components/Social Media Follow', module)
     'horizontal',
     () =>
       SocialMediaFollow({
-        description: text('Description', data.description),
-        links: data.links,
+        description: text('Description', demoData.description),
+        links: demoData.links,
       }),
     {
       notes: { markdown: notes },
@@ -27,8 +36,8 @@ storiesOf('Components/Social Media Follow', module)
     'vertical',
     () =>
       SocialMediaFollow({
-        description: text('Description', data.description),
-        links: data.links,
+        description: text('Description', demoData.description),
+        links: demoData.links,
         variant: 'vertical',
       }),
     {
