@@ -13,5 +13,5 @@ In order to ensure a safe and quick review, please check that your PR follow tho
 * [ ] My variables naming follow the guidelines (snake case for twig)
 * [ ] I have provided tests
 * [ ] I have provided documentation (for the "notes" tab)
-* [ ] My local `yarn.lock` was commited
+* [ ] If my local `yarn.lock` contains changes, I have committed it
 * [ ] I have given my PR  the proper label (`pr: review needed` to indicate that I'm done and now waiting for a review ,`pr: wip` to indicate that I'm actively working on it ...)
