@@ -7,7 +7,7 @@ const demoData = {
       label: 'Twitter',
       type: 'standalone',
       icon_position: 'before',
-      icon: [
+      icons: [
         {
           name: 'twitter',
           size: 'xl',
@@ -23,7 +23,7 @@ const demoData = {
       label: 'Facebook',
       type: 'standalone',
       icon_position: 'before',
-      icon: [
+      icons: [
         {
           name: 'facebook',
           size: 'xl',
@@ -39,7 +39,7 @@ const demoData = {
       label: 'Google+',
       type: 'standalone',
       icon_position: 'before',
-      icon: [
+      icons: [
         {
           name: 'gplus',
           size: 'xl',
@@ -55,7 +55,7 @@ const demoData = {
       label: 'Linkedin',
       type: 'standalone',
       icon_position: 'before',
-      icon: [
+      icons: [
         {
           name: 'linkedin',
           size: 'xl',
