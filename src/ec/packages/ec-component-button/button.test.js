@@ -1,5 +1,5 @@
 import path from 'path';
-import { renderTwigFilePromise as renderTwigFile } from '@ecl-twig/test-utils';
+import { renderTwigFileAsNode as renderTwigFile } from '@ecl-twig/test-utils';
 
 // Import data for tests
 import dataPrimary from '@ecl/ec-specs-button/demo/data--primary';
