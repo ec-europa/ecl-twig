@@ -1,3 +1,5 @@
+import defaultSprite from '@ecl/ec-resources-social-icons/dist/sprites/icons-social.svg';
+
 const demoData = {
   description:
     'Follow the latest progress and learn more about getting involved.',
@@ -11,10 +13,12 @@ const demoData = {
         {
           name: 'twitter',
           size: 'xl',
+          path: defaultSprite,
         },
         {
           name: 'twitter_hover',
           size: 'xl',
+          path: defaultSprite,
         },
       ],
     },
@@ -27,10 +31,12 @@ const demoData = {
         {
           name: 'facebook',
           size: 'xl',
+          path: defaultSprite,
         },
         {
           name: 'facebook_hover',
           size: 'xl',
+          path: defaultSprite,
         },
       ],
     },
@@ -43,10 +49,12 @@ const demoData = {
         {
           name: 'gplus',
           size: 'xl',
+          path: defaultSprite,
         },
         {
           name: 'gplus_hover',
           size: 'xl',
+          path: defaultSprite,
         },
       ],
     },
@@ -59,10 +67,12 @@ const demoData = {
         {
           name: 'linkedin',
           size: 'xl',
+          path: defaultSprite,
         },
         {
           name: 'linkedin_hover',
           size: 'xl',
+          path: defaultSprite,
         },
       ],
     },

@@ -1,22 +1,6 @@
 {#
   Parameters:
     - "description" (string) (default: '')
-    - "links" (array) (default: []): format: [
-        {
-          "href" (string) (default: ''),
-          "label" (string) (default: ''),
-          "variant" (string) (default: ''),
-          "icon_position" (string) (default: ''),
-          "icon": (array) (default: []): format: [
-            {
-              "shape" (string) (default: ''),
-              "size" (string) (default: '')
-            },
-            ...
-          ]
-        },
-        ...
-      ]
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
         {
@@ -53,42 +37,16 @@
   <ul class="ecl-social-media-follow__list">
     {% for link in _links %}
     <li class="ecl-social-media-follow__item">
-    {% embed '../ec-component-link/link.html.twig' with link|merge({
-        extra_classes: 'ecl-link--icon ecl-link--icon-before',
-      }) %}
-      {% block icons %}
-      {% for icon in link.icons %}
-        {% include '../ec-component-icon/icon.html.twig' with icon|merge({
-          extra_classes: 'ecl-social-media-follow__icon ecl-link__icon ecl-icon ecl-icon--xl',
-          icon_position: link.icon_position,
-          path: '',
-          type: '',
-        }) %}
-      {% endfor %}
-      {% endblock %}
-    {% endembed %}    
-  
-      {# 
-      <a href="/example" class=" ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-before">
-  
-      <svg class="{{ _css_class }}"{{ _extra_attributes|raw }}>
-        <use xlink:href="{{ _icon.path }}#{{ _icon.type }}--{{ _icon.name}}"></use>
+      <a href="{{link.path}}" class="ecl-social-media-follow__link ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-before">
+      {% set icons = link.icons %}
+      <svg focusable="false" aria-hidden="true" class="ecl-social-media-follow__icon ecl-link__icon ecl-icon ecl-icon--xl">
+        <use xlink:href="{{icons[0].path}}#{{icons[0].name}}">
       </svg>
-
-      <svg
-          focusable="false" aria-hidden="true" class="ecl-social-media-follow__icon ecl-link__icon ecl-icon ecl-icon--xl">
-          <use xlink:href="/static/media/icons-social.92a84a3f.svg#twitter">
-          </use>
-        </svg>
-
-
-        <svg focusable="false" aria-hidden="true" class="ecl-social-media-follow__icon-hover ecl-link__icon ecl-icon ecl-icon--xl">
-          <use xlink:href="/static/media/icons-social.92a84a3f.svg#twitter_hover">
-          </use>
-        </svg>
-        <span class="ecl-link__label">Twitter</span>
-        </a>
-        #}
+      <svg focusable="false" aria-hidden="true" class="ecl-social-media-follow__icon-hover ecl-link__icon ecl-icon ecl-icon--xl">
+        <use xlink:href="{{icons[1].path}}#{{icons[1].name}}">
+      </svg>
+      <span class="ecl-link__label">{{link.label}}</span>
+      </a>        
     </li>
     {% endfor %}
   </ul>
