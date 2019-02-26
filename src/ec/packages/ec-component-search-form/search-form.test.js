@@ -21,6 +21,7 @@ describe('EC - Search Form', () => {
             type: 'general',
             name: 'search',
             path: defaultIconPath,
+            size: 'fluid',
           },
           label: 'Search',
           extra_classes: 'ecl-search-form__button',
