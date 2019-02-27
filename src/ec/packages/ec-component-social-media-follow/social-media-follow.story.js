@@ -10,8 +10,8 @@ import SocialMediaFollow from './social-media-follow.html.twig';
 import notes from './docs/social-media-follow.md';
 
 demoData.links.forEach(link => {
-  if (link.icons) {
-    link.icons.forEach(icon => {
+  if (link.icon) {
+    link.icon.forEach(icon => {
       icon.path = defaultSprite; // eslint-disable-line no-param-reassign
     });
   }

@@ -6,7 +6,7 @@
         {
           "path" (string) (default: ''),
           "label" (string) (default: '')
-          "icons" (array) : format: [
+          "icon" (array) : format: [
             {
               "name" (string),
               "size": (string),
@@ -61,8 +61,8 @@
     {% for link in _links %}
     <li class="ecl-social-media-follow__item">
       <a href="{{- link.path -}}" class="ecl-social-media-follow__link ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-before">
-      {% if link.icons is defined and link.icons is not empty %}
-      {% for icon in link.icons %}
+      {% if link.icon is defined and link.icon is not empty %}
+      {% for icon in link.icon %}
       <svg focusable="false" aria-hidden="true" class="ecl-link__icon ecl-icon ecl-icon--{{- icon.size ~ ' ' ~ icon.extra_classes -}}">
         <use xlink:href="{{- icon.path -}}#{{- icon.name -}}" />
       </svg>

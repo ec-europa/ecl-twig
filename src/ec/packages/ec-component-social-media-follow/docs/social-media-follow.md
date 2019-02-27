@@ -15,7 +15,7 @@ npm install --save @ecl-twig/ec-component-social-media-follow
 - "links" (array) (default: []) - List of links to external social media. Each link consists of the following:
   - "path" (string) - The "href" attribute of the link
   - "label" (string) - Human-readable name of the link
-  - "icons" (array) - List of icons used for normal and hover states. Each icon consists of the following:
+  - "icon" (array) - List of icons used for normal and hover states. Each icon consists of the following:
     - "name" (string) - Icon name
     - "size" (string) - Size such as "xl"
     - "path" (string) - Path in terms of an SVG icon
@@ -34,18 +34,18 @@ npm install --save @ecl-twig/ec-component-social-media-follow
     'Follow the latest progress and learn more about getting involved.',
   links: [
     {
-      path: '/example',
+      href: '/example',
       label: 'Twitter',
-      icons: [
+      variant: 'standalone',
+      iconPosition: 'before',
+      icon: [
         {
-          name: 'twitter',
+          shape: 'twitter',
           size: 'xl',
-          extra_classes: 'ecl-social-media-follow__icon',
         },
         {
-          name: 'twitter_hover',
+          shape: 'twitter_hover',
           size: 'xl',
-          extra_classes: 'ecl-social-media-follow__icon-hover',
         },
       ],
     },

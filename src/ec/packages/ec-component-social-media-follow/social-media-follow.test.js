@@ -4,8 +4,8 @@ import { renderTwigFile } from '@ecl-twig/test-utils';
 import demoData from './demo/data';
 
 demoData.links.forEach(link => {
-  if (link.icons) {
-    link.icons.forEach(icon => {
+  if (link.icon) {
+    link.icon.forEach(icon => {
       icon.path = 'example'; // eslint-disable-line no-param-reassign
     });
   }

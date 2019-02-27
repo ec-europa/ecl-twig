@@ -1,76 +1,26 @@
-const demoData = {
-  description:
-    'Follow the latest progress and learn more about getting involved.',
-  links: [
-    {
-      path: '/example',
-      label: 'Twitter',
-      icons: [
-        {
-          name: 'twitter',
-          size: 'xl',
-          extra_classes: 'ecl-social-media-follow__icon',
-        },
-        {
-          name: 'twitter_hover',
-          size: 'xl',
-          extra_classes: 'ecl-social-media-follow__icon-hover',
-        },
-      ],
-    },
-    {
-      path: '/example',
-      label: 'Facebook',
-      icons: [
-        {
-          name: 'facebook',
-          size: 'xl',
-          extra_classes: 'ecl-social-media-follow__icon',
-        },
-        {
-          name: 'facebook_hover',
-          size: 'xl',
-          extra_classes: 'ecl-social-media-follow__icon-hover',
-        },
-      ],
-    },
-    {
-      path: '/example',
-      label: 'Google+',
-      icons: [
-        {
-          name: 'gplus',
-          size: 'xl',
-          extra_classes: 'ecl-social-media-follow__icon',
-        },
-        {
-          name: 'gplus_hover',
-          size: 'xl',
-          extra_classes: 'ecl-social-media-follow__icon-hover',
-        },
-      ],
-    },
-    {
-      path: '/example',
-      label: 'Linkedin',
-      icons: [
-        {
-          name: 'linkedin',
-          size: 'xl',
-          extra_classes: 'ecl-social-media-follow__icon',
-        },
-        {
-          name: 'linkedin_hover',
-          size: 'xl',
-          extra_classes: 'ecl-social-media-follow__icon-hover',
-        },
-      ],
-    },
-    {
-      path: '/example',
-      label: 'Other social networks',
-    },
-  ],
+/* eslint-disable import/no-extraneous-dependencies, no-param-reassign */
+import specData from '@ecl/ec-specs-social-media-follow/demo/data';
+
+const adapter = initialData => {
+  const adaptedData = JSON.parse(JSON.stringify(initialData));
+
+  adaptedData.links.forEach(link => {
+    // Corrections on links.
+    link.path = link.href;
+    link.icon_position = link.iconPosition;
+
+    // Corrections on the icons inside the link.
+    if (link.icon) {
+      link.icon.forEach(icon => {
+        icon.name = icon.shape;
+        icon.extra_classes = icon.name.includes('hover')
+          ? 'ecl-social-media-follow__icon-hover'
+          : 'ecl-social-media-follow__icon';
+      });
+    }
+  });
+
+  return adaptedData;
 };
 
-export default demoData;
+export default adapter(specData);
