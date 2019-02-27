@@ -5,11 +5,13 @@
         {
           "path" (string) (default: ''),
           "label" (string) (default: '')
+          "extra_classes" (string)
           "icons" (array) : format: [
             {
               "name" (string),
               "size": (string),
               "path": (string),
+              "extra_classes": (string)
             },
             ...
           ]
@@ -49,19 +51,19 @@
 {# Print the result #}
 <div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
   <p class="ecl-social-media-share__description">{{ _description }}</p>
-  {% if _links is defined and _links is not empty %}
+  {% if _links is not empty %}
   <ul class="ecl-social-media-share__list">
     {% for link in _links %}
     <li class="ecl-social-media-share__item">
-      <a href="{{link.path}}" class="ecl-link ecl-link--icon ecl-link--icon-before ecl-link--standalone ecl-social-media-share__link {{link.extra_classes}}">
+      <a href="{{- link.path -}}" class="ecl-link ecl-link--icon ecl-link--icon-before ecl-link--standalone ecl-social-media-share__link {{- ' ' ~ link.extra_classes -}}">
       {% if link.icons is defined and link.icons is not empty %}
       {% for icon in link.icons %}
-      <svg focusable="false" aria-hidden="true" class="ecl-social-media-follow__icon ecl-link__icon ecl-icon ecl-icon--{{icon.size}} {{icon.extra_classes}}">
-        <use xlink:href="{{icon.path}}#{{icon.name}}" />
+      <svg focusable="false" aria-hidden="true" class="ecl-link__icon ecl-icon ecl-icon--{{- icon.size ~ ' ' ~ icon.extra_classes -}}">
+        <use xlink:href="{{- icon.path -}}#{{- icon.name -}}" />
       </svg>
       {% endfor %}
       {% endif %}
-      &nbsp;<span class="ecl-link__label">{{link.label}}</span>
+      &nbsp;<span class="ecl-link__label">{{- link.label -}}</span>
       </a>        
     </li>
     {% endfor %}

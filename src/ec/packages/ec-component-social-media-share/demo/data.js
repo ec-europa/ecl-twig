@@ -9,7 +9,7 @@ const demoData = {
         {
           name: 'twitter',
           size: 'xl',
-          extra_classes: '',
+          extra_classes: 'ecl-social-media-share__icon',
         },
         {
           name: 'twitter_hover',
@@ -26,7 +26,7 @@ const demoData = {
         {
           name: 'facebook',
           size: 'xl',
-          extra_classes: '',
+          extra_classes: 'ecl-social-media-share__icon',
         },
         {
           name: 'facebook_hover',
@@ -43,7 +43,7 @@ const demoData = {
         {
           name: 'linkedin',
           size: 'xl',
-          extra_classes: '',
+          extra_classes: 'ecl-social-media-share__icon',
         },
         {
           name: 'linkedin_hover',
@@ -60,7 +60,7 @@ const demoData = {
         {
           name: 'gplus',
           size: 'xl',
-          extra_classes: '',
+          extra_classes: 'ecl-social-media-share__icon',
         },
         {
           name: 'gplus_hover',
@@ -77,7 +77,7 @@ const demoData = {
         {
           name: 'email',
           size: 'xl',
-          extra_classes: '',
+          extra_classes: 'ecl-social-media-share__icon',
         },
         {
           name: 'email_hover',
