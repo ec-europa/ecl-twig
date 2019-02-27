@@ -13,13 +13,12 @@ npm install --save @ecl-twig/ec-component-text-area
 - "id" (string) (default: '')
 - "disabled" (boolean) (default: false)
 - "invalid" (boolean) (default: false)
-- "invalid_icon_label" (string) (default: '')
 - "name" (string) (default: '')
 - "hide_label" (boolean) (default: '')
 - "placeholder" (string) (default: '')
 - "rows" (int) (default: 4)
-- "extra_classes" (optional) (string) (default: '') Extra classes (space separated) for the icon
-- "extra_attributes" (optional) (array) (default: []) Extra attributes for icon
+- "extra_classes" (optional) (string) (default: '') Extra classes (space separated) for the text area
+- "extra_attributes" (optional) (array) (default: []) Extra attributes for text area
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
 
