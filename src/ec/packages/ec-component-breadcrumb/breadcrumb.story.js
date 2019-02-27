@@ -14,8 +14,8 @@ storiesOf('Components/Breadcrumb', module)
   .addDecorator(withCode)
   .add(
     'simple',
-    () => {
-      const html = breadcrumb({
+    () =>
+      breadcrumb({
         links: [
           {
             label: 'Home',
@@ -32,26 +32,15 @@ storiesOf('Components/Breadcrumb', module)
         ],
         icon_file_path: defaultSprite,
         navigation_text: 'You are here:',
-      });
-
-      const script = `document.querySelector(".ecl-breadcrumb").innerHTML = '<p>HACKED</p>'`;
-
-      const demo = document.createElement('div');
-      demo.innerHTML = html;
-      const scriptElement = document.createElement('script');
-      scriptElement.innerHTML = script;
-      demo.append(scriptElement);
-
-      return demo;
-    },
+      }),
     {
       notes: { markdown: breadcrumbDocs },
     }
   )
   .add(
     'long',
-    () =>
-      breadcrumb({
+    () => {
+      const html = breadcrumb({
         links: [
           {
             label: 'Home',
@@ -80,7 +69,22 @@ storiesOf('Components/Breadcrumb', module)
         ],
         icon_file_path: defaultSprite,
         navigation_text: 'You are here:',
-      }),
+      });
+
+      const script = `
+      var breadcrumbElement = document.querySelector("[data-ecl-breadcrumb]");
+      var breadcrumb = new ECL.Breadcrumb(breadcrumbElement);
+      breadcrumb.init();
+      `;
+
+      const demo = document.createElement('div');
+      demo.innerHTML = html;
+      const scriptElement = document.createElement('script');
+      scriptElement.innerHTML = script;
+      demo.append(scriptElement);
+
+      return demo;
+    },
     {
       notes: { markdown: breadcrumbDocs },
     }
