@@ -52,26 +52,26 @@
 {% endif %}
 
 {# Print the result #}
+{% spaceless %}
 <div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
   <p class="ecl-social-media-follow__description">{{ _description }}</p>
-  {% if _links is defined and _links is not empty %}
+  {% if _links is not empty %}
   <ul class="ecl-social-media-follow__list">
     {% for link in _links %}
     <li class="ecl-social-media-follow__item">
-      <a href="{{link.path}}" class="ecl-social-media-follow__link ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-before">
+      <a href="{{- link.path -}}" class="ecl-social-media-follow__link ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-before">
       {% if link.icons is defined and link.icons is not empty %}
-      {% set icons = link.icons %}
-      <svg focusable="false" aria-hidden="true" class="ecl-social-media-follow__icon ecl-link__icon ecl-icon ecl-icon--{{icons[0].size}}">
-        <use xlink:href="{{icons[0].path}}#{{icons[0].name}}" />
+      {% for icon in link.icons %}
+      <svg focusable="false" aria-hidden="true" class="ecl-link__icon ecl-icon ecl-icon--{{- icon.size ~ ' ' ~ icon.extra_classes -}}">
+        <use xlink:href="{{- icon.path -}}#{{- icon.name -}}" />
       </svg>
-      <svg focusable="false" aria-hidden="true" class="ecl-social-media-follow__icon-hover ecl-link__icon ecl-icon ecl-icon--{{icons[1].size}}">
-        <use xlink:href="{{icons[1].path}}#{{icons[1].name}}" />
-      </svg>
+      {% endfor %}
       {% endif %}
-      <span class="ecl-link__label">{{link.label}}</span>
+      <span class="ecl-link__label">{{- link.label -}}</span>
       </a>        
     </li>
     {% endfor %}
   </ul>
   {% endif %}
 </div>
+{% endspaceless %}

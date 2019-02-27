@@ -9,10 +9,12 @@ const demoData = {
         {
           name: 'twitter',
           size: 'xl',
+          extra_classes: 'ecl-social-media-follow__icon',
         },
         {
           name: 'twitter_hover',
           size: 'xl',
+          extra_classes: 'ecl-social-media-follow__icon-hover',
         },
       ],
     },
@@ -23,10 +25,12 @@ const demoData = {
         {
           name: 'facebook',
           size: 'xl',
+          extra_classes: 'ecl-social-media-follow__icon',
         },
         {
           name: 'facebook_hover',
           size: 'xl',
+          extra_classes: 'ecl-social-media-follow__icon-hover',
         },
       ],
     },
@@ -37,10 +41,12 @@ const demoData = {
         {
           name: 'gplus',
           size: 'xl',
+          extra_classes: 'ecl-social-media-follow__icon',
         },
         {
           name: 'gplus_hover',
           size: 'xl',
+          extra_classes: 'ecl-social-media-follow__icon-hover',
         },
       ],
     },
@@ -51,10 +57,12 @@ const demoData = {
         {
           name: 'linkedin',
           size: 'xl',
+          extra_classes: 'ecl-social-media-follow__icon',
         },
         {
           name: 'linkedin_hover',
           size: 'xl',
+          extra_classes: 'ecl-social-media-follow__icon-hover',
         },
       ],
     },
