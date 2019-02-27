@@ -54,8 +54,8 @@
 
 {# Print the result #}
 {% spaceless %}
-<div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
-  <p class="ecl-social-media-follow__description">{{ _description }}</p>
+<div class="{{- _css_class -}}"{{- _extra_attributes|raw -}}>
+  <p class="ecl-social-media-follow__description">{{- _description -}}</p>
   {% if _links is not empty %}
   <ul class="ecl-social-media-follow__list">
     {% for link in _links %}
