@@ -30,27 +30,28 @@ npm install --save @ecl-twig/ec-component-site-header
 
 ### Example :
 
+<!-- prettier-ignore -->
 ```twig
-{% include 'path/to/site-header.html.twig' with {  
-  icon_file_path: '/path-to-the-icons-file',  
-  language: {  
-    url: '/example',  
-    code: 'en',  
-    label: 'English',  
-  },  
-  header_link: {  
-    url: '/example-1',  
-    aria_label: 'European Commission',  
-  },  
-  header_image: {  
-    src: '',  
-    alt: 'European Commission logo',  
-    title: 'European Commission',  
-  },  
-  search_form: {  
-    button: {  
-      label: 'Search',  
-    },  
-  },  
-} %}
+{% include 'path/to/site-header.html.twig' with { 
+  icon_file_path: '/path-to-the-icons-file', 
+  language: { 
+    url: '/example', 
+    code: 'en', 
+    label: 'English', 
+  }, 
+  header_link: { 
+    url: '/example-1', 
+    aria_label: 'European Commission', 
+  }, 
+  header_image: { 
+    src: '', 
+    alt: 'European Commission logo', 
+    title: 'European Commission', 
+  }, 
+  search_form: { 
+    button: { 
+      label: 'Search', 
+    }, 
+  }, 
+} %} 
 ```
