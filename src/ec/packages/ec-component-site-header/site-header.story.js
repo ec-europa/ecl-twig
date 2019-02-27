@@ -36,6 +36,12 @@ storiesOf('Components/Site Header', module)
         search_form: {
           button: {
             label: 'Search',
+            icon: {
+              type: 'general',
+              name: 'search',
+              path: defaultSprite,
+              size: 'xs',
+            },
           },
         },
       }),
@@ -65,6 +71,12 @@ storiesOf('Components/Site Header', module)
         search_form: {
           button: {
             label: 'Recherche',
+            icon: {
+              type: 'general',
+              name: 'search',
+              path: defaultSprite,
+              size: 'xs',
+            },
           },
         },
       }),
