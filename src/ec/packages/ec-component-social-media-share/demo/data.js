@@ -1,96 +1,27 @@
-const demoData = {
-  description: 'Share this page',
-  links: [
-    {
-      path: '/example',
-      label: 'Twitter',
-      extra_classes: 'ecl-social-media-share__link--twitter',
-      icons: [
-        {
-          name: 'twitter',
-          size: 'xl',
-          extra_classes: 'ecl-social-media-share__icon',
-        },
-        {
-          name: 'twitter_hover',
-          size: 'xl',
-          extra_classes: 'ecl-social-media-share__icon-hover',
-        },
-      ],
-    },
-    {
-      path: '/example',
-      label: 'Facebook',
-      extra_classes: 'ecl-social-media-share__link--facebook',
-      icons: [
-        {
-          name: 'facebook',
-          size: 'xl',
-          extra_classes: 'ecl-social-media-share__icon',
-        },
-        {
-          name: 'facebook_hover',
-          size: 'xl',
-          extra_classes: 'ecl-social-media-share__icon-hover',
-        },
-      ],
-    },
-    {
-      path: '/example',
-      label: 'Linkedin',
-      extra_classes: 'ecl-social-media-share__link--linkedin',
-      icons: [
-        {
-          name: 'linkedin',
-          size: 'xl',
-          extra_classes: 'ecl-social-media-share__icon',
-        },
-        {
-          name: 'linkedin_hover',
-          size: 'xl',
-          extra_classes: 'ecl-social-media-share__icon-hover',
-        },
-      ],
-    },
-    {
-      path: '/example',
-      label: 'Google+',
-      extra_classes: 'ecl-social-media-share__link--google',
-      icons: [
-        {
-          name: 'gplus',
-          size: 'xl',
-          extra_classes: 'ecl-social-media-share__icon',
-        },
-        {
-          name: 'gplus_hover',
-          size: 'xl',
-          extra_classes: 'ecl-social-media-share__icon-hover',
-        },
-      ],
-    },
-    {
-      path: '/example',
-      label: 'E-mail',
-      extra_classes: 'ecl-social-media-share__link--email',
-      icons: [
-        {
-          name: 'email',
-          size: 'xl',
-          extra_classes: 'ecl-social-media-share__icon',
-        },
-        {
-          name: 'email_hover',
-          size: 'xl',
-          extra_classes: 'ecl-social-media-share__icon-hover',
-        },
-      ],
-    },
-    {
-      path: '/example',
-      label: 'Other social networks',
-    },
-  ],
+/* eslint-disable import/no-extraneous-dependencies, no-param-reassign  */
+import specData from '@ecl/ec-specs-social-media-share/demo/data';
+
+const adapter = initialData => {
+  const adaptedData = JSON.parse(JSON.stringify(initialData));
+
+  adaptedData.links.forEach(link => {
+    // Corrections on links.
+    link.path = link.href;
+    link.icon_position = link.iconPosition;
+    link.extra_classes = link.className;
+
+    // Corrections on the icons inside the link.
+    if (link.icon) {
+      link.icon.forEach(icon => {
+        icon.name = icon.shape;
+        icon.extra_classes = icon.name.includes('hover')
+          ? 'ecl-social-media-share__icon-hover'
+          : 'ecl-social-media-share__icon';
+      });
+    }
+  });
+
+  return adaptedData;
 };
 
-export default demoData;
+export default adapter(specData);

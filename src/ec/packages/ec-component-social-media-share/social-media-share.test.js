@@ -5,8 +5,8 @@ import demoData from './demo/data';
 
 // Set fake paths for svgs to render for tests.
 demoData.links.forEach(link => {
-  if (link.icons) {
-    link.icons.forEach(icon => {
+  if (link.icon) {
+    link.icon.forEach(icon => {
       icon.path = 'example'; // eslint-disable-line no-param-reassign
     });
   }

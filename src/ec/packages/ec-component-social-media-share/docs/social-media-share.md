@@ -15,7 +15,7 @@ npm install --save @ecl-twig/ec-component-social-media-share
   - "path" (string) - The "href" attribute of the link
   - "label" (string) - Human-readable name of the link
   - "extra_classes" (string) - Add specific CSS class for the background of the given social network, i.e. "ecl-social-media-share\_\_link--twitter" for blue background of Twitter
-  - "icons" (array) - List of icons used for normal and hover states. Each icon consists of the following:
+  - "icon" (array) - List of icons used for normal and hover states. Each icon consists of the following:
     - "name" (string) - Icon name
     - "size" (string) - Size such as "xl"
     - "path" (string) - Path in terms of an SVG icon
@@ -32,20 +32,22 @@ npm install --save @ecl-twig/ec-component-social-media-share
 {% include 'path/to/social-media-share.html.twig' with {
   description: 'Share this page',
   links: [
-    {
-      path: '/example',
+  {
+      href: '/example',
       label: 'Twitter',
-      extra_classes: 'ecl-social-media-share__link--twitter',
-      icons: [
+      className: 'ecl-social-media-share__link--twitter',
+      variant: 'standalone',
+      iconPosition: 'before',
+      icon: [
         {
-          name: 'twitter',
+          shape: 'twitter',
           size: 'xl',
-          extra_classes: 'ecl-social-media-share__icon',
+          className: '',
         },
         {
-          name: 'twitter_hover',
+          shape: 'twitter_hover',
           size: 'xl',
-          extra_classes: 'ecl-social-media-share__icon-hover',
+          className: 'ecl-social-media-share__icon-hover',
         },
       ],
     },
