@@ -2,6 +2,7 @@
 import specData from '@ecl/ec-specs-social-media-follow/demo/data';
 
 const adapter = initialData => {
+  // Copy reference specification demo data.
   const adaptedData = JSON.parse(JSON.stringify(initialData));
 
   adaptedData.links.forEach(link => {
