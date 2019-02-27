@@ -13,10 +13,12 @@ npm install --save @ecl-twig/ec-component-social-media-follow
 - "description" (string) (default: '')
 - "variant" (string) (default: '') - Can be 'vertical'
 - "links" (array) (default: []) - List of links to external social media. Each link consists of the following:
-  - "path" (string) - The "href" attribute of the link
+  - "href" (string) - Namely the same attribute
   - "label" (string) - Human-readable name of the link
+  - "iconPosition" (string) - Whether the icon is expected to be "before" or "after"
+  - "variant" (string) - Link variant, usually "standalone" is default.
   - "icon" (array) - List of icons used for normal and hover states. Each icon consists of the following:
-    - "name" (string) - Icon name
+    - "shape" (string) - Icon name
     - "size" (string) - Size such as "xl"
     - "path" (string) - Path in terms of an SVG icon
     - "extra_classes" (string) - Class to toggle between normal and hover effects
