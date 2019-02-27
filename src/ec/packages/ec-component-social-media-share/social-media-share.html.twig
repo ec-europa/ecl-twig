@@ -1,24 +1,26 @@
 {#
   Parameters:
-    - "description" (string) (default: '')
+    - "description" (string) (default: ''),
     - "links" (array) (default: []): format: [
         {
-          "path" (string) (default: ''),
-          "label" (string) (default: '')
-          "extra_classes" (string)
+          "href" (string) (default: ''),
+          "label" (string) (default: ''),
+          "iconPosition" (string) (default: ''),
+          "variant" (string) (default: ''),
+          "className" (string),
           "icon" (array) : format: [
             {
-              "name" (string),
+              "shape" (string),
               "size": (string),
               "path": (string),
-              "extra_classes": (string)
+              "className": (string)
             },
             ...
           ]
         },
         ...
       ]    
-    - "extra_classes" (string) (default: '')
+    - "extra_classes" (string) (default: ''),
     - "extra_attributes" (array) (default: []): format: [
         {
           "name" (string) (default: ''),
@@ -56,7 +58,24 @@
   <ul class="ecl-social-media-share__list">
     {% for link in _links %}
     <li class="ecl-social-media-share__item">
-      <a href="{{- link.path -}}" class="ecl-link ecl-link--icon ecl-link--icon-before ecl-link--standalone ecl-social-media-share__link {{- ' ' ~ link.extra_classes -}}">
+      {%- set _link_classes = 'ecl-social-media-share__link ecl-link' -%}
+
+      {%- if link.variant is not empty -%}
+        {%- set _link_classes = _link_classes ~ ' ' ~ 'ecl-link--' ~ link.variant -%}
+      {%- endif -%}
+
+      {%- if link.extra_classes is not empty -%}
+        {%- set _link_classes = _link_classes ~ ' ' ~ link.extra_classes -%}
+      {%- endif -%}      
+
+      {%- if link.icon is defined and link.icon is not empty -%}
+      {%- set _link_classes = _link_classes ~ ' ' ~ 'ecl-link--icon' -%}
+        {%- if link.icon_position is defined and link.icon_position is not empty -%}
+          {%- set _link_classes = _link_classes ~ ' ' ~ 'ecl-link--icon-' ~ link.icon_position -%}
+        {%- endif -%}
+      {%- endif -%}
+
+      <a href="{{- link.path -}}" class="  {{- _link_classes -}}">
       {% if link.icon is defined and link.icon is not empty %}
       {% for icon in link.icon %}
       <svg focusable="false" aria-hidden="true" class="ecl-link__icon ecl-icon ecl-icon--{{- icon.size ~ ' ' ~ icon.extra_classes -}}">
