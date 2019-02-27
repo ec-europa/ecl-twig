@@ -1,1 +1,1 @@
-# ECL Twig - EC SIte Header component
+# ECL Twig - EC Site Header component
