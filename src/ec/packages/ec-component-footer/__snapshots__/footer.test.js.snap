@@ -78,17 +78,17 @@ exports[`EC - Footer Corporate renders correctly 1`] = `
             <li class=\\"ecl-footer__section-item\\">
               <a
                 href=\\"/example\\"
-                class=\\"ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-before ecl-footer__section-link\\"
-                ><svg
+                class=\\"ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-footer__section-link\\"
+                ><span class=\\"ecl-link__label\\">Other social networks</span
+                >&nbsp;
+
+                <svg
                   class=\\"ecl-icon ecl-icon--xs ecl-link__icon\\"
                   focusable=\\"false\\"
                   aria-hidden=\\"true\\"
                 >
                   <use xlink:href=\\"static/icons.svg#ui--external\\"></use></svg
-                >&nbsp;<span class=\\"ecl-link__label\\"
-                  >Other social networks</span
-                ></a
-              >
+              ></a>
             </li>
           </ul>
         </section>
@@ -233,15 +233,16 @@ exports[`EC - Footer Custom renders correctly 1`] = `
 
           <a
             href=\\"/example\\"
-            class=\\"ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-before ecl-footer__identity-link\\"
-            ><svg
+            class=\\"ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-footer__identity-link\\"
+            ><span class=\\"ecl-link__label\\">Other social networks</span>&nbsp;
+
+            <svg
               class=\\"ecl-icon ecl-icon--xs ecl-link__icon\\"
               focusable=\\"false\\"
               aria-hidden=\\"true\\"
             >
               <use xlink:href=\\"static/icons.svg#ui--external\\"></use></svg
-            >&nbsp;<span class=\\"ecl-link__label\\">Other social networks</span></a
-          >
+          ></a>
         </div>
 
         <div class=\\"ecl-footer__identity-info ecl-col-12 ecl-col-md-4\\">
@@ -336,17 +337,17 @@ exports[`EC - Footer Custom renders correctly 1`] = `
             <li class=\\"ecl-footer__section-item\\">
               <a
                 href=\\"/example\\"
-                class=\\"ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-before ecl-footer__section-link\\"
-                ><svg
+                class=\\"ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-footer__section-link\\"
+                ><span class=\\"ecl-link__label\\">Other social networks</span
+                >&nbsp;
+
+                <svg
                   class=\\"ecl-icon ecl-icon--xs ecl-link__icon\\"
                   focusable=\\"false\\"
                   aria-hidden=\\"true\\"
                 >
                   <use xlink:href=\\"static/icons.svg#ui--external\\"></use></svg
-                >&nbsp;<span class=\\"ecl-link__label\\"
-                  >Other social networks</span
-                ></a
-              >
+              ></a>
             </li>
           </ul>
         </section>
