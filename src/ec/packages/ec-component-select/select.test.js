@@ -12,8 +12,18 @@ describe('EC - Select', () => {
         template,
         {
           label: 'Label',
-          placeholder: 'Placeholder',
+          options: [
+            {
+              value: 1,
+              label: 'Belgium',
+            },
+            {
+              value: 2,
+              label: 'France',
+            },
+          ],
           helper_text: 'Help message',
+          icon_path: '/static/icons.svg',
           id: 'example-id',
           name: 'example-name',
         },
@@ -32,11 +42,22 @@ describe('EC - Select', () => {
       renderTwigFile(
         template,
         {
-          label: 'Label',
-          placeholder: 'Placeholder',
-          helper_text: 'Help message',
           disabled: true,
+          label: 'Label',
+          options: [
+            {
+              value: 1,
+              label: 'Belgium',
+            },
+            {
+              value: 2,
+              label: 'France',
+            },
+          ],
+          helper_text: 'Help message',
+          icon_path: '/static/icons.svg',
           id: 'example-id',
+          name: 'example-name',
         },
         (err, html) => {
           expect(html).toMatchSnapshot();
@@ -53,11 +74,21 @@ describe('EC - Select', () => {
       renderTwigFile(
         template,
         {
-          label: 'Label',
-          placeholder: 'Placeholder',
           invalid: true,
           invalid_text: 'Error message',
+          label: 'Label',
+          options: [
+            {
+              value: 1,
+              label: 'Belgium',
+            },
+            {
+              value: 2,
+              label: 'France',
+            },
+          ],
           helper_text: 'Help message',
+          icon_path: '/static/icons.svg',
           id: 'example-id',
           name: 'example-name',
         },

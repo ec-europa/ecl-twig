@@ -3,8 +3,10 @@ import { withKnobs, text, boolean } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
 
-import selectDocs from './docs/select.md';
+import specData from '@ecl/ec-specs-select/demo/data';
+import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 
+import selectDocs from './docs/select.md';
 import select from './select.html.twig';
 
 storiesOf('Components/Select', module)
@@ -15,8 +17,8 @@ storiesOf('Components/Select', module)
     'default',
     () =>
       select({
-        label: text('Label', 'Label'),
-        placeholder: text('Placeholder', 'Placeholder'),
+        label: text('Label', specData.label),
+        options: specData.options,
         invalid: boolean('Invalid', false),
         invalid_text: text('Error message', 'Error message'),
         helper_text: text('Help message', 'Help message'),
@@ -24,6 +26,7 @@ storiesOf('Components/Select', module)
         hide_label: boolean('Hide label', false),
         id: 'example-id',
         name: 'example-name',
+        icon_path: defaultSprite,
       }),
     {
       notes: { markdown: selectDocs },

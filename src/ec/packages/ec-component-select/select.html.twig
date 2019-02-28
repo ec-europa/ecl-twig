@@ -1,15 +1,16 @@
 {#
   Parameters:
   - "id" (string) (default: '')
+  - "options" (array) (default: []):
+    - "value" (string) (default: '')
+    - "label" (string) (default: '')
   - "disabled" (boolean) (default: false)
   - "invalid" (boolean) (default: false)
-  - "invalid_icon_label" (string) (default: '')
   - "name" (string) (default: '')
   - "hide_label" (boolean) (default: '')
-  - "placeholder" (string) (default: '')
-  - "type" (string) (default: 'text')
-  - "extra_classes" (optional) (string) (default: '') Extra classes (space separated) for the icon
-  - "extra_attributes" (optional) (array) (default: []) Extra attributes for icon
+  - "icon_path" (string) (default: ''): file containing the svg icons
+  - "extra_classes" (optional) (string) (default: '') Extra classes (space separated) for the select
+  - "extra_attributes" (optional) (array) (default: []) Extra attributes for select
     - "name" (string) Attribute name, eg. 'data-test'
     - "value" (string) Attribute value, eg: 'data-test-1'
   Blocks:
@@ -20,21 +21,20 @@
 
 {# Internal properties #}
 {% set _id = id|default('') %}
+{% set _options = options|default([]) %}
 {% set _disabled = disabled|default(false) %}
 {% set _invalid = invalid|default(false) %}
-{% set _invalid_icon_label = invalid_icon_label|default('') %}
 {% set _name = name|default('') %}
 {% set _hide_label = hide_label|default(false) %}
-{% set _placeholder = placeholder|default('') %}
-{% set _type = type|default('text') %}
+{% set _icon_path = icon_path|default(false) %}
 
 {% set _helper_text = helper_text|default('') %}
 {% set _invalid_text = invalid_text|default('') %}
 {% set _label = label|default('') %}
 
-{% set _css_class = ['ecl-text-input'] %}
+{% set _css_class = ['ecl-select'] %}
 {% if _invalid %}
-  {% set _css_class=_css_class|merge(['ecl-text-input--invalid']) %}
+  {% set _css_class=_css_class|merge(['ecl-select--invalid']) %}
 {% endif %}
 {% set _css_class=_css_class|join(' ') %}
 
@@ -52,7 +52,7 @@
 {% endif %}
 
 {# Print the result #}
-<div class="ecl-form-group ecl-form-group--text-input">
+<div class="ecl-form-group ecl-form-group--select">
   {% if _label is not empty %}
     <label 
       class="ecl-form-label{{invalid ? ' ecl-form-label--invalid'}}{{hide_label ? ' ecl-form-label--hidden'}}"
@@ -62,15 +62,34 @@
     </label>
   {% endif %}
   
-  <input
-    id="{{_id}}"
-    name="{{_name}}"
-    type="{{_type}}"
-    placeholder="{{_placeholder}}"
-    class="{{_css_class}}"
-    {{_disabled ? "disabled"}}
-    {{ _extra_attributes|raw }} 
-  />
+  <div class="ecl-select__container{{disabled ? ' ecl-select__container--disabled'}}">
+    <select
+      id="{{_id}}"
+      name="{{_name}}"
+      class="{{_css_class}}"
+      {{_disabled ? "disabled"}}
+      {{ _extra_attributes|raw }} 
+    >
+      {% for option in _options %}
+      <option value="{{option.value}}">
+        {{option.label}}
+      </option>
+      {% endfor %}
+    </select>
+
+    <div class="ecl-select__icon">
+      {% include '../ec-component-icon/icon.html.twig' with {
+        icon: {
+          path: _icon_path,
+          type: "ui",
+          name: "corner-arrow",
+          size: "s",
+          transform: "rotate-180"
+        },
+        extra_classes: "ecl-select__icon-shape"
+      } %}
+    </div>
+  </div>
 
   {% if _invalid and _invalid_text is not empty %}
     <div class="ecl-feedback-message">{% block invalid_text _invalid_text %}</div>

@@ -11,15 +11,16 @@ npm install --save @ecl-twig/ec-component-select
 ### Parameters:
 
 - "id" (string) (default: '')
+- "options" (array) (default: []):
+  - "value" (string) (default: '')
+  - "label" (string) (default: '')
 - "disabled" (boolean) (default: false)
 - "invalid" (boolean) (default: false)
-- "invalid_icon_label" (string) (default: '')
 - "name" (string) (default: '')
 - "hide_label" (boolean) (default: '')
-- "placeholder" (string) (default: '')
-- "type" (string) (default: 'text')
-- "extra_classes" (optional) (string) (default: '') Extra classes (space separated) for the icon
-- "extra_attributes" (optional) (array) (default: []) Extra attributes for icon
+- "icon_path" (string) (default: ''): file containing the svg icons
+- "extra_classes" (optional) (string) (default: '') Extra classes (space separated) for the select
+- "extra_attributes" (optional) (array) (default: []) Extra attributes for select
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
 
@@ -34,12 +35,22 @@ npm install --save @ecl-twig/ec-component-select
 <!-- prettier-ignore -->
 ```twig
 {% include 'path/to/select.html.twig' with { 
-  label: 'Email address', 
-  placeholder: 'Please enter your email address', 
-  invalid_text: "Invalid email address. Valid e-mail can contain only latin letters, numbers, '@' and '.'", 
-  helper_text: 'This address will be used for contact purpose', 
-  id: 'input-email', 
-  name: 'email', 
+  label: 'Select a country', 
+  options: [ 
+    { 
+      value: 1, 
+      label: 'Belgium' 
+    }, 
+    ... 
+  ], 
+  invalid: false, 
+  invalid_text: 'Error message', 
+  helper_text: 'Help message', 
+  disabled: false, 
+  hide_label: false, 
+  id: 'example-id', 
+  name: 'example-name', 
+  icon_path: '/static/icons.svg', 
   extra_classes: 'my-extra-class-1 my-extra-class-2', 
   extra_attributes: [ 
     { name: 'data-test-1', value: 'data-test-value-1' }, 
