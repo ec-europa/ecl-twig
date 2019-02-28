@@ -11,6 +11,7 @@ module.exports = {
   plugins: ['react', 'jsx-a11y'],
   env: {
     node: true,
+    browser: true,
   },
   overrides: [
     {
