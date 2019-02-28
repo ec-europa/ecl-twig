@@ -11,11 +11,13 @@ function formatLink(l) {
   };
 
   if (l.icon) {
+    const [type, name] = l.icon.shape.split('--');
+
     link.link.icon_position = l.iconPosition;
     link.icon = {
       path: 'static/icons.svg',
-      type: l.icon.shape.split('--')[0],
-      name: l.icon.shape.split('--')[1],
+      type,
+      name,
       size: l.icon.size,
     };
   }
@@ -27,6 +29,7 @@ export const backToTop = {
   link: {
     label: specDataCorporate.backToTop.label,
     path: specDataCorporate.backToTop.href,
+    icon_position: 'after',
   },
   icon: {
     path: 'static/icons.svg',
@@ -38,24 +41,16 @@ export const identity = {
   title: specDataCustom.identity.title,
   follow: {
     label: specDataCustom.identity.follow.label,
-    links: specDataCustom.identity.follow.links.map(l => {
-      return formatLink(l);
-    }),
+    links: specDataCustom.identity.follow.links.map(formatLink),
   },
-  info: specDataCustom.identity.info.map(l => {
-    return formatLink(l);
-  }),
+  info: specDataCustom.identity.info.map(formatLink),
 };
 
 export const sections = specDataCorporate.sections.map(s => {
   return {
     title: s.title,
-    links: s.links.map(l => {
-      return formatLink(l);
-    }),
+    links: s.links.map(formatLink),
   };
 });
 
-export const common = specDataCorporate.common.map(l => {
-  return formatLink(l);
-});
+export const common = specDataCorporate.common.map(formatLink);
