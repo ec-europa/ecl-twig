@@ -1,4 +1,4 @@
-# ECL Twig - EC Social Media Share component
+ECL Twig - EC Social Media Share component
 
 npm package: `@ecl-twig/ec-component-social-media-share`
 
@@ -33,21 +33,21 @@ npm install --save @ecl-twig/ec-component-social-media-share
   description: 'Share this page',
   links: [
   {
-      href: '/example',
+      path: '/example',
       label: 'Twitter',
-      className: 'ecl-social-media-share__link--twitter',
+      extra_classes: 'ecl-social-media-share__link--twitter',
       variant: 'standalone',
-      iconPosition: 'before',
+      icon_position: 'before',
       icon: [
         {
-          shape: 'twitter',
+          name: 'twitter',
           size: 'xl',
-          className: '',
+          extra_classes: '',
         },
         {
-          shape: 'twitter_hover',
+          name: 'twitter_hover',
           size: 'xl',
-          className: 'ecl-social-media-share__icon-hover',
+          extra_classes: 'ecl-social-media-share__icon-hover',
         },
       ],
     },
