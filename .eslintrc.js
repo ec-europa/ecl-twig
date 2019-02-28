@@ -13,6 +13,9 @@ module.exports = {
     node: true,
     browser: true,
   },
+  rules: {
+    'unicorn/prefer-node-append': false,
+  },
   overrides: [
     {
       files: ['src/**/*.{story,test}.js'],
