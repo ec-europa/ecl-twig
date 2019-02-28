@@ -24,7 +24,7 @@ pipeline:
     image: node:dubnium
     commands:
       - yarn install --frozen-lockfile
-      - yarn lint
+      - yarn lint && yarn pretty-check
     when:
       matrix:
         TEST: lint
