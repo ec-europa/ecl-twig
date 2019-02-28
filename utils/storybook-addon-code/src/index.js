@@ -14,6 +14,8 @@ const withCode = makeDecorator({
       const htmlElement = document.createElement('div');
       htmlElement.append(story.cloneNode(true));
       code = htmlElement.innerHTML;
+    } else if (story instanceof Node) {
+      code = story.outerHTML;
     }
 
     const formattedCode = beautifyHtml(code, {
