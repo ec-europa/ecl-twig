@@ -31,30 +31,30 @@ npm install --save @ecl-twig/ec-component-social-media-follow
 
 <!-- prettier-ignore -->
 ```twig
-{% include 'path/to/social-media-follow.html.twig' with {
+{% include 'path/to/social-media-follow.html.twig' with { 
   description:
-    'Follow the latest progress and learn more about getting involved.',
-  links: [
-    {
-      path: '/example',
-      label: 'Twitter',
-      variant: 'standalone',
-      icon_position: 'before',
-      icon: [
-        {
-          name: 'twitter',
-          size: 'xl',
-        },
-        {
-          name: 'twitter_hover',
-          size: 'xl',
-        },
-      ],
-    },
-    {
-      path: '/example',
-      label: 'Other social networks',
-    },
-  ],
+    'Follow the latest progress and learn more about getting involved.', 
+  links: [ 
+    { 
+      path: '/example', 
+      label: 'Twitter', 
+      variant: 'standalone', 
+      icon_position: 'before', 
+      icon: [ 
+        { 
+          name: 'twitter', 
+          size: 'xl', 
+        }, 
+        { 
+          name: 'twitter_hover', 
+          size: 'xl', 
+        }, 
+      ], 
+    }, 
+    { 
+      path: '/example', 
+      label: 'Other social networks', 
+    }, 
+  ], 
 } %}
 ```
