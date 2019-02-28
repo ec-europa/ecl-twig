@@ -29,32 +29,32 @@ npm install --save @ecl-twig/ec-component-social-media-share
 
 <!-- prettier-ignore -->
 ```twig
-{% include 'path/to/social-media-share.html.twig' with {
-  description: 'Share this page',
-  links: [
-  {
-      path: '/example',
-      label: 'Twitter',
-      extra_classes: 'ecl-social-media-share__link--twitter',
-      variant: 'standalone',
-      icon_position: 'before',
-      icon: [
-        {
-          name: 'twitter',
-          size: 'xl',
-          extra_classes: '',
-        },
-        {
-          name: 'twitter_hover',
-          size: 'xl',
-          extra_classes: 'ecl-social-media-share__icon-hover',
-        },
-      ],
-    },
-    {
-      path: '/example',
-      label: 'Other social networks',
-    },
-  ],
+{% include 'path/to/social-media-share.html.twig' with { 
+  description: 'Share this page', 
+  links: [ 
+  { 
+      path: '/example', 
+      label: 'Twitter', 
+      extra_classes: 'ecl-social-media-share__link--twitter', 
+      variant: 'standalone', 
+      icon_position: 'before', 
+      icon: [ 
+        { 
+          name: 'twitter', 
+          size: 'xl', 
+          extra_classes: '', 
+        }, 
+        { 
+          name: 'twitter_hover', 
+          size: 'xl', 
+          extra_classes: 'ecl-social-media-share__icon-hover', 
+        }, 
+      ], 
+    }, 
+    { 
+      path: '/example', 
+      label: 'Other social networks', 
+    }, 
+  ], 
 } %}
 ```
