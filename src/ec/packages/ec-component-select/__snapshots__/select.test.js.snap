@@ -2,18 +2,12 @@
 
 exports[`EC - Select Default renders correctly 1`] = `
 "<div class=\\"ecl-form-group ecl-form-group--select\\">
-  <label class=\\"ecl-form-label\\" for=\\"example-id\\"> Label </label>
-
+  <label class=\\"ecl-form-label\\" for=\\"example-id\\">Label </label>
   <div class=\\"ecl-select__container\\">
-    <select id=\\"example-id\\" name=\\"example-name\\" class=\\"ecl-select\\">
-      <option value=\\"1\\">
-        Belgium
-      </option>
-      <option value=\\"2\\">
-        France
-      </option>
-    </select>
-
+    <select id=\\"example-id\\" name=\\"example-name\\" class=\\"ecl-select\\"
+      ><option value=\\"1\\">Belgium</option
+      ><option value=\\"2\\">France</option></select
+    >
     <div class=\\"ecl-select__icon\\">
       <svg
         class=\\"ecl-icon ecl-icon--s ecl-icon--rotate-180 ecl-select__icon-shape\\"
@@ -24,7 +18,6 @@ exports[`EC - Select Default renders correctly 1`] = `
       </svg>
     </div>
   </div>
-
   <div class=\\"ecl-help-block\\">Help message</div>
 </div>
 "
@@ -32,18 +25,12 @@ exports[`EC - Select Default renders correctly 1`] = `
 
 exports[`EC - Select Disabled renders correctly 1`] = `
 "<div class=\\"ecl-form-group ecl-form-group--select\\">
-  <label class=\\"ecl-form-label\\" for=\\"example-id\\"> Label </label>
-
+  <label class=\\"ecl-form-label\\" for=\\"example-id\\">Label </label>
   <div class=\\"ecl-select__container ecl-select__container--disabled\\">
-    <select id=\\"example-id\\" name=\\"example-name\\" class=\\"ecl-select\\" disabled>
-      <option value=\\"1\\">
-        Belgium
-      </option>
-      <option value=\\"2\\">
-        France
-      </option>
-    </select>
-
+    <select id=\\"example-id\\" name=\\"example-name\\" class=\\"ecl-select\\" disabled
+      ><option value=\\"1\\">Belgium</option
+      ><option value=\\"2\\">France</option></select
+    >
     <div class=\\"ecl-select__icon\\">
       <svg
         class=\\"ecl-icon ecl-icon--s ecl-icon--rotate-180 ecl-select__icon-shape\\"
@@ -54,7 +41,6 @@ exports[`EC - Select Disabled renders correctly 1`] = `
       </svg>
     </div>
   </div>
-
   <div class=\\"ecl-help-block\\">Help message</div>
 </div>
 "
@@ -62,24 +48,17 @@ exports[`EC - Select Disabled renders correctly 1`] = `
 
 exports[`EC - Select With error renders correctly 1`] = `
 "<div class=\\"ecl-form-group ecl-form-group--select\\">
-  <label class=\\"ecl-form-label ecl-form-label--invalid\\" for=\\"example-id\\">
-    Label
+  <label class=\\"ecl-form-label ecl-form-label--invalid\\" for=\\"example-id\\"
+    >Label
   </label>
-
   <div class=\\"ecl-select__container\\">
     <select
       id=\\"example-id\\"
       name=\\"example-name\\"
       class=\\"ecl-select ecl-select--invalid\\"
+      ><option value=\\"1\\">Belgium</option
+      ><option value=\\"2\\">France</option></select
     >
-      <option value=\\"1\\">
-        Belgium
-      </option>
-      <option value=\\"2\\">
-        France
-      </option>
-    </select>
-
     <div class=\\"ecl-select__icon\\">
       <svg
         class=\\"ecl-icon ecl-icon--s ecl-icon--rotate-180 ecl-select__icon-shape\\"
@@ -90,9 +69,7 @@ exports[`EC - Select With error renders correctly 1`] = `
       </svg>
     </div>
   </div>
-
   <div class=\\"ecl-feedback-message\\">Error message</div>
-
   <div class=\\"ecl-help-block\\">Help message</div>
 </div>
 "
