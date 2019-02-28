@@ -772,7 +772,7 @@
 "@ecl-twig/test-utils@file:utils/test-utils":
   version "0.0.0-test-only"
 
-"@ecl/ec-base@^2.1.1":
+"@ecl/ec-base@^2.1.0", "@ecl/ec-base@^2.1.1":
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/@ecl/ec-base/-/ec-base-2.1.1.tgz#7dcb382ebe55d19511a2a112d8603111c334db6b"
   integrity sha512-q+IXLQcoumzdO/pHlX9R+JPtqYjiZYKZkLVzxTHZx+9L/UR4pRZo9aN3nKBgm78YzoeP137KRrItKZ7qgl1TaQ==
@@ -817,9 +817,16 @@
     "@ecl/ec-base" "^2.1.1"
 
 "@ecl/ec-component-form-label@^2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@ecl/ec-component-form-label/-/ec-component-form-label-2.1.0.tgz#5944ce25552a5f011e5bc520f97a48ab446ed3eb"
+  integrity sha512-Y/N8E638Vor2WUJ5HzV1hLvCwlGloVVxqpgxsiOsc00o93dU69ZsbQ0QIrE99+397n4xfOKLrPGV42rpqODNbw==
+  dependencies:
+    "@ecl/ec-base" "^2.1.0"
+
+"@ecl/ec-component-form-text-area@^2.1.0":
   version "2.1.1"
-  resolved "https://registry.yarnpkg.com/@ecl/ec-component-form-label/-/ec-component-form-label-2.1.1.tgz#92ae00b375113d6443bf93718a18dc2e09e8f885"
-  integrity sha512-d7vKdgN6QbnswpzmZmQIzPD6LKI2532RL3xUHMR5/dBbStDzXE4JWy81sETklFcappM7QlTvyYaTE6jxGJ8btA==
+  resolved "https://registry.yarnpkg.com/@ecl/ec-component-form-text-area/-/ec-component-form-text-area-2.1.1.tgz#9882c8ed8cfb6d6adad810881c95bca2705e5cbb"
+  integrity sha512-zk4VaCez+mCj0thzDmG3gq6VUwH1bxcV5BiP9hwUUj5u7f+Axk5z2ARDohKB2irXSCTJ1uWvO0aEXA0g6XneQg==
   dependencies:
     "@ecl/ec-base" "^2.1.1"
 
@@ -955,6 +962,11 @@
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/@ecl/ec-specs-tag/-/ec-specs-tag-2.1.1.tgz#2923e92b939e335387093cf75a8094fef4aa4b6a"
   integrity sha512-deHcr7ZVoSnruOs9aWCx31UqLkCvT+bHrsdW7/ohSJOBinPirsSmGAjapAzCf2aHBouaCl4nk3HDKFNVuBUSeQ==
+
+"@ecl/ec-specs-text-area@^2.1.0":
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/@ecl/ec-specs-text-area/-/ec-specs-text-area-2.1.1.tgz#b0ce474ccc2c7e9e73a7ca07174292e0505ffafb"
+  integrity sha512-I373y88eDKGkQinEzwvGIMR/3GT4u7eWrGoJVo33MGIupV/+mAFfKbokpws2kbC8Fz52vSCWyPi78oXoaKsXkg==
 
 "@ecl/ec-specs-text-input@^2.1.0":
   version "2.1.1"
