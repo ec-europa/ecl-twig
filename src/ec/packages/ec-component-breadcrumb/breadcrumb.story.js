@@ -71,16 +71,18 @@ storiesOf('Components/Breadcrumb', module)
         navigation_text: 'You are here:',
       });
 
-      const script = `
+      const demo = document.createDocumentFragment();
+
+      const htmlElement = document.createElement('div');
+      htmlElement.innerHTML = html.trim();
+      demo.append(htmlElement.firstChild);
+
+      const scriptElement = document.createElement('script');
+      scriptElement.innerHTML = `
       var breadcrumbElement = document.querySelector("[data-ecl-breadcrumb]");
       var breadcrumb = new ECL.Breadcrumb(breadcrumbElement);
       breadcrumb.init();
       `;
-
-      const demo = document.createElement('div');
-      demo.innerHTML = html;
-      const scriptElement = document.createElement('script');
-      scriptElement.innerHTML = script;
       demo.append(scriptElement);
 
       return demo;
