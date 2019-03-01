@@ -3,6 +3,7 @@ import addons from '@storybook/addons';
 import styled from '@emotion/styled';
 import Prism from 'prismjs';
 import ClipboardJS from 'clipboard';
+import { html as beautifyHtml } from 'js-beautify';
 
 const CodePanel = styled.div({
   margin: 0,
@@ -15,22 +16,28 @@ const CodePanel = styled.div({
 
 const Pre = styled.pre({
   margin: '0 !important',
+  paddingTop: '4rem !important',
   borderRadius: '0 !important',
   flexGrow: 1,
+});
+
+const Actions = styled.div({
+  color: '#f8f8f2',
+  display: 'flex',
+  flexDirection: 'row',
+  position: 'absolute',
+  right: 0,
+  top: 0,
 });
 
 const CopyButton = styled.button({
   color: '#f8f8f2',
   fontSize: '0.9em',
   padding: '1em',
-  position: 'absolute',
-  right: 0,
-  top: 0,
   background: 'transparent',
-  borderColor: '#f8f8f2',
-  borderRight: 0,
-  borderTop: 0,
-  borderBottomLeftRadius: '5px',
+  border: '1px solid #fff',
+  borderTopWidth: 0,
+  borderRightWidth: 0,
 });
 
 class Notes extends React.Component {
@@ -38,9 +45,11 @@ class Notes extends React.Component {
     super(props);
     this.state = {
       text: '',
+      pretty: true,
     };
 
     this.onAddNotes = this.onAddNotes.bind(this);
+    this.toggleBeautifier = this.toggleBeautifier.bind(this);
   }
 
   componentDidMount() {
@@ -75,21 +84,42 @@ class Notes extends React.Component {
     this.setState({ text });
   }
 
+  toggleBeautifier() {
+    this.setState(state => ({
+      pretty: !state.pretty,
+    }));
+  }
+
   render() {
-    const { text } = this.state;
+    const { text, pretty } = this.state;
     // eslint-disable-next-line react/prop-types
     const { active } = this.props;
 
+    let code = text;
+    if (pretty) {
+      code = beautifyHtml(code, {
+        indent_size: 2,
+        max_preserve_newlines: -1,
+        preserve_newlines: false,
+        indent_scripts: 'normal',
+      });
+    }
+
     return active ? (
       <CodePanel>
-        <CopyButton type="button" id="copy-code" data-clipboard-text={text}>
-          Copy
-        </CopyButton>
+        <Actions>
+          <CopyButton type="button" onClick={this.toggleBeautifier}>
+            {pretty ? 'Show raw' : 'Show beautified'}
+          </CopyButton>
+          <CopyButton type="button" id="copy-code" data-clipboard-text={code}>
+            Copy
+          </CopyButton>
+        </Actions>
         <Pre className="language-html">
           <code
             className="language-html"
             dangerouslySetInnerHTML={{
-              __html: Prism.highlight(text, Prism.languages.html, 'html'),
+              __html: Prism.highlight(code, Prism.languages.html, 'html'),
             }}
           />
         </Pre>
