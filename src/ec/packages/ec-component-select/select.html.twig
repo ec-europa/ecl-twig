@@ -1,0 +1,103 @@
+{#
+  Parameters:
+  - "id" (string) (default: '')
+  - "options" (array) (default: []):
+    - "value" (string) (default: '')
+    - "label" (string) (default: '')
+  - "disabled" (boolean) (default: false)
+  - "invalid" (boolean) (default: false)
+  - "name" (string) (default: '')
+  - "hide_label" (boolean) (default: '')
+  - "icon_path" (string) (default: ''): file containing the svg icons
+  - "extra_classes" (optional) (string) (default: '') Extra classes (space separated) for the select
+  - "extra_attributes" (optional) (array) (default: []) Extra attributes for select
+    - "name" (string) Attribute name, eg. 'data-test'
+    - "value" (string) Attribute value, eg: 'data-test-1'
+  Blocks:
+  - "helper_text"
+  - "invalid_text"
+  - "label"
+#}
+
+{# Internal properties #}
+{% set _id = id|default('') %}
+{% set _options = options|default([]) %}
+{% set _disabled = disabled|default(false) %}
+{% set _invalid = invalid|default(false) %}
+{% set _name = name|default('') %}
+{% set _hide_label = hide_label|default(false) %}
+{% set _icon_path = icon_path|default(false) %}
+
+{% set _helper_text = helper_text|default('') %}
+{% set _invalid_text = invalid_text|default('') %}
+{% set _label = label|default('') %}
+
+{% set _css_class = ['ecl-select'] %}
+{% if _invalid %}
+  {% set _css_class = _css_class|merge(['ecl-select--invalid']) %}
+{% endif %}
+{% set _css_class = _css_class|join(' ') %}
+
+{% set _extra_attributes = '' %}
+
+{# Internal logic - Process properties #}
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+{% spaceless %}
+<div class="ecl-form-group ecl-form-group--select">
+  {%- if _label is not empty -%}
+    <label 
+      class="ecl-form-label{{- invalid ? ' ecl-form-label--invalid' -}}{{- hide_label ? ' ecl-form-label--hidden'-}}"
+      for={{- _id -}}
+    >
+      {%- block label _label -%}
+    </label>
+  {%- endif -%}
+  
+  <div class="ecl-select__container{{- disabled ? ' ecl-select__container--disabled' -}}">
+    <select
+      id="{{- _id -}}"
+      name="{{- _name -}}"
+      class="{{- _css_class -}}"
+      {{- _disabled ? "disabled" -}}
+      {{- _extra_attributes|raw -}} 
+    >
+      {%- for option in _options -%}
+      <option value="{{- option.value -}}">
+        {{- option.label -}}
+      </option>
+      {%- endfor -%}
+    </select>
+
+    <div class="ecl-select__icon">
+      {%- include '../ec-component-icon/icon.html.twig' with {
+        icon: {
+          path: _icon_path,
+          type: "ui",
+          name: "corner-arrow",
+          size: "s",
+          transform: "rotate-180"
+        },
+        extra_classes: "ecl-select__icon-shape"
+      } -%}
+    </div>
+  </div>
+
+  {%- if _invalid and _invalid_text is not empty -%}
+    <div class="ecl-feedback-message">{%- block invalid_text _invalid_text -%}</div>
+  {%- endif -%}
+
+  {%- if _helper_text is not empty -%}
+    <div class="ecl-help-block">{%- block helper_text _helper_text -%}</div>
+  {%- endif -%}
+</div>
+{% endspaceless %}
