@@ -39,8 +39,8 @@ storiesOf('Components/Breadcrumb', module)
   )
   .add(
     'long',
-    () =>
-      breadcrumb({
+    () => {
+      const html = breadcrumb({
         links: [
           {
             label: 'Home',
@@ -69,7 +69,24 @@ storiesOf('Components/Breadcrumb', module)
         ],
         icon_file_path: defaultSprite,
         navigation_text: 'You are here:',
-      }),
+      });
+
+      const demo = document.createDocumentFragment();
+
+      const htmlElement = document.createElement('div');
+      htmlElement.innerHTML = html.trim();
+      demo.appendChild(htmlElement.firstChild);
+
+      const scriptElement = document.createElement('script');
+      scriptElement.innerHTML = `
+      var breadcrumbElement = document.querySelector("[data-ecl-breadcrumb]");
+      var breadcrumb = new ECL.Breadcrumb(breadcrumbElement);
+      breadcrumb.init();
+      `;
+      demo.appendChild(scriptElement);
+
+      return demo;
+    },
     {
       notes: { markdown: breadcrumbDocs },
     }
