@@ -1,75 +1,48 @@
 import path from 'path';
-import { renderTwigFile } from '@ecl-twig/test-utils';
+import { renderTwigFileAsNode } from '@ecl-twig/test-utils';
+
+import breadcrumbDataSimple from '@ecl/ec-specs-breadcrumb/demo/data-simple';
+import breadcrumbDataLong from '@ecl/ec-specs-breadcrumb/demo/data';
+
+function formatLink(l) {
+  const link = {
+    label: l.label,
+    path: l.href,
+  };
+
+  return link;
+}
 
 describe('EC - Site Header', () => {
   const template = path.resolve(__dirname, './breadcrumb.html.twig');
+  const render = params => renderTwigFileAsNode(template, params);
   const defaultIconPath = 'static/icons.svg';
 
   describe('Breadcrumb simple', () => {
-    test(`- renders correctly`, done => {
+    test(`- renders correctly`, () => {
       expect.assertions(1);
 
       const data = {
-        links: [
-          {
-            label: 'Home',
-            path: '/example',
-          },
-          {
-            label: 'About the European Commission',
-            path: '/example',
-          },
-          {
-            label: 'News',
-            path: '/example',
-          },
-        ],
+        links: breadcrumbDataSimple.items.map(formatLink),
         icon_file_path: defaultIconPath,
-        navigation_text: 'You are here:',
+        navigation_text: breadcrumbDataSimple.label,
       };
 
-      renderTwigFile(template, data, (err, html) => {
-        expect(html).toMatchSnapshot();
-        done();
-      });
+      return expect(render(data)).resolves.toMatchSnapshot();
     });
   });
 
   describe('Breadcrumb long', () => {
-    test(`- renders correctly`, done => {
+    test(`- renders correctly`, () => {
       expect.assertions(1);
 
       const data = {
-        links: [
-          {
-            label: 'Home',
-            path: '/example',
-          },
-          {
-            label: 'About the European Commission',
-            path: '/example',
-          },
-          {
-            label: 'Organisational structure',
-            path: '/example',
-          },
-          {
-            label: 'How the Commission is organised',
-            path: '/example',
-          },
-          {
-            label: 'News',
-            path: '/example',
-          },
-        ],
+        links: breadcrumbDataLong.items.map(formatLink),
         icon_file_path: defaultIconPath,
-        navigation_text: 'You are here:',
+        navigation_text: breadcrumbDataLong.label,
       };
 
-      renderTwigFile(template, data, (err, html) => {
-        expect(html).toMatchSnapshot();
-        done();
-      });
+      return expect(render(data)).resolves.toMatchSnapshot();
     });
   });
 });
