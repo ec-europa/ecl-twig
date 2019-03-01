@@ -5,8 +5,23 @@ import withCode from '@ecl-twig/storybook-addon-code';
 
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 
+import breadcrumbDataSimple from '@ecl/ec-specs-breadcrumb/demo/data-simple';
+import breadcrumbDataLong from '@ecl/ec-specs-breadcrumb/demo/data';
+
 import breadcrumbDocs from './docs/breadcrumb.md';
 import breadcrumb from './breadcrumb.html.twig';
+
+function formatLink(l) {
+  const link = {
+    label: l.label,
+    path: l.href,
+  };
+
+  return link;
+}
+
+const simpleBreadcrumbLinks = breadcrumbDataSimple.items.map(formatLink);
+const longBreadcrumbLinks = breadcrumbDataLong.items.map(formatLink);
 
 storiesOf('Components/Breadcrumb', module)
   .addDecorator(withKnobs)
@@ -16,22 +31,9 @@ storiesOf('Components/Breadcrumb', module)
     'simple',
     () =>
       breadcrumb({
-        links: [
-          {
-            label: 'Home',
-            path: '/example',
-          },
-          {
-            label: 'About the European Commission',
-            path: '/example',
-          },
-          {
-            label: 'News',
-            path: '/example',
-          },
-        ],
+        links: simpleBreadcrumbLinks,
         icon_file_path: defaultSprite,
-        navigation_text: 'You are here:',
+        navigation_text: breadcrumbDataSimple.label,
       }),
     {
       notes: { markdown: breadcrumbDocs },
@@ -41,41 +43,16 @@ storiesOf('Components/Breadcrumb', module)
     'long',
     () => {
       const html = breadcrumb({
-        links: [
-          {
-            label: 'Home',
-            path: '/example',
-          },
-          {
-            label: 'About the European Commission',
-            path: '/example',
-          },
-          {
-            label: 'News',
-            path: '/example',
-          },
-          {
-            label: 'Organisational structure',
-            path: '/example',
-          },
-          {
-            label: 'How the Commission is organised',
-            path: '/example',
-          },
-          {
-            label: 'News',
-            path: '/example',
-          },
-        ],
+        links: longBreadcrumbLinks,
         icon_file_path: defaultSprite,
-        navigation_text: 'You are here:',
+        navigation_text: breadcrumbDataLong.label,
       });
 
       const demo = document.createDocumentFragment();
 
       const htmlElement = document.createElement('div');
       htmlElement.innerHTML = html.trim();
-      demo.appendChild(htmlElement.firstChild);
+      demo.append(htmlElement.firstChild);
 
       const scriptElement = document.createElement('script');
       scriptElement.innerHTML = `
@@ -83,7 +60,7 @@ storiesOf('Components/Breadcrumb', module)
       var breadcrumb = new ECL.Breadcrumb(breadcrumbElement);
       breadcrumb.init();
       `;
-      demo.appendChild(scriptElement);
+      demo.append(scriptElement);
 
       return demo;
     },
