@@ -8,15 +8,33 @@
         },
         ...
       ]
+
+  Blocks:
+    - "content"      
 #}
 
 {# Internal properties #}
 
 {% set _css_class = 'ecl-expandable' %}
 {% set _extra_attributes = "data-ecl-expandable='true'" %}
+{% set _label_expanded = label_expanded|default('') %}
+{% set _label_collapsed = label_collapsed|default('') %}
+{% set _id = id|default('') %}
 {% set _content = content|default('') %}
 
+{% set _button_icon = {
+  name: '',
+  path: '',
+  size: '',
+  type: '',
+}
+%}
+
 {# Internal logic - Process properties #}
+
+{% if button.icon is defined and button.icon is not empty %}
+  {% set _button_icon = _button_icon|merge(button.icon) %}
+{% endif %}
 
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
@@ -30,15 +48,27 @@
 
 {# Print the result #}
 
-<div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
-<button data-ecl-expandable-toggle="true"
-    data-ecl-label-expanded="Expanded button" data-ecl-label-collapsed="Collapsed button" aria-controls="expandable-example-content"
-    type="button" class="ecl-expandable__toggle ecl-button ecl-button--secondary"><span class="ecl-button__container"><span
-        class="ecl-button__label" data-ecl-label="true">Collapsed button</span><svg focusable="false" aria-hidden="true"
-        data-ecl-icon="true" class="ecl-button__icon ecl-button__icon--after ecl-icon ecl-icon--fluid ecl-icon--rotate-180">
-        <use xlink:href="/static/media/icons.cbfd6efe.svg#ui--corner-arrow"></use>
-      </svg></span></button>
-  <div class="ecl-expandable__content" id="expandable-example-content" hidden="">
-    <p class="ecl-u-type-paragraph-m">{{- content -}}</p>
+{% spaceless %}
+<div class="{{- _css_class -}}"{{- _extra_attributes|raw -}}>
+  {%- include '../ec-component-button/button.html.twig' with {
+    label: _label_collapsed,
+    variant: 'secondary',
+    type: 'button',
+    icon: _button_icon,
+    icon_position: "after",
+    extra_classes: 'ecl-expandable__toggle',
+    extra_attributes: [
+      { name: 'aria-expanded', value: 'true' },
+      { name: 'aria-controls', value: {{_id ~ '-content'}} },
+      { name: 'data-ecl-expandable-toggle', value: 'true' },
+      { name: 'data-ecl-label-expanded', value: _label_expanded },
+      { name: 'data-ecl-label-collapsed', value: _label_collapsed },
+    ]
+  } -%}
+  <div class="ecl-expandable__content" id="{{ _id ~ '-content'}}" hidden>
+    <p class="ecl-u-type-paragraph-m">
+      {%- block content _content -%}
+    </p>
   </div>
 </div>
+{% endspaceless %}
