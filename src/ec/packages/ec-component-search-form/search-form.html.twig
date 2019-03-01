@@ -12,10 +12,13 @@
       ]
 #}
 
+{# Internal properties #}
+
 {% set _css_class = 'ecl-search-form' %}
 {% set _extra_attributes = '' %}
 
 {# Internal logic - Process properties #}
+
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
 {% endif %}
@@ -26,12 +29,16 @@
   {% endfor %}
 {% endif %}
 
-<form class="{{ _css_class }}" role="search"{{ _extra_attributes|raw }}>
-  {% if text_input is defined %}
-    {% include '../ec-component-text-input/text-input.html.twig' with text_input %}
-  {% endif %}
+{# Print the result #}
 
-  {% if button is defined %}
-    {% include '../ec-component-button/button.html.twig' with button %}
-  {% endif %}
+{% spaceless %}
+<form class="{{- _css_class -}}" role="search"{{- _extra_attributes|raw -}}>
+  {%- if text_input is defined -%}
+    {%- include '../ec-component-text-input/text-input.html.twig' with text_input -%}
+  {%- endif -%}
+
+  {%- if button is defined -%}
+    {%- include '../ec-component-button/button.html.twig' with button -%}
+  {%- endif -%}
 </form>
+{% endspaceless %}

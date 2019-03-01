@@ -18,6 +18,7 @@
 #}
 
 {# Internal properties #}
+
 {% set _id = id|default('') %}
 {% set _disabled = disabled|default(false) %}
 {% set _invalid = invalid|default(false) %}
@@ -39,6 +40,7 @@
 {% set _extra_attributes = '' %}
 
 {# Internal logic - Process properties #}
+
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
 {% endif %}
@@ -50,12 +52,13 @@
 {% endif %}
 
 {# Print the result #}
+
 {% spaceless %}
 <div class="ecl-form-group ecl-form-group--text-area">
   {%- if _label is not empty -%}
     <label 
       class="ecl-form-label{{- invalid ? ' ecl-form-label--invalid' -}}{{- hide_label ? ' ecl-form-label--hidden' -}}"
-      for={{- _id -}}
+      for="{{- _id -}}"
     >
       {%- block label _label -%}
     </label>

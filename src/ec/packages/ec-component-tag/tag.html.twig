@@ -18,25 +18,28 @@
 #}
 
 {# Internal properties #}
-{% set _tag={
+
+{% set _tag = {
     type: 'link',
     path: '',
     label: ''
 } %}
 
 {% if tag is defined %}
-  {% set _tag=_tag|merge(tag) %}
+  {% set _tag = _tag|merge(tag) %}
 {% endif %}
 
 {% set _css_class = 'ecl-tag' %}
 {% set _extra_attributes = '' %}
 
 {# Add extra class for removable tag #}
+
 {% if _tag.type == 'removable' %}
-  {% set _css_class=_css_class~' ecl-tag--removable' %}
+  {% set _css_class = _css_class ~ ' ecl-tag--removable' %}
 {% endif %}
 
 {# Internal logic - Process properties #}
+
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
 {% endif %}
@@ -48,18 +51,27 @@
 {% endif %}
 
 {# Print the result #}
-{% if _tag.type!='link' %}
-  <button class="{{ _css_class }}" type="button"{{ _extra_attributes|raw }}>
-    {{ _tag.label }}
-    {% if _tag.type=='removable' %}
+
+{% spaceless %}
+{%- if _tag.type != 'link' -%}
+  <button class="{{- _css_class -}}" type="button"{{- _extra_attributes|raw -}}>
+    {{- _tag.label -}}
+    {%- if _tag.type=='removable' -%}
       <span class="ecl-tag__icon">
-        {% include '../ec-component-icon/icon.html.twig' with { icon: { type: 'ui', name: 'close', size: 'xs', path: default_icon_path }, extra_classes: 'ecl-tag__icon-close' } %}
-        {% include '../ec-component-icon/icon.html.twig' with { icon: { type: 'ui', name: 'close-filled', size: 'xs', path: default_icon_path }, extra_classes: 'ecl-tag__icon-close-filled' } %}
+        {%- include '../ec-component-icon/icon.html.twig' with { 
+          icon: { type: 'ui', name: 'close', size: 'xs', path: default_icon_path }, 
+          extra_classes: 'ecl-tag__icon-close' 
+        } -%}
+        {%- include '../ec-component-icon/icon.html.twig' with { 
+          icon: { type: 'ui', name: 'close-filled', size: 'xs', path: default_icon_path }, 
+          extra_classes: 'ecl-tag__icon-close-filled' 
+        } -%}
       </span>
-    {% endif %}
+    {%- endif -%}
   </button>
-{% else %}
-  <a href="{{ _tag.path }}" class="{{ _css_class }}"{{ _extra_attributes|raw }}>
-    {{ _tag.label }}
+{%- else -%}
+  <a href="{{- _tag.path -}}" class="{{- _css_class -}}"{{- _extra_attributes|raw -}}>
+    {{- _tag.label -}}
   </a>
-{% endif %}
+{%- endif -%}
+{% endspaceless %}

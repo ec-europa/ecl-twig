@@ -20,7 +20,8 @@
 #}
 
 {# Internal properties #}
-{% set _icon={
+
+{% set _icon = {
   path: '',
   type: '',
   name: '',
@@ -37,10 +38,11 @@
   {% endif %}
 {% endfor %}
 
-{% set _css_class=_css_class|join(' ') %}
+{% set _css_class = _css_class|join(' ') %}
 {% set _extra_attributes = ' focusable="false" aria-hidden="true"' %}
 
 {# Internal logic - Process properties #}
+
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
 {% endif %}
@@ -52,9 +54,10 @@
 {% endif %}
 
 {# Print the result #}
+
 {% spaceless %}
 {%- if _icon -%}
-  <svg class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+  <svg class="{{- _css_class -}}"{{- _extra_attributes|raw -}}>
     <use xlink:href="{{- _icon.path -}}#{{- _icon.type -}}--{{- _icon.name -}}"></use>
   </svg>
 {%- endif -%}

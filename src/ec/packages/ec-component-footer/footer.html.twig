@@ -45,9 +45,10 @@
 
 {# Print the result #}
 
-<footer class="{{ _css_class }}"{{ _extra_attributes|raw }}>
-  {# Back to top #}
-  {% include '../ec-component-link/link.html.twig' with _back_to_top|merge({ 
+{% spaceless %}
+<footer class="{{- _css_class -}}"{{- _extra_attributes|raw -}}>
+  {#- Back to top -#}
+  {%- include '../ec-component-link/link.html.twig' with _back_to_top|merge({ 
     link: _back_to_top.link|default({})|merge({ 
       type: 'standalone',
       icon_position: 'after',
@@ -57,23 +58,23 @@
       name: 'corner-arrow',
     }),
     extra_classes: 'ecl-footer__back-to-top'
-  }) %}
+  }) -%}
 
-  {# Site identity #}
-  {% if _identity is not empty %}
+  {#- Site identity -#}
+  {%- if _identity is not empty -%}
   <section class="ecl-footer__identity">
     <div class="ecl-container">
       <div class="ecl-row">
         <div class="ecl-col-12 ecl-col-md-4">
-          <h1 class="ecl-footer__identity-title">{{_identity.title}}</h1>
+          <h1 class="ecl-footer__identity-title">{{- _identity.title -}}</h1>
         </div>
 
         <div class="ecl-footer__identity-follow ecl-col-12 ecl-col-md-4">
           <span class="ecl-footer__identity-label">
-            {{identity.follow.label}}
+            {{- identity.follow.label -}}
           </span>
-          {% for item in _identity.follow.links %}
-            {% include '../ec-component-link/link.html.twig' with item|merge({
+          {%- for item in _identity.follow.links -%}
+            {%- include '../ec-component-link/link.html.twig' with item|merge({
               link: item.link|default({})|merge({
                 type: 'standalone',
               }),
@@ -81,13 +82,13 @@
                 size: 'xs',
               }),
               extra_classes: 'ecl-footer__identity-link'
-            }) %}
-          {% endfor %}
+            }) -%}
+          {%- endfor -%}
         </div>
 
         <div class="ecl-footer__identity-info ecl-col-12 ecl-col-md-4">
-        {% for item in _identity.info %}
-          {% include '../ec-component-link/link.html.twig' with item|merge({ 
+        {%- for item in _identity.info -%}
+          {%- include '../ec-component-link/link.html.twig' with item|merge({ 
             link: item.link|default({})|merge({
               type: 'standalone',
             }),
@@ -95,25 +96,25 @@
               size: 'xs',
             }),
             extra_classes: 'ecl-footer__identity-link'
-          }) %}
-        {% endfor %}
+          }) -%}
+        {%- endfor -%}
         </div>
       </div>
     </div>
   </section>
-  {% endif %}
+  {%- endif -%}
 
-  {# European Commission #}
+  {#- European Commission -#}
   <div class="ecl-footer__sections">
     <div class="ecl-container">
       <div class="ecl-row">
         <section class="ecl-footer__section ecl-col-12 ecl-col-md-4">
-          <h1 class="ecl-footer__section-title">{{sections[0].title}}</h1>
+          <h1 class="ecl-footer__section-title">{{- sections[0].title -}}</h1>
 
           <ul class="ecl-footer__section-list">
-          {% for item in _sections[0].links %}
+          {%- for item in _sections[0].links -%}
             <li class="ecl-footer__section-item">
-              {% include '../ec-component-link/link.html.twig' with item|merge({
+              {%- include '../ec-component-link/link.html.twig' with item|merge({
                 link: item.link|default({})|merge({
                   type: 'standalone',
                 }),
@@ -121,19 +122,19 @@
                   size: 'xs',
                 }),
                 extra_classes: 'ecl-footer__section-link'
-              }) %}
+              }) -%}
             </li>
-          {% endfor %}
+          {%- endfor -%}
           </ul>
         </section>
 
         <section class="ecl-footer__section ecl-col-12 ecl-col-md-4">
-          <h1 class="ecl-footer__section-title">{{sections[1].title}}</h1>
+          <h1 class="ecl-footer__section-title">{{- sections[1].title -}}</h1>
 
           <ul class="ecl-footer__section-list ecl-footer__section-list--inline">
-          {% for item in _sections[1].links %}
+          {%- for item in _sections[1].links -%}
             <li class="ecl-footer__section-item">
-              {% include '../ec-component-link/link.html.twig' with item|merge({
+              {%- include '../ec-component-link/link.html.twig' with item|merge({
                 link: item.link|default({})|merge({
                   type: 'standalone',
                 }),
@@ -141,19 +142,19 @@
                   size: 'xs',
                 }),
                 extra_classes: 'ecl-footer__section-link'
-              }) %}
+              }) -%}
             </li>
-          {% endfor %}
+          {%- endfor -%}
           </ul>
         </section>
 
         <section class="ecl-footer__section ecl-col-12 ecl-col-md-4">
-          <h1 class="ecl-footer__section-title">{{sections[2].title}}</h1>
+          <h1 class="ecl-footer__section-title">{{- sections[2].title -}}</h1>
 
           <ul class="ecl-footer__section-list">
-          {% for item in _sections[2].links %}
+          {%- for item in _sections[2].links -%}
             <li class="ecl-footer__section-item">
-              {% include '../ec-component-link/link.html.twig' with item|merge({
+              {%- include '../ec-component-link/link.html.twig' with item|merge({
                 link: item.link|default({})|merge({
                   type: 'standalone',
                 }),
@@ -161,20 +162,20 @@
                   size: 'xs',
                 }),
                 extra_classes: 'ecl-footer__section-link'
-              }) %}
+              }) -%}
             </li>
-          {% endfor %}
+          {%- endfor -%}
           </ul>
         </section>
       </div>
     </div>
   </div>
 
-  {# Common #}
+  {#- Common -#}
   <section class="ecl-footer__common">
     <div class="ecl-container ecl-footer__common-container">
-    {% for item in _common %}
-      {% include '../ec-component-link/link.html.twig' with item|merge({
+    {%- for item in _common -%}
+      {%- include '../ec-component-link/link.html.twig' with item|merge({
         link: item.link|default({})|merge({
           type: 'standalone',
         }),
@@ -182,8 +183,9 @@
           size: 'xs',
         }),
         extra_classes: 'ecl-footer__common-link'
-      }) %}
-    {% endfor %}
+      }) -%}
+    {%- endfor -%}
     </div>
   </section>
 </footer>
+{% endspaceless %}

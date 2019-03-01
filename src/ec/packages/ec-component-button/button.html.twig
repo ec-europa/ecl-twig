@@ -29,6 +29,7 @@
 {% set _disabled = disabled|default(false) %}
 
 {# Internal logic - Process properties #}
+
 {% set _css_class = _css_class ~ ' ecl-button--' ~ _variant %}
 
 {% if extra_classes is defined and extra_classes is not empty %}
@@ -42,13 +43,15 @@
 {% endif %}
 
 {# Add disabled option if defined #}
+
 {% if disabled %}
   {% set _extra_attributes = ' disabled' %}
 {% endif %}
 
 {# Print the result #}
+
 {% spaceless %}
-<button class="{{ _css_class }}" type="{{ _type }}"{{ _extra_attributes|raw }}>
+<button class="{{- _css_class -}}" type="{{- _type -}}"{{- _extra_attributes|raw -}}>
   <span class="ecl-button__container">
     {%- if _icon.name is not empty and _icon_position == 'before' -%}
       {%- include '../ec-component-icon/icon.html.twig' with { icon: _icon, extra_classes: 'ecl-button__icon ecl-button__icon--before' } -%}
