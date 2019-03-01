@@ -40,7 +40,7 @@
 {# Print the result #}
 
 {% spaceless %}
-<li class="{{- _item_class -}}">
+<li class="{{ _item_class }}">
   {%- include '../ec-component-link/link.html.twig' with {
     link: {
       type: 'standalone',

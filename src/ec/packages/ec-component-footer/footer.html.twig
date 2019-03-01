@@ -46,7 +46,7 @@
 {# Print the result #}
 
 {% spaceless %}
-<footer class="{{- _css_class -}}"{{- _extra_attributes|raw -}}>
+<footer class="{{ _css_class }}"{{ _extra_attributes|raw }}>
   {#- Back to top -#}
   {%- include '../ec-component-link/link.html.twig' with _back_to_top|merge({ 
     link: _back_to_top.link|default({})|merge({ 
@@ -66,7 +66,7 @@
     <div class="ecl-container">
       <div class="ecl-row">
         <div class="ecl-col-12 ecl-col-md-4">
-          <h1 class="ecl-footer__identity-title">{{- _identity.title -}}</h1>
+          <h1 class="ecl-footer__identity-title">{{ _identity.title }}</h1>
         </div>
 
         <div class="ecl-footer__identity-follow ecl-col-12 ecl-col-md-4">
@@ -109,7 +109,7 @@
     <div class="ecl-container">
       <div class="ecl-row">
         <section class="ecl-footer__section ecl-col-12 ecl-col-md-4">
-          <h1 class="ecl-footer__section-title">{{- sections[0].title -}}</h1>
+          <h1 class="ecl-footer__section-title">{{ sections[0].title }}</h1>
 
           <ul class="ecl-footer__section-list">
           {%- for item in _sections[0].links -%}
@@ -129,7 +129,7 @@
         </section>
 
         <section class="ecl-footer__section ecl-col-12 ecl-col-md-4">
-          <h1 class="ecl-footer__section-title">{{- sections[1].title -}}</h1>
+          <h1 class="ecl-footer__section-title">{{ sections[1].title }}</h1>
 
           <ul class="ecl-footer__section-list ecl-footer__section-list--inline">
           {%- for item in _sections[1].links -%}
@@ -149,7 +149,7 @@
         </section>
 
         <section class="ecl-footer__section ecl-col-12 ecl-col-md-4">
-          <h1 class="ecl-footer__section-title">{{- sections[2].title -}}</h1>
+          <h1 class="ecl-footer__section-title">{{ sections[2].title }}</h1>
 
           <ul class="ecl-footer__section-list">
           {%- for item in _sections[2].links -%}

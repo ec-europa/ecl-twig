@@ -54,7 +54,7 @@
 
 {% spaceless %}
 {%- if _tag.type != 'link' -%}
-  <button class="{{- _css_class -}}" type="button"{{- _extra_attributes|raw -}}>
+  <button class="{{ _css_class }}" type="button"{{ _extra_attributes|raw }}>
     {{- _tag.label -}}
     {%- if _tag.type=='removable' -%}
       <span class="ecl-tag__icon">
@@ -70,7 +70,7 @@
     {%- endif -%}
   </button>
 {%- else -%}
-  <a href="{{- _tag.path -}}" class="{{- _css_class -}}"{{- _extra_attributes|raw -}}>
+  <a href="{{ _tag.path }}" class="{{ _css_class }}"{{ _extra_attributes|raw }}>
     {{- _tag.label -}}
   </a>
 {%- endif -%}

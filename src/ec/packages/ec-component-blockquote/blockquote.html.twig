@@ -34,8 +34,8 @@
 {# Print the result #}
 
 {% spaceless %}
-<blockquote class="{{- _css_class -}}"{{- _extra_attributes|raw -}}>
-  <p class="ecl-blockquote__body">{{- _citation -}}</p>
-  <footer class="ecl-blockquote__attribution"><cite class="ecl-blockquote__author">{{- _author -}}</cite></footer>
+<blockquote class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+  <p class="ecl-blockquote__body">{{ _citation }}</p>
+  <footer class="ecl-blockquote__attribution"><cite class="ecl-blockquote__author">{{ _author }}</cite></footer>
 </blockquote>
 {% endspaceless %}

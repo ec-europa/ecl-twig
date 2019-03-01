@@ -32,7 +32,7 @@
 {# Print the result #}
 
 {% spaceless %}
-<form class="{{- _css_class -}}" role="search"{{- _extra_attributes|raw -}}>
+<form class="{{ _css_class }}" role="search"{{ _extra_attributes|raw }}>
   {%- if text_input is defined -%}
     {%- include '../ec-component-text-input/text-input.html.twig' with text_input -%}
   {%- endif -%}

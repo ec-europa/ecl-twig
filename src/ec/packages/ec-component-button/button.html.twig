@@ -51,12 +51,12 @@
 {# Print the result #}
 
 {% spaceless %}
-<button class="{{- _css_class -}}" type="{{- _type -}}"{{- _extra_attributes|raw -}}>
+<button class="{{ _css_class }}" type="{{ _type }}"{{ _extra_attributes|raw }}>
   <span class="ecl-button__container">
     {%- if _icon.name is not empty and _icon_position == 'before' -%}
       {%- include '../ec-component-icon/icon.html.twig' with { icon: _icon, extra_classes: 'ecl-button__icon ecl-button__icon--before' } -%}
     {%- endif -%}
-    <span class="ecl-button__label"> {% block label _label %} </span>
+    <span class="ecl-button__label">{% block label _label %}</span>
     {%- if _icon.name is not empty and _icon_position == 'after' -%}
       {%- include '../ec-component-icon/icon.html.twig' with { icon: _icon, extra_classes: 'ecl-button__icon ecl-button__icon--after' } -%}
     {%- endif -%}
