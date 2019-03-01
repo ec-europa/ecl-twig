@@ -59,9 +59,9 @@
       class="ecl-form-label{{- invalid ? ' ecl-form-label--invalid' -}}{{- hide_label ? ' ecl-form-label--hidden'-}}"
       for={{- _id -}}
     >
-      {% block label _label %}
+      {%- block label _label -%}
     </label>
-  {% endif %}
+  {%- endif -%}
   
   <div class="ecl-select__container{{- disabled ? ' ecl-select__container--disabled' -}}">
     <select
