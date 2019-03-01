@@ -1,217 +1,56 @@
 /* eslint-disable import/no-extraneous-dependencies */
+import specDataCorporate from '@ecl/ec-specs-footer/demo/data--corporate';
+import specDataCustom from '@ecl/ec-specs-footer/demo/data--custom';
+
+function formatLink(l) {
+  const link = {
+    link: {
+      label: l.label,
+      path: l.href,
+    },
+  };
+
+  if (l.icon) {
+    const [type, name] = l.icon.shape.split('--');
+
+    link.link.icon_position = l.iconPosition;
+    link.icon = {
+      path: 'static/icons.svg',
+      type,
+      name,
+      size: l.icon.size,
+    };
+  }
+
+  return link;
+}
+
 export const backToTop = {
   link: {
-    label: 'Go to top',
-    path: '#top',
+    label: specDataCorporate.backToTop.label,
+    path: specDataCorporate.backToTop.href,
+    icon_position: 'after',
   },
   icon: {
     path: 'static/icons.svg',
-    size: 'fluid',
+    size: specDataCorporate.backToTop.icon.size,
   },
 };
 
 export const identity = {
-  title: 'Site identification',
+  title: specDataCustom.identity.title,
   follow: {
-    label: 'Follow us:',
-    links: [
-      {
-        link: {
-          label: 'Facebook',
-          path: '/example',
-          icon_position: 'before',
-        },
-        icon: {
-          path: 'static/icons.svg',
-          type: 'branded',
-          name: 'facebook',
-        },
-      },
-      {
-        link: {
-          label: 'Twitter',
-          path: '/example',
-          icon_position: 'before',
-        },
-        icon: {
-          path: 'static/icons.svg',
-          type: 'branded',
-          name: 'twitter',
-        },
-      },
-      {
-        link: {
-          label: 'Other social networks',
-          path: '/example',
-          icon_position: 'before',
-        },
-        icon: {
-          path: 'static/icons.svg',
-          type: 'ui',
-          name: 'external',
-        },
-      },
-    ],
+    label: specDataCustom.identity.follow.label,
+    links: specDataCustom.identity.follow.links.map(formatLink),
   },
-  info: [
-    {
-      link: {
-        label: 'Contact',
-        path: '/example',
-      },
-    },
-    {
-      link: {
-        label: 'Sitemap',
-        path: '/example',
-      },
-    },
-    {
-      link: {
-        label: 'Lorem ipsum',
-        path: '/example',
-      },
-    },
-    {
-      link: {
-        label: 'Lorem ipsum dolor sit',
-        path: '/example',
-      },
-    },
-  ],
+  info: specDataCustom.identity.info.map(formatLink),
 };
 
-export const sections = [
-  {
-    title: 'European Commission',
-    links: [
-      {
-        link: {
-          label: 'Commission and its priorities',
-          path: '/example',
-        },
-      },
-      {
-        link: {
-          label: 'Policies, information and services',
-          path: '/example',
-        },
-      },
-    ],
-  },
-  {
-    title: 'Follow the European Commission',
-    links: [
-      {
-        link: {
-          label: 'Facebook',
-          path: '/example',
-          icon_position: 'before',
-        },
-        icon: {
-          path: 'static/icons.svg',
-          type: 'branded',
-          name: 'facebook',
-        },
-      },
-      {
-        link: {
-          label: 'Twitter',
-          path: '/example',
-          icon_position: 'before',
-        },
-        icon: {
-          path: 'static/icons.svg',
-          type: 'branded',
-          name: 'twitter',
-        },
-      },
-      {
-        link: {
-          label: 'Other social networks',
-          path: '/example',
-          icon_position: 'before',
-        },
-        icon: {
-          path: 'static/icons.svg',
-          type: 'ui',
-          name: 'external',
-        },
-      },
-    ],
-  },
-  {
-    title: 'European Union',
-    links: [
-      {
-        link: {
-          label: 'European Union',
-          path: '/example',
-          icon_position: 'after',
-        },
-        icon: {
-          path: 'static/icons.svg',
-          type: 'ui',
-          name: 'external',
-        },
-      },
-      {
-        link: {
-          label: 'EU institutions',
-          path: '/example',
-          icon_position: 'after',
-        },
-        icon: {
-          path: 'static/icons.svg',
-          type: 'ui',
-          name: 'external',
-        },
-      },
-    ],
-  },
-];
+export const sections = specDataCorporate.sections.map(s => {
+  return {
+    title: s.title,
+    links: s.links.map(formatLink),
+  };
+});
 
-export const common = [
-  {
-    link: {
-      label: "About the Commission's new web presence",
-      path: '/example',
-    },
-  },
-  {
-    link: {
-      label: 'Language policy',
-      path: '/example',
-    },
-  },
-  {
-    link: {
-      label: 'Resources for partners',
-      path: '/example',
-    },
-  },
-  {
-    link: {
-      label: 'Cookies',
-      path: '/example',
-    },
-  },
-  {
-    link: {
-      label: 'Privacy policy',
-      path: '/example',
-    },
-  },
-  {
-    link: {
-      label: 'Legal notice',
-      path: '/example',
-    },
-  },
-  {
-    link: {
-      label: 'Contact',
-      path: '/example',
-    },
-  },
-];
+export const common = specDataCorporate.common.map(formatLink);

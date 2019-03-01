@@ -1,5 +1,5 @@
 import path from 'path';
-import { renderTwigFile } from '@ecl-twig/test-utils';
+import { renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
 // Import data for tests
 import dataPrimary from '@ecl/ec-specs-button/demo/data--primary';
@@ -10,31 +10,26 @@ import dataSearch from '@ecl/ec-specs-button/demo/data--search';
 
 describe('EC - Button', () => {
   const template = path.resolve(__dirname, './button.html.twig');
+  const render = params => renderTwigFileAsNode(template, params);
 
   describe('Primary', () => {
-    test('renders correctly', done => {
+    test('renders correctly', () => {
       expect.assertions(1);
 
-      renderTwigFile(template, dataPrimary, (err, html) => {
-        expect(html).toMatchSnapshot();
-        done();
-      });
+      return expect(render(dataPrimary)).resolves.toMatchSnapshot();
     });
   });
 
   describe('Secondary', () => {
-    test('renders correctly', done => {
+    test('renders correctly', () => {
       expect.assertions(1);
 
-      renderTwigFile(template, dataSecondary, (err, html) => {
-        expect(html).toMatchSnapshot();
-        done();
-      });
+      return expect(render(dataSecondary)).resolves.toMatchSnapshot();
     });
   });
 
   describe('CTA', () => {
-    test('renders correctly', done => {
+    test('renders correctly', () => {
       expect.assertions(1);
 
       dataCall.icon.path = 'static/icons.svg';
@@ -42,37 +37,28 @@ describe('EC - Button', () => {
       dataCall.icon.name = 'corner-arrow';
       dataCall.icon.size = 'fluid';
 
-      renderTwigFile(template, dataCall, (err, html) => {
-        expect(html).toMatchSnapshot();
-        done();
-      });
+      return expect(render(dataCall)).resolves.toMatchSnapshot();
     });
   });
 
   describe('Ghost', () => {
-    test('renders correctly', done => {
+    test('renders correctly', () => {
       expect.assertions(1);
 
-      renderTwigFile(template, dataGhost, (err, html) => {
-        expect(html).toMatchSnapshot();
-        done();
-      });
+      return expect(render(dataGhost)).resolves.toMatchSnapshot();
     });
   });
 
   describe('Search', () => {
-    test('renders correctly', done => {
+    test('renders correctly', () => {
       expect.assertions(1);
 
-      renderTwigFile(template, dataSearch, (err, html) => {
-        expect(html).toMatchSnapshot();
-        done();
-      });
+      return expect(render(dataSearch)).resolves.toMatchSnapshot();
     });
   });
 
   describe('CTA button - icon before', () => {
-    test('renders correctly', done => {
+    test('renders correctly', () => {
       expect.assertions(1);
 
       dataCall.icon.path = 'static/icons.svg';
@@ -81,15 +67,12 @@ describe('EC - Button', () => {
       dataCall.icon.size = 'fluid';
       dataCall.icon_position = 'before';
 
-      renderTwigFile(template, dataCall, (err, html) => {
-        expect(html).toMatchSnapshot();
-        done();
-      });
+      return expect(render(dataCall)).resolves.toMatchSnapshot();
     });
   });
 
   describe('CTA button - icon after', () => {
-    test('renders correctly', done => {
+    test('renders correctly', () => {
       expect.assertions(1);
 
       const buttonData = {
@@ -103,10 +86,7 @@ describe('EC - Button', () => {
         },
       };
 
-      renderTwigFile(template, buttonData, (err, html) => {
-        expect(html).toMatchSnapshot();
-        done();
-      });
+      return expect(render(buttonData)).resolves.toMatchSnapshot();
     });
   });
 });

@@ -16,17 +16,15 @@ exports[`EC - Search Form Default - search form renders correctly 1`] = `
     class=\\"ecl-button ecl-button--search ecl-search-form__button\\"
     type=\\"submit\\"
   >
-    <span class=\\"ecl-button__container\\">
-      <span class=\\"ecl-button__label\\">Search</span>
-
-      <svg
+    <span class=\\"ecl-button__container\\"
+      ><span class=\\"ecl-button__label\\">Search</span
+      ><svg
         class=\\"ecl-icon ecl-icon--fluid ecl-button__icon ecl-button__icon--after\\"
         focusable=\\"false\\"
         aria-hidden=\\"true\\"
       >
-        <use xlink:href=\\"static/icons.svg#general--search\\"></use>
-      </svg>
-    </span>
+        <use xlink:href=\\"static/icons.svg#general--search\\"></use></svg
+    ></span>
   </button>
 </form>
 "
