@@ -6,7 +6,19 @@ const withCode = makeDecorator({
   wrapper: (getStory, context) => {
     const channel = addons.getChannel();
     const story = getStory(context);
-    const formattedCode = beautifyHtml(story, {
+
+    let code = '';
+    if (typeof story === 'string') {
+      code = story;
+    } else if (story instanceof DocumentFragment) {
+      const htmlElement = document.createElement('div');
+      htmlElement.append(story.cloneNode(true));
+      code = htmlElement.innerHTML;
+    } else if (story instanceof Node) {
+      code = story.outerHTML;
+    }
+
+    const formattedCode = beautifyHtml(code, {
       indent_size: 2,
       max_preserve_newlines: -1,
       preserve_newlines: false,
@@ -15,7 +27,7 @@ const withCode = makeDecorator({
 
     channel.emit('ecl/code/add_code', formattedCode);
 
-    return formattedCode;
+    return story;
   },
 });
 
