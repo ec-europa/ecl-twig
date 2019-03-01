@@ -18,13 +18,31 @@ storiesOf('Components/Expandable', module)
   .addDecorator(withNotes)
   .add(
     'default',
-    () =>
-      expandable({
+    () => {
+      const html = expandable({
         label_expanded: text('Label Expanded', demoData.labelExpanded),
         label_collapsed: text('Label Collapsed', demoData.labelCollapsed),
         content: text('Content', demoData.content),
         ...demoData,
-      }),
+      });
+
+      const demo = document.createDocumentFragment();
+
+      const htmlElement = document.createElement('div');
+      htmlElement.innerHTML = html.trim();
+      demo.append(htmlElement.firstChild);
+
+      const scriptElement = document.createElement('script');
+      scriptElement.innerHTML = `
+        var expandableElement = document.querySelector('[data-ecl-expandable]');
+        var expandable = new ECL.Expandable(expandableElement);
+        expandable.init();
+      `;
+      demo.append(scriptElement);
+
+      return demo;
+    },
+
     {
       notes: { markdown: notes },
     }
