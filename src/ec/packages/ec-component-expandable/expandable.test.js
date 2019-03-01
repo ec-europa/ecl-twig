@@ -1,5 +1,5 @@
 import path from 'path';
-import { renderTwigFile } from '@ecl-twig/test-utils';
+import { renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
 import demoData from './demo/data';
 
@@ -7,14 +7,12 @@ import demoData from './demo/data';
 demoData.button.icon.path = 'example';
 
 describe('EC - Expandable', () => {
-  test('renders correctly', done => {
+  const template = path.resolve(__dirname, './expandable.html.twig');
+  const render = params => renderTwigFileAsNode(template, params);
+
+  test('renders correctly', () => {
     expect.assertions(1);
 
-    const template = path.resolve(__dirname, './expandable.html.twig');
-
-    renderTwigFile(template, demoData, (err, html) => {
-      expect(html).toMatchSnapshot();
-      done();
-    });
+    return expect(render(demoData)).resolves.toMatchSnapshot();
   });
 });
