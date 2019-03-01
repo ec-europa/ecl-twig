@@ -4,6 +4,7 @@ import styled from '@emotion/styled';
 import Prism from 'prismjs';
 import ClipboardJS from 'clipboard';
 import { html as beautifyHtml } from 'js-beautify';
+import 'prismjs/plugins/line-numbers/prism-line-numbers';
 
 const CodePanel = styled.div({
   margin: 0,
@@ -26,8 +27,10 @@ const Actions = styled.div({
   display: 'flex',
   flexDirection: 'row',
   position: 'absolute',
+  backgroundColor: '#272822',
   right: 0,
   top: 0,
+  zIndex: 1,
 });
 
 const CopyButton = styled.button({
@@ -40,33 +43,39 @@ const CopyButton = styled.button({
   borderRightWidth: 0,
 });
 
-class Notes extends React.Component {
+class HTMLMarkup extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      text: '',
+      code: '',
       pretty: true,
     };
 
-    this.onAddNotes = this.onAddNotes.bind(this);
+    this.onAddHTMLMarkup = this.onAddHTMLMarkup.bind(this);
     this.toggleBeautifier = this.toggleBeautifier.bind(this);
   }
 
   componentDidMount() {
     // eslint-disable-next-line react/prop-types
     const { channel, api } = this.props;
-    // Listen to the notes and render it.
-    channel.on('ecl/code/add_code', this.onAddNotes);
+    // Listen to the HTMLMarkup and render it.
+    channel.on('ecl/code/add_code', this.onAddHTMLMarkup);
 
     this.clipboard = new ClipboardJS('#copy-code');
 
-    // Clear the current notes on every story change.
+    // Clear the current HTMLMarkup on every story change.
     this.stopListeningOnStory = api.onStory(() => {
-      this.onAddNotes('');
+      this.onAddHTMLMarkup('');
     });
+
+    Prism.highlightAll();
   }
 
-  // This is some cleanup tasks when the Notes panel is unmounting.
+  componentDidUpdate() {
+    Prism.highlightAll();
+  }
+
+  // This is some cleanup tasks when the HTMLMarkup panel is unmounting.
   componentWillUnmount() {
     if (this.stopListeningOnStory) {
       this.stopListeningOnStory();
@@ -77,11 +86,11 @@ class Notes extends React.Component {
     this.unmounted = true;
     // eslint-disable-next-line react/prop-types
     const { channel } = this.props;
-    channel.removeListener('ecl/code/add_code', this.onAddNotes);
+    channel.removeListener('ecl/code/add_code', this.onAddHTMLMarkup);
   }
 
-  onAddNotes(text) {
-    this.setState({ text });
+  onAddHTMLMarkup(code) {
+    this.setState({ code });
   }
 
   toggleBeautifier() {
@@ -91,11 +100,11 @@ class Notes extends React.Component {
   }
 
   render() {
-    const { text, pretty } = this.state;
+    const { code: rawCode, pretty } = this.state;
     // eslint-disable-next-line react/prop-types
     const { active } = this.props;
 
-    let code = text;
+    let code = rawCode;
     if (pretty) {
       code = beautifyHtml(code, {
         indent_size: 2,
@@ -115,13 +124,8 @@ class Notes extends React.Component {
             Copy
           </CopyButton>
         </Actions>
-        <Pre className="language-html">
-          <code
-            className="language-html"
-            dangerouslySetInnerHTML={{
-              __html: Prism.highlight(code, Prism.languages.html, 'html'),
-            }}
-          />
+        <Pre className="language-html line-numbers">
+          <code className="language-html">{code}</code>
         </Pre>
       </CodePanel>
     ) : null;
@@ -135,7 +139,7 @@ addons.register('ecl/code', api => {
     title: 'HTML',
     // eslint-disable-next-line react/prop-types
     render: ({ active }) => (
-      <Notes channel={addons.getChannel()} api={api} active={active} />
+      <HTMLMarkup channel={addons.getChannel()} api={api} active={active} />
     ),
   });
 });
