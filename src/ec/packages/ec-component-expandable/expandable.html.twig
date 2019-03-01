@@ -15,11 +15,13 @@
 
 {# Internal properties #}
 
+{% set _id = id|default('') %}
 {% set _css_class = 'ecl-expandable' %}
 {% set _extra_attributes = "data-ecl-expandable='true'" %}
+
 {% set _label_expanded = label_expanded|default('') %}
 {% set _label_collapsed = label_collapsed|default('') %}
-{% set _id = id|default('') %}
+{% set _aria_controls = _id ~ '-content' %}
 {% set _content = content|default('') %}
 
 {% set _button_icon = {
@@ -36,7 +38,21 @@
   {% set _button_icon = _button_icon|merge(button.icon) %}
 {% endif %}
 
-{% set _aria_controls = _id ~ '-content' %}
+{% set _button = {
+    label: _label_collapsed,
+    variant: 'secondary',
+    type: 'button',
+    icon: _button_icon,
+    icon_position: "after",
+    extra_classes: 'ecl-expandable__toggle',
+    extra_attributes: [
+      { name: 'aria-expanded', value: 'true' },
+      { name: 'aria-controls', value: _aria_controls },
+      { name: 'data-ecl-expandable-toggle', value: 'true' },
+      { name: 'data-ecl-label-expanded', value: _label_expanded },
+      { name: 'data-ecl-label-collapsed', value: _label_collapsed },
+    ]
+  } %}
 
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
@@ -52,22 +68,8 @@
 
 {% spaceless %}
 <div class="{{- _css_class -}}"{{- _extra_attributes|raw -}}>
-  {%- include '../ec-component-button/button.html.twig' with {
-    label: _label_collapsed,
-    variant: 'secondary',
-    type: 'button',
-    icon: _button_icon,
-    icon_position: "after",
-    extra_classes: 'ecl-expandable__toggle',
-    extra_attributes: [
-      { name: 'aria-expanded', value: 'true' },
-      { name: 'aria-controls', value: _aria_controls },
-      { name: 'data-ecl-expandable-toggle', value: 'true' },
-      { name: 'data-ecl-label-expanded', value: _label_expanded },
-      { name: 'data-ecl-label-collapsed', value: _label_collapsed },
-    ]
-  } -%}
-  <div class="ecl-expandable__content" id="{{ _id ~ '-content'}}" hidden>
+  {%- include '../ec-component-button/button.html.twig' with _button -%}
+  <div class="ecl-expandable__content" id="{{ _id ~ '-content' }}" hidden>
     <p class="ecl-u-type-paragraph-m">
       {%- block content _content -%}
     </p>

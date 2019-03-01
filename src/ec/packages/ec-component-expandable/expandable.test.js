@@ -1,6 +1,10 @@
 import path from 'path';
-import data from '@ecl/ec-specs-expandable/demo/data';
 import { renderTwigFile } from '@ecl-twig/test-utils';
+
+import demoData from './demo/data';
+
+// Add SVG icon path.
+demoData.button.icon.path = 'example';
 
 describe('EC - Expandable', () => {
   test('renders correctly', done => {
@@ -8,7 +12,7 @@ describe('EC - Expandable', () => {
 
     const template = path.resolve(__dirname, './expandable.html.twig');
 
-    renderTwigFile(template, data, (err, html) => {
+    renderTwigFile(template, demoData, (err, html) => {
       expect(html).toMatchSnapshot();
       done();
     });
