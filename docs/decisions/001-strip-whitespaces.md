@@ -1,6 +1,19 @@
 # Strip whitespaces
 
-## Motivation
+| Status        | proposed <!--becomes accepted, rejected or superseded later--> |
+| ------------- | -------------------------------------------------------------- |
+| **Proposed**  | 2019-03-01                                                     |
+| **Accepted**  | (the date the proposal was accepted/rejected)                  |
+| **Driver**    | @yhuard                                                        |
+| **Approver**  | (who will make the decision and merge the PR)                  |
+| **Consulted** | (who you worked with on this decision)                         |
+| **Informed**  | WAAT, contributors                                             |
+
+## Decision
+
+In order to avoid issues related to whitespace, we should strip them by default and only add them when needed.
+
+## Context
 
 Whitespaces can be a source of problems in HTML when not handled correctly.
 
@@ -8,36 +21,39 @@ When we develop our components in the [main repository](https://github.com/ec-eu
 
 With Twig, we need to be careful about whitespaces. When they appear [between inline block elements](https://css-tricks.com/fighting-the-space-between-inline-block-elements/) or around content, they alter the output.
 
+For example,
+
 ```html
-<a href="#">Hello world!</a>
+Hello <a href="#">world!</a>
 ```
 
 Is not the same as:
 
 ```html
+Hello
 <a href="#">
-  Hello world!
+  world!
 </a>
 ```
 
-In order to avoid issues related to whitespace, we should strip them by default and only add them when needed.
+## Consequences
 
-## Goal
+### Expected output
 
-The output of a Twig template should not contain whitespaces in the following cases:
+The output of a Twig template should not contain whitespaces — unless explictly required — in the following cases:
 
 - between adjacent tags
 
   Expect:
 
   ```html
-  <div></div><div></div>
+  <span></span><span></span>
   ```
 
   Avoid:
 
   ```html
-  <div></div> <div></div>
+  <span></span> <span></span>
   ```
 
 - between a tag and its children
@@ -45,16 +61,16 @@ The output of a Twig template should not contain whitespaces in the following ca
   Expect:
 
   ```html
-  <div><div></div><div></div></div>
+  <span><span></span><span></span></span>
   ```
 
   Avoid:
 
   ```html
-  <div>
-    <div></div>
-    <div></div>
-  </div>
+  <span>
+    <span></span>
+    <span></span>
+  </span>
   ```
 
 - between a tag and its text content
@@ -62,24 +78,24 @@ The output of a Twig template should not contain whitespaces in the following ca
   Expect:
 
   ```html
-  <div>Hello world!</div>
+  <span>Hello world!</span>
   ```
 
   Avoid:
 
   ```html
-  <div>
+  <span>
     Hello world!
-  </div>
+  </span>
   ```
 
   ```html
-  <div> Hello world! </div>
+  <span> Hello world! </span>
   ```
 
-## Concrete actions
+### Concrete actions
 
-### Use the `spaceless` tag
+#### Use the `spaceless` tag
 
 Wrap your template within `{% spaceless %}`:
 
@@ -105,7 +121,7 @@ Wrap your template within `{% spaceless %}`:
 
 If you need to add a whitespace somewhere in your template, you can do it with: `{% endspaceless %}{{ ' ' }}{% spaceless %}`.
 
-### Use the whitespace control modifier on your tags when needed
+#### Use the whitespace control modifier on your tags when needed
 
 You can trim leading and or trailing whitespaces with `-` (dash), e.g:
 
@@ -117,59 +133,62 @@ It makes sense to use it when you print content between 2 tags:
 
 ```html
 <!-- Do -->
-</div>
+</span>
   {{- my_var -}}
-<div>
+<span>
 
 <!-- Don't -->
-</div>
+</span>
   {{ my_var }}
-<div>
+<span>
 ```
 
 or inside a tag:
 
 ```html
 <!-- Do -->
-<div>
+<span>
   {{- my_var -}}
-</div>
+</span>
 
 <!-- Don't -->
-<div>
+<span>
   {{ my_var }}
-</div>
+</span>
 ```
 
 But it doesn’t make sense in attributes,
 
 ```html
 <!-- Do -->
-<div {{ my_var }} />
+<span {{ my_var }} />
 
 <!-- Don't -->
-<div {{- my_var -}} />
+<span {{- my_var -}} />
 ```
 
 or when there’s no space around:
 
 ```html
 <!-- Do -->
-</div>{{ my_var }}<div>
+</span>{{ my_var }}<span>
 
 <!-- Don't -->
-</div>{{- my_var -}}<div>
+</span>{{- my_var -}}<span>
 ```
 
 ```html
 <!-- Do -->
-<div>{{ my_var }}</div>
+<span>{{ my_var }}</span>
 
 <!-- Don't -->
-<div>{{- my_var -}}</div>
+<span>{{- my_var -}}</span>
 ```
 
-Note: `{{` can be replaced by `{%`, e.g. `{% include '...' %}`, `{% embed '...' %}`. The logic is the same.
+Notes:
+
+- `<span />` is used in these examples, but it could be any tag
+- `{{` can be replaced by `{%`, e.g. `{% include '...' %}`, `{% embed '...' %}`. The logic is the same.
 
 ## Resources
 
