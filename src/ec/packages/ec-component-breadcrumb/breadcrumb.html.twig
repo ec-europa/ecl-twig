@@ -60,34 +60,34 @@
 
 <nav class="{{ _css_class }}"{{ _extra_attributes }}>
   <ol class="ecl-breadcrumb__container">
-    {%- for key,link in links -%}
+    {% for key,link in links %}
 
-      {%- set _breadcrumb_segment_attributes = 'data-ecl-breadcrumb-item="static" aria-hidden="false"' -%}
+      {% set _breadcrumb_segment_attributes = 'data-ecl-breadcrumb-item="static" aria-hidden="false"' %}
 
-      {%- if loop.last -%}
+      {% if loop.last %}
         <li class="{{ _breadcrumb_segment_class ~ ' ecl-breadcrumb__current-page' }}" {{ _breadcrumb_segment_attributes ~ ' aria-current="page"' }}>
           {{- link.label -}}
         </li>
-      {%- else -%}
-        {%- if _breadcrumb_size > 3 and (key > 0 and key < _breadcrumb_size - 2) -%}
+      {% else %}
+        {% if _breadcrumb_size > 3 and (key > 0 and key < _breadcrumb_size - 2) %}
 
-          {%- if key == 1 -%}
+          {% if key == 1 %}
             <li class="{{ _breadcrumb_segment_class ~ ' ecl-breadcrumb__segment--ellipsis' }}" aria-hidden="false" data-ecl-breadcrumb-ellipsis="true">
               <button type="button" class="ecl-breadcrumb__ellipsis" aria-label="Click to expand" data-ecl-breadcrumb-ellipsis-button="true">…</button>
               {%- include '../ec-component-icon/icon.html.twig' with _default_icon_structure -%}
             </li>
-          {%- endif -%}
+          {% endif %}
 
-          {%- set _breadcrumb_segment_attributes = 'data-ecl-breadcrumb-item="expandable" aria-hidden="true"' -%}
-        {%- endif -%}
+          {% set _breadcrumb_segment_attributes = 'data-ecl-breadcrumb-item="expandable" aria-hidden="true"' %}
+        {% endif %}
 
         <li class="{{ _breadcrumb_segment_class }}" {{ _breadcrumb_segment_attributes }}>
           {%- include '../ec-component-link/link.html.twig' with { link: { type: 'standalone', label: link.label, path: link.path }, extra_classes: 'ecl-breadcrumb__link' } -%}
           {%- include '../ec-component-icon/icon.html.twig' with _default_icon_structure -%}
         </li>
-      {%- endif -%}
+      {% endif %}
 
-    {%- endfor -%}
+    {% endfor %}
   </ol>
 </nav>
 

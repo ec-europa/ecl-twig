@@ -68,17 +68,17 @@
 {# Print the result #}
 
 <a href="{{ _link.path }}" class="{{ _css_class }}"{{ _extra_attributes|raw }}>
-{%- if _icon.name is not empty -%}
-  {%- if _link.icon_position == 'before' -%}
+{% if _icon.name is not empty %}
+  {% if _link.icon_position == 'before' %}
     {%- include '../ec-component-icon/icon.html.twig' with icon|merge({extra_classes: 'ecl-link__icon'}) -%}&nbsp;
-  {%- endif -%}
+  {% endif %}
   <span class="ecl-link__label">{{ _link.label }}</span>
-  {%- if _link.icon_position == 'after' -%}&nbsp;
+  {% if _link.icon_position == 'after' %}&nbsp;
     {%- include '../ec-component-icon/icon.html.twig' with icon|merge({extra_classes: 'ecl-link__icon'}) -%}
-  {%- endif -%}
-{%- else -%}
+  {% endif %}
+{% else %}
   {{- _link.label -}}
-{%- endif -%}
+{% endif %}
 </a>
 
 {% endspaceless %}
