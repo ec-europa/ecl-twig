@@ -9,9 +9,6 @@ import demoData from './demo/data';
 import expandable from './expandable.html.twig';
 import notes from './docs/expandable.md';
 
-// Add SVG icon path.
-demoData.button.icon.path = defaultSprite;
-
 storiesOf('Components/Expandable', module)
   .addDecorator(withKnobs)
   .addDecorator(withCode)
@@ -19,12 +16,15 @@ storiesOf('Components/Expandable', module)
   .add(
     'default',
     () => {
-      const html = expandable({
-        label_expanded: text('Label Expanded', demoData.labelExpanded),
-        label_collapsed: text('Label Collapsed', demoData.labelCollapsed),
-        content: text('Content', demoData.content),
-        ...demoData,
-      });
+      demoData.button.icon.path = defaultSprite;
+      demoData.label_expanded = text('Label Expanded', demoData.labelExpanded);
+      demoData.label_collapsed = text(
+        'Label Collapsed',
+        demoData.labelCollapsed
+      );
+      demoData.content = text('Content', demoData.content);
+
+      const html = expandable(demoData);
 
       const demo = document.createDocumentFragment();
 
