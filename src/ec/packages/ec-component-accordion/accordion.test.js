@@ -1,10 +1,12 @@
+/* eslint-disable no-param-reassign */
+
 import path from 'path';
 import { renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
 import demoData from './demo/data';
 
 demoData.items.forEach(item => {
-  item.toggle.icon.path = 'example'; // eslint-disable-line no-param-reassign
+  item.toggle.icon.path = 'static/icons';
 });
 
 describe('EC - Accordion', () => {

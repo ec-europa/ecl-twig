@@ -1,5 +1,7 @@
+/* eslint-disable no-param-reassign */
+
 import { storiesOf } from '@storybook/html';
-import { withKnobs } from '@storybook/addon-knobs';
+import { withKnobs, text } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
 
@@ -9,10 +11,6 @@ import demoData from './demo/data';
 import accordion from './accordion.html.twig';
 import notes from './docs/accordion.md';
 
-demoData.items.forEach(item => {
-  item.toggle.icon.path = defaultSprite; // eslint-disable-line no-param-reassign
-});
-
 storiesOf('Components/Accordion', module)
   .addDecorator(withKnobs)
   .addDecorator(withCode)
@@ -20,6 +18,17 @@ storiesOf('Components/Accordion', module)
   .add(
     'default',
     () => {
+      // This needs to be in the scope of this function.
+      // Called on knob's change of value.
+      demoData.items.forEach(item => {
+        const { id, content, toggle } = item;
+
+        item.toggle.label = text(`Label ${id}`, toggle.label);
+        item.content = text(`Content ${id}`, content);
+
+        item.toggle.icon.path = defaultSprite;
+      });
+
       const html = accordion(demoData);
 
       const demo = document.createDocumentFragment();
