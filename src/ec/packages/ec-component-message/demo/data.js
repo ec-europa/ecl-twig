@@ -20,7 +20,6 @@ function formatIcon(i) {
 
 function formatButton(b) {
   const button = {
-    variant: b.variant,
     label: b.label,
     icon: formatIcon(b.icon),
   };
