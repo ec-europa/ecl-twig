@@ -188,7 +188,39 @@ or when there’s no space around:
 Notes:
 
 - `<span />` is used in these examples, but it could be any tag
-- `{{` can be replaced by `{%`, e.g. `{% include '...' %}`, `{% embed '...' %}`. The logic is the same.
+- `{{` can be replaced by any content-printing tag, e.g. `{% include '...' %}`, `{% embed '...' %}` or `{% block '...' %}`. In most cases, you don't need to remove the whitespaces on control structures (`if`, `for`).
+
+## Alternatives Considered
+
+### Single-line output
+
+We could try to get the output of the Twig template to be on a single line but it would mean stripping all the newlines in the elements attributes.
+
+Concretely, it would mean replacing:
+
+<!-- prettier-ignore -->
+```html
+<select
+  id="{{ _id }}"
+  name="{{ _name }}"
+  class="{{ _css_class }}"
+  {{ _disabled ? "disabled" }}
+  {{ _extra_attributes|raw }}
+>
+```
+
+With something like:
+
+<!-- prettier-ignore -->
+```html
+<select
+  {{- ' id="#{_id}"' -}}
+  {{- ' name="#{_name}"' -}}
+  {{- ' class="#{_css_class}"' -}}
+  {{- _disabled ? " disabled" -}}
+  {{- _extra_attributes|raw -}}
+>
+```
 
 ## Resources
 
