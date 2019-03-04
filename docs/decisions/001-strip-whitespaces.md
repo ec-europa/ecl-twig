@@ -19,7 +19,7 @@ Whitespaces can be a source of problems in HTML when not handled correctly.
 
 When we develop our components in the [main repository](https://github.com/ec-europa/europa-component-library), we use React, which [removes most of the whitespaces](https://reactjs.org/docs/jsx-in-depth.html#string-literals-1.). With such behavior from React, we don't think about whitespaces and how they can impact the end result after rendering.
 
-With Twig, we need to be careful about whitespaces. When they appear [between inline block elements](https://css-tricks.com/fighting-the-space-between-inline-block-elements/) or around content, they alter the output.
+However, with Twig, we need to be careful with whitespaces. When they appear [between inline block elements](https://css-tricks.com/fighting-the-space-between-inline-block-elements/) or around content, they alter the output.
 
 For example,
 
