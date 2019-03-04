@@ -1,5 +1,4 @@
 import addons, { makeDecorator } from '@storybook/addons';
-import { html as beautifyHtml } from 'js-beautify';
 
 const withCode = makeDecorator({
   name: 'withCode',
@@ -9,7 +8,7 @@ const withCode = makeDecorator({
 
     let code = '';
     if (typeof story === 'string') {
-      code = story;
+      code = story.trim();
     } else if (story instanceof DocumentFragment) {
       const htmlElement = document.createElement('div');
       htmlElement.append(story.cloneNode(true));
@@ -18,14 +17,7 @@ const withCode = makeDecorator({
       code = story.outerHTML;
     }
 
-    const formattedCode = beautifyHtml(code, {
-      indent_size: 2,
-      max_preserve_newlines: -1,
-      preserve_newlines: false,
-      indent_scripts: 'normal',
-    });
-
-    channel.emit('ecl/code/add_code', formattedCode);
+    channel.emit('ecl/code/add_code', code);
 
     return story;
   },
