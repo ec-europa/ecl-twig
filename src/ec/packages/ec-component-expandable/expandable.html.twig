@@ -29,34 +29,7 @@
 {% set _aria_controls = _id ~ '-content' %}
 {% set _content = content|default('') %}
 
-{% set _button_icon = {
-  name: '',
-  path: '',
-  size: '',
-  type: '',
-}
-%}
-
 {# Internal logic - Process properties #}
-
-{% if button.icon is defined and button.icon is not empty %}
-  {% set _button_icon = _button_icon|merge(button.icon) %}
-{% endif %}
-
-{% set _button = {
-    label: _label_collapsed,
-    variant: 'secondary',
-    type: 'button',
-    icon: _button_icon,
-    icon_position: "after",
-    extra_classes: 'ecl-expandable__toggle',
-    extra_attributes: [
-      { name: 'aria-controls', value: _aria_controls },
-      { name: 'data-ecl-expandable-toggle', value: 'true' },
-      { name: 'data-ecl-label-expanded', value: _label_expanded },
-      { name: 'data-ecl-label-collapsed', value: _label_collapsed },
-    ]
-  } %}
 
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
@@ -72,7 +45,25 @@
 
 {% spaceless %}
 <div class="{{- _css_class -}}"{{- _extra_attributes|raw -}}>
-  {%- include '../ec-component-button/button.html.twig' with _button -%}
+  {%- include '../ec-component-button/button.html.twig' with {
+    label: _label_collapsed,
+    variant: 'secondary',
+    type: 'button',
+    icon: {
+      name: '',
+      path: '',
+      size: '',
+      type: '',
+    },
+    icon_position: "after",
+    extra_classes: 'ecl-expandable__toggle',
+    extra_attributes: [
+      { name: 'aria-controls', value: _aria_controls },
+      { name: 'data-ecl-expandable-toggle', value: 'true' },
+      { name: 'data-ecl-label-expanded', value: _label_expanded },
+      { name: 'data-ecl-label-collapsed', value: _label_collapsed },
+    ]
+  }|merge(button) -%}
   <div class="ecl-expandable__content" id="{{ _id ~ '-content' }}" hidden>
     <p class="ecl-u-type-paragraph-m">
       {%- block content _content -%}
