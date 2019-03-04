@@ -3,6 +3,8 @@ import addons from '@storybook/addons';
 import styled from '@emotion/styled';
 import Prism from 'prismjs';
 import ClipboardJS from 'clipboard';
+import { html as beautifyHtml } from 'js-beautify';
+import 'prismjs/plugins/line-numbers/prism-line-numbers';
 
 const CodePanel = styled.div({
   margin: 0,
@@ -15,49 +17,74 @@ const CodePanel = styled.div({
 
 const Pre = styled.pre({
   margin: '0 !important',
+  paddingTop: '4rem !important',
   borderRadius: '0 !important',
   flexGrow: 1,
+});
+
+const Actions = styled.div({
+  color: '#f8f8f2',
+  display: 'flex',
+  flexDirection: 'row',
+  position: 'absolute',
+  backgroundColor: '#272822',
+  right: 0,
+  top: 0,
+  zIndex: 1,
 });
 
 const CopyButton = styled.button({
   color: '#f8f8f2',
   fontSize: '0.9em',
   padding: '1em',
-  position: 'absolute',
-  right: 0,
-  top: 0,
   background: 'transparent',
-  borderColor: '#f8f8f2',
-  borderRight: 0,
-  borderTop: 0,
-  borderBottomLeftRadius: '5px',
+  border: '1px solid #fff',
+  borderTopWidth: 0,
+  borderRightWidth: 0,
 });
 
-class Notes extends React.Component {
+class HTMLMarkup extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      text: '',
+      code: '',
+      pretty: true,
     };
 
-    this.onAddNotes = this.onAddNotes.bind(this);
+    this.onAddHTMLMarkup = this.onAddHTMLMarkup.bind(this);
+    this.toggleBeautifier = this.toggleBeautifier.bind(this);
+
+    this.codeRef = null;
+    this.setCodeRef = element => {
+      this.codeRef = element;
+    };
   }
 
   componentDidMount() {
     // eslint-disable-next-line react/prop-types
     const { channel, api } = this.props;
-    // Listen to the notes and render it.
-    channel.on('ecl/code/add_code', this.onAddNotes);
+    // Listen to the HTMLMarkup and render it.
+    channel.on('ecl/code/add_code', this.onAddHTMLMarkup);
 
     this.clipboard = new ClipboardJS('#copy-code');
 
-    // Clear the current notes on every story change.
+    // Clear the current HTMLMarkup on every story change.
     this.stopListeningOnStory = api.onStory(() => {
-      this.onAddNotes('');
+      this.onAddHTMLMarkup('');
     });
+
+    if (this.codeRef) {
+      Prism.highlightElement(this.codeRef);
+    }
   }
 
-  // This is some cleanup tasks when the Notes panel is unmounting.
+  componentDidUpdate() {
+    if (this.codeRef) {
+      Prism.highlightElement(this.codeRef);
+    }
+  }
+
+  // This is some cleanup tasks when the HTMLMarkup panel is unmounting.
   componentWillUnmount() {
     if (this.stopListeningOnStory) {
       this.stopListeningOnStory();
@@ -68,30 +95,48 @@ class Notes extends React.Component {
     this.unmounted = true;
     // eslint-disable-next-line react/prop-types
     const { channel } = this.props;
-    channel.removeListener('ecl/code/add_code', this.onAddNotes);
+    channel.removeListener('ecl/code/add_code', this.onAddHTMLMarkup);
   }
 
-  onAddNotes(text) {
-    this.setState({ text });
+  onAddHTMLMarkup(code) {
+    this.setState({ code });
+  }
+
+  toggleBeautifier() {
+    this.setState(state => ({
+      pretty: !state.pretty,
+    }));
   }
 
   render() {
-    const { text } = this.state;
+    const { code: rawCode, pretty } = this.state;
     // eslint-disable-next-line react/prop-types
     const { active } = this.props;
 
+    let code = rawCode;
+    if (pretty) {
+      code = beautifyHtml(code, {
+        indent_size: 2,
+        max_preserve_newlines: -1,
+        preserve_newlines: false,
+        indent_scripts: 'normal',
+      });
+    }
+
     return active ? (
       <CodePanel>
-        <CopyButton type="button" id="copy-code" data-clipboard-text={text}>
-          Copy
-        </CopyButton>
-        <Pre className="language-html">
-          <code
-            className="language-html"
-            dangerouslySetInnerHTML={{
-              __html: Prism.highlight(text, Prism.languages.html, 'html'),
-            }}
-          />
+        <Actions>
+          <CopyButton type="button" onClick={this.toggleBeautifier}>
+            {pretty ? 'Show raw' : 'Show beautified'}
+          </CopyButton>
+          <CopyButton type="button" id="copy-code" data-clipboard-text={code}>
+            Copy
+          </CopyButton>
+        </Actions>
+        <Pre className="language-html line-numbers">
+          <code className="language-html" ref={this.setCodeRef}>
+            {code}
+          </code>
         </Pre>
       </CodePanel>
     ) : null;
@@ -105,7 +150,7 @@ addons.register('ecl/code', api => {
     title: 'HTML',
     // eslint-disable-next-line react/prop-types
     render: ({ active }) => (
-      <Notes channel={addons.getChannel()} api={api} active={active} />
+      <HTMLMarkup channel={addons.getChannel()} api={api} active={active} />
     ),
   });
 });
