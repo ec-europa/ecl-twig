@@ -1,3 +1,5 @@
+{% spaceless %}
+
 {#
   Parameters:
     - "description" (string) (default: ''),
@@ -19,7 +21,7 @@
           ]
         },
         ...
-      ]    
+      ]
     - "extra_classes" (string) (default: ''),
     - "extra_attributes" (array) (default: []): format: [
         {
@@ -29,8 +31,6 @@
         ...
       ]
 #}
-
-{% spaceless %}
 
 {# Internal properties #}
 
@@ -57,39 +57,40 @@
 <div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
   <p class="ecl-social-media-share__description">{{ _description }}</p>
   {% if _links is not empty %}
-  <ul class="ecl-social-media-share__list">
-    {% for link in _links %}
-    <li class="ecl-social-media-share__item">
-      {% set _link_classes = 'ecl-social-media-share__link ecl-link' %}
+    <ul class="ecl-social-media-share__list">
+      {% for link in _links %}
+        <li class="ecl-social-media-share__item">
+          {% set _link_classes = 'ecl-social-media-share__link ecl-link' %}
 
-      {% if link.variant is not empty %}
-        {% set _link_classes = _link_classes ~ ' ' ~ 'ecl-link--' ~ link.variant %}
-      {% endif %}
+          {% if link.variant is not empty %}
+            {% set _link_classes = _link_classes ~ ' ' ~ 'ecl-link--' ~ link.variant %}
+          {% endif %}
 
-      {% if link.extra_classes is not empty %}
-        {% set _link_classes = _link_classes ~ ' ' ~ link.extra_classes %}
-      {% endif %}      
+          {% if link.extra_classes is not empty %}
+            {% set _link_classes = _link_classes ~ ' ' ~ link.extra_classes %}
+          {% endif %}
 
-      {% if link.icon is defined and link.icon is not empty %}
-      {% set _link_classes = _link_classes ~ ' ' ~ 'ecl-link--icon' %}
-        {% if link.icon_position is defined and link.icon_position is not empty %}
-          {% set _link_classes = _link_classes ~ ' ' ~ 'ecl-link--icon-' ~ link.icon_position %}
-        {% endif %}
-      {% endif %}
+          {% if link.icon is defined and link.icon is not empty %}
+            {% set _link_classes = _link_classes ~ ' ' ~ 'ecl-link--icon' %}
+            {% if link.icon_position is defined and link.icon_position is not empty %}
+              {% set _link_classes = _link_classes ~ ' ' ~ 'ecl-link--icon-' ~ link.icon_position %}
+            {% endif %}
+          {% endif %}
 
-      <a href="{{ link.path }}" class="{{ _link_classes }}">
-      {% if link.icon is defined and link.icon is not empty %}
-      {% for icon in link.icon %}
-      <svg focusable="false" aria-hidden="true" class="ecl-link__icon ecl-icon ecl-icon--{{ icon.size ~ ' ' ~ icon.extra_classes }}">
-        <use xlink:href="{{ icon.path }}#{{ icon.name }}" />
-      </svg>
+          <a href="{{ link.path }}" class="{{ _link_classes }}">
+            {%- if link.icon is defined and link.icon is not empty -%}
+              {%- for icon in link.icon -%}
+                <svg focusable="false" aria-hidden="true" class="ecl-link__icon ecl-icon ecl-icon--{{ icon.size ~ ' ' ~ icon.extra_classes }}">
+                  <use xlink:href="{{ icon.path }}#{{ icon.name }}" />
+                </svg>
+              {%- endfor -%}
+            {%- endif -%}
+            {{- '&nbsp;' -}}
+            <span class="ecl-link__label">{{ link.label }}</span>
+          </a>
+        </li>
       {% endfor %}
-      {% endif %}
-      &nbsp;<span class="ecl-link__label">{{ link.label }}</span>
-      </a>        
-    </li>
-    {% endfor %}
-  </ul>
+    </ul>
   {% endif %}
 </div>
 

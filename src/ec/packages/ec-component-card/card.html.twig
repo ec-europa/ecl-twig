@@ -84,11 +84,11 @@
       <div class="ecl-card__meta">{{ _card.meta|join(" | ") }}</div>
     {% endif %}
     <h1 class="ecl-card__title">
-      {% if _card.title.path %}
+      {%- if _card.title.path -%}
         {%- include '../ec-component-link/link.html.twig' with { link: _card.title } -%}
-      {% else %}
-        {{ _card.title.label }}
-      {% endif %}
+      {%- else -%}
+        {{- _card.title.label -}}
+      {%- endif -%}
     </h1>
   </header>
   <section class="ecl-card__body">
@@ -97,8 +97,8 @@
       <ul class="ecl-card__link-container">
         {% for link in _card.links %}
         <li class="ecl-card__link-item">
-          {%- include '../ec-component-link/link.html.twig' with { 
-            link: link|merge({ type: 'standalone' }), 
+          {%- include '../ec-component-link/link.html.twig' with {
+            link: link|merge({ type: 'standalone' }),
             extra_classes: 'ecl-card__link'
           } -%}
         </li>

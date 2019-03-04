@@ -1,3 +1,5 @@
+{% spaceless %}
+
 {#
   Parameters:
     - "description" (string) (default: ''),
@@ -19,7 +21,7 @@
           ]
         },
         ...
-      ]    
+      ]
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
         {
@@ -29,8 +31,6 @@
         ...
       ]
 #}
-
-{% spaceless %}
 
 {# Internal properties #}
 
@@ -44,7 +44,7 @@
 
 {% if _variant is defined and _variant is not empty %}
   {% set _css_class = _css_class ~ ' ecl-social-media-follow--' ~ _variant %}
-{% endif %}  
+{% endif %}
 
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
@@ -86,7 +86,7 @@
       {% endfor %}
       {% endif %}
       <span class="ecl-link__label">{{ link.label }}</span>
-      </a>        
+      </a>
     </li>
     {% endfor %}
   </ul>
