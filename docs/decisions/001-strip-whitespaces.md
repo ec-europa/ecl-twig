@@ -194,7 +194,7 @@ Notes:
 
 ### Single-line output
 
-We could try to get the output of the Twig template to be on a single line but it would mean stripping all the newlines in the elements attributes.
+We could try to get the output of the Twig template to be on a single line but it would mean stripping all newlines from elements' attributes.
 
 Concretely, it would mean replacing:
 
