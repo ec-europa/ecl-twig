@@ -44,29 +44,21 @@ The output of a Twig template should not contain whitespaces — unless explictl
 
 - between adjacent tags
 
-  Expect:
-
   ```html
+  <!-- Do -->
   <span></span><span></span>
-  ```
 
-  Avoid:
-
-  ```html
+  <!-- Don't -->
   <span></span> <span></span>
   ```
 
 - between a tag and its children
 
-  Expect:
-
   ```html
+  <!-- Do -->
   <span><span></span><span></span></span>
-  ```
 
-  Avoid:
-
-  ```html
+  <!-- Don't -->
   <span>
     <span></span>
     <span></span>
@@ -75,21 +67,16 @@ The output of a Twig template should not contain whitespaces — unless explictl
 
 - between a tag and its text content
 
-  Expect:
-
   ```html
+  <!-- Do -->
   <span>Hello world!</span>
-  ```
 
-  Avoid:
-
-  ```html
+  <!-- Don't -->
   <span>
     Hello world!
   </span>
-  ```
 
-  ```html
+  <!-- Don't -->
   <span> Hello world! </span>
   ```
 
