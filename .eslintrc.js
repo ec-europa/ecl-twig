@@ -21,7 +21,7 @@ module.exports = {
       },
     },
     {
-      files: ['utils/**/*.js'],
+      files: ['utils/**/*.{js,jsx}'],
       rules: {
         'import/no-extraneous-dependencies': false,
       },
