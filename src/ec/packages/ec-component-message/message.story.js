@@ -6,47 +6,21 @@ import withCode from '@ecl-twig/storybook-addon-code';
 import message from './message.html.twig';
 import notes from './docs/message.md';
 
+import { dataError, dataInfo, dataSuccess, dataWarning } from './demo/data';
+
 storiesOf('Components/Message', module)
   .addDecorator(withKnobs)
   .addDecorator(withCode)
   .addDecorator(withNotes)
-  .add(
-    'info',
-    () =>
-      message({
-        variant: 'info',
-      }),
-    {
-      notes: { markdown: notes },
-    }
-  )
-  .add(
-    'success',
-    () =>
-      message({
-        variant: 'success',
-      }),
-    {
-      notes: { markdown: notes },
-    }
-  )
-  .add(
-    'warning',
-    () =>
-      message({
-        variant: 'warning',
-      }),
-    {
-      notes: { markdown: notes },
-    }
-  )
-  .add(
-    'error',
-    () =>
-      message({
-        variant: 'error',
-      }),
-    {
-      notes: { markdown: notes },
-    }
-  );
+  .add('info', () => message(dataInfo), {
+    notes: { markdown: notes },
+  })
+  .add('success', () => message(dataSuccess), {
+    notes: { markdown: notes },
+  })
+  .add('warning', () => message(dataWarning), {
+    notes: { markdown: notes },
+  })
+  .add('error', () => message(dataError), {
+    notes: { markdown: notes },
+  });
