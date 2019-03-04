@@ -188,7 +188,7 @@ or when there’s no space around:
 Notes:
 
 - `<span />` is used in these examples, but it could be any tag
-- `{{` can be replaced by any content-printing tag, e.g. `{% include '...' %}`, `{% embed '...' %}` or `{% block '...' %}`. In most cases, you don't need to remove the whitespaces on control structures (`if`, `for`).
+- `{{` can be replaced by any content-printing tag, e.g. `{% include '...' %}`, `{% embed '...' %}` or `{% block '...' %}`. In most cases, you don't need to remove the whitespaces in control structures (`if`, `for`).
 
 ## Alternatives Considered
 
