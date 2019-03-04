@@ -1,0 +1,84 @@
+{#
+  Parameters:
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
+      ]
+#}
+
+{# Internal properties #}
+
+{% set _css_class = 'ecl-accordion' %}
+{% set _extra_attributes = '' %}
+
+{# Internal logic - Process properties #}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+
+<dl class="{{ _css_class }}"{{ _extra_attributes|raw }} data-ecl-accordion="true" role="presentation">
+  <dt role="heading" aria-level="3">
+    <button
+      data-ecl-accordion-toggle="true" aria-controls="accordion-example-content" type="button" class="ecl-accordion__toggle ecl-button ecl-button--ghost">
+      <span
+        class="ecl-button__container">
+        <svg focusable="false" aria-hidden="true" data-ecl-icon="true" class="ecl-button__icon ecl-button__icon--before ecl-icon ecl-icon--s">
+          <use xlink:href="/static/media/icons.cbfd6efe.svg#general--digital"></use>
+        </svg>
+        <span class="ecl-button__label" data-ecl-label="true">Delivery of last pending proposals, a common
+        Destiny of unity, the hour of European Democracy</span>
+      </span>
+    </button>
+  </dt>
+  <dd class="ecl-accordion__content" id="accordion-example-content" hidden="" role="region">The College of
+    Commissioners held today the first weekly meeting of 2019 which was devoted to discussing the challenges of this
+    new year. Commissioners used the opportunity to take stock and discuss the year ahead, including the European
+    elections in May and other important milestones ahead.
+  </dd>
+  <dt role="heading" aria-level="3">
+    <button
+      data-ecl-accordion-toggle="true" aria-controls="accordion-example2-content" type="button" class="ecl-accordion__toggle ecl-button ecl-button--ghost">
+      <span
+        class="ecl-button__container">
+        <svg focusable="false" aria-hidden="true" data-ecl-icon="true" class="ecl-button__icon ecl-button__icon--before ecl-icon ecl-icon--s">
+          <use xlink:href="/static/media/icons.cbfd6efe.svg#general--energy"></use>
+        </svg>
+        <span class="ecl-button__label" data-ecl-label="true">Energy union and climate</span>
+      </span>
+    </button>
+  </dt>
+  <dd class="ecl-accordion__content" id="accordion-example2-content" hidden="" role="region">A balanced and progressive
+    trade policy to harness globalisation
+  </dd>
+  <dt role="heading" aria-level="3">
+    <button data-ecl-accordion-toggle="true"
+      aria-controls="accordion-example3-content" type="button" class="ecl-accordion__toggle ecl-button ecl-button--ghost">
+      <span
+        class="ecl-button__container">
+        <svg focusable="false" aria-hidden="true" data-ecl-icon="true" class="ecl-button__icon ecl-button__icon--before ecl-icon ecl-icon--s">
+          <use xlink:href="/static/media/icons.cbfd6efe.svg#general--regulation"></use>
+        </svg>
+        <span class="ecl-button__label" data-ecl-label="true">Delivery of last pending proposals, a common
+        Destiny of unity, the hour of European Democracy</span>
+      </span>
+    </button>
+  </dt>
+  <dd class="ecl-accordion__content" id="accordion-example3-content" hidden="" role="region">In the modern global
+    economy trade is essential for growth, jobs and competiveness, and the EU is committed to maintaining an open and
+    rules-based trading system. With the rising threat of protectionism and weakened commitment of large players to
+    global trade governance, the EU must take the lead.
+  </dd>
+</dl>
