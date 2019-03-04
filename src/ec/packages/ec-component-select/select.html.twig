@@ -19,6 +19,8 @@
   - "label"
 #}
 
+{% spaceless %}
+
 {# Internal properties #}
 {% set _id = id|default('') %}
 {% set _options = options|default([]) %}
@@ -52,34 +54,30 @@
 {% endif %}
 
 {# Print the result #}
-{% spaceless %}
 <div class="ecl-form-group ecl-form-group--select">
-  {%- if _label is not empty -%}
-    <label 
-      class="ecl-form-label{{- invalid ? ' ecl-form-label--invalid' -}}{{- hide_label ? ' ecl-form-label--hidden'-}}"
-      for={{- _id -}}
+  {% if _label is not empty %}
+    <label
+      class="ecl-form-label{{ invalid ? ' ecl-form-label--invalid' }}{{ hide_label ? ' ecl-form-label--hidden'}}"
+      for="{{ _id }}"
     >
       {%- block label _label -%}
     </label>
-  {%- endif -%}
-  
-  <div class="ecl-select__container{{- disabled ? ' ecl-select__container--disabled' -}}">
+  {% endif %}
+  <div class="ecl-select__container{{ disabled ? ' ecl-select__container--disabled' }}">
     <select
-      id="{{- _id -}}"
-      name="{{- _name -}}"
-      class="{{- _css_class -}}"
-      {{- _disabled ? "disabled" -}}
-      {{- _extra_attributes|raw -}} 
+      id="{{ _id }}"
+      name="{{ _name }}"
+      class="{{ _css_class }}"
+      {{ _disabled ? "disabled" }}
+      {{ _extra_attributes|raw }}
     >
-      {%- for option in _options -%}
-      <option value="{{- option.value -}}">
+      {% for option in _options %}
+      <option value="{{ option.value }}">
         {{- option.label -}}
       </option>
-      {%- endfor -%}
+      {% endfor %}
     </select>
-
-    <div class="ecl-select__icon">
-      {%- include '../ec-component-icon/icon.html.twig' with {
+    <div class="ecl-select__icon">{% include '../ec-component-icon/icon.html.twig' with {
         icon: {
           path: _icon_path,
           type: "ui",
@@ -88,16 +86,13 @@
           transform: "rotate-180"
         },
         extra_classes: "ecl-select__icon-shape"
-      } -%}
-    </div>
+      } %}</div>
   </div>
-
-  {%- if _invalid and _invalid_text is not empty -%}
-    <div class="ecl-feedback-message">{%- block invalid_text _invalid_text -%}</div>
-  {%- endif -%}
-
-  {%- if _helper_text is not empty -%}
-    <div class="ecl-help-block">{%- block helper_text _helper_text -%}</div>
-  {%- endif -%}
+  {% if _invalid and _invalid_text is not empty %}
+    <div class="ecl-feedback-message">{% block invalid_text _invalid_text %}</div>
+  {% endif %}
+  {% if _helper_text is not empty %}
+    <div class="ecl-help-block">{% block helper_text _helper_text %}</div>
+  {% endif %}
 </div>
 {% endspaceless %}
