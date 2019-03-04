@@ -5,8 +5,8 @@
 | **Proposed**  | 2019-03-01                                                     |
 | **Accepted**  | (the date the proposal was accepted/rejected)                  |
 | **Driver**    | @yhuard                                                        |
-| **Approver**  | (who will make the decision and merge the PR)                  |
-| **Consulted** | (who you worked with on this decision)                         |
+| **Approver**  | @degliwe                                                       |
+| **Consulted** | @emeryro, @degliwe, @planctus, kalinchernev                    |
 | **Informed**  | WAAT, contributors                                             |
 
 ## Decision
@@ -17,9 +17,9 @@ In order to avoid issues related to whitespace, we should strip them by default 
 
 Whitespaces can be a source of problems in HTML when not handled correctly.
 
-When we develop our components in the [main repository](https://github.com/ec-europa/europa-component-library), we use React, which [removes most of the whitespaces](https://reactjs.org/docs/jsx-in-depth.html#string-literals-1.). With such behavior from React, we don't think about whitespaces and how they can impact the end result after rendering.
+When we develop our components in the [main repository](https://github.com/ec-europa/europa-component-library), we use React, which [removes most of the whitespaces](https://reactjs.org/docs/jsx-in-depth.html#string-literals-1.). We don't specifically think about whitespaces and how the can impact the end result, since there are none.
 
-However, with Twig, we need to be careful with whitespaces. When they appear [between inline block elements](https://css-tricks.com/fighting-the-space-between-inline-block-elements/) or around content, they alter the output.
+With Twig, we need to be careful about whitespaces. When they appear [between inline block elements](https://css-tricks.com/fighting-the-space-between-inline-block-elements/) or around content, they alter the output.
 
 For example,
 
