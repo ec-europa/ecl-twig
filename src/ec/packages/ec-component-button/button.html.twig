@@ -17,6 +17,8 @@
     - "label"
 #}
 
+{% spaceless %}
+
 {# Internal properties #}
 
 {% set _css_class = 'ecl-button' %}
@@ -50,7 +52,6 @@
 
 {# Print the result #}
 
-{% spaceless %}
 <button class="{{ _css_class }}" type="{{ _type }}"{{ _extra_attributes|raw }}>
   <span class="ecl-button__container">
     {%- if _icon.name is not empty and _icon_position == 'before' -%}
@@ -62,4 +63,5 @@
     {%- endif -%}
   </span>
 </button>
+
 {% endspaceless %}

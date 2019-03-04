@@ -17,6 +17,8 @@
       ]
 #}
 
+{% spaceless %}
+
 {# Internal properties #}
 
 {% set _tag = {
@@ -52,7 +54,6 @@
 
 {# Print the result #}
 
-{% spaceless %}
 {%- if _tag.type != 'link' -%}
   <button class="{{ _css_class }}" type="button"{{ _extra_attributes|raw }}>
     {{- _tag.label -}}
@@ -74,4 +75,5 @@
     {{- _tag.label -}}
   </a>
 {%- endif -%}
+
 {% endspaceless %}

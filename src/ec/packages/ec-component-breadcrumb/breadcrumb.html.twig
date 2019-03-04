@@ -19,7 +19,10 @@
       ]
 #}
 
-{# variables #}
+{% spaceless %}
+
+{# Internal properties #}
+
 {% set _breadcrumb_size = links|length %}
 {% set _navigation_text = navigation_text|default('') %}
 {% set _breadcrumb_segment_class = 'ecl-breadcrumb__segment' %}
@@ -42,6 +45,7 @@
 {% set _extra_attributes = 'aria-label="' ~ _navigation_text ~ '" data-ecl-breadcrumb="true"' %}
 
 {# Internal logic - Process properties #}
+
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
 {% endif %}
@@ -53,7 +57,7 @@
 {% endif %}
 
 {# Print the result #}
-{% spaceless %}
+
 <nav class="{{ _css_class }}"{{ _extra_attributes }}>
   <ol class="ecl-breadcrumb__container">
     {%- for key,link in links -%}
@@ -86,4 +90,5 @@
     {%- endfor -%}
   </ol>
 </nav>
+
 {% endspaceless %}

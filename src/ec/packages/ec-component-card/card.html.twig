@@ -33,6 +33,8 @@
       ]
 #}
 
+{% spaceless %}
+
 {# Internal properties #}
 
 {% set _card = {
@@ -73,7 +75,6 @@
 
 {# Print the result #}
 
-{% spaceless %}
 <article class="{{ _css_class }}"{{ _extra_attributes|raw }}>
   <header class="ecl-card__header">
     {%- if _card.image -%}
@@ -128,4 +129,5 @@
     {%- endif -%}
   </footer>
 </article>
+
 {% endspaceless %}

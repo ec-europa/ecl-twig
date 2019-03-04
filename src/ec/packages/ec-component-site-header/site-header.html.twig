@@ -29,6 +29,8 @@
       ]
 #}
 
+{% spaceless %}
+
 {# Default variables #}
 
 {% set _search_form = {
@@ -111,7 +113,6 @@
 
 {# Print the result #}
 
-{% spaceless %}
 <header class="{{ _css_class }}"{{ _extra_attributes|raw }}>
   <div class="ecl-site-header__container ecl-container">
     <div class="ecl-site-header__banner">
@@ -131,4 +132,5 @@
     {%- include '../ec-component-search-form/search-form.html.twig' with _search_form -%}
   </div>
 </header>
+
 {% endspaceless %}

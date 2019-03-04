@@ -17,6 +17,8 @@
     - "value" (string) Attribute value, eg: 'data-test-1'
 #}
 
+{% spaceless %}
+
 {# Internal properties #}
 
 {% set _back_to_top = back_to_top|default({}) %}
@@ -45,7 +47,6 @@
 
 {# Print the result #}
 
-{% spaceless %}
 <footer class="{{ _css_class }}"{{ _extra_attributes|raw }}>
   {#- Back to top -#}
   {%- include '../ec-component-link/link.html.twig' with _back_to_top|merge({ 
@@ -188,4 +189,5 @@
     </div>
   </section>
 </footer>
+
 {% endspaceless %}

@@ -18,6 +18,8 @@
   - "label"
 #}
 
+{% spaceless %}
+
 {# Internal properties #}
 
 {% set _id = id|default('') %}
@@ -55,7 +57,6 @@
 
 {# Print the result #}
 
-{% spaceless %}
 <div class="ecl-form-group ecl-form-group--text-input">
   {%- if _label is not empty -%}
     <label 
@@ -84,4 +85,5 @@
     <div class="ecl-help-block">{% block helper_text _helper_text %}</div>
   {%- endif -%}
 </div>
+
 {% endspaceless %}

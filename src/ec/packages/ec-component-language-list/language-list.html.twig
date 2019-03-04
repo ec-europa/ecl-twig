@@ -18,6 +18,8 @@
     - "value" (string) Attribute value, eg: 'data-test-1'
 #}
 
+{% spaceless %}
+
 {# Internal properties #}
 
 {% set _items = items|default([]) %}
@@ -53,7 +55,6 @@
 
 {# Print the result #}
 
-{% spaceless %}
 <div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
 {%- if overlay -%}
 
@@ -130,4 +131,5 @@
 
 {%- endif -%}
 </div>
+
 {% endspaceless %}

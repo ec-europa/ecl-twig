@@ -9,6 +9,8 @@
   - "icon_path" (string) (default: '')
 #}
 
+{% spaceless %}
+
 {# Internal properties #}
 
 {% set _item = item|default({}) %}
@@ -39,7 +41,6 @@
 
 {# Print the result #}
 
-{% spaceless %}
 <li class="{{ _item_class }}">
   {%- include '../ec-component-link/link.html.twig' with {
     link: {
@@ -53,4 +54,5 @@
     extra_attributes: _item_attribute
   } -%}
 </li>
+
 {% endspaceless %}

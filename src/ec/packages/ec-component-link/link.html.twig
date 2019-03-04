@@ -18,6 +18,8 @@
       ]
 #}
 
+{% spaceless %}
+
 {# Internal properties #}
 
 {% set _link = {
@@ -65,7 +67,6 @@
 
 {# Print the result #}
 
-{% spaceless %}
 <a href="{{ _link.path }}" class="{{ _css_class }}"{{ _extra_attributes|raw }}>
 {%- if _icon.name is not empty -%}
   {%- if _link.icon_position == 'before' -%}
@@ -79,4 +80,5 @@
   {{- _link.label -}}
 {%- endif -%}
 </a>
+
 {% endspaceless %}
