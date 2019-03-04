@@ -123,7 +123,7 @@ If you need to add a whitespace somewhere in your template, you can do it with: 
 
 #### Use the whitespace control modifier on your tags when needed
 
-You can trim leading and or trailing whitespaces with `-` (dash), e.g:
+You can trim leading and trailing whitespaces with `-` (dash) in the following ways:
 
 - `{{- my_var }}`: remove left whitespace
 - `{{ my_var -}}`: remove right whitespace
