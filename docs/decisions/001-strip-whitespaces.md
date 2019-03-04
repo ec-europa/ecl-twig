@@ -2,25 +2,35 @@
 
 Motivation: whitespaces can be a source of problems in HTML when not handled correctly.
 
-In order to simplify the process of developping templates, we decide to strip them when it makes sense — when there's a doubt.
+When we develop our components in the [main repository](https://github.com/ec-europa/europa-component-library), we use React, which [removes most of the whitespaces](https://reactjs.org/docs/jsx-in-depth.html#string-literals-1.). We don't specifically think about whitespaces and how the can impact the end result, since there are none.
 
-## Goal
+With Twig, we need to be careful about whitespaces. When they appear [between inline block elements](https://css-tricks.com/fighting-the-space-between-inline-block-elements/) or around content, they alter the output.
 
-The output of a Twig template should not contain whitespaces in the following cases:
+```html
+<a href="#">Hello world!</a>
+```
 
-- between adjacent tags
+Is not the same as:
 
-  Expect:
+```html
+<a href="#">
+  Hello world!
+</a>
+```
 
-  ```html
-  <div></div><div></div>
-  ```
+In order to simplify the process of developping templates, we decide to strip
+them when it makes sense — when there's a doubt. ## Goal The output of a Twig
+template should not contain whitespaces in the following cases: - between
+adjacent tags Expect: ```html
 
-  Avoid:
+<div></div><div></div>
+````
 
-  ```html
-  <div></div> <div></div>
-  ```
+Avoid:
+
+```html
+<div></div> <div></div>
+```
 
 - between a tag and its children
 
@@ -44,19 +54,19 @@ The output of a Twig template should not contain whitespaces in the following ca
   Expect:
 
   ```html
-  <div>Hello wordl!</div>
+  <div>Hello world!</div>
   ```
 
   Avoid:
 
   ```html
   <div>
-    Hello wordl!
+    Hello world!
   </div>
   ```
 
   ```html
-  <div> Hello wordl! </div>
+  <div> Hello world! </div>
   ```
 
 ## Concrete actions
