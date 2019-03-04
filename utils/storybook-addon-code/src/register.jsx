@@ -53,6 +53,11 @@ class HTMLMarkup extends React.Component {
 
     this.onAddHTMLMarkup = this.onAddHTMLMarkup.bind(this);
     this.toggleBeautifier = this.toggleBeautifier.bind(this);
+
+    this.codeRef = null;
+    this.setCodeRef = element => {
+      this.codeRef = element;
+    };
   }
 
   componentDidMount() {
@@ -68,11 +73,15 @@ class HTMLMarkup extends React.Component {
       this.onAddHTMLMarkup('');
     });
 
-    Prism.highlightAll();
+    if (this.codeRef) {
+      Prism.highlightElement(this.codeRef);
+    }
   }
 
   componentDidUpdate() {
-    Prism.highlightAll();
+    if (this.codeRef) {
+      Prism.highlightElement(this.codeRef);
+    }
   }
 
   // This is some cleanup tasks when the HTMLMarkup panel is unmounting.
@@ -125,7 +134,9 @@ class HTMLMarkup extends React.Component {
           </CopyButton>
         </Actions>
         <Pre className="language-html line-numbers">
-          <code className="language-html">{code}</code>
+          <code className="language-html" ref={this.setCodeRef}>
+            {code}
+          </code>
         </Pre>
       </CodePanel>
     ) : null;
