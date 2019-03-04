@@ -14,6 +14,7 @@
 
 {% set _css_class = 'ecl-accordion' %}
 {% set _extra_attributes = '' %}
+{% set _items = items|default([]) %}
 
 {# Internal logic - Process properties #}
 
@@ -31,7 +32,8 @@
 
 {% spaceless %}
 <dl class="{{ _css_class }}"{{ _extra_attributes|raw }} data-ecl-accordion="true" role="presentation">
-  {%- for item in items -%}
+  {% if _items is not empty %}
+  {%- for item in _items -%}
   <dt role="heading" aria-level="{{- item.level -}}">
     {%- include '../ec-component-button/button.html.twig' with {
     label: item.toggle.label,
@@ -50,5 +52,6 @@
     {{- item.content -}}
   </dd>
   {% endfor %}
+  {% endif %}
 </dl>
 {% endspaceless %}
