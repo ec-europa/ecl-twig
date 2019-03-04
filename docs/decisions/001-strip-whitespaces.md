@@ -222,6 +222,8 @@ With something like:
 >
 ```
 
+This approach is not feasible, because it makes the code harder to read and maintain, and it's also more error-prone.
+
 ## Resources
 
 - https://twig.symfony.com/doc/2.x/templates.html#templates-whitespace-control
