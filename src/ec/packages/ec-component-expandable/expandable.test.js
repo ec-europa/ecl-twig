@@ -19,7 +19,7 @@ describe('EC - Expandable', () => {
   test('renders correctly when expanded', () => {
     expect.assertions(1);
 
-    const expanded = Object.assign({}, demoData, { expanded: 'true' });
+    const expanded = Object.assign({}, demoData, { expanded: true });
     return expect(render(expanded)).resolves.toMatchSnapshot();
   });
 });

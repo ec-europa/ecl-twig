@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/html';
-import { withKnobs, radios, text } from '@storybook/addon-knobs';
+import { withKnobs, text } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
 
@@ -23,14 +23,6 @@ storiesOf('Components/Expandable', module)
         demoData.labelCollapsed
       );
       demoData.content = text('Content', demoData.content);
-      demoData.expanded = radios(
-        'State',
-        {
-          expanded: 'true',
-          collapsed: 'false',
-        },
-        'false'
-      );
 
       const html = expandable(demoData);
 

@@ -30,8 +30,8 @@
 {% set _aria_controls = _id ~ '-content' %}
 {% set _content = content|default('') %}
 
-{% set _expanded = expanded|default('') %}
-{% set _content_hidden = '' %}
+{% set _expanded = expanded|default(false) %}
+{% set _content_hidden_attribute = '' %}
 
 {# Internal logic - Process properties #}
 
@@ -58,33 +58,24 @@
     ]
   %}
 
-  {% if _expanded is not empty %}
-    {% 
-      set _button_attributes = _button_attributes|merge([
+  {% if _expanded %}
+    {% set _button_attributes = _button_attributes|merge([
         { name: 'aria-expanded', value: _expanded }
       ])
     %}
 
-    {% if _expanded == 'true' %}
-      {% set _label = _label_expanded %}
-      {% set _content_hidden = '' %}
-    {% else %}
-      {% set _label = _label_collapsed %}
-      {% set _content_hidden = 'hidden' %}
-    {% endif %}
+    {% set _label = _label_expanded %}
+    {% set _content_hidden_attribute = '' %}
 
-  {% endif %}  
+  {% else %}
+    {% set _label = _label_collapsed %}
+    {% set _content_hidden_attribute = 'hidden' %}
+  {% endif %}
 
   {%- include '../ec-component-button/button.html.twig' with {
     label: _label,
     variant: 'secondary',
     type: 'button',
-    icon: {
-      name: '',
-      path: '',
-      size: '',
-      type: '',
-    },
     icon_position: "after",
     extra_classes: 'ecl-expandable__toggle',
     extra_attributes: _button_attributes,
@@ -92,7 +83,7 @@
   <div
     id="{{ _id ~ '-content' }}"
     class="ecl-expandable__content"
-    {{ _content_hidden }}
+    {{ _content_hidden_attribute }}
   >
     <p class="ecl-u-type-paragraph-m">
       {%- block content _content -%}
