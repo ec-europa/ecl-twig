@@ -4,6 +4,7 @@
     - "label_expanded" (string) (default: '')
     - "label_collapsed" (string) (default: '')
     - "label_collapsed" (string) (default: '')
+    - "expanded" (string) (default: '')
     - "button" (predefined structure) :  Button component structure 
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
@@ -29,6 +30,9 @@
 {% set _aria_controls = _id ~ '-content' %}
 {% set _content = content|default('') %}
 
+{% set _expanded = expanded|default('') %}
+{% set _content_hidden = '' %}
+
 {# Internal logic - Process properties #}
 
 {% if extra_classes is defined and extra_classes is not empty %}
@@ -45,8 +49,34 @@
 
 {% spaceless %}
 <div class="{{- _css_class -}}"{{- _extra_attributes|raw -}}>
+  {%
+    set _button_attributes = [
+      { name: 'aria-controls', value: _aria_controls },
+      { name: 'data-ecl-expandable-toggle', value: 'true' },
+      { name: 'data-ecl-label-expanded', value: _label_expanded },
+      { name: 'data-ecl-label-collapsed', value: _label_collapsed },
+    ]
+  %}
+
+  {% if _expanded is not empty %}
+    {% 
+      set _button_attributes = _button_attributes|merge([
+        { name: 'aria-expanded', value: _expanded }
+      ])
+    %}
+
+    {% if _expanded == 'true' %}
+      {% set _label = _label_expanded %}
+      {% set _content_hidden = '' %}
+    {% else %}
+      {% set _label = _label_collapsed %}
+      {% set _content_hidden = 'hidden' %}
+    {% endif %}
+
+  {% endif %}  
+
   {%- include '../ec-component-button/button.html.twig' with {
-    label: _label_collapsed,
+    label: _label,
     variant: 'secondary',
     type: 'button',
     icon: {
@@ -57,14 +87,13 @@
     },
     icon_position: "after",
     extra_classes: 'ecl-expandable__toggle',
-    extra_attributes: [
-      { name: 'aria-controls', value: _aria_controls },
-      { name: 'data-ecl-expandable-toggle', value: 'true' },
-      { name: 'data-ecl-label-expanded', value: _label_expanded },
-      { name: 'data-ecl-label-collapsed', value: _label_collapsed },
-    ]
+    extra_attributes: _button_attributes,
   }|merge(button) -%}
-  <div class="ecl-expandable__content" id="{{ _id ~ '-content' }}" hidden>
+  <div
+    id="{{ _id ~ '-content' }}"
+    class="ecl-expandable__content"
+    {{ _content_hidden }}
+  >
     <p class="ecl-u-type-paragraph-m">
       {%- block content _content -%}
     </p>

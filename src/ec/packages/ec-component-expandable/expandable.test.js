@@ -15,4 +15,11 @@ describe('EC - Expandable', () => {
 
     return expect(render(demoData)).resolves.toMatchSnapshot();
   });
+
+  test('renders correctly when expanded', () => {
+    expect.assertions(1);
+
+    const expanded = Object.assign({}, demoData, { expanded: 'true' });
+    return expect(render(expanded)).resolves.toMatchSnapshot();
+  });
 });
