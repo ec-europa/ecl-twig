@@ -6,12 +6,12 @@
 | **Accepted**  | (the date the proposal was accepted/rejected)                  |
 | **Driver**    | @yhuard                                                        |
 | **Approver**  | @degliwe                                                       |
-| **Consulted** | @emeryro, @degliwe, @planctus, @kalinchernev                   |
+| **Consulted** | @degliwe, @emeryro, @kalinchernev, @planctus                   |
 | **Informed**  | WAAT, contributors                                             |
 
 ## Decision
 
-In order to avoid issues related to whitespace, we should strip them by default and only add them when needed.
+In order to avoid issues related to whitespaces, we should strip them by default and only add them when needed.
 
 ## Context
 
@@ -19,7 +19,7 @@ Whitespaces can be a source of problems in HTML when not handled correctly.
 
 When we develop our components in the [main repository](https://github.com/ec-europa/europa-component-library), we use React, which [removes most of the whitespaces](https://reactjs.org/docs/jsx-in-depth.html#string-literals-1.). With such behavior from React, we don't think about whitespaces and how they can impact the end result after rendering.
 
-However, with Twig, we need to be careful with whitespaces. When they appear [between inline block elements](https://css-tricks.com/fighting-the-space-between-inline-block-elements/) or around content, they alter the output.
+However, with Twig, we need to be careful with whitespaces. When they appear [between inline block elements](https://css-tricks.com/fighting-the-space-between-inline-block-elements/) or around content, they alter the rendering.
 
 For example,
 
@@ -80,20 +80,22 @@ The output of a Twig template should not contain whitespaces — unless explictl
   <span> Hello world! </span>
   ```
 
+Note: `<span />` is used in these examples, but it could be any other tag.
+
 ### Concrete actions
 
 #### Use the `spaceless` tag
 
-Wrap your template within `{% spaceless %}`:
+Wrap your template within `{% spaceless %}...{% endspaceless %}`:
 
 <!-- prettier-ignore -->
 ```html
+{% spaceless %}
+
 {#
   Parameters:
   - ...
 #}
-
-{% spaceless %}
 
 {# Pre-processing #}
 {% set ... %}
@@ -106,7 +108,7 @@ Wrap your template within `{% spaceless %}`:
 {% endspaceless %}
 ```
 
-If you need to add a whitespace somewhere in your template, you can do it with: `{% endspaceless %}{{ ' ' }}{% spaceless %}`.
+If you need to add a whitespace somewhere in your template between 2 HTML tags, you can do it with: `{% endspaceless %} {% spaceless %}`.
 
 #### Use the whitespace control modifier on your tags when needed
 
@@ -115,6 +117,8 @@ You can trim leading and trailing whitespaces with `-` (dash) in the following w
 - `{{- my_var }}`: remove left whitespace
 - `{{ my_var -}}`: remove right whitespace
 - `{{- my_var -}}`: remove both whitespaces
+
+##### Simple scenario: the content is surrounded by HTML tags
 
 It makes sense to use it when you print content between 2 tags:
 
@@ -172,10 +176,24 @@ or when there’s no space around:
 <span>{{- my_var -}}</span>
 ```
 
-Notes:
+Note: `{{` can be replaced by any content-printing structure, e.g. `{% include '...' %}`, `{% embed '...' %}` or `{% block '...' %}`.
 
-- `<span />` is used in these examples, but it could be any tag
-- `{{` can be replaced by any content-printing tag, e.g. `{% include '...' %}`, `{% embed '...' %}` or `{% block '...' %}`. In most cases, you don't need to remove the whitespaces in control structures (`if`, `for`).
+##### Complex scenario: the content is surrounded by Twig tags
+
+Sometimes, you will find that control structures (`if`, `for`) and other Twig tags (like `set` or comments) may alter the output by introducing undesired whitespaces.
+
+As a rule of thumb, it's good to start by removing all the whitespaces for these tags using the dash syntax, generate the snapshot of the finished component and then start removing the dash where they're unnecessary.
+
+Here's the plan to follow:
+
+1. the developper creates the component X with dashes on all the control structures and other tags that might generate whitespaces
+2. the developper takes the Jest snapshots and open a PR
+3. the reviewer validates the component and the snapshots, and then merges the PR
+4. the reviewer creates a Jira ticket: "Improve quality of component X". The goal of the ticket is to remove as many dashes as possible.
+
+> It seems that perfection is attained not when there is nothing more to add, but when there is nothing more to remove.
+
+— Antoine de Saint Exupéry
 
 ## Alternatives Considered
 
