@@ -11,7 +11,7 @@
 
 ## Decision
 
-In order to avoid issues related to whitespaces, we should strip them by default and only add them when needed.
+In order to avoid issues related to whitespaces, we should strip whitespaces between HTML tags by default and only add them when needed.
 
 ## Context
 
@@ -118,7 +118,7 @@ You can trim leading and trailing whitespaces with `-` (dash) in the following w
 - `{{ my_var -}}`: remove right whitespace
 - `{{- my_var -}}`: remove both whitespaces
 
-##### Simple scenario: the content is surrounded by HTML tags
+##### Simple scenario: printing content when it's surrounded by HTML tags
 
 It makes sense to use it when you print content between 2 tags:
 
@@ -176,6 +176,8 @@ or when there’s no space around:
 <span>{{- my_var -}}</span>
 ```
 
+In the HTML attributes, you normally don't need to trim the whitespaces. It's better to have a few extra whitespaces than a missing one.
+
 Note: `{{` can be replaced by any content-printing structure, e.g. `{% include '...' %}`, `{% embed '...' %}` or `{% block '...' %}`.
 
 ##### Complex scenario: the content is surrounded by Twig tags
@@ -186,8 +188,8 @@ As a rule of thumb, it's good to start by removing all the whitespaces for these
 
 Here's the plan to follow:
 
-1. the developper creates the component X with dashes on all the control structures and other tags that might generate whitespaces
-2. the developper takes the Jest snapshots and open a PR
+1. the developer creates the component X with dashes on all the control structures and other tags that might generate whitespaces
+2. the developer takes the Jest snapshots and opens a PR
 3. the reviewer validates the component and the snapshots, and then merges the PR
 4. the reviewer creates a Jira ticket: "Improve quality of component X". The goal of the ticket is to remove as many dashes as possible.
 
@@ -197,9 +199,15 @@ Here's the plan to follow:
 
 ## Alternatives Considered
 
+### Building templates with CSS in mind
+
+In reality, there are very few cases where whitespaces can be problematic. We could build the templates with whitespaces and only remove them when needed, but this supposes that we know which CSS classes applied on which tag need our attention.
+
+It's easier to consider that no whitespace is safe and remove them all by default.
+
 ### Single-line output
 
-We could try to get the output of the Twig template to be on a single line but it would mean stripping all newlines from elements' attributes.
+We could also try to get the output of the Twig template to be on a single line but it would mean stripping all newlines from elements' attributes.
 
 Concretely, it would mean replacing:
 
