@@ -8,6 +8,7 @@ const adapter = initialData => {
   // Correct link path attributes.
   adaptedData.items.forEach(item => {
     item.path = item.href;
+    item.type = item.variant;
   });
 
   // Correct read more button.

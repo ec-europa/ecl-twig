@@ -20,6 +20,8 @@ storiesOf('Components/Contextual Navigation', module)
     () => {
       demoData.item_more.icon.path = defaultSprite;
 
+      demoData.label = text('Label:', demoData.label);
+
       // This needs to be in the scope of this function.
       // Called on knob's change of value.
       demoData.items.forEach((item, key) => {

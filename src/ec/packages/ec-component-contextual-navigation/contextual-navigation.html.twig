@@ -15,6 +15,10 @@
 {% set _css_class = 'ecl-contextual-navigation' %}
 {% set _extra_attributes = '' %}
 
+{% set _label = label|default('') %}
+{% set _items = items|default({}) %}
+{% set _item_more = item_more|default({}) %}
+
 {# Internal logic - Process properties #}
 
 {% if extra_classes is defined and extra_classes is not empty %}
@@ -33,26 +37,31 @@
 <nav
   class="{{ _css_class }}"{{ _extra_attributes|raw }}
   data-ecl-contextual-navigation="true">
-  <div class="ecl-contextual-navigation__label">Label for contextual navigation</div>
-  <ul class="ecl-contextual-navigation__list" data-ecl-contextual-navigation-list="true">
-    <li class="ecl-contextual-navigation__item"><a href="/example" class="ecl-contextual-navigation__link ecl-link ecl-link--standalone">Item
-        1</a></li>
-    <li class="ecl-contextual-navigation__item"><a href="/example" class="ecl-contextual-navigation__link ecl-link ecl-link--standalone">Item
-        2</a></li>
-    <li class="ecl-contextual-navigation__item"><a href="/example" class="ecl-contextual-navigation__link ecl-link ecl-link--standalone">Item
-        3</a></li>
-    <li class="ecl-contextual-navigation__item"><a href="/example" class="ecl-contextual-navigation__link ecl-link ecl-link--standalone">Item
-        4</a></li>
-    <li class="ecl-contextual-navigation__item ecl-contextual-navigation__item--collapsed"><a href="/example" class="ecl-contextual-navigation__link ecl-link ecl-link--standalone">Item
-        5</a></li>
-    <li class="ecl-contextual-navigation__item ecl-contextual-navigation__item--collapsed"><a href="/example" class="ecl-contextual-navigation__link ecl-link ecl-link--standalone">Item
-        6</a></li>
-    <li class="ecl-contextual-navigation__item ecl-contextual-navigation__item--more"><button
-        data-ecl-contextual-navigation-more="true" type="submit" class="ecl-contextual-navigation__more ecl-button ecl-button--ghost"><span
-          class="ecl-button__container"><span class="ecl-button__label" data-ecl-label="true">More</span><svg focusable="false"
-            aria-hidden="true" data-ecl-icon="true" class="ecl-button__icon ecl-button__icon--after ecl-icon ecl-icon--fluid ecl-icon--rotate-90">
-            <use xlink:href="/static/media/icons.cbfd6efe.svg#ui--corner-arrow"></use>
-          </svg></span></button></li>
+  <div class="ecl-contextual-navigation__label">{{- _label -}}</div>
+  <ul
+    class="ecl-contextual-navigation__list"
+    data-ecl-contextual-navigation-list="true"
+  >
+    {% if _items is not empty and _items is iterable %}
+      {% for item in _items %}
+      <li class="ecl-contextual-navigation__item">
+      {%- include '../ec-component-link/link.html.twig' with item|merge({
+        extra_classes: 'ecl-contextual-navigation__link',
+        link: item,
+      }) -%}
+      </li>
+      {% endfor %}
+    {% endif %}
+    {% if _item_more is not empty %}
+    <li class="ecl-contextual-navigation__item ecl-contextual-navigation__item--more">
+    {%- include '../ec-component-button/button.html.twig' with _item_more|merge({
+      extra_attributes: [
+        { name: 'data-ecl-contextual-navigation-more', value: 'true' }
+      ],
+      extra_classes: 'ecl-contextual-navigation__more',
+    }) -%}
+    </li>    
+    {% endif %}
   </ul>
 </nav>
 {% endspaceless %}
