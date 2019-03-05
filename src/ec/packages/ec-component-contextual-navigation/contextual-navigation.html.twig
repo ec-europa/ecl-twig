@@ -1,0 +1,58 @@
+{#
+  Parameters:
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
+      ]
+#}
+
+{# Internal properties #}
+
+{% set _css_class = 'ecl-contextual-navigation' %}
+{% set _extra_attributes = '' %}
+
+{# Internal logic - Process properties #}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+
+{% spaceless %}
+<nav
+  class="{{ _css_class }}"{{ _extra_attributes|raw }}
+  data-ecl-contextual-navigation="true">
+  <div class="ecl-contextual-navigation__label">Label for contextual navigation</div>
+  <ul class="ecl-contextual-navigation__list" data-ecl-contextual-navigation-list="true">
+    <li class="ecl-contextual-navigation__item"><a href="/example" class="ecl-contextual-navigation__link ecl-link ecl-link--standalone">Item
+        1</a></li>
+    <li class="ecl-contextual-navigation__item"><a href="/example" class="ecl-contextual-navigation__link ecl-link ecl-link--standalone">Item
+        2</a></li>
+    <li class="ecl-contextual-navigation__item"><a href="/example" class="ecl-contextual-navigation__link ecl-link ecl-link--standalone">Item
+        3</a></li>
+    <li class="ecl-contextual-navigation__item"><a href="/example" class="ecl-contextual-navigation__link ecl-link ecl-link--standalone">Item
+        4</a></li>
+    <li class="ecl-contextual-navigation__item ecl-contextual-navigation__item--collapsed"><a href="/example" class="ecl-contextual-navigation__link ecl-link ecl-link--standalone">Item
+        5</a></li>
+    <li class="ecl-contextual-navigation__item ecl-contextual-navigation__item--collapsed"><a href="/example" class="ecl-contextual-navigation__link ecl-link ecl-link--standalone">Item
+        6</a></li>
+    <li class="ecl-contextual-navigation__item ecl-contextual-navigation__item--more"><button
+        data-ecl-contextual-navigation-more="true" type="submit" class="ecl-contextual-navigation__more ecl-button ecl-button--ghost"><span
+          class="ecl-button__container"><span class="ecl-button__label" data-ecl-label="true">More</span><svg focusable="false"
+            aria-hidden="true" data-ecl-icon="true" class="ecl-button__icon ecl-button__icon--after ecl-icon ecl-icon--fluid ecl-icon--rotate-90">
+            <use xlink:href="/static/media/icons.cbfd6efe.svg#ui--corner-arrow"></use>
+          </svg></span></button></li>
+  </ul>
+</nav>
+{% endspaceless %}
