@@ -25,12 +25,28 @@ function formatButton(b) {
   return button;
 }
 
+function formatLink(l) {
+  const link = {
+    link: {
+      label: l.label,
+      path: l.href,
+    },
+  };
+
+  if (l.icon) {
+    link.link.icon_position = l.iconPosition;
+    link.icon = formatIcon(l.icon);
+  }
+
+  return link;
+}
+
 export const dataWithTranslation = {
   title: specDataWithTranslation.title,
   language: specDataWithTranslation.language,
   meta: specDataWithTranslation.meta,
   icon: formatIcon(specDataWithTranslation.icon),
-  download: formatButton(specDataWithTranslation.download),
+  download: formatLink(specDataWithTranslation.download),
   translation: {
     toggle: formatButton(specDataWithTranslation.translation.toggle),
     description: specDataWithTranslation.translation.description,
@@ -43,5 +59,5 @@ export const dataWithoutTranslation = {
   language: specDataWithoutTranslation.language,
   meta: specDataWithoutTranslation.meta,
   icon: formatIcon(specDataWithoutTranslation.icon),
-  download: formatButton(specDataWithoutTranslation.download),
+  download: formatLink(specDataWithoutTranslation.download),
 };

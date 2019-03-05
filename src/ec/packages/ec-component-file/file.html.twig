@@ -46,7 +46,22 @@
 
 <div class="{{ _css_class }}"{{ _extra_attributes|raw }} data-ecl-file>
   <div class="ecl-file__container">
-    {%- include '../ec-component-icon/icon.html.twig' with _icon|merge({extra_classes: 'ecl-link__icon'}) -%}
+    {%- include '../ec-component-icon/icon.html.twig' with _icon|merge({extra_classes: 'ecl-file__icon'}) -%}
+
+    <div class="ecl-file__info">
+      <div class="ecl-file__title">{{title}}</div>
+      <div class="ecl-file__language">{{language}}</div>
+      <div class="ecl-file__meta">{{meta}}</div>
+    </div>
+
+    {%- include '../ec-component-link/link.html.twig' with _download|merge({
+      link: _download.link|default({})|merge({
+        type: 'standalone',
+        icon_position: 'after',
+      }),
+      extra_classes: 'ecl-file__download ecl-button ecl-button--secondary',
+      extra_attributes: [{name: 'download'}]
+    }) -%}
   </div>
 </div>
 
