@@ -84,6 +84,24 @@ Note: `<span />` is used in these examples, but it could be any other tag.
 
 ### Concrete actions
 
+Here's the plan to follow:
+
+1. the developer creates the component X with these recommendations:
+
+   - the template is wrapped within `{% spaceless %}...{% endspaceless %}`
+   - there are dashes on all the control structures and other tags that might generate whitespaces in the print area, except in attributes
+   - there are dashes on printing-tags (`{{`, `{% include`, etc.) if those tags are surrounded by whitespaces
+
+2. the developer takes the Jest snapshots and opens a PR
+3. the reviewer validates the component and the snapshots, and then merges the PR
+4. the reviewer creates a Jira ticket: "Improve quality of component X". The goal of the ticket is to remove as many dashes as possible.
+
+> It seems that perfection is attained not when there is nothing more to add, but when there is nothing more to remove.
+
+— Antoine de Saint-Exupéry
+
+Here are more details about the different recommendations of point 1.
+
 #### Use the `spaceless` tag
 
 Wrap your template within `{% spaceless %}...{% endspaceless %}`:
@@ -185,24 +203,6 @@ Note: `{{` can be replaced by any content-printing structure, e.g. `{% include '
 Sometimes, you will find that control structures (`if`, `for`) and other Twig tags (like `set` or comments) may alter the output by introducing undesired whitespaces.
 
 As a rule of thumb, it's good to start by removing all the whitespaces for these tags using the dash syntax, generate the snapshot of the finished component and then start removing the dash where they're unnecessary.
-
-#### Plan
-
-Here's the plan to follow:
-
-1. the developer creates the component X with these recommendations:
-
-   - the template is wrapped within `{% spaceless %}...{% endspaceless %}`
-   - there are dashes on all the control structures and other tags that might generate whitespaces in the print area, except in attributes
-   - there are dashes on printing-tags (`{{`, `{% include`, etc.) if those tags are surrounded by whitespaces
-
-2. the developer takes the Jest snapshots and opens a PR
-3. the reviewer validates the component and the snapshots, and then merges the PR
-4. the reviewer creates a Jira ticket: "Improve quality of component X". The goal of the ticket is to remove as many dashes as possible.
-
-> It seems that perfection is attained not when there is nothing more to add, but when there is nothing more to remove.
-
-— Antoine de Saint-Exupéry
 
 ## Alternatives Considered
 
