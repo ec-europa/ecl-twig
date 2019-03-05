@@ -1,0 +1,42 @@
+{#
+  Parameters:
+  - "alt" (string) (default: '')
+#}
+
+{# Internal properties #}
+
+{% set _css_class = 'ecl-media-container' %}
+{% set _extra_attributes = '' %}
+{% set _image = '' %}
+{# Internal logic - Process properties #}
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+  {% endfor %}
+{% endif %}
+
+  
+{% spaceless %}
+  <figure class="{{- _css_class -}}">
+    {% if sources is defined and sources is not empty and sources is iterable %}
+      <video class="ecl-media-container__media" controls="controls" poster="{{- image -}}" alt="{{- alt -}}">
+      {% for source in sources %}
+        <source type="{{- source.type -}}" src="{{- source.src -}}" />
+      {% endfor %}
+    {% if tracks is defined and tracks is not empty and tracks is iterable %}
+      {% for track in tracks %}
+        <track kind="{{- track.kind -}}" srcLang="{{- track.srcLang -}}" label="{{- track.label -}}" src="{{- track.src -}}" />
+      {%- endfor -%}
+    {%- endif -%}
+      </video>
+    {% else %}
+      <img class="ecl-media-container__media" src="{{- image -}}" alt="{{- alt -}}" />
+    {%- endif -%}
+    <figcaption class="ecl-media-container__caption">{{- description -}}</figcaption>
+  </figure>
+{% endspaceless %}
+
