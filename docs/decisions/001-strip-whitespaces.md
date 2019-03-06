@@ -1,6 +1,6 @@
 # Strip whitespaces
 
-| Status        | proposed <!--becomes accepted, rejected or superseded later--> |
+| Status        | accepted <!--becomes accepted, rejected or superseded later--> |
 | ------------- | -------------------------------------------------------------- |
 | **Proposed**  | 2019-03-01                                                     |
 | **Accepted**  | 2019-03-06                                                     |
