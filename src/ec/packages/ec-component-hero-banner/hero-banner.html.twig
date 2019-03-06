@@ -24,30 +24,10 @@
 {% set _description = description|default('') %}
 {% set _image = image|default('') %}
 
-{% set _button = {
-  variant: 'call',
-  icon: {
-    type: 'ui',
-    name: 'corner-arrow',
-    path: '',
-    size: 'xs',
-    transform: 'rotate-90'
-  },
-  label: '',
-  extra_classes: 'ecl-hero-banner__button'
-  }
-%}
-
 {% set _css_class = ['ecl-hero-banner ecl-hero-banner--'~_type]|join(' ') %}
 {% set _extra_attributes = '' %}
 
 {# Internal logic - Process properties #}
-{% if button is defined and button is not empty %}
-  {% set _button_icon = _button.icon %}
-  {% set _button = _button|merge(button) %}
-  {% set _button = _button|merge({ icon: _button_icon|merge(button.icon) }) %}
-{% endif %}
-
 {% if _centered == true %}
   {% set _css_class=_css_class~' ecl-hero-banner--centered' %}
 {% endif %}
@@ -71,7 +51,9 @@
     <div class="ecl-hero-banner__content">
       <h1 class="ecl-hero-banner__title">{{ _title }}</h1>
       <p class="ecl-hero-banner__description">{{ _description }}</p>
-      {%- include '../ec-component-button/button.html.twig' with _button -%}
+      {%- if button is defined and button is not empty -%}
+        {%- include '../ec-component-button/button.html.twig' with button|merge({ extra_classes: 'ecl-hero-banner__button' }) -%}
+      {%- endif -%}
     </div>
   </div>
 </section>
