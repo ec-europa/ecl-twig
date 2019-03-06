@@ -15,8 +15,8 @@ In order to avoid issues related to whitespaces, we should strip whitespaces bet
 
 The Twig template is considered valid when the output it produces doesn't contain any whitespace:
 
-- between 2 HTML tags ;
-- between an HTML tag and its text content ;
+- between 2 HTML tags
+- between an HTML tag and its text content
 
 unless the whitespace is explicitly required.
 
