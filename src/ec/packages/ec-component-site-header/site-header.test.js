@@ -1,12 +1,13 @@
 import path from 'path';
-import { renderTwigFile } from '@ecl-twig/test-utils';
+import { renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
 describe('EC - Site Header', () => {
   const template = path.resolve(__dirname, './site-header.html.twig');
+  const render = params => renderTwigFileAsNode(template, params);
   const defaultIconPath = 'static/icons.svg';
 
-  describe('default', () => {
-    test(`- renders correctly`, done => {
+  describe('Default', () => {
+    test('renders correctly', () => {
       expect.assertions(1);
 
       const data = {
@@ -38,15 +39,12 @@ describe('EC - Site Header', () => {
         },
       };
 
-      renderTwigFile(template, data, (err, html) => {
-        expect(html).toMatchSnapshot();
-        done();
-      });
+      return expect(render(data)).resolves.toMatchSnapshot();
     });
   });
 
-  describe('translated', () => {
-    test(`- renders correctly`, done => {
+  describe('Translated', () => {
+    test('renders correctly', () => {
       expect.assertions(1);
 
       const data = {
@@ -78,10 +76,7 @@ describe('EC - Site Header', () => {
         },
       };
 
-      renderTwigFile(template, data, (err, html) => {
-        expect(html).toMatchSnapshot();
-        done();
-      });
+      return expect(render(data)).resolves.toMatchSnapshot();
     });
   });
 });
