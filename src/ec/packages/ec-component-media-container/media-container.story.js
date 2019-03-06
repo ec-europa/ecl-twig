@@ -5,7 +5,8 @@ import withCode from '@ecl-twig/storybook-addon-code';
 
 import demoVideo from '@ecl/ec-specs-media-container/demo/data--video';
 import demoImg from '../../../../static/images/example-image.jpg';
-import mediaDocs from './docs/media-container.md';
+import imageDocs from './docs/media-container-image.md';
+import videoDocs from './docs/media-container-video.md';
 import mediaContainer from './media-container.html.twig';
 
 storiesOf('Components/Media container', module)
@@ -16,12 +17,12 @@ storiesOf('Components/Media container', module)
     'image',
     () =>
       mediaContainer({
-        description: text('Description', 'A descrption for this image'),
-        alt: text('Alternative text', 'An alternative text'),
+        description: text('Description', 'A description for this image'),
+        alt: text('Alternate text', 'An alternate text for a missing image'),
         image: text('Image path', demoImg),
       }),
     {
-      notes: { markdown: mediaDocs },
+      notes: { markdown: imageDocs },
     }
   )
   .add(
@@ -35,6 +36,6 @@ storiesOf('Components/Media container', module)
         tracks: demoVideo.tracks,
       }),
     {
-      notes: { markdown: mediaDocs },
+      notes: { markdown: videoDocs },
     }
   );
