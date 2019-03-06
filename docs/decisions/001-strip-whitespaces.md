@@ -11,7 +11,7 @@
 
 ## Decision
 
-In order to avoid issues related to whitespaces, we should strip whitespaces between HTML tags by default and only add them when needed.
+In order to avoid issues related to whitespaces, we should strip whitespaces between HTML tags by default and only add them when needed. The Twig template is considered valid when the output it produces doesn't contain any whitespace between 2 HTML tags or between an HTML tag and its text content, unless the whitespace is explicitly required.
 
 ## Context
 
@@ -82,6 +82,53 @@ The output of a Twig template should not contain whitespaces — unless explictl
 
 Note: `<span />` is used in these examples, but it could be any other tag.
 
+#### Real case examples
+
+- Avoid newlines between HTML tags
+
+  <!-- prettier-ignore -->
+  ```html
+  <!-- Do -->
+  <blockquote class="ecl-blockquote"><p class="ecl-blockquote__body">An interconnected grid will help deliver the ultimate goal of the Energy Union, to ensure affordable, secure and sustainable energy, and also growth across the EU.</p><footer class="ecl-blockquote__attribution"><cite class="ecl-blockquote__author">President Juncker</cite></footer></blockquote>
+
+  <!-- Don't -->
+  <blockquote class="ecl-blockquote">
+    <p class="ecl-blockquote__body">An interconnected grid will help deliver the ultimate goal of the Energy Union, to ensure affordable, secure and sustainable energy, and also growth across the EU.</p>
+    <footer class="ecl-blockquote__attribution">
+      <cite class="ecl-blockquote__author">President Juncker</cite>
+    </footer>
+  </blockquote>
+  ```
+
+- Avoid spaces around text
+
+  <!-- prettier-ignore -->
+  ```html
+  <!-- Do -->
+  <a href="/example#link-default" class="ecl-link ecl-link--default ecl-link--icon ecl-link--icon-after"><span class="ecl-link__label">Example</span>&nbsp;<svg class="ecl-icon ecl-icon--fluid ecl-link__icon" focusable="false" aria-hidden="true"><use xlink:href="static/icons-cbfd6efe.svg#ui--close-filled"></use></svg></a>
+
+  <!-- Don't -->
+  <a href="/example#link-default" class="ecl-link ecl-link--default ecl-link--icon ecl-link--icon-after"><span class="ecl-link__label"> Example </span>&nbsp;<svg class="ecl-icon ecl-icon--fluid ecl-link__icon" focusable="false" aria-hidden="true"><use xlink:href="static/icons-cbfd6efe.svg#ui--close-filled"></use></svg></a>
+  ```
+
+- Newlines in attributes are accepted
+
+  <!-- prettier-ignore -->
+  ```html
+  <div class="ecl-form-group ecl-form-group--select"><label 
+      class="ecl-form-label"
+      for="example-id"
+    >Select a country</label><div class="ecl-select__container"><select
+      id="example-id"
+      name="example-name"
+      class="ecl-select"
+      
+       
+    ><option value="1">Belgium</option><option value="2">France</option><option value="3">Luxembourg</option><option value="4">Germany</option><option value="5">Bulgaria</option></select><div class="ecl-select__icon"><svg class="ecl-icon ecl-icon--s ecl-icon--rotate-180 ecl-select__icon-shape" focusable="false" aria-hidden="true"><use xlink:href="static/icons-cbfd6efe.svg#ui--corner-arrow"></use></svg></div></div><div class="ecl-help-block">Help message</div></div>
+  ```
+
+Whether the raw output is beautiful and easy to read or not doesn't matter. The only thing that matters is that it works as expected.
+
 ### Concrete actions
 
 Here's the plan to follow:
@@ -89,8 +136,8 @@ Here's the plan to follow:
 1. the developer creates the component X with these recommendations:
 
    - the template is wrapped within `{% spaceless %}...{% endspaceless %}`
-   - there are dashes on all the control structures and other tags that might generate whitespaces in the print area, except in attributes
-   - there are dashes on printing-tags (`{{`, `{% include`, etc.) if those tags are surrounded by whitespaces
+   - whitespace control modifiers (dashes) are applied on all the control structures and other tags that might generate whitespaces in the print area, except in attributes
+   - there are also dashes on printing-tags (`{{`, `{% include`, etc.) if those tags are surrounded by whitespaces
 
 2. the developer takes the Jest snapshots and opens a PR
 3. the reviewer validates the component and the snapshots, and then merges the PR
@@ -102,7 +149,7 @@ Here's the plan to follow:
 
 Here are more details about the different recommendations of point 1.
 
-#### Use the `spaceless` tag
+#### Use the `spaceless` tag (mandatory)
 
 Wrap your template within `{% spaceless %}...{% endspaceless %}`:
 
@@ -128,7 +175,7 @@ Wrap your template within `{% spaceless %}...{% endspaceless %}`:
 
 If you need to add a whitespace somewhere in your template between 2 HTML tags, you can do it with: `{% endspaceless %} {% spaceless %}`.
 
-#### Use the whitespace control modifier on your tags when needed
+#### Use the whitespace control modifier on your tags (when needed)
 
 You can trim leading and trailing whitespaces with `-` (dash) in the following ways:
 
