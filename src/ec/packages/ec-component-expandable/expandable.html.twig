@@ -1,3 +1,5 @@
+{% spaceless %}
+
 {#
   Parameters:
     - "id" (string) (default: '')
@@ -47,20 +49,18 @@
 
 {# Print the result #}
 
-{% spaceless %}
-<div class="{{- _css_class -}}"{{- _extra_attributes|raw -}}>
-  {%
-    set _button_attributes = [
+<div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+  {% set _button_attributes = [
       { name: 'aria-controls', value: _aria_controls },
       { name: 'data-ecl-expandable-toggle', value: 'true' },
       { name: 'data-ecl-label-expanded', value: _label_expanded },
       { name: 'data-ecl-label-collapsed', value: _label_collapsed },
-    ]
+    ] 
   %}
 
   {% if _expanded %}
     {% set _button_attributes = _button_attributes|merge([
-        { name: 'aria-expanded', value: _expanded }
+        { name: 'aria-expanded', value: _expanded },
       ])
     %}
 
@@ -72,22 +72,23 @@
     {% set _content_hidden_attribute = 'hidden' %}
   {% endif %}
 
-  {%- include '../ec-component-button/button.html.twig' with {
+  {% include '../ec-component-button/button.html.twig' with {
     label: _label,
     variant: 'secondary',
     type: 'button',
     icon_position: "after",
     extra_classes: 'ecl-expandable__toggle',
     extra_attributes: _button_attributes,
-  }|merge(button) -%}
+  }|merge(button) %}
   <div
     id="{{ _id ~ '-content' }}"
     class="ecl-expandable__content"
     {{ _content_hidden_attribute }}
   >
     <p class="ecl-u-type-paragraph-m">
-      {%- block content _content -%}
+      {% block content _content %}
     </p>
   </div>
 </div>
+
 {% endspaceless %}
