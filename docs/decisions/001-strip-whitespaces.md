@@ -141,15 +141,15 @@ Whether the raw output is beautiful and easy to read or not doesn't matter. The 
 
 Here's the plan to follow:
 
-1. the developer creates the component X with these recommendations:
+1. The developer creates the component X with these recommendations:
 
-   - the template is wrapped within `{% spaceless %}...{% endspaceless %}`
-   - whitespace control modifiers (dashes) are applied on all the control structures and other tags that might generate whitespaces in the print area, except in attributes
-   - there are also dashes on printing-tags (`{{`, `{% include`, etc.) if those tags are surrounded by whitespaces
+   - The template is wrapped within `{% spaceless %}...{% endspaceless %}`.
+   - Whitespace control modifiers (dashes) are applied on all the control structures and other tags that might generate whitespaces in the print area, except in attributes.
+   - There are also dashes on content-printing tags (`{{`, `{% include`, etc.) when needed.
 
-2. the developer takes the Jest snapshots and opens a PR
-3. the reviewer validates the component and the snapshots, and then merges the PR
-4. the reviewer creates a Jira ticket: "Improve quality of component X". The goal of the ticket is to remove as many dashes as possible.
+2. The developer takes the Jest snapshots and opens a PR.
+3. The reviewer validates the component and the snapshots, and then merges the PR.
+4. The reviewer creates a Jira ticket: "Improve quality of component X". The goal of the ticket is to remove as many dashes as possible.
 
 > It seems that perfection is attained not when there is nothing more to add, but when there is nothing more to remove.
 
@@ -251,7 +251,10 @@ or when there’s no space around:
 
 In the HTML attributes, you normally don't need to trim the whitespaces. It's better to have a few extra whitespaces than a missing one.
 
-Note: `{{` can be replaced by any content-printing structure, e.g. `{% include '...' %}`, `{% embed '...' %}` or `{% block '...' %}`.
+Notes:
+
+- `{{` can be replaced by any content-printing structure, e.g. `{% include '...' %}`, `{% embed '...' %}` or `{% block '...' %}`.
+- In general though, `{% include '...' %}` and `{% embed '...' %}` will print a new HTML tag — not text only —, thus the whitespace control modifiers could be optional on these tags in the previous scenarios.
 
 ##### Complex scenario: the content is surrounded by Twig tags
 
@@ -265,7 +268,7 @@ As a rule of thumb, it's good to start by removing all the whitespaces for these
 
 In reality, there are very few cases where whitespaces can be problematic. We could build the templates with whitespaces and only remove them when needed, but this supposes that we know which CSS classes applied on which tag need our attention.
 
-It's easier to consider that no whitespace is safe and remove them all by default.
+It's easier to consider that no whitespace is safe and to remove them all by default.
 
 ### Only accepting single-line outputs
 

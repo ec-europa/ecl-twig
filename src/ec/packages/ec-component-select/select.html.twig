@@ -76,9 +76,9 @@
       {{ _extra_attributes|raw }}
     >
       {% for option in _options %}
-      <option value="{{ option.value }}">
-        {{- option.label -}}
-      </option>
+        <option value="{{ option.value }}">
+          {{- option.label -}}
+        </option>
       {% endfor %}
     </select>
 
