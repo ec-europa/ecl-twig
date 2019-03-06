@@ -82,7 +82,7 @@
       {%- endfor -%}
     </select>
     <div class="ecl-select__icon">
-      {% include '../ec-component-icon/icon.html.twig' with {
+      {%- include '../ec-component-icon/icon.html.twig' with {
         icon: {
           path: _icon_path,
           type: "ui",
@@ -91,7 +91,7 @@
           transform: "rotate-180"
         },
         extra_classes: "ecl-select__icon-shape"
-      } %}
+      } -%}
     </div>
   </div>
   {%- if _invalid and _invalid_text is not empty -%}
