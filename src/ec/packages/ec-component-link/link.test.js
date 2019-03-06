@@ -1,8 +1,9 @@
 import path from 'path';
-import { renderTwigFile } from '@ecl-twig/test-utils';
+import { renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
 describe('EC - Link', () => {
   const template = path.resolve(__dirname, './link.html.twig');
+  const render = params => renderTwigFileAsNode(template, params);
   const defaultIconPath = 'static/icons.svg';
   const defaultDataStructure = {
     link: {
@@ -13,35 +14,29 @@ describe('EC - Link', () => {
   };
 
   describe('Default', () => {
-    test(`- link default renders correctly`, done => {
+    test('renders correctly', () => {
       expect.assertions(1);
 
       defaultDataStructure.link.type = 'default';
       defaultDataStructure.link.label = 'Default link';
 
-      renderTwigFile(template, defaultDataStructure, (err, html) => {
-        expect(html).toMatchSnapshot();
-        done();
-      });
+      return expect(render(defaultDataStructure)).resolves.toMatchSnapshot();
     });
   });
 
   describe('Standalone', () => {
-    test(`- link standalone renders correctly`, done => {
+    test('renders correctly', () => {
       expect.assertions(1);
 
       defaultDataStructure.link.type = 'standalone';
       defaultDataStructure.link.label = 'Standalone link';
 
-      renderTwigFile(template, defaultDataStructure, (err, html) => {
-        expect(html).toMatchSnapshot();
-        done();
-      });
+      return expect(render(defaultDataStructure)).resolves.toMatchSnapshot();
     });
   });
 
   describe('With icon before', () => {
-    test(`- link with icon renders correctly`, done => {
+    test('renders correctly', () => {
       expect.assertions(1);
 
       defaultDataStructure.link.type = 'standalone';
@@ -54,15 +49,12 @@ describe('EC - Link', () => {
         path: defaultIconPath,
       };
 
-      renderTwigFile(template, defaultDataStructure, (err, html) => {
-        expect(html).toMatchSnapshot();
-        done();
-      });
+      return expect(render(defaultDataStructure)).resolves.toMatchSnapshot();
     });
   });
 
   describe('With icon after', () => {
-    test(`- link with icon renders correctly`, done => {
+    test('renders correctly', () => {
       expect.assertions(1);
 
       defaultDataStructure.link.type = 'standalone';
@@ -75,10 +67,7 @@ describe('EC - Link', () => {
         path: defaultIconPath,
       };
 
-      renderTwigFile(template, defaultDataStructure, (err, html) => {
-        expect(html).toMatchSnapshot();
-        done();
-      });
+      return expect(render(defaultDataStructure)).resolves.toMatchSnapshot();
     });
   });
 });

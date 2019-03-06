@@ -1,3 +1,5 @@
+{% spaceless %}
+
 {#
   Parameters:
   - "id" (string) (default: '')
@@ -20,6 +22,7 @@
 #}
 
 {# Internal properties #}
+
 {% set _id = id|default('') %}
 {% set _options = options|default([]) %}
 {% set _disabled = disabled|default(false) %}
@@ -41,6 +44,7 @@
 {% set _extra_attributes = '' %}
 
 {# Internal logic - Process properties #}
+
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
 {% endif %}
@@ -52,27 +56,27 @@
 {% endif %}
 
 {# Print the result #}
-{% spaceless %}
+
 <div class="ecl-form-group ecl-form-group--select">
   {%- if _label is not empty -%}
     <label 
-      class="ecl-form-label{{- invalid ? ' ecl-form-label--invalid' -}}{{- hide_label ? ' ecl-form-label--hidden'-}}"
-      for={{- _id -}}
+      class="ecl-form-label{{ invalid ? ' ecl-form-label--invalid' }}{{ hide_label ? ' ecl-form-label--hidden'}}"
+      for="{{ _id }}"
     >
       {%- block label _label -%}
     </label>
   {%- endif -%}
   
-  <div class="ecl-select__container{{- disabled ? ' ecl-select__container--disabled' -}}">
+  <div class="ecl-select__container{{ disabled ? ' ecl-select__container--disabled' }}">
     <select
-      id="{{- _id -}}"
-      name="{{- _name -}}"
-      class="{{- _css_class -}}"
-      {{- _disabled ? "disabled" -}}
-      {{- _extra_attributes|raw -}} 
+      id="{{ _id }}"
+      name="{{ _name }}"
+      class="{{ _css_class }}"
+      {{ _disabled ? "disabled" }}
+      {{ _extra_attributes|raw }} 
     >
       {%- for option in _options -%}
-      <option value="{{- option.value -}}">
+      <option value="{{ option.value }}">
         {{- option.label -}}
       </option>
       {%- endfor -%}
@@ -93,11 +97,12 @@
   </div>
 
   {%- if _invalid and _invalid_text is not empty -%}
-    <div class="ecl-feedback-message">{%- block invalid_text _invalid_text -%}</div>
+    <div class="ecl-feedback-message">{% block invalid_text _invalid_text %}</div>
   {%- endif -%}
 
   {%- if _helper_text is not empty -%}
-    <div class="ecl-help-block">{%- block helper_text _helper_text -%}</div>
+    <div class="ecl-help-block">{% block helper_text _helper_text %}</div>
   {%- endif -%}
 </div>
+
 {% endspaceless %}

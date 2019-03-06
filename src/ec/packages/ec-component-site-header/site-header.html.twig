@@ -1,3 +1,5 @@
+{% spaceless %}
+
 {#
   Parameters:
     - "search_form" (associative array) (default: predefined structure): EC Search Form component structure
@@ -30,6 +32,7 @@
 #}
 
 {# Default variables #}
+
 {% set _search_form = {
   text_input: {
     id: 'input-search',
@@ -75,6 +78,7 @@
 {% set _icon_file_path = icon_file_path|default('') %}
 
 {# Merge options #}
+
 {% if language is defined and language is not empty %}
   {% set _language = _language|merge(language) %}
 {% endif %}
@@ -96,6 +100,7 @@
 {% endif %}
 
 {# Internal logic - Process properties #}
+
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
 {% endif %}
@@ -107,19 +112,19 @@
 {% endif %}
 
 {# Print the result #}
-{% spaceless %}
-<header class="{{- _css_class -}}"{{- _extra_attributes|raw -}}>
+
+<header class="{{ _css_class }}"{{ _extra_attributes|raw }}>
   <div class="ecl-site-header__container ecl-container">
     <div class="ecl-site-header__banner">
-      <a class="ecl-link ecl-link--standalone" href="{{- _header_link.url -}}" aria-label="{{- _header_link.aria_label -}}">
-        <img alt="{{- _header_image.alt -}}" title="{{- _header_image.title -}}" class="ecl-site-header__logo-image" src="{{- _header_image.src -}}" />
+      <a class="ecl-link ecl-link--standalone" href="{{ _header_link.url }}" aria-label="{{ _header_link.aria_label }}">
+        <img alt="{{ _header_image.alt }}" title="{{ _header_image.title }}" class="ecl-site-header__logo-image" src="{{ _header_image.src }}" />
       </a>
       <div class="ecl-site-header__selector">
-        <a class="ecl-link ecl-link--standalone" href="{{- _language.url -}}">
+        <a class="ecl-link ecl-link--standalone" href="{{ _language.url }}">
           {{- _language.label -}}
           <span class="ecl-site-header__language-icon">
             {%- include '../ec-component-icon/icon.html.twig' with { icon: { path: _icon_file_path, type: 'general', name: 'language' } } -%}
-            <span class="ecl-site-header__language-code">{{- _language.code -}}</span>
+            <span class="ecl-site-header__language-code">{{ _language.code }}</span>
           </span>
         </a>
       </div>
@@ -127,4 +132,5 @@
     {%- include '../ec-component-search-form/search-form.html.twig' with _search_form -%}
   </div>
 </header>
+
 {% endspaceless %}

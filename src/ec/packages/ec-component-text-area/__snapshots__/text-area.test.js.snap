@@ -1,49 +1,82 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`EC - Text area Default renders correctly 1`] = `
-"<div class=\\"ecl-form-group ecl-form-group--text-area\\">
-  <label class=\\"ecl-form-label\\" for=\\"example-id\\">Label</label
-  ><textarea
-    id=\\"example-id\\"
-    name=\\"example-name\\"
-    rows=\\"4\\"
-    placeholder=\\"Placeholder\\"
-    class=\\"ecl-text-area\\"
-  ></textarea>
-  <div class=\\"ecl-help-block\\">Help message</div>
+<div
+  class="ecl-form-group ecl-form-group--text-area"
+>
+  <label
+    class="ecl-form-label"
+    for="example-id"
+  >
+    Label
+  </label>
+  <textarea
+    class="ecl-text-area"
+    id="example-id"
+    name="example-name"
+    placeholder="Placeholder"
+    rows="4"
+  />
+  <div
+    class="ecl-help-block"
+  >
+    Help message
+  </div>
 </div>
-"
 `;
 
 exports[`EC - Text area Disabled renders correctly 1`] = `
-"<div class=\\"ecl-form-group ecl-form-group--text-area\\">
-  <label class=\\"ecl-form-label\\" for=\\"example-id\\">Label</label
-  ><textarea
-    id=\\"example-id\\"
-    name=\\"\\"
-    rows=\\"4\\"
-    placeholder=\\"Placeholder\\"
-    class=\\"ecl-text-area\\"
-    disabled
-  ></textarea>
-  <div class=\\"ecl-help-block\\">Help message</div>
+<div
+  class="ecl-form-group ecl-form-group--text-area"
+>
+  <label
+    class="ecl-form-label"
+    for="example-id"
+  >
+    Label
+  </label>
+  <textarea
+    class="ecl-text-area"
+    disabled=""
+    id="example-id"
+    name=""
+    placeholder="Placeholder"
+    rows="4"
+  />
+  <div
+    class="ecl-help-block"
+  >
+    Help message
+  </div>
 </div>
-"
 `;
 
 exports[`EC - Text area With error renders correctly 1`] = `
-"<div class=\\"ecl-form-group ecl-form-group--text-area\\">
-  <label class=\\"ecl-form-label ecl-form-label--invalid\\" for=\\"example-id\\"
-    >Label</label
-  ><textarea
-    id=\\"example-id\\"
-    name=\\"example-name\\"
-    rows=\\"4\\"
-    placeholder=\\"Placeholder\\"
-    class=\\"ecl-text-area ecl-text-area--invalid\\"
-  ></textarea>
-  <div class=\\"ecl-feedback-message\\">Error message</div>
-  <div class=\\"ecl-help-block\\">Help message</div>
+<div
+  class="ecl-form-group ecl-form-group--text-area"
+>
+  <label
+    class="ecl-form-label ecl-form-label--invalid"
+    for="example-id"
+  >
+    Label
+  </label>
+  <textarea
+    class="ecl-text-area ecl-text-area--invalid"
+    id="example-id"
+    name="example-name"
+    placeholder="Placeholder"
+    rows="4"
+  />
+  <div
+    class="ecl-feedback-message"
+  >
+    Error message
+  </div>
+  <div
+    class="ecl-help-block"
+  >
+    Help message
+  </div>
 </div>
-"
 `;
