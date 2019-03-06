@@ -1,1 +1,1 @@
-# ECL Twig - EC Breadcrumb component
+# ECL Twig - EC Hero Banner component
