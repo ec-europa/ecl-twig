@@ -1,101 +1,181 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`EC - Card Card default - renders correctly 1`] = `
-"<article class=\\"ecl-card\\">
-  <header class=\\"ecl-card__header\\">
+exports[`EC - Card Default renders correctly 1`] = `
+<article
+  class="ecl-card"
+>
+  <header
+    class="ecl-card__header"
+  >
     <div
-      class=\\"ecl-card__image\\"
-      alt=\\"card image\\"
-      style=\\"background-image:url('https://v2--europa-component-library.netlify.com/example-image.jpg')\\"
-    ></div>
-    <div class=\\"ecl-card__meta\\">Meta 1 | Meta 2 | Meta 3</div>
-    <h1 class=\\"ecl-card__title\\">
-      <a href=\\"/example\\" class=\\"ecl-link ecl-link--standalone\\"
-        >Better regulation</a
+      alt="card image"
+      class="ecl-card__image"
+      style="background-image:url('https://v2--europa-component-library.netlify.com/example-image.jpg')"
+    />
+    <div
+      class="ecl-card__meta"
+    >
+      Meta 1 | Meta 2 | Meta 3
+    </div>
+    <h1
+      class="ecl-card__title"
+    >
+      <a
+        class="ecl-link ecl-link--standalone"
+        href="/example"
       >
+        Better regulation
+      </a>
     </h1>
   </header>
-  <section class=\\"ecl-card__body\\">
-    <div class=\\"ecl-card__description\\">
-      Transparently designing and evaluating evidence-based EU legislation,
-      backed by citizens views.
+  <section
+    class="ecl-card__body"
+  >
+    <div
+      class="ecl-card__description"
+    >
+      Transparently designing and evaluating evidence-based EU legislation, backed by citizens views.
     </div>
   </section>
-  <footer class=\\"ecl-card__footer\\">
-    <ul class=\\"ecl-card__info-container\\">
-      <li class=\\"ecl-card__info-item\\">
-        <svg class=\\"ecl-icon ecl-icon--xs\\" focusable=\\"false\\" aria-hidden=\\"true\\">
-          <use xlink:href=\\"static/icons.svg#general--calendar\\"></use>
+  <footer
+    class="ecl-card__footer"
+  >
+    <ul
+      class="ecl-card__info-container"
+    >
+      <li
+        class="ecl-card__info-item"
+      >
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--xs"
+          focusable="false"
+        >
+          <use
+            xlink:href="static/icons.svg#general--calendar"
+          />
         </svg>
-        <span class=\\"ecl-card__info-label\\">2018/10/22</span>
+        <span
+          class="ecl-card__info-label"
+        >
+          2018/10/22
+        </span>
       </li>
-      <li class=\\"ecl-card__info-item\\">
-        <svg class=\\"ecl-icon ecl-icon--xs\\" focusable=\\"false\\" aria-hidden=\\"true\\">
-          <use xlink:href=\\"static/icons.svg#general--location\\"></use>
+      <li
+        class="ecl-card__info-item"
+      >
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--xs"
+          focusable="false"
+        >
+          <use
+            xlink:href="static/icons.svg#general--location"
+          />
         </svg>
-        <span class=\\"ecl-card__info-label\\">Luxembourg</span>
+        <span
+          class="ecl-card__info-label"
+        >
+          Luxembourg
+        </span>
       </li>
     </ul>
-
-    <ul class=\\"ecl-card__tag-container\\">
-      <li class=\\"ecl-card__tag-item\\">
-        <a href=\\"/example-1\\" class=\\"ecl-tag ecl-card__tag\\">
+    <ul
+      class="ecl-card__tag-container"
+    >
+      <li
+        class="ecl-card__tag-item"
+      >
+        <a
+          class="ecl-tag ecl-card__tag"
+          href="/example-1"
+        >
           Tag 1
         </a>
       </li>
-      <li class=\\"ecl-card__tag-item\\">
-        <a href=\\"/example-2\\" class=\\"ecl-tag ecl-card__tag\\">
+      <li
+        class="ecl-card__tag-item"
+      >
+        <a
+          class="ecl-tag ecl-card__tag"
+          href="/example-2"
+        >
           Tag 2
         </a>
       </li>
-      <li class=\\"ecl-card__tag-item\\">
-        <a href=\\"/example-3\\" class=\\"ecl-tag ecl-card__tag\\">
+      <li
+        class="ecl-card__tag-item"
+      >
+        <a
+          class="ecl-tag ecl-card__tag"
+          href="/example-3"
+        >
           Tag 3
         </a>
       </li>
     </ul>
   </footer>
 </article>
-"
 `;
 
-exports[`EC - Card Card tile - renders correctly 1`] = `
-"<article class=\\"ecl-card ecl-card--tile\\">
-  <header class=\\"ecl-card__header\\">
-    <h1 class=\\"ecl-card__title\\">
+exports[`EC - Card Tile renders correctly 1`] = `
+<article
+  class="ecl-card ecl-card--tile"
+>
+  <header
+    class="ecl-card__header"
+  >
+    <h1
+      class="ecl-card__title"
+    >
       Better regulation
     </h1>
   </header>
-  <section class=\\"ecl-card__body\\">
-    <div class=\\"ecl-card__description\\">
-      Transparently designing and evaluating evidence-based EU legislation,
-      backed by citizens views.
+  <section
+    class="ecl-card__body"
+  >
+    <div
+      class="ecl-card__description"
+    >
+      Transparently designing and evaluating evidence-based EU legislation, backed by citizens views.
     </div>
-    <ul class=\\"ecl-card__link-container\\">
-      <li class=\\"ecl-card__link-item\\">
+    <ul
+      class="ecl-card__link-container"
+    >
+      <li
+        class="ecl-card__link-item"
+      >
         <a
-          href=\\"/example-1\\"
-          class=\\"ecl-link ecl-link--standalone ecl-card__link\\"
-          >link 1</a
+          class="ecl-link ecl-link--standalone ecl-card__link"
+          href="/example-1"
         >
+          link 1
+        </a>
       </li>
-      <li class=\\"ecl-card__link-item\\">
+      <li
+        class="ecl-card__link-item"
+      >
         <a
-          href=\\"/example-2\\"
-          class=\\"ecl-link ecl-link--standalone ecl-card__link\\"
-          >link 2</a
+          class="ecl-link ecl-link--standalone ecl-card__link"
+          href="/example-2"
         >
+          link 2
+        </a>
       </li>
-      <li class=\\"ecl-card__link-item\\">
+      <li
+        class="ecl-card__link-item"
+      >
         <a
-          href=\\"/example-3\\"
-          class=\\"ecl-link ecl-link--standalone ecl-card__link\\"
-          >link 3</a
+          class="ecl-link ecl-link--standalone ecl-card__link"
+          href="/example-3"
         >
+          link 3
+        </a>
       </li>
     </ul>
   </section>
-  <footer class=\\"ecl-card__footer\\"></footer>
+  <footer
+    class="ecl-card__footer"
+  />
 </article>
-"
 `;
