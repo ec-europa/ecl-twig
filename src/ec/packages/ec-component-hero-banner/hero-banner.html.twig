@@ -1,3 +1,4 @@
+{% spaceless %}
 {#
   Parameters:
     - "type" (string) (default: 'default') Type of banner (can be 'default','image','image-shade','primary')
@@ -62,15 +63,14 @@
 {% endif %}
 
 {# Print the result #}
-{% spaceless %}
-<section class="{{- _css_class -}}"{{- _extra_attributes -}}>
+<section class="{{ _css_class }}"{{ _extra_attributes }}>
   {%- if _image is not empty and _type in ['image','image-shade'] -%}
-    <div class="ecl-hero-banner__image" style="background-image:url({{- _image -}})"></div>
+    <div class="ecl-hero-banner__image" style="background-image:url({{ _image }})"></div>
   {%- endif -%}
   <div class="ecl-container ecl-hero-banner__container">
     <div class="ecl-hero-banner__content">
-      <h1 class="ecl-hero-banner__title">{{- _title -}}</h1>
-      <p class="ecl-hero-banner__description">{{- _description -}}</p>
+      <h1 class="ecl-hero-banner__title">{{ _title }}</h1>
+      <p class="ecl-hero-banner__description">{{ _description }}</p>
       {%- include '../ec-component-button/button.html.twig' with _button -%}
     </div>
   </div>

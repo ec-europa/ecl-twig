@@ -43,7 +43,7 @@ function formatBanner(b) {
   return banner;
 }
 
-storiesOf('Components/HeroBanner', module)
+storiesOf('Components/Hero Banner', module)
   .addDecorator(withKnobs)
   .addDecorator(withNotes)
   .addDecorator(withCode)
