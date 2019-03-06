@@ -11,7 +11,14 @@
 
 ## Decision
 
-In order to avoid issues related to whitespaces, we should strip whitespaces between HTML tags by default and only add them when needed. The Twig template is considered valid when the output it produces doesn't contain any whitespace between 2 HTML tags or between an HTML tag and its text content, unless the whitespace is explicitly required.
+In order to avoid issues related to whitespaces, we should strip whitespaces between HTML tags by default and only add them when needed.
+
+The Twig template is considered valid when the output it produces doesn't contain any whitespace:
+
+- between 2 HTML tags ;
+- between an HTML tag and its text content ;
+
+unless the whitespace is explicitly required.
 
 ## Context
 
@@ -115,6 +122,7 @@ Note: `<span />` is used in these examples, but it could be any other tag.
 
   <!-- prettier-ignore -->
   ```html
+  <!-- The following code is considered valid -->
   <div class="ecl-form-group ecl-form-group--select"><label 
       class="ecl-form-label"
       for="example-id"
@@ -259,7 +267,7 @@ In reality, there are very few cases where whitespaces can be problematic. We co
 
 It's easier to consider that no whitespace is safe and remove them all by default.
 
-### Single-line output
+### Only accepting single-line outputs
 
 We could also try to get the output of the Twig template to be on a single line but it would mean stripping all newlines from elements' attributes.
 
@@ -289,7 +297,7 @@ With something like:
 >
 ```
 
-This approach is not feasible, because it makes the code harder to read and maintain, and it's also more error-prone.
+While this approach is technically possible and is acceptable, it has no effect on the rendered component and we find that it only makes the source code more difficult to write and to maintain.
 
 ## Resources
 
