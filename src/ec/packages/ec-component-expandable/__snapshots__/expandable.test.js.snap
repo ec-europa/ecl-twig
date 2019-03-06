@@ -1,0 +1,104 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EC - Expandable renders correctly 1`] = `
+<div
+  class="ecl-expandable"
+  data-ecl-expandable="true"
+>
+  <button
+    aria-controls="expandable-example-content"
+    class="ecl-button ecl-button--secondary ecl-expandable__toggle"
+    data-ecl-expandable-toggle="true"
+    data-ecl-label-collapsed="Collapsed button"
+    data-ecl-label-expanded="Expanded button"
+    type="button"
+  >
+    <span
+      class="ecl-button__container"
+    >
+      <span
+        class="ecl-button__label"
+        data-ecl-label=""
+      >
+        Collapsed button
+      </span>
+      <svg
+        aria-controls="expandable-example-content"
+        aria-hidden="true"
+        class="ecl-icon ecl-icon--fluid ecl-icon--rotate-180 ecl-button__icon ecl-button__icon--after"
+        data-ecl-expandable-toggle="true"
+        data-ecl-label-collapsed="Collapsed button"
+        data-ecl-label-expanded="Expanded button"
+        focusable="false"
+      >
+        <use
+          xlink:href="example#ui--corner-arrow"
+        />
+      </svg>
+    </span>
+  </button>
+  <div
+    class="ecl-expandable__content"
+    hidden=""
+    id="expandable-example-content"
+  >
+    <p
+      class="ecl-u-type-paragraph-m"
+    >
+      The EU is building an energy union that ensures Europe’s energy supply is safe, viable and accessible to all. In doing so, it can boost the economy and attract investments that can create new jobs opportunities.
+    </p>
+  </div>
+</div>
+`;
+
+exports[`EC - Expandable renders correctly when expanded 1`] = `
+<div
+  class="ecl-expandable"
+  data-ecl-expandable="true"
+>
+  <button
+    aria-controls="expandable-example-content"
+    aria-expanded="true"
+    class="ecl-button ecl-button--secondary ecl-expandable__toggle"
+    data-ecl-expandable-toggle="true"
+    data-ecl-label-collapsed="Collapsed button"
+    data-ecl-label-expanded="Expanded button"
+    type="button"
+  >
+    <span
+      class="ecl-button__container"
+    >
+      <span
+        class="ecl-button__label"
+        data-ecl-label=""
+      >
+        Collapsed button
+      </span>
+      <svg
+        aria-controls="expandable-example-content"
+        aria-expanded="true"
+        aria-hidden="true"
+        class="ecl-icon ecl-icon--fluid ecl-icon--rotate-180 ecl-button__icon ecl-button__icon--after"
+        data-ecl-expandable-toggle="true"
+        data-ecl-label-collapsed="Collapsed button"
+        data-ecl-label-expanded="Expanded button"
+        focusable="false"
+      >
+        <use
+          xlink:href="example#ui--corner-arrow"
+        />
+      </svg>
+    </span>
+  </button>
+  <div
+    class="ecl-expandable__content"
+    id="expandable-example-content"
+  >
+    <p
+      class="ecl-u-type-paragraph-m"
+    >
+      The EU is building an energy union that ensures Europe’s energy supply is safe, viable and accessible to all. In doing so, it can boost the economy and attract investments that can create new jobs opportunities.
+    </p>
+  </div>
+</div>
+`;
