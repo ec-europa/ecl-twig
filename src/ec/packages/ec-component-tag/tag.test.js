@@ -1,8 +1,9 @@
 import path from 'path';
-import { renderTwigFile } from '@ecl-twig/test-utils';
+import { renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
 describe('EC - Tag', () => {
   const template = path.resolve(__dirname, './tag.html.twig');
+  const render = params => renderTwigFileAsNode(template, params);
   const defaultIconPath = 'static/icons.svg';
   const defaultDataStructure = {
     tag: {
@@ -14,46 +15,37 @@ describe('EC - Tag', () => {
   };
 
   describe('Link', () => {
-    test(`- link tag renders correctly`, done => {
+    test('renders correctly', () => {
       expect.assertions(1);
 
       defaultDataStructure.tag.type = 'link';
       defaultDataStructure.tag.label = 'Link tag';
       defaultDataStructure.tag.path = '/example-path';
 
-      renderTwigFile(template, defaultDataStructure, (err, html) => {
-        expect(html).toMatchSnapshot();
-        done();
-      });
+      return expect(render(defaultDataStructure)).resolves.toMatchSnapshot();
     });
   });
 
   describe('Button', () => {
-    test(`- button tag renders correctly`, done => {
+    test('renders correctly', () => {
       expect.assertions(1);
 
       defaultDataStructure.tag.type = 'button';
       defaultDataStructure.tag.label = 'Button tag';
 
-      renderTwigFile(template, defaultDataStructure, (err, html) => {
-        expect(html).toMatchSnapshot();
-        done();
-      });
+      return expect(render(defaultDataStructure)).resolves.toMatchSnapshot();
     });
   });
 
   describe('Removable', () => {
-    test(`- removable tag renders correctly`, done => {
+    test('renders correctly', () => {
       expect.assertions(1);
 
       defaultDataStructure.tag.type = 'removable';
       defaultDataStructure.tag.label = 'Removable tag';
       defaultDataStructure.default_icon_path = defaultIconPath;
 
-      renderTwigFile(template, defaultDataStructure, (err, html) => {
-        expect(html).toMatchSnapshot();
-        done();
-      });
+      return expect(render(defaultDataStructure)).resolves.toMatchSnapshot();
     });
   });
 });

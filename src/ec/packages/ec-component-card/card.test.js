@@ -1,12 +1,13 @@
 import path from 'path';
-import { renderTwigFile } from '@ecl-twig/test-utils';
+import { renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
 describe('EC - Card', () => {
   const template = path.resolve(__dirname, './card.html.twig');
+  const render = params => renderTwigFileAsNode(template, params);
   const defaultIconPath = 'static/icons.svg';
 
-  describe('Card default', () => {
-    test(`- renders correctly`, done => {
+  describe('Default', () => {
+    test('renders correctly', () => {
       expect.assertions(1);
 
       const data = {
@@ -56,15 +57,12 @@ describe('EC - Card', () => {
         },
       };
 
-      renderTwigFile(template, data, (err, html) => {
-        expect(html).toMatchSnapshot();
-        done();
-      });
+      return expect(render(data)).resolves.toMatchSnapshot();
     });
   });
 
-  describe('Card tile', () => {
-    test(`- renders correctly`, done => {
+  describe('Tile', () => {
+    test('renders correctly', () => {
       expect.assertions(1);
 
       const data = {
@@ -92,10 +90,7 @@ describe('EC - Card', () => {
         },
       };
 
-      renderTwigFile(template, data, (err, html) => {
-        expect(html).toMatchSnapshot();
-        done();
-      });
+      return expect(render(data)).resolves.toMatchSnapshot();
     });
   });
 });

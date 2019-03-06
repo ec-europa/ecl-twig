@@ -1,5 +1,5 @@
 import path from 'path';
-import { renderTwigFile } from '@ecl-twig/test-utils';
+import { renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
 import demoData from './demo/data';
 
@@ -13,33 +13,26 @@ demoData.links.forEach(link => {
 
 describe('EC - Social Media Follow', () => {
   const template = path.resolve(__dirname, './social-media-follow.html.twig');
+  const render = params => renderTwigFileAsNode(template, params);
 
   describe('Horizontal', () => {
-    test('renders correctly', done => {
+    test('renders correctly', () => {
       expect.assertions(1);
 
-      renderTwigFile(template, demoData, (err, html) => {
-        expect(html).toMatchSnapshot();
-        done();
-      });
+      return expect(render(demoData)).resolves.toMatchSnapshot();
     });
   });
 
   describe('Vertical', () => {
-    test('renders correctly', done => {
+    test('renders correctly', () => {
       expect.assertions(1);
 
-      renderTwigFile(
-        template,
-        {
+      return expect(
+        render({
           ...demoData,
           variant: 'vertical',
-        },
-        (err, html) => {
-          expect(html).toMatchSnapshot();
-          done();
-        }
-      );
+        })
+      ).resolves.toMatchSnapshot();
     });
   });
 });

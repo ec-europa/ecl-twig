@@ -1,16 +1,17 @@
 import path from 'path';
+import { renderTwigFileAsNode } from '@ecl-twig/test-utils';
+
 import data from '@ecl/ec-specs-blockquote/demo/data';
-import { renderTwigFile } from '@ecl-twig/test-utils';
 
 describe('EC - Blockquote', () => {
-  test('renders correctly', done => {
-    expect.assertions(1);
+  const template = path.resolve(__dirname, './blockquote.html.twig');
+  const render = params => renderTwigFileAsNode(template, params);
 
-    const template = path.resolve(__dirname, './blockquote.html.twig');
+  describe('Default', () => {
+    test('renders correctly', () => {
+      expect.assertions(1);
 
-    renderTwigFile(template, data, (err, html) => {
-      expect(html).toMatchSnapshot();
-      done();
+      return expect(render(data)).resolves.toMatchSnapshot();
     });
   });
 });

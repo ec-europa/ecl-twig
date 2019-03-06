@@ -1,12 +1,13 @@
 import path from 'path';
-import { renderTwigFile } from '@ecl-twig/test-utils';
+import { renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
 describe('EC - Search Form', () => {
   const template = path.resolve(__dirname, './search-form.html.twig');
+  const render = params => renderTwigFileAsNode(template, params);
   const defaultIconPath = 'static/icons.svg';
 
   describe('Default', () => {
-    test(`- search form renders correctly`, done => {
+    test('renders correctly', () => {
       expect.assertions(1);
 
       const defaultDataStructure = {
@@ -28,10 +29,7 @@ describe('EC - Search Form', () => {
         },
       };
 
-      renderTwigFile(template, defaultDataStructure, (err, html) => {
-        expect(html).toMatchSnapshot();
-        done();
-      });
+      return expect(render(defaultDataStructure)).resolves.toMatchSnapshot();
     });
   });
 });

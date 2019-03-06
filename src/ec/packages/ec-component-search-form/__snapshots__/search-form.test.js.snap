@@ -1,31 +1,43 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`EC - Search Form Default - search form renders correctly 1`] = `
-"<form class=\\"ecl-search-form\\" role=\\"search\\">
-  <div class=\\"ecl-form-group ecl-form-group--text-input\\">
+exports[`EC - Search Form Default renders correctly 1`] = `
+<form
+  class="ecl-search-form"
+  role="search"
+>
+  <div
+    class="ecl-form-group ecl-form-group--text-input"
+  >
     <input
-      id=\\"input-email\\"
-      name=\\"email\\"
-      type=\\"text\\"
-      placeholder=\\"\\"
-      class=\\"ecl-text-input ecl-search-form__text-input\\"
+      class="ecl-text-input ecl-search-form__text-input"
+      id="input-email"
+      name="email"
+      placeholder=""
+      type="text"
     />
   </div>
-
   <button
-    class=\\"ecl-button ecl-button--search ecl-search-form__button\\"
-    type=\\"submit\\"
+    class="ecl-button ecl-button--search ecl-search-form__button"
+    type="submit"
   >
-    <span class=\\"ecl-button__container\\"
-      ><span class=\\"ecl-button__label\\">Search</span
-      ><svg
-        class=\\"ecl-icon ecl-icon--fluid ecl-button__icon ecl-button__icon--after\\"
-        focusable=\\"false\\"
-        aria-hidden=\\"true\\"
+    <span
+      class="ecl-button__container"
+    >
+      <span
+        class="ecl-button__label"
       >
-        <use xlink:href=\\"static/icons.svg#general--search\\"></use></svg
-    ></span>
+        Search
+      </span>
+      <svg
+        aria-hidden="true"
+        class="ecl-icon ecl-icon--fluid ecl-button__icon ecl-button__icon--after"
+        focusable="false"
+      >
+        <use
+          xlink:href="static/icons.svg#general--search"
+        />
+      </svg>
+    </span>
   </button>
 </form>
-"
 `;
