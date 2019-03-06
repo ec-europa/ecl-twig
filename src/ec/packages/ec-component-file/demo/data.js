@@ -2,15 +2,14 @@
 import specDataWithTranslation from '@ecl/ec-specs-file/demo/data--with-translation';
 import specDataWithoutTranslation from '@ecl/ec-specs-file/demo/data--without-translation';
 
-import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
-
 function formatIcon(i) {
   const [type, name] = i.shape.split('--');
   const icon = {
-    path: defaultSprite,
+    path: '/static/icons.svg',
     type,
     name,
     size: i.size,
+    transform: i.transform,
   };
 
   return icon;

@@ -1,3 +1,4 @@
+{% spaceless %}
 {#
   Parameters:
   - "icon" (object) (default: {}): object of type Icon; file type
@@ -49,9 +50,9 @@
     {%- include '../ec-component-icon/icon.html.twig' with _icon|merge({extra_classes: 'ecl-file__icon'}) -%}
 
     <div class="ecl-file__info">
-      <div class="ecl-file__title">{{title}}</div>
-      <div class="ecl-file__language">{{language}}</div>
-      <div class="ecl-file__meta">{{meta}}</div>
+      <div class="ecl-file__title">{{ title }}</div>
+      <div class="ecl-file__language">{{ language }}</div>
+      <div class="ecl-file__meta">{{ meta }}</div>
     </div>
 
     {%- include '../ec-component-link/link.html.twig' with _download|merge({
@@ -63,5 +64,49 @@
       extra_attributes: [{name: 'download'}]
     }) -%}
   </div>
-</div>
 
+  {%- if _translation is not empty and _translation.items is not empty and _translation.items is iterable -%}
+  <div class="ecl-file__translation-container" data-ecl-file-translation-container>
+    {%- include '../ec-component-button/button.html.twig' with _translation.toggle|merge({
+      variant: 'ghost',
+      type: 'button',
+      extra_classes: 'ecl-file__translation-toggle',
+      extra_attributes: [{name: 'data-ecl-file-translation-toggle'}]
+    }) -%}
+
+    <ul class="ecl-file__translation-list">
+      {%- for _item in _translation.items -%}
+        <li class="ecl-file__translation-item">
+          <div class="ecl-file__translation-info">
+            <div
+              class="ecl-file__translation-title"
+              {{ _item.lang ? "lang: {{ _item.lang }}" }}
+            >
+              {{- _item.title -}}
+            </div>
+
+            <div class="ecl-file__translation-meta">{{ _item.meta }}</div>
+          </div>
+
+          {%- include '../ec-component-link/link.html.twig' with _download|merge({
+            link: _download.link|default({})|merge({
+              type: 'standalone',
+              icon_position: 'after'
+            }),
+            extra_classes: 'ecl-file__translation-download',
+            extra_attributes: [
+              { name: 'download' },
+              { name: 'hreflang', value: _item.lang }
+            ]
+          }) -%}
+        </li>
+      {%- endfor -%}
+
+      <li class="ecl-file__translation-item ecl-file__translation-description">
+        {{- _translation.description -}}
+      </li>
+    </ul>
+  </div>
+  {%- endif -%}
+</div>
+{% endspaceless %}
