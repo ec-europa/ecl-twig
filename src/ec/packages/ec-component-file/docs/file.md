@@ -20,8 +20,8 @@ npm install --save @ecl-twig/ec-component-file
     - "meta" (string) (default: '')
     - "lang" (string) (default: '')
   - "description (string) (default:'')
-- "extra_classes" (optional) (string) (default: '') Extra classes (space separated) for the icon
-- "extra_attributes" (optional) (array) (default: []) Extra attributes for icon
+- "extra_classes" (optional) (string) (default: '')
+- "extra_attributes" (optional) (array) (default: [])
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
 

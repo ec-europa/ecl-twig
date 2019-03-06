@@ -13,8 +13,8 @@
       - "meta" (string) (default: '')
       - "lang" (string) (default: '')
     - "description (string) (default:'')
-  - "extra_classes" (optional) (string) (default: '') Extra classes (space separated) for the icon
-  - "extra_attributes" (optional) (array) (default: []) Extra attributes for icon
+  - "extra_classes" (optional) (string) (default: '')
+  - "extra_attributes" (optional) (array) (default: [])
     - "name" (string) Attribute name, eg. 'data-test'
     - "value" (string) Attribute value, eg: 'data-test-1'
 #}
@@ -47,7 +47,9 @@
 
 <div class="{{ _css_class }}"{{ _extra_attributes|raw }} data-ecl-file>
   <div class="ecl-file__container">
-    {%- include '../ec-component-icon/icon.html.twig' with _icon|merge({extra_classes: 'ecl-file__icon'}) -%}
+    {%- include '../ec-component-icon/icon.html.twig' with _icon|merge({
+      extra_classes: 'ecl-file__icon'
+    }) -%}
 
     <div class="ecl-file__info">
       <div class="ecl-file__title">{{ title }}</div>
@@ -61,7 +63,7 @@
         icon_position: 'after',
       }),
       extra_classes: 'ecl-file__download ecl-button ecl-button--secondary',
-      extra_attributes: [{name: 'download'}]
+      extra_attributes: [{ name: 'download' }]
     }) -%}
   </div>
 
@@ -71,7 +73,7 @@
       variant: 'ghost',
       type: 'button',
       extra_classes: 'ecl-file__translation-toggle',
-      extra_attributes: [{name: 'data-ecl-file-translation-toggle'}]
+      extra_attributes: [{ name: 'data-ecl-file-translation-toggle' }]
     }) -%}
 
     <ul class="ecl-file__translation-list">
