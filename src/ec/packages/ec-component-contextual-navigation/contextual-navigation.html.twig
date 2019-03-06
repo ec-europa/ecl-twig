@@ -1,5 +1,9 @@
 {#
   Parameters:
+    - "label" (string) (default: '')
+    - "items" (iterable of predefined structure) (default: []): format: see @ecl-twig/ec-component-link component
+    - "item_more (predefined structure) (default: {}): format: see @ecl-twig/ec-component-button
+    - "items_limit": (number) (default: 3) Number of items to show by default. The rest of the "items" are hidden and a "More" button is shown.
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
         {
@@ -16,8 +20,9 @@
 {% set _extra_attributes = '' %}
 
 {% set _label = label|default('') %}
-{% set _items = items|default({}) %}
+{% set _items = items|default([]) %}
 {% set _item_more = item_more|default({}) %}
+{% set _items_limit = items_limit|default(3) %}
 
 {# Internal logic - Process properties #}
 
@@ -36,31 +41,37 @@
 {% spaceless %}
 <nav
   class="{{ _css_class }}"{{ _extra_attributes|raw }}
-  data-ecl-contextual-navigation="true">
+  data-ecl-contextual-navigation>
   <div class="ecl-contextual-navigation__label">{{- _label -}}</div>
   <ul
     class="ecl-contextual-navigation__list"
-    data-ecl-contextual-navigation-list="true"
+    data-ecl-contextual-navigation-list
   >
     {% if _items is not empty and _items is iterable %}
       {% for item in _items %}
-      <li class="ecl-contextual-navigation__item">
-      {%- include '../ec-component-link/link.html.twig' with item|merge({
-        extra_classes: 'ecl-contextual-navigation__link',
-        link: item,
-      }) -%}
-      </li>
+        {% set _item_classes = 'ecl-contextual-navigation__item' %}
+        {% if loop.index > _items_limit %}
+          {% set _item_classes = _item_classes ~ ' ' ~ 'ecl-contextual-navigation__item--collapsed' %}
+        {% endif %}
+        <li class="{{ _item_classes }}">
+        {%- include '../ec-component-link/link.html.twig' with item|merge({
+          extra_classes: 'ecl-contextual-navigation__link',
+          link: item,
+        }) -%}
+        </li>
+        {% if _item_more is not empty and loop.last %}
+          {% set _item_classes = _item_classes|replace({'ecl-contextual-navigation__item--collapsed': ''}) %}
+          {% set _item_classes = _item_classes ~ ' ' ~ 'ecl-contextual-navigation__item--more' %}
+          <li class="{{ _item_classes }}">
+          {%- include '../ec-component-button/button.html.twig' with _item_more|merge({
+            extra_attributes: [
+              { name: 'data-ecl-contextual-navigation-more', value: 'true' }
+            ],
+            extra_classes: 'ecl-contextual-navigation__more',
+          }) -%}
+          </li> 
+        {% endif %}        
       {% endfor %}
-    {% endif %}
-    {% if _item_more is not empty %}
-    <li class="ecl-contextual-navigation__item ecl-contextual-navigation__item--more">
-    {%- include '../ec-component-button/button.html.twig' with _item_more|merge({
-      extra_attributes: [
-        { name: 'data-ecl-contextual-navigation-more', value: 'true' }
-      ],
-      extra_classes: 'ecl-contextual-navigation__more',
-    }) -%}
-    </li>    
     {% endif %}
   </ul>
 </nav>
