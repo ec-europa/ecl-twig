@@ -3,7 +3,7 @@
 | Status        | proposed <!--becomes accepted, rejected or superseded later--> |
 | ------------- | -------------------------------------------------------------- |
 | **Proposed**  | 2019-03-01                                                     |
-| **Accepted**  | (the date the proposal was accepted/rejected)                  |
+| **Accepted**  | 2019-03-06                                                     |
 | **Driver**    | @yhuard                                                        |
 | **Approver**  | @degliwe                                                       |
 | **Consulted** | @degliwe, @emeryro, @kalinchernev, @planctus                   |
