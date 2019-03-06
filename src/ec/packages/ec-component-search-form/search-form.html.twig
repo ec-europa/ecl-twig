@@ -1,3 +1,5 @@
+{% spaceless %}
+
 {#
   Parameters:
     - "text_input" (associative array) default: A predefined structure for EC Text Input
@@ -11,8 +13,6 @@
         ...
       ]
 #}
-
-{% spaceless %}
 
 {# Internal properties #}
 
@@ -34,13 +34,13 @@
 {# Print the result #}
 
 <form class="{{ _css_class }}" role="search"{{ _extra_attributes|raw }}>
-  {% if text_input is defined %}
+  {%- if text_input is defined -%}
     {%- include '../ec-component-text-input/text-input.html.twig' with text_input -%}
-  {% endif %}
+  {%- endif -%}
 
-  {% if button is defined %}
+  {%- if button is defined -%}
     {%- include '../ec-component-button/button.html.twig' with button -%}
-  {% endif %}
+  {%- endif -%}
 </form>
 
 {% endspaceless %}

@@ -1,3 +1,5 @@
+{% spaceless %}
+
 {#
   Parameters:
   - "items" (array) (default: []): array of link items
@@ -17,8 +19,6 @@
     - "name" (string) Attribute name, eg. 'data-test'
     - "value" (string) Attribute value, eg: 'data-test-1'
 #}
-
-{% spaceless %}
 
 {# Internal properties #}
 
@@ -56,7 +56,7 @@
 {# Print the result #}
 
 <div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
-{% if overlay %}
+{%- if overlay -%}
 
   <div class="ecl-language-list__container ecl-container">
     <div class="ecl-row">
@@ -90,22 +90,22 @@
     <div class="ecl-row">
       <div class="ecl-language-list__column ecl-col-12 ecl-col-lg-4 ecl-offset-lg-2">
         <ul class="ecl-language-list__list">
-          {% for _item in _column1 %}
+          {%- for _item in _column1 -%}
             {%- include './language-list-item.html.twig' with { item: _item, overlay: _overlay, icon_path: _icon_path } -%}
-          {% endfor %}
+          {%- endfor -%}
         </ul>
       </div>
       <div class="ecl-language-list__column ecl-col-12 ecl-col-lg-4">
         <ul class="ecl-language-list__list">
-          {% for _item in _column2 %}
+          {%- for _item in _column2 -%}
             {%- include './language-list-item.html.twig' with { item: _item, overlay: _overlay, icon_path: _icon_path } -%}
-          {% endfor %}
+          {%- endfor -%}
         </ul>
       </div>
     </div>
   </div>
 
-{% else %}
+{%- else -%}
 
   <header class="ecl-language-list__header">
     <img class="ecl-language-list__logo" src="{{ _logo.path }}" alt="{{ _logo.alt }}" />
@@ -114,22 +114,22 @@
     <div class="ecl-row">
       <div class="ecl-language-list__column ecl-col-12 ecl-col-lg-4 ecl-offset-lg-2">
         <ul class="ecl-language-list__list">
-          {% for _item in _column1 %}
+          {%- for _item in _column1 -%}
             {%- include './language-list-item.html.twig' with { item: _item, overlay: _overlay, icon_path: _icon_path } -%}
-          {% endfor %}
+          {%- endfor -%}
         </ul>
       </div>
       <div class="ecl-language-list__column ecl-col-12 ecl-col-lg-4">
         <ul class="ecl-language-list__list">
-          {% for _item in _column2 %}
+          {%- for _item in _column2 -%}
             {%- include './language-list-item.html.twig' with { item: _item, overlay: _overlay, icon_path: _icon_path } -%}
-          {% endfor %}
+          {%- endfor -%}
         </ul>
       </div>
     </div>
   </div>
 
-{% endif %}
+{%- endif -%}
 </div>
 
 {% endspaceless %}

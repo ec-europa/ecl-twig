@@ -1,4 +1,5 @@
 {% spaceless %}
+
 {#
   Parameters:
     - "icon" (associative array) (default: predefined structure): format:
@@ -56,10 +57,10 @@
 
 {# Print the result #}
 
-{% if _icon %}
+{%- if _icon -%}
   <svg class="{{ _css_class }}"{{ _extra_attributes|raw }}>
     <use xlink:href="{{ _icon.path }}#{{ _icon.type }}--{{ _icon.name }}"></use>
   </svg>
-{% endif %}
+{%- endif -%}
 
 {% endspaceless %}

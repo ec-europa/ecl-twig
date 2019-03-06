@@ -1,3 +1,5 @@
+{% spaceless %}
+
 {#
   Parameters:
    - "tag" (associative array) (default: predefined structure): format:
@@ -16,8 +18,6 @@
         ...
       ]
 #}
-
-{% spaceless %}
 
 {# Internal properties #}
 
@@ -54,7 +54,7 @@
 
 {# Print the result #}
 
-{% if _tag.type != 'link' %}
+{%- if _tag.type != 'link' -%}
   <button class="{{ _css_class }}" type="button"{{ _extra_attributes|raw }}>
     {{- _tag.label -}}
     {%- if _tag.type=='removable' -%}
@@ -70,10 +70,10 @@
       </span>
     {%- endif -%}
   </button>
-{% else %}
+{%- else -%}
   <a href="{{ _tag.path }}" class="{{ _css_class }}"{{ _extra_attributes|raw }}>
     {{- _tag.label -}}
   </a>
-{% endif %}
+{%- endif -%}
 
 {% endspaceless %}
