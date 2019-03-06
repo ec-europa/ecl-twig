@@ -1,117 +1,189 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`EC - Site Header default - renders correctly 1`] = `
-"<header class=\\"ecl-site-header\\">
-  <div class=\\"ecl-site-header__container ecl-container\\">
-    <div class=\\"ecl-site-header__banner\\">
+exports[`EC - Site Header Default renders correctly 1`] = `
+<header
+  class="ecl-site-header"
+>
+  <div
+    class="ecl-site-header__container ecl-container"
+  >
+    <div
+      class="ecl-site-header__banner"
+    >
       <a
-        class=\\"ecl-link ecl-link--standalone\\"
-        href=\\"/example-1\\"
-        aria-label=\\"European Commission\\"
-        ><img
-          alt=\\"European Commission logo\\"
-          title=\\"European Commission\\"
-          class=\\"ecl-site-header__logo-image\\"
-          src=\\"static/media/logo--en.30b933cc.svg\\"
-      /></a>
-      <div class=\\"ecl-site-header__selector\\">
-        <a class=\\"ecl-link ecl-link--standalone\\" href=\\"/example\\"
-          >English<span class=\\"ecl-site-header__language-icon\\"
-            ><svg
-              class=\\"ecl-icon ecl-icon--m\\"
-              focusable=\\"false\\"
-              aria-hidden=\\"true\\"
-            >
-              <use xlink:href=\\"static/icons.svg#general--language\\"></use></svg
-            ><span class=\\"ecl-site-header__language-code\\">en</span></span
-          ></a
+        aria-label="European Commission"
+        class="ecl-link ecl-link--standalone"
+        href="/example-1"
+      >
+        <img
+          alt="European Commission logo"
+          class="ecl-site-header__logo-image"
+          src="static/media/logo--en.30b933cc.svg"
+          title="European Commission"
+        />
+      </a>
+      <div
+        class="ecl-site-header__selector"
+      >
+        <a
+          class="ecl-link ecl-link--standalone"
+          href="/example"
         >
+          English
+          <span
+            class="ecl-site-header__language-icon"
+          >
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--m"
+              focusable="false"
+            >
+              <use
+                xlink:href="static/icons.svg#general--language"
+              />
+            </svg>
+            <span
+              class="ecl-site-header__language-code"
+            >
+              en
+            </span>
+          </span>
+        </a>
       </div>
     </div>
-    <form class=\\"ecl-search-form ecl-site-header__search\\" role=\\"search\\">
-      <div class=\\"ecl-form-group ecl-form-group--text-input\\">
+    <form
+      class="ecl-search-form ecl-site-header__search"
+      role="search"
+    >
+      <div
+        class="ecl-form-group ecl-form-group--text-input"
+      >
         <input
-          id=\\"input-search\\"
-          name=\\"search\\"
-          type=\\"text\\"
-          placeholder=\\"\\"
-          class=\\"ecl-text-input ecl-search-form__text-input\\"
+          class="ecl-text-input ecl-search-form__text-input"
+          id="input-search"
+          name="search"
+          placeholder=""
+          type="text"
         />
       </div>
       <button
-        class=\\"ecl-button ecl-button--search ecl-search-form__button\\"
-        type=\\"submit\\"
+        class="ecl-button ecl-button--search ecl-search-form__button"
+        type="submit"
       >
-        <span class=\\"ecl-button__container\\"
-          ><span class=\\"ecl-button__label\\">Search</span
-          ><svg
-            class=\\"ecl-icon ecl-icon--xs ecl-button__icon ecl-button__icon--after\\"
-            focusable=\\"false\\"
-            aria-hidden=\\"true\\"
+        <span
+          class="ecl-button__container"
+        >
+          <span
+            class="ecl-button__label"
           >
-            <use xlink:href=\\"static/icons.svg#general--search\\"></use></svg
-        ></span>
+            Search
+          </span>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--xs ecl-button__icon ecl-button__icon--after"
+            focusable="false"
+          >
+            <use
+              xlink:href="static/icons.svg#general--search"
+            />
+          </svg>
+        </span>
       </button>
     </form>
   </div>
 </header>
-"
 `;
 
-exports[`EC - Site Header translated - renders correctly 1`] = `
-"<header class=\\"ecl-site-header\\">
-  <div class=\\"ecl-site-header__container ecl-container\\">
-    <div class=\\"ecl-site-header__banner\\">
+exports[`EC - Site Header Translated renders correctly 1`] = `
+<header
+  class="ecl-site-header"
+>
+  <div
+    class="ecl-site-header__container ecl-container"
+  >
+    <div
+      class="ecl-site-header__banner"
+    >
       <a
-        class=\\"ecl-link ecl-link--standalone\\"
-        href=\\"/example-1\\"
-        aria-label=\\"Commmission Européenne\\"
-        ><img
-          alt=\\"Commmission Européenne logo\\"
-          title=\\"Commmission Européenne\\"
-          class=\\"ecl-site-header__logo-image\\"
-          src=\\"static/media/logo--fr.a8aaa7ab.svg\\"
-      /></a>
-      <div class=\\"ecl-site-header__selector\\">
-        <a class=\\"ecl-link ecl-link--standalone\\" href=\\"/example\\"
-          >Français<span class=\\"ecl-site-header__language-icon\\"
-            ><svg
-              class=\\"ecl-icon ecl-icon--m\\"
-              focusable=\\"false\\"
-              aria-hidden=\\"true\\"
-            >
-              <use xlink:href=\\"static/icons.svg#general--language\\"></use></svg
-            ><span class=\\"ecl-site-header__language-code\\">fr</span></span
-          ></a
+        aria-label="Commmission Européenne"
+        class="ecl-link ecl-link--standalone"
+        href="/example-1"
+      >
+        <img
+          alt="Commmission Européenne logo"
+          class="ecl-site-header__logo-image"
+          src="static/media/logo--fr.a8aaa7ab.svg"
+          title="Commmission Européenne"
+        />
+      </a>
+      <div
+        class="ecl-site-header__selector"
+      >
+        <a
+          class="ecl-link ecl-link--standalone"
+          href="/example"
         >
+          Français
+          <span
+            class="ecl-site-header__language-icon"
+          >
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--m"
+              focusable="false"
+            >
+              <use
+                xlink:href="static/icons.svg#general--language"
+              />
+            </svg>
+            <span
+              class="ecl-site-header__language-code"
+            >
+              fr
+            </span>
+          </span>
+        </a>
       </div>
     </div>
-    <form class=\\"ecl-search-form ecl-site-header__search\\" role=\\"search\\">
-      <div class=\\"ecl-form-group ecl-form-group--text-input\\">
+    <form
+      class="ecl-search-form ecl-site-header__search"
+      role="search"
+    >
+      <div
+        class="ecl-form-group ecl-form-group--text-input"
+      >
         <input
-          id=\\"input-search\\"
-          name=\\"search\\"
-          type=\\"text\\"
-          placeholder=\\"\\"
-          class=\\"ecl-text-input ecl-search-form__text-input\\"
+          class="ecl-text-input ecl-search-form__text-input"
+          id="input-search"
+          name="search"
+          placeholder=""
+          type="text"
         />
       </div>
       <button
-        class=\\"ecl-button ecl-button--search ecl-search-form__button\\"
-        type=\\"submit\\"
+        class="ecl-button ecl-button--search ecl-search-form__button"
+        type="submit"
       >
-        <span class=\\"ecl-button__container\\"
-          ><span class=\\"ecl-button__label\\">Recherche</span
-          ><svg
-            class=\\"ecl-icon ecl-icon--xs ecl-button__icon ecl-button__icon--after\\"
-            focusable=\\"false\\"
-            aria-hidden=\\"true\\"
+        <span
+          class="ecl-button__container"
+        >
+          <span
+            class="ecl-button__label"
           >
-            <use xlink:href=\\"static/icons.svg#general--search\\"></use></svg
-        ></span>
+            Recherche
+          </span>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--xs ecl-button__icon ecl-button__icon--after"
+            focusable="false"
+          >
+            <use
+              xlink:href="static/icons.svg#general--search"
+            />
+          </svg>
+        </span>
       </button>
     </form>
   </div>
 </header>
-"
 `;

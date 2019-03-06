@@ -1,58 +1,48 @@
 import path from 'path';
-import { renderTwigFile } from '@ecl-twig/test-utils';
+import { renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
 describe('EC - Text area', () => {
   const template = path.resolve(__dirname, './text-area.html.twig');
+  const render = params => renderTwigFileAsNode(template, params);
 
   describe('Default', () => {
-    test('renders correctly', done => {
+    test('renders correctly', () => {
       expect.assertions(1);
 
-      renderTwigFile(
-        template,
-        {
+      return expect(
+        render({
           label: 'Label',
           placeholder: 'Placeholder',
           helper_text: 'Help message',
           id: 'example-id',
           name: 'example-name',
-        },
-        (err, html) => {
-          expect(html).toMatchSnapshot();
-          done();
-        }
-      );
+        })
+      ).resolves.toMatchSnapshot();
     });
   });
 
   describe('Disabled', () => {
-    test('renders correctly', done => {
+    test('renders correctly', () => {
       expect.assertions(1);
 
-      renderTwigFile(
-        template,
-        {
+      return expect(
+        render({
           label: 'Label',
           placeholder: 'Placeholder',
           helper_text: 'Help message',
           disabled: true,
           id: 'example-id',
-        },
-        (err, html) => {
-          expect(html).toMatchSnapshot();
-          done();
-        }
-      );
+        })
+      ).resolves.toMatchSnapshot();
     });
   });
 
   describe('With error', () => {
-    test('renders correctly', done => {
+    test('renders correctly', () => {
       expect.assertions(1);
 
-      renderTwigFile(
-        template,
-        {
+      return expect(
+        render({
           label: 'Label',
           placeholder: 'Placeholder',
           invalid: true,
@@ -60,12 +50,8 @@ describe('EC - Text area', () => {
           helper_text: 'Help message',
           id: 'example-id',
           name: 'example-name',
-        },
-        (err, html) => {
-          expect(html).toMatchSnapshot();
-          done();
-        }
-      );
+        })
+      ).resolves.toMatchSnapshot();
     });
   });
 });

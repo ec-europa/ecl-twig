@@ -1,5 +1,5 @@
 import path from 'path';
-import { renderTwigFile } from '@ecl-twig/test-utils';
+import { renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
 import demoData from './demo/data';
 
@@ -14,15 +14,13 @@ demoData.links.forEach(link => {
 
 describe('EC - Social Media Share', () => {
   const template = path.resolve(__dirname, './social-media-share.html.twig');
+  const render = params => renderTwigFileAsNode(template, params);
 
   describe('Default view', () => {
-    test('renders correctly', done => {
+    test('renders correctly', () => {
       expect.assertions(1);
 
-      renderTwigFile(template, demoData, (err, html) => {
-        expect(html).toMatchSnapshot();
-        done();
-      });
+      return expect(render(demoData)).resolves.toMatchSnapshot();
     });
   });
 });
