@@ -9,6 +9,7 @@ npm install --save @ecl-twig/ec-component-hero-banner
 ## Hero Banner
 
 ### Parameters
+
 - "type" (string) (default: 'default') Type of banner (can be 'default','image','image-shade','primary')
 - "title" (string) (default: '') Title of banner
 - "image" (string) (default: '') Image for banner (required for image banner type)
