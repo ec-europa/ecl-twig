@@ -1,3 +1,5 @@
+{% spaceless %}
+
 {#
   Parameters:
     - "label" (string) (default: '')
@@ -38,7 +40,6 @@
 
 {# Print the result #}
 
-{% spaceless %}
 <nav
   class="{{ _css_class }}"{{ _extra_attributes|raw }}
   data-ecl-contextual-navigation>
@@ -60,7 +61,7 @@
         }) -%}
         </li>
         {% if _item_more is not empty and loop.last %}
-          {% set _item_classes = _item_classes|replace({'ecl-contextual-navigation__item--collapsed': ''}) %}
+          {% set _item_classes = _item_classes|replace({ 'ecl-contextual-navigation__item--collapsed': '' }) %}
           {% set _item_classes = _item_classes ~ ' ' ~ 'ecl-contextual-navigation__item--more' %}
           <li class="{{ _item_classes }}">
           {%- include '../ec-component-button/button.html.twig' with _item_more|merge({
@@ -69,10 +70,11 @@
             ],
             extra_classes: 'ecl-contextual-navigation__more',
           }) -%}
-          </li> 
-        {% endif %}        
+          </li>
+        {% endif %}
       {% endfor %}
     {% endif %}
   </ul>
 </nav>
+
 {% endspaceless %}
