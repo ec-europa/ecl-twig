@@ -7,14 +7,12 @@ describe('EC Media Container', () => {
   const template = path.resolve(__dirname, './media-container.html.twig');
   const render = params => renderTwigFileAsNode(template, params);
   const defaultDataStructure = {
-    mediaContainer: {
-      description: demoContent.description,
-      image: demoContent.image,
-      alt: demoContent.alt,
-    },
+    description: demoContent.description,
+    image: demoContent.image,
+    alt: demoContent.alt,
   };
 
-  describe('Generic tests', () => {
+  describe('Media Container generic tests', () => {
     test('renders correctly with extra class names', () => {
       expect.assertions(1);
 
@@ -25,7 +23,7 @@ describe('EC Media Container', () => {
       return expect(render(optionsWithExtraClasses)).resolves.toMatchSnapshot();
     });
 
-    test('renders correctly with extra attributes', () => {
+    test('Media container renders correctly with extra attributes', () => {
       expect.assertions(1);
 
       const optionsWithExtraClasses = merge(defaultDataStructure, {
@@ -40,7 +38,7 @@ describe('EC Media Container', () => {
   });
 
   describe('EC - Media container image', () => {
-    test('- Media container image renders correctly', () => {
+    test('Media container image renders correctly', () => {
       expect.assertions(1);
       return expect(render(defaultDataStructure)).resolves.toMatchSnapshot();
     });
@@ -48,11 +46,11 @@ describe('EC Media Container', () => {
 
   describe('EC - Media container video', () => {
     test('Media container video renders correctly', () => {
-      const options = merge(
-        defaultDataStructure,
-        demoContent.sources,
-        demoContent.tracks
-      );
+      const options = merge(defaultDataStructure, {
+        tracks: demoContent.tracks,
+        sources: demoContent.sources,
+      });
+
       expect.assertions(1);
       return expect(render(options)).resolves.toMatchSnapshot();
     });
