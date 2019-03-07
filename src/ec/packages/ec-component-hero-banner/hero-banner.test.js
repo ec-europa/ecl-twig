@@ -14,7 +14,7 @@ function formatBanner(b) {
     title: b.title,
     description: b.description,
     button: {
-      type: b.button.variant,
+      variant: b.button.variant,
       label: b.button.label,
       icon: {
         type: iconType[0],
