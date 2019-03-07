@@ -1,4 +1,5 @@
 # ECL Twig Documentation
 
-- [Decisions](./decisions/README.md)
+- [Getting started](./getting-started.md)
 - [Conventions](./conventions.md)
+- [Decisions](./decisions/)
