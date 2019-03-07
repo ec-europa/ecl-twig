@@ -44,29 +44,38 @@
 
 {# Print the result #}
 
-<dl class="{{ _css_class }}"{{ _extra_attributes|raw }} data-ecl-accordion="true" role="presentation">
-  {%- if _items is not empty -%}
-  {%- for item in _items -%}
-  <dt role="heading" aria-level="{{ item.level }}">
-    {%- include '../ec-component-button/button.html.twig' with {
-    label: item.toggle.label,
-    variant: 'ghost',
-    type: 'button',
-    icon: item.toggle.icon,
-    icon_position: "before",
-    extra_classes: 'ecl-accordion__toggle',
-    extra_attributes: [
-      { name: 'aria-controls', value: item.id },
-      { name: 'data-ecl-accordion-toggle', value: 'true' },
-    ]
-  } -%}
-  </dt>
-  <dd class="ecl-accordion__content" id="{{ item.id }}" hidden role="region">
-    {%- set _content = item.content|default('') -%}
-    {%- block content _content -%}
-  </dd>
-  {%- endfor -%}
-  {%- endif -%}
+<dl
+  class="{{ _css_class }}"{{ _extra_attributes|raw }}
+  data-ecl-accordion="true"
+  role="presentation"
+>
+  {% if _items is not empty %}
+    {% for item in _items %}
+      <dt aria-level="{{ item.level }}" role="heading">
+        {% include '../ec-component-button/button.html.twig' with {
+          label: item.toggle.label,
+          variant: 'ghost',
+          type: 'button',
+          icon: item.toggle.icon,
+          icon_position: "before",
+          extra_classes: 'ecl-accordion__toggle',
+          extra_attributes: [
+            { name: 'aria-controls', value: item.id },
+            { name: 'data-ecl-accordion-toggle', value: 'true' },
+          ]
+        } only %}
+      </dt>
+      <dd
+        class="ecl-accordion__content"
+        hidden
+        id="{{ item.id }}"
+        role="region"
+      >
+        {%- set _content = item.content|default('') %}
+        {%- block content _content -%}
+      </dd>
+    {% endfor %}
+  {% endif %}
 </dl>
 
 {% endspaceless %}
