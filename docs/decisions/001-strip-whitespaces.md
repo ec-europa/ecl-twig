@@ -233,7 +233,7 @@ But it doesn’t make sense in attributes,
 
 or when there’s no space around:
 
-```html
+```twig
 <!-- Do -->
 </span>{{ my_var }}<span>
 
@@ -241,7 +241,7 @@ or when there’s no space around:
 </span>{{- my_var -}}<span>
 ```
 
-```html
+```twig
 <!-- Do -->
 <span>{{ my_var }}</span>
 
