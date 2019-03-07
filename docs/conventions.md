@@ -9,7 +9,7 @@
 The `only` keyword disables access to the context, thus preventing leaks.
 
 <!-- prettier-ignore -->
-```html
+```twig
 <!-- Do -->
 {% include "./path/to/template.html.twig" only %}
 
