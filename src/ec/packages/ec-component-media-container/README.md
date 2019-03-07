@@ -1,1 +1,1 @@
-# ECL Twig - EC Tag component
+# ECL Twig - EC Media Container component

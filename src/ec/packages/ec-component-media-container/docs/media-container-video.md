@@ -18,7 +18,7 @@ npm install --save @ecl-twig/ec-component-media-container
 - "tracks" (array) Define the video tracks, an array with the next keys
   - "src" (string) (default: ''),
   - "kind" (string) (default: ''),
-  - "srcLang" (string) (default: ''),
+  - "src_lang" (string) (default: ''),
   - "label" (string) (default: ''),
 - "alt" (string) (default: '') Alternate text for the image,
 - "extra_classes" (optional) (string) (default: '') Extra classes (space separated) for the component,
@@ -41,7 +41,7 @@ npm install --save @ecl-twig/ec-component-media-container
 	{ 
       src: '/captions/bunny-en.vtt', 
       kind: 'captions', 
-      srcLang: 'en', 
+      src_lang: 'en', 
       label: 'English', 
     }, 
   ], 

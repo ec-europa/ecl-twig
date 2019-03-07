@@ -1,16 +1,13 @@
 import path from 'path';
 import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
-import demoContent from '@ecl/ec-specs-media-container/demo/data--video';
+import demoContentImg from '@ecl/ec-specs-media-container/demo/data--image';
+import demoContentVideo from './demo/data';
 
 describe('EC Media Container', () => {
   const template = path.resolve(__dirname, './media-container.html.twig');
   const render = params => renderTwigFileAsNode(template, params);
-  const defaultDataStructure = {
-    description: demoContent.description,
-    image: demoContent.image,
-    alt: demoContent.alt,
-  };
+  const defaultDataStructure = demoContentImg;
 
   describe('Media Container generic tests', () => {
     test('renders correctly with extra class names', () => {
@@ -47,8 +44,8 @@ describe('EC Media Container', () => {
   describe('EC - Media container video', () => {
     test('Media container video renders correctly', () => {
       const options = merge(defaultDataStructure, {
-        tracks: demoContent.tracks,
-        sources: demoContent.sources,
+        tracks: demoContentVideo.tracks,
+        sources: demoContentVideo.sources,
       });
 
       expect.assertions(1);

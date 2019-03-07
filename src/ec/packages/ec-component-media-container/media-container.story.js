@@ -2,8 +2,8 @@ import { storiesOf } from '@storybook/html';
 import { withKnobs, text } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
-
-import demoVideo from '@ecl/ec-specs-media-container/demo/data--video';
+import imgProps from '@ecl/ec-specs-media-container/demo/data--image';
+import demoVideo from './demo/data';
 import demoImg from '../../../../static/images/example-image.jpg';
 import imageDocs from './docs/media-container-image.md';
 import videoDocs from './docs/media-container-video.md';
@@ -17,8 +17,8 @@ storiesOf('Components/Media container', module)
     'image',
     () =>
       mediaContainer({
-        description: text('Description', 'A description for this image'),
-        alt: text('Alternate text', 'An alternate text for a missing image'),
+        description: text('Description', imgProps.description),
+        alt: text('Alternate text', imgProps.alt),
         image: text('Image path', demoImg),
       }),
     {
