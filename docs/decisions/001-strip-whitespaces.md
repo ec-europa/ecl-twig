@@ -162,7 +162,7 @@ Here are more details about the different recommendations of point 1.
 Wrap your template within `{% spaceless %}...{% endspaceless %}`:
 
 <!-- prettier-ignore -->
-```html
+```twig
 {% spaceless %}
 
 {#
@@ -195,7 +195,7 @@ You can trim leading and trailing whitespaces with `-` (dash) in the following w
 
 It makes sense to use it when you print content between 2 tags:
 
-```html
+```twig
 <!-- Do -->
 </span>
   {{- my_var -}}
@@ -209,7 +209,7 @@ It makes sense to use it when you print content between 2 tags:
 
 or inside a tag:
 
-```html
+```twig
 <!-- Do -->
 <span>
   {{- my_var -}}
@@ -223,7 +223,7 @@ or inside a tag:
 
 But it doesn’t make sense in attributes,
 
-```html
+```twig
 <!-- Do -->
 <span {{ my_var }} />
 
@@ -277,7 +277,7 @@ We could also try to get the output of the Twig template to be on a single line 
 Concretely, it would mean replacing:
 
 <!-- prettier-ignore -->
-```html
+```twig
 <select
   id="{{ _id }}"
   name="{{ _name }}"
@@ -290,7 +290,7 @@ Concretely, it would mean replacing:
 With something like:
 
 <!-- prettier-ignore -->
-```html
+```twig
 <select
   {{- ' id="#{_id}"' -}}
   {{- ' name="#{_name}"' -}}
