@@ -8,18 +8,15 @@ addParameters({
       base: 'light',
       brandTitle: 'ECL v2.1 - EC Twig',
       brandUrl: 'https://github.com/ec-europa/ecl-twig',
-      // To control appearance:
       brandImage: null, // 'http://url.of/some.svg',
     }),
     sidebarAnimations: false,
-    // isFullscreen: false,
-    // panelPosition: 'right',
   },
 });
 
 const contexts = [
-  require.context('../packages', true, /.*\.story\.js$/),
-  require.context('../examples', true, /.*\.story\.js$/),
+  require.context('../src/ec/packages', true, /.*\.story\.js$/),
+  require.context('../src/ec/examples', true, /.*\.story\.js$/),
 ];
 
 configure(() => {
