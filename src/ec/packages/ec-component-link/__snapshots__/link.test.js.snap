@@ -41,6 +41,54 @@ exports[`EC - Link With icon after renders correctly 1`] = `
 </a>
 `;
 
+exports[`EC - Link With icon after renders correctly with extra attributes 1`] = `
+<a
+  class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after"
+  data-test="data-test-value"
+  data-test-1="data-test-value-1"
+  href="/path"
+>
+  <span
+    class="ecl-link__label"
+  >
+    Standalone link with icon
+  </span>
+   
+  <svg
+    aria-hidden="true"
+    class="ecl-icon ecl-icon--fluid ecl-link__icon"
+    focusable="false"
+  >
+    <use
+      xlink:href="static/icons.svg#ui--external"
+    />
+  </svg>
+</a>
+`;
+
+exports[`EC - Link With icon after renders correctly with extra class names 1`] = `
+<a
+  class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after custom-link custom-link--test"
+  href="/path"
+>
+  <span
+    class="ecl-link__label"
+  >
+    Standalone link with icon
+  </span>
+   
+  <svg
+    aria-hidden="true"
+    class="ecl-icon ecl-icon--fluid ecl-link__icon"
+    focusable="false"
+  >
+    <use
+      xlink:href="static/icons.svg#ui--external"
+    />
+  </svg>
+</a>
+`;
+
 exports[`EC - Link With icon before renders correctly 1`] = `
 <a
   class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-before"

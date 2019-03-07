@@ -203,3 +203,147 @@ exports[`EC - Select With error renders correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`EC - Select With error renders correctly with extra attributes 1`] = `
+<div
+  class="ecl-form-group ecl-form-group--select"
+>
+  <label
+    class="ecl-form-label ecl-form-label--invalid"
+    for="example-id"
+  >
+    Select a country
+  </label>
+  <div
+    class="ecl-select__container"
+  >
+    <select
+      class="ecl-select ecl-select--invalid"
+      data-test="data-test-value"
+      data-test-1="data-test-value-1"
+      id="example-id"
+      name="example-name"
+    >
+      <option
+        value="1"
+      >
+        Belgium
+      </option>
+      <option
+        value="2"
+      >
+        France
+      </option>
+      <option
+        value="3"
+      >
+        Luxembourg
+      </option>
+      <option
+        value="4"
+      >
+        Germany
+      </option>
+      <option
+        value="5"
+      >
+        Bulgaria
+      </option>
+    </select>
+    <div
+      class="ecl-select__icon"
+    >
+      <svg
+        aria-hidden="true"
+        class="ecl-icon ecl-icon--s ecl-icon--rotate-180 ecl-select__icon-shape"
+        focusable="false"
+      >
+        <use
+          xlink:href="path-to-icons-file.svg#ui--corner-arrow"
+        />
+      </svg>
+    </div>
+  </div>
+  <div
+    class="ecl-feedback-message"
+  >
+    Error message
+  </div>
+  <div
+    class="ecl-help-block"
+  >
+    Help message
+  </div>
+</div>
+`;
+
+exports[`EC - Select With error renders correctly with extra class names 1`] = `
+<div
+  class="ecl-form-group ecl-form-group--select"
+>
+  <label
+    class="ecl-form-label ecl-form-label--invalid"
+    for="example-id"
+  >
+    Select a country
+  </label>
+  <div
+    class="ecl-select__container"
+  >
+    <select
+      class="ecl-select ecl-select--invalid custom-select custom-select--test"
+      id="example-id"
+      name="example-name"
+    >
+      <option
+        value="1"
+      >
+        Belgium
+      </option>
+      <option
+        value="2"
+      >
+        France
+      </option>
+      <option
+        value="3"
+      >
+        Luxembourg
+      </option>
+      <option
+        value="4"
+      >
+        Germany
+      </option>
+      <option
+        value="5"
+      >
+        Bulgaria
+      </option>
+    </select>
+    <div
+      class="ecl-select__icon"
+    >
+      <svg
+        aria-hidden="true"
+        class="ecl-icon ecl-icon--s ecl-icon--rotate-180 ecl-select__icon-shape"
+        focusable="false"
+      >
+        <use
+          xlink:href="path-to-icons-file.svg#ui--corner-arrow"
+        />
+      </svg>
+    </div>
+  </div>
+  <div
+    class="ecl-feedback-message"
+  >
+    Error message
+  </div>
+  <div
+    class="ecl-help-block"
+  >
+    Help message
+  </div>
+</div>
+`;
