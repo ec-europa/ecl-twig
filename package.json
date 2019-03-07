@@ -2,7 +2,7 @@
   "private": true,
   "scripts": {
     "build:ec": "build-storybook -c src/ec/.storybook -o build/ec",
-    "build:eu": "build-storybook -c src/eu/.storybook -o build/eu",
+    "build:eu": "echo \"Nothing to do...\"",
     "copy:static": "ncp static build",
     "clean": "rimraf build",
     "dist": "npm run clean && npm run build:ec && npm run build:eu && npm run copy:static",
@@ -16,7 +16,7 @@
     "publish-canary": "lerna publish --canary --yes",
     "publish-next": "lerna publish --npm-tag=next --bump=prerelease",
     "start:ec": "start-storybook -p 9001 -c src/ec/.storybook",
-    "start:eu": "start-storybook -p 9001 -c src/eu/.storybook",
+    "start:eu": "echo \"Nothing to do...\"",
     "test": "npm run jest"
   },
   "devDependencies": {
