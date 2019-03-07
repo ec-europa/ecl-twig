@@ -35,7 +35,7 @@
 {% set _css_class = 'ecl-media-container' %}
 {% set _image = image|default('') %}
 {% set _description = description|default('') %}
-{% set _alt = image|default('') %}
+{% set _alt = alt|default('') %}
 {% set _extra_attributes = '' %}
 {% set _sources = sources|default({}) %}
 {% set _tracks = tracks|default({}) %}
@@ -55,14 +55,14 @@
 {# Print the result #}
 
 <figure class="{{ _css_class }}"{{ _extra_attributes|raw }}>
-{%- if _sources is not empty -%}
-  <video class="ecl-media-container__media" controls="controls" poster="{{ _image }}" alt="{{ _alt }}">
+{%- if _sources is not empty and sources is iterable -%}
+  <video class="ecl-media-container__media" controls poster="{{ _image }}" alt="{{ _alt }}">
   {%- for source in _sources -%}
     <source type="{{ source.type }}" src="{{ source.src }}" />
   {%- endfor -%}
-{%- if tracks is not empty -%}
+{%- if tracks is not empty and tracks is iterable -%}
   {%- for track in _tracks -%}
-    <track kind="{{ track.kind }}" srcLang="{{ track.srcLang }}" label="{{ track.label }}" src="{{ track.src }}" />
+    <track kind="{{ track.kind }}" srclang="{{ track.srcLang }}" label="{{ track.label }}" src="{{ track.src }}" />
   {%- endfor -%}
 {%- endif -%}
   </video>

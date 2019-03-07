@@ -6,7 +6,7 @@ npm package: `@ecl-twig/ec-component-media-container`
 npm install --save @ecl-twig/ec-component-media-container
 ```
 
-## Tag
+## Media container
 
 ### Parameters
 

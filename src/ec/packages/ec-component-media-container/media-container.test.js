@@ -1,5 +1,6 @@
 import path from 'path';
 import { renderTwigFile } from '@ecl-twig/test-utils';
+import demoContent from '@ecl/ec-specs-media-container/demo/data--video';
 
 describe('EC - Media container image', () => {
   const template = path.resolve(__dirname, './media-container.html.twig');
@@ -7,9 +8,9 @@ describe('EC - Media container image', () => {
     expect.assertions(1);
 
     const defaultDataStructure = {
-      description: 'A description',
-      image: 'static/example-image.jpg',
-      alt: 'An alt text',
+      description: demoContent.description,
+      image: demoContent.image,
+      alt: demoContent.alt,
     };
 
     renderTwigFile(template, defaultDataStructure, (err, html) => {
@@ -24,37 +25,7 @@ describe('EC - Media container video', () => {
   test(`- Media container video renders correctly`, done => {
     expect.assertions(1);
 
-    const defaultDataStructure = {
-      sources: [
-        {
-          src: 'https://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4',
-          type: 'video/mp4',
-        },
-        {
-          src: 'https://clips.vorwaerts-gmbh.de/big_buck_bunny.webm',
-          type: 'video/webm',
-        },
-      ],
-      tracks: [
-        {
-          src: '/captions/bunny-en.vtt',
-          kind: 'captions',
-          srcLang: 'en',
-          label: 'English',
-        },
-        {
-          src: '/captions/bunny-fr.vtt',
-          kind: 'captions',
-          srcLang: 'fr',
-          label: 'français',
-        },
-      ],
-      description: 'A description',
-      image: 'static/example-image.jpg',
-      alt: 'An alt text',
-    };
-
-    renderTwigFile(template, defaultDataStructure, (err, html) => {
+    renderTwigFile(template, demoContent, (err, html) => {
       expect(html).toMatchSnapshot();
       done();
     });
