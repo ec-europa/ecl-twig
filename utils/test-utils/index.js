@@ -1,5 +1,6 @@
 const Twig = require('twig');
 const { format } = require('prettier');
+const merge = require('deepmerge');
 
 const renderTwigFile = (file, options, cb) =>
   Twig.renderFile(file, options, (err, html) =>
@@ -19,6 +20,7 @@ const renderTwigFileAsNode = (file, options) =>
   );
 
 module.exports = {
+  merge,
   renderTwigFile,
   renderTwigFileAsNode,
 };

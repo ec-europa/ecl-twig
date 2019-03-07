@@ -1,5 +1,5 @@
 import path from 'path';
-import { renderTwigFileAsNode } from '@ecl-twig/test-utils';
+import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
 describe('EC - Link', () => {
   const template = path.resolve(__dirname, './link.html.twig');
@@ -17,10 +17,14 @@ describe('EC - Link', () => {
     test('renders correctly', () => {
       expect.assertions(1);
 
-      defaultDataStructure.link.type = 'default';
-      defaultDataStructure.link.label = 'Default link';
+      const options = merge(defaultDataStructure, {
+        link: {
+          type: 'default',
+          label: 'Default link',
+        },
+      });
 
-      return expect(render(defaultDataStructure)).resolves.toMatchSnapshot();
+      return expect(render(options)).resolves.toMatchSnapshot();
     });
   });
 
@@ -28,10 +32,14 @@ describe('EC - Link', () => {
     test('renders correctly', () => {
       expect.assertions(1);
 
-      defaultDataStructure.link.type = 'standalone';
-      defaultDataStructure.link.label = 'Standalone link';
+      const options = merge(defaultDataStructure, {
+        link: {
+          type: 'standalone',
+          label: 'Standalone link',
+        },
+      });
 
-      return expect(render(defaultDataStructure)).resolves.toMatchSnapshot();
+      return expect(render(options)).resolves.toMatchSnapshot();
     });
   });
 
@@ -39,35 +47,65 @@ describe('EC - Link', () => {
     test('renders correctly', () => {
       expect.assertions(1);
 
-      defaultDataStructure.link.type = 'standalone';
-      defaultDataStructure.link.label = 'Standalone link with icon';
-      defaultDataStructure.link.icon_position = 'before';
-      defaultDataStructure.icon = {
-        type: 'ui',
-        name: 'external',
-        size: 'fluid',
-        path: defaultIconPath,
-      };
+      const options = merge(defaultDataStructure, {
+        link: {
+          type: 'standalone',
+          label: 'Standalone link with icon',
+          icon_position: 'before',
+        },
+        icon: {
+          type: 'ui',
+          name: 'external',
+          size: 'fluid',
+          path: defaultIconPath,
+        },
+      });
 
-      return expect(render(defaultDataStructure)).resolves.toMatchSnapshot();
+      return expect(render(options)).resolves.toMatchSnapshot();
     });
   });
 
   describe('With icon after', () => {
-    test('renders correctly', () => {
-      expect.assertions(1);
-
-      defaultDataStructure.link.type = 'standalone';
-      defaultDataStructure.link.label = 'Standalone link with icon';
-      defaultDataStructure.link.icon_position = 'after';
-      defaultDataStructure.icon = {
+    const options = merge(defaultDataStructure, {
+      link: {
+        type: 'standalone',
+        label: 'Standalone link with icon',
+        icon_position: 'after',
+      },
+      icon: {
         type: 'ui',
         name: 'external',
         size: 'fluid',
         path: defaultIconPath,
-      };
+      },
+    });
 
-      return expect(render(defaultDataStructure)).resolves.toMatchSnapshot();
+    test('renders correctly', () => {
+      expect.assertions(1);
+      return expect(render(options)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly with extra class names', () => {
+      expect.assertions(1);
+
+      const optionsWithExtraClasses = merge(options, {
+        extra_classes: 'custom-link custom-link--test',
+      });
+
+      return expect(render(optionsWithExtraClasses)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly with extra attributes', () => {
+      expect.assertions(1);
+
+      const optionsWithExtraClasses = merge(options, {
+        extra_attributes: [
+          { name: 'data-test', value: 'data-test-value' },
+          { name: 'data-test-1', value: 'data-test-value-1' },
+        ],
+      });
+
+      return expect(render(optionsWithExtraClasses)).resolves.toMatchSnapshot();
     });
   });
 });
