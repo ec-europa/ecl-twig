@@ -71,7 +71,7 @@
         id="{{ item.id }}"
         role="region"
       >
-        {%- set _content = item.content|default('') -%}
+        {%- set _content = item.content|default('') %}
         {%- block content _content -%}
       </dd>
     {% endfor %}
