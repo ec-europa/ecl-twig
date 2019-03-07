@@ -1,57 +1,63 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`EC - Media container image - Media container image renders correctly 1`] = `
-"<figure class=\\"ecl-media-container\\">
+exports[`EC Media Container EC - Media container image - Media container image renders correctly 1`] = `
+<figure
+  class="ecl-media-container"
+>
   <img
-    class=\\"ecl-media-container__media\\"
-    src=\\"/example-image.jpg\\"
-    alt=\\"Jean Monnet banner.\\"
+    alt=""
+    class="ecl-media-container__media"
+    src=""
   />
-  <figcaption class=\\"ecl-media-container__caption\\">
-    The European Commission has put forward ambitious yet realistic proposals
-    for a modern EU budget. It is time for an EU budget that reflects rapid
-    developments in innovation, the economy, the environment and geopolitics,
-    amongst others.
-  </figcaption>
+  <figcaption
+    class="ecl-media-container__caption"
+  />
 </figure>
-"
 `;
 
-exports[`EC - Media container video - Media container video renders correctly 1`] = `
-"<figure class=\\"ecl-media-container\\">
-  <video
-    class=\\"ecl-media-container__media\\"
-    controls
-    poster=\\"/example-image.jpg\\"
-    alt=\\"Jean Monnet banner.\\"
-  >
-    <source
-      type=\\"video/mp4\\"
-      src=\\"https://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4\\"
-    />
-    <source
-      type=\\"video/webm\\"
-      src=\\"https://clips.vorwaerts-gmbh.de/big_buck_bunny.webm\\"
-    />
-    <track
-      kind=\\"captions\\"
-      srclang=\\"en\\"
-      label=\\"English\\"
-      src=\\"/captions/bunny-en.vtt\\"
-    />
-    <track
-      kind=\\"captions\\"
-      srclang=\\"fr\\"
-      label=\\"français\\"
-      src=\\"/captions/bunny-fr.vtt\\"
-    />
-  </video>
-  <figcaption class=\\"ecl-media-container__caption\\">
-    The European Commission has put forward ambitious yet realistic proposals
-    for a modern EU budget. It is time for an EU budget that reflects rapid
-    developments in innovation, the economy, the environment and geopolitics,
-    amongst others.
-  </figcaption>
+exports[`EC Media Container EC - Media container video Media container video renders correctly 1`] = `
+<figure
+  class="ecl-media-container"
+>
+  <img
+    alt=""
+    class="ecl-media-container__media"
+    src=""
+  />
+  <figcaption
+    class="ecl-media-container__caption"
+  />
 </figure>
-"
+`;
+
+exports[`EC Media Container Generic tests renders correctly with extra attributes 1`] = `
+<figure
+  class="ecl-media-container"
+  data-test="data-test-value"
+  data-test-1="data-test-value-1"
+>
+  <img
+    alt=""
+    class="ecl-media-container__media"
+    src=""
+  />
+  <figcaption
+    class="ecl-media-container__caption"
+  />
+</figure>
+`;
+
+exports[`EC Media Container Generic tests renders correctly with extra class names 1`] = `
+<figure
+  class="ecl-media-container custom-media-container custom-media-container--test"
+>
+  <img
+    alt=""
+    class="ecl-media-container__media"
+    src=""
+  />
+  <figcaption
+    class="ecl-media-container__caption"
+  />
+</figure>
 `;
