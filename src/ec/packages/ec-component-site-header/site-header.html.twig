@@ -123,13 +123,19 @@
         <a class="ecl-link ecl-link--standalone" href="{{ _language.url }}">
           {{- _language.label -}}
           <span class="ecl-site-header__language-icon">
-            {%- include '../ec-component-icon/icon.html.twig' with { icon: { path: _icon_file_path, type: 'general', name: 'language' } } -%}
+            {% include '../ec-component-icon/icon.html.twig' with {
+              icon: {
+                path: _icon_file_path,
+                type: 'general',
+                name: 'language'
+              }
+            } only %}
             <span class="ecl-site-header__language-code">{{ _language.code }}</span>
           </span>
         </a>
       </div>
     </div>
-    {%- include '../ec-component-search-form/search-form.html.twig' with _search_form -%}
+    {% include '../ec-component-search-form/search-form.html.twig' with _search_form only %}
   </div>
 </header>
 
