@@ -42,8 +42,9 @@
 
 <nav
   class="{{ _css_class }}"{{ _extra_attributes|raw }}
-  data-ecl-contextual-navigation>
-  <div class="ecl-contextual-navigation__label">{{- _label -}}</div>
+  data-ecl-contextual-navigation
+>
+  <div class="ecl-contextual-navigation__label">{{ _label }}</div>
   <ul
     class="ecl-contextual-navigation__list"
     data-ecl-contextual-navigation-list
@@ -55,23 +56,23 @@
           {% set _item_classes = _item_classes ~ ' ' ~ 'ecl-contextual-navigation__item--collapsed' %}
         {% endif %}
         <li class="{{ _item_classes }}">
-        {%- include '../ec-component-link/link.html.twig' with item|merge({
-          extra_classes: 'ecl-contextual-navigation__link',
-          link: item,
-        }) only -%}
+          {% include '../ec-component-link/link.html.twig' with item|merge({
+            extra_classes: 'ecl-contextual-navigation__link',
+            link: item,
+          }) only %}
         </li>
-        {% if _item_more is not empty and loop.last %}
+        {% if _item_more is not empty and loop.last and _items|length > _items_limit %}
           {% set _item_classes = _item_classes|replace({
             'ecl-contextual-navigation__item--collapsed': '',
           }) %}
           {% set _item_classes = _item_classes ~ ' ' ~ 'ecl-contextual-navigation__item--more' %}
           <li class="{{ _item_classes }}">
-          {%- include '../ec-component-button/button.html.twig' with _item_more|merge({
-            extra_attributes: [
-              { name: 'data-ecl-contextual-navigation-more', value: 'true' },
-            ],
-            extra_classes: 'ecl-contextual-navigation__more',
-          }) only -%}
+            {% include '../ec-component-button/button.html.twig' with _item_more|merge({
+              extra_attributes: [
+                { name: 'data-ecl-contextual-navigation-more', value: 'true' },
+              ],
+              extra_classes: 'ecl-contextual-navigation__more',
+            }) only %}
           </li>
         {% endif %}
       {% endfor %}
