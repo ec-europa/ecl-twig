@@ -1,57 +1,133 @@
 import path from 'path';
-import { renderTwigFileAsNode } from '@ecl-twig/test-utils';
+import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
 describe('EC - Text area', () => {
   const template = path.resolve(__dirname, './text-area.html.twig');
   const render = params => renderTwigFileAsNode(template, params);
 
   describe('Default', () => {
+    const options = {
+      label: 'Label',
+      placeholder: 'Placeholder',
+      helper_text: 'Help message',
+      id: 'example-id',
+      name: 'example-name',
+    };
+
     test('renders correctly', () => {
       expect.assertions(1);
+      return expect(render(options)).resolves.toMatchSnapshot();
+    });
 
-      return expect(
-        render({
-          label: 'Label',
-          placeholder: 'Placeholder',
-          helper_text: 'Help message',
-          id: 'example-id',
-          name: 'example-name',
-        })
-      ).resolves.toMatchSnapshot();
+    test('renders correctly with a default value', () => {
+      expect.assertions(1);
+
+      const optionsWithDefaultValue = merge(options, {
+        default_value: 'Hello world!',
+      });
+
+      return expect(render(optionsWithDefaultValue)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly with extra class names', () => {
+      expect.assertions(1);
+
+      const optionsWithExtraClasses = merge(options, {
+        extra_classes: 'custom-text-area custom-text-area--test',
+      });
+
+      return expect(render(optionsWithExtraClasses)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly with extra attributes', () => {
+      expect.assertions(1);
+
+      const optionsWithExtraClasses = merge(options, {
+        extra_attributes: [
+          { name: 'data-test', value: 'data-test-value' },
+          { name: 'data-test-1', value: 'data-test-value-1' },
+        ],
+      });
+
+      return expect(render(optionsWithExtraClasses)).resolves.toMatchSnapshot();
     });
   });
 
   describe('Disabled', () => {
+    const options = {
+      label: 'Label',
+      placeholder: 'Placeholder',
+      helper_text: 'Help message',
+      disabled: true,
+      id: 'example-id',
+    };
+
     test('renders correctly', () => {
       expect.assertions(1);
+      return expect(render(options)).resolves.toMatchSnapshot();
+    });
 
-      return expect(
-        render({
-          label: 'Label',
-          placeholder: 'Placeholder',
-          helper_text: 'Help message',
-          disabled: true,
-          id: 'example-id',
-        })
-      ).resolves.toMatchSnapshot();
+    test('renders correctly with extra class names', () => {
+      expect.assertions(1);
+
+      const optionsWithExtraClasses = merge(options, {
+        extra_classes: 'custom-text-area custom-text-area--test',
+      });
+
+      return expect(render(optionsWithExtraClasses)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly with extra attributes', () => {
+      expect.assertions(1);
+
+      const optionsWithExtraClasses = merge(options, {
+        extra_attributes: [
+          { name: 'data-test', value: 'data-test-value' },
+          { name: 'data-test-1', value: 'data-test-value-1' },
+        ],
+      });
+
+      return expect(render(optionsWithExtraClasses)).resolves.toMatchSnapshot();
     });
   });
 
   describe('With error', () => {
+    const options = {
+      label: 'Label',
+      placeholder: 'Placeholder',
+      invalid: true,
+      invalid_text: 'Error message',
+      helper_text: 'Help message',
+      id: 'example-id',
+      name: 'example-name',
+    };
+
     test('renders correctly', () => {
       expect.assertions(1);
+      return expect(render(options)).resolves.toMatchSnapshot();
+    });
 
-      return expect(
-        render({
-          label: 'Label',
-          placeholder: 'Placeholder',
-          invalid: true,
-          invalid_text: 'Error message',
-          helper_text: 'Help message',
-          id: 'example-id',
-          name: 'example-name',
-        })
-      ).resolves.toMatchSnapshot();
+    test('renders correctly with extra class names', () => {
+      expect.assertions(1);
+
+      const optionsWithExtraClasses = merge(options, {
+        extra_classes: 'custom-text-area custom-text-area--test',
+      });
+
+      return expect(render(optionsWithExtraClasses)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly with extra attributes', () => {
+      expect.assertions(1);
+
+      const optionsWithExtraClasses = merge(options, {
+        extra_attributes: [
+          { name: 'data-test', value: 'data-test-value' },
+          { name: 'data-test-1', value: 'data-test-value-1' },
+        ],
+      });
+
+      return expect(render(optionsWithExtraClasses)).resolves.toMatchSnapshot();
     });
   });
 });
