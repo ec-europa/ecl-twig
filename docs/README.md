@@ -2,4 +2,4 @@
 
 - [Getting started](./getting-started.md)
 - [Conventions](./conventions.md)
-- [Decisions](./decisions/)
+- [Decisions](./decisions)
