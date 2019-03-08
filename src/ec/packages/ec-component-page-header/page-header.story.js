@@ -26,10 +26,10 @@ function formatBreadcrumbLink(l) {
   return link;
 }
 
-function formatPageHeaderInfo(i) {
+function formatPageHeaderInfo(i, index) {
   const iconType = i.icon.split('--');
   const info = {
-    text: i.text,
+    text: text(`Info ${index} text`, i.text),
     icon: {
       type: iconType[0],
       name: iconType[1],

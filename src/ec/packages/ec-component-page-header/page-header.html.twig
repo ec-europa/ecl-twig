@@ -54,7 +54,7 @@
     {%- if _description is not empty -%}
       <p class="ecl-page-header__description">{{ _description }}</p>
     {%- endif -%}
-    {%- if infos is defined and infos not empty -%}
+    {%- if infos is defined and infos not empty and infos is iterable -%}
       <ul class="ecl-page-header__info-list">
         {%- for info in infos -%}
           <li class="ecl-page-header__info-item">
