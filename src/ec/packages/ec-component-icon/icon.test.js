@@ -1,5 +1,5 @@
 import path from 'path';
-import { renderTwigFileAsNode } from '@ecl-twig/test-utils';
+import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
 import brandedIcons from '@ecl/ec-resources-icons/dist/lists/branded.json';
 import generalIcons from '@ecl/ec-resources-icons/dist/lists/general.json';
@@ -9,12 +9,12 @@ import uiIcons from '@ecl/ec-resources-icons/dist/lists/ui.json';
 describe('EC - Icon', () => {
   const template = path.resolve(__dirname, './icon.html.twig');
   const render = params => renderTwigFileAsNode(template, params);
-  const defaultPath = 'static/icons.svg';
+
   const defaultDataStructure = {
     icon: {
       name: '',
       type: '',
-      path: defaultPath,
+      path: 'static/icons.svg',
     },
   };
 
@@ -23,10 +23,14 @@ describe('EC - Icon', () => {
       test(`- icon ${icon} renders correctly`, () => {
         expect.assertions(1);
 
-        defaultDataStructure.icon.name = icon;
-        defaultDataStructure.icon.type = 'branded';
+        const options = merge(defaultDataStructure, {
+          icon: {
+            name: icon,
+            type: 'branded',
+          },
+        });
 
-        return expect(render(defaultDataStructure)).resolves.toMatchSnapshot();
+        return expect(render(options)).resolves.toMatchSnapshot();
       });
     });
   });
@@ -36,10 +40,14 @@ describe('EC - Icon', () => {
       test(`- icon ${icon} renders correctly`, () => {
         expect.assertions(1);
 
-        defaultDataStructure.icon.name = icon;
-        defaultDataStructure.icon.type = 'notifications';
+        const options = merge(defaultDataStructure, {
+          icon: {
+            name: icon,
+            type: 'notifications',
+          },
+        });
 
-        return expect(render(defaultDataStructure)).resolves.toMatchSnapshot();
+        return expect(render(options)).resolves.toMatchSnapshot();
       });
     });
   });
@@ -49,10 +57,14 @@ describe('EC - Icon', () => {
       test(`- icon ${icon} renders correctly`, () => {
         expect.assertions(1);
 
-        defaultDataStructure.icon.name = icon;
-        defaultDataStructure.icon.type = 'general';
+        const options = merge(defaultDataStructure, {
+          icon: {
+            name: icon,
+            type: 'general',
+          },
+        });
 
-        return expect(render(defaultDataStructure)).resolves.toMatchSnapshot();
+        return expect(render(options)).resolves.toMatchSnapshot();
       });
     });
   });
@@ -62,11 +74,47 @@ describe('EC - Icon', () => {
       test(`- icon ${icon} renders correctly`, () => {
         expect.assertions(1);
 
-        defaultDataStructure.icon.name = icon;
-        defaultDataStructure.icon.type = 'ui';
+        const options = merge(defaultDataStructure, {
+          icon: {
+            name: icon,
+            type: 'ui',
+          },
+        });
 
-        return expect(render(defaultDataStructure)).resolves.toMatchSnapshot();
+        return expect(render(options)).resolves.toMatchSnapshot();
       });
+    });
+  });
+
+  describe('Generic tests - Any icon', () => {
+    const options = merge(defaultDataStructure, {
+      icon: {
+        name: generalIcons[0],
+        type: 'general',
+      },
+    });
+
+    test('renders correctly with extra class names', () => {
+      expect.assertions(1);
+
+      const optionsWithExtraClasses = merge(options, {
+        extra_classes: 'custom-icon custom-icon--test',
+      });
+
+      return expect(render(optionsWithExtraClasses)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly with extra attributes', () => {
+      expect.assertions(1);
+
+      const optionsWithExtraClasses = merge(options, {
+        extra_attributes: [
+          { name: 'data-test', value: 'data-test-value' },
+          { name: 'data-test-1', value: 'data-test-value-1' },
+        ],
+      });
+
+      return expect(render(optionsWithExtraClasses)).resolves.toMatchSnapshot();
     });
   });
 });
