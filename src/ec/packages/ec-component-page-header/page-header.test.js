@@ -1,5 +1,5 @@
 import path from 'path';
-import { renderTwigFileAsNode } from '@ecl-twig/test-utils';
+import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
 import breadcrumbDataSimple from '@ecl/ec-specs-breadcrumb/demo/data-simple';
 
@@ -64,62 +64,194 @@ describe('EC - Page Header', () => {
   const render = params => renderTwigFileAsNode(template, params);
 
   describe('title', () => {
+    const data = preparePageHeaderData(pageHeaderDataTitle);
+
     test(`- renders correctly`, () => {
       expect.assertions(1);
-
-      const data = preparePageHeaderData(pageHeaderDataTitle);
-
       return expect(render(data)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly with extra class names', () => {
+      expect.assertions(1);
+
+      const withExtraClasses = merge(data, {
+        extra_classes: 'custom-link custom-link--test',
+      });
+
+      return expect(render(withExtraClasses)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly with extra attributes', () => {
+      expect.assertions(1);
+
+      const withExtraAttributes = merge(data, {
+        extra_attributes: [
+          { name: 'data-test', value: 'data-test-value' },
+          { name: 'data-test-1', value: 'data-test-value-1' },
+        ],
+      });
+
+      return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
     });
   });
 
   describe('title-description', () => {
+    const data = preparePageHeaderData(pageHeaderDataTitleDescription);
+
     test(`- renders correctly`, () => {
       expect.assertions(1);
-
-      const data = preparePageHeaderData(pageHeaderDataTitleDescription);
-
       return expect(render(data)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly with extra class names', () => {
+      expect.assertions(1);
+
+      const withExtraClasses = merge(data, {
+        extra_classes: 'custom-link custom-link--test',
+      });
+
+      return expect(render(withExtraClasses)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly with extra attributes', () => {
+      expect.assertions(1);
+
+      const withExtraAttributes = merge(data, {
+        extra_attributes: [
+          { name: 'data-test', value: 'data-test-value' },
+          { name: 'data-test-1', value: 'data-test-value-1' },
+        ],
+      });
+
+      return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
     });
   });
 
   describe('meta-title', () => {
+    const data = preparePageHeaderData(pageHeaderDataMetaTitle);
+
     test(`- renders correctly`, () => {
       expect.assertions(1);
-
-      const data = preparePageHeaderData(pageHeaderDataMetaTitle);
-
       return expect(render(data)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly with extra class names', () => {
+      expect.assertions(1);
+
+      const withExtraClasses = merge(data, {
+        extra_classes: 'custom-link custom-link--test',
+      });
+
+      return expect(render(withExtraClasses)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly with extra attributes', () => {
+      expect.assertions(1);
+
+      const withExtraAttributes = merge(data, {
+        extra_attributes: [
+          { name: 'data-test', value: 'data-test-value' },
+          { name: 'data-test-1', value: 'data-test-value-1' },
+        ],
+      });
+
+      return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
     });
   });
 
   describe('meta-title-description', () => {
+    const data = preparePageHeaderData(pageHeaderDataMetaTitleDescription);
+
     test(`- renders correctly`, () => {
       expect.assertions(1);
-
-      const data = preparePageHeaderData(pageHeaderDataMetaTitleDescription);
-
       return expect(render(data)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly with extra class names', () => {
+      expect.assertions(1);
+
+      const withExtraClasses = merge(data, {
+        extra_classes: 'custom-link custom-link--test',
+      });
+
+      return expect(render(withExtraClasses)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly with extra attributes', () => {
+      expect.assertions(1);
+
+      const withExtraAttributes = merge(data, {
+        extra_attributes: [
+          { name: 'data-test', value: 'data-test-value' },
+          { name: 'data-test-1', value: 'data-test-value-1' },
+        ],
+      });
+
+      return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
     });
   });
 
   describe('events', () => {
+    const data = preparePageHeaderData(pageHeaderDataEvents);
+
     test(`- renders correctly`, () => {
       expect.assertions(1);
-
-      const data = preparePageHeaderData(pageHeaderDataEvents);
-
       return expect(render(data)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly with extra class names', () => {
+      expect.assertions(1);
+
+      const withExtraClasses = merge(data, {
+        extra_classes: 'custom-link custom-link--test',
+      });
+
+      return expect(render(withExtraClasses)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly with extra attributes', () => {
+      expect.assertions(1);
+
+      const withExtraAttributes = merge(data, {
+        extra_attributes: [
+          { name: 'data-test', value: 'data-test-value' },
+          { name: 'data-test-1', value: 'data-test-value-1' },
+        ],
+      });
+
+      return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
     });
   });
 
   describe('events-description', () => {
+    const data = preparePageHeaderData(pageHeaderDataEventsDescription);
+
     test(`- renders correctly`, () => {
       expect.assertions(1);
-
-      const data = preparePageHeaderData(pageHeaderDataEventsDescription);
-
       return expect(render(data)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly with extra class names', () => {
+      expect.assertions(1);
+
+      const withExtraClasses = merge(data, {
+        extra_classes: 'custom-link custom-link--test',
+      });
+
+      return expect(render(withExtraClasses)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly with extra attributes', () => {
+      expect.assertions(1);
+
+      const withExtraAttributes = merge(data, {
+        extra_attributes: [
+          { name: 'data-test', value: 'data-test-value' },
+          { name: 'data-test-1', value: 'data-test-value-1' },
+        ],
+      });
+
+      return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
     });
   });
 });

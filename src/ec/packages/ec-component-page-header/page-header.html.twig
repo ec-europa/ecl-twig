@@ -44,26 +44,31 @@
 {# Print the result #}
 <div class="{{ _css_class }}"{{ _extra_attributes }}>
   <div class="ecl-container">
-    {%- if breadcrumb is defined -%}
-      {%- include '../ec-component-breadcrumb/breadcrumb.html.twig' with breadcrumb|merge({ extra_classes: 'ecl-page-header__breadcrumb' }) -%}
-    {%- endif -%}
-    {%- if _meta is not empty -%}
+    {% if breadcrumb is defined %}
+      {% include '../ec-component-breadcrumb/breadcrumb.html.twig' with breadcrumb|merge({
+        extra_classes: 'ecl-page-header__breadcrumb'
+      }) only %}
+    {% endif %}
+    {% if _meta is not empty %}
       <div class="ecl-page-header__meta-list">{{ _meta }}</div>
-    {%- endif -%}
+    {% endif %}
     <h1 class="ecl-page-header__title">{{ _title }}</h1>
-    {%- if _description is not empty -%}
+    {% if _description is not empty %}
       <p class="ecl-page-header__description">{{ _description }}</p>
-    {%- endif -%}
-    {%- if infos is defined and infos not empty and infos is iterable -%}
+    {% endif %}
+    {% if infos is defined and infos not empty and infos is iterable %}
       <ul class="ecl-page-header__info-list">
-        {%- for info in infos -%}
+        {% for info in infos %}
           <li class="ecl-page-header__info-item">
-            {%- include '../ec-component-icon/icon.html.twig' with { icon: info.icon|merge({ size: 's' }), extra_classes: 'ecl-page-header__info-icon' } -%}
+            {% include '../ec-component-icon/icon.html.twig' with {
+              icon: info.icon|merge({ size: 's' }),
+              extra_classes: 'ecl-page-header__info-icon'
+            } only %}
             {{- info.text -}}
           </li>
-        {%- endfor -%}
+        {% endfor %}
       </ul>
-    {%- endif -%}
+    {% endif %}
   </div>
 </div>
 {% endspaceless %}
