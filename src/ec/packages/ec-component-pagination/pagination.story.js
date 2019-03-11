@@ -6,7 +6,7 @@ import withCode from '@ecl-twig/storybook-addon-code';
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import data from './demo/data';
 
-import paginationDocs from './docs/pagination.md';
+import paginationDocs from './README.md';
 import pagination from './pagination.html.twig';
 
 // Add icon path
