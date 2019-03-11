@@ -35,7 +35,7 @@ storiesOf('Components/Contextual Navigation', module)
 
       const htmlElement = document.createElement('div');
       htmlElement.innerHTML = html.trim();
-      demo.append(htmlElement.firstChild);
+      demo.appendChild(htmlElement.firstChild);
 
       const scriptElement = document.createElement('script');
       scriptElement.innerHTML = `
@@ -43,7 +43,7 @@ storiesOf('Components/Contextual Navigation', module)
         var contextualNavigation = new ECL.ContextualNavigation(element);
         contextualNavigation.init();
       `;
-      demo.append(scriptElement);
+      demo.appendChild(scriptElement);
 
       return demo;
     },
