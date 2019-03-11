@@ -7,7 +7,7 @@ import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import englishBanner from '@ecl/ec-resources-logo/logo--en.svg';
 import frenchBanner from '@ecl/ec-resources-logo/logo--fr.svg';
 
-import siteHeaderDocs from './docs/site-header.md';
+import siteHeaderDocs from './README.md';
 import siteHeader from './site-header.html.twig';
 
 storiesOf('Components/Site Header', module)
