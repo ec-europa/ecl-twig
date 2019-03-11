@@ -4,7 +4,7 @@ module.exports = ({ config, mode }) => {
     loader: 'twig-loader',
   });
 
-  config.devtool = 'source-map';
+  // Trick "babel-loader", force it to transpile @ecl-twig addons
   config.module.rules[0].exclude = /node_modules\/(?!@ecl-twig\/).*/;
 
   return config;
