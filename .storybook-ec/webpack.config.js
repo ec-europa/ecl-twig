@@ -4,5 +4,10 @@ module.exports = ({ config, mode }) => {
     loader: 'twig-loader',
   });
 
+  config.devtool = 'source-map';
+
+  // console.log(config.devtool);
+  // process.exit();
+
   return config;
 };
