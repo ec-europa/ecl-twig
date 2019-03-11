@@ -35,10 +35,10 @@
 {% set _item_attribute = [] %}
 
 {% if _item.lang is not empty %}
-  {% set _item_attribute = _item_attribute|merge([{name: 'lang', value: _item.lang}]) %}
-  {% set _item_attribute = _item_attribute|merge([{name: 'hreflang', value: _item.lang}]) %}
+  {% set _item_attribute = _item_attribute|merge([{ name: 'lang', value: _item.lang }]) %}
+  {% set _item_attribute = _item_attribute|merge([{ name: 'hreflang', value: _item.lang }]) %}
   {% if _overlay %}
-    {% set _item_attribute = _item_attribute|merge([{name: 'rel', value: 'alternate'}]) %}
+    {% set _item_attribute = _item_attribute|merge([{ name: 'rel', value: 'alternate' }]) %}
   {% endif %}
 {% endif %}
 
