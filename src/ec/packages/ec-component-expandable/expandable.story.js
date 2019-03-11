@@ -30,7 +30,7 @@ storiesOf('Components/Expandable', module)
 
       const htmlElement = document.createElement('div');
       htmlElement.innerHTML = html.trim();
-      demo.append(htmlElement.firstChild);
+      demo.appendChild(htmlElement.firstChild);
 
       const scriptElement = document.createElement('script');
       scriptElement.innerHTML = `
@@ -38,7 +38,7 @@ storiesOf('Components/Expandable', module)
         var expandable = new ECL.Expandable(expandableElement);
         expandable.init();
       `;
-      demo.append(scriptElement);
+      demo.appendChild(scriptElement);
 
       return demo;
     },
