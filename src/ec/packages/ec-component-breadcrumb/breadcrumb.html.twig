@@ -10,6 +10,7 @@
       ...
     ],
     - "navigation_text" (string) (default: ''): Text of navigation in breadcrumb
+    - "ellipsis_label" (string) (default: ''): Label of the ellipsis, e.g. "Click to expand"
     - "icon_file_path" (string) (default: ''): URL to icons file
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
@@ -25,6 +26,7 @@
 
 {% set _breadcrumb_size = links|length %}
 {% set _navigation_text = navigation_text|default('') %}
+{% set _ellipsis_label = ellipsis_label|default('') %}
 {% set _breadcrumb_segment_class = 'ecl-breadcrumb__segment' %}
 
 {% set _default_icon_structure = {
@@ -38,8 +40,7 @@
   },
   extra_classes: 'ecl-breadcrumb__icon',
   extra_attributes: [{ name: 'role', value: 'presentation' }]
-  }
-%}
+} %}
 
 {% set _css_class = 'ecl-breadcrumb' %}
 {% set _extra_attributes = ' aria-label="' ~ _navigation_text ~ '" data-ecl-breadcrumb="true"' %}
@@ -71,7 +72,7 @@
         {% if _breadcrumb_size > 3 and (key > 0 and key < _breadcrumb_size - 2) %}
           {% if key == 1 %}
             <li class="{{ _breadcrumb_segment_class ~ ' ecl-breadcrumb__segment--ellipsis' }}" aria-hidden="false" data-ecl-breadcrumb-ellipsis="true">
-              <button type="button" class="ecl-breadcrumb__ellipsis" aria-label="Click to expand" data-ecl-breadcrumb-ellipsis-button="true">…</button>
+              <button type="button" class="ecl-breadcrumb__ellipsis" aria-label="{{ _ellipsis_label }}" data-ecl-breadcrumb-ellipsis-button="true">…</button>
               {% include '../ec-component-icon/icon.html.twig' with _default_icon_structure only %}
             </li>
           {% endif %}
