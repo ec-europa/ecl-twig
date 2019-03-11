@@ -7,38 +7,33 @@ import 'prismjs/components/prism-bash';
 import 'prismjs/components/prism-twig';
 
 // Create custom marked renderer
-// const renderer = new marked.Renderer();
-// renderer.code = function customCode(code, infostring, escaped) {
-//   const lang = (infostring || '').match(/\S*/)[0];
+const renderer = new marked.Renderer();
+renderer.code = function customCode(code, infostring, escaped) {
+  const lang = (infostring || '').match(/\S*/)[0];
 
-//   if (!lang) {
-//     return `<pre><code>${escaped ? code : escape(code, true)}</code></pre>`;
-//   }
+  if (!lang) {
+    return `<pre><code>${escaped ? code : escape(code, true)}</code></pre>`;
+  }
 
-//   const highlightedCode = Prism.highlight(code, Prism.languages[lang], lang);
-//   if (highlightedCode != null && highlightedCode !== code) {
-//     // eslint-disable-next-line no-param-reassign
-//     escaped = true;
-//     // eslint-disable-next-line no-param-reassign
-//     code = highlightedCode;
-//   }
+  const highlightedCode = Prism.highlight(code, Prism.languages[lang], lang);
+  if (highlightedCode != null && highlightedCode !== code) {
+    // eslint-disable-next-line no-param-reassign
+    escaped = true;
+    // eslint-disable-next-line no-param-reassign
+    code = highlightedCode;
+  }
 
-//   const htmlLang = this.options.langPrefix + escape(lang, true);
-//   return `<pre class="${htmlLang}"><code class="${htmlLang}">${
-//     escaped ? code : escape(code, true)
-//   }</code></pre>\n`;
-// };
+  const htmlLang = this.options.langPrefix + escape(lang, true);
+  return `<pre class="${htmlLang}"><code class="${htmlLang}">${
+    escaped ? code : escape(code, true)
+  }</code></pre>\n`;
+};
 
-// function renderMarkdown(text, options) {
-//   return marked(text, {
-//     ...marked.defaults,
-//     renderer,
-//     ...options,
-//   });
-// }
-
-function renderMarkdown(text) {
-  return marked(text, marked.defaults);
+function renderMarkdown(text, options) {
+  return marked(
+    text,
+    Object.assign({}, marked.defaults, { renderer }, options)
+  );
 }
 
 export const withNotes = makeDecorator({
