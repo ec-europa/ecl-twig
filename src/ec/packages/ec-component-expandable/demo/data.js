@@ -1,5 +1,5 @@
 /* eslint-disable import/no-extraneous-dependencies, no-param-reassign */
-import specData from '@ecl/ec-specs-expandable/demo/data';
+const specData = require('@ecl/ec-specs-expandable/demo/data');
 
 const adapter = initialData => {
   // Copy reference specification demo data.
@@ -19,4 +19,4 @@ const adapter = initialData => {
   return adaptedData;
 };
 
-export default adapter(specData);
+module.exports = adapter(specData);

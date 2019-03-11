@@ -6,6 +6,7 @@
   "description": "ECL Twig - PHP Renderer",
   "private": true,
   "scripts": {
+    "generate": "node ./scripts/data-gen.js",
     "install": "composer run setup",
     "render": "composer run render"
   },
