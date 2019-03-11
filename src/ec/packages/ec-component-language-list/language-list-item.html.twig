@@ -19,30 +19,33 @@
 
 {# Internal logic - Process properties #}
 
-{% set _item_icon = 
-  _item.active
-    ? { path: _icon_path, type: 'ui', name: 'check', size: 'xs' }
-    : {} 
-%}
-
+{% set _item_icon = {} %}
 {% set _item_class = "ecl-language-list__item" %}
+
 {% if _item.active %}
   {% set _item_class = _item_class ~ " ecl-language-list__item--is-active" %}
+  {% set _item_icon = {
+    path: _icon_path,
+    type: 'ui',
+    name: 'check',
+    size: 'xs'
+  } %}
 {% endif %}
 
 {% set _item_attribute = [] %}
+
 {% if _item.lang is not empty %}
-  {% set _item_attribute = _item_attribute|merge([{name: 'lang', value: _item.lang}]) %}
-  {% set _item_attribute = _item_attribute|merge([{name: 'hreflang', value: _item.lang}]) %}
+  {% set _item_attribute = _item_attribute|merge([{ name: 'lang', value: _item.lang }]) %}
+  {% set _item_attribute = _item_attribute|merge([{ name: 'hreflang', value: _item.lang }]) %}
   {% if _overlay %}
-    {% set _item_attribute = _item_attribute|merge([{name: 'rel', value: 'alternate'}]) %}
+    {% set _item_attribute = _item_attribute|merge([{ name: 'rel', value: 'alternate' }]) %}
   {% endif %}
 {% endif %}
 
 {# Print the result #}
 
 <li class="{{ _item_class }}">
-  {%- include '../ec-component-link/link.html.twig' with {
+  {% include '../ec-component-link/link.html.twig' with {
     link: {
       type: 'standalone',
       label: _item.label,
@@ -52,7 +55,7 @@
     icon: _item_icon,
     extra_classes: 'ecl-language-list__link',
     extra_attributes: _item_attribute
-  } -%}
+  } only %}
 </li>
 
 {% endspaceless %}
