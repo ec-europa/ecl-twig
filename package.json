@@ -1,7 +1,7 @@
 {
   "private": true,
   "scripts": {
-    "build:ec": "build-storybook -c .storybook-ec -o build/ec",
+    "build:ec": "build-storybook -c ./src/ec/.storybook -o build/ec",
     "build:eu": "echo \"Nothing to do...\"",
     "copy:static": "ncp static build",
     "clean": "rimraf build",
@@ -15,7 +15,7 @@
     "publish": "lerna publish",
     "publish-canary": "lerna publish --canary --yes",
     "publish-next": "lerna publish --npm-tag=next --bump=prerelease",
-    "start:ec": "start-storybook -p 9001 -c .storybook-ec",
+    "start:ec": "start-storybook -p 9001 -c ./src/ec/.storybook",
     "start:eu": "echo \"Nothing to do...\"",
     "test": "npm run jest"
   },

@@ -15,8 +15,8 @@ addParameters({
 });
 
 const contexts = [
-  require.context('../src/ec/packages', true, /.*\.story\.js$/),
-  require.context('../src/ec/examples', true, /.*\.story\.js$/),
+  require.context('../packages', true, /.*\.story\.js$/),
+  require.context('../examples', true, /.*\.story\.js$/),
 ];
 
 configure(() => {
