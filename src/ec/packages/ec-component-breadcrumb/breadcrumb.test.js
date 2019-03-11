@@ -60,7 +60,7 @@ describe('EC - Breadcrumb', () => {
       links: breadcrumbDataLong.items.map(formatLink),
       icon_file_path: defaultIconPath,
       navigation_text: breadcrumbDataLong.label,
-      ellipsis_label: 'Click to expand 2',
+      ellipsis_label: 'Click to expand',
     };
 
     test(`renders correctly`, () => {
