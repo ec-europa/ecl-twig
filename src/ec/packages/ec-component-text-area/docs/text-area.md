@@ -14,6 +14,7 @@ npm install --save @ecl-twig/ec-component-text-area
 - "disabled" (boolean) (default: false)
 - "invalid" (boolean) (default: false)
 - "name" (string) (default: '')
+- "default_value" (string) (default: '')
 - "hide_label" (boolean) (default: '')
 - "placeholder" (string) (default: '')
 - "rows" (int) (default: 4)
@@ -39,6 +40,7 @@ npm install --save @ecl-twig/ec-component-text-area
   helper_text: 'Your comment may be 255 characters long maximum', 
   id: 'input-comment', 
   name: 'comment', 
+  default_value: 'Hello world!',
   rows: 4, 
   extra_classes: 'my-extra-class-1 my-extra-class-2', 
   extra_attributes: [ 
