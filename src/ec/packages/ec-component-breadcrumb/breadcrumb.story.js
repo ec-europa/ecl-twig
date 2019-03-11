@@ -8,7 +8,7 @@ import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import breadcrumbDataSimple from '@ecl/ec-specs-breadcrumb/demo/data-simple';
 import breadcrumbDataLong from '@ecl/ec-specs-breadcrumb/demo/data';
 
-import breadcrumbDocs from './docs/breadcrumb.md';
+import breadcrumbDocs from './README.md';
 import breadcrumb from './breadcrumb.html.twig';
 
 function formatLink(l) {
@@ -34,6 +34,7 @@ storiesOf('Components/Breadcrumb', module)
         links: simpleBreadcrumbLinks,
         icon_file_path: defaultSprite,
         navigation_text: breadcrumbDataSimple.label,
+        ellipsis_label: 'Click to expand',
       }),
     {
       notes: { markdown: breadcrumbDocs },
@@ -46,13 +47,14 @@ storiesOf('Components/Breadcrumb', module)
         links: longBreadcrumbLinks,
         icon_file_path: defaultSprite,
         navigation_text: breadcrumbDataLong.label,
+        ellipsis_label: 'Click to expand',
       });
 
       const demo = document.createDocumentFragment();
 
       const htmlElement = document.createElement('div');
       htmlElement.innerHTML = html.trim();
-      demo.append(htmlElement.firstChild);
+      demo.appendChild(htmlElement.firstChild);
 
       const scriptElement = document.createElement('script');
       scriptElement.innerHTML = `
@@ -60,7 +62,7 @@ storiesOf('Components/Breadcrumb', module)
       var breadcrumb = new ECL.Breadcrumb(breadcrumbElement);
       breadcrumb.init();
       `;
-      demo.append(scriptElement);
+      demo.appendChild(scriptElement);
 
       return demo;
     },
