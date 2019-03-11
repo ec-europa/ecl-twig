@@ -52,7 +52,7 @@ storiesOf('Components/Breadcrumb', module)
 
       const htmlElement = document.createElement('div');
       htmlElement.innerHTML = html.trim();
-      demo.append(htmlElement.firstChild);
+      demo.appendChild(htmlElement.firstChild);
 
       const scriptElement = document.createElement('script');
       scriptElement.innerHTML = `
@@ -60,7 +60,7 @@ storiesOf('Components/Breadcrumb', module)
       var breadcrumb = new ECL.Breadcrumb(breadcrumbElement);
       breadcrumb.init();
       `;
-      demo.append(scriptElement);
+      demo.appendChild(scriptElement);
 
       return demo;
     },
