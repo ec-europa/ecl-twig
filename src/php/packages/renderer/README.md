@@ -14,8 +14,30 @@ Files related to PHP:
 - `bootstrap.php`: instantiates `$twig`
 - `render.php`: uses `$twig` and renders templates
 
-## Rendering
+## Installation
+
+Either way:
 
 ```shell
-$ php render.php
+$ yarn install
 ```
+
+```shell
+$ composer run install
+```
+
+## Rendering
+
+Either way:
+
+```shell
+# yarn render
+```
+
+```shell
+$ composer run render
+```
+
+## Notes
+
+The `npm` scripts facilitate integration with Node-based tool-chain. Commands' name may differ because of reserved keywords, such as `install` in composer, which is replaced by `setup`.
