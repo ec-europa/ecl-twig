@@ -5,9 +5,7 @@ module.exports = ({ config, mode }) => {
   });
 
   config.devtool = 'source-map';
-
-  // console.log(config.devtool);
-  // process.exit();
+  config.module.rules[0].exclude = /node_modules\/(?!@ecl-twig\/).*/;
 
   return config;
 };
