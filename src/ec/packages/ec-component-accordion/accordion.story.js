@@ -35,7 +35,7 @@ storiesOf('Components/Accordion', module)
 
       const htmlElement = document.createElement('div');
       htmlElement.innerHTML = html.trim();
-      demo.append(htmlElement.firstChild);
+      demo.appendChild(htmlElement.firstChild);
 
       const scriptElement = document.createElement('script');
       scriptElement.innerHTML = `
@@ -44,9 +44,9 @@ storiesOf('Components/Accordion', module)
         for (var i = 0; i < elements.length; i += 1) {
           var accordion = new ECL.Accordion(elements[i]);
           accordion.init();
-        }        
+        }
       `;
-      demo.append(scriptElement);
+      demo.appendChild(scriptElement);
 
       return demo;
     },
