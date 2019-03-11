@@ -12,7 +12,92 @@ exports[`EC - Search Form Default renders correctly 1`] = `
       class="ecl-text-input ecl-search-form__text-input"
       id="input-email"
       name="email"
-      placeholder=""
+      type="text"
+    />
+  </div>
+  <button
+    class="ecl-button ecl-button--search ecl-search-form__button"
+    type="submit"
+  >
+    <span
+      class="ecl-button__container"
+    >
+      <span
+        class="ecl-button__label"
+        data-ecl-label=""
+      >
+        Search
+      </span>
+      <svg
+        aria-hidden="true"
+        class="ecl-icon ecl-icon--fluid ecl-button__icon ecl-button__icon--after"
+        focusable="false"
+      >
+        <use
+          xlink:href="static/icons.svg#general--search"
+        />
+      </svg>
+    </span>
+  </button>
+</form>
+`;
+
+exports[`EC - Search Form Default renders correctly with extra attributes 1`] = `
+<form
+  class="ecl-search-form"
+  data-test="data-test-value"
+  data-test-1="data-test-value-1"
+  role="search"
+>
+  <div
+    class="ecl-form-group ecl-form-group--text-input"
+  >
+    <input
+      class="ecl-text-input ecl-search-form__text-input"
+      id="input-email"
+      name="email"
+      type="text"
+    />
+  </div>
+  <button
+    class="ecl-button ecl-button--search ecl-search-form__button"
+    type="submit"
+  >
+    <span
+      class="ecl-button__container"
+    >
+      <span
+        class="ecl-button__label"
+        data-ecl-label=""
+      >
+        Search
+      </span>
+      <svg
+        aria-hidden="true"
+        class="ecl-icon ecl-icon--fluid ecl-button__icon ecl-button__icon--after"
+        focusable="false"
+      >
+        <use
+          xlink:href="static/icons.svg#general--search"
+        />
+      </svg>
+    </span>
+  </button>
+</form>
+`;
+
+exports[`EC - Search Form Default renders correctly with extra class names 1`] = `
+<form
+  class="ecl-search-form custom-link custom-link--test"
+  role="search"
+>
+  <div
+    class="ecl-form-group ecl-form-group--text-input"
+  >
+    <input
+      class="ecl-text-input ecl-search-form__text-input"
+      id="input-email"
+      name="email"
       type="text"
     />
   </div>

@@ -11,7 +11,7 @@ module.exports = {
         loader: 'twig-loader',
       },
       {
-        test: /\.svg$/,
+        test: /\.(svg|png|jpe?g|gif)$/,
         use: [
           {
             loader: 'file-loader',

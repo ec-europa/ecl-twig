@@ -47,9 +47,10 @@
 
 <div class="{{ _css_class }}"{{ _extra_attributes|raw }} data-ecl-file>
   <div class="ecl-file__container">
-    {%- include '../ec-component-icon/icon.html.twig' with _icon|merge({
+    {% include '../ec-component-icon/icon.html.twig' with {
+      icon: _icon,
       extra_classes: 'ecl-file__icon'
-    }) -%}
+    } only %}
 
     <div class="ecl-file__info">
       <div class="ecl-file__title">{{ title }}</div>
@@ -57,58 +58,55 @@
       <div class="ecl-file__meta">{{ meta }}</div>
     </div>
 
-    {%- include '../ec-component-link/link.html.twig' with _download|merge({
+    {% include '../ec-component-link/link.html.twig' with _download|merge({
       link: _download.link|default({})|merge({
         type: 'standalone',
         icon_position: 'after',
       }),
       extra_classes: 'ecl-file__download ecl-button ecl-button--secondary',
       extra_attributes: [{ name: 'download' }]
-    }) -%}
+    }) only %}
   </div>
 
-  {%- if _translation is not empty and _translation.items is not empty and _translation.items is iterable -%}
-  <div class="ecl-file__translation-container" data-ecl-file-translation-container>
-    {%- include '../ec-component-button/button.html.twig' with _translation.toggle|merge({
-      variant: 'ghost',
-      type: 'button',
-      extra_classes: 'ecl-file__translation-toggle',
-      extra_attributes: [{ name: 'data-ecl-file-translation-toggle' }]
-    }) -%}
+  {% if _translation is not empty and _translation.items is not empty and _translation.items is iterable %}
+    <div class="ecl-file__translation-container" data-ecl-file-translation-container>
+      {% include '../ec-component-button/button.html.twig' with _translation.toggle|merge({
+        variant: 'ghost',
+        type: 'button',
+        extra_classes: 'ecl-file__translation-toggle',
+        extra_attributes: [{ name: 'data-ecl-file-translation-toggle' }]
+      }) only %}
 
-    <ul class="ecl-file__translation-list">
-      {%- for _item in _translation.items -%}
-        <li class="ecl-file__translation-item">
-          <div class="ecl-file__translation-info">
-            <div
-              class="ecl-file__translation-title"
-              {{ _item.lang ? "lang: {{ _item.lang }}" }}
-            >
-              {{- _item.title -}}
+      <ul class="ecl-file__translation-list">
+        {% for _item in _translation.items %}
+          <li class="ecl-file__translation-item">
+            <div class="ecl-file__translation-info">
+              <div
+                class="ecl-file__translation-title"
+                {{ _item.lang ? "lang: {{ _item.lang }}" }}
+              >
+                {{- _item.title -}}
+              </div>
+              <div class="ecl-file__translation-meta">{{ _item.meta }}</div>
             </div>
-
-            <div class="ecl-file__translation-meta">{{ _item.meta }}</div>
-          </div>
-
-          {%- include '../ec-component-link/link.html.twig' with _download|merge({
-            link: _download.link|default({})|merge({
-              type: 'standalone',
-              icon_position: 'after'
-            }),
-            extra_classes: 'ecl-file__translation-download',
-            extra_attributes: [
-              { name: 'download' },
-              { name: 'hreflang', value: _item.lang }
-            ]
-          }) -%}
+            {% include '../ec-component-link/link.html.twig' with _download|merge({
+              link: _download.link|default({})|merge({
+                type: 'standalone',
+                icon_position: 'after'
+              }),
+              extra_classes: 'ecl-file__translation-download',
+              extra_attributes: [
+                { name: 'download' },
+                { name: 'hreflang', value: _item.lang }
+              ]
+            }) only %}
+          </li>
+        {% endfor %}
+        <li class="ecl-file__translation-item ecl-file__translation-description">
+          {{- _translation.description -}}
         </li>
-      {%- endfor -%}
-
-      <li class="ecl-file__translation-item ecl-file__translation-description">
-        {{- _translation.description -}}
-      </li>
-    </ul>
-  </div>
-  {%- endif -%}
+      </ul>
+    </div>
+  {% endif %}
 </div>
 {% endspaceless %}

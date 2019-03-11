@@ -20,3 +20,47 @@ exports[`EC - Blockquote Default renders correctly 1`] = `
   </footer>
 </blockquote>
 `;
+
+exports[`EC - Blockquote Default renders correctly with extra attributes 1`] = `
+<blockquote
+  class="ecl-blockquote"
+  data-test="data-test-value"
+  data-test-1="data-test-value-1"
+>
+  <p
+    class="ecl-blockquote__body"
+  >
+    An interconnected grid will help deliver the ultimate goal of the Energy Union, to ensure affordable, secure and sustainable energy, and also growth across the EU.
+  </p>
+  <footer
+    class="ecl-blockquote__attribution"
+  >
+    <cite
+      class="ecl-blockquote__author"
+    >
+      President Juncker
+    </cite>
+  </footer>
+</blockquote>
+`;
+
+exports[`EC - Blockquote Default renders correctly with extra class names 1`] = `
+<blockquote
+  class="ecl-blockquote custom-blockquote custom-blockquote--test"
+>
+  <p
+    class="ecl-blockquote__body"
+  >
+    An interconnected grid will help deliver the ultimate goal of the Energy Union, to ensure affordable, secure and sustainable energy, and also growth across the EU.
+  </p>
+  <footer
+    class="ecl-blockquote__attribution"
+  >
+    <cite
+      class="ecl-blockquote__author"
+    >
+      President Juncker
+    </cite>
+  </footer>
+</blockquote>
+`;
