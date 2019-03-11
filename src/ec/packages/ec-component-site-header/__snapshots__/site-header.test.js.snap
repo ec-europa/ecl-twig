@@ -94,9 +94,389 @@ exports[`EC - Site Header Default renders correctly 1`] = `
 </header>
 `;
 
+exports[`EC - Site Header Default renders correctly with extra attributes 1`] = `
+<header
+  class="ecl-site-header"
+  data-test="data-test-value"
+  data-test-1="data-test-value-1"
+>
+  <div
+    class="ecl-site-header__container ecl-container"
+  >
+    <div
+      class="ecl-site-header__banner"
+    >
+      <a
+        aria-label="European Commission"
+        class="ecl-link ecl-link--standalone"
+        href="/example-1"
+      >
+        <img
+          alt="European Commission logo"
+          class="ecl-site-header__logo-image"
+          src="static/media/logo--en.30b933cc.svg"
+          title="European Commission"
+        />
+      </a>
+      <div
+        class="ecl-site-header__selector"
+      >
+        <a
+          class="ecl-link ecl-link--standalone"
+          href="/example"
+        >
+          English
+          <span
+            class="ecl-site-header__language-icon"
+          >
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--m"
+              focusable="false"
+            >
+              <use
+                xlink:href="static/icons.svg#general--language"
+              />
+            </svg>
+            <span
+              class="ecl-site-header__language-code"
+            >
+              en
+            </span>
+          </span>
+        </a>
+      </div>
+    </div>
+    <form
+      class="ecl-search-form ecl-site-header__search"
+      role="search"
+    >
+      <div
+        class="ecl-form-group ecl-form-group--text-input"
+      >
+        <input
+          class="ecl-text-input ecl-search-form__text-input"
+          id="input-search"
+          name="search"
+          type="text"
+        />
+      </div>
+      <button
+        class="ecl-button ecl-button--search ecl-search-form__button"
+        type="submit"
+      >
+        <span
+          class="ecl-button__container"
+        >
+          <span
+            class="ecl-button__label"
+            data-ecl-label=""
+          >
+            Search
+          </span>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--xs ecl-button__icon ecl-button__icon--after"
+            focusable="false"
+          >
+            <use
+              xlink:href="static/icons.svg#general--search"
+            />
+          </svg>
+        </span>
+      </button>
+    </form>
+  </div>
+</header>
+`;
+
+exports[`EC - Site Header Default renders correctly with extra class names 1`] = `
+<header
+  class="ecl-site-header custom-site-header custom-site-header--test"
+>
+  <div
+    class="ecl-site-header__container ecl-container"
+  >
+    <div
+      class="ecl-site-header__banner"
+    >
+      <a
+        aria-label="European Commission"
+        class="ecl-link ecl-link--standalone"
+        href="/example-1"
+      >
+        <img
+          alt="European Commission logo"
+          class="ecl-site-header__logo-image"
+          src="static/media/logo--en.30b933cc.svg"
+          title="European Commission"
+        />
+      </a>
+      <div
+        class="ecl-site-header__selector"
+      >
+        <a
+          class="ecl-link ecl-link--standalone"
+          href="/example"
+        >
+          English
+          <span
+            class="ecl-site-header__language-icon"
+          >
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--m"
+              focusable="false"
+            >
+              <use
+                xlink:href="static/icons.svg#general--language"
+              />
+            </svg>
+            <span
+              class="ecl-site-header__language-code"
+            >
+              en
+            </span>
+          </span>
+        </a>
+      </div>
+    </div>
+    <form
+      class="ecl-search-form ecl-site-header__search"
+      role="search"
+    >
+      <div
+        class="ecl-form-group ecl-form-group--text-input"
+      >
+        <input
+          class="ecl-text-input ecl-search-form__text-input"
+          id="input-search"
+          name="search"
+          type="text"
+        />
+      </div>
+      <button
+        class="ecl-button ecl-button--search ecl-search-form__button"
+        type="submit"
+      >
+        <span
+          class="ecl-button__container"
+        >
+          <span
+            class="ecl-button__label"
+            data-ecl-label=""
+          >
+            Search
+          </span>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--xs ecl-button__icon ecl-button__icon--after"
+            focusable="false"
+          >
+            <use
+              xlink:href="static/icons.svg#general--search"
+            />
+          </svg>
+        </span>
+      </button>
+    </form>
+  </div>
+</header>
+`;
+
 exports[`EC - Site Header Translated renders correctly 1`] = `
 <header
   class="ecl-site-header"
+>
+  <div
+    class="ecl-site-header__container ecl-container"
+  >
+    <div
+      class="ecl-site-header__banner"
+    >
+      <a
+        aria-label="Commmission Européenne"
+        class="ecl-link ecl-link--standalone"
+        href="/example-1"
+      >
+        <img
+          alt="Commmission Européenne logo"
+          class="ecl-site-header__logo-image"
+          src="static/media/logo--fr.a8aaa7ab.svg"
+          title="Commmission Européenne"
+        />
+      </a>
+      <div
+        class="ecl-site-header__selector"
+      >
+        <a
+          class="ecl-link ecl-link--standalone"
+          href="/example"
+        >
+          Français
+          <span
+            class="ecl-site-header__language-icon"
+          >
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--m"
+              focusable="false"
+            >
+              <use
+                xlink:href="static/icons.svg#general--language"
+              />
+            </svg>
+            <span
+              class="ecl-site-header__language-code"
+            >
+              fr
+            </span>
+          </span>
+        </a>
+      </div>
+    </div>
+    <form
+      class="ecl-search-form ecl-site-header__search"
+      role="search"
+    >
+      <div
+        class="ecl-form-group ecl-form-group--text-input"
+      >
+        <input
+          class="ecl-text-input ecl-search-form__text-input"
+          id="input-search"
+          name="search"
+          type="text"
+        />
+      </div>
+      <button
+        class="ecl-button ecl-button--search ecl-search-form__button"
+        type="submit"
+      >
+        <span
+          class="ecl-button__container"
+        >
+          <span
+            class="ecl-button__label"
+            data-ecl-label=""
+          >
+            Recherche
+          </span>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--xs ecl-button__icon ecl-button__icon--after"
+            focusable="false"
+          >
+            <use
+              xlink:href="static/icons.svg#general--search"
+            />
+          </svg>
+        </span>
+      </button>
+    </form>
+  </div>
+</header>
+`;
+
+exports[`EC - Site Header Translated renders correctly with extra attributes 1`] = `
+<header
+  class="ecl-site-header"
+  data-test="data-test-value"
+  data-test-1="data-test-value-1"
+>
+  <div
+    class="ecl-site-header__container ecl-container"
+  >
+    <div
+      class="ecl-site-header__banner"
+    >
+      <a
+        aria-label="Commmission Européenne"
+        class="ecl-link ecl-link--standalone"
+        href="/example-1"
+      >
+        <img
+          alt="Commmission Européenne logo"
+          class="ecl-site-header__logo-image"
+          src="static/media/logo--fr.a8aaa7ab.svg"
+          title="Commmission Européenne"
+        />
+      </a>
+      <div
+        class="ecl-site-header__selector"
+      >
+        <a
+          class="ecl-link ecl-link--standalone"
+          href="/example"
+        >
+          Français
+          <span
+            class="ecl-site-header__language-icon"
+          >
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--m"
+              focusable="false"
+            >
+              <use
+                xlink:href="static/icons.svg#general--language"
+              />
+            </svg>
+            <span
+              class="ecl-site-header__language-code"
+            >
+              fr
+            </span>
+          </span>
+        </a>
+      </div>
+    </div>
+    <form
+      class="ecl-search-form ecl-site-header__search"
+      role="search"
+    >
+      <div
+        class="ecl-form-group ecl-form-group--text-input"
+      >
+        <input
+          class="ecl-text-input ecl-search-form__text-input"
+          id="input-search"
+          name="search"
+          type="text"
+        />
+      </div>
+      <button
+        class="ecl-button ecl-button--search ecl-search-form__button"
+        type="submit"
+      >
+        <span
+          class="ecl-button__container"
+        >
+          <span
+            class="ecl-button__label"
+            data-ecl-label=""
+          >
+            Recherche
+          </span>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--xs ecl-button__icon ecl-button__icon--after"
+            focusable="false"
+          >
+            <use
+              xlink:href="static/icons.svg#general--search"
+            />
+          </svg>
+        </span>
+      </button>
+    </form>
+  </div>
+</header>
+`;
+
+exports[`EC - Site Header Translated renders correctly with extra class names 1`] = `
+<header
+  class="ecl-site-header custom-site-header custom-site-header--test"
 >
   <div
     class="ecl-site-header__container ecl-container"
