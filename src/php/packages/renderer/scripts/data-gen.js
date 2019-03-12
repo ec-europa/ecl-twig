@@ -3,33 +3,35 @@
 const fs = require('fs');
 const path = require('path');
 
-// Useful when packages in current workspace.
-const resolveSymlinked = filePath => {
-  const lstat = fs.lstatSync(filePath);
-  return lstat.isSymbolicLink()
-    ? path.resolve(path.dirname(filePath), fs.readlinkSync(filePath))
-    : false;
-};
+const list = require('../../../../ec/packages/ec-components/package.json');
 
-const components = require('../../../../ec/packages/ec-components/package.json');
-
-Object.keys(components.dependencies).forEach(pkg => {
+Object.keys(list.dependencies).forEach(pkg => {
   let data = {};
-  const component = pkg.split('@ecl-twig/ec-component-')[1];
-  const saveLocation = path.resolve(`./ec/${component}`);
 
-  try {
-    // Overriden/adapted demo data, part of the workspace.
-    const packageLocation = resolveSymlinked(`../../../../node_modules/${pkg}`);
-    data = require(`${packageLocation}/demo/data`);
-  } catch (error) {
-    // Original demo data coming from ECL specification.
-    const specLocation = `../../../../node_modules/@ecl/ec-specs-${component}`;
-    data = require(path.resolve(`${specLocation}/demo/data`));
-  }
+  const nodeModules = '../../../../node_modules';
+  const componentRootName = pkg.split('@ecl-twig/ec-component-')[1];
 
+  const packageLocation = `${nodeModules}/${pkg}`;
+  const specLocation = packageLocation.replace(
+    `@ecl-twig/ec-component-${componentRootName}`,
+    `@ecl/ec-specs-${componentRootName}`
+  );
+
+  const eclTwigPath = path.resolve(packageLocation);
+  const eclSpecPath = path.resolve(specLocation);
+  const saveLocation = path.resolve(`./ec/${componentRootName}`);
+
+  // Ensure a folder with the component's name.
+  // Store generated data and markup at this location.
   if (!fs.existsSync(saveLocation)) {
     fs.mkdirSync(saveLocation);
+  }
+
+  // Check for data overrides.
+  if (fs.existsSync(`${eclTwigPath}/demo`)) {
+    data = require(`${eclTwigPath}/demo/data`);
+  } else {
+    data = require(`${eclSpecPath}/demo/data`);
   }
 
   fs.writeFileSync(
