@@ -4,9 +4,7 @@
   Parameters:
   - "label" (string) (default: ''): for screen reader
   - "items" (array) (default: []):
-    - "current" (boolean) (default: false)
-    - "previous" (boolean) (default: false)
-    - "next" (boolean) (default: false)
+    - "type" (string) (default: ''): could be 'previous', 'current' or 'next'
     - "label" (string) (default: ''): label used when the item is not a link
     - "aria_label" (string) (default: '')
     - "link" (object) (default: ''): object of type Link
@@ -20,7 +18,6 @@
 
 {% set _label = label|default('') %}
 {% set _items = items|default([]) %}
-{% set _language = language|default('') %}
 
 {% set _css_class = 'ecl-pagination' %}
 {% set _extra_attributes = '' %}
@@ -39,19 +36,19 @@
 
 {# Print the result #}
 
-<nav class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+<nav class="{{ _css_class }}"{{ _extra_attributes|raw }} aria-label="{{ _label }}">
   <ul class="ecl-pagination__list">
     {% for _item in _items %}
-      <li class="ecl-pagination__item{{ _item.current ? ' ecl-pagination__item--current' }}{{ _item.previous ? ' ecl-pagination__item--previous' }}{{ _item.next ? ' ecl-pagination__item--next' }}">
+      <li class="ecl-pagination__item{{ _item.type ? ' ecl-pagination__item--' ~ _item.type }}">
         {% if _item.link is not empty %}
 
-          {%- include '../ec-component-link/link.html.twig' with _item.link|merge({
+          {% include '../ec-component-link/link.html.twig' with _item.link|merge({
             link: _item.link.link|merge({
               type: 'standalone',
             }),
             extra_classes: "ecl-pagination__link",
             extra_attributes: [{ name: "aria-label", value: _item.aria_label }],
-          }) only -%}
+          }) only %}
 
         {% else %}
 

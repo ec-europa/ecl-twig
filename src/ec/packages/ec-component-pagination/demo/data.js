@@ -31,10 +31,19 @@ function formatLink(l) {
 }
 
 function formatItem(i) {
+  let type = '';
+  if (i.isCurrent) {
+    type = 'current';
+  }
+  if (i.isPrevious) {
+    type = 'previous';
+  }
+  if (i.isNext) {
+    type = 'next';
+  }
+
   const item = {
-    current: i.isCurrent,
-    previous: i.isPrevious,
-    next: i.isNext,
+    type,
     label: i.label,
     aria_label: i.ariaLabel,
   };
