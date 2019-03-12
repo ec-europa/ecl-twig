@@ -1,6 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import specDataWithTranslation from '@ecl/ec-specs-file/demo/data--with-translation';
-import specDataWithoutTranslation from '@ecl/ec-specs-file/demo/data--without-translation';
+
+const specDataWithTranslation = require('@ecl/ec-specs-file/demo/data--with-translation');
 
 function formatIcon(i) {
   const [type, name] = i.shape.split('--');
@@ -40,7 +40,7 @@ function formatLink(l) {
   return link;
 }
 
-export const dataWithTranslation = {
+module.exports = {
   title: specDataWithTranslation.title,
   language: specDataWithTranslation.language,
   meta: specDataWithTranslation.meta,
@@ -51,12 +51,4 @@ export const dataWithTranslation = {
     description: specDataWithTranslation.translation.description,
     items: specDataWithTranslation.translation.items,
   },
-};
-
-export const dataWithoutTranslation = {
-  title: specDataWithoutTranslation.title,
-  language: specDataWithoutTranslation.language,
-  meta: specDataWithoutTranslation.meta,
-  icon: formatIcon(specDataWithoutTranslation.icon),
-  download: formatLink(specDataWithoutTranslation.download),
 };

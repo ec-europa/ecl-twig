@@ -26,7 +26,7 @@ $ yarn install
 $ composer run install
 ```
 
-## Generating data
+## Generate data
 
 In order for twig templates to render properly, they need proper data input. This input comes from various places:
 
@@ -36,21 +36,29 @@ In order for twig templates to render properly, they need proper data input. Thi
 To generate these, run the following:
 
 ```shell
-$ yarn generate
+$ yarn generate:ecData
 ```
 
 This will iterate through all components listed in `@ecl-twig/ec-components` and will create folders for their corresponding targets. Then it will create `data.json` file for each component, which can later be used by the renderer.
 
-## Rendering
+## Generate HTML markup by Twig PHP
 
 Either way:
 
 ```shell
-$ yarn render
+$ yarn generate:ecHtml
 ```
 
 ```shell
 $ composer run render
+```
+
+## Generate all assets
+
+You can generate data and resulting HTML in a single operation:
+
+```shell
+$ yarn generate:ec
 ```
 
 ## Notes

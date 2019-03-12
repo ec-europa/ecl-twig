@@ -5,7 +5,9 @@ import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
 
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
-import { dataWithTranslation, dataWithoutTranslation } from './demo/data';
+
+import dataWithTranslation from './demo/data--with-translation';
+import dataWithoutTranslation from './demo/data--without-translation';
 
 import fileDocs from './docs/file.md';
 import file from './file.html.twig';

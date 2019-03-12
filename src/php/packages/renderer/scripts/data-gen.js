@@ -5,6 +5,9 @@ const path = require('path');
 
 const list = require('../../../../ec/packages/ec-components/package.json');
 
+// Limit the list temporarily.
+const listRender = Object.keys(list.dependencies).slice(0, 7);
+
 /**
  * Helper to migrate demo data for Twig PHP renderer.
  *
@@ -27,10 +30,16 @@ const createDataFiles = ({ readLocation, saveLocation }) => {
   });
 };
 
-Object.keys(list.dependencies).forEach(pkg => {
-  let readLocation = '';
+const system = 'ec';
+const nodeModules = '../../../../node_modules';
+let readLocation = '';
 
-  const nodeModules = '../../../../node_modules';
+// Create the folder for storing results.
+if (!fs.existsSync(`./${system}`)) {
+  fs.mkdirSync(`./${system}`);
+}
+
+listRender.forEach(pkg => {
   const componentRootName = pkg.split('@ecl-twig/ec-component-')[1];
 
   const packageLocation = `${nodeModules}/${pkg}`;
@@ -41,7 +50,7 @@ Object.keys(list.dependencies).forEach(pkg => {
 
   const eclTwigPath = path.resolve(packageLocation);
   const eclSpecPath = path.resolve(specLocation);
-  const saveLocation = path.resolve(`./ec/${componentRootName}`);
+  const saveLocation = path.resolve(`./${system}/${componentRootName}`);
 
   // Ensure a folder with the component's name.
   // Store generated data and markup at this location.

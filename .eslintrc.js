@@ -15,6 +15,12 @@ module.exports = {
   },
   overrides: [
     {
+      files: '**/demo/**/*.js',
+      rules: {
+        'unicorn/filename-case': 'off',
+      },
+    },
+    {
       files: ['src/**/*.{story,test}.js'],
       rules: {
         'import/no-extraneous-dependencies': false,
