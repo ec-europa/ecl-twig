@@ -30,11 +30,10 @@ renderer.code = function customCode(code, infostring, escaped) {
 };
 
 function renderMarkdown(text, options) {
-  return marked(text, {
-    ...marked.defaults,
-    renderer,
-    ...options,
-  });
+  return marked(
+    text,
+    Object.assign({}, marked.defaults, { renderer }, options)
+  );
 }
 
 export const withNotes = makeDecorator({
