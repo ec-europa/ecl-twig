@@ -5,28 +5,23 @@ use Webmozart\PathUtil\Path;
 require_once __DIR__ . '/vendor/autoload.php';
 
 $components_paths = [];
-$ec_packages = __DIR__ . '/../../../ec/packages';
+$twig_path = __DIR__ . '/../../../../node_modules/@ecl-twig';
 
-$paths = scandir(Path::canonicalize($ec_packages));
+$twig_packages = array_slice(scandir(Path::canonicalize($twig_path)), 2);
 
-if (count($paths)) {
-  $components = array_filter(
-    $paths,
-    function ($path) {
-      return strpos($path, '-component-');
-    }
-  );
-
+if (count($twig_packages)) {
   $components_paths = array_map(
-    function ($component) {
+    function ($package) {
       return Path::canonicalize(
-        __DIR__ . '../../../../ec/packages/' . $component
+        __DIR__ . '/../../../../node_modules/@ecl-twig/' . $package
       );
     },
-    $components
+    $twig_packages
   );
 }
 
 $loader = new \Twig\Loader\FilesystemLoader($components_paths);
 
-$twig = new \Twig\Environment($loader);
+$twig = new \Twig\Environment(
+  $loader, ['debug' => TRUE, 'auto_reload' => TRUE]
+);

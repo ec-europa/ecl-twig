@@ -36,6 +36,7 @@ foreach ($components as $component) {
 
       file_put_contents($folder . '/' . $result_file, $result_html);
     } catch (exception $e) {
+      throw new Exception($e);
     }
   }
 
