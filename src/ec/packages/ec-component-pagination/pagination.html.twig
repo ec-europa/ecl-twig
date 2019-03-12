@@ -55,13 +55,13 @@
           <span 
             class="ecl-pagination__text ecl-pagination__text--summary"
             aria-label="{{ _item.aria_label }}"
-            aria-current="{{ _item.current }}"
+            {{ _item.type == 'current' ? 'aria-current="true"' }}
           >
             {{- _item.label -}}
           </span>
           <span
             class="ecl-pagination__text ecl-pagination__text--full"
-            aria-current="{{ _item.current }}"
+            {{ _item.type == 'current' ? 'aria-current="true"' }}
           >
             {{- _item.aria_label -}}
           </span>

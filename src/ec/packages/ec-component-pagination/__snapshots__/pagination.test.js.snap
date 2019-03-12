@@ -2,6 +2,7 @@
 
 exports[`EC - Pagination Default renders correctly 1`] = `
 <nav
+  aria-label="Pagination"
   class="ecl-pagination"
 >
   <ul
@@ -124,6 +125,7 @@ exports[`EC - Pagination Default renders correctly 1`] = `
 
 exports[`EC - Pagination Default renders correctly with extra attributes 1`] = `
 <nav
+  aria-label="Pagination"
   class="ecl-pagination"
   data-test="data-test-value"
   data-test-1="data-test-value-1"
@@ -248,6 +250,7 @@ exports[`EC - Pagination Default renders correctly with extra attributes 1`] = `
 
 exports[`EC - Pagination Default renders correctly with extra class names 1`] = `
 <nav
+  aria-label="Pagination"
   class="ecl-pagination custom-pagination custom-pagination--test"
 >
   <ul
