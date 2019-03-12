@@ -1,29 +1,11 @@
-module.exports = {
-  module: {
-    rules: [
-      {
-        test: /\.jsx?$/,
-        use: ['babel-loader'],
-        exclude: /node_modules\/(?!@ecl-twig\/).*/,
-      },
-      {
-        test: /\.twig$/,
-        loader: 'twig-loader',
-      },
-      {
-        test: /\.svg$/,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: 'static/[name]-[hash:8].[ext]',
-            },
-          },
-        ],
-      },
-    ],
-  },
-  node: {
-    fs: 'empty',
-  },
+module.exports = ({ config, mode }) => {
+  config.module.rules.push({
+    test: /\.twig$/,
+    loader: 'twig-loader',
+  });
+
+  // Trick "babel-loader", force it to transpile @ecl-twig addons
+  config.module.rules[0].exclude = /node_modules\/(?!@ecl-twig\/).*/;
+
+  return config;
 };

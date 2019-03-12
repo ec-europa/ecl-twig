@@ -10,6 +10,63 @@ exports[`EC - Button CTA button - icon after renders correctly 1`] = `
   >
     <span
       class="ecl-button__label"
+      data-ecl-label=""
+    >
+      CTA Button with icon
+    </span>
+    <svg
+      aria-hidden="true"
+      class="ecl-icon ecl-icon--fluid ecl-button__icon ecl-button__icon--after"
+      focusable="false"
+    >
+      <use
+        xlink:href="static/icons.svg#ui--corner-arrow"
+      />
+    </svg>
+  </span>
+</button>
+`;
+
+exports[`EC - Button CTA button - icon after renders correctly with extra attributes 1`] = `
+<button
+  class="ecl-button ecl-button--call"
+  data-test="data-test-value"
+  data-test-1="data-test-value-1"
+  type="submit"
+>
+  <span
+    class="ecl-button__container"
+  >
+    <span
+      class="ecl-button__label"
+      data-ecl-label=""
+    >
+      CTA Button with icon
+    </span>
+    <svg
+      aria-hidden="true"
+      class="ecl-icon ecl-icon--fluid ecl-button__icon ecl-button__icon--after"
+      focusable="false"
+    >
+      <use
+        xlink:href="static/icons.svg#ui--corner-arrow"
+      />
+    </svg>
+  </span>
+</button>
+`;
+
+exports[`EC - Button CTA button - icon after renders correctly with extra class names 1`] = `
+<button
+  class="ecl-button ecl-button--call custom-button custom-button--test"
+  type="submit"
+>
+  <span
+    class="ecl-button__container"
+  >
+    <span
+      class="ecl-button__label"
+      data-ecl-label=""
     >
       CTA Button with icon
     </span>
@@ -45,6 +102,7 @@ exports[`EC - Button CTA button - icon before renders correctly 1`] = `
     </svg>
     <span
       class="ecl-button__label"
+      data-ecl-label=""
     >
       Call to action button
     </span>
@@ -62,6 +120,7 @@ exports[`EC - Button CTA renders correctly 1`] = `
   >
     <span
       class="ecl-button__label"
+      data-ecl-label=""
     >
       Call to action button
     </span>
@@ -88,6 +147,7 @@ exports[`EC - Button Ghost renders correctly 1`] = `
   >
     <span
       class="ecl-button__label"
+      data-ecl-label=""
     >
       Ghost button
     </span>
@@ -105,6 +165,7 @@ exports[`EC - Button Primary renders correctly 1`] = `
   >
     <span
       class="ecl-button__label"
+      data-ecl-label=""
     >
       Primary button
     </span>
@@ -122,6 +183,7 @@ exports[`EC - Button Search renders correctly 1`] = `
   >
     <span
       class="ecl-button__label"
+      data-ecl-label=""
     >
       Search button
     </span>
@@ -139,6 +201,7 @@ exports[`EC - Button Secondary renders correctly 1`] = `
   >
     <span
       class="ecl-button__label"
+      data-ecl-label=""
     >
       Secondary button
     </span>

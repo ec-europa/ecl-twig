@@ -1,3 +1,5 @@
+{% spaceless %}
+
 {#
   Parameters:
   - "id" (string) (default: '')
@@ -19,6 +21,7 @@
 #}
 
 {# Internal properties #}
+
 {% set _id = id|default('') %}
 {% set _disabled = disabled|default(false) %}
 {% set _invalid = invalid|default(false) %}
@@ -34,13 +37,14 @@
 
 {% set _css_class = ['ecl-text-input'] %}
 {% if _invalid %}
-  {% set _css_class=_css_class|merge(['ecl-text-input--invalid']) %}
+  {% set _css_class = _css_class|merge(['ecl-text-input--invalid']) %}
 {% endif %}
-{% set _css_class=_css_class|join(' ') %}
+{% set _css_class = _css_class|join(' ') %}
 
 {% set _extra_attributes = '' %}
 
 {# Internal logic - Process properties #}
+
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
 {% endif %}
@@ -52,24 +56,25 @@
 {% endif %}
 
 {# Print the result #}
+
 <div class="ecl-form-group ecl-form-group--text-input">
   {% if _label is not empty %}
-    <label 
-      class="ecl-form-label{{invalid ? ' ecl-form-label--invalid'}}{{hide_label ? ' ecl-form-label--hidden'}}"
-      for={{_id}}
+    <label
+      class="ecl-form-label{{ invalid ? ' ecl-form-label--invalid' }}{{ hide_label ? ' ecl-form-label--hidden' }}"
+      for="{{ _id }}"
     >
-      {% block label _label %}
+      {%- block label _label -%}
     </label>
   {% endif %}
-  
+
   <input
-    id="{{_id}}"
-    name="{{_name}}"
-    type="{{_type}}"
-    placeholder="{{_placeholder}}"
-    class="{{_css_class}}"
-    {{_disabled ? "disabled"}}
-    {{ _extra_attributes|raw }} 
+    class="{{ _css_class }}"
+    id="{{ _id }}"
+    name="{{ _name }}"
+    type="{{ _type }}"
+    {% if _placeholder is not empty %}placeholder="{{ _placeholder }}"{% endif %}
+    {{ _disabled ? "disabled" }}
+    {{ _extra_attributes|raw }}
   />
 
   {% if _invalid and _invalid_text is not empty %}
@@ -80,3 +85,5 @@
     <div class="ecl-help-block">{% block helper_text _helper_text %}</div>
   {% endif %}
 </div>
+
+{% endspaceless %}

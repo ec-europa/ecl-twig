@@ -1,5 +1,5 @@
 import path from 'path';
-import { renderTwigFile } from '@ecl-twig/test-utils';
+import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
 import brandedIcons from '@ecl/ec-resources-icons/dist/lists/branded.json';
 import generalIcons from '@ecl/ec-resources-icons/dist/lists/general.json';
@@ -8,76 +8,113 @@ import uiIcons from '@ecl/ec-resources-icons/dist/lists/ui.json';
 
 describe('EC - Icon', () => {
   const template = path.resolve(__dirname, './icon.html.twig');
-  const defaultPath = 'static/icons.svg';
+  const render = params => renderTwigFileAsNode(template, params);
+
   const defaultDataStructure = {
     icon: {
       name: '',
       type: '',
-      path: defaultPath,
+      path: 'static/icons.svg',
     },
   };
 
   describe('Branded', () => {
     brandedIcons.forEach(icon => {
-      test(`- icon ${icon} renders correctly`, done => {
+      test(`- icon ${icon} renders correctly`, () => {
         expect.assertions(1);
 
-        defaultDataStructure.icon.name = icon;
-        defaultDataStructure.icon.type = 'branded';
-
-        renderTwigFile(template, defaultDataStructure, (err, html) => {
-          expect(html).toMatchSnapshot();
-          done();
+        const options = merge(defaultDataStructure, {
+          icon: {
+            name: icon,
+            type: 'branded',
+          },
         });
+
+        return expect(render(options)).resolves.toMatchSnapshot();
       });
     });
   });
 
   describe('Notifications', () => {
     notificationsIcons.forEach(icon => {
-      test(`- icon ${icon} renders correctly`, done => {
+      test(`- icon ${icon} renders correctly`, () => {
         expect.assertions(1);
 
-        defaultDataStructure.icon.name = icon;
-        defaultDataStructure.icon.type = 'notifications';
-
-        renderTwigFile(template, defaultDataStructure, (err, html) => {
-          expect(html).toMatchSnapshot();
-          done();
+        const options = merge(defaultDataStructure, {
+          icon: {
+            name: icon,
+            type: 'notifications',
+          },
         });
+
+        return expect(render(options)).resolves.toMatchSnapshot();
       });
     });
   });
 
   describe('General', () => {
     generalIcons.forEach(icon => {
-      test(`- icon ${icon} renders correctly`, done => {
+      test(`- icon ${icon} renders correctly`, () => {
         expect.assertions(1);
 
-        defaultDataStructure.icon.name = icon;
-        defaultDataStructure.icon.type = 'general';
-
-        renderTwigFile(template, defaultDataStructure, (err, html) => {
-          expect(html).toMatchSnapshot();
-          done();
+        const options = merge(defaultDataStructure, {
+          icon: {
+            name: icon,
+            type: 'general',
+          },
         });
+
+        return expect(render(options)).resolves.toMatchSnapshot();
       });
     });
   });
 
   describe('UI', () => {
     uiIcons.forEach(icon => {
-      test(`- icon ${icon} renders correctly`, done => {
+      test(`- icon ${icon} renders correctly`, () => {
         expect.assertions(1);
 
-        defaultDataStructure.icon.name = icon;
-        defaultDataStructure.icon.type = 'ui';
-
-        renderTwigFile(template, defaultDataStructure, (err, html) => {
-          expect(html).toMatchSnapshot();
-          done();
+        const options = merge(defaultDataStructure, {
+          icon: {
+            name: icon,
+            type: 'ui',
+          },
         });
+
+        return expect(render(options)).resolves.toMatchSnapshot();
       });
+    });
+  });
+
+  describe('Generic tests - Any icon', () => {
+    const options = merge(defaultDataStructure, {
+      icon: {
+        name: generalIcons[0],
+        type: 'general',
+      },
+    });
+
+    test('renders correctly with extra class names', () => {
+      expect.assertions(1);
+
+      const optionsWithExtraClasses = merge(options, {
+        extra_classes: 'custom-icon custom-icon--test',
+      });
+
+      return expect(render(optionsWithExtraClasses)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly with extra attributes', () => {
+      expect.assertions(1);
+
+      const optionsWithExtraClasses = merge(options, {
+        extra_attributes: [
+          { name: 'data-test', value: 'data-test-value' },
+          { name: 'data-test-1', value: 'data-test-value-1' },
+        ],
+      });
+
+      return expect(render(optionsWithExtraClasses)).resolves.toMatchSnapshot();
     });
   });
 });

@@ -1,9 +1,12 @@
+{% spaceless %}
+
 {#
   Parameters:
   - "id" (string) (default: '')
   - "disabled" (boolean) (default: false)
   - "invalid" (boolean) (default: false)
   - "name" (string) (default: '')
+  - "default_value" (string) (default: '')
   - "hide_label" (boolean) (default: '')
   - "placeholder" (string) (default: '')
   - "rows" (int) (default: 4)
@@ -18,10 +21,12 @@
 #}
 
 {# Internal properties #}
+
 {% set _id = id|default('') %}
 {% set _disabled = disabled|default(false) %}
 {% set _invalid = invalid|default(false) %}
 {% set _name = name|default('') %}
+{% set _default_value = default_value|default('') %}
 {% set _hide_label = hide_label|default(false) %}
 {% set _placeholder = placeholder|default('') %}
 {% set _rows = rows|default(4) %}
@@ -39,6 +44,7 @@
 {% set _extra_attributes = '' %}
 
 {# Internal logic - Process properties #}
+
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
 {% endif %}
@@ -50,34 +56,34 @@
 {% endif %}
 
 {# Print the result #}
-{% spaceless %}
+
 <div class="ecl-form-group ecl-form-group--text-area">
-  {%- if _label is not empty -%}
-    <label 
-      class="ecl-form-label{{- invalid ? ' ecl-form-label--invalid' -}}{{- hide_label ? ' ecl-form-label--hidden' -}}"
-      for={{- _id -}}
+  {% if _label is not empty %}
+    <label
+      class="ecl-form-label{{ invalid ? ' ecl-form-label--invalid' }}{{ hide_label ? ' ecl-form-label--hidden' }}"
+      for="{{ _id }}"
     >
       {%- block label _label -%}
     </label>
-  {%- endif -%}
+  {% endif %}
 
   <textarea
-    id="{{- _id -}}"
-    name="{{- _name -}}"
-    rows="{{- _rows -}}"
-    placeholder="{{- _placeholder -}}"
-    class="{{- _css_class -}}"
-    {{- _disabled ? "disabled" -}}
-    {{- _extra_attributes|raw -}} 
-  >
-  </textarea>
+    class="{{ _css_class }}"
+    id="{{ _id }}"
+    name="{{ _name }}"
+    rows="{{ _rows }}"
+    {% if _placeholder is not empty %}placeholder="{{ _placeholder }}"{% endif %}
+    {{ _disabled ? "disabled" }}
+    {{ _extra_attributes|raw }}
+  >{{ _default_value }}</textarea>
 
-  {%- if _invalid and _invalid_text is not empty -%}
-    <div class="ecl-feedback-message">{%- block invalid_text _invalid_text -%}</div>
-  {%- endif -%}
+  {% if _invalid and _invalid_text is not empty %}
+    <div class="ecl-feedback-message">{% block invalid_text _invalid_text %}</div>
+  {% endif %}
 
-  {%- if _helper_text is not empty -%}
-    <div class="ecl-help-block">{%- block helper_text _helper_text -%}</div>
-  {%- endif -%}
+  {% if _helper_text is not empty %}
+    <div class="ecl-help-block">{% block helper_text _helper_text %}</div>
+  {% endif %}
 </div>
+
 {% endspaceless %}

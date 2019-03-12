@@ -1,39 +1,154 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`EC - Tag Button - button tag renders correctly 1`] = `
-"<button class=\\"ecl-tag\\" type=\\"button\\">
+exports[`EC - Tag Button renders correctly 1`] = `
+<button
+  class="ecl-tag"
+  type="button"
+>
   Button tag
 </button>
-"
 `;
 
-exports[`EC - Tag Link - link tag renders correctly 1`] = `
-"<a href=\\"/example-path\\" class=\\"ecl-tag\\">
+exports[`EC - Tag Button renders correctly with extra attributes 1`] = `
+<button
+  class="ecl-tag"
+  data-test="data-test-value"
+  data-test-1="data-test-value-1"
+  type="button"
+>
+  Button tag
+</button>
+`;
+
+exports[`EC - Tag Button renders correctly with extra class names 1`] = `
+<button
+  class="ecl-tag custom-tag custom-tag--test"
+  type="button"
+>
+  Button tag
+</button>
+`;
+
+exports[`EC - Tag Link renders correctly 1`] = `
+<a
+  class="ecl-tag"
+  href="/example-path"
+>
   Link tag
 </a>
-"
 `;
 
-exports[`EC - Tag Removable - removable tag renders correctly 1`] = `
-"<button class=\\"ecl-tag ecl-tag--removable\\" type=\\"button\\">
-  Removable tag
-  <span class=\\"ecl-tag__icon\\">
-    <svg
-      class=\\"ecl-icon ecl-icon--xs ecl-tag__icon-close\\"
-      focusable=\\"false\\"
-      aria-hidden=\\"true\\"
-    >
-      <use xlink:href=\\"static/icons.svg#ui--close\\"></use>
-    </svg>
+exports[`EC - Tag Link renders correctly with extra attributes 1`] = `
+<a
+  class="ecl-tag"
+  data-test="data-test-value"
+  data-test-1="data-test-value-1"
+  href="/example-path"
+>
+  Link tag
+</a>
+`;
 
+exports[`EC - Tag Link renders correctly with extra class names 1`] = `
+<a
+  class="ecl-tag custom-tag custom-tag--test"
+  href="/example-path"
+>
+  Link tag
+</a>
+`;
+
+exports[`EC - Tag Removable renders correctly 1`] = `
+<button
+  class="ecl-tag ecl-tag--removable"
+  type="button"
+>
+  Removable tag
+  <span
+    class="ecl-tag__icon"
+  >
     <svg
-      class=\\"ecl-icon ecl-icon--xs ecl-tag__icon-close-filled\\"
-      focusable=\\"false\\"
-      aria-hidden=\\"true\\"
+      aria-hidden="true"
+      class="ecl-icon ecl-icon--xs ecl-tag__icon-close"
+      focusable="false"
     >
-      <use xlink:href=\\"static/icons.svg#ui--close-filled\\"></use>
+      <use
+        xlink:href="static/icons.svg#ui--close"
+      />
+    </svg>
+    <svg
+      aria-hidden="true"
+      class="ecl-icon ecl-icon--xs ecl-tag__icon-close-filled"
+      focusable="false"
+    >
+      <use
+        xlink:href="static/icons.svg#ui--close-filled"
+      />
     </svg>
   </span>
 </button>
-"
+`;
+
+exports[`EC - Tag Removable renders correctly with extra attributes 1`] = `
+<button
+  class="ecl-tag ecl-tag--removable"
+  data-test="data-test-value"
+  data-test-1="data-test-value-1"
+  type="button"
+>
+  Removable tag
+  <span
+    class="ecl-tag__icon"
+  >
+    <svg
+      aria-hidden="true"
+      class="ecl-icon ecl-icon--xs ecl-tag__icon-close"
+      focusable="false"
+    >
+      <use
+        xlink:href="static/icons.svg#ui--close"
+      />
+    </svg>
+    <svg
+      aria-hidden="true"
+      class="ecl-icon ecl-icon--xs ecl-tag__icon-close-filled"
+      focusable="false"
+    >
+      <use
+        xlink:href="static/icons.svg#ui--close-filled"
+      />
+    </svg>
+  </span>
+</button>
+`;
+
+exports[`EC - Tag Removable renders correctly with extra class names 1`] = `
+<button
+  class="ecl-tag ecl-tag--removable custom-tag custom-tag--test"
+  type="button"
+>
+  Removable tag
+  <span
+    class="ecl-tag__icon"
+  >
+    <svg
+      aria-hidden="true"
+      class="ecl-icon ecl-icon--xs ecl-tag__icon-close"
+      focusable="false"
+    >
+      <use
+        xlink:href="static/icons.svg#ui--close"
+      />
+    </svg>
+    <svg
+      aria-hidden="true"
+      class="ecl-icon ecl-icon--xs ecl-tag__icon-close-filled"
+      focusable="false"
+    >
+      <use
+        xlink:href="static/icons.svg#ui--close-filled"
+      />
+    </svg>
+  </span>
+</button>
 `;

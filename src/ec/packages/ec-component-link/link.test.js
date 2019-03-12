@@ -1,8 +1,9 @@
 import path from 'path';
-import { renderTwigFile } from '@ecl-twig/test-utils';
+import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
 describe('EC - Link', () => {
   const template = path.resolve(__dirname, './link.html.twig');
+  const render = params => renderTwigFileAsNode(template, params);
   const defaultIconPath = 'static/icons.svg';
   const defaultDataStructure = {
     link: {
@@ -13,72 +14,98 @@ describe('EC - Link', () => {
   };
 
   describe('Default', () => {
-    test(`- link default renders correctly`, done => {
+    test('renders correctly', () => {
       expect.assertions(1);
 
-      defaultDataStructure.link.type = 'default';
-      defaultDataStructure.link.label = 'Default link';
-
-      renderTwigFile(template, defaultDataStructure, (err, html) => {
-        expect(html).toMatchSnapshot();
-        done();
+      const options = merge(defaultDataStructure, {
+        link: {
+          type: 'default',
+          label: 'Default link',
+        },
       });
+
+      return expect(render(options)).resolves.toMatchSnapshot();
     });
   });
 
   describe('Standalone', () => {
-    test(`- link standalone renders correctly`, done => {
+    test('renders correctly', () => {
       expect.assertions(1);
 
-      defaultDataStructure.link.type = 'standalone';
-      defaultDataStructure.link.label = 'Standalone link';
-
-      renderTwigFile(template, defaultDataStructure, (err, html) => {
-        expect(html).toMatchSnapshot();
-        done();
+      const options = merge(defaultDataStructure, {
+        link: {
+          type: 'standalone',
+          label: 'Standalone link',
+        },
       });
+
+      return expect(render(options)).resolves.toMatchSnapshot();
     });
   });
 
   describe('With icon before', () => {
-    test(`- link with icon renders correctly`, done => {
+    test('renders correctly', () => {
       expect.assertions(1);
 
-      defaultDataStructure.link.type = 'standalone';
-      defaultDataStructure.link.label = 'Standalone link with icon';
-      defaultDataStructure.link.icon_position = 'before';
-      defaultDataStructure.icon = {
-        type: 'ui',
-        name: 'external',
-        size: 'fluid',
-        path: defaultIconPath,
-      };
-
-      renderTwigFile(template, defaultDataStructure, (err, html) => {
-        expect(html).toMatchSnapshot();
-        done();
+      const options = merge(defaultDataStructure, {
+        link: {
+          type: 'standalone',
+          label: 'Standalone link with icon',
+          icon_position: 'before',
+        },
+        icon: {
+          type: 'ui',
+          name: 'external',
+          size: 'fluid',
+          path: defaultIconPath,
+        },
       });
+
+      return expect(render(options)).resolves.toMatchSnapshot();
     });
   });
 
   describe('With icon after', () => {
-    test(`- link with icon renders correctly`, done => {
-      expect.assertions(1);
-
-      defaultDataStructure.link.type = 'standalone';
-      defaultDataStructure.link.label = 'Standalone link with icon';
-      defaultDataStructure.link.icon_position = 'after';
-      defaultDataStructure.icon = {
+    const options = merge(defaultDataStructure, {
+      link: {
+        type: 'standalone',
+        label: 'Standalone link with icon',
+        icon_position: 'after',
+      },
+      icon: {
         type: 'ui',
         name: 'external',
         size: 'fluid',
         path: defaultIconPath,
-      };
+      },
+    });
 
-      renderTwigFile(template, defaultDataStructure, (err, html) => {
-        expect(html).toMatchSnapshot();
-        done();
+    test('renders correctly', () => {
+      expect.assertions(1);
+      return expect(render(options)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly with extra class names', () => {
+      expect.assertions(1);
+
+      const withExtraClasses = merge(options, {
+        extra_classes: 'custom-link custom-link--test',
       });
+
+      return expect(render(withExtraClasses)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly with extra attributes', () => {
+      expect.assertions(1);
+
+      const withExtraAttributes = merge(options, {
+        extra_attributes: [
+          { name: 'data-test', value: 'data-test-value' },
+          { name: 'data-test-1', value: 'data-test-value-1' },
+        ],
+      });
+
+      return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
     });
   });
 });

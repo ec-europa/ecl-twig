@@ -8,10 +8,10 @@ const withCode = makeDecorator({
 
     let code = '';
     if (typeof story === 'string') {
-      code = story.trim();
+      code = story;
     } else if (story instanceof DocumentFragment) {
       const htmlElement = document.createElement('div');
-      htmlElement.append(story.cloneNode(true));
+      htmlElement.appendChild(story.cloneNode(true));
       code = htmlElement.innerHTML;
     } else if (story instanceof Node) {
       code = story.outerHTML;

@@ -1,3 +1,5 @@
+{% spaceless %}
+
 {#
   Parameters:
     - "links" (array) (default: []): format: [
@@ -8,6 +10,7 @@
       ...
     ],
     - "navigation_text" (string) (default: ''): Text of navigation in breadcrumb
+    - "ellipsis_label" (string) (default: ''): Label of the ellipsis, e.g. "Click to expand"
     - "icon_file_path" (string) (default: ''): URL to icons file
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
@@ -19,9 +22,11 @@
       ]
 #}
 
-{# variables #}
+{# Internal properties #}
+
 {% set _breadcrumb_size = links|length %}
 {% set _navigation_text = navigation_text|default('') %}
+{% set _ellipsis_label = ellipsis_label|default('') %}
 {% set _breadcrumb_segment_class = 'ecl-breadcrumb__segment' %}
 
 {% set _default_icon_structure = {
@@ -35,13 +40,13 @@
   },
   extra_classes: 'ecl-breadcrumb__icon',
   extra_attributes: [{ name: 'role', value: 'presentation' }]
-  }
-%}
+} %}
 
 {% set _css_class = 'ecl-breadcrumb' %}
-{% set _extra_attributes = 'aria-label="' ~ _navigation_text ~ '" data-ecl-breadcrumb="true"' %}
+{% set _extra_attributes = ' aria-label="' ~ _navigation_text ~ '" data-ecl-breadcrumb="true"' %}
 
 {# Internal logic - Process properties #}
+
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
 {% endif %}
@@ -53,37 +58,40 @@
 {% endif %}
 
 {# Print the result #}
-{% spaceless %}
-<nav class="{{- _css_class -}}"{{- _extra_attributes -}}>
+
+<nav class="{{ _css_class }}"{{ _extra_attributes|raw }}>
   <ol class="ecl-breadcrumb__container">
-    {%- for key,link in links -%}
-
-      {%- set _breadcrumb_segment_attributes = 'data-ecl-breadcrumb-item="static" aria-hidden="false"' -%}
-
-      {%- if loop.last -%}
-        <li class="{{- _breadcrumb_segment_class ~ ' ecl-breadcrumb__current-page' -}}" {{- _breadcrumb_segment_attributes ~ ' aria-current="page"' -}}>
+    {% for key, link in links %}
+      {% set _breadcrumb_segment_attributes = 'data-ecl-breadcrumb-item="static" aria-hidden="false"' %}
+      {% if loop.last %}
+        {% set _breadcrumb_segment_attributes = _breadcrumb_segment_attributes ~ ' aria-current="page"' %}
+        <li class="{{ _breadcrumb_segment_class ~ ' ecl-breadcrumb__current-page' }}" {{ _breadcrumb_segment_attributes|raw }}>
           {{- link.label -}}
         </li>
-      {%- else -%}
-        {%- if _breadcrumb_size > 3 and (key > 0 and key < _breadcrumb_size - 2) -%}
-
-          {%- if key == 1 -%}
-            <li class="{{- _breadcrumb_segment_class ~ ' ecl-breadcrumb__segment--ellipsis' -}}" aria-hidden="false" data-ecl-breadcrumb-ellipsis="true">
-              <button type="button" class="ecl-breadcrumb__ellipsis" aria-label="Click to expand" data-ecl-breadcrumb-ellipsis-button="true">…</button>
-              {%- include '../ec-component-icon/icon.html.twig' with _default_icon_structure -%}
+      {% else %}
+        {% if _breadcrumb_size > 3 and (key > 0 and key < _breadcrumb_size - 2) %}
+          {% if key == 1 %}
+            <li class="{{ _breadcrumb_segment_class ~ ' ecl-breadcrumb__segment--ellipsis' }}" aria-hidden="false" data-ecl-breadcrumb-ellipsis="true">
+              <button type="button" class="ecl-breadcrumb__ellipsis" aria-label="{{ _ellipsis_label }}" data-ecl-breadcrumb-ellipsis-button="true">…</button>
+              {% include '../ec-component-icon/icon.html.twig' with _default_icon_structure only %}
             </li>
-          {%- endif -%}
-
-          {%- set _breadcrumb_segment_attributes = 'data-ecl-breadcrumb-item="expandable" aria-hidden="true"' -%}
-        {%- endif -%}
-
-        <li class="{{- _breadcrumb_segment_class -}}" {{- _breadcrumb_segment_attributes -}}>
-          {%- include '../ec-component-link/link.html.twig' with { link: { type: 'standalone', label: link.label, path: link.path }, extra_classes: 'ecl-breadcrumb__link' } -%}
-          {%- include '../ec-component-icon/icon.html.twig' with _default_icon_structure -%}
+          {% endif %}
+          {% set _breadcrumb_segment_attributes = 'data-ecl-breadcrumb-item="expandable" aria-hidden="true"' %}
+        {% endif %}
+        <li class="{{ _breadcrumb_segment_class }}" {{ _breadcrumb_segment_attributes|raw }}>
+          {% include '../ec-component-link/link.html.twig' with {
+            link: {
+              type: 'standalone',
+              label: link.label,
+              path: link.path
+            },
+            extra_classes: 'ecl-breadcrumb__link'
+          } only %}
+          {% include '../ec-component-icon/icon.html.twig' with _default_icon_structure only %}
         </li>
-      {%- endif -%}
-
-    {%- endfor -%}
+      {% endif %}
+    {% endfor %}
   </ol>
 </nav>
+
 {% endspaceless %}
