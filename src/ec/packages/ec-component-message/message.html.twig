@@ -1,3 +1,4 @@
+{% spaceless %}
 {#
   Parameters:
   - "variant" (string) (default: ''): could be 'info, 'success', 'warning' or 'error'
@@ -41,12 +42,14 @@
 
 {# Print the result #}
 
-{% spaceless %}
 <div class="{{ _css_class }}" data-ecl-message role="alert"{{ _extra_attributes|raw }}>
-  {%- include '../ec-component-icon/icon.html.twig' with _icon|merge({extra_classes: 'ecl-message__icon'}) -%}
+  {% include '../ec-component-icon/icon.html.twig' with {
+    icon: _icon,
+    extra_classes: 'ecl-message__icon',
+  } only %}
 
   <div class="ecl-message__content">
-    {%- include '../ec-component-button/button.html.twig' with _close|merge({
+    {% include '../ec-component-button/button.html.twig' with _close|merge({
       type: 'button', 
       variant: 'ghost',
       extra_classes: 'ecl-message__close',
@@ -54,11 +57,10 @@
       extra_attributes: [{
         name: 'data-ecl-message-close',
       }],
-      })
-    -%}
+    }) only %}
 
-    <div class="ecl-message__title">{{title}}</div>
-    <p class="ecl-message__description">{{description}}</p>
+    <div class="ecl-message__title">{{ title }}</div>
+    <p class="ecl-message__description">{{ description }}</p>
   </div>
 </div>
 {% endspaceless %}
