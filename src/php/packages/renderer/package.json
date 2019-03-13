@@ -6,10 +6,10 @@
   "description": "ECL Twig - PHP Renderer",
   "private": true,
   "scripts": {
-    "clean": "rimraf ec",
-    "generate:ecData": "node ./scripts/data-gen.js",
-    "generate:ecHtml": "composer run render",
-    "render:ec": "npm run clean && npm run generate:ecData && npm run generate:ecHtml",
+    "clean": "rimraf ec eu",
+    "generate:data": "node ./scripts/data-gen.js",
+    "generate:html": "composer run render",
+    "render": "npm run generate:data && npm run generate:html",
     "install": "composer run setup"
   },
   "devDependencies": {

@@ -59,6 +59,8 @@ class EclTwigLoader extends FilesystemLoader {
    * {@inheritdoc}
    */
   protected function findTemplate($name, $throw = TRUE) {
+    $system = getenv('ECL_SYSTEM');
+
     // Handle relative paths.
     if (strpos($name, '../') !== FALSE) {
       $paths = explode(DIRECTORY_SEPARATOR, $name);
@@ -72,7 +74,8 @@ class EclTwigLoader extends FilesystemLoader {
 
     $component = $this->root .
       DIRECTORY_SEPARATOR .
-      'ec-component-' .
+      $system .
+      '-component-' .
       $component_name .
       DIRECTORY_SEPARATOR .
       $template;

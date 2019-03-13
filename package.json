@@ -17,7 +17,8 @@
     "publish-next": "lerna publish --npm-tag=next --bump=prerelease",
     "start:ec": "start-storybook -p 9001 -c src/ec/.storybook",
     "start:eu": "start-storybook -p 9001 -c src/eu/.storybook",
-    "render:ec": "npx lerna exec --scope @ecl-twig/php-renderer -- yarn run render:ec",
+    "render:clean": "npx lerna exec --scope @ecl-twig/php-renderer -- yarn run clean",
+    "render": "npx lerna exec --scope @ecl-twig/php-renderer -- yarn run render",
     "test": "npm run jest"
   },
   "devDependencies": {
