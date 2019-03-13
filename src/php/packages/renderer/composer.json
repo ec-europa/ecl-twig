@@ -18,5 +18,10 @@
   ],
   "license": "EUPL-1.1",
   "minimum-stability": "dev",
-  "prefer-stable": true
+  "prefer-stable": true,
+  "autoload": {
+    "psr-4": {
+      "EclTwig\\Twig\\": "src/"
+    }
+  }
 }

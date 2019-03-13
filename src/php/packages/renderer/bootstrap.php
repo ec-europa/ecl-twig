@@ -1,26 +1,23 @@
 <?php
 
 use Webmozart\PathUtil\Path;
+use EclTwig\Twig\Loader\EclTwigLoader;
 
 require_once __DIR__ . '/vendor/autoload.php';
 
-$components_paths = [];
+$paths = [];
 $twig_path = __DIR__ . '/../../../../node_modules/@ecl-twig';
+$twig_path_abs = Path::canonicalize($twig_path);
+$twig_packages = array_slice(scandir($twig_path_abs), 2);
 
-$twig_packages = array_slice(scandir(Path::canonicalize($twig_path)), 2);
-
-if (count($twig_packages)) {
-  $components_paths = array_map(
-    function ($package) {
-      return Path::canonicalize(
-        __DIR__ . '/../../../../node_modules/@ecl-twig/' . $package
-      );
-    },
-    $twig_packages
-  );
+foreach ($twig_packages as $package) {
+  // Take into account only EC system for the moment.
+  if (strpos($package, 'ec-') !== FALSE) {
+    array_push($paths, $twig_path_abs . DIRECTORY_SEPARATOR . $package);
+  }
 }
 
-$loader = new \Twig\Loader\FilesystemLoader($components_paths);
+$loader = new EclTwigLoader($paths, $twig_path_abs);
 
 $twig = new \Twig\Environment(
   $loader, ['debug' => TRUE, 'auto_reload' => TRUE]
