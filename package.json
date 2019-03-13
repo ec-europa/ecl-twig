@@ -17,6 +17,7 @@
     "publish-next": "lerna publish --npm-tag=next --bump=prerelease",
     "start:ec": "start-storybook -p 9001 -c src/ec/.storybook",
     "start:eu": "start-storybook -p 9001 -c src/eu/.storybook",
+    "render:ec": "npx lerna exec --scope @ecl-twig/php-renderer -- yarn run generate:ec",
     "test": "npm run jest"
   },
   "devDependencies": {
@@ -77,7 +78,8 @@
   },
   "workspaces": [
     "src/ec/packages/*",
-    "src/eu/packages/*"
+    "src/eu/packages/*",
+    "src/php/packages/*"
   ],
   "jest": {
     "verbose": true
