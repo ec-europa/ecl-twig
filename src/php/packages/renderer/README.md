@@ -27,12 +27,14 @@ export ECL_SYSTEM=ec
 Either way:
 
 ```shell
-$ yarn install
+$ yarn setup
 ```
 
 ```shell
-$ composer run install
+$ composer run setup
 ```
+
+Note that the `npm` scripts facilitate integration between tools in Node.js and PHP. Scripts naming may differ because of reserved keywords, such as `install` in composer, which is replaced by `setup`.
 
 ## Generate data
 
@@ -68,7 +70,3 @@ You can generate data and resulting HTML in a single operation:
 ```shell
 $ yarn render
 ```
-
-## Notes
-
-The `npm` scripts facilitate integration with Node-based tool-chain. Commands' name may differ because of reserved keywords, such as `install` in composer, which is replaced by `setup`.

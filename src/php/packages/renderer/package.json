@@ -10,7 +10,7 @@
     "generate:data": "node ./scripts/data-gen.js",
     "generate:html": "composer run render",
     "render": "npm run generate:data && npm run generate:html",
-    "install": "composer run setup"
+    "setup": "composer run setup"
   },
   "devDependencies": {
     "rimraf": "2.6.3"
