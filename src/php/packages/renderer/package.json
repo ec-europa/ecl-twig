@@ -9,7 +9,7 @@
     "clean": "rimraf ec",
     "generate:ecData": "node ./scripts/data-gen.js",
     "generate:ecHtml": "composer run render",
-    "generate:ec": "npm run clean && npm run generate:ecData && npm run generate:ecHtml",
+    "render:ec": "npm run clean && npm run generate:ecData && npm run generate:ecHtml",
     "install": "composer run setup"
   },
   "devDependencies": {

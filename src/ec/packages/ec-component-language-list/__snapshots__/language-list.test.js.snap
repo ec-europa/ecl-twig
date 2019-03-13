@@ -331,9 +331,1263 @@ exports[`EC - Language List Overlay renders correctly 1`] = `
 </div>
 `;
 
+exports[`EC - Language List Overlay renders correctly with extra attributes 1`] = `
+<div
+  class="ecl-language-list ecl-language-list--overlay"
+  data-test="data-test-value"
+  data-test-1="data-test-value-1"
+>
+  <div
+    class="ecl-language-list__container ecl-container"
+  >
+    <div
+      class="ecl-row"
+    >
+      <div
+        class="ecl-language-list__close ecl-col-12 ecl-col-lg-8 ecl-offset-lg-2"
+      >
+        <button
+          class="ecl-button ecl-button--ghost ecl-language-list__close-button"
+          type="submit"
+        >
+          <span
+            class="ecl-button__container"
+          >
+            <span
+              class="ecl-button__label"
+              data-ecl-label=""
+            >
+              Close
+            </span>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--s ecl-button__icon ecl-button__icon--after"
+              focusable="false"
+            >
+              <use
+                xlink:href="/static/icons.svg#ui--close"
+              />
+            </svg>
+          </span>
+        </button>
+      </div>
+      <div
+        class="ecl-language-list__title ecl-col-12 ecl-col-lg-8 ecl-offset-lg-2"
+      >
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--m ecl-language-list__title-icon"
+          focusable="false"
+        >
+          <use
+            xlink:href="/static/icons.svg#general--generic-lang"
+          />
+        </svg>
+        Select your language
+      </div>
+    </div>
+    <div
+      class="ecl-row"
+    >
+      <div
+        class="ecl-language-list__column ecl-col-12 ecl-col-lg-4 ecl-offset-lg-2"
+      >
+        <ul
+          class="ecl-language-list__list"
+        >
+          <li
+            class="ecl-language-list__item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-language-list__link"
+              href="/example#language_bg"
+            >
+              български
+            </a>
+          </li>
+          <li
+            class="ecl-language-list__item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-language-list__link"
+              href="/example#language_es"
+            >
+              español
+            </a>
+          </li>
+          <li
+            class="ecl-language-list__item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-language-list__link"
+              href="/example#language_cs"
+            >
+              čeština
+            </a>
+          </li>
+          <li
+            class="ecl-language-list__item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-language-list__link"
+              href="/example#language_da"
+            >
+              dansk
+            </a>
+          </li>
+          <li
+            class="ecl-language-list__item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-language-list__link"
+              href="/example#language_de"
+            >
+              Deutsch
+            </a>
+          </li>
+          <li
+            class="ecl-language-list__item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-language-list__link"
+              href="/example#language_et"
+            >
+              eesti
+            </a>
+          </li>
+          <li
+            class="ecl-language-list__item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-language-list__link"
+              href="/example#language_el"
+            >
+              ελληνικά
+            </a>
+          </li>
+          <li
+            class="ecl-language-list__item ecl-language-list__item--is-active"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-language-list__link"
+              href="/example#language_en"
+            >
+              <span
+                class="ecl-link__label"
+              >
+                English
+              </span>
+               
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--xs ecl-link__icon"
+                focusable="false"
+              >
+                <use
+                  xlink:href="/static/icons.svg#ui--check"
+                />
+              </svg>
+            </a>
+          </li>
+          <li
+            class="ecl-language-list__item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-language-list__link"
+              href="/example#language_fr"
+            >
+              français
+            </a>
+          </li>
+          <li
+            class="ecl-language-list__item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-language-list__link"
+              href="/example#language_ga"
+            >
+              Gaeilge
+            </a>
+          </li>
+          <li
+            class="ecl-language-list__item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-language-list__link"
+              href="/example#language_hr"
+            >
+              hrvatski
+            </a>
+          </li>
+          <li
+            class="ecl-language-list__item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-language-list__link"
+              href="/example#language_it"
+            >
+              italiano
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div
+        class="ecl-language-list__column ecl-col-12 ecl-col-lg-4"
+      >
+        <ul
+          class="ecl-language-list__list"
+        >
+          <li
+            class="ecl-language-list__item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-language-list__link"
+              href="/example#language_lv"
+            >
+              latviešu
+            </a>
+          </li>
+          <li
+            class="ecl-language-list__item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-language-list__link"
+              href="/example#language_lt"
+            >
+              lietuvių
+            </a>
+          </li>
+          <li
+            class="ecl-language-list__item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-language-list__link"
+              href="/example#language_hu"
+            >
+              magyar
+            </a>
+          </li>
+          <li
+            class="ecl-language-list__item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-language-list__link"
+              href="/example#language_mt"
+            >
+              Malti
+            </a>
+          </li>
+          <li
+            class="ecl-language-list__item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-language-list__link"
+              href="/example#language_nl"
+            >
+              Nederlands
+            </a>
+          </li>
+          <li
+            class="ecl-language-list__item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-language-list__link"
+              href="/example#language_pl"
+            >
+              polski
+            </a>
+          </li>
+          <li
+            class="ecl-language-list__item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-language-list__link"
+              href="/example#language_pt"
+            >
+              português
+            </a>
+          </li>
+          <li
+            class="ecl-language-list__item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-language-list__link"
+              href="/example#language_ro"
+            >
+              română
+            </a>
+          </li>
+          <li
+            class="ecl-language-list__item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-language-list__link"
+              href="/example#language_sk"
+            >
+              slovenčina
+            </a>
+          </li>
+          <li
+            class="ecl-language-list__item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-language-list__link"
+              href="/example#language_sl"
+            >
+              slovenščina
+            </a>
+          </li>
+          <li
+            class="ecl-language-list__item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-language-list__link"
+              href="/example#language_fi"
+            >
+              suomi
+            </a>
+          </li>
+          <li
+            class="ecl-language-list__item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-language-list__link"
+              href="/example#language_sv"
+            >
+              svenska
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`EC - Language List Overlay renders correctly with extra class names 1`] = `
+<div
+  class="ecl-language-list ecl-language-list--overlay custom-language-list custom-language-list--test"
+>
+  <div
+    class="ecl-language-list__container ecl-container"
+  >
+    <div
+      class="ecl-row"
+    >
+      <div
+        class="ecl-language-list__close ecl-col-12 ecl-col-lg-8 ecl-offset-lg-2"
+      >
+        <button
+          class="ecl-button ecl-button--ghost ecl-language-list__close-button"
+          type="submit"
+        >
+          <span
+            class="ecl-button__container"
+          >
+            <span
+              class="ecl-button__label"
+              data-ecl-label=""
+            >
+              Close
+            </span>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--s ecl-button__icon ecl-button__icon--after"
+              focusable="false"
+            >
+              <use
+                xlink:href="/static/icons.svg#ui--close"
+              />
+            </svg>
+          </span>
+        </button>
+      </div>
+      <div
+        class="ecl-language-list__title ecl-col-12 ecl-col-lg-8 ecl-offset-lg-2"
+      >
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--m ecl-language-list__title-icon"
+          focusable="false"
+        >
+          <use
+            xlink:href="/static/icons.svg#general--generic-lang"
+          />
+        </svg>
+        Select your language
+      </div>
+    </div>
+    <div
+      class="ecl-row"
+    >
+      <div
+        class="ecl-language-list__column ecl-col-12 ecl-col-lg-4 ecl-offset-lg-2"
+      >
+        <ul
+          class="ecl-language-list__list"
+        >
+          <li
+            class="ecl-language-list__item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-language-list__link"
+              href="/example#language_bg"
+            >
+              български
+            </a>
+          </li>
+          <li
+            class="ecl-language-list__item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-language-list__link"
+              href="/example#language_es"
+            >
+              español
+            </a>
+          </li>
+          <li
+            class="ecl-language-list__item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-language-list__link"
+              href="/example#language_cs"
+            >
+              čeština
+            </a>
+          </li>
+          <li
+            class="ecl-language-list__item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-language-list__link"
+              href="/example#language_da"
+            >
+              dansk
+            </a>
+          </li>
+          <li
+            class="ecl-language-list__item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-language-list__link"
+              href="/example#language_de"
+            >
+              Deutsch
+            </a>
+          </li>
+          <li
+            class="ecl-language-list__item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-language-list__link"
+              href="/example#language_et"
+            >
+              eesti
+            </a>
+          </li>
+          <li
+            class="ecl-language-list__item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-language-list__link"
+              href="/example#language_el"
+            >
+              ελληνικά
+            </a>
+          </li>
+          <li
+            class="ecl-language-list__item ecl-language-list__item--is-active"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-language-list__link"
+              href="/example#language_en"
+            >
+              <span
+                class="ecl-link__label"
+              >
+                English
+              </span>
+               
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--xs ecl-link__icon"
+                focusable="false"
+              >
+                <use
+                  xlink:href="/static/icons.svg#ui--check"
+                />
+              </svg>
+            </a>
+          </li>
+          <li
+            class="ecl-language-list__item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-language-list__link"
+              href="/example#language_fr"
+            >
+              français
+            </a>
+          </li>
+          <li
+            class="ecl-language-list__item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-language-list__link"
+              href="/example#language_ga"
+            >
+              Gaeilge
+            </a>
+          </li>
+          <li
+            class="ecl-language-list__item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-language-list__link"
+              href="/example#language_hr"
+            >
+              hrvatski
+            </a>
+          </li>
+          <li
+            class="ecl-language-list__item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-language-list__link"
+              href="/example#language_it"
+            >
+              italiano
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div
+        class="ecl-language-list__column ecl-col-12 ecl-col-lg-4"
+      >
+        <ul
+          class="ecl-language-list__list"
+        >
+          <li
+            class="ecl-language-list__item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-language-list__link"
+              href="/example#language_lv"
+            >
+              latviešu
+            </a>
+          </li>
+          <li
+            class="ecl-language-list__item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-language-list__link"
+              href="/example#language_lt"
+            >
+              lietuvių
+            </a>
+          </li>
+          <li
+            class="ecl-language-list__item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-language-list__link"
+              href="/example#language_hu"
+            >
+              magyar
+            </a>
+          </li>
+          <li
+            class="ecl-language-list__item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-language-list__link"
+              href="/example#language_mt"
+            >
+              Malti
+            </a>
+          </li>
+          <li
+            class="ecl-language-list__item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-language-list__link"
+              href="/example#language_nl"
+            >
+              Nederlands
+            </a>
+          </li>
+          <li
+            class="ecl-language-list__item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-language-list__link"
+              href="/example#language_pl"
+            >
+              polski
+            </a>
+          </li>
+          <li
+            class="ecl-language-list__item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-language-list__link"
+              href="/example#language_pt"
+            >
+              português
+            </a>
+          </li>
+          <li
+            class="ecl-language-list__item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-language-list__link"
+              href="/example#language_ro"
+            >
+              română
+            </a>
+          </li>
+          <li
+            class="ecl-language-list__item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-language-list__link"
+              href="/example#language_sk"
+            >
+              slovenčina
+            </a>
+          </li>
+          <li
+            class="ecl-language-list__item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-language-list__link"
+              href="/example#language_sl"
+            >
+              slovenščina
+            </a>
+          </li>
+          <li
+            class="ecl-language-list__item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-language-list__link"
+              href="/example#language_fi"
+            >
+              suomi
+            </a>
+          </li>
+          <li
+            class="ecl-language-list__item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-language-list__link"
+              href="/example#language_sv"
+            >
+              svenska
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`EC - Language List Splash renders correctly 1`] = `
 <div
   class="ecl-language-list ecl-language-list--splash"
+>
+  <header
+    class="ecl-language-list__header"
+  >
+    <img
+      alt="European Commission logo"
+      class="ecl-language-list__logo"
+      src="/static/logo--mute.svg"
+    />
+  </header>
+  <div
+    class="ecl-language-list__container ecl-container"
+  >
+    <div
+      class="ecl-row"
+    >
+      <div
+        class="ecl-language-list__column ecl-col-12 ecl-col-lg-4 ecl-offset-lg-2"
+      >
+        <ul
+          class="ecl-language-list__list"
+        >
+          <li
+            class="ecl-language-list__item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-language-list__link"
+              href="/example#language_bg"
+            >
+              български
+            </a>
+          </li>
+          <li
+            class="ecl-language-list__item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-language-list__link"
+              href="/example#language_es"
+            >
+              español
+            </a>
+          </li>
+          <li
+            class="ecl-language-list__item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-language-list__link"
+              href="/example#language_cs"
+            >
+              čeština
+            </a>
+          </li>
+          <li
+            class="ecl-language-list__item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-language-list__link"
+              href="/example#language_da"
+            >
+              dansk
+            </a>
+          </li>
+          <li
+            class="ecl-language-list__item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-language-list__link"
+              href="/example#language_de"
+            >
+              Deutsch
+            </a>
+          </li>
+          <li
+            class="ecl-language-list__item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-language-list__link"
+              href="/example#language_et"
+            >
+              eesti
+            </a>
+          </li>
+          <li
+            class="ecl-language-list__item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-language-list__link"
+              href="/example#language_el"
+            >
+              ελληνικά
+            </a>
+          </li>
+          <li
+            class="ecl-language-list__item ecl-language-list__item--is-active"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-language-list__link"
+              href="/example#language_en"
+            >
+              <span
+                class="ecl-link__label"
+              >
+                English
+              </span>
+               
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--xs ecl-link__icon"
+                focusable="false"
+              >
+                <use
+                  xlink:href="/static/icons.svg#ui--check"
+                />
+              </svg>
+            </a>
+          </li>
+          <li
+            class="ecl-language-list__item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-language-list__link"
+              href="/example#language_fr"
+            >
+              français
+            </a>
+          </li>
+          <li
+            class="ecl-language-list__item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-language-list__link"
+              href="/example#language_ga"
+            >
+              Gaeilge
+            </a>
+          </li>
+          <li
+            class="ecl-language-list__item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-language-list__link"
+              href="/example#language_hr"
+            >
+              hrvatski
+            </a>
+          </li>
+          <li
+            class="ecl-language-list__item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-language-list__link"
+              href="/example#language_it"
+            >
+              italiano
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div
+        class="ecl-language-list__column ecl-col-12 ecl-col-lg-4"
+      >
+        <ul
+          class="ecl-language-list__list"
+        >
+          <li
+            class="ecl-language-list__item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-language-list__link"
+              href="/example#language_lv"
+            >
+              latviešu
+            </a>
+          </li>
+          <li
+            class="ecl-language-list__item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-language-list__link"
+              href="/example#language_lt"
+            >
+              lietuvių
+            </a>
+          </li>
+          <li
+            class="ecl-language-list__item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-language-list__link"
+              href="/example#language_hu"
+            >
+              magyar
+            </a>
+          </li>
+          <li
+            class="ecl-language-list__item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-language-list__link"
+              href="/example#language_mt"
+            >
+              Malti
+            </a>
+          </li>
+          <li
+            class="ecl-language-list__item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-language-list__link"
+              href="/example#language_nl"
+            >
+              Nederlands
+            </a>
+          </li>
+          <li
+            class="ecl-language-list__item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-language-list__link"
+              href="/example#language_pl"
+            >
+              polski
+            </a>
+          </li>
+          <li
+            class="ecl-language-list__item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-language-list__link"
+              href="/example#language_pt"
+            >
+              português
+            </a>
+          </li>
+          <li
+            class="ecl-language-list__item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-language-list__link"
+              href="/example#language_ro"
+            >
+              română
+            </a>
+          </li>
+          <li
+            class="ecl-language-list__item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-language-list__link"
+              href="/example#language_sk"
+            >
+              slovenčina
+            </a>
+          </li>
+          <li
+            class="ecl-language-list__item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-language-list__link"
+              href="/example#language_sl"
+            >
+              slovenščina
+            </a>
+          </li>
+          <li
+            class="ecl-language-list__item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-language-list__link"
+              href="/example#language_fi"
+            >
+              suomi
+            </a>
+          </li>
+          <li
+            class="ecl-language-list__item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-language-list__link"
+              href="/example#language_sv"
+            >
+              svenska
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`EC - Language List Splash renders correctly with extra attributes 1`] = `
+<div
+  class="ecl-language-list ecl-language-list--splash"
+  data-test="data-test-value"
+  data-test-1="data-test-value-1"
+>
+  <header
+    class="ecl-language-list__header"
+  >
+    <img
+      alt="European Commission logo"
+      class="ecl-language-list__logo"
+      src="/static/logo--mute.svg"
+    />
+  </header>
+  <div
+    class="ecl-language-list__container ecl-container"
+  >
+    <div
+      class="ecl-row"
+    >
+      <div
+        class="ecl-language-list__column ecl-col-12 ecl-col-lg-4 ecl-offset-lg-2"
+      >
+        <ul
+          class="ecl-language-list__list"
+        >
+          <li
+            class="ecl-language-list__item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-language-list__link"
+              href="/example#language_bg"
+            >
+              български
+            </a>
+          </li>
+          <li
+            class="ecl-language-list__item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-language-list__link"
+              href="/example#language_es"
+            >
+              español
+            </a>
+          </li>
+          <li
+            class="ecl-language-list__item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-language-list__link"
+              href="/example#language_cs"
+            >
+              čeština
+            </a>
+          </li>
+          <li
+            class="ecl-language-list__item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-language-list__link"
+              href="/example#language_da"
+            >
+              dansk
+            </a>
+          </li>
+          <li
+            class="ecl-language-list__item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-language-list__link"
+              href="/example#language_de"
+            >
+              Deutsch
+            </a>
+          </li>
+          <li
+            class="ecl-language-list__item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-language-list__link"
+              href="/example#language_et"
+            >
+              eesti
+            </a>
+          </li>
+          <li
+            class="ecl-language-list__item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-language-list__link"
+              href="/example#language_el"
+            >
+              ελληνικά
+            </a>
+          </li>
+          <li
+            class="ecl-language-list__item ecl-language-list__item--is-active"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-language-list__link"
+              href="/example#language_en"
+            >
+              <span
+                class="ecl-link__label"
+              >
+                English
+              </span>
+               
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--xs ecl-link__icon"
+                focusable="false"
+              >
+                <use
+                  xlink:href="/static/icons.svg#ui--check"
+                />
+              </svg>
+            </a>
+          </li>
+          <li
+            class="ecl-language-list__item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-language-list__link"
+              href="/example#language_fr"
+            >
+              français
+            </a>
+          </li>
+          <li
+            class="ecl-language-list__item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-language-list__link"
+              href="/example#language_ga"
+            >
+              Gaeilge
+            </a>
+          </li>
+          <li
+            class="ecl-language-list__item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-language-list__link"
+              href="/example#language_hr"
+            >
+              hrvatski
+            </a>
+          </li>
+          <li
+            class="ecl-language-list__item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-language-list__link"
+              href="/example#language_it"
+            >
+              italiano
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div
+        class="ecl-language-list__column ecl-col-12 ecl-col-lg-4"
+      >
+        <ul
+          class="ecl-language-list__list"
+        >
+          <li
+            class="ecl-language-list__item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-language-list__link"
+              href="/example#language_lv"
+            >
+              latviešu
+            </a>
+          </li>
+          <li
+            class="ecl-language-list__item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-language-list__link"
+              href="/example#language_lt"
+            >
+              lietuvių
+            </a>
+          </li>
+          <li
+            class="ecl-language-list__item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-language-list__link"
+              href="/example#language_hu"
+            >
+              magyar
+            </a>
+          </li>
+          <li
+            class="ecl-language-list__item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-language-list__link"
+              href="/example#language_mt"
+            >
+              Malti
+            </a>
+          </li>
+          <li
+            class="ecl-language-list__item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-language-list__link"
+              href="/example#language_nl"
+            >
+              Nederlands
+            </a>
+          </li>
+          <li
+            class="ecl-language-list__item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-language-list__link"
+              href="/example#language_pl"
+            >
+              polski
+            </a>
+          </li>
+          <li
+            class="ecl-language-list__item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-language-list__link"
+              href="/example#language_pt"
+            >
+              português
+            </a>
+          </li>
+          <li
+            class="ecl-language-list__item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-language-list__link"
+              href="/example#language_ro"
+            >
+              română
+            </a>
+          </li>
+          <li
+            class="ecl-language-list__item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-language-list__link"
+              href="/example#language_sk"
+            >
+              slovenčina
+            </a>
+          </li>
+          <li
+            class="ecl-language-list__item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-language-list__link"
+              href="/example#language_sl"
+            >
+              slovenščina
+            </a>
+          </li>
+          <li
+            class="ecl-language-list__item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-language-list__link"
+              href="/example#language_fi"
+            >
+              suomi
+            </a>
+          </li>
+          <li
+            class="ecl-language-list__item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-language-list__link"
+              href="/example#language_sv"
+            >
+              svenska
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`EC - Language List Splash renders correctly with extra class names 1`] = `
+<div
+  class="ecl-language-list ecl-language-list--splash custom-language-list custom-language-list--test"
 >
   <header
     class="ecl-language-list__header"

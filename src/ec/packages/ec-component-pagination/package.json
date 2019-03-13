@@ -1,9 +1,17 @@
 {
-  "name": "@ecl-twig/eu-components",
+  "name": "@ecl-twig/ec-component-pagination",
   "author": "European Commission",
   "license": "EUPL-1.1",
   "version": "0.0.1-alpha",
-  "description": "ECL Twig - EU Components",
+  "description": "ECL Twig - EC Pagination",
+  "dependencies": {
+    "@ecl-twig/ec-component-link": "^0.0.1-alpha"
+  },
+  "devDependencies": {
+    "@ecl/ec-component-pagination": "^2.1.1",
+    "@ecl/ec-resources-icons": "^2.1.1",
+    "@ecl/ec-specs-pagination": "^2.1.1"
+  },
   "publishConfig": {
     "access": "public"
   },

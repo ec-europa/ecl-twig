@@ -58,7 +58,7 @@ $ composer run render
 You can generate data and resulting HTML in a single operation:
 
 ```shell
-$ yarn generate:ec
+$ yarn render:ec
 ```
 
 ## Notes

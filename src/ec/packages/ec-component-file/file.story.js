@@ -35,7 +35,7 @@ storiesOf('Components/File', module)
 
       const htmlElement = document.createElement('div');
       htmlElement.innerHTML = html.trim();
-      demo.append(htmlElement.firstChild);
+      demo.appendChild(htmlElement.firstChild);
 
       const scriptElement = document.createElement('script');
       scriptElement.innerHTML = `
@@ -43,7 +43,7 @@ storiesOf('Components/File', module)
       var file = new ECL.FileDownload(fileElement);
       file.init();
       `;
-      demo.append(scriptElement);
+      demo.appendChild(scriptElement);
 
       return demo;
     },
