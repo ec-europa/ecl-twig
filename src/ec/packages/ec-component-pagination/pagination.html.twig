@@ -1,0 +1,75 @@
+{% spaceless %}
+
+{#
+  Parameters:
+  - "label" (string) (default: ''): for screen reader
+  - "items" (array) (default: []):
+    - "type" (string) (default: ''): could be 'previous', 'current' or 'next'
+    - "label" (string) (default: ''): label used when the item is not a link
+    - "aria_label" (string) (default: '')
+    - "link" (object) (default: ''): object of type Link
+  - "extra_classes" (optional) (string) (default: '')
+  - "extra_attributes" (optional) (array) (default: [])
+    - "name" (string) Attribute name, eg. 'data-test'
+    - "value" (string) Attribute value, eg: 'data-test-1'
+#}
+
+{# Internal properties #}
+
+{% set _label = label|default('') %}
+{% set _items = items|default([]) %}
+
+{% set _css_class = 'ecl-pagination' %}
+{% set _extra_attributes = '' %}
+
+{# Internal logic - Process properties #}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+
+<nav class="{{ _css_class }}"{{ _extra_attributes|raw }} aria-label="{{ _label }}">
+  <ul class="ecl-pagination__list">
+    {% for _item in _items %}
+      <li class="ecl-pagination__item{{ _item.type ? ' ecl-pagination__item--' ~ _item.type }}">
+        {% if _item.link is not empty %}
+
+          {% include '../ec-component-link/link.html.twig' with _item.link|merge({
+            link: _item.link.link|merge({
+              type: 'standalone',
+            }),
+            extra_classes: "ecl-pagination__link",
+            extra_attributes: [{ name: "aria-label", value: _item.aria_label }],
+          }) only %}
+
+        {% else %}
+
+          <span 
+            class="ecl-pagination__text ecl-pagination__text--summary"
+            aria-label="{{ _item.aria_label }}"
+            {{ _item.type == 'current' ? 'aria-current="true"' }}
+          >
+            {{- _item.label -}}
+          </span>
+          <span
+            class="ecl-pagination__text ecl-pagination__text--full"
+            {{ _item.type == 'current' ? 'aria-current="true"' }}
+          >
+            {{- _item.aria_label -}}
+          </span>
+
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+</nav>
+
+{% endspaceless %}
