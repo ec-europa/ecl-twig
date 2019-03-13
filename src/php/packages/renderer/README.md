@@ -14,6 +14,14 @@ Files overview:
 - `bootstrap.php`: instantiates `$twig`
 - `render.php`: uses `$twig` and renders templates
 
+## Settings
+
+Please select the ECL system you want to work with:
+
+```bash
+export ECL_SYSTEM=ec
+```
+
 ## Installation
 
 Either way:
@@ -36,7 +44,7 @@ In order for twig templates to render properly, they need proper data input. Thi
 To generate these, run the following:
 
 ```shell
-$ yarn generate:ecData
+$ yarn generate:data
 ```
 
 This will iterate through all components listed in `@ecl-twig/ec-components` and will create folders for their corresponding targets. Then it will create `data.json` file for each component, which can later be used by the renderer.
@@ -46,7 +54,7 @@ This will iterate through all components listed in `@ecl-twig/ec-components` and
 Either way:
 
 ```shell
-$ yarn generate:ecHtml
+$ yarn generate:html
 ```
 
 ```shell
@@ -58,7 +66,7 @@ $ composer run render
 You can generate data and resulting HTML in a single operation:
 
 ```shell
-$ yarn render:ec
+$ yarn render
 ```
 
 ## Notes

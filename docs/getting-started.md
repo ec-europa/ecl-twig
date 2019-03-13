@@ -85,7 +85,9 @@ npx serve build
 
 ## PHP Twig
 
-If you want test components with PHP rendering, please refer ensure you have the required dependencies to work also with the PHP tool-chain, i.e. Composer. (described in the `README.md` of `@ecl-twig/php-renderer`)
+If you want test components with PHP rendering, please ensure that you have the required dependencies to work also with the PHP tool-chain, i.e. Composer.
+
+Details are included in the `README.md` of `@ecl-twig/php-renderer`.
 
 Before you run scripts related to the PHP tool-chain, please select the ECL system you want to work with:
 
