@@ -97,13 +97,19 @@ export ECL_SYSTEM=ec
 
 The following commands are available from the project root:
 
+Get dependencies.
+
+```bash
+yarn render:setup
+```
+
 Remove files and folders from previous builds.
 
 ```bash
 yarn render:clean
 ```
 
-Generate data and HTML markup based on PHP Twig renderer.
+Generate data and HTML based on PHP Twig renderer.
 
 ```bash
 yarn render
