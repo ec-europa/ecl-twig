@@ -6,10 +6,6 @@ exports[`EC - Link Default renders correctly 1`] = `
   href="/path"
 >
   
-  
-    
-    
-    
   Default link
 </a>
 `;
@@ -20,10 +16,6 @@ exports[`EC - Link Standalone renders correctly 1`] = `
   href="/path"
 >
   
-  
-    
-    
-    
   Standalone link
 </a>
 `;
@@ -38,8 +30,6 @@ exports[`EC - Link With icon after renders correctly 1`] = `
   >
     Standalone link with icon
   </span>
-  
-    
    
   <svg
     aria-hidden="true"
@@ -65,8 +55,6 @@ exports[`EC - Link With icon after renders correctly with extra attributes 1`] =
   >
     Standalone link with icon
   </span>
-  
-    
    
   <svg
     aria-hidden="true"
@@ -90,8 +78,6 @@ exports[`EC - Link With icon after renders correctly with extra class names 1`] 
   >
     Standalone link with icon
   </span>
-  
-    
    
   <svg
     aria-hidden="true"
@@ -119,8 +105,7 @@ exports[`EC - Link With icon before renders correctly 1`] = `
       xlink:href="static/icons.svg#ui--external"
     />
   </svg>
-     
-      
+   
   <span
     class="ecl-link__label"
   >
@@ -139,9 +124,7 @@ exports[`EC - Link With two icons after renders correctly 1`] = `
   >
     Standalone link with icon
   </span>
-  
-    
-               
+   
   <svg
     aria-hidden="true"
     class="ecl-icon ecl-icon--fluid ecl-link__icon"
@@ -173,9 +156,7 @@ exports[`EC - Link With two icons after renders correctly with extra class names
   >
     Standalone link with icon
   </span>
-  
-    
-               
+   
   <svg
     aria-hidden="true"
     class="ecl-icon ecl-icon--fluid ecl-link__icon"
@@ -220,8 +201,7 @@ exports[`EC - Link With two icons before renders correctly 1`] = `
       xlink:href="static/icons.svg#ui--download"
     />
   </svg>
-         
-      
+   
   <span
     class="ecl-link__label"
   >
@@ -253,8 +233,7 @@ exports[`EC - Link With two icons before renders correctly with extra class name
       xlink:href="static/icons.svg#ui--download"
     />
   </svg>
-         
-      
+   
   <span
     class="ecl-link__label"
   >
