@@ -71,7 +71,6 @@
 {# Print the result #}
 
 <a href="{{ _link.path }}" class="{{ _css_class }}"{{ _extra_attributes|raw }}>
-  {# Icon(s) before #}
   {%- if _icons is defined and _link.icon_position == 'before' -%}
     {%- for icon in _icons -%}
       {%- if icon.extra_classes is defined and icon.extra_classes is not empty -%}
@@ -91,11 +90,9 @@
       }) only %}
     {{- '&nbsp;' -}}
   {%- endif -%}
-  {# Icon(s) #}
   {%- if _icons is defined or (_icon.name is defined and _icon.name is not empty) -%}
     <span class="ecl-link__label">{{ _link.label }}</span>
   {%- endif -%}
-  {# Icon(s) after #}
   {%- if _icons is defined and _link.icon_position == 'after' -%}
     {{- '&nbsp;' -}}
     {%- for _icon in _icons -%}
@@ -114,7 +111,6 @@
         extra_classes: icon_extra_classes
     }) only -%}
   {%- endif -%}
-  {# No icon(s) #}
   {%- if _icons is not defined and _icon.name is empty -%}
     {{- _link.label -}}
   {%- endif -%}
