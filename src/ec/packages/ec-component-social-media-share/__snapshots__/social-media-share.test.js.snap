@@ -1,5 +1,409 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`EC - Social Media Share Default renders correctly with extra attributes 1`] = `
+<div
+  class="ecl-social-media-share"
+  data-test="data-test-value"
+  data-test-1="data-test-value-1"
+>
+  <p
+    class="ecl-social-media-share__description"
+  >
+    Share this page
+  </p>
+  <ul
+    class="ecl-social-media-share__list"
+  >
+    <li
+      class="ecl-social-media-share__item"
+    >
+      <a
+        class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-before ecl-social-media-share__link ecl-social-media-share__link--twitter"
+        href="/example"
+      >
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--xl ecl-social-media-share__icon ecl-link__icon"
+          focusable="false"
+        >
+          <use
+            xlink:href="example#twitter"
+          />
+        </svg>
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--xl ecl-social-media-share__icon-hover ecl-social-media-share__icon ecl-link__icon"
+          focusable="false"
+        >
+          <use
+            xlink:href="example#twitter_hover"
+          />
+        </svg>
+               
+      
+        <span
+          class="ecl-link__label"
+        >
+          Twitter
+        </span>
+      </a>
+    </li>
+    <li
+      class="ecl-social-media-share__item"
+    >
+      <a
+        class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-before ecl-social-media-share__link ecl-social-media-share__link--facebook"
+        href="/example"
+      >
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--xl ecl-social-media-share__icon ecl-link__icon"
+          focusable="false"
+        >
+          <use
+            xlink:href="example#facebook"
+          />
+        </svg>
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--xl ecl-social-media-share__icon-hover ecl-social-media-share__icon ecl-link__icon"
+          focusable="false"
+        >
+          <use
+            xlink:href="example#facebook_hover"
+          />
+        </svg>
+               
+      
+        <span
+          class="ecl-link__label"
+        >
+          Facebook
+        </span>
+      </a>
+    </li>
+    <li
+      class="ecl-social-media-share__item"
+    >
+      <a
+        class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-before ecl-social-media-share__link ecl-social-media-share__link--linkedin"
+        href="/example"
+      >
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--xl ecl-social-media-share__icon ecl-link__icon"
+          focusable="false"
+        >
+          <use
+            xlink:href="example#linkedin"
+          />
+        </svg>
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--xl ecl-social-media-share__icon-hover ecl-social-media-share__icon ecl-link__icon"
+          focusable="false"
+        >
+          <use
+            xlink:href="example#linkedin_hover"
+          />
+        </svg>
+               
+      
+        <span
+          class="ecl-link__label"
+        >
+          Linkedin
+        </span>
+      </a>
+    </li>
+    <li
+      class="ecl-social-media-share__item"
+    >
+      <a
+        class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-before ecl-social-media-share__link ecl-social-media-share__link--google"
+        href="/example"
+      >
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--xl ecl-social-media-share__icon ecl-link__icon"
+          focusable="false"
+        >
+          <use
+            xlink:href="example#gplus"
+          />
+        </svg>
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--xl ecl-social-media-share__icon-hover ecl-social-media-share__icon ecl-link__icon"
+          focusable="false"
+        >
+          <use
+            xlink:href="example#gplus_hover"
+          />
+        </svg>
+               
+      
+        <span
+          class="ecl-link__label"
+        >
+          Google+
+        </span>
+      </a>
+    </li>
+    <li
+      class="ecl-social-media-share__item"
+    >
+      <a
+        class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-before ecl-social-media-share__link ecl-social-media-share__link--email"
+        href="/example"
+      >
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--xl ecl-social-media-share__icon ecl-link__icon"
+          focusable="false"
+        >
+          <use
+            xlink:href="example#email"
+          />
+        </svg>
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--xl ecl-social-media-share__icon-hover ecl-social-media-share__icon ecl-link__icon"
+          focusable="false"
+        >
+          <use
+            xlink:href="example#email_hover"
+          />
+        </svg>
+               
+      
+        <span
+          class="ecl-link__label"
+        >
+          E-mail
+        </span>
+      </a>
+    </li>
+    <li
+      class="ecl-social-media-share__item"
+    >
+      <a
+        class="ecl-link ecl-link--standalone ecl-social-media-share__link"
+        href="/example"
+      >
+        
+  
+    
+    
+    
+  Other social networks
+      </a>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`EC - Social Media Share Default renders correctly with extra class names 1`] = `
+<div
+  class="ecl-social-media-share custom-social-media-share custom-social-media-share--test"
+>
+  <p
+    class="ecl-social-media-share__description"
+  >
+    Share this page
+  </p>
+  <ul
+    class="ecl-social-media-share__list"
+  >
+    <li
+      class="ecl-social-media-share__item"
+    >
+      <a
+        class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-before ecl-social-media-share__link ecl-social-media-share__link--twitter"
+        href="/example"
+      >
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--xl ecl-social-media-share__icon ecl-link__icon"
+          focusable="false"
+        >
+          <use
+            xlink:href="example#twitter"
+          />
+        </svg>
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--xl ecl-social-media-share__icon-hover ecl-social-media-share__icon ecl-link__icon"
+          focusable="false"
+        >
+          <use
+            xlink:href="example#twitter_hover"
+          />
+        </svg>
+               
+      
+        <span
+          class="ecl-link__label"
+        >
+          Twitter
+        </span>
+      </a>
+    </li>
+    <li
+      class="ecl-social-media-share__item"
+    >
+      <a
+        class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-before ecl-social-media-share__link ecl-social-media-share__link--facebook"
+        href="/example"
+      >
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--xl ecl-social-media-share__icon ecl-link__icon"
+          focusable="false"
+        >
+          <use
+            xlink:href="example#facebook"
+          />
+        </svg>
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--xl ecl-social-media-share__icon-hover ecl-social-media-share__icon ecl-link__icon"
+          focusable="false"
+        >
+          <use
+            xlink:href="example#facebook_hover"
+          />
+        </svg>
+               
+      
+        <span
+          class="ecl-link__label"
+        >
+          Facebook
+        </span>
+      </a>
+    </li>
+    <li
+      class="ecl-social-media-share__item"
+    >
+      <a
+        class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-before ecl-social-media-share__link ecl-social-media-share__link--linkedin"
+        href="/example"
+      >
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--xl ecl-social-media-share__icon ecl-link__icon"
+          focusable="false"
+        >
+          <use
+            xlink:href="example#linkedin"
+          />
+        </svg>
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--xl ecl-social-media-share__icon-hover ecl-social-media-share__icon ecl-link__icon"
+          focusable="false"
+        >
+          <use
+            xlink:href="example#linkedin_hover"
+          />
+        </svg>
+               
+      
+        <span
+          class="ecl-link__label"
+        >
+          Linkedin
+        </span>
+      </a>
+    </li>
+    <li
+      class="ecl-social-media-share__item"
+    >
+      <a
+        class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-before ecl-social-media-share__link ecl-social-media-share__link--google"
+        href="/example"
+      >
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--xl ecl-social-media-share__icon ecl-link__icon"
+          focusable="false"
+        >
+          <use
+            xlink:href="example#gplus"
+          />
+        </svg>
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--xl ecl-social-media-share__icon-hover ecl-social-media-share__icon ecl-link__icon"
+          focusable="false"
+        >
+          <use
+            xlink:href="example#gplus_hover"
+          />
+        </svg>
+               
+      
+        <span
+          class="ecl-link__label"
+        >
+          Google+
+        </span>
+      </a>
+    </li>
+    <li
+      class="ecl-social-media-share__item"
+    >
+      <a
+        class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-before ecl-social-media-share__link ecl-social-media-share__link--email"
+        href="/example"
+      >
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--xl ecl-social-media-share__icon ecl-link__icon"
+          focusable="false"
+        >
+          <use
+            xlink:href="example#email"
+          />
+        </svg>
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--xl ecl-social-media-share__icon-hover ecl-social-media-share__icon ecl-link__icon"
+          focusable="false"
+        >
+          <use
+            xlink:href="example#email_hover"
+          />
+        </svg>
+               
+      
+        <span
+          class="ecl-link__label"
+        >
+          E-mail
+        </span>
+      </a>
+    </li>
+    <li
+      class="ecl-social-media-share__item"
+    >
+      <a
+        class="ecl-link ecl-link--standalone ecl-social-media-share__link"
+        href="/example"
+      >
+        
+  
+    
+    
+    
+  Other social networks
+      </a>
+    </li>
+  </ul>
+</div>
+`;
+
 exports[`EC - Social Media Share Default view renders correctly 1`] = `
 <div
   class="ecl-social-media-share"
@@ -16,12 +420,12 @@ exports[`EC - Social Media Share Default view renders correctly 1`] = `
       class="ecl-social-media-share__item"
     >
       <a
-        class="ecl-social-media-share__link ecl-link ecl-link--standalone ecl-social-media-share__link--twitter ecl-link--icon ecl-link--icon-before"
+        class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-before ecl-social-media-share__link ecl-social-media-share__link--twitter"
         href="/example"
       >
         <svg
           aria-hidden="true"
-          class="ecl-link__icon ecl-icon ecl-icon--xl ecl-social-media-share__icon"
+          class="ecl-icon ecl-icon--xl ecl-social-media-share__icon ecl-link__icon"
           focusable="false"
         >
           <use
@@ -30,14 +434,15 @@ exports[`EC - Social Media Share Default view renders correctly 1`] = `
         </svg>
         <svg
           aria-hidden="true"
-          class="ecl-link__icon ecl-icon ecl-icon--xl ecl-social-media-share__icon-hover"
+          class="ecl-icon ecl-icon--xl ecl-social-media-share__icon-hover ecl-social-media-share__icon ecl-link__icon"
           focusable="false"
         >
           <use
             xlink:href="example#twitter_hover"
           />
         </svg>
-         
+               
+      
         <span
           class="ecl-link__label"
         >
@@ -49,12 +454,12 @@ exports[`EC - Social Media Share Default view renders correctly 1`] = `
       class="ecl-social-media-share__item"
     >
       <a
-        class="ecl-social-media-share__link ecl-link ecl-link--standalone ecl-social-media-share__link--facebook ecl-link--icon ecl-link--icon-before"
+        class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-before ecl-social-media-share__link ecl-social-media-share__link--facebook"
         href="/example"
       >
         <svg
           aria-hidden="true"
-          class="ecl-link__icon ecl-icon ecl-icon--xl ecl-social-media-share__icon"
+          class="ecl-icon ecl-icon--xl ecl-social-media-share__icon ecl-link__icon"
           focusable="false"
         >
           <use
@@ -63,14 +468,15 @@ exports[`EC - Social Media Share Default view renders correctly 1`] = `
         </svg>
         <svg
           aria-hidden="true"
-          class="ecl-link__icon ecl-icon ecl-icon--xl ecl-social-media-share__icon-hover"
+          class="ecl-icon ecl-icon--xl ecl-social-media-share__icon-hover ecl-social-media-share__icon ecl-link__icon"
           focusable="false"
         >
           <use
             xlink:href="example#facebook_hover"
           />
         </svg>
-         
+               
+      
         <span
           class="ecl-link__label"
         >
@@ -82,12 +488,12 @@ exports[`EC - Social Media Share Default view renders correctly 1`] = `
       class="ecl-social-media-share__item"
     >
       <a
-        class="ecl-social-media-share__link ecl-link ecl-link--standalone ecl-social-media-share__link--linkedin ecl-link--icon ecl-link--icon-before"
+        class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-before ecl-social-media-share__link ecl-social-media-share__link--linkedin"
         href="/example"
       >
         <svg
           aria-hidden="true"
-          class="ecl-link__icon ecl-icon ecl-icon--xl ecl-social-media-share__icon"
+          class="ecl-icon ecl-icon--xl ecl-social-media-share__icon ecl-link__icon"
           focusable="false"
         >
           <use
@@ -96,14 +502,15 @@ exports[`EC - Social Media Share Default view renders correctly 1`] = `
         </svg>
         <svg
           aria-hidden="true"
-          class="ecl-link__icon ecl-icon ecl-icon--xl ecl-social-media-share__icon-hover"
+          class="ecl-icon ecl-icon--xl ecl-social-media-share__icon-hover ecl-social-media-share__icon ecl-link__icon"
           focusable="false"
         >
           <use
             xlink:href="example#linkedin_hover"
           />
         </svg>
-         
+               
+      
         <span
           class="ecl-link__label"
         >
@@ -115,12 +522,12 @@ exports[`EC - Social Media Share Default view renders correctly 1`] = `
       class="ecl-social-media-share__item"
     >
       <a
-        class="ecl-social-media-share__link ecl-link ecl-link--standalone ecl-social-media-share__link--google ecl-link--icon ecl-link--icon-before"
+        class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-before ecl-social-media-share__link ecl-social-media-share__link--google"
         href="/example"
       >
         <svg
           aria-hidden="true"
-          class="ecl-link__icon ecl-icon ecl-icon--xl ecl-social-media-share__icon"
+          class="ecl-icon ecl-icon--xl ecl-social-media-share__icon ecl-link__icon"
           focusable="false"
         >
           <use
@@ -129,14 +536,15 @@ exports[`EC - Social Media Share Default view renders correctly 1`] = `
         </svg>
         <svg
           aria-hidden="true"
-          class="ecl-link__icon ecl-icon ecl-icon--xl ecl-social-media-share__icon-hover"
+          class="ecl-icon ecl-icon--xl ecl-social-media-share__icon-hover ecl-social-media-share__icon ecl-link__icon"
           focusable="false"
         >
           <use
             xlink:href="example#gplus_hover"
           />
         </svg>
-         
+               
+      
         <span
           class="ecl-link__label"
         >
@@ -148,12 +556,12 @@ exports[`EC - Social Media Share Default view renders correctly 1`] = `
       class="ecl-social-media-share__item"
     >
       <a
-        class="ecl-social-media-share__link ecl-link ecl-link--standalone ecl-social-media-share__link--email ecl-link--icon ecl-link--icon-before"
+        class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-before ecl-social-media-share__link ecl-social-media-share__link--email"
         href="/example"
       >
         <svg
           aria-hidden="true"
-          class="ecl-link__icon ecl-icon ecl-icon--xl ecl-social-media-share__icon"
+          class="ecl-icon ecl-icon--xl ecl-social-media-share__icon ecl-link__icon"
           focusable="false"
         >
           <use
@@ -162,14 +570,15 @@ exports[`EC - Social Media Share Default view renders correctly 1`] = `
         </svg>
         <svg
           aria-hidden="true"
-          class="ecl-link__icon ecl-icon ecl-icon--xl ecl-social-media-share__icon-hover"
+          class="ecl-icon ecl-icon--xl ecl-social-media-share__icon-hover ecl-social-media-share__icon ecl-link__icon"
           focusable="false"
         >
           <use
             xlink:href="example#email_hover"
           />
         </svg>
-         
+               
+      
         <span
           class="ecl-link__label"
         >
@@ -181,15 +590,15 @@ exports[`EC - Social Media Share Default view renders correctly 1`] = `
       class="ecl-social-media-share__item"
     >
       <a
-        class="ecl-social-media-share__link ecl-link ecl-link--standalone"
+        class="ecl-link ecl-link--standalone ecl-social-media-share__link"
         href="/example"
       >
-         
-        <span
-          class="ecl-link__label"
-        >
-          Other social networks
-        </span>
+        
+  
+    
+    
+    
+  Other social networks
       </a>
     </li>
   </ul>

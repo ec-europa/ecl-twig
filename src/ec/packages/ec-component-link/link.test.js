@@ -43,6 +43,84 @@ describe('EC - Link', () => {
     });
   });
 
+  describe('With two icons after', () => {
+    const options = merge(defaultDataStructure, {
+      link: {
+        type: 'standalone',
+        label: 'Standalone link with icon',
+        icon_position: 'after',
+      },
+      icon: [
+        {
+          type: 'ui',
+          name: 'external',
+          size: 'fluid',
+          path: defaultIconPath,
+        },
+        {
+          type: 'ui',
+          name: 'download',
+          size: 'fluid',
+          path: defaultIconPath,
+        },
+      ],
+    });
+
+    test('renders correctly', () => {
+      expect.assertions(1);
+      return expect(render(options)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly with extra class names', () => {
+      expect.assertions(1);
+
+      const withExtraClasses = merge(options, {
+        extra_classes: 'custom-link custom-link--test',
+      });
+
+      return expect(render(withExtraClasses)).resolves.toMatchSnapshot();
+    });
+  });
+
+  describe('With two icons before', () => {
+    const options = merge(defaultDataStructure, {
+      link: {
+        type: 'standalone',
+        label: 'Standalone link with icon',
+        icon_position: 'before',
+      },
+      icon: [
+        {
+          type: 'ui',
+          name: 'external',
+          size: 'fluid',
+          path: defaultIconPath,
+        },
+        {
+          type: 'ui',
+          name: 'download',
+          size: 'fluid',
+          path: defaultIconPath,
+        },
+      ],
+    });
+
+    test('renders correctly', () => {
+      expect.assertions(1);
+      return expect(render(options)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly with extra class names', () => {
+      expect.assertions(1);
+
+      const withExtraClasses = merge(options, {
+        extra_classes: 'custom-link custom-link--test',
+      });
+
+      return expect(render(withExtraClasses)).resolves.toMatchSnapshot();
+    });
+  });
+
   describe('With icon before', () => {
     test('renders correctly', () => {
       expect.assertions(1);
@@ -58,6 +136,7 @@ describe('EC - Link', () => {
           name: 'external',
           size: 'fluid',
           path: defaultIconPath,
+          extra_classes: 'ecl-test-extra-class',
         },
       });
 
@@ -77,6 +156,7 @@ describe('EC - Link', () => {
         name: 'external',
         size: 'fluid',
         path: defaultIconPath,
+        extra_classes: 'ecl-test-extra-class',
       },
     });
 
