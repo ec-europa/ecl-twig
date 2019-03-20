@@ -1,5 +1,5 @@
 import path from 'path';
-import { renderTwigFileAsNode } from '@ecl-twig/test-utils';
+import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
 import bannerDataDefault from '@ecl/ec-specs-hero-banner/demo/data--default';
 import bannerDataImage from '@ecl/ec-specs-hero-banner/demo/data--image';
@@ -41,52 +41,167 @@ describe('EC - Hero Banner', () => {
   const render = params => renderTwigFileAsNode(template, params);
 
   describe('default', () => {
+    const data = formatBanner(bannerDataDefault);
+
     test(`- renders correctly`, () => {
       expect.assertions(1);
 
-      const data = formatBanner(bannerDataDefault);
-
       return expect(render(data)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly with extra class names', () => {
+      expect.assertions(1);
+
+      const withExtraClasses = merge(data, {
+        extra_classes: 'custom-button custom-button--test',
+      });
+
+      return expect(render(withExtraClasses)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly with extra attributes', () => {
+      expect.assertions(1);
+
+      const withExtraAttributes = merge(data, {
+        extra_attributes: [
+          { name: 'data-test', value: 'data-test-value' },
+          { name: 'data-test-1', value: 'data-test-value-1' },
+        ],
+      });
+
+      return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
     });
   });
 
   describe('image', () => {
+    const data = formatBanner(bannerDataImage);
+
     test(`- renders correctly`, () => {
       expect.assertions(1);
 
-      const data = formatBanner(bannerDataImage);
-
       return expect(render(data)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly with extra class names', () => {
+      expect.assertions(1);
+
+      const withExtraClasses = merge(data, {
+        extra_classes: 'custom-button custom-button--test',
+      });
+
+      return expect(render(withExtraClasses)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly with extra attributes', () => {
+      expect.assertions(1);
+
+      const withExtraAttributes = merge(data, {
+        extra_attributes: [
+          { name: 'data-test', value: 'data-test-value' },
+          { name: 'data-test-1', value: 'data-test-value-1' },
+        ],
+      });
+
+      return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
     });
   });
 
   describe('image-shade', () => {
+    const data = formatBanner(bannerDataImageShade);
+
     test(`- renders correctly`, () => {
       expect.assertions(1);
 
-      const data = formatBanner(bannerDataImageShade);
-
       return expect(render(data)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly with extra class names', () => {
+      expect.assertions(1);
+
+      const withExtraClasses = merge(data, {
+        extra_classes: 'custom-button custom-button--test',
+      });
+
+      return expect(render(withExtraClasses)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly with extra attributes', () => {
+      expect.assertions(1);
+
+      const withExtraAttributes = merge(data, {
+        extra_attributes: [
+          { name: 'data-test', value: 'data-test-value' },
+          { name: 'data-test-1', value: 'data-test-value-1' },
+        ],
+      });
+
+      return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
     });
   });
 
   describe('primary', () => {
+    const data = formatBanner(bannerDataPrimary);
+
     test(`- renders correctly`, () => {
       expect.assertions(1);
 
-      const data = formatBanner(bannerDataPrimary);
-
       return expect(render(data)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly with extra class names', () => {
+      expect.assertions(1);
+
+      const withExtraClasses = merge(data, {
+        extra_classes: 'custom-button custom-button--test',
+      });
+
+      return expect(render(withExtraClasses)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly with extra attributes', () => {
+      expect.assertions(1);
+
+      const withExtraAttributes = merge(data, {
+        extra_attributes: [
+          { name: 'data-test', value: 'data-test-value' },
+          { name: 'data-test-1', value: 'data-test-value-1' },
+        ],
+      });
+
+      return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
     });
   });
 
   describe('align-left', () => {
+    const data = formatBanner(bannerDataAlignLeft);
+
     test(`- renders correctly`, () => {
       expect.assertions(1);
 
-      const data = formatBanner(bannerDataAlignLeft);
-
       return expect(render(data)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly with extra class names', () => {
+      expect.assertions(1);
+
+      const withExtraClasses = merge(data, {
+        extra_classes: 'custom-button custom-button--test',
+      });
+
+      return expect(render(withExtraClasses)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly with extra attributes', () => {
+      expect.assertions(1);
+
+      const withExtraAttributes = merge(data, {
+        extra_attributes: [
+          { name: 'data-test', value: 'data-test-value' },
+          { name: 'data-test-1', value: 'data-test-value-1' },
+        ],
+      });
+
+      return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
     });
   });
 });
