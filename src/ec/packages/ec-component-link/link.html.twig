@@ -41,14 +41,13 @@
 }%}
 
 {% if icon.name is defined and icon.name is not empty %}
-  {% set _icon = _icon|merge(icon) %}
-{% elseif icon is defined and icon is not empty and icon.name is not defined %}
+  {% set _icons = [icon] %}
+{% elseif icon[1] is defined and icon[1] is not empty %}
   {% set _icons = icon %}
 {% endif %}
    
 {% set _css_class = ['ecl-link','ecl-link--'~_link.type]|join(' ') %}
 {% set _extra_attributes = '' %}
-{% set icon_extra_classes = 'ecl-link__icon' %}
 
 {# Set extra classes if icon defined #}
 
@@ -66,52 +65,43 @@
   {% for attr in extra_attributes %}
     {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
   {% endfor %}
-{% endif %}
+{% endif %} 
 
 {# Print the result #}
 
 <a href="{{ _link.path }}" class="{{ _css_class }}"{{ _extra_attributes|raw }}>
   {%- if _icons is defined and _link.icon_position == 'before' -%}
     {%- for icon in _icons -%}
+      {% set icon = _icon|merge(icon) %}
+      {% set _icon_extra_classes = 'ecl-link__icon' %}
       {%- if icon.extra_classes is defined and icon.extra_classes is not empty -%}
-        {%- set icon_extra_classes = icon.extra_classes ~ ' ' ~ icon_extra_classes -%}       
+        {%- set _icon_extra_classes = _icon_extra_classes ~ ' ' ~ icon.extra_classes -%}
       {%- endif -%}
-      {%- set _icon = _icon|merge(icon) -%}
-      {%- include '../ec-component-icon/icon.html.twig' with _icon|merge({
-        icon: _icon|default({}),
-        extra_classes: icon_extra_classes
+      {%- include '../ec-component-icon/icon.html.twig' with icon|merge({
+        icon: icon|default({}),
+        extra_classes: _icon_extra_classes
       }) only -%}
     {%- endfor -%}
     {{- '&nbsp;' -}}
-  {%- elseif _icon.name is not empty and _link.icon_position == 'before' -%}
-    {%- include '../ec-component-icon/icon.html.twig' with _icon|merge({
-        icon: _icon|default({}),
-        extra_classes: icon_extra_classes
-      }) only %}
-    {{- '&nbsp;' -}}
   {%- endif -%}
-  {%- if _icons is defined or (_icon.name is defined and _icon.name is not empty) -%}
+  {%- if _icons is defined -%}
     <span class="ecl-link__label">{{ _link.label }}</span>
   {%- endif -%}
   {%- if _icons is defined and _link.icon_position == 'after' -%}
     {{- '&nbsp;' -}}
-    {%- for _icon in _icons -%}
-      {%- if _icon.extra_classes is defined and _icon.extra_classes is not empty -%}
-        {%- set icon_extra_classes = icon.extra_classes ~ ' ' ~ icon_extra_classes -%}
+    {%- for icon in _icons -%}
+      {% set icon = _icon|merge(icon) %}
+      {% set _icon_extra_classes = 'ecl-link__icon' %}
+      {%- if icon.extra_classes is defined and icon.extra_classes is not empty -%}
+        {%- set _icon_extra_classes = _icon_extra_classes ~ ' ' ~ icon.extra_classes -%}
       {%- endif -%}
-      {%- include '../ec-component-icon/icon.html.twig' with _icon|merge({
-        icon: _icon|default({}),
-        extra_classes: icon_extra_classes
+      {%- include '../ec-component-icon/icon.html.twig' with icon|merge({
+        icon: icon|default({}),
+        extra_classes: _icon_extra_classes
       }) only -%}
     {%- endfor -%}
-  {%- elseif _icon.name is not empty and _link.icon_position == 'after' -%}
-    {{- '&nbsp;' -}}
-   {%- include '../ec-component-icon/icon.html.twig' with _icon|merge({
-        icon: _icon|default({}),
-        extra_classes: icon_extra_classes
-    }) only -%}
   {%- endif -%}
-  {%- if _icons is not defined and _icon.name is empty -%}
+  {%- if _icons is not defined -%}
     {{- _link.label -}}
   {%- endif -%}
 </a>
