@@ -48,10 +48,6 @@
   icon_position: ''
 }%}
 
-{% if link is defined %}
-  {% set _link = _link|merge(link) %}
-{% endif %}
-
 {% set _icon = {
   type: '',
   name: '',
@@ -59,18 +55,20 @@
   size: ''
 }%}
 
+{% if link is defined %}
+  {% set _link = _link|merge(link) %}
+{% endif %}
+
+{% set _css_class = ['ecl-link','ecl-link--'~_link.type]|join(' ') %}
+{% set _extra_attributes = '' %}
+
 {% if icon.name is defined and icon.name is not empty %}
   {% set _icons = [icon] %}
 {% elseif icon[1] is defined and icon[1] is not empty %}
   {% set _icons = icon %}
 {% endif %}
-   
-{% set _css_class = ['ecl-link','ecl-link--'~_link.type]|join(' ') %}
-{% set _extra_attributes = '' %}
 
-{# Set extra classes if icon defined #}
-
-{% if _icon.name is not empty or _icons is defined %}
+{% if _icons is defined and _link.icon_position is not empty %}
   {% set _css_class = _css_class ~ ' ecl-link--icon ecl-link--icon-' ~ _link.icon_position %}
 {% endif %}
 
