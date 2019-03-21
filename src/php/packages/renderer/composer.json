@@ -1,0 +1,27 @@
+{
+  "name": "ecl-twig/php-renderer",
+  "version": "0.0.1-alpha",
+  "description": "ECL Twig - PHP Renderer",
+  "type": "library",
+  "scripts": {
+    "setup": "@composer install --no-interaction --prefer-dist --no-progress",
+    "render": "php render.php"
+  },
+  "require": {
+    "twig/twig": "^1.34",
+    "webmozart/path-util": "^2.3"
+  },
+  "authors": [
+    {
+      "name": "European Commission"
+    }
+  ],
+  "license": "EUPL-1.1",
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "autoload": {
+    "psr-4": {
+      "EclTwig\\Twig\\": "src/"
+    }
+  }
+}

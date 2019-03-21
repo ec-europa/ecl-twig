@@ -15,8 +15,11 @@
     "publish": "lerna publish",
     "publish-canary": "lerna publish --canary --yes",
     "publish-next": "lerna publish --npm-tag=next --bump=prerelease",
-    "start:ec": "start-storybook -p 9001 -c ./src/ec/.storybook",
-    "start:eu": "echo \"Nothing to do...\"",
+    "start:ec": "start-storybook -p 9001 -c src/ec/.storybook",
+    "start:eu": "start-storybook -p 9001 -c src/eu/.storybook",
+    "render": "npx lerna exec --scope @ecl-twig/php-renderer -- yarn run render",
+    "render:setup": "npx lerna exec --scope @ecl-twig/php-renderer -- yarn run setup",
+    "render:clean": "npx lerna exec --scope @ecl-twig/php-renderer -- yarn run clean",
     "test": "npm run jest"
   },
   "devDependencies": {
@@ -77,7 +80,8 @@
   },
   "workspaces": [
     "src/ec/packages/*",
-    "src/eu/packages/*"
+    "src/eu/packages/*",
+    "src/php/packages/*"
   ],
   "jest": {
     "verbose": true
