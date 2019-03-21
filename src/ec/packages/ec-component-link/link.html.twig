@@ -9,7 +9,26 @@
         path: '', (string) (Link url)
         icon_position: 'after' (string) (Can be 'before' or 'after'. Is required only if Icon is specified)
       }
-    - "icon" (associative array) (default: {}): predefined structure for Icon component
+    - "icon" (associative array) OR (array) of associative arrays : format
+      {
+        name: (string) (default: ''),
+        extra_classes: (string) (default: 'ecl-link__icon'),
+        ...
+      }
+      OR
+      [
+        {
+          name: (string) (default: ''),
+          extra_classes: (string) (default: 'ecl-link__icon'),
+          ....
+        },
+        {
+          name: (string) (default: ''),
+          extra_classes: (string) (default: 'ecl-link__icon'),
+          ...
+        }
+        ...
+      ]
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
         {
