@@ -43,6 +43,28 @@ describe('EC - Link', () => {
     });
   });
 
+  describe('Standalone with missing icon name', () => {
+    const options = merge(defaultDataStructure, {
+      link: {
+        type: 'standalone',
+        label: 'Standalone link with icon',
+        icon_position: 'after',
+      },
+      icon: [
+        {
+          type: 'ui',
+          size: 'fluid',
+          path: defaultIconPath,
+        },
+      ],
+    });
+
+    test('renders correctly', () => {
+      expect.assertions(1);
+      return expect(render(options)).resolves.toMatchSnapshot();
+    });
+  });
+
   describe('With two icons after', () => {
     const options = merge(defaultDataStructure, {
       link: {
@@ -79,6 +101,34 @@ describe('EC - Link', () => {
       });
 
       return expect(render(withExtraClasses)).resolves.toMatchSnapshot();
+    });
+  });
+
+  describe('With missing icon name', () => {
+    const options = merge(defaultDataStructure, {
+      link: {
+        type: 'standalone',
+        label: 'Standalone link with icon',
+        icon_position: 'after',
+      },
+      icon: [
+        {
+          type: 'ui',
+          name: 'external',
+          size: 'fluid',
+          path: defaultIconPath,
+        },
+        {
+          type: 'ui',
+          size: 'xs',
+          path: defaultIconPath,
+        },
+      ],
+    });
+
+    test('renders correctly', () => {
+      expect.assertions(1);
+      return expect(render(options)).resolves.toMatchSnapshot();
     });
   });
 

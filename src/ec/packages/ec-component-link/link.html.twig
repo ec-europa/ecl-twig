@@ -72,14 +72,16 @@
 <a href="{{ _link.path }}" class="{{ _css_class }}"{{ _extra_attributes|raw }}>
   {%- if _icons is defined and _link.icon_position == 'before' -%}
     {% for icon in _icons %}
-      {% set _icon_extra_classes = 'ecl-link__icon' %}
-      {%- if icon.extra_classes is defined and icon.extra_classes is not empty -%}
-        {% set _icon_extra_classes = _icon_extra_classes ~ ' ' ~ icon.extra_classes %}
+      {%- if icon.name is not empty -%}
+        {% set _icon_extra_classes = 'ecl-link__icon' %}
+        {%- if icon.extra_classes is defined and icon.extra_classes is not empty -%}
+          {% set _icon_extra_classes = _icon_extra_classes ~ ' ' ~ icon.extra_classes %}
+        {%- endif -%}
+        {%- include '../ec-component-icon/icon.html.twig' with _icon|merge({
+          icon: icon|default({}),
+          extra_classes: _icon_extra_classes
+        }) only -%}
       {%- endif -%}
-      {%- include '../ec-component-icon/icon.html.twig' with _icon|merge({
-        icon: icon|default({}),
-        extra_classes: _icon_extra_classes
-      }) only -%}
     {% endfor %}
     {{- '&nbsp;' -}}
   {%- endif -%}
@@ -89,14 +91,16 @@
   {%- if _icons is defined and _link.icon_position == 'after' -%}
     {{- '&nbsp;' -}}
     {% for icon in _icons %}
-      {% set _icon_extra_classes = 'ecl-link__icon' %}
-      {%- if icon.extra_classes is defined and icon.extra_classes is not empty -%}
-        {% set _icon_extra_classes = _icon_extra_classes ~ ' ' ~ icon.extra_classes %}
+      {%- if icon.name is not empty -%}
+        {% set _icon_extra_classes = 'ecl-link__icon' %}
+        {%- if icon.extra_classes is defined and icon.extra_classes is not empty -%}
+          {% set _icon_extra_classes = _icon_extra_classes ~ ' ' ~ icon.extra_classes %}
+        {%- endif -%}
+        {%- include '../ec-component-icon/icon.html.twig' with _icon|merge({
+          icon: icon|default({}),
+          extra_classes: _icon_extra_classes
+        }) only -%}
       {%- endif -%}
-      {%- include '../ec-component-icon/icon.html.twig' with _icon|merge({
-        icon: icon|default({}),
-        extra_classes: _icon_extra_classes
-      }) only -%}
     {% endfor %}
   {%- endif -%}
   {% if _icons is not defined %}

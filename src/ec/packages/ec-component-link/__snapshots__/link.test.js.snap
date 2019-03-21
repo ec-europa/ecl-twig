@@ -18,6 +18,15 @@ exports[`EC - Link Standalone renders correctly 1`] = `
 </a>
 `;
 
+exports[`EC - Link Standalone with missing icon name renders correctly 1`] = `
+<a
+  class="ecl-link ecl-link--standalone"
+  href="/path"
+>
+  Standalone link with icon
+</a>
+`;
+
 exports[`EC - Link With icon after renders correctly 1`] = `
 <a
   class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after"
@@ -28,7 +37,7 @@ exports[`EC - Link With icon after renders correctly 1`] = `
   >
     Standalone link with icon
   </span>
-         
+   
   <svg
     aria-hidden="true"
     class="ecl-icon ecl-icon--fluid ecl-link__icon ecl-test-extra-class"
@@ -53,7 +62,7 @@ exports[`EC - Link With icon after renders correctly with extra attributes 1`] =
   >
     Standalone link with icon
   </span>
-         
+   
   <svg
     aria-hidden="true"
     class="ecl-icon ecl-icon--fluid ecl-link__icon ecl-test-extra-class"
@@ -76,7 +85,7 @@ exports[`EC - Link With icon after renders correctly with extra class names 1`] 
   >
     Standalone link with icon
   </span>
-         
+   
   <svg
     aria-hidden="true"
     class="ecl-icon ecl-icon--fluid ecl-link__icon ecl-test-extra-class"
@@ -112,6 +121,29 @@ exports[`EC - Link With icon before renders correctly 1`] = `
 </a>
 `;
 
+exports[`EC - Link With missing icon name renders correctly 1`] = `
+<a
+  class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after"
+  href="/path"
+>
+  <span
+    class="ecl-link__label"
+  >
+    Standalone link with icon
+  </span>
+   
+  <svg
+    aria-hidden="true"
+    class="ecl-icon ecl-icon--fluid ecl-link__icon"
+    focusable="false"
+  >
+    <use
+      xlink:href="static/icons.svg#ui--external"
+    />
+  </svg>
+</a>
+`;
+
 exports[`EC - Link With two icons after renders correctly 1`] = `
 <a
   class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after"
@@ -122,7 +154,7 @@ exports[`EC - Link With two icons after renders correctly 1`] = `
   >
     Standalone link with icon
   </span>
-         
+   
   <svg
     aria-hidden="true"
     class="ecl-icon ecl-icon--fluid ecl-link__icon"
@@ -154,7 +186,7 @@ exports[`EC - Link With two icons after renders correctly with extra class names
   >
     Standalone link with icon
   </span>
-         
+   
   <svg
     aria-hidden="true"
     class="ecl-icon ecl-icon--fluid ecl-link__icon"
