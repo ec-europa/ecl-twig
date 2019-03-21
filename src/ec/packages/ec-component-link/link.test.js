@@ -50,13 +50,11 @@ describe('EC - Link', () => {
         label: 'Standalone link with icon',
         icon_position: 'after',
       },
-      icon: [
-        {
-          type: 'ui',
-          size: 'fluid',
-          path: defaultIconPath,
-        },
-      ],
+      icon: {
+        type: 'ui',
+        size: 'fluid',
+        path: defaultIconPath,
+      },
     });
 
     test('renders correctly', () => {
