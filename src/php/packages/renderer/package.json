@@ -6,21 +6,8 @@
   "description": "ECL Twig - PHP Renderer",
   "private": true,
   "scripts": {
-    "clean": "rimraf ec eu",
-    "generate:data": "node ./scripts/data-gen.js",
-    "generate:html": "composer run render",
-    "render": "npm run generate:data && npm run generate:html",
+    "render": "composer run render",
     "setup": "composer run setup"
-  },
-  "devDependencies": {
-    "@babel/core": "7.4.0",
-    "@babel/node": "7.2.2",
-    "@babel/preset-env": "7.4.2",
-    "babel-loader": "8.0.5",
-    "babel-register": "6.26.0",
-    "rimraf": "2.6.3",
-    "webpack": "4.29.6",
-    "webpack-cli": "3.3.0"
   },
   "repository": {
     "type": "git",
@@ -35,5 +22,6 @@
     "europa-component-library",
     "design-system",
     "twig"
-  ]
+  ],
+  "dependencies": {}
 }
