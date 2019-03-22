@@ -44,38 +44,37 @@
 
 {# Print the result #}
 
-<dl
+<div
   class="{{ _css_class }}"{{ _extra_attributes|raw }}
   data-ecl-accordion="true"
-  role="presentation"
 >
   {% if _items is not empty %}
-    {% for item in _items %}
-      <dt aria-level="{{ item.level }}" role="heading">
+    {% for _item in _items %}
+      <h{{ _item.level }} class="ecl-accordion__title">
         {% include '../ec-component-button/button.html.twig' with {
-          label: item.toggle.label,
+          label: _item.toggle.label,
           variant: 'ghost',
           type: 'button',
-          icon: item.toggle.icon,
-          icon_position: "before",
+          icon: _item.toggle.icon,
+          icon_position: 'before',
           extra_classes: 'ecl-accordion__toggle',
           extra_attributes: [
-            { name: 'aria-controls', value: item.id },
+            { name: 'aria-controls', value: _item.id },
             { name: 'data-ecl-accordion-toggle', value: 'true' },
           ]
         } only %}
-      </dt>
-      <dd
+      </h{{ _item.level }}>
+      <div
         class="ecl-accordion__content"
         hidden
-        id="{{ item.id }}"
+        id="{{ _item.id }}"
         role="region"
       >
-        {%- set _content = item.content|default('') %}
+        {%- set _content = _item.content|default('') %}
         {%- block content _content -%}
-      </dd>
+      </div>
     {% endfor %}
   {% endif %}
-</dl>
+</div>
 
 {% endspaceless %}
