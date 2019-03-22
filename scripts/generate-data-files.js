@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 /* eslint-disable global-require, import/no-dynamic-require, import/no-extraneous-dependencies */
 
 import fs from 'fs';

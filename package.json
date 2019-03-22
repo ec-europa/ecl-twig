@@ -20,6 +20,7 @@
     "render:dataGen": "babel-node ./scripts/generate-data-files.js",
     "render:setupPhp": "npx lerna exec --scope @ecl-twig/php-renderer -- yarn run setup",
     "render:php": "npx lerna exec --scope @ecl-twig/php-renderer -- yarn run render",
+    "render:js": "./scripts/generate-html.js",
     "test": "npm run jest"
   },
   "devDependencies": {
