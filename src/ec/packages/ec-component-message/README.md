@@ -10,18 +10,18 @@ npm install --save @ecl-twig/ec-component-message
 
 ### Parameters:
 
-- "variant" (string) (default: ''): could be 'info, 'success', 'warning' or 'error'
-- "icon" (object of type "icon") (default: {})
-- "title" (string) (default: '')
-- "close" (object of type "button") (default: {}): close button
-- "extra_classes" (optional) (string) (default: '') Extra classes (space separated) for the select
-- "extra_attributes" (optional) (array) (default: []) Extra attributes for select
+- **"variant"** (string) (default: ''): could be 'info, 'success', 'warning' or 'error'
+- **"icon"** (object of type "icon") (default: {})
+- **"title"** (string) (default: '')
+- **"close"** (object of type "button") (default: {}): close button
+- **"extra_classes"** (optional) (string) (default: '')
+- **"extra_attributes"** (optional) (array) (default: [])
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
 
 ### Blocks:
 
-- "description": content of the message
+- **"description"**: content of the message
 
 ### Example:
 

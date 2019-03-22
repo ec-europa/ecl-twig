@@ -1,4 +1,5 @@
 {% spaceless %}
+
 {#
   Parameters:
   - "variant" (string) (default: ''): could be 'info, 'success', 'warning' or 'error'
@@ -59,8 +60,9 @@
       }],
     }) only %}
 
-    <div class="ecl-message__title">{{ title }}</div>
-    <p class="ecl-message__description">{{ description }}</p>
+    <div class="ecl-message__title">{{ _title }}</div>
+    <p class="ecl-message__description">{{ _description }}</p>
   </div>
 </div>
+
 {% endspaceless %}
