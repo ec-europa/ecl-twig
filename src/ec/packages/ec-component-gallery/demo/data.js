@@ -1,6 +1,5 @@
 /* eslint-disable import/no-extraneous-dependencies */
-// import specData from '@ecl/ec-specs-gallery/demo/data';
-const specData = {};
+import specData from '@ecl/ec-specs-gallery/demo/data';
 
 const defaultSprite = '/static/icons.svg';
 
@@ -11,6 +10,7 @@ function formatIcon(i) {
     type,
     name,
     size: i.size,
+    transform: i.transform,
   };
 
   return icon;
@@ -18,9 +18,14 @@ function formatIcon(i) {
 
 function formatButton(b) {
   const button = {
+    variant: b.variant,
     label: b.label,
-    icon: formatIcon(b.icon),
   };
+
+  if (b.icon) {
+    button.icon = formatIcon(b.icon);
+    button.icon_position = b.iconPosition;
+  }
 
   return button;
 }
@@ -35,6 +40,7 @@ function formatLink(l) {
 
   if (l.icon) {
     link.icon = formatIcon(l.icon);
+    link.icon_position = link.icon_position;
   }
 
   return link;
@@ -42,7 +48,7 @@ function formatLink(l) {
 
 function formatItem(i) {
   const item = {
-    src: i.src,
+    path: `https://v2--europa-component-library.netlify.com/${i.src}`,
     alt: i.alt,
     description: i.description,
     meta: i.meta,
@@ -52,17 +58,19 @@ function formatItem(i) {
   if (i.icon) {
     item.icon = formatIcon(i.icon);
   }
+
+  return item;
 }
 
 const data = {
   items: specData.items.map(formatItem),
   overlay: {
-    close: formatButton(specData.close),
-    previous: formatButton(specData.previous),
-    next: formatButton(specData.next),
-    counter_separator: specData.counterSeparator,
-    download: formatLink(specData.download),
-    share: formatLink(specData.share),
+    close: formatButton(specData.overlay.close),
+    previous: formatButton(specData.overlay.previous),
+    next: formatButton(specData.overlay.next),
+    counter_separator: specData.overlay.counterSeparator,
+    download: formatLink(specData.overlay.download),
+    share: formatLink(specData.overlay.share),
   },
 };
 

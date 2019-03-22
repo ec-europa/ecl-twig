@@ -3,12 +3,24 @@ import { withKnobs } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
 
+import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import gallery from './gallery.html.twig';
 import notes from './README.md';
 
 import data from './demo/data';
 
-storiesOf('Components/Message', module)
+data.items.forEach(item => {
+  if (item.icon) {
+    item.icon.path = defaultSprite; // eslint-disable-line no-param-reassign
+  }
+});
+data.overlay.close.icon.path = defaultSprite;
+data.overlay.previous.icon.path = defaultSprite;
+data.overlay.next.icon.path = defaultSprite;
+data.overlay.download.icon.path = defaultSprite;
+data.overlay.share.icon.path = defaultSprite;
+
+storiesOf('Components/Gallery', module)
   .addDecorator(withKnobs)
   .addDecorator(withCode)
   .addDecorator(withNotes)
@@ -21,7 +33,7 @@ storiesOf('Components/Message', module)
 
       const htmlElement = document.createElement('div');
       htmlElement.innerHTML = html.trim();
-      demo.append(htmlElement.firstChild);
+      demo.appendChild(htmlElement.firstChild);
 
       const scriptElement = document.createElement('script');
       scriptElement.innerHTML = `
@@ -29,7 +41,7 @@ storiesOf('Components/Message', module)
       var gallery = new ECL.Gallery(galleryElement);
       gallery.init();
       `;
-      demo.append(scriptElement);
+      demo.appendChild(scriptElement);
 
       return demo;
     },

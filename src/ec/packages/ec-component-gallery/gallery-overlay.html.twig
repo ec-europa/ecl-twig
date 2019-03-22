@@ -21,8 +21,7 @@
 {% set _css_class = 'ecl-gallery__overlay' %}
 {% set _extra_attributes = '' %}
 {% set _overlay = overlay|default({}) %}
-{% set _item = item|default([]) %}
-{% set _selected_item_id = selected_item_id|default(0) %}
+{% set _item = item|default({}) %}
 
 {# Internal logic - Process properties #}
 
@@ -38,7 +37,6 @@
 
 {# Print the result #}
 
-{% if _item is not empty %}
 <dialog class="{{ _css_class }}"{{ _extra_attributes }} data-ecl-gallery-overlay>
   <header class="ecl-gallery__close" data-ecl-gallery-overlay-header>
     {% include '../ec-component-button/button.html.twig' with _overlay.close|merge({
@@ -77,18 +75,24 @@
   <footer class="ecl-gallery__detail" data-ecl-gallery-overlay-footer>
     <div class="ecl-gallery__detail-counter">
       <span data-ecl-gallery-overlay-counter-current>0</span>{{' '}}
-      {{- _overlay.counterSeparator }}{{' '}}
+        {{- _overlay.counter_separator }}{{' ' -}}
       <span data-ecl-gallery-overlay-counter-max>0</span>
     </div>
     <div class="ecl-gallery__detail-actions">
       {% include '../ec-component-link/link.html.twig' with _overlay.download|merge({
+        link: {
+          icon_position: 'after',
+        }|merge(_overlay.download.link),
         extra_classes: 'ecl-gallery__download',
         extra_attributes: [
-          { name: 'data-ecl-gallery-overlay-next' },
+          { name: 'data-ecl-gallery-overlay-download' },
           { name: 'download' },
         ],
       }) only %}
       {% include '../ec-component-link/link.html.twig' with _overlay.share|merge({
+        link: {
+          icon_position: 'after',
+        }|merge(_overlay.share.link),
         extra_classes: 'ecl-gallery__share',
         extra_attributes: [
           { name: 'data-ecl-gallery-overlay-share' },
@@ -102,10 +106,9 @@
       {{- _item.description -}}
     </div>
     <div class="ecl-gallery__detail-meta" data-ecl-gallery-overlay-meta>
-      {{- item.meta -}}
+      {{- _item.meta -}}
     </div>
   </footer>
 </dialog>
-{% endif %}
 
 {% endspaceless %}

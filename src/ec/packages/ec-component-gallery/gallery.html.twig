@@ -4,7 +4,7 @@
   Parameters:
   - "overlay" (object) (default: {})
     - "close" (object) (default: {}): object of type button
-    - "previous (object) (default: {}): object of type button
+    - "previous" (object) (default: {}): object of type button
     - "next" (object) (default: {}): object of type button
     - "counter_separator" (string) (default: '')
     - "download" (object) (default: {}): object of type link
@@ -55,8 +55,8 @@
   </ul>
 
   {% set _selected_item = {} %}
-  {% if _items[selected_item_id] is not empty %}
-    {% set _selected_item = _items[selected_item_id] %}
+  {% if _items[_selected_item_id] is not empty %}
+    {% set _selected_item = _items[_selected_item_id] %}
   {% endif %}
   {% include './gallery-overlay.html.twig' with {
     overlay: _overlay,

@@ -44,8 +44,8 @@
     data-ecl-gallery-item-share="{{ _item.share_path }}"
   >
     <figure class="ecl-gallery__image-container">
-      <img src="{{ _item.path }}" alt=" {{ _item.alt }}" class="ecl-gallery__image" />
-        {% if item.icon is not empty and item.icon.shape is not empty %}
+      <img src="{{ _item.path }}" alt="{{ _item.alt }}" class="ecl-gallery__image" />
+        {% if _item.icon is not empty and _item.icon.name is not empty %}
           {% include '../ec-component-icon/icon.html.twig' with {
             icon: _item.icon|merge({
               size: "l",
@@ -58,19 +58,19 @@
         class="ecl-gallery__description"
         data-ecl-gallery-description
       >
-        {{- item.description -}}
-        
-        {% if item.icon is not empty and item.icon.shape is not empty %}
-          {% include '../ec-component-icon/icon.html.twig' with {
+        {{- _item.description -}}
+
+        {% if _item.icon is not empty and _item.icon.name is not empty %}
+          {%- include '../ec-component-icon/icon.html.twig' with {
             icon: _item.icon|merge({
               size: "l",
             }),
             extra_classes: 'ecl-gallery__description-icon'
           } only %}
-        {% endif %}
+        {% endif -%}
 
         <span class="ecl-gallery__meta" data-ecl-gallery-meta>
-          {{- item.meta -}}
+          {{- _item.meta -}}
         </span>
       </figcaption>
     </figure>
