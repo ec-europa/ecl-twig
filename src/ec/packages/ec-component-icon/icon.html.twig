@@ -33,14 +33,13 @@
 }|merge(icon|default({})) %}
 
 {% set _css_class = 'ecl-icon' %}
+{% set _extra_attributes = '' %}
 
-{% for property in ['size','transform','color'] %}
+{% for property in ['size', 'transform', 'color'] %}
   {% if _icon[property] is defined and _icon[property] is not empty %}
     {% set _css_class = _css_class ~ ' ecl-icon--' ~ _icon[property] %}
   {% endif %}
 {% endfor %}
-
-{% set _extra_attributes = ' focusable="false" aria-hidden="true"' %}
 
 {# Internal logic - Process properties #}
 {% set _icon_type = '' %}
@@ -60,7 +59,11 @@
 
 {# Print the result #}
 
-<svg class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+<svg 
+  class="{{ _css_class }}"
+  focusable="false"
+  aria-hidden="true"
+  {{ _extra_attributes|raw }}>
   <use xlink:href="{{ _icon.path }}#{{ _icon_type }}{{ _icon.name }}"></use>
 </svg>
 
