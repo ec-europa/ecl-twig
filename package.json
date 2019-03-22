@@ -4,7 +4,7 @@
     "build:ec": "build-storybook -c ./src/ec/.storybook -o build/ec",
     "build:eu": "echo \"Nothing to do...\"",
     "copy:static": "ncp static build",
-    "clean": "rimraf build",
+    "clean": "rimraf build dist",
     "dist": "npm run clean && npm run build:ec && npm run build:eu && npm run copy:static",
     "jest": "jest",
     "jest-update": "jest -u",
@@ -18,7 +18,8 @@
     "start:ec": "start-storybook -p 9001 -c src/ec/.storybook",
     "start:eu": "start-storybook -p 9001 -c src/eu/.storybook",
     "render:dataGen": "babel-node ./scripts/generate-data-files.js",
-    "render:setup": "npx lerna exec --scope @ecl-twig/php-renderer -- yarn run setup",
+    "render:setupPhp": "npx lerna exec --scope @ecl-twig/php-renderer -- yarn run setup",
+    "render:php": "npx lerna exec --scope @ecl-twig/php-renderer -- yarn run render",
     "test": "npm run jest"
   },
   "devDependencies": {
