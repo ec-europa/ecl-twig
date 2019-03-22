@@ -16,7 +16,10 @@ const createDataFiles = ({ readLocation, saveLocation }) => {
   files.forEach(file => {
     // require() is necessary at all cases.
     // Sometimes files contain results of adaptation.
-    const data = require(`${readLocation}/${file}`);
+    const dataImport = require(`${readLocation}/${file}`);
+    // Normalize the difference of module systems.
+    const data = dataImport.default ? dataImport.default : dataImport;
+
     const fileName = file.replace('js', 'json');
     const filePath = path.resolve(`${saveLocation}/${fileName}`);
 

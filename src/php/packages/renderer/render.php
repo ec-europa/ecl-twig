@@ -46,7 +46,10 @@ foreach ($components as $component) {
         $data_html
       );
     } catch (exception $e) {
-      throw new Exception($e);
+      // Not throwing facilitates continuation.
+      // If a component has an error it's not going to stop the rest.
+      // throw new Exception($e);
+      print($e);
     }
   }
 }
