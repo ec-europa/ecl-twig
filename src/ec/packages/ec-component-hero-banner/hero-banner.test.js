@@ -53,7 +53,7 @@ describe('EC - Hero Banner', () => {
       expect.assertions(1);
 
       const withExtraClasses = merge(data, {
-        extra_classes: 'custom-button custom-button--test',
+        extra_classes: 'custom-class custom-class--test',
       });
 
       return expect(render(withExtraClasses)).resolves.toMatchSnapshot();
