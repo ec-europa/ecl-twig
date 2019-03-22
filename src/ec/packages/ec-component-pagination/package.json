@@ -1,15 +1,19 @@
 {
-  "name": "@ecl-twig/ec-component-icon",
+  "name": "@ecl-twig/ec-component-pagination",
   "author": "European Commission",
   "license": "EUPL-1.1",
   "version": "0.0.1-alpha",
-  "description": "ECL Twig - EC Icon",
-  "publishConfig": {
-    "access": "public"
+  "description": "ECL Twig - EC Pagination",
+  "dependencies": {
+    "@ecl-twig/ec-component-link": "^0.0.1-alpha"
   },
   "devDependencies": {
+    "@ecl/ec-component-pagination": "^2.1.1",
     "@ecl/ec-resources-icons": "^2.1.1",
-    "@ecl/ec-specs-icon": "^2.1.1"
+    "@ecl/ec-specs-pagination": "^2.1.1"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "repository": {
     "type": "git",
