@@ -52,7 +52,7 @@ describe('EC - Expandable', () => {
       expect.assertions(1);
 
       const withExtraClasses = merge(expanded, {
-        extra_classes: 'custom-link custom-link--test',
+        extra_classes: 'custom-class custom-class--test',
       });
 
       return expect(render(withExtraClasses)).resolves.toMatchSnapshot();
