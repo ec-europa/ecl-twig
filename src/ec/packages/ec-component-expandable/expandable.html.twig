@@ -5,7 +5,6 @@
     - "id" (string) (default: '')
     - "label_expanded" (string) (default: '')
     - "label_collapsed" (string) (default: '')
-    - "label_collapsed" (string) (default: '')
     - "expanded" (boolean) (default: false)
     - "button" (predefined structure) :  Button component structure 
     - "extra_classes" (string) (default: '')
@@ -31,6 +30,7 @@
 {% set _label_collapsed = label_collapsed|default('') %}
 {% set _aria_controls = _id ~ '-content' %}
 {% set _content = content|default('') %}
+{% set _button = button|default({}) %}
 
 {% set _expanded = expanded|default(false) %}
 {% set _content_hidden_attribute = '' %}
