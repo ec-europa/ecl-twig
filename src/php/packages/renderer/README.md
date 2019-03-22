@@ -36,37 +36,16 @@ $ composer run setup
 
 Note that the `npm` scripts facilitate integration between tools in Node.js and PHP. Scripts naming may differ because of reserved keywords, such as `install` in composer, which is replaced by `setup`.
 
-## Generate data
+## Usage
 
-In order for twig templates to render properly, they need proper data input. This input comes from various places:
+Please use the commands from the project's root folder. In order to be able to resolve both commonjs and ES6 import style of modules for data generation, `babel` needs to be run from the root of the workspace.
 
-- ECL specifications, from ECL repository, i.e. `@ecl/ec-specs-accordion`
-- Override in this workspace, i.e. `@ecl-twig/ec-component-accordion` has `demo/data`
-
-To generate these, run the following:
+From project's root, run the following:
 
 ```shell
-$ yarn generate:data
+$ yarn run | grep render
 ```
 
-This will iterate through all components listed in `@ecl-twig/ec-components` and will create folders for their corresponding targets. Then it will create `data.json` file for each component, which can later be used by the renderer.
+This will give you the list of possible operations.
 
-## Generate HTML markup by Twig PHP
-
-Either way:
-
-```shell
-$ yarn generate:html
-```
-
-```shell
-$ composer run render
-```
-
-## Generate all assets
-
-You can generate data and resulting HTML in a single operation:
-
-```shell
-$ yarn render
-```
+Before rendering data by any engine (PHP or JavaScript), you need to generate the data. That's the only requirement in terms of order of running `render:` commands.

@@ -82,3 +82,49 @@ Test the dist:
 ```bash
 npx serve build
 ```
+
+## PHP Twig
+
+If you want test components with PHP rendering, please ensure that you have the required dependencies to work also with the PHP tool-chain, i.e. Composer.
+
+Details are included in the `README.md` of `@ecl-twig/php-renderer`.
+
+Please select the ECL system you want to work with:
+
+```bash
+export ECL_SYSTEM=ec
+```
+
+The following commands are available from the project root:
+
+Get dependencies.
+
+```bash
+yarn render:setupPhp
+```
+
+Remove files and folders from previous builds.
+
+```bash
+yarn render:clean
+```
+
+Generate data from specification files.
+
+```bash
+yarn render:dataGen
+```
+
+Generate HTML rendered by Twig PHP:
+
+```bash
+yarn render:php
+```
+
+Generate HTML rendered by Twig.js
+
+```bash
+yarn render:js
+```
+
+All output files are stored in `./dist` folder within their corresponding system.
