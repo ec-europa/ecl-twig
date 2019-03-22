@@ -42,6 +42,10 @@
 {% endfor %}
 
 {# Internal logic - Process properties #}
+{% set _icon_type = '' %}
+{% if _icon.type is not empty %}
+  {% set _icon_type = _icon.type ~ '--' %}
+{% endif %}
 
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
@@ -60,7 +64,7 @@
   focusable="false"
   aria-hidden="true"
   {{ _extra_attributes|raw }}>
-  <use xlink:href="{{ _icon.path }}#{{ _icon.type }}--{{ _icon.name }}"></use>
+  <use xlink:href="{{ _icon.path }}#{{ _icon_type }}{{ _icon.name }}"></use>
 </svg>
 
 {% endspaceless %}
