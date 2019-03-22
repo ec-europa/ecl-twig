@@ -18,7 +18,7 @@ describe('EC - Blockquote', () => {
       expect.assertions(1);
 
       const optionsWithExtraClasses = merge(data, {
-        extra_classes: 'custom-blockquote custom-blockquote--test',
+        extra_classes: 'custom-class custom-class--test',
       });
 
       return expect(render(optionsWithExtraClasses)).resolves.toMatchSnapshot();

@@ -14,7 +14,7 @@ describe('EC Media Container', () => {
       expect.assertions(1);
 
       const optionsWithExtraClasses = merge(defaultDataStructure, {
-        extra_classes: 'custom-media-container custom-media-container--test',
+        extra_classes: 'custom-class custom-class--test',
       });
 
       return expect(render(optionsWithExtraClasses)).resolves.toMatchSnapshot();

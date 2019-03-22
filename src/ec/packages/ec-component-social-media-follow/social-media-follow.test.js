@@ -20,8 +20,7 @@ describe('EC - Social Media Follow', () => {
       expect.assertions(1);
 
       const withExtraClasses = merge(demoData, {
-        extra_classes:
-          'custom-social-media-follow custom-social-media-follow--test',
+        extra_classes: 'custom-class custom-class--test',
       });
 
       return expect(render(withExtraClasses)).resolves.toMatchSnapshot();

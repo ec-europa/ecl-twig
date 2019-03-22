@@ -28,7 +28,7 @@ describe('EC - Language List', () => {
       expect.assertions(1);
 
       const withExtraClasses = merge(options, {
-        extra_classes: 'custom-language-list custom-language-list--test',
+        extra_classes: 'custom-class custom-class--test',
       });
 
       return expect(render(withExtraClasses)).resolves.toMatchSnapshot();
@@ -66,7 +66,7 @@ describe('EC - Language List', () => {
       expect.assertions(1);
 
       const withExtraClasses = merge(options, {
-        extra_classes: 'custom-language-list custom-language-list--test',
+        extra_classes: 'custom-class custom-class--test',
       });
 
       return expect(render(withExtraClasses)).resolves.toMatchSnapshot();
