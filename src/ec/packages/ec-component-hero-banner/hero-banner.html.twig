@@ -1,4 +1,5 @@
 {% spaceless %}
+
 {#
   Parameters:
     - "type" (string) (default: 'default') Type of banner (can be 'default','image','image-shade','primary')
@@ -17,17 +18,20 @@
       ]
 #}
 
-{# variables #}
+{# Internal properties #}
+
 {% set _type = type|default('default') %}
 {% set _centered = centered|default(true) %}
 {% set _title = title|default('') %}
 {% set _description = description|default('') %}
 {% set _image = image|default('') %}
+{% set _button = button|default({}) %}
 
 {% set _css_class = ['ecl-hero-banner ecl-hero-banner--'~_type]|join(' ') %}
 {% set _extra_attributes = '' %}
 
 {# Internal logic - Process properties #}
+
 {% if _centered == true %}
   {% set _css_class=_css_class~' ecl-hero-banner--centered' %}
 {% endif %}
@@ -43,17 +47,22 @@
 {% endif %}
 
 {# Print the result #}
+
 <section class="{{ _css_class }}"{{ _extra_attributes }}>
-  {%- if _image is not empty and _type in ['image','image-shade'] -%}
+  {% if _image is not empty and _type in ['image','image-shade'] %}
     <div class="ecl-hero-banner__image" style="background-image:url({{ _image }})"></div>
-  {%- endif -%}
+  {% endif %}
   <div class="ecl-container ecl-hero-banner__container">
     <div class="ecl-hero-banner__content">
       <h1 class="ecl-hero-banner__title">{{ _title }}</h1>
-      <p class="ecl-hero-banner__description">{{ _description }}</p>
-      {%- if button is defined and button is not empty -%}
-        {%- include '../ec-component-button/button.html.twig' with button|merge({ extra_classes: 'ecl-hero-banner__button' }) -%}
-      {%- endif -%}
+      {% if _description is not empty %}
+        <p class="ecl-hero-banner__description">{{ _description }}</p>
+      {% endif %}
+      {% if _button is not empty %}
+        {% include '../ec-component-button/button.html.twig' with _button|merge({
+          extra_classes: 'ecl-hero-banner__button'
+        }) only %}
+      {% endif %}
     </div>
   </div>
 </section>
