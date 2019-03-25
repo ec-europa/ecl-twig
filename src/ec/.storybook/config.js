@@ -14,10 +14,7 @@ addParameters({
   },
 });
 
-const contexts = [
-  require.context('../packages', true, /.*\.story\.js$/),
-  require.context('../examples', true, /.*\.story\.js$/),
-];
+const contexts = [require.context('../packages', true, /.*\.story\.js$/)];
 
 configure(() => {
   contexts.forEach(context => {
