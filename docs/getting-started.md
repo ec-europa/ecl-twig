@@ -95,7 +95,7 @@ Please select the ECL system you want to work with:
 export ECL_SYSTEM=ec
 ```
 
-The following commands are available from the project root:
+The following commands are available from the project root: (please ensure data is generated before executing any rendering command)
 
 Get dependencies.
 
@@ -106,7 +106,7 @@ yarn render:setupPhp
 Remove files and folders from previous builds.
 
 ```bash
-yarn render:clean
+yarn clean
 ```
 
 Generate data from specification files.
