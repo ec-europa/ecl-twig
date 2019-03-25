@@ -18,7 +18,7 @@ describe('EC - Gallery', () => {
       expect.assertions(1);
 
       const withExtraClasses = merge(demoData, {
-        extra_classes: 'custom-link custom-link--test',
+        extra_classes: 'custom-class custom-class--test',
       });
 
       return expect(render(withExtraClasses)).resolves.toMatchSnapshot();
