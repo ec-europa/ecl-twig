@@ -1,0 +1,80 @@
+{% spaceless %}
+
+{#
+  Parameters:
+  - "item" (object) (default: {})
+    - "path" (string) (default: '')
+    - "alt" (string) (default: '')
+    - "description" (string) (default: '')
+    - "meta" (string) (default: '')
+    - "icon" (object) (default: {}): object of type icon
+    - "share_path" (string) (default: '')
+  - "extra_classes" (optional) (string) (default: '')
+  - "extra_attributes" (optional) (array) (default: [])
+    - "name" (string) Attribute name, eg. 'data-test'
+    - "value" (string) Attribute value, eg: 'data-test-1'
+#}
+
+{# variables #}
+
+{% set _css_class = 'ecl-gallery__item' %}
+{% set _extra_attributes = '' %}
+{% set _item = item|default({}) %}
+
+{# Internal logic - Process properties #}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+
+<li class="{{ _css_class }}"{{ _extra_attributes }}>
+  <a
+    href="{{ _item.path }}"
+    class="ecl-gallery__item-link"
+    aria-label="{{ _item.alt }}"
+    data-ecl-gallery-item
+    data-ecl-gallery-item-share="{{ _item.share_path }}"
+  >
+    <figure class="ecl-gallery__image-container">
+      <img src="{{ _item.path }}" alt="{{ _item.alt }}" class="ecl-gallery__image" />
+        {% if _item.icon is not empty and _item.icon.name is not empty %}
+          {% include '../ec-component-icon/icon.html.twig' with {
+            icon: _item.icon|merge({
+              size: "l",
+            }),
+            extra_classes: 'ecl-gallery__image-icon'
+          } only %}
+        {% endif %}
+
+      <figcaption
+        class="ecl-gallery__description"
+        data-ecl-gallery-description
+      >
+        {{- _item.description -}}
+
+        {% if _item.icon is not empty and _item.icon.name is not empty %}
+          {%- include '../ec-component-icon/icon.html.twig' with {
+            icon: _item.icon|merge({
+              size: "l",
+            }),
+            extra_classes: 'ecl-gallery__description-icon'
+          } only %}
+        {% endif -%}
+
+        <span class="ecl-gallery__meta" data-ecl-gallery-meta>
+          {{- _item.meta -}}
+        </span>
+      </figcaption>
+    </figure>
+  </a>
+</li>
+
+{% endspaceless %}
