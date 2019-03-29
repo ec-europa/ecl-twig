@@ -1,0 +1,565 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EC - Radio Binary invalid renders correctly 1`] = `
+<div
+  aria-describedby="radio-binary-invalid-helper"
+  aria-labelledby="radio-binary-invalid-label"
+  class="ecl-radio__group ecl-radio__group--invalid ecl-radio__group--binary"
+  role="radiogroup"
+>
+  <div
+    class="ecl-form-label"
+    id="radio-binary-invalid-label"
+  >
+    Do you need help?
+  </div>
+  <p
+    class="ecl-radio__help ecl-help-block"
+    id="radio-binary-invalid-helper"
+  >
+    Helper text for the group
+  </p>
+  <p
+    class="ecl-radio__invalid ecl-feedback-message"
+  >
+    Error message for the group
+  </p>
+  <div
+    class="ecl-radio"
+  >
+    <input
+      class="ecl-radio__input"
+      id="radio-binary-invalid-1"
+      name="radio-binaryinvalid-"
+      type="radio"
+      value="yes"
+    />
+    <label
+      class="ecl-radio__label"
+      for="radio-binary-invalid-1"
+    >
+      <span
+        class="ecl-radio__box"
+      />
+      Yes
+    </label>
+  </div>
+  <div
+    class="ecl-radio"
+  >
+    <input
+      class="ecl-radio__input"
+      id="radio-binary-invalid-2"
+      name="radio-binaryinvalid-"
+      type="radio"
+      value="no"
+    />
+    <label
+      class="ecl-radio__label"
+      for="radio-binary-invalid-2"
+    >
+      <span
+        class="ecl-radio__box"
+      />
+      No
+    </label>
+  </div>
+</div>
+`;
+
+exports[`EC - Radio Binary renders correctly 1`] = `
+<div
+  aria-describedby="radio-binary-helper"
+  aria-labelledby="radio-binary-label"
+  class="ecl-radio__group ecl-radio__group--binary"
+  role="radiogroup"
+>
+  <div
+    class="ecl-form-label"
+    id="radio-binary-label"
+  >
+    Do you need help?
+  </div>
+  <p
+    class="ecl-radio__help ecl-help-block"
+    id="radio-binary-helper"
+  >
+    Helper text for the group
+  </p>
+  <div
+    class="ecl-radio"
+  >
+    <input
+      class="ecl-radio__input"
+      id="radio-binary-1"
+      name="radio-binary"
+      type="radio"
+      value="yes"
+    />
+    <label
+      class="ecl-radio__label"
+      for="radio-binary-1"
+    >
+      <span
+        class="ecl-radio__box"
+      />
+      Yes
+    </label>
+  </div>
+  <div
+    class="ecl-radio"
+  >
+    <input
+      class="ecl-radio__input"
+      id="radio-binary-2"
+      name="radio-binary"
+      type="radio"
+      value="no"
+    />
+    <label
+      class="ecl-radio__label"
+      for="radio-binary-2"
+    >
+      <span
+        class="ecl-radio__box"
+      />
+      No
+    </label>
+  </div>
+</div>
+`;
+
+exports[`EC - Radio Default renders correctly 1`] = `
+<div
+  aria-describedby="radio-default-helper"
+  aria-labelledby="radio-default-label"
+  class="ecl-radio__group"
+  role="radiogroup"
+>
+  <div
+    class="ecl-form-label"
+    id="radio-default-label"
+  >
+    Select your country
+  </div>
+  <p
+    class="ecl-radio__help ecl-help-block"
+    id="radio-default-helper"
+  >
+    Helper text for the group
+  </p>
+  <div
+    class="ecl-radio"
+  >
+    <input
+      aria-describedby="helper-default-1"
+      class="ecl-radio__input"
+      id="radio-default-1"
+      name="radio-default"
+      type="radio"
+      value="lu"
+    />
+    <label
+      class="ecl-radio__label"
+      for="radio-default-1"
+    >
+      <span
+        class="ecl-radio__box"
+      />
+      Luxembourg
+    </label>
+    <p
+      class="ecl-radio__help ecl-help-block"
+      id="helper-default-1"
+    >
+      
+      Help text for option 1    
+    </p>
+  </div>
+  <div
+    class="ecl-radio"
+  >
+    <input
+      aria-describedby="helper-default-2"
+      class="ecl-radio__input"
+      id="radio-default-2"
+      name="radio-default"
+      type="radio"
+      value="be"
+    />
+    <label
+      class="ecl-radio__label"
+      for="radio-default-2"
+    >
+      <span
+        class="ecl-radio__box"
+      />
+      Belgium
+    </label>
+    <p
+      class="ecl-radio__help ecl-help-block"
+      id="helper-default-2"
+    >
+      
+      Help text for option 2    
+    </p>
+  </div>
+  <div
+    class="ecl-radio ecl-radio--disabled"
+  >
+    <input
+      aria-describedby="helper-default-3"
+      class="ecl-radio__input"
+      disabled=""
+      id="radio-default-3"
+      name="radio-default"
+      type="radio"
+      value="fr"
+    />
+    <label
+      class="ecl-radio__label"
+      for="radio-default-3"
+    >
+      <span
+        class="ecl-radio__box"
+      />
+      France (disabled)
+    </label>
+    <p
+      class="ecl-radio__help ecl-help-block"
+      id="helper-default-3"
+    >
+      
+      Help text for option 3    
+    </p>
+  </div>
+</div>
+`;
+
+exports[`EC - Radio Default renders correctly with extra attributes 1`] = `
+<div
+  aria-describedby="radio-default-helper"
+  aria-labelledby="radio-default-label"
+  class="ecl-radio__group"
+  data-test="data-test-value"
+  data-test-1="data-test-value-1"
+  role="radiogroup"
+>
+  <div
+    class="ecl-form-label"
+    id="radio-default-label"
+  >
+    Select your country
+  </div>
+  <p
+    class="ecl-radio__help ecl-help-block"
+    id="radio-default-helper"
+  >
+    Helper text for the group
+  </p>
+  <div
+    class="ecl-radio"
+  >
+    <input
+      aria-describedby="helper-default-1"
+      class="ecl-radio__input"
+      id="radio-default-1"
+      name="radio-default"
+      type="radio"
+      value="lu"
+    />
+    <label
+      class="ecl-radio__label"
+      for="radio-default-1"
+    >
+      <span
+        class="ecl-radio__box"
+      />
+      Luxembourg
+    </label>
+    <p
+      class="ecl-radio__help ecl-help-block"
+      id="helper-default-1"
+    >
+      
+      Help text for option 1    
+    </p>
+  </div>
+  <div
+    class="ecl-radio"
+  >
+    <input
+      aria-describedby="helper-default-2"
+      class="ecl-radio__input"
+      id="radio-default-2"
+      name="radio-default"
+      type="radio"
+      value="be"
+    />
+    <label
+      class="ecl-radio__label"
+      for="radio-default-2"
+    >
+      <span
+        class="ecl-radio__box"
+      />
+      Belgium
+    </label>
+    <p
+      class="ecl-radio__help ecl-help-block"
+      id="helper-default-2"
+    >
+      
+      Help text for option 2    
+    </p>
+  </div>
+  <div
+    class="ecl-radio ecl-radio--disabled"
+  >
+    <input
+      aria-describedby="helper-default-3"
+      class="ecl-radio__input"
+      disabled=""
+      id="radio-default-3"
+      name="radio-default"
+      type="radio"
+      value="fr"
+    />
+    <label
+      class="ecl-radio__label"
+      for="radio-default-3"
+    >
+      <span
+        class="ecl-radio__box"
+      />
+      France (disabled)
+    </label>
+    <p
+      class="ecl-radio__help ecl-help-block"
+      id="helper-default-3"
+    >
+      
+      Help text for option 3    
+    </p>
+  </div>
+</div>
+`;
+
+exports[`EC - Radio Default renders correctly with extra class names 1`] = `
+<div
+  aria-describedby="radio-default-helper"
+  aria-labelledby="radio-default-label"
+  class="ecl-radio__group custom-class custom-class--test"
+  role="radiogroup"
+>
+  <div
+    class="ecl-form-label"
+    id="radio-default-label"
+  >
+    Select your country
+  </div>
+  <p
+    class="ecl-radio__help ecl-help-block"
+    id="radio-default-helper"
+  >
+    Helper text for the group
+  </p>
+  <div
+    class="ecl-radio"
+  >
+    <input
+      aria-describedby="helper-default-1"
+      class="ecl-radio__input"
+      id="radio-default-1"
+      name="radio-default"
+      type="radio"
+      value="lu"
+    />
+    <label
+      class="ecl-radio__label"
+      for="radio-default-1"
+    >
+      <span
+        class="ecl-radio__box"
+      />
+      Luxembourg
+    </label>
+    <p
+      class="ecl-radio__help ecl-help-block"
+      id="helper-default-1"
+    >
+      
+      Help text for option 1    
+    </p>
+  </div>
+  <div
+    class="ecl-radio"
+  >
+    <input
+      aria-describedby="helper-default-2"
+      class="ecl-radio__input"
+      id="radio-default-2"
+      name="radio-default"
+      type="radio"
+      value="be"
+    />
+    <label
+      class="ecl-radio__label"
+      for="radio-default-2"
+    >
+      <span
+        class="ecl-radio__box"
+      />
+      Belgium
+    </label>
+    <p
+      class="ecl-radio__help ecl-help-block"
+      id="helper-default-2"
+    >
+      
+      Help text for option 2    
+    </p>
+  </div>
+  <div
+    class="ecl-radio ecl-radio--disabled"
+  >
+    <input
+      aria-describedby="helper-default-3"
+      class="ecl-radio__input"
+      disabled=""
+      id="radio-default-3"
+      name="radio-default"
+      type="radio"
+      value="fr"
+    />
+    <label
+      class="ecl-radio__label"
+      for="radio-default-3"
+    >
+      <span
+        class="ecl-radio__box"
+      />
+      France (disabled)
+    </label>
+    <p
+      class="ecl-radio__help ecl-help-block"
+      id="helper-default-3"
+    >
+      
+      Help text for option 3    
+    </p>
+  </div>
+</div>
+`;
+
+exports[`EC - Radio Invalid renders correctly 1`] = `
+<div
+  aria-describedby="radio-invalid-helper"
+  aria-labelledby="radio-invalid-label"
+  class="ecl-radio__group ecl-radio__group--invalid"
+  role="radiogroup"
+>
+  <div
+    class="ecl-form-label"
+    id="radio-invalid-label"
+  >
+    Select your country
+  </div>
+  <p
+    class="ecl-radio__help ecl-help-block"
+    id="radio-invalid-helper"
+  >
+    Helper text for the group
+  </p>
+  <p
+    class="ecl-radio__invalid ecl-feedback-message"
+  >
+    Error message for the group
+  </p>
+  <div
+    class="ecl-radio"
+  >
+    <input
+      aria-describedby="helper-invalid-1"
+      class="ecl-radio__input"
+      id="radio-invalid-1"
+      name="radio-invalid"
+      type="radio"
+      value="lu"
+    />
+    <label
+      class="ecl-radio__label"
+      for="radio-invalid-1"
+    >
+      <span
+        class="ecl-radio__box"
+      />
+      Luxembourg
+    </label>
+    <p
+      class="ecl-radio__help ecl-help-block"
+      id="helper-invalid-1"
+    >
+      
+      Help text for option 1    
+    </p>
+  </div>
+  <div
+    class="ecl-radio"
+  >
+    <input
+      aria-describedby="helper-invalid-2"
+      class="ecl-radio__input"
+      id="radio-invalid-2"
+      name="radio-invalid"
+      type="radio"
+      value="be"
+    />
+    <label
+      class="ecl-radio__label"
+      for="radio-invalid-2"
+    >
+      <span
+        class="ecl-radio__box"
+      />
+      Belgium
+    </label>
+    <p
+      class="ecl-radio__help ecl-help-block"
+      id="helper-invalid-2"
+    >
+      
+      Help text for option 2    
+    </p>
+  </div>
+  <div
+    class="ecl-radio ecl-radio--disabled"
+  >
+    <input
+      aria-describedby="helper-invalid-3"
+      class="ecl-radio__input"
+      disabled=""
+      id="radio-invalid-3"
+      name="radio-invalid"
+      type="radio"
+      value="fr"
+    />
+    <label
+      class="ecl-radio__label"
+      for="radio-invalid-3"
+    >
+      <span
+        class="ecl-radio__box"
+      />
+      France (disabled)
+    </label>
+    <p
+      class="ecl-radio__help ecl-help-block"
+      id="helper-invalid-3"
+    >
+      
+      Help text for option 3    
+    </p>
+  </div>
+</div>
+`;
