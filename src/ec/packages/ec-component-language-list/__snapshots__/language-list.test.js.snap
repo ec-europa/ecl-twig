@@ -3,6 +3,7 @@
 exports[`EC - Language List Overlay renders correctly 1`] = `
 <div
   class="ecl-language-list ecl-language-list--overlay"
+  data-ecl-language-list-overlay=""
 >
   <div
     class="ecl-language-list__container ecl-container"
@@ -15,6 +16,7 @@ exports[`EC - Language List Overlay renders correctly 1`] = `
       >
         <button
           class="ecl-button ecl-button--ghost ecl-language-list__close-button"
+          data-ecl-language-list-close=""
           type="submit"
         >
           <span
@@ -406,6 +408,7 @@ exports[`EC - Language List Overlay renders correctly 1`] = `
 exports[`EC - Language List Overlay renders correctly with extra attributes 1`] = `
 <div
   class="ecl-language-list ecl-language-list--overlay"
+  data-ecl-language-list-overlay=""
   data-test="data-test-value"
   data-test-1="data-test-value-1"
 >
@@ -420,6 +423,7 @@ exports[`EC - Language List Overlay renders correctly with extra attributes 1`] 
       >
         <button
           class="ecl-button ecl-button--ghost ecl-language-list__close-button"
+          data-ecl-language-list-close=""
           type="submit"
         >
           <span
@@ -811,6 +815,7 @@ exports[`EC - Language List Overlay renders correctly with extra attributes 1`] 
 exports[`EC - Language List Overlay renders correctly with extra class names 1`] = `
 <div
   class="ecl-language-list ecl-language-list--overlay custom-class custom-class--test"
+  data-ecl-language-list-overlay=""
 >
   <div
     class="ecl-language-list__container ecl-container"
@@ -823,6 +828,7 @@ exports[`EC - Language List Overlay renders correctly with extra class names 1`]
       >
         <button
           class="ecl-button ecl-button--ghost ecl-language-list__close-button"
+          data-ecl-language-list-close=""
           type="submit"
         >
           <span
