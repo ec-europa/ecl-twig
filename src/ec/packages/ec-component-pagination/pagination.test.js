@@ -19,7 +19,7 @@ describe('EC - Pagination', () => {
       expect.assertions(1);
 
       const withExtraClasses = merge(data, {
-        extra_classes: 'custom-pagination custom-pagination--test',
+        extra_classes: 'custom-class custom-class--test',
       });
 
       return expect(render(withExtraClasses)).resolves.toMatchSnapshot();

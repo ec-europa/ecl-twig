@@ -35,7 +35,7 @@ describe('EC - Breadcrumb', () => {
       expect.assertions(1);
 
       const optionsWithExtraClasses = merge(data, {
-        extra_classes: 'custom-breadcrumb custom-breadcrumb--test',
+        extra_classes: 'custom-class custom-class--test',
       });
 
       return expect(render(optionsWithExtraClasses)).resolves.toMatchSnapshot();
@@ -72,7 +72,7 @@ describe('EC - Breadcrumb', () => {
       expect.assertions(1);
 
       const optionsWithExtraClasses = merge(data, {
-        extra_classes: 'custom-breadcrumb custom-breadcrumb--test',
+        extra_classes: 'custom-class custom-class--test',
       });
 
       return expect(render(optionsWithExtraClasses)).resolves.toMatchSnapshot();

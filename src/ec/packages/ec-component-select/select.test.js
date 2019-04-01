@@ -64,7 +64,7 @@ describe('EC - Select', () => {
       expect.assertions(1);
 
       const optionsWithExtraClasses = merge(options, {
-        extra_classes: 'custom-select custom-select--test',
+        extra_classes: 'custom-class custom-class--test',
       });
 
       return expect(render(optionsWithExtraClasses)).resolves.toMatchSnapshot();
