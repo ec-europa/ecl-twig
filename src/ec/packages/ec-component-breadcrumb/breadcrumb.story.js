@@ -23,7 +23,7 @@ function formatLink(l) {
 const simpleBreadcrumbLinks = breadcrumbDataSimple.items.map(formatLink);
 const longBreadcrumbLinks = breadcrumbDataLong.items.map(formatLink);
 
-storiesOf('Components/Breadcrumb', module)
+storiesOf('Components/Navigation/Breadcrumb', module)
   .addDecorator(withKnobs)
   .addDecorator(withNotes)
   .addDecorator(withCode)

@@ -11,6 +11,7 @@ import splashDocs from './docs/splash.md';
 import overlayDocs from './docs/overlay.md';
 
 import languageList from './language-list.html.twig';
+import languageListOverlay from './language-list-overlay.html.twig';
 
 storiesOf('Components/Language list', module)
   .addDecorator(withKnobs)
@@ -35,7 +36,7 @@ storiesOf('Components/Language list', module)
   .add(
     'overlay',
     () =>
-      languageList({
+      languageListOverlay({
         items: dataOverlay.items,
         overlay: true,
         icon_path: iconPath,

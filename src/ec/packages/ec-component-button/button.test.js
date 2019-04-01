@@ -93,7 +93,7 @@ describe('EC - Button', () => {
       expect.assertions(1);
 
       const withExtraClasses = merge(buttonData, {
-        extra_classes: 'custom-button custom-button--test',
+        extra_classes: 'custom-class custom-class--test',
       });
 
       return expect(render(withExtraClasses)).resolves.toMatchSnapshot();

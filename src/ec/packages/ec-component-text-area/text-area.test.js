@@ -33,7 +33,7 @@ describe('EC - Text area', () => {
       expect.assertions(1);
 
       const optionsWithExtraClasses = merge(options, {
-        extra_classes: 'custom-text-area custom-text-area--test',
+        extra_classes: 'custom-class custom-class--test',
       });
 
       return expect(render(optionsWithExtraClasses)).resolves.toMatchSnapshot();
@@ -71,7 +71,7 @@ describe('EC - Text area', () => {
       expect.assertions(1);
 
       const optionsWithExtraClasses = merge(options, {
-        extra_classes: 'custom-text-area custom-text-area--test',
+        extra_classes: 'custom-class custom-class--test',
       });
 
       return expect(render(optionsWithExtraClasses)).resolves.toMatchSnapshot();
@@ -111,7 +111,7 @@ describe('EC - Text area', () => {
       expect.assertions(1);
 
       const optionsWithExtraClasses = merge(options, {
-        extra_classes: 'custom-text-area custom-text-area--test',
+        extra_classes: 'custom-class custom-class--test',
       });
 
       return expect(render(optionsWithExtraClasses)).resolves.toMatchSnapshot();

@@ -63,7 +63,7 @@ describe('EC - Card', () => {
       expect.assertions(1);
 
       const withExtraClasses = merge(data, {
-        extra_classes: 'custom-card custom-card--test',
+        extra_classes: 'custom-class custom-class--test',
       });
 
       return expect(render(withExtraClasses)).resolves.toMatchSnapshot();
@@ -118,7 +118,7 @@ describe('EC - Card', () => {
       expect.assertions(1);
 
       const withExtraClasses = merge(data, {
-        extra_classes: 'custom-card custom-card--test',
+        extra_classes: 'custom-class custom-class--test',
       });
 
       return expect(render(withExtraClasses)).resolves.toMatchSnapshot();

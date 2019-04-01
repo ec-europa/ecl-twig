@@ -18,7 +18,7 @@ dataSuccess.close.icon.path = defaultSprite;
 dataWarning.icon.path = defaultSprite;
 dataWarning.close.icon.path = defaultSprite;
 
-storiesOf('Components/Message', module)
+storiesOf('Components/Messages', module)
   .addDecorator(withKnobs)
   .addDecorator(withCode)
   .addDecorator(withNotes)

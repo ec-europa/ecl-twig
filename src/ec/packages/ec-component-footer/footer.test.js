@@ -19,7 +19,7 @@ describe('EC - Footer', () => {
       expect.assertions(1);
 
       const withExtraClasses = merge(options, {
-        extra_classes: 'custom-link custom-link--test',
+        extra_classes: 'custom-class custom-class--test',
       });
 
       return expect(render(withExtraClasses)).resolves.toMatchSnapshot();
@@ -51,7 +51,7 @@ describe('EC - Footer', () => {
       expect.assertions(1);
 
       const withExtraClasses = merge(options, {
-        extra_classes: 'custom-link custom-link--test',
+        extra_classes: 'custom-class custom-class--test',
       });
 
       return expect(render(withExtraClasses)).resolves.toMatchSnapshot();

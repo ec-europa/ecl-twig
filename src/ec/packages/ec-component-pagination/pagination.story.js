@@ -16,7 +16,7 @@ data.items.forEach(item => {
   }
 });
 
-storiesOf('Components/Pagination', module)
+storiesOf('Components/Navigation/Pagination', module)
   .addDecorator(withKnobs)
   .addDecorator(withNotes)
   .addDecorator(withCode)
