@@ -10,7 +10,7 @@ npm install --save @ecl-twig/ec-component-language-list
 
 ### Parameters
 
-- "items" (array) (default: []): array of link items
+- "items" (array) (default: [])
   - "lang" (string) (default: '')
   - "label" (string) (default: '')
   - "path" (string) (default: '')
@@ -29,7 +29,7 @@ npm install --save @ecl-twig/ec-component-language-list
 
 <!-- prettier-ignore -->
 ```twig
-{% include 'path/to/language-list.html.twig' with { 
+{% include 'path/to/language-list-splash.html.twig' with { 
   items: [ 
     { lang: 'bg', label: 'български', path: '/example' }, 
     { lang: 'es', label: 'español', path: '/example' }, 
