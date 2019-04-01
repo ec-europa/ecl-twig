@@ -837,6 +837,14 @@
   dependencies:
     "@ecl/ec-base" "^2.2.0"
 
+"@ecl/ec-component-gallery@^2.2.0":
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/@ecl/ec-component-gallery/-/ec-component-gallery-2.2.0.tgz#c44286f3af19782ffb619a232d29afda6cbe22ce"
+  integrity sha512-x/hdJVATiqvUF5KWQprH5SG70HTG3fdr8YvtdZK/1ERxUxuuzgZP/G4ZLXeVwgrG/xOppPTiaCRaJT1c7sUPhg==
+  dependencies:
+    "@ecl/ec-base" "^2.2.0"
+    focus-trap "^4.0.2"
+
 "@ecl/ec-component-hero-banner@^2.2.0":
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/@ecl/ec-component-hero-banner/-/ec-component-hero-banner-2.2.0.tgz#b752bdeeb905530d48e2e2acc99ce7075223e764"
@@ -1011,6 +1019,11 @@
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/@ecl/ec-specs-footer/-/ec-specs-footer-2.2.0.tgz#9dca1adbd16fbe0c2d613053e331ed5251270752"
   integrity sha512-mlZNMFGr1kU4WnTJUKG33t8ip8sny9QV9I+zVgIf5wPSN/qie9LFhdo74mUTR6QqnHUDkKMtRzIw7PXsUZYHVw==
+
+"@ecl/ec-specs-gallery@^2.2.0":
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/@ecl/ec-specs-gallery/-/ec-specs-gallery-2.2.0.tgz#461918ad03bb361f70ec762d08928af74a6cbb59"
+  integrity sha512-asYnwHuv7mKE5lFtDbRELY3NZfCurNeNiLCrpGRODflRKJg/ihuj8903PkcrEBtUMlUp+GELKHXza0/s/1fcfg==
 
 "@ecl/ec-specs-hero-banner@^2.2.0":
   version "2.2.0"
@@ -5698,6 +5711,14 @@ focus-lock@^0.6.0:
   version "0.6.1"
   resolved "https://registry.yarnpkg.com/focus-lock/-/focus-lock-0.6.1.tgz#904d8d4d3a309e108d57b3a0f417c31b7f16bf24"
   integrity sha512-q8DoDxBAjeMbrR61CJEvbpLZXgBhF9sNQOSiPigw0QFlZxQGDmGt0maayFkSZhOIFo4chq8kyxrFc4kNhLBfWw==
+
+focus-trap@^4.0.2:
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/focus-trap/-/focus-trap-4.0.2.tgz#4ee2b96547c9ea0e4252a2d4b2cca68944194663"
+  integrity sha512-HtLjfAK7Hp2qbBtLS6wEznID1mPT+48ZnP2nkHzgjpL4kroYHg0CdqJ5cTXk+UO5znAxF5fRUkhdyfgrhh8Lzw==
+  dependencies:
+    tabbable "^3.1.2"
+    xtend "^4.0.1"
 
 for-in@^1.0.2:
   version "1.0.2"
@@ -11263,6 +11284,11 @@ synchronous-promise@^2.0.5:
   version "2.0.6"
   resolved "https://registry.yarnpkg.com/synchronous-promise/-/synchronous-promise-2.0.6.tgz#de76e0ea2b3558c1e673942e47e714a930fa64aa"
   integrity sha512-TyOuWLwkmtPL49LHCX1caIwHjRzcVd62+GF6h8W/jHOeZUFHpnd2XJDVuUlaTaLPH1nuu2M69mfHr5XbQJnf/g==
+
+tabbable@^3.1.2:
+  version "3.1.2"
+  resolved "https://registry.yarnpkg.com/tabbable/-/tabbable-3.1.2.tgz#f2d16cccd01f400e38635c7181adfe0ad965a4a2"
+  integrity sha512-wjB6puVXTYO0BSFtCmWQubA/KIn7Xvajw0x0l6eJUudMG/EAiJvIUnyNX6xO4NpGrJ16lbD0eUseB9WxW0vlpQ==
 
 table@^5.2.3:
   version "5.2.3"
