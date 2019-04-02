@@ -56,7 +56,7 @@
     type="radio"
     value="{{ _value }}"
     {{ _disabled ? "disabled" }}
-    {{ _helper_id is not empty ? "aria-describedby='" ~ _helper_id ~ "'" -}}
+    {{ _helper_id is not empty ? "aria-describedby=\"" ~ _helper_id ~ "\"" -}}
   />
 
   <label for="{{ _id }}" class="ecl-radio__label">
@@ -67,7 +67,7 @@
   {% if _helper_text is not empty %}
     <p 
       class="ecl-radio__help ecl-help-block"
-      {{ _helper_id is not empty ? "id='" ~ _helper_id ~ "'"}}
+      {{ _helper_id is not empty ? "id=\"" ~ _helper_id ~ "\""}}
     >
       {%- block helper_text _helper_text -%}
     </p>

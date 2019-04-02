@@ -63,7 +63,7 @@
   class="{{ _css_class }}" 
   role="radiogroup" 
   aria-labelledby="{{ label_id }}"
-  {{ _helper_id is not empty ? "aria-describedby='" ~ _helper_id ~ "'"}}
+  {{ _helper_id is not empty ? "aria-describedby=\"" ~ _helper_id ~ "\""}}
   {{ _extra_attributes|raw }}
 >
 
@@ -79,7 +79,7 @@
   {% if _helper_text is not empty %}
     <p 
       class="ecl-radio__help ecl-help-block"
-      {{ _helper_id is not empty ? "id='" ~ _helper_id ~ "'"}}
+      {{ _helper_id is not empty ? "id=\"" ~ _helper_id ~ "\""}}
     >
       {%- block helper_text _helper_text -%}
     </p>
