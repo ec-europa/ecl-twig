@@ -22,8 +22,6 @@
 {% set _items = items|default([]) %}
 {% set _icon_path = icon_path|default('') %}
 {% set _logo = logo|default({}) %}
-{% set _close_label = close_label|default('') %}
-{% set _title = title|default('') %}
 
 {% set _css_class = 'ecl-language-list ecl-language-list--splash' %}
 {% set _extra_attributes = '' %}
@@ -50,7 +48,6 @@
   <div class="ecl-language-list__container ecl-container">
     {% include './language-list.html.twig' with {
       items: _items,
-      overlay: false,
       icon_path: _icon_path
     } only %}
   </div>
