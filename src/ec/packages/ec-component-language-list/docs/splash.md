@@ -15,13 +15,12 @@ npm install --save @ecl-twig/ec-component-language-list
   - "label" (string) (default: '')
   - "path" (string) (default: '')
   - "active (boolean) (default: false)
-- "overlay" (boolean) (default: false): is the list an overlay?
 - "icon_path" (string) (default: ''): file containing the svg icons
 - "logo" (object) (default: {}): EC logo
   - "alt" (string) (default: ''): alt text for the logo
   - "path" (string) (default: ''): path to the logo svg
-- "extra_classes" (optional) (string) (default: '') Extra classes (space separated) for the icon
-- "extra_attributes" (optional) (array) (default: []) Extra attributes for icon
+- "extra_classes" (optional) (string) (default: '')
+- "extra_attributes" (optional) (array) (default: [])
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
 
@@ -34,8 +33,7 @@ npm install --save @ecl-twig/ec-component-language-list
     { lang: 'bg', label: 'български', path: '/example' }, 
     { lang: 'es', label: 'español', path: '/example' }, 
     ... 
-  ], 
-  overlay: false, 
+  ],  
   logo: { 
     alt: 'European Commission Logo', 
     path: '/path-to-the-logo-file', 
