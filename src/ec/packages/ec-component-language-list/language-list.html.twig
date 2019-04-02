@@ -2,22 +2,13 @@
 
 {#
   Parameters:
-  - "items" (array) (default: []): array of link items
+  - "items" (array) (default: [])
     - "lang" (string) (default: '')
     - "label" (string) (default: '')
     - "path" (string) (default: '')
     - "active (boolean) (default: false)
   - "overlay" (boolean) (default: false): is the list an overlay?
   - "icon_path" (string) (default: ''): file containing the svg icons
-  - "logo" (object) (default: {}): EC logo (splash only)
-    - "alt" (string) (default: ''): alt text for the logo
-    - "path" (string) (default: ''): path to the logo svg
-  - "close_label (string) (default: ''): label of close button (overlay only)
-  - "title" (string) (default: ''): title of the page (overlay only)
-  - "extra_classes" (optional) (string) (default: '') Extra classes (space separated) for the icon
-  - "extra_attributes" (optional) (array) (default: []) Extra attributes for icon
-    - "name" (string) Attribute name, eg. 'data-test'
-    - "value" (string) Attribute value, eg: 'data-test-1'
 #}
 
 {# Internal properties #}
@@ -25,123 +16,41 @@
 {% set _items = items|default([]) %}
 {% set _overlay = overlay|default(false) %}
 {% set _icon_path = icon_path|default('') %}
-{% set _logo = logo|default({}) %}
-{% set _close_label = close_label|default('') %}
-{% set _title = title|default('') %}
-
-{% set _css_class = 'ecl-language-list' %}
-{% set _extra_attributes = '' %}
 
 {# Internal logic - Process properties #}
-
-{% if _overlay %}
-  {% set _css_class =  _css_class ~ ' ecl-language-list--overlay' %}
-{% else %}
-  {% set _css_class =  _css_class ~ ' ecl-language-list--splash' %}
-{% endif %}
-
-{% if extra_classes is defined and extra_classes is not empty %}
-  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
-{% endif %}
-
-{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
-  {% for attr in extra_attributes %}
-    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
-  {% endfor %}
-{% endif %}
 
 {% set _column1 = _items|slice(0, (items.length / 2)|round(0, 'ceil')) %}
 {% set _column2 = _items|slice((items.length / 2)|round(0, 'ceil'), items.length) %}
 
 {# Print the result #}
 
-<div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
-  {% if overlay %}
-    <div class="ecl-language-list__container ecl-container">
-      <div class="ecl-row">
-        <div class="ecl-language-list__close ecl-col-12 ecl-col-lg-8 ecl-offset-lg-2">
-          {% include '../ec-component-button/button.html.twig' with {
-            label: _close_label,
-            variant: "ghost",
-            icon: {
-              path: _icon_path,
-              type: "ui",
-              name: "close",
-              size: "s"
-            },
-            icon_position: "after",
-            extra_classes: 'ecl-language-list__close-button'
+<div class="ecl-row">
+  <div class="ecl-language-list__column ecl-col-12 ecl-col-lg-4 ecl-offset-lg-2">
+    <ul class="ecl-language-list__list">
+      {% for _item in _column1 %}
+        <li class="ecl-language-list__item{{ _item.active ? ' ecl-language-list__item--is-active' : '' }}">
+          {% include './language-list-item.html.twig' with {
+            item: _item,
+            overlay: _overlay,
+            icon_path: _icon_path
           } only %}
-        </div>
-        <div class="ecl-language-list__title ecl-col-12 ecl-col-lg-8 ecl-offset-lg-2">
-          {% include '../ec-component-icon/icon.html.twig' with {
-            icon: {
-              path: _icon_path,
-              type: "general",
-              name: "generic-lang",
-              size: "m"
-            },
-            extra_classes: "ecl-language-list__title-icon"
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+  <div class="ecl-language-list__column ecl-col-12 ecl-col-lg-4">
+    <ul class="ecl-language-list__list">
+      {% for _item in _column2 %}
+        <li class="ecl-language-list__item{{ _item.active ? ' ecl-language-list__item--is-active' : '' }}">
+          {% include './language-list-item.html.twig' with {
+            item: _item,
+            overlay: _overlay,
+            icon_path: _icon_path
           } only %}
-          {{- _title -}}
-        </div>
-      </div>
-      <div class="ecl-row">
-        <div class="ecl-language-list__column ecl-col-12 ecl-col-lg-4 ecl-offset-lg-2">
-          <ul class="ecl-language-list__list">
-            {% for _item in _column1 %}
-              {% include './language-list-item.html.twig' with {
-                item: _item,
-                overlay: _overlay,
-                icon_path: _icon_path
-              } only %}
-            {% endfor %}
-          </ul>
-        </div>
-        <div class="ecl-language-list__column ecl-col-12 ecl-col-lg-4">
-          <ul class="ecl-language-list__list">
-            {% for _item in _column2 %}
-              {% include './language-list-item.html.twig' with {
-                item: _item,
-                overlay: _overlay,
-                icon_path: _icon_path
-              } only %}
-            {% endfor %}
-          </ul>
-        </div>
-      </div>
-    </div>
-  {% else %}
-    <header class="ecl-language-list__header">
-      <img class="ecl-language-list__logo" src="{{ _logo.path }}" alt="{{ _logo.alt }}" />
-    </header>
-    <div class="ecl-language-list__container ecl-container">
-      <div class="ecl-row">
-        <div class="ecl-language-list__column ecl-col-12 ecl-col-lg-4 ecl-offset-lg-2">
-          <ul class="ecl-language-list__list">
-            {% for _item in _column1 %}
-              {% include './language-list-item.html.twig' with {
-                item: _item,
-                overlay: _overlay,
-                icon_path: _icon_path
-              } only %}
-            {% endfor %}
-          </ul>
-        </div>
-        <div class="ecl-language-list__column ecl-col-12 ecl-col-lg-4">
-          <ul class="ecl-language-list__list">
-            {% for _item in _column2 %}
-              {% include './language-list-item.html.twig' with {
-                item: _item,
-                overlay: _overlay,
-                icon_path: _icon_path
-              } only %}
-            {% endfor %}
-          </ul>
-        </div>
-      </div>
-    </div>
-  {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
 </div>
 
 {% endspaceless %}

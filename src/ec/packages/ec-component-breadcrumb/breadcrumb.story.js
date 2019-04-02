@@ -14,7 +14,7 @@ import breadcrumb from './breadcrumb.html.twig';
 breadcrumbDataSimple.icon_file_path = defaultSprite;
 breadcrumbDataLong.icon_file_path = defaultSprite;
 
-storiesOf('Components/Breadcrumb', module)
+storiesOf('Components/Navigation/Breadcrumb', module)
   .addDecorator(withKnobs)
   .addDecorator(withNotes)
   .addDecorator(withCode)

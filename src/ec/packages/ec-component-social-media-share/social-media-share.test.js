@@ -20,8 +20,7 @@ describe('EC - Social Media Share', () => {
       expect.assertions(1);
 
       const withExtraClasses = merge(demoData, {
-        extra_classes:
-          'custom-social-media-share custom-social-media-share--test',
+        extra_classes: 'custom-class custom-class--test',
       });
 
       return expect(render(withExtraClasses)).resolves.toMatchSnapshot();

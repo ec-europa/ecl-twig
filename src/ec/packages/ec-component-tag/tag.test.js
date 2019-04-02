@@ -32,7 +32,7 @@ describe('EC - Tag', () => {
       expect.assertions(1);
 
       const optionsWithExtraClasses = merge(options, {
-        extra_classes: 'custom-tag custom-tag--test',
+        extra_classes: 'custom-class custom-class--test',
       });
 
       return expect(render(optionsWithExtraClasses)).resolves.toMatchSnapshot();
@@ -69,7 +69,7 @@ describe('EC - Tag', () => {
       expect.assertions(1);
 
       const optionsWithExtraClasses = merge(options, {
-        extra_classes: 'custom-tag custom-tag--test',
+        extra_classes: 'custom-class custom-class--test',
       });
 
       return expect(render(optionsWithExtraClasses)).resolves.toMatchSnapshot();
@@ -107,7 +107,7 @@ describe('EC - Tag', () => {
       expect.assertions(1);
 
       const optionsWithExtraClasses = merge(options, {
-        extra_classes: 'custom-tag custom-tag--test',
+        extra_classes: 'custom-class custom-class--test',
       });
 
       return expect(render(optionsWithExtraClasses)).resolves.toMatchSnapshot();

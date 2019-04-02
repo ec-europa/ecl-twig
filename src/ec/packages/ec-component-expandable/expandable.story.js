@@ -9,7 +9,7 @@ import demoData from './demo/data';
 import expandable from './expandable.html.twig';
 import notes from './docs/expandable.md';
 
-storiesOf('Components/Expandable', module)
+storiesOf('Components/Expandables', module)
   .addDecorator(withKnobs)
   .addDecorator(withCode)
   .addDecorator(withNotes)

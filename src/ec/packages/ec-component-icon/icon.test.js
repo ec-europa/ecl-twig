@@ -98,7 +98,7 @@ describe('EC - Icon', () => {
       expect.assertions(1);
 
       const optionsWithExtraClasses = merge(options, {
-        extra_classes: 'custom-icon custom-icon--test',
+        extra_classes: 'custom-class custom-class--test',
       });
 
       return expect(render(optionsWithExtraClasses)).resolves.toMatchSnapshot();

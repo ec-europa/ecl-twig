@@ -21,7 +21,7 @@ uiIcons.forEach(icon => {
   iconsList[icon] = icon;
 });
 
-storiesOf('Components/Link', module)
+storiesOf('Components/Navigation/Link', module)
   .addDecorator(withKnobs)
   .addDecorator(withNotes)
   .addDecorator(withCode)

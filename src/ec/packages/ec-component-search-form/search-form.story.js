@@ -8,7 +8,7 @@ import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import searchFormDocs from './docs/search-form.md';
 import searchForm from './search-form.html.twig';
 
-storiesOf('Components/Search Form', module)
+storiesOf('Components/Forms/Search Form', module)
   .addDecorator(withKnobs)
   .addDecorator(withNotes)
   .addDecorator(withCode)
