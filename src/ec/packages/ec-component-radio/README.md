@@ -6,7 +6,7 @@ npm package: `@ecl-twig/ec-component-radio`
 npm install --save @ecl-twig/ec-component-radio
 ```
 
-## Radio
+## Radio group
 
 ### Parameters:
 
@@ -39,7 +39,7 @@ npm install --save @ecl-twig/ec-component-radio
 
 <!-- prettier-ignore -->
 ```twig
-{% include 'path/to/radio.html.twig' with { 
+{% include 'path/to/radio-group.html.twig' with { 
   label_id: 'radio-default-label', 
   label: 'Select your country', 
   helper_id: 'radio-default-helper', 
@@ -53,22 +53,22 @@ npm install --save @ecl-twig/ec-component-radio
       id: 'radio-default-1', 
       value: 'lu', 
       label: 'Luxembourg', 
-      helperId: 'helper-default-1', 
-      helperText: 'Help text for option 1', 
+      helper_id: 'helper-default-1', 
+      helper_text: 'Help text for option 1', 
     }, 
     { 
       id: 'radio-default-2', 
       value: 'be', 
       label: 'Belgium', 
-      helperId: 'helper-default-2', 
-      helperText: 'Help text for option 2', 
+      helper_id: 'helper-default-2', 
+      helper_text: 'Help text for option 2', 
     }, 
     { 
       id: 'radio-default-3', 
       value: 'fr', 
       label: 'France (disabled)', 
-      helperId: 'helper-default-3', 
-      helperText: 'Help text for option 3', 
+      helper_id: 'helper-default-3', 
+      helper_text: 'Help text for option 3', 
       disabled: true, 
     }, 
   ], 

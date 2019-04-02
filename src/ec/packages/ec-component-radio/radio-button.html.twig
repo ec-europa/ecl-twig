@@ -59,8 +59,9 @@
     {{ _helper_id is not empty ? "aria-describedby='" ~ _helper_id ~ "'" -}}
   />
 
-  <label for={{ _id }} class="ecl-radio__label">
-    <span class="ecl-radio__box"></span>{{ _label -}}
+  <label for="{{ _id }}" class="ecl-radio__label">
+    <span class="ecl-radio__box"></span>
+    {%- block label _label -%}
   </label>
 
   {% if _helper_text is not empty %}
@@ -68,7 +69,7 @@
       class="ecl-radio__help ecl-help-block"
       {{ _helper_id is not empty ? "id='" ~ _helper_id ~ "'"}}
     >
-      {% block helper_text _helper_text %}
+      {%- block helper_text _helper_text -%}
     </p>
   {% endif %}
 </div>
