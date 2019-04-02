@@ -2,20 +2,16 @@
 
 {#
   Parameters:
-  - "items" (array) (default: []): array of link items
+  - "items" (array) (default: [])
     - "lang" (string) (default: '')
     - "label" (string) (default: '')
     - "path" (string) (default: '')
     - "active (boolean) (default: false)
-  - "overlay" (boolean) (default: false): is the list an overlay?
   - "icon_path" (string) (default: ''): file containing the svg icons
-  - "logo" (object) (default: {}): EC logo (splash only)
-    - "alt" (string) (default: ''): alt text for the logo
-    - "path" (string) (default: ''): path to the logo svg
-  - "close_label (string) (default: ''): label of close button (overlay only)
-  - "title" (string) (default: ''): title of the page (overlay only)
-  - "extra_classes" (optional) (string) (default: '') Extra classes (space separated) for the icon
-  - "extra_attributes" (optional) (array) (default: []) Extra attributes for icon
+  - "close_label (string) (default: ''): label of close button
+  - "title" (string) (default: ''): title of the page
+  - "extra_classes" (optional) (string) (default: '')
+  - "extra_attributes" (optional) (array) (default: [])
     - "name" (string) Attribute name, eg. 'data-test'
     - "value" (string) Attribute value, eg: 'data-test-1'
 #}
@@ -23,9 +19,7 @@
 {# Internal properties #}
 
 {% set _items = items|default([]) %}
-{% set _overlay = overlay|default(false) %}
 {% set _icon_path = icon_path|default('') %}
-{% set _logo = logo|default({}) %}
 {% set _close_label = close_label|default('') %}
 {% set _title = title|default('') %}
 
@@ -43,9 +37,6 @@
     {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
   {% endfor %}
 {% endif %}
-
-{% set _column1 = _items|slice(0, (items.length / 2)|round(0, 'ceil')) %}
-{% set _column2 = _items|slice((items.length / 2)|round(0, 'ceil'), items.length) %}
 
 {# Print the result #}
 
@@ -80,31 +71,12 @@
         {{- _title -}}
       </div>
     </div>
-    <div class="ecl-row">
-      <div class="ecl-language-list__column ecl-col-12 ecl-col-lg-4 ecl-offset-lg-2">
-        <ul class="ecl-language-list__list">
-          {% for _item in _column1 %}
-            {% include './language-list-item.html.twig' with {
-              item: _item,
-              overlay: _overlay,
-              icon_path: _icon_path
-            } only %}
-          {% endfor %}
-        </ul>
-      </div>
-      <div class="ecl-language-list__column ecl-col-12 ecl-col-lg-4">
-        <ul class="ecl-language-list__list">
-          {% for _item in _column2 %}
-            {% include './language-list-item.html.twig' with {
-              item: _item,
-              overlay: _overlay,
-              icon_path: _icon_path
-            } only %}
-          {% endfor %}
-        </ul>
-      </div>
-    </div>
-  </div>
+
+    {% include './language-list.html.twig' with {
+      items: _items,
+      overlay: true,
+      icon_path: _icon_path
+    } only %}
 </div>
 
 {% endspaceless %}

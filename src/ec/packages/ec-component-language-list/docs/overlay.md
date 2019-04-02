@@ -10,17 +10,16 @@ npm install --save @ecl-twig/ec-component-language-list
 
 ### Parameters
 
-- "items" (array) (default: []): array of link items
+- "items" (array) (default: [])
   - "lang" (string) (default: '')
   - "label" (string) (default: '')
   - "path" (string) (default: '')
   - "active (boolean) (default: false)
-- "overlay" (boolean) (default: false): is the list an overlay?
 - "icon_path" (string) (default: ''): file containing the svg icons
-- "close_label (string) (default: ''): label of close button (overlay only)
-- "title" (string) (default: ''): title of the page (overlay only)
-- "extra_classes" (optional) (string) (default: '') Extra classes (space separated) for the icon
-- "extra_attributes" (optional) (array) (default: []) Extra attributes for icon
+- "close_label (string) (default: ''): label of close button
+- "title" (string) (default: ''): title of the page
+- "extra_classes" (optional) (string) (default: '')
+- "extra_attributes" (optional) (array) (default: [])
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
 
@@ -28,13 +27,12 @@ npm install --save @ecl-twig/ec-component-language-list
 
 <!-- prettier-ignore -->
 ```twig
-{% include 'path/to/language-list.html.twig' with { 
+{% include 'path/to/language-list-overlay.html.twig' with { 
   items: [ 
     { lang: 'bg', label: 'български', path: '/example' }, 
     { lang: 'es', label: 'español', path: '/example' }, 
     ... 
   ], 
-  overlay: true, 
   close_label: 'Close', 
   title: 'Select your language', 
   icon_path: '/path-to-the-icon-file', 
