@@ -62,7 +62,7 @@
 <div 
   class="{{ _css_class }}" 
   role="radiogroup" 
-  aria-labelledby={{ label_id }}
+  aria-labelledby="{{ label_id }}"
   {{ _helper_id is not empty ? "aria-describedby='" ~ _helper_id ~ "'"}}
   {{ _extra_attributes|raw }}
 >

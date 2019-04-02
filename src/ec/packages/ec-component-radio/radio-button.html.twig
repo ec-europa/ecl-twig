@@ -50,11 +50,11 @@
 
 <div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
   <input
-    id={{ _id }}
-    name={{ _name }}
+    id="{{ _id }}"
+    name="{{ _name }}"
     class="ecl-radio__input"
     type="radio"
-    value={{ _value }}
+    value="{{ _value }}"
     {{ _disabled ? "disabled" }}
     {{ _helper_id is not empty ? "aria-describedby='" ~ _helper_id ~ "'" -}}
   />
