@@ -6,7 +6,10 @@ import { dataSplash, dataOverlay } from './demo/data';
 
 describe('EC - Language List', () => {
   describe('Splash', () => {
-    const template = path.resolve(__dirname, './language-list.html.twig');
+    const template = path.resolve(
+      __dirname,
+      './language-list-splash.html.twig'
+    );
     const render = params => renderTwigFileAsNode(template, params);
 
     const options = {
