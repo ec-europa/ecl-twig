@@ -26,6 +26,7 @@ foreach ($components as $component) {
   // Get the list of data files.
   // For each data file the renderer will create an HTML file.
   $files = array_slice(scandir($folder), 2);
+  $data_html = '';
 
   foreach ($files as $file_name) {
     try {
@@ -40,7 +41,14 @@ foreach ($components as $component) {
       );
       $data_json = json_decode($data_string, TRUE);
       $data_html = $twig->render($template, $data_json);
-      $data_story = file_get_contents($root_folder . '/scripts/story_template.txt');
+      // Fix icons.
+      if (strpos($component,'social') === FALSE) {
+        $data_html = preg_replace('(xlink:href="([\/]?static\/icons.svg)?)', 'xlink:href="/icons.svg', $data_html);
+      }
+      else {
+        $data_html = preg_replace('(xlink:href="([\/]?static\/icons.svg)?)', 'xlink:href=/icons-social.svg', $data_html);
+      }
+      $data_story = file_get_contents('./story_template.txt');
       $adapted_variant = str_replace('-', '_', $variant);
       $data_story = str_replace(['#component_name#', '#php_file_name#'], [$adapted_variant, $variant . $result_extension], $data_story);
 

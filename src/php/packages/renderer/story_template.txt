@@ -1,0 +1,10 @@
+import { storiesOf } from '@storybook/html';
+import #component_name# from './#php_file_name#';
+
+storiesOf('Components/#component_name#', module)
+  .add(
+    'default',
+    () => {
+      return #component_name#;
+    }
+  );

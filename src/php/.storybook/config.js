@@ -1,8 +1,6 @@
 import { configure, addDecorator, addParameters } from '@storybook/html';
 import { withOptions } from '@storybook/addon-options';
 import { create } from '@storybook/theming';
-import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
-import socialSprite from '@ecl/ec-resources-social-icons/dist/sprites/icons-social.svg';
 
 addParameters({
   options: {
