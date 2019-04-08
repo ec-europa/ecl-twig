@@ -7,7 +7,7 @@ import textAreaDocs from './docs/text-area.md';
 
 import textArea from './text-area.html.twig';
 
-storiesOf('Components/Text area', module)
+storiesOf('Components/Forms/Text area', module)
   .addDecorator(withKnobs)
   .addDecorator(withNotes)
   .addDecorator(withCode)

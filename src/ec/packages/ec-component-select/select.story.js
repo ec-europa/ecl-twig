@@ -9,7 +9,7 @@ import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import selectDocs from './docs/select.md';
 import select from './select.html.twig';
 
-storiesOf('Components/Select', module)
+storiesOf('Components/Forms/Select', module)
   .addDecorator(withKnobs)
   .addDecorator(withNotes)
   .addDecorator(withCode)

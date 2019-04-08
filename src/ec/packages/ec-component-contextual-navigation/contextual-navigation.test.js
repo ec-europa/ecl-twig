@@ -18,7 +18,7 @@ describe('EC - Contextual Navigation', () => {
     expect.assertions(1);
 
     const optionsWithExtraClasses = merge(demoData, {
-      extra_classes: 'custom-class-1 custom-class-2',
+      extra_classes: 'custom-class custom-class--test',
     });
 
     return expect(render(optionsWithExtraClasses)).resolves.toMatchSnapshot();

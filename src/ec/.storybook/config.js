@@ -6,7 +6,7 @@ addParameters({
   options: {
     theme: create({
       base: 'light',
-      brandTitle: 'ECL v2.1 - EC Twig',
+      brandTitle: 'ECL v2.3 - EC Twig',
       brandUrl: 'https://github.com/ec-europa/ecl-twig',
       brandImage: null, // 'http://url.of/some.svg',
     }),
@@ -14,10 +14,7 @@ addParameters({
   },
 });
 
-const contexts = [
-  require.context('../packages', true, /.*\.story\.js$/),
-  require.context('../examples', true, /.*\.story\.js$/),
-];
+const contexts = [require.context('../packages', true, /.*\.story\.js$/)];
 
 configure(() => {
   contexts.forEach(context => {

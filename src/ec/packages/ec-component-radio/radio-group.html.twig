@@ -1,0 +1,102 @@
+{% spaceless %}
+
+{#
+  Parameters:
+  - "label_id" (string) (default: '')
+  - "items" (array) (default: []): array of radio_button
+  - "name" (string) (default: '')
+  - "helper_id" (string) (default: '')
+  - "hide_label" (boolean) (default: false)
+  - "invalid" (boolean) (default: false)
+  - "binary" (boolean) (default: false)
+  - "extra_classes" (optional) (string) (default: '')
+  - "extra_attributes" (optional) (array) (default: [])
+    - "name" (string) Attribute name, eg. 'data-test'
+    - "value" (string) Attribute value, eg: 'data-test-1'
+  Blocks:
+  - "helper_text"
+  - "invalid_text"
+  - "label"
+#}
+
+{# Internal properties #}
+
+{% set _label_id = label_id|default('') %}
+{% set _items = items|default([]) %}
+{% set _name = name|default('') %}
+{% set _helper_id = helper_id|default('') %}
+{% set _hide_label = hide_label|default(false) %}
+{% set _invalid = invalid|default(false) %}
+{% set _disabled = disabled|default(false) %}
+{% set _binary = binary|default(false) %}
+
+{% set _helper_text = helper_text|default('') %}
+{% set _invalid_text = invalid_text|default('') %}
+{% set _label = label|default('') %}
+
+{% set _css_class = 'ecl-radio__group' %}
+{% set _extra_attributes = '' %}
+
+{# Internal logic - Process properties #}
+
+{% if _invalid %}
+  {% set _css_class = _css_class ~ ' ecl-radio__group--invalid' %}
+{% endif %}
+
+{% if _binary %}
+  {% set _css_class = _css_class ~ ' ecl-radio__group--binary' %}
+{% endif %}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+
+<div 
+  class="{{ _css_class }}" 
+  role="radiogroup" 
+  aria-labelledby="{{ label_id }}"
+  {{ _helper_id is not empty ? "aria-describedby=\"" ~ _helper_id ~ "\""}}
+  {{ _extra_attributes|raw }}
+>
+
+  {%- if _label is not empty %}
+    <div
+      class="ecl-form-label{{ hide_label ? ' ecl-form-label--hidden'}}"
+      id="{{ _label_id }}"
+    >
+      {%- block label _label -%}
+    </div>
+  {% endif %}
+
+  {% if _helper_text is not empty %}
+    <p 
+      class="ecl-radio__help ecl-help-block"
+      {{ _helper_id is not empty ? "id=\"" ~ _helper_id ~ "\""}}
+    >
+      {%- block helper_text _helper_text -%}
+    </p>
+  {% endif %}
+
+  {% if _invalid and _invalid_text is not empty %}
+    <p class="ecl-radio__invalid ecl-feedback-message">
+      {%- block invalid_text _invalid_text -%}
+    </p>
+  {% endif %}
+
+  {%- for _item in _items %}
+    {% include './radio-button.html.twig' with _item|merge({
+      name: _name,
+    }) only %}
+  {% endfor -%}
+
+</div>
+
+{% endspaceless %}

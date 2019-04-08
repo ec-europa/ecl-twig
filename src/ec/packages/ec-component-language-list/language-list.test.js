@@ -5,10 +5,13 @@ import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 import { dataSplash, dataOverlay } from './demo/data';
 
 describe('EC - Language List', () => {
-  const template = path.resolve(__dirname, './language-list.html.twig');
-  const render = params => renderTwigFileAsNode(template, params);
-
   describe('Splash', () => {
+    const template = path.resolve(
+      __dirname,
+      './language-list-splash.html.twig'
+    );
+    const render = params => renderTwigFileAsNode(template, params);
+
     const options = {
       items: dataSplash.items,
       overlay: false,
@@ -28,7 +31,7 @@ describe('EC - Language List', () => {
       expect.assertions(1);
 
       const withExtraClasses = merge(options, {
-        extra_classes: 'custom-language-list custom-language-list--test',
+        extra_classes: 'custom-class custom-class--test',
       });
 
       return expect(render(withExtraClasses)).resolves.toMatchSnapshot();
@@ -49,6 +52,12 @@ describe('EC - Language List', () => {
   });
 
   describe('Overlay', () => {
+    const template = path.resolve(
+      __dirname,
+      './language-list-overlay.html.twig'
+    );
+    const render = params => renderTwigFileAsNode(template, params);
+
     const options = {
       items: dataOverlay.items,
       overlay: true,
@@ -66,7 +75,7 @@ describe('EC - Language List', () => {
       expect.assertions(1);
 
       const withExtraClasses = merge(options, {
-        extra_classes: 'custom-language-list custom-language-list--test',
+        extra_classes: 'custom-class custom-class--test',
       });
 
       return expect(render(withExtraClasses)).resolves.toMatchSnapshot();

@@ -45,7 +45,7 @@ describe('EC - Site Header', () => {
       expect.assertions(1);
 
       const withExtraClasses = merge(options, {
-        extra_classes: 'custom-site-header custom-site-header--test',
+        extra_classes: 'custom-class custom-class--test',
       });
 
       return expect(render(withExtraClasses)).resolves.toMatchSnapshot();
@@ -104,7 +104,7 @@ describe('EC - Site Header', () => {
       expect.assertions(1);
 
       const withExtraClasses = merge(options, {
-        extra_classes: 'custom-site-header custom-site-header--test',
+        extra_classes: 'custom-class custom-class--test',
       });
 
       return expect(render(withExtraClasses)).resolves.toMatchSnapshot();

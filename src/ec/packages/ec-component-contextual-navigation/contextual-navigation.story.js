@@ -11,7 +11,7 @@ import demoData from './demo/data';
 import contextualNavigation from './contextual-navigation.html.twig';
 import notes from './docs/contextual-navigation.md';
 
-storiesOf('Components/Contextual Navigation', module)
+storiesOf('Components/Navigation/Contextual Navigation', module)
   .addDecorator(withKnobs)
   .addDecorator(withCode)
   .addDecorator(withNotes)
