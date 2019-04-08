@@ -17,7 +17,7 @@
     "publish-next": "lerna publish --npm-tag=next --bump=prerelease",
     "start:ec": "start-storybook -p 9001 -c src/ec/.storybook",
     "start:eu": "start-storybook -p 9001 -c src/eu/.storybook",
-    "start:php-ec": "yarn clean && yarn render:dataGen && yarn render:php && start-storybook -p 9001 -c src/php/.storybook",
+    "start:php-ec": "yarn clean && yarn render:dataGen && yarn render:php && start-storybook -s ./static/images -p 9002 -c src/php/.storybook",
     "render:dataGen": "babel-node ./scripts/generate-data-files.js",
     "render:setupPhp": "npx lerna exec --scope @ecl-twig/php-renderer -- yarn run setup",
     "render:php": "npx lerna exec --scope @ecl-twig/php-renderer -- yarn run render",
