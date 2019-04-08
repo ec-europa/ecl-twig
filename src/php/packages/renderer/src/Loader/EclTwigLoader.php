@@ -60,17 +60,24 @@ class EclTwigLoader extends FilesystemLoader {
    */
   protected function findTemplate($name, $throw = TRUE) {
     $system = getenv('ECL_SYSTEM');
-
+    $children = false;
     // Handle relative paths.
-    if (strpos($name, '../') !== FALSE) {
+    if (strpos($name, '../') !== FALSE || strpos($name, './') !== FALSE) {
       $paths = explode(DIRECTORY_SEPARATOR, $name);
       $template = $paths[count($paths) - 1];
+      if (strpos($name, './') !== FALSE && strpos($name, '../') === FALSE) {
+        $children = true;
+      }
     }
     else {
       $template = $name;
     }
 
     $component_name = explode($this->extension, $template)[0];
+
+    if ($children) {
+      $component_name = substr($component_name, 0, strrpos($component_name, "-"));
+    }
 
     $component = $this->root .
       DIRECTORY_SEPARATOR .

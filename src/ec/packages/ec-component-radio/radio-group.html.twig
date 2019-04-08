@@ -92,7 +92,7 @@
   {% endif %}
 
   {%- for _item in _items %}
-    {% include './radio-button.html.twig' with _item|merge({
+    {% include './radio.html.twig' with _item|merge({
       name: _name,
     }) only %}
   {% endfor -%}

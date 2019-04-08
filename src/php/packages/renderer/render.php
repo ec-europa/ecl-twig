@@ -40,11 +40,20 @@ foreach ($components as $component) {
       );
       $data_json = json_decode($data_string, TRUE);
       $data_html = $twig->render($template, $data_json);
+      $data_story = file_get_contents($root_folder . '/scripts/story_template.txt');
+      $adapted_variant = str_replace('-', '_', $variant);
+      $data_story = str_replace(['#component_name#', '#php_file_name#'], [$adapted_variant, $variant . $result_extension], $data_story);
+
+      file_put_contents(
+        $folder . DIRECTORY_SEPARATOR . $variant . '.story.js',
+        $data_story
+      );
 
       file_put_contents(
         $folder . DIRECTORY_SEPARATOR . $variant . $result_extension,
         $data_html
       );
+
     } catch (exception $e) {
       // Not throwing facilitates continuation.
       // If a component has an error it's not going to stop the rest.

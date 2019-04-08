@@ -3,7 +3,7 @@
 {#
   Parameters:
   - "variant" (string) (default: ''): could be 'info, 'success', 'warning' or 'error'
-  - "icon" (object of type "icon") (default: {}) 
+  - "icon" (object of type "icon") (default: {})
   - "title" (string) (default: '')
   - "close" (object of type "button") (default: {}): close button
   - "extra_classes" (optional) (string) (default: '') Extra classes (space separated) for the select
@@ -51,10 +51,9 @@
 
   <div class="ecl-message__content">
     {% include '../ec-component-button/button.html.twig' with _close|merge({
-      type: 'button', 
+      type: 'button',
       variant: 'ghost',
       extra_classes: 'ecl-message__close',
-      data-ecl-message-close,
       extra_attributes: [{
         name: 'data-ecl-message-close',
       }],
