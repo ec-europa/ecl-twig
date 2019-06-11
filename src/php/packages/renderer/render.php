@@ -39,7 +39,14 @@ foreach ($components as $component) {
       $data_string = file_get_contents(
         $folder . DIRECTORY_SEPARATOR . $file_name
       );
+
       $data_json = json_decode($data_string, TRUE);
+      if ($template == 'file.html.twig') {
+        $data_json = reset($data_json);
+      }
+      if ($template == 'icon.html.twig') {
+        $test = 'ciao';
+      }
       $data_html = $twig->render($template, $data_json);
       // Fix icons.
       if (strpos($component,'social') === FALSE) {

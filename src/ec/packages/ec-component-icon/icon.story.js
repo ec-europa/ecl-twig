@@ -52,7 +52,7 @@ storiesOf('Components/Icon', module)
   .add(
     'branded',
     () => {
-      const shape = select('Icon', brandedIcons, brandedIcons[0]);
+      const name = select('Icon', brandedIcons, brandedIcons[0]);
       const size = select('Size', sizes, defaultSize);
       const color = select('Color', colors, defaultColor);
       const transform = select('Transform', transforms, defaultTransform);
@@ -60,7 +60,7 @@ storiesOf('Components/Icon', module)
       return icon({
         icon: {
           type: 'branded',
-          name: shape,
+          name: name,
           size,
           transform,
           color,
@@ -75,7 +75,7 @@ storiesOf('Components/Icon', module)
   .add(
     'general',
     () => {
-      const shape = select('Icon', generalIcons, generalIcons[0]);
+      const name = select('Icon', generalIcons, generalIcons[0]);
       const size = select('Size', sizes, defaultSize);
       const color = select('Color', colors, defaultColor);
       const transform = select('Transform', transforms, defaultTransform);
@@ -83,7 +83,7 @@ storiesOf('Components/Icon', module)
       return icon({
         icon: {
           type: 'general',
-          name: shape,
+          name: name,
           size,
           transform,
           color,
@@ -98,7 +98,7 @@ storiesOf('Components/Icon', module)
   .add(
     'notifications',
     () => {
-      const shape = select('Icon', notificationsIcons, notificationsIcons[0]);
+      const name = select('Icon', notificationsIcons, notificationsIcons[0]);
       const size = select('Size', sizes, defaultSize);
       const color = select('Color', colors, defaultColor);
       const transform = select('Transform', transforms, defaultTransform);
@@ -106,7 +106,7 @@ storiesOf('Components/Icon', module)
       return icon({
         icon: {
           type: 'notifications',
-          name: shape,
+          name: name,
           size,
           transform,
           color,
@@ -121,7 +121,7 @@ storiesOf('Components/Icon', module)
   .add(
     'ui',
     () => {
-      const shape = select('Icon', uiIcons, uiIcons[0]);
+      const name = select('Icon', uiIcons, uiIcons[0]);
       const size = select('Size', sizes, defaultSize);
       const color = select('Color', colors, defaultColor);
       const transform = select('Transform', transforms, defaultTransform);
@@ -129,7 +129,7 @@ storiesOf('Components/Icon', module)
       return icon({
         icon: {
           type: 'ui',
-          name: shape,
+          name: name,
           size,
           transform,
           color,

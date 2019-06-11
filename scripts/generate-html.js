@@ -21,11 +21,15 @@ const components = fs.readdirSync(systemFolder);
 
 components.forEach(component => {
   const componentFiles = fs.readdirSync(`${systemFolder}/${component}`);
-  const dataFiles = componentFiles.filter(file => file.includes('data'));
+  const dataFiles = componentFiles.filter(file =>
+    file.includes('data--audio.js')
+  );
 
   dataFiles.forEach(dataFile => {
     const data = require(`${systemFolder}/${component}/${dataFile}`);
-    const variant = dataFile.replace('.json', '').replace('data', component);
+    const variant = dataFile
+      .replace('.json', '')
+      .replace('data--audio.js', component);
     const pkg = `${system}-component-${component}`;
     const template = `${rootFolder}/src/${system}/packages/${pkg}/${component}.${extension}`;
 
