@@ -1,5 +1,5 @@
 {
-  "version": "2-dev",
+  "version": "2.3.0",
   "npmClient": "yarn",
   "useWorkspaces": true,
   "command": {
@@ -7,10 +7,14 @@
       "license": "EUPL-1.1"
     },
     "publish": {
+      "exact": true,
       "allowBranch": "master",
-      "conventionalCommits": true,
-      "ignoreChanges": ["CHANGELOG.md"],
-      "message": "chore(release): Publish"
+      "ignoreChanges": [
+        "**/*.md",
+        "**/__snapshots__/**",
+        "**/*.story.js",
+        "**/*.test.js"
+      ]
     }
   }
 }

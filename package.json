@@ -15,7 +15,7 @@
     "publish": "scripts/publish.sh",
     "start:ec": "start-storybook -p 9001 -c ./src/ec/.storybook",
     "start:eu": "echo \"Nothing to do...\"",
-    "update-version": "lerna version --no-push --no-git-tag-version",
+    "update-version": "lerna version --conventional-commits --no-push --no-git-tag-version",
     "test": "npm run jest"
   },
   "devDependencies": {
