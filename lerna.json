@@ -1,4 +1,7 @@
 {
+  "version": "2-dev",
+  "npmClient": "yarn",
+  "useWorkspaces": true,
   "command": {
     "create": {
       "license": "EUPL-1.1"
@@ -7,14 +10,7 @@
       "allowBranch": "master",
       "conventionalCommits": true,
       "ignoreChanges": ["CHANGELOG.md"],
-      "message": "chore(release): Publish",
-      "npmClient": "npm",
-      "registry": "https://registry.npmjs.org/"
+      "message": "chore(release): Publish"
     }
-  },
-  "loglevel": "success",
-  "packages": ["src/ec/packages/*", "src/eu/packages/*"],
-  "version": "independent",
-  "npmClient": "yarn",
-  "useWorkspaces": true
+  }
 }
