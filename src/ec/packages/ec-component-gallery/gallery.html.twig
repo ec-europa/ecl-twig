@@ -48,7 +48,7 @@
 <section class="{{ _css_class }}"{{ _extra_attributes }} data-ecl-gallery>
   <ul class="ecl-gallery__list">
     {% for _item in _items %}
-      {% include './gallery-item.html.twig' with {
+      {% include '../ec-component-gallery/gallery-item.html.twig' with {
         item: _item,
       } only %}
     {% endfor %}
@@ -58,7 +58,7 @@
   {% if _items[_selected_item_id] is not empty %}
     {% set _selected_item = _items[_selected_item_id] %}
   {% endif %}
-  {% include './gallery-overlay.html.twig' with {
+  {% include '../ec-component-gallery/gallery-overlay.html.twig' with {
     overlay: _overlay,
     item: _selected_item
   } only %}
