@@ -30,7 +30,7 @@ yarn update-version 2.6.0
 
 If you don't provide any arguments and just run `yarn update-version`, lerna will try to infer the new version automatically from the git commits messages. This hasn't been tested yet in this repository, so please be careful when using it.
 
-Now, commit and push your changes to the master branch or, if you're not sure about what you're doing, open a new PR with your changes.
+Now, commit and push your changes to the `master` branch or, if you're not sure about what you're doing, open a new PR with your changes. Please name the commit or the PR `chore: release ECL Twig x.y.z` (don't forget to replace `x.y.z` by the actual version number!)
 
 ## Publish the packages
 
@@ -45,3 +45,9 @@ npm run publish
 ```
 
 Note: you might be bombarded with emails from npm (one for each published package). This is the price of success.
+
+## Create a new GitHub release
+
+Final step: create a new GitHub release from the `master` branch. The tag version should be prefixed with `v`, e.g. `v2.3.0`. As a title, you can use something like `2.3.0 (2019-06-14)` (like in the root `CHANGELOG.md` but without the link). And for the descrption of the release, you can copy-paste the entry generated in the root `CHANGELOG.md` as well (I know, we're duplicating a lot of information...).
+
+Now, enjoy a well-deserved break! :wink:
