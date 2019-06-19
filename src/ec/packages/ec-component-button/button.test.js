@@ -41,7 +41,7 @@ describe('EC - Button', () => {
     });
   });
 
-  describe('Ghost', () => {
+  describe('Text', () => {
     test('renders correctly', () => {
       expect.assertions(1);
 
