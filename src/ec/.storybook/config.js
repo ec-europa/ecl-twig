@@ -21,6 +21,9 @@ configure(() => {
     context
       .keys()
       .filter(key => !key.includes('node_modules'))
+      // Hidden components.
+      // @see: INNO-1542
+      .filter(key => !key.includes('ec-component-contextual-navigation'))
       .forEach(context);
   });
 }, module);
