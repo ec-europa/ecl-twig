@@ -7,7 +7,8 @@
   - "image" (string) (default: '') Image for banner (required for image banner type)
   - "baseline" (string) (default: '') Baseline of banner
   - "centered" (bool) (default: true) Define if banner should be centered
-  - "button" (associative array) (default: predefined structure) predefined structure for EC Button component
+  - [DEPRECATED] "button" (associative array) (default: predefined structure) predefined structure for EC Button component
+  - "link" (associative array) (default: predefined structure) predefined structure for EC Link component
   - "extra_classes" (optional) (string) (default: '')
   - "extra_attributes" (optional) (array) (default: [])
     - "name" (string) Attribute name, eg. 'data-test'
@@ -24,6 +25,7 @@
 {% set _baseline = baseline|default('') %}
 {% set _image = image|default('') %}
 {% set _button = button|default({}) %}
+{% set _link = link|default({}) %}
 
 {# Internal logic - Process properties #}
 
@@ -55,9 +57,16 @@
       {% if _baseline is not empty %}
         <p class="ecl-page-banner__baseline">{{ _baseline }}</p>
       {% endif %}
-      {% if _button is not empty %}
-        {% include '../ec-component-button/button.html.twig' with _button|merge({ 
-          extra_classes: 'ecl-page-banner__button' 
+      {% if _link is not empty %}
+        {% include '../ec-component-link/link.html.twig' with _link|merge({
+          link: _link.link|merge({
+            type: 'standalone',
+          }),
+          extra_classes: 'ecl-page-banner__link'
+        }) only %}
+      {% elseif _button is not empty %}
+        {% include '../ec-component-button/button.html.twig' with _button|merge({
+          extra_classes: 'ecl-page-banner__button'
         }) only %}
       {% endif %}
     </div>

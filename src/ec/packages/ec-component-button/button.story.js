@@ -122,7 +122,7 @@ storiesOf('Components/Button', module)
     }
   )
   .add(
-    'ghost',
+    'text',
     () => {
       const iconsListSelect = select('Icon (sample)', iconsList, null);
 

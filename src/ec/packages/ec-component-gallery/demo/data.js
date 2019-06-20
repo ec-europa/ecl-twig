@@ -48,7 +48,7 @@ function formatLink(l) {
 
 function formatItem(i) {
   const item = {
-    path: `https://v2--europa-component-library.netlify.com/${i.src}`,
+    path: i.src,
     alt: i.alt,
     description: i.description,
     meta: i.meta,
