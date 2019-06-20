@@ -15,7 +15,8 @@ npm install --save @ecl-twig/ec-component-page-banner
 - "image" (string) (default: '') Image for banner (required for image banner type)
 - "baseline" (string) (default: '') Baseline of banner
 - "centered" (bool) (default: true) Define if banner should be centered
-- "button" (associative array) (default: predefined structure) predefined structure for EC Button component
+- [DEPRECATED] "button" (associative array) (default: predefined structure) predefined structure for EC Button component
+- "link" (associative array) (default: predefined structure) predefined structure for EC Link component
 - "extra_classes" (optional) (string) (default: '')
 - "extra_attributes" (optional) (array) (default: [])
   - "name" (string) Attribute name, eg. 'data-test'
@@ -32,9 +33,13 @@ npm install --save @ecl-twig/ec-component-page-banner
   type: 'image',  
   image: 'url/path-to-image',  
   button: {  
-    label: 'Subscribe',  
+    link: {  
+      label: 'Subscribe',  
+      icon_position: 'after',  
+    },  
     icon: {  
       path: 'path-to-the-icon-file',  
+      ...  
     },  
   },  
 } %}
