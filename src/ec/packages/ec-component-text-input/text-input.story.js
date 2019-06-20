@@ -7,7 +7,7 @@ import textInputDocs from './docs/text-input.md';
 
 import textInput from './text-input.html.twig';
 
-storiesOf('Components/Forms/Text input', module)
+storiesOf('Components/Forms/Text field', module)
   .addDecorator(withKnobs)
   .addDecorator(withNotes)
   .addDecorator(withCode)

@@ -11,4 +11,4 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
-- add text input component ([#20](https://github.com/ec-europa/ecl-twig/issues/20)) ([ee0c571](https://github.com/ec-europa/ecl-twig/commit/ee0c571))
+- add text field component ([#20](https://github.com/ec-europa/ecl-twig/issues/20)) ([ee0c571](https://github.com/ec-europa/ecl-twig/commit/ee0c571))
