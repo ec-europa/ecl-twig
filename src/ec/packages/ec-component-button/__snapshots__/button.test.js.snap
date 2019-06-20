@@ -137,24 +137,6 @@ exports[`EC - Button CTA renders correctly 1`] = `
 </button>
 `;
 
-exports[`EC - Button Ghost renders correctly 1`] = `
-<button
-  class="ecl-button ecl-button--ghost"
-  type="submit"
->
-  <span
-    class="ecl-button__container"
-  >
-    <span
-      class="ecl-button__label"
-      data-ecl-label=""
-    >
-      Ghost button
-    </span>
-  </span>
-</button>
-`;
-
 exports[`EC - Button Primary renders correctly 1`] = `
 <button
   class="ecl-button ecl-button--primary"
@@ -204,6 +186,24 @@ exports[`EC - Button Secondary renders correctly 1`] = `
       data-ecl-label=""
     >
       Secondary button
+    </span>
+  </span>
+</button>
+`;
+
+exports[`EC - Button Text renders correctly 1`] = `
+<button
+  class="ecl-button ecl-button--ghost"
+  type="submit"
+>
+  <span
+    class="ecl-button__container"
+  >
+    <span
+      class="ecl-button__label"
+      data-ecl-label=""
+    >
+      Text button
     </span>
   </span>
 </button>

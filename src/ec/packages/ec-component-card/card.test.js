@@ -18,7 +18,7 @@ describe('EC - Card', () => {
           'Transparently designing and evaluating evidence-based EU legislation, backed by citizens views.',
         meta: ['Meta 1', 'Meta 2', 'Meta 3'],
         image:
-          'https://v2--europa-component-library.netlify.com/example-image.jpg',
+          'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
         infos: [
           {
             label: '2018/10/22',

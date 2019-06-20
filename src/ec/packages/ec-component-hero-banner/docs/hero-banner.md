@@ -15,7 +15,8 @@ npm install --save @ecl-twig/ec-component-hero-banner
 - "image" (string) (default: '') Image for banner (required for image banner type)
 - "description" (string) (default: '') Description of banner
 - "centered" (bool) (default: true) Define if banner should be centered
-- "button" (associative array) (default: predefined structure) predefined structure for EC Button component
+- [DEPRECATED] "button" (associative array) (default: predefined structure) predefined structure for EC Button component
+- "link" (associative array) (default: predefined structure) predefined structure for EC Link component
 - "extra_classes" (optional) (string) (default: '') Extra classes (space separated) for the form
 - "extra_attributes" (optional) (array) (default: []) Extra attributes for the form
   - "name" (string) Attribute name, eg. 'data-test'
@@ -31,10 +32,14 @@ npm install --save @ecl-twig/ec-component-hero-banner
   centered: true,  
   type: 'image',  
   image: 'url/path-to-image',  
-  button: {  
-    label: 'Subscribe',  
+  link: {  
+    link: {  
+      label: 'Subscribe',  
+      icon_position: 'after',  
+    },  
     icon: {  
       path: 'path-to-the-icon-file',  
+      ...  
     },  
   },  
 } %}
