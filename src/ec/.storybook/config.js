@@ -2,13 +2,15 @@ import { configure, addDecorator, addParameters } from '@storybook/html';
 import { withOptions } from '@storybook/addon-options';
 import { create } from '@storybook/theming';
 
+import { version } from '../../../lerna.json';
+
 addParameters({
   options: {
     theme: create({
       base: 'light',
-      brandTitle: 'ECL v2.3 - EC Twig',
+      brandTitle: `ECL Twig EC v${version}`,
       brandUrl: 'https://github.com/ec-europa/ecl-twig',
-      brandImage: null, // 'http://url.of/some.svg',
+      brandImage: null,
     }),
     sidebarAnimations: false,
   },
