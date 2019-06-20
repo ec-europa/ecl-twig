@@ -19,8 +19,8 @@
 
 {# Internal logic - Process properties #}
 
-{% set _column1 = _items|slice(0, (items.length / 2)|round(0, 'ceil')) %}
-{% set _column2 = _items|slice((items.length / 2)|round(0, 'ceil'), items.length) %}
+{% set _column1 = _items|slice(0, (items|length / 2)|round(0, 'ceil')) %}
+{% set _column2 = _items|slice((items|length / 2)|round(0, 'ceil'), items|length) %}
 
 {# Print the result #}
 
