@@ -19,7 +19,7 @@ import primaryDocs from './docs/primary.md';
 import secondaryDocs from './docs/secondary.md';
 import ctaDocs from './docs/cta.md';
 import searchDocs from './docs/search.md';
-import ghostDocs from './docs/ghost.md';
+import textDocs from './docs/text.md';
 
 const iconPositionSettings = {
   before: 'before',
@@ -146,7 +146,7 @@ storiesOf('Components/Button', module)
       });
     },
     {
-      notes: { markdown: ghostDocs },
+      notes: { markdown: textDocs },
     }
   )
   .add(
