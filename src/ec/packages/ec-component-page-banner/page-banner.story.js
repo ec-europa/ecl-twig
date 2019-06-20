@@ -15,19 +15,21 @@ import pageBanner from './page-banner.html.twig';
 import pageBannerDocs from './README.md';
 
 function formatBanner(b) {
-  const iconType = b.button.icon.shape.split('--');
+  const iconType = b.link.icon.shape.split('--');
   const banner = {
     type: b.variant,
     title: text('Title', b.title),
     baseline: text('Baseline', b.baseline),
-    button: {
-      variant: b.button.variant,
-      label: text('Button label', b.button.label),
+    link: {
+      link: {
+        label: text('Link label', b.link.label),
+        icon_position: 'after',
+      },
       icon: {
         type: iconType[0],
         name: iconType[1],
-        transform: b.button.icon.transform,
-        size: b.button.icon.size,
+        transform: b.link.icon.transform,
+        size: b.link.icon.size,
         path: defaultSprite,
       },
     },
@@ -35,9 +37,7 @@ function formatBanner(b) {
   };
 
   if ('image' in b) {
-    banner.image = 'https://v2--europa-component-library.netlify.com'.concat(
-      b.image
-    );
+    banner.image = b.image;
   }
 
   return banner;

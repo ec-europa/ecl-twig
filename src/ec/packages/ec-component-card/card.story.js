@@ -68,7 +68,7 @@ storiesOf('Components/Card', module)
           meta: metaArray,
           image: text(
             'Image',
-            'https://v2--europa-component-library.netlify.com/example-image.jpg'
+            'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg'
           ),
           infos,
           tags,

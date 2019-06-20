@@ -6,7 +6,7 @@ npm package: `@ecl-twig/ec-component-button`
 npm install --save @ecl-twig/ec-component-button
 ```
 
-## Ghost button
+## Text button
 
 ### Parameters
 
