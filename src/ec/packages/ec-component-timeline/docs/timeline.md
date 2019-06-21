@@ -10,8 +10,8 @@ npm install --save @ecl-twig/ec-component-timeline
 
 ### Parameters
 
-- "toggleCollapsed": (string) (default: '')
-- "toggleExpanded": (string) (default: '')
+- "toggleCollapsed": (string) (default: 'Show %d more items')
+- "toggleExpanded": (string) (default: 'Show %d items')
 - "button": (object):
   - "label": (string): (default: '')
   - "icon": (object):

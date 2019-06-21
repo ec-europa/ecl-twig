@@ -2,8 +2,8 @@
 
 {#
   Parameters:
-    - "toggleCollapsed": (string) (default: '')
-    - "toggleExpanded": (string) (default: '')
+    - "toggleCollapsed": (string) (default: 'Show %d more items')
+    - "toggleExpanded": (string) (default: 'Show %d items')
     - "button": (object):
       - "label": (string): (default: '')
       - "icon": (object):
@@ -28,6 +28,24 @@
 {% set _css_class = 'ecl-timeline2' %}
 {% set _extra_attributes = '' %}
 {% set _items = items|default([]) %}
+{% set _icon_path = icon_path|default('') %}
+{% set _toggle_collapsed = toggleCollapsed|default('Show %d more items') %}
+{% set _toggle_expanded = toggleExpanded|default('Hide %d items') %}
+
+
+{% set display_amount = items|length %}
+{% set hide_amount = 0 %}
+{% set bottom_amount = 0 %}
+
+{% if items|length >= 13 %}
+  {% set bottom_amount = 2 %}
+  {% set countbase = items|length - bottom_amount %}
+  {% set display_amount = 7 %}
+  {% if (countbase / 2) < 7 %}
+    {% set display_amount = countbase / 2 %}
+  {% endif %}
+  {% set hide_amount = countbase - display_amount %}
+{% endif %}
 
 {# Internal logic - Process properties #}
 
@@ -47,7 +65,32 @@
     data-ecl-timeline="true">
   {% if _items is not empty %}
     {% for _item in _items %}
-      <li class="ecl-timeline2__item" id="{{ _item.id }}">
+      {# Display the show more button if required.#}
+      {% if hide_amount > 0 and loop.revindex == 2 %}
+        <li class="ecl-timeline2__item ecl-timeline2__item--toggle">
+        <button data-ecl-timeline-button="true"
+                data-ecl-label-collapsed="{{ toggleCollapsed|replace({'%d': countbase - display_amount}) }}"
+                data-ecl-label-expanded="{{ toggleExpanded|replace({'%d': countbase - display_amount}) }}"
+                type="button"
+                class="ecl-timeline2__toggle ecl-button ecl-button--secondary"><span
+            class="ecl-button__container"><span
+              class="ecl-button__label"
+              data-ecl-label="true">{{ toggleCollapsed|replace({'%d': countbase - display_amount}) }}</span>
+            {% include '../ec-component-icon/icon.html.twig' with {
+              icon: {
+                path: _icon_path,
+                type: "ui",
+                name: "corner-arrow",
+                size: "xs"
+              },
+              extra_classes: 'ecl-icon--rotate-180 ecl-button__icon ecl-button__icon--after',
+            } only %}
+          </span>
+        </button>
+      {% endif %}
+      {# Deside on per item if it should display. #}
+      {% set extra_class = (loop.index > display_amount and loop.revindex > 2) ? ' ecl-timeline2__item--collapsed' : '' %}
+      <li class="ecl-timeline2__item{{ extra_class }}" id="{{ _item.id }}">
         <div class="ecl-timeline2__label">{{ _item.label }}</div>
         <div class="ecl-timeline2__title">{{ _item.title }}</div>
         <div class="ecl-timeline2__content">
@@ -56,6 +99,7 @@
         </div>
       </li>
     {% endfor %}
+    </li>
   {% endif %}
 </ol>
 
