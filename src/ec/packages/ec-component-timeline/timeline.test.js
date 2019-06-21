@@ -5,10 +5,6 @@ import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
 import demoData from './demo/data';
 
-demoData.items.forEach(item => {
-  item.toggle.icon.path = 'static/icons';
-});
-
 describe('EC - Timeline', () => {
   const template = path.resolve(__dirname, './timeline.html.twig');
   const render = params => renderTwigFileAsNode(template, params);
