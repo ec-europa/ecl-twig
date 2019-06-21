@@ -1,0 +1,62 @@
+{% spaceless %}
+
+{#
+  Parameters:
+    - "toggleCollapsed": (string) (default: '')
+    - "toggleExpanded": (string) (default: '')
+    - "button": (object):
+      - "label": (string): (default: '')
+      - "icon": (object):
+        - "shape": (string) (default: '')
+        - "size": (string) (default: '')
+        - "transform": (string) (default: '')
+      - "variant": (string): (default: '')
+      - "type": (string): (default: '')
+    - "items" (array) (default: []):
+      - "id": (string) (default: '')
+      - "label": (string) (default: '')
+      - "title": (string) (default: '')
+      - "content": (block) (default: '')
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format:
+      - "name" (string) (default: '')
+      - "value" (string) (default: '')
+#}
+
+{# Internal properties #}
+
+{% set _css_class = 'ecl-timeline2' %}
+{% set _extra_attributes = '' %}
+{% set _items = items|default([]) %}
+
+{# Internal logic - Process properties #}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+
+<ol class="{{ _css_class }}"{{ _extra_attributes|raw }}
+    data-ecl-timeline="true">
+  {% if _items is not empty %}
+    {% for _item in _items %}
+      <li class="ecl-timeline2__item" id="{{ _item.id }}">
+        <div class="ecl-timeline2__label">{{ _item.label }}</div>
+        <div class="ecl-timeline2__title">{{ _item.title }}</div>
+        <div class="ecl-timeline2__content">
+          {%- set _content = _item.content|default('') %}
+          {%- block content _content -%}
+        </div>
+      </li>
+    {% endfor %}
+  {% endif %}
+</ol>
+
+{% endspaceless %}
