@@ -1,0 +1,66 @@
+{% import _self as list %}
+{% spaceless %}
+
+{#
+  Parameters:
+    - "items" (array) (default: []): format: [
+        {
+          "term" (string or array of string)
+          "definition" (string or array of string)
+        },
+        ...
+      ]
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
+      ]
+#}
+
+{# Define main macro #}
+{% macro ordered_list(items, extra_classes, extra_attributes) %}
+  {% spaceless %}
+  {% import _self as list %}
+
+  {# Internal properties #}
+  {% set _items = items|default([]) %}
+  {% set _css_class = 'ecl-ordered-list' %}
+  {% set _extra_attributes = '' %}
+
+  {# Internal logic - Process properties #}
+
+  {% if extra_classes is defined and extra_classes is not empty %}
+    {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+  {% endif %}
+
+  {% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+    {% for attr in extra_attributes %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+    {% endfor %}
+  {% endif %}
+
+  {# Print the result #}
+  {% if _items is not empty %}
+    <ol class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+      {% for _item in _items %}
+        {% if _item is not empty %}
+          <li class="ecl-ordered-list__item">
+            {{- _item.label -}}
+            {% if _item.nested is not empty and _item.nested is iterable %}
+              {{- list.ordered_list(_item.nested) -}}
+            {% endif %}
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ol>
+  {% endif %}
+  {% endspaceless %}
+{% endmacro %}
+
+{# Render macro #}
+{{ list.ordered_list(items, extra_classes, extra_attributes) }}
+
+{% endspaceless %}
