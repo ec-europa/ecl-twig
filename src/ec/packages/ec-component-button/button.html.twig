@@ -6,7 +6,6 @@
     - "type" (string) (default: 'submit'): can be the same type as HTML button - 'submit', 'reset', 'button'
     - "icon" (associative array) (default: {}): predefined structure for Icon component
     - "disabled" (bool) (default: false): Defined if button should be active or not (HTML disabled attribute)
-    - "icon_extra_classes" (string) (default: ''): Additional icon classes.
     - "icon_position" (string) (default: after): Define icon position, can be 'before' or 'after'
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
@@ -58,14 +57,14 @@
     {% if _icon.name is not empty and _icon_position == 'before' %}
       {% include '../ec-component-icon/icon.html.twig' with {
         icon: _icon,
-        extra_classes: 'ecl-button__icon ecl-button__icon--before' ~ (icon_extra_classes ? ' ' ~ icon_extra_classes : '')
+        extra_classes: 'ecl-button__icon ecl-button__icon--before',
       } only %}
     {% endif %}
     <span class="ecl-button__label" data-ecl-label>{% block label _label %}</span>
     {% if _icon.name is not empty and _icon_position == 'after' %}
       {% include '../ec-component-icon/icon.html.twig' with {
         icon: _icon,
-        extra_classes: 'ecl-button__icon ecl-button__icon--after' ~ (icon_extra_classes ? ' ' ~ icon_extra_classes : '')
+        extra_classes: 'ecl-button__icon ecl-button__icon--after',
       } only %}
     {% endif %}
   </span>
