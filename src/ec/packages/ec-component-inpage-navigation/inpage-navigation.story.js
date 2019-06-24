@@ -11,7 +11,7 @@ import pageFiller from './demo/page-filler';
 
 import inpageNavigation from './inpage-navigation.html.twig';
 
-storiesOf('Components/Inpage navigation', module)
+storiesOf('Components/Navigation/Inpage navigation', module)
   .addDecorator(withKnobs)
   .addDecorator(withNotes)
   .addDecorator(withCode)
