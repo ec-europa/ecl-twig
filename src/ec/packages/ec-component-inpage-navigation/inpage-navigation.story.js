@@ -22,7 +22,11 @@ storiesOf('Components/Inpage navigation', module)
 
       let pageFillerHtml = '';
       pageFiller.items.forEach(item => {
-        pageFillerHtml += `<h1 id="${item.hash}">${item.label}</h1><p>${item.content}</p><p>${item.content}</p>`;
+        pageFillerHtml += `
+          <h1 id="${item.hash}">${item.label}</h1>
+          <p>${item.content}</p>
+          <p>${item.content}</p>
+        `;
       });
 
       const html = inpageNavigation(fullDemoData);
@@ -30,7 +34,14 @@ storiesOf('Components/Inpage navigation', module)
       const demo = document.createDocumentFragment();
 
       const htmlElement = document.createElement('div');
-      htmlElement.innerHTML = `<div class="ecl-container"><div class="ecl-row ecl-u-mt-l"><div class="ecl-col-md-3">${html}</div><div class="ecl-col-md-9">${pageFillerHtml}</div></div>`;
+      htmlElement.innerHTML = `
+        <div class="ecl-container">
+          <div class="ecl-row ecl-u-mt-l">
+            <div class="ecl-col-md-3">${html}</div>
+            <div class="ecl-col-md-9">${pageFillerHtml}</div>
+          </div>
+        </div>
+      `;
       demo.appendChild(htmlElement.firstChild);
 
       const scriptElement = document.createElement('script');
