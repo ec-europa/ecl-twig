@@ -14,7 +14,7 @@ npm install --save @ecl-twig/ec-component-button
 - "variant" (string) (default: 'primary'): variant of button (can be 'primary', 'secondary', 'call', 'ghost', 'search')
 - "type" (string) (default: 'submit'): can be the same type as HTML button - 'submit', 'reset', 'button'
 - "disabled" (bool) (default: false): define if button should be disabled (HTML disabled attribute)
-- "icon_extra_classes" (string) (default: 'ecl-button**icon ecl-button**icon--after'): Additional icon classes.
+- "icon_extra_classes" (string) (default: ''): Additional icon classes.
 - "icon_position" (string, optional) (default: after): Define icon position, can be 'before' or 'after'
 - "icon" (associative array, optional) default: A predefined structure such as in the Icon component. All parameters can be freely set, except for the 'size' parameter, which is set permanently as 'xs'.
 - "extra_classes" (optional) (string) (default: '') Extra classes (space separated) for the button
