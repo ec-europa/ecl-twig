@@ -60,8 +60,14 @@
         data-ecl-inpage-navigation-list="true" id="ecl-inpage-navigation-list">
       {% for link in links %}
         <li class="ecl-inpage-navigation__item">
-          <a data-ecl-inpage-navigation-link="true" href="{{ link.href }}"
-             class="ecl-inpage-navigation__link ecl-link ecl-link--standalone">{{ link.label }}</a>
+          {% include '../ec-component-link/link.html.twig' with {
+            link: {
+              path: link.href,
+              label: link.label,
+            },
+            extra_classes: 'ecl-inpage-navigation__link ecl-link--standalone',
+            extra_attributes: [{name: 'data-ecl-inpage-navigation-link', value: true}]
+          } only %}
         </li>
       {% endfor %}
     </ul>

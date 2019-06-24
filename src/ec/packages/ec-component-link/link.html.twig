@@ -82,8 +82,7 @@
   {% for attr in extra_attributes %}
     {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
   {% endfor %}
-{% endif %} 
-
+{% endif %}
 {# Print the result #}
 
 <a href="{{ _link.path }}" class="{{ _css_class }}"{{ _extra_attributes|raw }}>
