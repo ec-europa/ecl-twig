@@ -1,26 +1,19 @@
 {% spaceless %}
 
 {#
-  Parameters:
-    - "toggleCollapsed": (string) (default: 'Show %d more items')
-    - "toggleExpanded": (string) (default: 'Show %d items')
-    - "button": (object):
-      - "label": (string): (default: '')
-      - "icon": (object):
-        - "shape": (string) (default: '')
-        - "size": (string) (default: '')
-        - "transform": (string) (default: '')
-      - "variant": (string): (default: '')
-      - "type": (string): (default: '')
-    - "items" (array) (default: []):
-      - "id": (string) (default: '')
-      - "label": (string) (default: '')
-      - "title": (string) (default: '')
-      - "content": (block) (default: '')
-    - "extra_classes" (string) (default: '')
-    - "extra_attributes" (array) (default: []): format:
-      - "name" (string) (default: '')
-      - "value" (string) (default: '')
+Parameters:
+  - "toggleCollapsed": (string) (default: 'Show %d more items')
+  - "toggleExpanded": (string) (default: 'Show %d items')
+  - "items" (array) (default: []):
+    - "id": (string) (default: '')
+    - "label": (string) (default: '')
+    - "title": (string) (default: '')
+    - "content": (block) (default: '')
+  - "icon_path" (string) (default: ''): file containing the svg icons
+  - "extra_classes" (string) (default: '')
+  - "extra_attributes" (array) (default: []): format:
+    - "name" (string) (default: '')
+    - "value" (string) (default: '')
 #}
 
 {# Internal properties #}
@@ -68,38 +61,35 @@
       {# Display the show more button if required.#}
       {% if hide_amount > 0 and loop.revindex == 2 %}
         <li class="ecl-timeline2__item ecl-timeline2__item--toggle">
-        <button data-ecl-timeline-button="true"
-                data-ecl-label-collapsed="{{ toggleCollapsed|replace({'%d': countbase - display_amount}) }}"
-                data-ecl-label-expanded="{{ toggleExpanded|replace({'%d': countbase - display_amount}) }}"
-                type="button"
-                class="ecl-timeline2__toggle ecl-button ecl-button--secondary"><span
-            class="ecl-button__container"><span
-              class="ecl-button__label"
-              data-ecl-label="true">{{ toggleCollapsed|replace({'%d': countbase - display_amount}) }}</span>
-            {% include '../ec-component-icon/icon.html.twig' with {
-              icon: {
-                path: _icon_path,
-                type: "ui",
-                name: "corner-arrow",
-                size: "xs"
-              },
-              extra_classes: 'ecl-icon--rotate-180 ecl-button__icon ecl-button__icon--after',
-            } only %}
-          </span>
-        </button>
+          {% include '../ec-component-button/button.html.twig' with {
+            label: toggleCollapsed|replace({'%d': countbase - display_amount}),
+            variant: 'secondary',
+            type: 'button',
+            icon: {
+              path: _icon_path,
+              type: 'ui',
+              name: 'corner-arrow',
+              size: 'xs',
+            },
+            icon_extra_classes: 'ecl-icon--rotate-180 ecl-button__icon',
+            icon_position: 'after',
+            extra_classes: 'ecl-timeline2__toggle',
+            extra_attributes: [
+              {name: 'data-ecl-timeline-button', value: true},
+              {name: 'data-ecl-label-collapsed', value: toggleCollapsed|replace({'%d': countbase - display_amount})},
+              {name: 'data-ecl-label-expanded', value: toggleExpanded|replace({'%d': countbase - display_amount})},
+            ],
+          } only %}
+        </li>
       {% endif %}
-      {# Deside on per item if it should display. #}
+      {# Deside on per item if it should display.#}
       {% set extra_class = (loop.index > display_amount and loop.revindex > 2) ? ' ecl-timeline2__item--collapsed' : '' %}
       <li class="ecl-timeline2__item{{ extra_class }}" id="{{ _item.id }}">
         <div class="ecl-timeline2__label">{{ _item.label }}</div>
         <div class="ecl-timeline2__title">{{ _item.title }}</div>
-        <div class="ecl-timeline2__content">
-          {%- set _content = _item.content|default('') %}
-          {%- block content _content -%}
-        </div>
+        <div class="ecl-timeline2__content">{{ _item.content|default('') }}</div>
       </li>
     {% endfor %}
-    </li>
   {% endif %}
 </ol>
 
