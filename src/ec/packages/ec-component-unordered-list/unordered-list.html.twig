@@ -6,7 +6,7 @@
     - "items" (array) (default: []): format: [
         {
           "label" (string)
-          "nested" (optional) (object of type Ordered List)
+          "nested" (optional) (object of type Unordered List)
         },
         ...
       ]
@@ -27,7 +27,7 @@
 
   {# Internal properties #}
   {% set _items = items|default([]) %}
-  {% set _css_class = 'ecl-ordered-list' %}
+  {% set _css_class = 'ecl-unordered-list' %}
   {% set _extra_attributes = '' %}
 
   {# Internal logic - Process properties #}
@@ -44,10 +44,10 @@
 
   {# Print the result #}
   {% if _items is not empty %}
-    <ol class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+    <ul class="{{ _css_class }}"{{ _extra_attributes|raw }}>
       {% for _item in _items %}
         {% if _item is not empty %}
-          <li class="ecl-ordered-list__item">
+          <li class="ecl-unordered-list__item">
             {{- _item.label -}}
             {% if _item.nested is not empty and _item.nested is iterable %}
               {{- list.ordered_list(_item.nested) -}}
@@ -55,7 +55,7 @@
           </li>
         {% endif %}
       {% endfor %}
-    </ol>
+    </ul>
   {% endif %}
   {% endspaceless %}
 {% endmacro %}

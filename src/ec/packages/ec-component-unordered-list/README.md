@@ -1,9 +1,9 @@
-# ECL Twig - EC Ordered list component
+# ECL Twig - EC Unordered list component
 
-npm package: `@ecl-twig/ec-component-ordered-list`
+npm package: `@ecl-twig/ec-component-unordered-list`
 
 ```shell
-npm install --save @ecl-twig/ec-component-ordered-list
+npm install --save @ecl-twig/ec-component-unordered-list
 ```
 
 ## Link
@@ -12,7 +12,7 @@ npm install --save @ecl-twig/ec-component-ordered-list
 
 - "items" (array) (default: [])
   - "label" (string)
-  - "nested" (optional) Object of type Ordered List
+  - "nested" (optional) Object of type Unordered List
 - "extra_classes" (optional) (string) (default: '') Extra classes (space separated)
 - "extra_attributes" (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
@@ -22,7 +22,7 @@ npm install --save @ecl-twig/ec-component-ordered-list
 
 <!-- prettier-ignore -->
 ```twig
-{% include 'path/to/ordered-list.html.twig' with { 
+{% include 'path/to/unordered-list.html.twig' with { 
   items: [ 
     { 
       label: 'Jobs, growth and investment', 
@@ -52,6 +52,6 @@ npm install --save @ecl-twig/ec-component-ordered-list
         } 
       ] 
     } 
-  ]  
+  ] 
 } %}
 ```
