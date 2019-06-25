@@ -16,6 +16,7 @@ npm install --save @ecl-twig/ec-component-radio
   - "name" (string) (default: '')
   - "value" (string) (default: '')
   - "disabled" (boolean) (default: false)
+  - "checked" (boolean) (default: false)
   - "helper_id" (string) (default: '')
   - "helper_text" (block) (default: '')
   - "label" (block) (default: '')
@@ -55,6 +56,7 @@ npm install --save @ecl-twig/ec-component-radio
       label: 'Luxembourg', 
       helper_id: 'helper-default-1', 
       helper_text: 'Help text for option 1', 
+      checked: true, 
     }, 
     { 
       id: 'radio-default-2', 

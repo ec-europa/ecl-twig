@@ -6,6 +6,7 @@
   - "name" (string) (default: '')
   - "value" (string) (default: '')
   - "disabled" (boolean) (default: false)
+  - "checked" (boolean) (default: false)
   - "helper_id" (string) (default: '')
   - "extra_classes" (optional) (string) (default: '')
   - "extra_attributes" (optional) (array) (default: [])
@@ -22,6 +23,7 @@
 {% set _name = name|default('') %}
 {% set _value = value|default('') %}
 {% set _disabled = disabled|default(false) %}
+{% set _checked = checked|default(false) %}
 {% set _helper_id = helper_id|default('') %}
 
 {% set _helper_text = helper_text|default('') %}
@@ -56,6 +58,7 @@
     type="radio"
     value="{{ _value }}"
     {{ _disabled ? "disabled" }}
+    {{ _checked ? "checked" }}
     {{ _helper_id is not empty ? "aria-describedby=\"" ~ _helper_id ~ "\"" -}}
   />
 
@@ -65,7 +68,7 @@
   </label>
 
   {% if _helper_text is not empty %}
-    <p 
+    <p
       class="ecl-radio__help ecl-help-block"
       {{ _helper_id is not empty ? "id=\"" ~ _helper_id ~ "\""}}
     >

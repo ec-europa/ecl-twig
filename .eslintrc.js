@@ -14,6 +14,7 @@ module.exports = {
     browser: true,
   },
   rules: {
+    'unicorn/prevent-abbreviations': false,
     'unicorn/prefer-node-append': false,
   },
   overrides: [
