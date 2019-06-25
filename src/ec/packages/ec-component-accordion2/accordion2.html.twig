@@ -46,7 +46,7 @@
 
 <div
   class="{{ _css_class }}"{{ _extra_attributes|raw }}
-  data-ecl-accordion2="true"
+  data-ecl-accordion2
 >
   {% if _items is not empty %}
     {% for _item in _items %}
@@ -67,7 +67,7 @@
                   size: "m"
                 },
                 extra_classes: 'ecl-accordion2__toggle-icon',
-                extra_attributes: [{ name: "data-ecl-accordion2-icon", value: "true" }]
+                extra_attributes: [{ name: "data-ecl-accordion2-icon" }]
               } only %}
               <span class="ecl-accordion2__toggle-title">
                 {{- _item.toggle.label -}}
