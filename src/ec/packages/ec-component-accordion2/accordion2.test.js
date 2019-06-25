@@ -9,8 +9,8 @@ demoData.items.forEach(item => {
   item.toggle.icon.path = 'static/icons';
 });
 
-describe('EC - Accordion', () => {
-  const template = path.resolve(__dirname, './accordion.html.twig');
+describe('EC - Accordion2', () => {
+  const template = path.resolve(__dirname, './accordion2.html.twig');
   const render = params => renderTwigFileAsNode(template, params);
 
   test('renders correctly', () => {
