@@ -21,8 +21,7 @@
 #}
 
 {# Define main macro #}
-{% macro ordered_list(items, extra_classes, extra_attributes) %}
-  {% spaceless %}
+{% macro unordered_list(items, extra_classes, extra_attributes) %}{% spaceless %}
   {% import _self as list %}
 
   {# Internal properties #}
@@ -50,17 +49,16 @@
           <li class="ecl-unordered-list__item">
             {{- _item.label -}}
             {% if _item.nested is not empty and _item.nested is iterable %}
-              {{- list.ordered_list(_item.nested) -}}
-            {% endif %}
+              {{- list.unordered_list(_item.nested) -}}
+            {% endif -%}
           </li>
         {% endif %}
       {% endfor %}
     </ul>
   {% endif %}
-  {% endspaceless %}
-{% endmacro %}
+{% endspaceless %}{% endmacro %}
 
 {# Render macro #}
-{{ list.ordered_list(items, extra_classes, extra_attributes) }}
+{{ list.unordered_list(items, extra_classes, extra_attributes) }}
 
 {% endspaceless %}

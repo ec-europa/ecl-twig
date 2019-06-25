@@ -21,8 +21,7 @@
 #}
 
 {# Define main macro #}
-{% macro ordered_list(items, extra_classes, extra_attributes) %}
-  {% spaceless %}
+{% macro ordered_list(items, extra_classes, extra_attributes) %}{% spaceless %}
   {% import _self as list %}
 
   {# Internal properties #}
@@ -51,14 +50,13 @@
             {{- _item.label -}}
             {% if _item.nested is not empty and _item.nested is iterable %}
               {{- list.ordered_list(_item.nested) -}}
-            {% endif %}
+            {% endif -%}
           </li>
         {% endif %}
       {% endfor %}
     </ol>
   {% endif %}
-  {% endspaceless %}
-{% endmacro %}
+{% endspaceless %}{% endmacro %}
 
 {# Render macro #}
 {{ list.ordered_list(items, extra_classes, extra_attributes) }}
