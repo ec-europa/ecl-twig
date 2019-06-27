@@ -1,7 +1,7 @@
 /* eslint-disable no-param-reassign */
 
 import { storiesOf } from '@storybook/html';
-import { withKnobs } from '@storybook/addon-knobs';
+import { withKnobs, number } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
 import iconPath from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
@@ -18,12 +18,24 @@ storiesOf('Components/Timeline', module)
   .add(
     'default',
     () => {
+      const from = number('From', 10);
+      const to = number('To', -2);
+
+      let hiddenCount = 0;
+      if (to > 0) {
+        hiddenCount = to - from;
+      } else {
+        hiddenCount = demoData.items.length - (from + Math.abs(to));
+      }
+
       const fullDemoData = {
         ...demoData,
+        toggle_collapsed: 'Show %d more items'.replace('%d', hiddenCount),
+        toggle_expanded: 'Hide %d items'.replace('%d', hiddenCount),
         icon_path: iconPath,
         hide: {
-          from: 7,
-          to: -2,
+          from,
+          to,
         },
       };
 

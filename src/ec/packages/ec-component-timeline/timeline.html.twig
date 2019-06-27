@@ -2,11 +2,11 @@
 
 {#
 Parameters:
-  - "toggleCollapsed": (string) (default: 'Show %d more items')
-  - "toggleExpanded": (string) (default: 'Show %d items')
-  - "hide" (array): (default: undefined)
-    - "from": (integer) (default: undefined) Positive integer
-    - "to": (integer) (default: undefined) Negative integer
+  - "toggle_collapsed": (string) (default: '')
+  - "toggle_expanded": (string) (default: '')
+  - "hide" (object): (default: undefined)
+    - "from": (integer) (default: undefined) Item index after which to start hiding timeline items
+    - "to": (integer) (default: undefined) Item index after which to resume displaying timeline items
   - "items" (array) (default: []):
     - "id": (string) (default: '')
     - "label": (string) (default: '')
@@ -25,23 +25,27 @@ Parameters:
 {% set _extra_attributes = '' %}
 {% set _items = items|default([]) %}
 {% set _icon_path = icon_path|default('') %}
-{% set _toggle_collapsed = toggleCollapsed|default('Show %d more items') %}
-{% set _toggle_expanded = toggleExpanded|default('Hide %d items') %}
+{% set _toggle_collapsed = toggleCollapsed|default('') %}
+{% set _toggle_expanded = toggleExpanded|default('') %}
 {% set _hide_from = hide.from|default(items|length) %}
 {% set _hide_to = hide.to|default(items|length) %}
 
-{% set display_amount = items|length %}
-{% set hide_amount = 0 %}
-{% set bottom_amount = 0 %}
+{# Internal logic - Process properties #}
+
+{% set _display_amount = items|length %}
+{% set _hide_amount = 0 %}
+{% set _bottom_amount = 0 %}
 
 {% if _hide_from > 0 %}
-  {% set bottom_amount = _hide_to|abs %}
-  {% set countbase = items|length - bottom_amount %}
-  {% set display_amount = _hide_from %}
-  {% set hide_amount = countbase - display_amount %}
+  {% if _hide_to > 0 %}
+    {% set _bottom_amount = _display_amount - _hide_to %}
+  {% else %}
+    {% set _bottom_amount = _hide_to|abs %}
+  {% endif %}
+  {% set _countbase = items|length - _bottom_amount %}
+  {% set _display_amount = _hide_from %}
+  {% set _hide_amount = _countbase - _display_amount %}
 {% endif %}
-
-{# Internal logic - Process properties #}
 
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
@@ -59,11 +63,18 @@ Parameters:
     data-ecl-timeline="true">
   {% if _items is not empty %}
     {% for _item in _items %}
-      {# Display the show more button if required.#}
-      {% if hide_amount > 0 and loop.revindex == bottom_amount %}
+      {# Deside on per item if it should display.#}
+      {% set extra_class = (loop.index > _display_amount and loop.revindex > _bottom_amount) ? ' ecl-timeline2__item--collapsed' : '' %}
+      <li class="ecl-timeline2__item{{ extra_class }}" id="{{ _item.id }}">
+        <div class="ecl-timeline2__label">{{ _item.label }}</div>
+        <div class="ecl-timeline2__title">{{ _item.title }}</div>
+        <div class="ecl-timeline2__content">{{ _item.content|default('') }}</div>
+      </li>
+      {# Display the show more button if required. #}
+      {% if (_hide_amount > 0 and loop.revindex == _bottom_amount + 1) or (_hide_amount > 0 and _hide_to == 0 and loop.revindex == 1) %}
         <li class="ecl-timeline2__item ecl-timeline2__item--toggle">
           {% include '../ec-component-button/button.html.twig' with {
-            label: toggleCollapsed|replace({'%d': countbase - display_amount}),
+            label: toggle_collapsed,
             variant: 'secondary',
             type: 'button',
             icon: {
@@ -77,43 +88,13 @@ Parameters:
             extra_classes: 'ecl-timeline2__toggle',
             extra_attributes: [
               {name: 'data-ecl-timeline-button', value: true},
-              {name: 'data-ecl-label-collapsed', value: toggleCollapsed|replace({'%d': countbase - display_amount})},
-              {name: 'data-ecl-label-expanded', value: toggleExpanded|replace({'%d': countbase - display_amount})},
+              {name: 'data-ecl-label-collapsed', value: toggle_collapsed},
+              {name: 'data-ecl-label-expanded', value: toggle_expanded},
             ],
           } only %}
         </li>
       {% endif %}
-      {# Deside on per item if it should display.#}
-      {% set extra_class = (loop.index > display_amount and loop.revindex > bottom_amount) ? ' ecl-timeline2__item--collapsed' : '' %}
-      <li class="ecl-timeline2__item{{ extra_class }}" id="{{ _item.id }}">
-        <div class="ecl-timeline2__label">{{ _item.label }}</div>
-        <div class="ecl-timeline2__title">{{ _item.title }}</div>
-        <div class="ecl-timeline2__content">{{ _item.content|default('') }}</div>
-      </li>
     {% endfor %}
-    {% if hide_amount > 0 and _hide_to == 0 %}
-      <li class="ecl-timeline2__item ecl-timeline2__item--toggle">
-        {% include '../ec-component-button/button.html.twig' with {
-          label: toggleCollapsed|replace({'%d': countbase - display_amount}),
-          variant: 'secondary',
-          type: 'button',
-          icon: {
-            path: _icon_path,
-            type: 'ui',
-            name: 'corner-arrow',
-            size: 'xs',
-            transform: 'rotate-180',
-          },
-          icon_position: 'after',
-          extra_classes: 'ecl-timeline2__toggle',
-          extra_attributes: [
-            {name: 'data-ecl-timeline-button', value: true},
-            {name: 'data-ecl-label-collapsed', value: toggleCollapsed|replace({'%d': countbase - display_amount})},
-            {name: 'data-ecl-label-expanded', value: toggleExpanded|replace({'%d': countbase - display_amount})},
-          ],
-        } only %}
-      </li>
-    {% endif %}
   {% endif %}
 </ol>
 

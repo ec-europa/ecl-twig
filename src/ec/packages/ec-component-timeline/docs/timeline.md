@@ -10,11 +10,11 @@ npm install --save @ecl-twig/ec-component-timeline
 
 ### Parameters
 
-- "toggleCollapsed": (string) (default: 'Show %d more items')
-- "toggleExpanded": (string) (default: 'Show %d items')
-- "hide" (array): (default: undefined)
-  - "from": (integer) (default: undefined) Positive integer
-  - "to": (integer) (default: undefined) Negative integer
+- "toggle_collapsed": (string) (default: '')
+- "toggle_expanded": (string) (default: '')
+- "hide" (object): (default: undefined)
+  - "from": (integer) (default: undefined) Item index after which to start hiding timeline items
+  - "to": (integer) (default: undefined) Item index after which to resume displaying timeline items
 - "items" (array) (default: []):
   - "id": (string) (default: '')
   - "label": (string) (default: '')
@@ -31,12 +31,12 @@ npm install --save @ecl-twig/ec-component-timeline
 <!-- prettier-ignore -->
 ```twig
 {% include 'path/to/timeline.html.twig' with {  
-  toggleCollapsed: 'Show %d more items', 
-  toggleExpanded: 'Hide %d items', 
+  toggle_collapsed: 'Show 10 more items', 
+  toggle_expanded: 'Hide 10 items', 
   hide: {from: 7, to: -2}, 
   items: [ 
     { 
-      id: '0', 
+      id: '1', 
       label: '13 September 2017', 
       title: 'Item title', 
       content: 
