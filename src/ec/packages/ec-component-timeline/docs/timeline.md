@@ -12,6 +12,9 @@ npm install --save @ecl-twig/ec-component-timeline
 
 - "toggleCollapsed": (string) (default: 'Show %d more items')
 - "toggleExpanded": (string) (default: 'Show %d items')
+- "hide" (array): (default: undefined)
+  - "from": (integer) (default: undefined) Positive integer
+  - "to": (integer) (default: undefined) Negative integer
 - "items" (array) (default: []):
   - "id": (string) (default: '')
   - "label": (string) (default: '')
@@ -30,6 +33,7 @@ npm install --save @ecl-twig/ec-component-timeline
 {% include 'path/to/timeline.html.twig' with {  
   toggleCollapsed: 'Show %d more items', 
   toggleExpanded: 'Hide %d items', 
+  hide: {from: 7, to: -2}, 
   items: [ 
     { 
       id: '0', 

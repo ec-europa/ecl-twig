@@ -4,6 +4,9 @@
 Parameters:
   - "toggleCollapsed": (string) (default: 'Show %d more items')
   - "toggleExpanded": (string) (default: 'Show %d items')
+  - "hide" (array): (default: undefined)
+    - "from": (integer) (default: undefined) Positive integer
+    - "to": (integer) (default: undefined) Negative integer
   - "items" (array) (default: []):
     - "id": (string) (default: '')
     - "label": (string) (default: '')
@@ -24,19 +27,17 @@ Parameters:
 {% set _icon_path = icon_path|default('') %}
 {% set _toggle_collapsed = toggleCollapsed|default('Show %d more items') %}
 {% set _toggle_expanded = toggleExpanded|default('Hide %d items') %}
-
+{% set _hide_from = hide.from|default(items|length) %}
+{% set _hide_to = hide.to|default(items|length) %}
 
 {% set display_amount = items|length %}
 {% set hide_amount = 0 %}
 {% set bottom_amount = 0 %}
 
-{% if items|length >= 13 %}
-  {% set bottom_amount = 2 %}
+{% if _hide_from > 0 %}
+  {% set bottom_amount = _hide_to|abs %}
   {% set countbase = items|length - bottom_amount %}
-  {% set display_amount = 7 %}
-  {% if (countbase / 2) < 7 %}
-    {% set display_amount = countbase / 2 %}
-  {% endif %}
+  {% set display_amount = _hide_from %}
   {% set hide_amount = countbase - display_amount %}
 {% endif %}
 
@@ -59,7 +60,7 @@ Parameters:
   {% if _items is not empty %}
     {% for _item in _items %}
       {# Display the show more button if required.#}
-      {% if hide_amount > 0 and loop.revindex == 2 %}
+      {% if hide_amount > 0 and loop.revindex == bottom_amount %}
         <li class="ecl-timeline2__item ecl-timeline2__item--toggle">
           {% include '../ec-component-button/button.html.twig' with {
             label: toggleCollapsed|replace({'%d': countbase - display_amount}),
@@ -83,7 +84,7 @@ Parameters:
         </li>
       {% endif %}
       {# Deside on per item if it should display.#}
-      {% set extra_class = (loop.index > display_amount and loop.revindex > 2) ? ' ecl-timeline2__item--collapsed' : '' %}
+      {% set extra_class = (loop.index > display_amount and loop.revindex > bottom_amount) ? ' ecl-timeline2__item--collapsed' : '' %}
       <li class="ecl-timeline2__item{{ extra_class }}" id="{{ _item.id }}">
         <div class="ecl-timeline2__label">{{ _item.label }}</div>
         <div class="ecl-timeline2__title">{{ _item.title }}</div>
