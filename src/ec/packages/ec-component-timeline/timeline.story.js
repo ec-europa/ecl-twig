@@ -18,11 +18,7 @@ storiesOf('Components/Timeline', module)
   .add(
     'default',
     () => {
-      const fullDemoData = {
-        ...demoData,
-        icon_path: iconPath,
-        visibleItems: 10,
-      };
+      const fullDemoData = { ...demoData, icon_path: iconPath };
 
       const html = timeline(fullDemoData);
 
