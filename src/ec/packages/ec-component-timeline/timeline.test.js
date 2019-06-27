@@ -9,10 +9,36 @@ describe('EC - Timeline', () => {
   const template = path.resolve(__dirname, './timeline.html.twig');
   const render = params => renderTwigFileAsNode(template, params);
 
-  test('renders correctly', () => {
+  test('renders correctly without hidden items', () => {
     expect.assertions(1);
 
     return expect(render(demoData)).resolves.toMatchSnapshot();
+  });
+
+  test('renders correctly with hidden items', () => {
+    expect.assertions(1);
+
+    const optionsWithExtraClasses = merge(demoData, {
+      hide: {
+        from: 10,
+        to: -2,
+      },
+    });
+
+    return expect(render(optionsWithExtraClasses)).resolves.toMatchSnapshot();
+  });
+
+  test('renders correctly with hidden items but no items after button', () => {
+    expect.assertions(1);
+
+    const optionsWithExtraClasses = merge(demoData, {
+      hide: {
+        from: 10,
+        to: 0,
+      },
+    });
+
+    return expect(render(optionsWithExtraClasses)).resolves.toMatchSnapshot();
   });
 
   test('renders correctly with extra class names', () => {

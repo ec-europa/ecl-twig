@@ -91,6 +91,29 @@ Parameters:
         <div class="ecl-timeline2__content">{{ _item.content|default('') }}</div>
       </li>
     {% endfor %}
+    {% if hide_amount > 0 and _hide_to == 0 %}
+      <li class="ecl-timeline2__item ecl-timeline2__item--toggle">
+        {% include '../ec-component-button/button.html.twig' with {
+          label: toggleCollapsed|replace({'%d': countbase - display_amount}),
+          variant: 'secondary',
+          type: 'button',
+          icon: {
+            path: _icon_path,
+            type: 'ui',
+            name: 'corner-arrow',
+            size: 'xs',
+            transform: 'rotate-180',
+          },
+          icon_position: 'after',
+          extra_classes: 'ecl-timeline2__toggle',
+          extra_attributes: [
+            {name: 'data-ecl-timeline-button', value: true},
+            {name: 'data-ecl-label-collapsed', value: toggleCollapsed|replace({'%d': countbase - display_amount})},
+            {name: 'data-ecl-label-expanded', value: toggleExpanded|replace({'%d': countbase - display_amount})},
+          ],
+        } only %}
+      </li>
+    {% endif %}
   {% endif %}
 </ol>
 
