@@ -9,7 +9,6 @@ npm install --save @ecl-twig/ec-component-file
 ## Parameters
 
 - "icon" (object) (default: {}): object of type Icon; file type
-- "icon_path" (string) (default: ''): path to the icon file
 - "title" (string) (default: '')
 - "language" (string) (default: '')
 - "meta" (string) (default: '')

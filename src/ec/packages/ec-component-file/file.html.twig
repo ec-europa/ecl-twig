@@ -2,7 +2,6 @@
 {#
   Parameters:
   - "icon" (object) (default: {}): object of type Icon; file type
-  - "icon_path" (string) (default: ''): path to the icon file
   - "title" (string) (default: '')
   - "language" (string) (default: '')
   - "meta" (string) (default: '')
@@ -24,7 +23,6 @@
 {# Internal properties #}
 
 {% set _icon = icon|default({}) %}
-{% set _icon_path = icon_path|default(_icon.path|default('')) %}
 {% set _title = title|default('') %}
 {% set _language = language|default('') %}
 {% set _meta = meta|default('') %}
@@ -66,12 +64,11 @@
         type: 'standalone',
         icon_position: 'after',
       }),
-      icon: {
-        path: _icon_path,
+      icon: _download.icon|default({})|merge({
         type: 'ui',
         name: 'download',
         size: 'fluid'
-      },
+      }),
       extra_classes: 'ecl-file__download',
       extra_attributes: [{ name: 'download' }]
     }) only %}
@@ -82,13 +79,12 @@
       {% include '../ec-component-button/button.html.twig' with _translation.toggle|merge({
         variant: 'ghost',
         type: 'button',
-        icon: {
-          path: _icon_path,
+        icon: _translation.toggle.icon|default({})|merge({
           type: 'ui',
           name: 'corner-arrow',
           size: 'fluid',
           transform: 'rotate-180'
-        },
+        }),
         extra_classes: 'ecl-file__translation-toggle',
         extra_attributes: [{ name: 'data-ecl-file-translation-toggle' }]
       }) only %}
@@ -110,12 +106,11 @@
                 type: 'standalone',
                 icon_position: 'after'
               }),
-              icon: {
-                path: _icon_path,
+              icon: _item.download.icon|default(_download.icon|default({}))|merge({
                 type: 'ui',
                 name: 'download',
                 size: 'fluid'
-              },
+              }),
               extra_classes: 'ecl-file__translation-download',
               extra_attributes: [
                 { name: 'download' },

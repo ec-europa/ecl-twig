@@ -2,12 +2,10 @@
 import specDataWithTranslation from '@ecl/ec-specs-file/demo/data--with-translation';
 import specDataWithoutTranslation from '@ecl/ec-specs-file/demo/data--without-translation';
 
-const iconPath = '/static/icons.svg';
-
 function formatIcon(i) {
   const [type, name] = i.shape.split('--');
   const icon = {
-    path: iconPath,
+    path: '/static/icons.svg',
     type,
     name,
     size: i.size,
@@ -34,7 +32,6 @@ function formatLink(l) {
 }
 
 export const dataWithTranslation = {
-  icon_path: iconPath,
   title: specDataWithTranslation.title,
   language: specDataWithTranslation.language,
   meta: specDataWithTranslation.meta,
@@ -70,7 +67,6 @@ export const dataWithTranslation = {
 };
 
 export const dataWithoutTranslation = {
-  icon_path: iconPath,
   title: specDataWithoutTranslation.title,
   language: specDataWithoutTranslation.language,
   meta: specDataWithoutTranslation.meta,
