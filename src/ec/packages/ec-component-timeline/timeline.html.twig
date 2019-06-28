@@ -63,7 +63,7 @@ Parameters:
     data-ecl-timeline="true">
   {% if _items is not empty %}
     {% for _item in _items %}
-      {# Deside on per item if it should display.#}
+      {# Decide on per item if it should display.#}
       {% set extra_class = (loop.index > _display_amount and loop.revindex > _bottom_amount) ? ' ecl-timeline2__item--collapsed' : '' %}
       <li class="ecl-timeline2__item{{ extra_class }}" id="{{ _item.id }}">
         <div class="ecl-timeline2__label">{{ _item.label }}</div>

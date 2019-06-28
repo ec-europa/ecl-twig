@@ -9,12 +9,12 @@ const adapter = initialData => {
   if (to > 0) {
     hiddenCount = to - from;
   } else {
-    hiddenCount = specData.items.length - (from + Math.abs(to));
+    hiddenCount = initialData.items.length + to - from;
   }
 
   return {
-    toggle_collapsed: 'Show %d more items'.replace('%d', hiddenCount),
-    toggle_expanded: 'Hide %d items'.replace('%d', hiddenCount),
+    toggle_collapsed: `Show ${hiddenCount} more items`,
+    toggle_expanded: `Hide ${hiddenCount} items`,
     items: initialData.items,
     hide: {
       from,
