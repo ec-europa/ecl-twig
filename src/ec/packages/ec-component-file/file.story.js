@@ -11,11 +11,10 @@ import fileDocs from './docs/file.md';
 import file from './file.html.twig';
 
 // Add icon path
+dataWithTranslation.icon_path = defaultSprite;
 dataWithTranslation.icon.path = defaultSprite;
-dataWithTranslation.download.icon.path = defaultSprite;
-dataWithTranslation.translation.toggle.icon.path = defaultSprite;
+dataWithoutTranslation.icon_path = defaultSprite;
 dataWithoutTranslation.icon.path = defaultSprite;
-dataWithoutTranslation.download.icon.path = defaultSprite;
 
 storiesOf('Components/File', module)
   .addDecorator(withKnobs)

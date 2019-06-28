@@ -9,6 +9,7 @@ npm install --save @ecl-twig/ec-component-file
 ## Parameters
 
 - "icon" (object) (default: {}): object of type Icon; file type
+- "icon_path" (string) (default: ''): path to the icon file
 - "title" (string) (default: '')
 - "language" (string) (default: '')
 - "meta" (string) (default: '')
@@ -19,6 +20,7 @@ npm install --save @ecl-twig/ec-component-file
     - "title" (string) (default: '')
     - "meta" (string) (default: '')
     - "lang" (string) (default: '')
+    - "download" (object) (default to the parent download property) object of type Link
   - "description (string) (default:'')
 - "extra_classes" (optional) (string) (default: '')
 - "extra_attributes" (optional) (array) (default: [])
@@ -33,6 +35,7 @@ npm install --save @ecl-twig/ec-component-file
   title: 'State of the Union 2018 brochure', 
   language: 'English', 
   meta: '(16.2 MB - PDF)', 
+  icon_path: 'path/to/icons.svg', 
   icon: { 
     type: 'general', 
     name: 'copy', 
