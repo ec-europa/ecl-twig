@@ -15,15 +15,6 @@ function formatIcon(i) {
   return icon;
 }
 
-function formatButton(b) {
-  const button = {
-    label: b.label,
-    icon: formatIcon(b.icon),
-  };
-
-  return button;
-}
-
 function formatLink(l) {
   const link = {
     link: {
@@ -47,9 +38,51 @@ export const dataWithTranslation = {
   icon: formatIcon(specDataWithTranslation.icon),
   download: formatLink(specDataWithTranslation.download),
   translation: {
-    toggle: formatButton(specDataWithTranslation.translation.toggle),
+    toggle: {
+      ...specDataWithTranslation.translation.toggle,
+      icon: {
+        path: '/static/icons.svg',
+      },
+    },
     description: specDataWithTranslation.translation.description,
-    items: specDataWithTranslation.translation.items,
+    items: [
+      {
+        ...specDataWithTranslation.translation.items[0],
+        download: {
+          link: {
+            label: 'Download',
+            path: '/example#bg',
+          },
+          icon: {
+            path: '/static/icons.svg',
+          },
+        },
+      },
+      {
+        ...specDataWithTranslation.translation.items[1],
+        download: {
+          link: {
+            label: 'Download',
+            path: '/example#es',
+          },
+          icon: {
+            path: '/static/icons.svg',
+          },
+        },
+      },
+      {
+        ...specDataWithTranslation.translation.items[2],
+        download: {
+          link: {
+            label: 'Download',
+            path: '/example#fr',
+          },
+          icon: {
+            path: '/static/icons.svg',
+          },
+        },
+      },
+    ],
   },
 };
 

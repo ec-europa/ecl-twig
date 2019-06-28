@@ -14,6 +14,16 @@ import file from './file.html.twig';
 dataWithTranslation.icon.path = defaultSprite;
 dataWithTranslation.download.icon.path = defaultSprite;
 dataWithTranslation.translation.toggle.icon.path = defaultSprite;
+dataWithTranslation.translation.items[0].download.icon = {
+  path: defaultSprite,
+};
+dataWithTranslation.translation.items[1].download.icon = {
+  path: defaultSprite,
+};
+dataWithTranslation.translation.items[2].download.icon = {
+  path: defaultSprite,
+};
+
 dataWithoutTranslation.icon.path = defaultSprite;
 dataWithoutTranslation.download.icon.path = defaultSprite;
 
