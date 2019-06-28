@@ -38,29 +38,49 @@ export const dataWithTranslation = {
   icon: formatIcon(specDataWithTranslation.icon),
   download: formatLink(specDataWithTranslation.download),
   translation: {
-    toggle: specDataWithTranslation.translation.toggle,
+    toggle: {
+      ...specDataWithTranslation.translation.toggle,
+      icon: {
+        path: '/static/icons.svg',
+      },
+    },
     description: specDataWithTranslation.translation.description,
     items: [
       {
         ...specDataWithTranslation.translation.items[0],
-        download: formatLink({
-          label: 'Download',
-          href: '/example#bg',
-        }),
+        download: {
+          link: {
+            label: 'Download',
+            path: '/example#bg',
+          },
+          icon: {
+            path: '/static/icons.svg',
+          },
+        },
       },
       {
         ...specDataWithTranslation.translation.items[1],
-        download: formatLink({
-          label: 'Download',
-          href: '/example#es',
-        }),
+        download: {
+          link: {
+            label: 'Download',
+            path: '/example#es',
+          },
+          icon: {
+            path: '/static/icons.svg',
+          },
+        },
       },
       {
         ...specDataWithTranslation.translation.items[2],
-        download: formatLink({
-          label: 'Download',
-          href: '/example#fr',
-        }),
+        download: {
+          link: {
+            label: 'Download',
+            path: '/example#fr',
+          },
+          icon: {
+            path: '/static/icons.svg',
+          },
+        },
       },
     ],
   },
