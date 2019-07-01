@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.7.0](https://github.com/ec-europa/ecl-twig/compare/v2.3.2...v2.7.0) (2019-07-01)
+
+### Bug Fixes
+
+- **file:** remove button classes - INNO-1560 ([#99](https://github.com/ec-europa/ecl-twig/issues/99)) ([3c0a460](https://github.com/ec-europa/ecl-twig/commit/3c0a460))
+
+### Features
+
+- implement inpage navigation - INNO-1555 ([#104](https://github.com/ec-europa/ecl-twig/issues/104)) ([0955c00](https://github.com/ec-europa/ecl-twig/commit/0955c00))
+- **accordion:** add accordion 2 - INNO-1548 ([#100](https://github.com/ec-europa/ecl-twig/issues/100)) ([dd724bf](https://github.com/ec-europa/ecl-twig/commit/dd724bf))
+- **file:** add download link per translation - INNO-1581 ([#105](https://github.com/ec-europa/ecl-twig/issues/105)) ([c2218a7](https://github.com/ec-europa/ecl-twig/commit/c2218a7))
+- **list:** implement List components - INNO-1541 ([#103](https://github.com/ec-europa/ecl-twig/issues/103)) ([b508e73](https://github.com/ec-europa/ecl-twig/commit/b508e73))
+- **radio:** add checked parameter - INNO-1540 ([849cf4e](https://github.com/ec-europa/ecl-twig/commit/849cf4e))
+- implement timeline2 component - INNO-1546 ([#102](https://github.com/ec-europa/ecl-twig/issues/102)) ([1406b9d](https://github.com/ec-europa/ecl-twig/commit/1406b9d))
+
 ## [2.3.2](https://github.com/ec-europa/ecl-twig/compare/v2.3.1...v2.3.2) (2019-06-20)
 
 **Note:** Version bump only for package ecl-twig

@@ -7,4 +7,4 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
-- **accordion:** add accordion 2 - INNO-1548 ([#100](https://github.com/ec-europa/ecl-twig/issues/100)) ([dd724bf](https://github.com/ec-europa/ecl-twig/commit/dd724bf))
+- **list:** implement List components - INNO-1541 ([#103](https://github.com/ec-europa/ecl-twig/issues/103)) ([b508e73](https://github.com/ec-europa/ecl-twig/commit/b508e73))

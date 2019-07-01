@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.7.0](https://github.com/ec-europa/ecl-twig/compare/v2.3.2...v2.7.0) (2019-07-01)
+
+### Bug Fixes
+
+- **file:** remove button classes - INNO-1560 ([#99](https://github.com/ec-europa/ecl-twig/issues/99)) ([3c0a460](https://github.com/ec-europa/ecl-twig/commit/3c0a460))
+
+### Features
+
+- **file:** add download link per translation - INNO-1581 ([#105](https://github.com/ec-europa/ecl-twig/issues/105)) ([c2218a7](https://github.com/ec-europa/ecl-twig/commit/c2218a7))
+
 ## [2.3.2](https://github.com/ec-europa/ecl-twig/compare/v2.3.1...v2.3.2) (2019-06-20)
 
 **Note:** Version bump only for package @ecl-twig/ec-component-file
