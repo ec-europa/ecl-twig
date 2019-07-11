@@ -48,12 +48,23 @@ function formatLink(l) {
 
 function formatItem(i) {
   const item = {
-    path: i.src,
-    alt: i.alt,
     description: i.description,
     meta: i.meta,
     share_path: i.shareHref,
   };
+
+  if (i.image) {
+    item.path = i.image.src;
+    item.alt = i.image.alt;
+  } else if (i.video) {
+    // For now, consider videos as images (support for videos will be added later)
+    item.path = i.video.poster;
+    item.alt = 'VIDEO NOT SUPPORTED YET'; // We don't have equivalent for "alt" in "video"
+  } else {
+    // Fallback to previous structure
+    item.path = i.src;
+    item.alt = i.alt;
+  }
 
   if (i.icon) {
     item.icon = formatIcon(i.icon);
