@@ -5,10 +5,11 @@
   - "item" (object) (default: {})
     - "path" (string) (default: '')
     - "alt" (string) (default: '')
-    - "description" (string) (default: '')
     - "meta" (string) (default: '')
     - "icon" (object) (default: {}): object of type icon
     - "share_path" (string) (default: '')
+    - "video" (optional) (array) (default: [])
+    - "image" (optional) (array) (default: [])
   - "extra_classes" (optional) (string) (default: '')
   - "extra_attributes" (optional) (array) (default: [])
     - "name" (string) Attribute name, eg. 'data-test'
@@ -45,7 +46,7 @@
       {% set _mediaHref = _item.image.src %}
       {% set _imageAlt = _item.image.alt %}
     {%  else %}
-      {% set _mediaHref = _item.src %}
+      {% set _mediaHref = _item.path %}
       {% set _imageAlt = _item.alt %}
     {% endif %}
   {% endif %}
@@ -69,35 +70,23 @@
   >
     <figure class="ecl-gallery__image-container">
       {% if _item and _item is not empty and _item.video and _item.video is not empty%}
-        <video class="ecl-gallery__image" poster={{ _item.video.poster }}>
-          {% if _videoSources is defined and _videoSources is not empty and _videoSources is iterable %}
-            {% for video in _videoSources %}
-              <source src="{{ video.src }}" type="{{ video.type }}">
-            {% endfor %}
-          {% endif %}
-          {% if _videoTracks is defined and _videoTracks is not empty and _videoSTracks is iterable %}
-            {% for track in _videoTracks %}
-              <track src="{{ track.src }}" kind="{{ track.kind }}" srclang="{{ track.srclang }}" label="{{ track.label }}">
-            {% endfor %}
-          {% endif %}
-        </video>
+        {% include './video.html.twig' %}
       {% else %}
         <img src="{{ _mediaHref }}" alt="{{ _imageAlt }}" class="ecl-gallery__image" />
-          {% if _item.icon is not empty and _item.icon.name is not empty %}
-            {% include '../ec-component-icon/icon.html.twig' with {
-              icon: _item.icon|merge({
-                size: "l",
-              }),
-              extra_classes: 'ecl-gallery__image-icon'
-            } only %}
-        {% endif %}
       {% endif %}
 
+      {% if _item.icon is not empty and _item.icon.name is not empty %}
+        {% include '../ec-component-icon/icon.html.twig' with {
+          icon: _item.icon|merge({
+            size: "l",
+          }),
+          extra_classes: 'ecl-gallery__image-icon'
+        } only %}
+      {% endif %}
       <figcaption
         class="ecl-gallery__description"
         data-ecl-gallery-description
       >
-        {{- _item.description -}}
 
         {% if _item.icon is not empty and _item.icon.name is not empty %}
           {%- include '../ec-component-icon/icon.html.twig' with {
