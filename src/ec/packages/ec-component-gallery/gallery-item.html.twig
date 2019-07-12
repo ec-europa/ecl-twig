@@ -19,12 +19,36 @@
 
 {% set _css_class = 'ecl-gallery__item' %}
 {% set _extra_attributes = '' %}
+{% set _mediaHref = '' %}
+{% set _mediaSharePath = '' %}
+{% set _videoSources = '' %}
+{% set _videoSTracks = '' %}
+{% set _imageAlt = '' %}
 {% set _item = item|default({}) %}
 
 {# Internal logic - Process properties #}
 
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{# Setting up Video and image variables #}
+{% if _item and _item is not empty %}
+  {% set _mediaSharePath = _item.share_path  %}
+
+  {% if _item.video is defined and _item.video is not empty %}
+    {% set _videoSources = _item.video.sources %}
+    {% set _videoSTracks = _item.video.tracks %}
+    {% set _mediaHref = _item.video.sources[0].src %}
+  {% else %}
+    {% if _item.image is defined and _item.image is not empty %}
+      {% set _mediaHref = _item.image.src %}
+      {% set _imageAlt = _item.image.alt %}
+    {%  else %}
+      {% set _mediaHref = _item.src %}
+      {% set _imageAlt = _item.alt %}
+    {% endif %}
+  {% endif %}
 {% endif %}
 
 {% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
@@ -37,22 +61,37 @@
 
 <li class="{{ _css_class }}"{{ _extra_attributes }}>
   <a
-    href="{{ _item.path }}"
+    href="{{ _mediaHref }}"
     class="ecl-gallery__item-link"
-    aria-label="{{ _item.alt }}"
+    aria-label="{{ _imageAlt }}"
     data-ecl-gallery-item
-    data-ecl-gallery-item-share="{{ _item.share_path }}"
+    data-ecl-gallery-item-share="{{ _mediaSharePath }}"
   >
     <figure class="ecl-gallery__image-container">
-      <img src="{{ _item.path }}" alt="{{ _item.alt }}" class="ecl-gallery__image" />
-        {% if _item.icon is not empty and _item.icon.name is not empty %}
-          {% include '../ec-component-icon/icon.html.twig' with {
-            icon: _item.icon|merge({
-              size: "l",
-            }),
-            extra_classes: 'ecl-gallery__image-icon'
-          } only %}
+      {% if _item and _item is not empty and _item.video and _item.video is not empty%}
+        <video class="ecl-gallery__image" poster={{ _item.video.poster }}>
+          {% if _videoSources is defined and _videoSources is not empty and _videoSources is iterable %}
+            {% for video in _videoSources %}
+              <source src="{{ video.src }}" type="{{ video.type }}">
+            {% endfor %}
+          {% endif %}
+          {% if _videoTracks is defined and _videoTracks is not empty and _videoSTracks is iterable %}
+            {% for track in _videoTracks %}
+              <track src="{{ track.src }}" kind="{{ track.kind }}" srclang="{{ track.srclang }}" label="{{ track.label }}">
+            {% endfor %}
+          {% endif %}
+        </video>
+      {% else %}
+        <img src="{{ _mediaHref }}" alt="{{ _imageAlt }}" class="ecl-gallery__image" />
+          {% if _item.icon is not empty and _item.icon.name is not empty %}
+            {% include '../ec-component-icon/icon.html.twig' with {
+              icon: _item.icon|merge({
+                size: "l",
+              }),
+              extra_classes: 'ecl-gallery__image-icon'
+            } only %}
         {% endif %}
+      {% endif %}
 
       <figcaption
         class="ecl-gallery__description"
