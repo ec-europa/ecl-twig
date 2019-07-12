@@ -19,13 +19,13 @@ This will installs all the external dependencies and then links the local depend
 
 ### Naming
 
-All the packages that will be published to npm are located in `src/{ec,eu}/packages`. Those are all public packages. The other folders serve only for developement purpose.
+All the packages that will be published to npm are located in `src/{ec,eu}/packages`. Those are all public packages. The other folders serve only for development purpose.
 
 Each Twig component is an npm package. The package should be named after the component's name. Example, the EC `button` component lies in a package named `@ecl-twig/ec-component-button`. Adding `*-component-*` to the name offers us more flexibility if in the future we want to publish more packages.
 
 In each package, the main Twig template file should be name after the component's name too, follow by `.html.twig` extension. Example, the main template file for the EC `button` component is named `button.html.twig`.
 
-There's also an extra package: `@ecl-twig/{ec,eu}-components` which is used to automatically import all the availble Twig components. Don't forget to add your newly created component to the list of dependencies of this package!
+There's also an extra package: `@ecl-twig/{ec,eu}-components` which is used to automatically import all the available Twig components. Don't forget to add your newly created component to the list of dependencies of this package!
 
 ### Testing
 

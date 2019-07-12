@@ -36,7 +36,12 @@ export const dataWithTranslation = {
   language: specDataWithTranslation.language,
   meta: specDataWithTranslation.meta,
   icon: formatIcon(specDataWithTranslation.icon),
-  download: formatLink(specDataWithTranslation.download),
+  download: {
+    ...formatLink(specDataWithTranslation.download),
+    icon: {
+      path: '/static/icons.svg',
+    },
+  },
   translation: {
     toggle: {
       ...specDataWithTranslation.translation.toggle,
@@ -91,5 +96,10 @@ export const dataWithoutTranslation = {
   language: specDataWithoutTranslation.language,
   meta: specDataWithoutTranslation.meta,
   icon: formatIcon(specDataWithoutTranslation.icon),
-  download: formatLink(specDataWithoutTranslation.download),
+  download: {
+    ...formatLink(specDataWithTranslation.download),
+    icon: {
+      path: '/static/icons.svg',
+    },
+  },
 };
