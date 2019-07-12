@@ -51,6 +51,8 @@ function formatItem(i) {
     description: i.description,
     meta: i.meta,
     share_path: i.shareHref,
+    video: i.video,
+    image: i.image,
   };
 
   if (i.image) {
