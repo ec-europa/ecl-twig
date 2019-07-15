@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/html';
-import { withKnobs, text, select } from '@storybook/addon-knobs';
+import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
 
@@ -78,6 +78,31 @@ storiesOf('Components/Navigation/Link', module)
           name: iconsListSelect,
           path: defaultSprite,
           size: 'fluid',
+        },
+      });
+    },
+    {
+      notes: { markdown: linkDocs },
+    }
+  )
+  .add(
+    'cta',
+    () => {
+      const iconsListSelect = boolean('Icon (optional)', false);
+
+      return link({
+        link: {
+          type: 'cta',
+          label: text('Label', 'Call to action link'),
+          path: '/example#link-cta',
+          icon_position: 'after',
+        },
+        icon: {
+          type: 'ui',
+          name: iconsListSelect ? 'corner-arrow' : '',
+          path: defaultSprite,
+          size: 'fluid',
+          transform: 'rotate-90',
         },
       });
     },
