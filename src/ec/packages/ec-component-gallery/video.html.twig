@@ -5,8 +5,6 @@
   - "itemVideo (optional) (array) (default: [])
 #}
 
-
-
 <video class="ecl-gallery__image" poster={{ _item.video.poster }}>
   {% if _videoSources is defined and _videoSources is not empty and _videoSources is iterable %}
     {% for video in _videoSources %}
