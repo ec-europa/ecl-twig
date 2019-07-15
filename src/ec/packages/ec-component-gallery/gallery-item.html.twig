@@ -23,8 +23,6 @@
 {% set _useArial = '' %}
 {% set _mediaHref = '' %}
 {% set _mediaSharePath = '' %}
-{% set _videoSources = '' %}
-{% set _videoTracks = '' %}
 {% set _imageAlt = '' %}
 {% set _item = item|default({}) %}
 
@@ -39,8 +37,6 @@
   {% set _mediaSharePath = _item.share_path  %}
 
   {% if _item.video is defined and _item.video is not empty %}
-    {% set _videoSources = _item.video.sources %}
-    {% set _videoTracks = _item.video.tracks %}
     {% set _mediaHref = _item.video.sources[0].src %}
   {% else %}
     {% if _item.image is defined and _item.image is not empty %}

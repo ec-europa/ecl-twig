@@ -2,10 +2,16 @@
 
 {#
   Parameters:
-  - "itemVideo (optional) (array) (default: [])
+  - "item" (object) (default: {})"
 #}
 
-  <video class="ecl-gallery__image" poster={{ _item.video.poster }}>
+{# variables #}
+
+{% set _item = item|default({}) %}
+{% set _videoSources = _item.video.sources|default({}) %}
+{% set _videoTracks = _item.video.tracks|default({}) %}
+
+<video class="ecl-gallery__image" poster={{ _item.video.poster }}>
   {% if _videoSources is defined and _videoSources is not empty and _videoSources is iterable %}
     {% for video in _videoSources %}
       <source src="{{ video.src }}" type="{{ video.type }}">
