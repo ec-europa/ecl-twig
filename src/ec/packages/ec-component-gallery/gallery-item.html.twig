@@ -20,10 +20,11 @@
 
 {% set _css_class = 'ecl-gallery__item' %}
 {% set _extra_attributes = '' %}
+{% set _useArial = '' %}
 {% set _mediaHref = '' %}
 {% set _mediaSharePath = '' %}
 {% set _videoSources = '' %}
-{% set _videoSTracks = '' %}
+{% set _videoTracks = '' %}
 {% set _imageAlt = '' %}
 {% set _item = item|default({}) %}
 
@@ -39,7 +40,7 @@
 
   {% if _item.video is defined and _item.video is not empty %}
     {% set _videoSources = _item.video.sources %}
-    {% set _videoSTracks = _item.video.tracks %}
+    {% set _videoTracks = _item.video.tracks %}
     {% set _mediaHref = _item.video.sources[0].src %}
   {% else %}
     {% if _item.image is defined and _item.image is not empty %}
@@ -49,6 +50,8 @@
       {% set _mediaHref = _item.path %}
       {% set _imageAlt = _item.alt %}
     {% endif %}
+    {#   Use Arial only for image.   #}
+    {% set _useArial = 'aria-label="' ~ _imageAlt ~ '"' %}
   {% endif %}
 {% endif %}
 
@@ -64,7 +67,7 @@
   <a
     href="{{ _mediaHref }}"
     class="ecl-gallery__item-link"
-    aria-label="{{ _imageAlt }}"
+    {{ _useArial }}
     data-ecl-gallery-item
     data-ecl-gallery-item-share="{{ _mediaSharePath }}"
   >
@@ -87,6 +90,7 @@
         class="ecl-gallery__description"
         data-ecl-gallery-description
       >
+        {{- _item.description -}}
 
         {% if _item.icon is not empty and _item.icon.name is not empty %}
           {%- include '../ec-component-icon/icon.html.twig' with {

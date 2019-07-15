@@ -5,15 +5,15 @@
   - "itemVideo (optional) (array) (default: [])
 #}
 
-<video class="ecl-gallery__image" poster={{ _item.video.poster }}>
+  <video class="ecl-gallery__image" poster={{ _item.video.poster }}>
   {% if _videoSources is defined and _videoSources is not empty and _videoSources is iterable %}
     {% for video in _videoSources %}
       <source src="{{ video.src }}" type="{{ video.type }}">
     {% endfor %}
   {% endif %}
-  {% if _videoTracks is defined and _videoTracks is not empty and _videoSTracks is iterable %}
+  {% if _videoTracks is defined and _videoTracks is not empty and _videoTracks is iterable %}
     {% for track in _videoTracks %}
-      <track src="{{ track.src }}" kind="{{ track.kind }}" srclang="{{ track.srclang }}" label="{{ track.label }}">
+      <track src="{{ track.src }}" kind="{{ track.kind }}" srclang="{{ track.srcLang }}" label="{{ track.label }}">
     {% endfor %}
   {% endif %}
 </video>
