@@ -19,6 +19,7 @@
 {# variables #}
 
 {% set _css_class = 'ecl-gallery__overlay' %}
+{% set _css_media_class = 'ecl-gallery__slider-media-container' %}
 {% set _extra_attributes = '' %}
 {% set _overlay = overlay|default({}) %}
 {% set _item = item|default({}) %}
@@ -48,14 +49,7 @@
   </header>
 
   <section class="ecl-gallery__slider">
-    <div class="ecl-gallery__slider-image-container">
-      <img
-        src="{{ _item.src }}"
-        alt="{{ _item.alt }}"
-        class="ecl-gallery__slider-image"
-        data-ecl-gallery-overlay-image
-      />
-    </div>
+    <div class="{{ _css_media_class }}"></div>
 
     {% include '../ec-component-button/button.html.twig' with _overlay.previous|merge({
       extra_classes: 'ecl-gallery__slider-previous',
