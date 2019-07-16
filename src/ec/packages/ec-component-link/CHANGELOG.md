@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.8.0](https://github.com/ec-europa/ecl-twig/compare/v2.7.0...v2.8.0) (2019-07-16)
+
+### Features
+
+- **link:** add CTA example - INNO-1627 ([#109](https://github.com/ec-europa/ecl-twig/issues/109)) ([c52da7d](https://github.com/ec-europa/ecl-twig/commit/c52da7d))
+
 # [2.7.0](https://github.com/ec-europa/ecl-twig/compare/v2.3.2...v2.7.0) (2019-07-01)
 
 **Note:** Version bump only for package @ecl-twig/ec-component-link
