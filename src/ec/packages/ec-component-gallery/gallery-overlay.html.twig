@@ -19,7 +19,9 @@
 {# variables #}
 
 {% set _css_class = 'ecl-gallery__overlay' %}
+{% set _css_media_class = 'ecl-gallery__slider-media-container' %}
 {% set _extra_attributes = '' %}
+{% set _button_type = 'button' %}
 {% set _overlay = overlay|default({}) %}
 {% set _item = item|default({}) %}
 
@@ -41,6 +43,7 @@
   <header class="ecl-gallery__close" data-ecl-gallery-overlay-header>
     {% include '../ec-component-button/button.html.twig' with _overlay.close|merge({
       extra_classes: 'ecl-gallery__close-button',
+      type: _button_type,
       extra_attributes: [
         { name: 'data-ecl-gallery-close' },
       ],
@@ -48,17 +51,11 @@
   </header>
 
   <section class="ecl-gallery__slider">
-    <div class="ecl-gallery__slider-image-container">
-      <img
-        src="{{ _item.src }}"
-        alt="{{ _item.alt }}"
-        class="ecl-gallery__slider-image"
-        data-ecl-gallery-overlay-image
-      />
-    </div>
+    <div class="{{ _css_media_class }}" data-ecl-gallery-overlay-media></div>
 
     {% include '../ec-component-button/button.html.twig' with _overlay.previous|merge({
       extra_classes: 'ecl-gallery__slider-previous',
+      type: _button_type,
       extra_attributes: [
         { name: 'data-ecl-gallery-overlay-previous' },
       ],
@@ -66,6 +63,7 @@
 
     {% include '../ec-component-button/button.html.twig' with _overlay.next|merge({
       extra_classes: 'ecl-gallery__slider-next',
+      type: _button_type,
       extra_attributes: [
         { name: 'data-ecl-gallery-overlay-next' },
       ],

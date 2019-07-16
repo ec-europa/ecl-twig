@@ -40,7 +40,7 @@ function formatLink(l) {
 
   if (l.icon) {
     link.icon = formatIcon(l.icon);
-    link.icon_position = link.icon_position;
+    link.icon_position = l.icon_position;
   }
 
   return link;
@@ -51,13 +51,14 @@ function formatItem(i) {
     description: i.description,
     meta: i.meta,
     share_path: i.shareHref,
+    video: i.video,
+    image: i.image,
   };
 
   if (i.image) {
     item.path = i.image.src;
     item.alt = i.image.alt;
   } else if (i.video) {
-    // For now, consider videos as images (support for videos will be added later)
     item.path = i.video.poster;
     item.alt = 'VIDEO NOT SUPPORTED YET'; // We don't have equivalent for "alt" in "video"
   } else {

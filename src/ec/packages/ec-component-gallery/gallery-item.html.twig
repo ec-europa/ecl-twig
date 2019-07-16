@@ -5,10 +5,11 @@
   - "item" (object) (default: {})
     - "path" (string) (default: '')
     - "alt" (string) (default: '')
-    - "description" (string) (default: '')
     - "meta" (string) (default: '')
     - "icon" (object) (default: {}): object of type icon
     - "share_path" (string) (default: '')
+    - "video" (optional) (array) (default: [])
+    - "image" (optional) (array) (default: [])
   - "extra_classes" (optional) (string) (default: '')
   - "extra_attributes" (optional) (array) (default: [])
     - "name" (string) Attribute name, eg. 'data-test'
@@ -19,12 +20,35 @@
 
 {% set _css_class = 'ecl-gallery__item' %}
 {% set _extra_attributes = '' %}
+{% set _useArial = '' %}
+{% set _mediaHref = '' %}
+{% set _mediaSharePath = '' %}
+{% set _imageAlt = '' %}
 {% set _item = item|default({}) %}
 
 {# Internal logic - Process properties #}
 
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{# Setting up Video and image variables #}
+{% if _item and _item is not empty %}
+  {% set _mediaSharePath = _item.share_path  %}
+
+  {% if _item.video is defined and _item.video is not empty %}
+    {% set _mediaHref = _item.video.sources[0].src %}
+  {% else %}
+    {% if _item.image is defined and _item.image is not empty %}
+      {% set _mediaHref = _item.image.src %}
+      {% set _imageAlt = _item.image.alt %}
+    {%  else %}
+      {% set _mediaHref = _item.path %}
+      {% set _imageAlt = _item.alt %}
+    {% endif %}
+    {#   Use Arial only for image.   #}
+    {% set _useArial = 'aria-label="' ~ _imageAlt ~ '"' %}
+  {% endif %}
 {% endif %}
 
 {% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
@@ -37,23 +61,27 @@
 
 <li class="{{ _css_class }}"{{ _extra_attributes }}>
   <a
-    href="{{ _item.path }}"
+    href="{{ _mediaHref }}"
     class="ecl-gallery__item-link"
-    aria-label="{{ _item.alt }}"
+    {{ _useArial }}
     data-ecl-gallery-item
-    data-ecl-gallery-item-share="{{ _item.share_path }}"
+    data-ecl-gallery-item-share="{{ _mediaSharePath }}"
   >
     <figure class="ecl-gallery__image-container">
-      <img src="{{ _item.path }}" alt="{{ _item.alt }}" class="ecl-gallery__image" />
-        {% if _item.icon is not empty and _item.icon.name is not empty %}
-          {% include '../ec-component-icon/icon.html.twig' with {
-            icon: _item.icon|merge({
-              size: "l",
-            }),
-            extra_classes: 'ecl-gallery__image-icon'
-          } only %}
-        {% endif %}
+      {% if _item and _item is not empty and _item.video and _item.video is not empty%}
+        {% include './video.html.twig' %}
+      {% else %}
+        <img src="{{ _mediaHref }}" alt="{{ _imageAlt }}" class="ecl-gallery__image" />
+      {% endif %}
 
+      {% if _item.icon is not empty and _item.icon.name is not empty %}
+        {% include '../ec-component-icon/icon.html.twig' with {
+          icon: _item.icon|merge({
+            size: "l",
+          }),
+          extra_classes: 'ecl-gallery__image-icon'
+        } only %}
+      {% endif %}
       <figcaption
         class="ecl-gallery__description"
         data-ecl-gallery-description
