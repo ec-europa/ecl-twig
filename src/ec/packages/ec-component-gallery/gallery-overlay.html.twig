@@ -49,7 +49,7 @@
   </header>
 
   <section class="ecl-gallery__slider">
-    <div class="{{ _css_media_class }}"></div>
+    <div class="{{ _css_media_class }}" data-ecl-gallery-overlay-media></div>
 
     {% include '../ec-component-button/button.html.twig' with _overlay.previous|merge({
       extra_classes: 'ecl-gallery__slider-previous',
