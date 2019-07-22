@@ -1,0 +1,38 @@
+{% spaceless %}
+{#
+  Parameters:
+TBD
+#}
+
+{# Internal properties #}
+
+{#TBD#}
+
+{# Internal logic - Process properties #}
+
+{#TBD#}
+
+{# Print the result #}
+
+<Table>
+  <TableHead>
+    {demoContentDefault.headers.map(row => (
+    <TableRow {...row}>
+      {row.map(cell => (
+      <TableHeader {...cell}>{parse(cell.label)}</TableHeader>
+      ))}
+    </TableRow>
+    ))}
+  </TableHead>
+  <TableBody>
+    {demoContentDefault.rows.map(row => (
+    <TableRow {...row}>
+      {row.map(cell => (
+      <TableCell {...cell}>{parse(cell.label)}</TableCell>
+      ))}
+    </TableRow>
+    ))}
+  </TableBody>
+</Table>
+
+{% endspaceless %}
