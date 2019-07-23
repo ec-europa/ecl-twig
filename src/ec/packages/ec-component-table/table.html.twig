@@ -1,38 +1,89 @@
 {% spaceless %}
 {#
   Parameters:
-TBD
+    - "zebra" (boolean) (default: false))
+    - "headers" (array) (default: []): format: [
+        {
+          "label" (string or array of string)
+        },
+    - "rows" (array) (default: []): format: [
+        {
+          "term" (string or array of string)
+          "definition" (string or array of string)
+        },
+        ...
+      ]
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
+      ]
 #}
 
-{# Internal properties #}
+  {% set _css_class = 'ecl-table' %}
+  {% set _zebra_css_class = 'ecl-table--zebra' %}
+  {% set _head_css_class = 'ecl-table__head' %}
+  {% set _header_css_class = 'ecl-table__header' %}
+  {% set _body_css_class = 'ecl-table__body' %}
+  {% set _cell_css_class = 'ecl-table__cell' %}
+  {% set _row_css_class = 'ecl-table__row' %}
+  {% set _headers = headers|default({}) %}
+  {% set _rows = rows|default([]) %}
+  {% set _zebra = zebra|default(false) %}
 
-{#TBD#}
+{#  Internal logic - Process properties#}
 
-{# Internal logic - Process properties #}
+  {% if extra_classes is defined and extra_classes is not empty %}
+    {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+  {% endif %}
 
-{#TBD#}
+  {% if zebra %}
+    {% set _css_class = _css_class ~ ' ' ~ _zebra_css_class %}
+  {% endif%}
 
-{# Print the result #}
+  {% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+    {% for attr in extra_attributes %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+    {% endfor %}
+  {% endif %}
 
-<Table>
-  <TableHead>
-    {demoContentDefault.headers.map(row => (
-    <TableRow {...row}>
-      {row.map(cell => (
-      <TableHeader {...cell}>{parse(cell.label)}</TableHeader>
-      ))}
-    </TableRow>
-    ))}
-  </TableHead>
-  <TableBody>
-    {demoContentDefault.rows.map(row => (
-    <TableRow {...row}>
-      {row.map(cell => (
-      <TableCell {...cell}>{parse(cell.label)}</TableCell>
-      ))}
-    </TableRow>
-    ))}
-  </TableBody>
-</Table>
+  {% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+    {% for attr in extra_attributes %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+    {% endfor %}
+  {% endif %}
+
+  {% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+    {% for attr in extra_attributes %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+    {% endfor %}
+  {% endif %}
+
+{# Print the result#}
+
+<table class="{{ _css_class }}" {{ _extra_attributes }} >
+  <thead class="{{ _head_css_class }}">
+    <tr class="{{  _row_css_class }}">
+      {% for header in _headers %}
+        {% for cell in header%}
+          <th class="{{ _header_css_class }}">{{ header.label }}</th>
+        {% endfor %}
+      {% endfor %}
+    </tr>
+  </thead>
+  <tbody class="{{ _body_css_class }}">
+    {% for row in _rows %}
+      {% for cell in row %}
+        {% set attribute = (attribute(cell, 'data-ecl-table-header') is defined) ? 'data-ecl-table-header="' ~ cell['data-ecl-table-header'] ~'"' : '' %}
+        <tr class="{{ _row_css_class }}">
+          <td {{ attribute }} class="{{ _cell_css_class }}" > {{ cell.label }}</td>
+        </tr>
+      {% endfor %}
+    {% endfor %}
+  </tbody>
+</table>
 
 {% endspaceless %}
