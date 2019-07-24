@@ -2,7 +2,6 @@
 
 {#
   Parameters:
-  - "back_to_top" (link object) (default: {})
   - "identity" (object) (default: {}):
     - "title" (string) (default: '')
     - "follow" (object) (default: {}):
@@ -49,6 +48,7 @@
 
 <footer class="{{ _css_class }}"{{ _extra_attributes|raw }}>
   {# Back to top #}
+  {# Disabled
   {% include '../ec-component-link/link.html.twig' with _back_to_top|merge({
     link: _back_to_top.link|default({})|merge({
       type: 'standalone',
@@ -60,6 +60,7 @@
     }),
     extra_classes: 'ecl-footer__back-to-top'
   }) only %}
+  #}
 
   {# Site identity #}
   {% if _identity is not empty %}
