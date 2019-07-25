@@ -77,8 +77,8 @@
      {% for header in _headers %}
        <tr class="{{  _row_css_class }}">
         {% for cell in header %}
-          {% set attribute = (attribute(cell, 'colspan') is defined) ? 'colspan="' ~ cell.colspan ~'"' : '' %}
-          <th {{ colspan }} class="{{ _header_css_class }}">{{ cell.label }}</th>
+          {% set _colspan_attribute = (attribute(cell, 'colspan') is defined) ? 'colspan="' ~ cell.colspan ~'"' : '' %}
+          <th {{ _colspan_attribute }} class="{{ _header_css_class }}">{{ cell.label }}</th>
         {% endfor %}
       </tr>
     {% endfor %}
@@ -89,10 +89,10 @@
         {% for cell in row %}
           {% set _attribute = (attribute(cell, 'data-ecl-table-header') is defined) ? 'data-ecl-table-header="' ~ cell['data-ecl-table-header'] ~ '"' : '' %}
           {% if cell.group %}
-            {% set _attribute = _attribute ~ ' ' ~ ((attribute(cell, 'data-ecl-table-header-group') is defined) ? 'data-ecl-table-header-group="' ~ cell['data-ecl-table-header-group'] ~ '"' : '') %}
+            {% set _cell_attribute = _attribute ~ ' ' ~ ((attribute(cell, 'data-ecl-table-header-group') is defined) ? 'data-ecl-table-header-group="' ~ cell['data-ecl-table-header-group'] ~ '"' : '') %}
             {% set _cell_css_class = _cell_css_class ~ ' ' ~ _cell_header_group_class %}
           {%  endif %}
-          <td {{ _attribute }}  class="{{ _cell_css_class }}" > {{ cell.label }}</td>
+          <td {{ _cell_attribute }} class="{{ _cell_css_class }}" >{{ cell.label }}</td>
         {% endfor %}
       </tr>
     {% endfor %}
