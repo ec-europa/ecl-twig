@@ -12,6 +12,7 @@ storiesOf('Components/Table', module)
   .add(
     'default',
     () => {
+      dataDefault.zebra = false;
       return table(dataDefault);
     },
     {
