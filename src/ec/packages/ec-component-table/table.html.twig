@@ -8,6 +8,8 @@
         "colspan" (string) (default: ''),
         "data-ecl-table-header-group" (string) (default: ''),
       },
+      ...
+    ]
   - "rows" (array) (default: []): format: [
       {
         "label" (string or array of string)
@@ -34,6 +36,7 @@
 {% set _header_css_class = 'ecl-table__header' %}
 {% set _body_css_class = 'ecl-table__body' %}
 {% set _cell_css_class = 'ecl-table__cell' %}
+{% set _cell_header_group_class = 'ecl-table__cell--group' %}
 {% set _row_css_class = 'ecl-table__row' %}
 {% set _headers = headers|default({}) %}
 {% set _rows = rows|default([]) %}
@@ -84,8 +87,12 @@
     {% for row in _rows %}
       <tr class="{{ _row_css_class }}">
         {% for cell in row %}
-          {% set attribute = (attribute(cell, 'data-ecl-table-header') is defined) ? 'data-ecl-table-header="' ~ cell['data-ecl-table-header'] ~'"' : '' %}
-          <td {{ attribute }} class="{{ _cell_css_class }}" > {{ cell.label }}</td>
+          {% set _attribute = (attribute(cell, 'data-ecl-table-header') is defined) ? 'data-ecl-table-header="' ~ cell['data-ecl-table-header'] ~ '"' : '' %}
+          {% if cell.group %}
+            {% set _attribute = _attribute ~ ' ' ~ ((attribute(cell, 'data-ecl-table-header-group') is defined) ? 'data-ecl-table-header-group="' ~ cell['data-ecl-table-header-group'] ~ '"' : '') %}
+            {% set _cell_css_class = _cell_css_class ~ ' ' ~ _cell_header_group_class %}
+          {%  endif %}
+          <td {{ _attribute }}  class="{{ _cell_css_class }}" > {{ cell.label }}</td>
         {% endfor %}
       </tr>
     {% endfor %}
