@@ -6,12 +6,6 @@ import table from './table.html.twig';
 import { dataDefault, dataMulti } from './demo/data';
 import docs from './README.md';
 
-function dataZebra() {
-  return {
-    dataDefault,
-    zebra: true,
-  };
-}
 storiesOf('Components/Table', module)
   .addDecorator(withNotes)
   .addDecorator(withCode)

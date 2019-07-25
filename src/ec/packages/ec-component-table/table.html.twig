@@ -1,66 +1,71 @@
 {% spaceless %}
 {#
   Parameters:
-    - "zebra" (boolean) (default: false))
-    - "headers" (array) (default: []): format: [
-        {
-          "label" (string or array of string)
-        },
-    - "rows" (array) (default: []): format: [
-        {
-          "term" (string or array of string)
-          "definition" (string or array of string)
-        },
-        ...
-      ]
-    - "extra_classes" (string) (default: '')
-    - "extra_attributes" (array) (default: []): format: [
-        {
-          "name" (string) (default: ''),
-          "value" (string) (default: '')
-        },
-        ...
-      ]
+  - "zebra" (boolean) (default: false))
+  - "headers" (array) (default: []): format: [
+      {
+        "label" (string or array of string)
+        "colspan" (string) (default: ''),
+        "data-ecl-table-header-group" (string) (default: ''),
+      },
+  - "rows" (array) (default: []): format: [
+      {
+        "label" (string or array of string)
+        "data-ecl-table-header" (string) (default: ''),
+        "group" (bool) (default: false),
+      },
+      ...
+    ]
+  - "extra_classes" (string) (default: '')
+  - "extra_attributes" (array) (default: []): format: [
+      {
+        "name" (string) (default: ''),
+        "value" (string) (default: '')
+      },
+      ...
+    ]
 #}
 
-  {% set _css_class = 'ecl-table' %}
-  {% set _zebra_css_class = 'ecl-table--zebra' %}
-  {% set _head_css_class = 'ecl-table__head' %}
-  {% set _header_css_class = 'ecl-table__header' %}
-  {% set _body_css_class = 'ecl-table__body' %}
-  {% set _cell_css_class = 'ecl-table__cell' %}
-  {% set _row_css_class = 'ecl-table__row' %}
-  {% set _headers = headers|default({}) %}
-  {% set _rows = rows|default([]) %}
-  {% set _zebra = zebra|default(false) %}
+{# Internal properties #}
+
+{% set _css_class = 'ecl-table' %}
+{% set _zebra_css_class = 'ecl-table--zebra' %}
+{% set _head_css_class = 'ecl-table__head' %}
+{% set _header_css_class = 'ecl-table__header' %}
+{% set _body_css_class = 'ecl-table__body' %}
+{% set _cell_css_class = 'ecl-table__cell' %}
+{% set _row_css_class = 'ecl-table__row' %}
+{% set _headers = headers|default({}) %}
+{% set _rows = rows|default([]) %}
+{% set _zebra = zebra|default(false) %}
 
 {#  Internal logic - Process properties#}
 
-  {% if extra_classes is defined and extra_classes is not empty %}
-    {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
-  {% endif %}
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
 
-  {% if zebra %}
-    {% set _css_class = _css_class ~ ' ' ~ _zebra_css_class %}
-  {% endif%}
+{% if zebra %}
+  {% set _css_class = _css_class ~ ' ' ~ _zebra_css_class %}
+{% endif%}
 
-  {% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
-    {% for attr in extra_attributes %}
-      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
-    {% endfor %}
-  {% endif %}
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+  {% endfor %}
+{% endif %}
 
-  {% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
-    {% for attr in extra_attributes %}
-      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
-    {% endfor %}
-  {% endif %}
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+  {% endfor %}
+{% endif %}
 
-  {% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
-    {% for attr in extra_attributes %}
-      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
-    {% endfor %}
-  {% endif %}
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+  {% endfor %}
+{% endif %}
 
 {# Print the result#}
 
