@@ -8,7 +8,7 @@
           description: '', (string) (default: ''): Description of card
           meta: [], (array) (default: []): Meta's for the Card
           title: {}, (associative array) (default: {}): Predefined structure compatible with Link component. If Card type is a 'tile', only label property is required.
-          image: '', (string) (default: ''): Url/path to background image (non required if Card type is a 'tile')
+          image: {}, (associative array) (default: ''): Url/path and alternate text of the background image (non required if Card type is a 'tile')
           tags: [], (array) (default: []): List of tags compatible with EC Tag component structure
           infos: [], (array) (default: []): format: [
             {
@@ -42,7 +42,7 @@
   description: '',
   meta: [],
   title: {},
-  image: '',
+  image: {},
   infos: [],
   tags: [],
   links: []
@@ -78,7 +78,7 @@
 <article class="{{ _css_class }}"{{ _extra_attributes|raw }}>
   <header class="ecl-card__header">
     {% if _card.image %}
-      <div class="ecl-card__image" alt="card image" style="background-image:url('{{ _card.image }}')"></div>
+      <div class="ecl-card__image" alt="{{ _card.image.alt }}" style="background-image:url('{{ _card.image.src }}')"></div>
     {% endif %}
     {% if _card.meta is not empty %}
       <div class="ecl-card__meta">{{ _card.meta|join(" | ") }}</div>
