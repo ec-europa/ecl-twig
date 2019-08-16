@@ -68,10 +68,10 @@ storiesOf('Components/Card', module)
           meta: metaArray,
           image: {
             src: text(
-              'Image',
+              'Image path',
               'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg'
             ),
-            alt: text('Image alternate text', 'Better regulation'),
+            alt: text('Alternate text', 'Better regulation'),
           },
           infos,
           tags,

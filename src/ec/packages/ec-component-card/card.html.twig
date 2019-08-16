@@ -77,7 +77,7 @@
 
 <article class="{{ _css_class }}"{{ _extra_attributes|raw }}>
   <header class="ecl-card__header">
-    {% if _card.image %}
+    {% if _card.image.src %}
       <div class="ecl-card__image" alt="{{ _card.image.alt }}" style="background-image:url('{{ _card.image.src }}')"></div>
     {% endif %}
     {% if _card.meta is not empty %}
