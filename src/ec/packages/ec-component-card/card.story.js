@@ -66,10 +66,13 @@ storiesOf('Components/Card', module)
             'Transparently designing and evaluating evidence-based EU legislation, backed by citizens views.'
           ),
           meta: metaArray,
-          image: text(
-            'Image',
-            'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg'
-          ),
+          image: {
+            src: text(
+              'Image path',
+              'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg'
+            ),
+            alt: text('Alternate text', 'Better regulation'),
+          },
           infos,
           tags,
         },
