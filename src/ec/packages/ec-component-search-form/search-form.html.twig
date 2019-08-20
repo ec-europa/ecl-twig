@@ -4,10 +4,8 @@
   Parameters:
     - "text_input" (associative array) default: A predefined structure for EC Text Input
     - "button" (associative array) default: A predefined structure for EC Button
-    - "extra_blocks" (array) (default: []): format: [
-        {
-          "content" (block) (default: '')
-        },
+    - "extra_form_elements" (array) (default: []): format: [
+        (block) (default: ''),
         ...
     ]
     - "extra_classes" (string) (default: '')
@@ -46,9 +44,9 @@
   {% if button is defined %}
     {% include '../ec-component-button/button.html.twig' with button only %}
   {% endif %}
-  {% if extra_blocks is not empty %}
-    {% for _item in extra_blocks %}
-      {{ _item.content }}
+  {% if extra_form_elements is not empty %}
+    {% for _item in extra_form_elements %}
+      {{ _item }}
     {% endfor %}
   {% endif %}
 </form>
