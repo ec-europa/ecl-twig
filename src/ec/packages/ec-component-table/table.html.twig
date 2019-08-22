@@ -31,6 +31,7 @@
 {# Internal properties #}
 
 {% set _css_class = 'ecl-table' %}
+{% set _extra_attributes = '' %}
 {% set _zebra_css_class = 'ecl-table--zebra' %}
 {% set _head_css_class = 'ecl-table__head' %}
 {% set _header_css_class = 'ecl-table__header' %}
@@ -38,17 +39,17 @@
 {% set _cell_css_class = 'ecl-table__cell' %}
 {% set _cell_header_group_class = 'ecl-table__cell--group' %}
 {% set _row_css_class = 'ecl-table__row' %}
-{% set _headers = headers|default({}) %}
+{% set _headers = headers|default([]) %}
 {% set _rows = rows|default([]) %}
 {% set _zebra = zebra|default(false) %}
 
-{#  Internal logic - Process properties#}
+{# Internal logic - Process properties #}
 
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
 {% endif %}
 
-{% if zebra %}
+{% if _zebra %}
   {% set _css_class = _css_class ~ ' ' ~ _zebra_css_class %}
 {% endif%}
 
@@ -58,26 +59,14 @@
   {% endfor %}
 {% endif %}
 
-{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
-  {% for attr in extra_attributes %}
-    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
-  {% endfor %}
-{% endif %}
+{# Print the result #}
 
-{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
-  {% for attr in extra_attributes %}
-    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
-  {% endfor %}
-{% endif %}
-
-{# Print the result#}
-
-<table class="{{ _css_class }}" {{ _extra_attributes }} >
+<table class="{{ _css_class }}"{{ _extra_attributes|raw }} >
   <thead class="{{ _head_css_class }}">
      {% for header in _headers %}
        <tr class="{{  _row_css_class }}">
         {% for cell in header %}
-          {% set _colspan_attribute = (attribute(cell, 'colspan') is defined) ? 'colspan="' ~ cell.colspan ~'"' : '' %}
+          {% set _colspan_attribute = cell.colspan is not empty ? 'colspan="' ~ cell.colspan ~'"' : '' %}
           <th {{ _colspan_attribute }} class="{{ _header_css_class }}">{{ cell.label }}</th>
         {% endfor %}
       </tr>
@@ -87,9 +76,9 @@
     {% for row in _rows %}
       <tr class="{{ _row_css_class }}">
         {% for cell in row %}
-          {% set _attribute = (attribute(cell, 'data-ecl-table-header') is defined) ? 'data-ecl-table-header="' ~ cell['data-ecl-table-header'] ~ '"' : '' %}
+          {% set _cell_attribute = cell['data-ecl-table-header'] is not empty ? 'data-ecl-table-header="' ~ cell['data-ecl-table-header'] ~ '"' : '' %}
           {% if cell.group %}
-            {% set _cell_attribute = _attribute ~ ' ' ~ ((attribute(cell, 'data-ecl-table-header-group') is defined) ? 'data-ecl-table-header-group="' ~ cell['data-ecl-table-header-group'] ~ '"' : '') %}
+            {% set _cell_attribute = _cell_attribute ~ (cell['data-ecl-table-header-group'] is not empty ? ' data-ecl-table-header-group="' ~ cell['data-ecl-table-header-group'] ~ '"' : '') %}
             {% set _cell_css_class = _cell_css_class ~ ' ' ~ _cell_header_group_class %}
           {%  endif %}
           <td {{ _cell_attribute }} class="{{ _cell_css_class }}" >{{ cell.label }}</td>
