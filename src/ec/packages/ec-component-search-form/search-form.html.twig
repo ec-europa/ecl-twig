@@ -18,6 +18,7 @@
 
 {% set _css_class = 'ecl-search-form' %}
 {% set _extra_attributes = '' %}
+{% set _extra_blocks = '' %}
 
 {# Internal logic - Process properties #}
 
@@ -39,6 +40,9 @@
   {% endif %}
   {% if button is defined %}
     {% include '../ec-component-button/button.html.twig' with button only %}
+  {% endif %}
+  {% if _extra_blocks is not empty %}
+    {{ _extra_blocks }}
   {% endif %}
 </form>
 
