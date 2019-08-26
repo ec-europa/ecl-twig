@@ -35,14 +35,16 @@
 {# Print the result #}
 
 <form class="{{ _css_class }}" role="search"{{ _extra_attributes|raw }}>
-  {% if text_input is defined %}
-    {% include '../ec-component-text-input/text-input.html.twig' with text_input only %}
-  {% endif %}
-  {% if button is defined %}
-    {% include '../ec-component-button/button.html.twig' with button only %}
-  {% endif %}
+  <div class="ecl-search-form-wrapper">
+     {% if text_input is defined %}
+      {% include '../ec-component-text-input/text-input.html.twig' with text_input only %}
+    {% endif %}
+    {% if button is defined %}
+      {% include '../ec-component-button/button.html.twig' with button only %}
+    {% endif %}
+  </div>
   {% if _extra_blocks is not empty %}
-    {{ _extra_blocks }}
+       {{ _extra_blocks }}
   {% endif %}
 </form>
 
