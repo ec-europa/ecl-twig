@@ -1,0 +1,124 @@
+{% spaceless %}
+
+{#
+  Parameters:
+    - "label" (string) (default: ''): visible on mobile
+
+    - "items" (array) (default: []): [{
+        "label" (string): label of the link
+        "href" (string): target of the link
+        "isCurrent" (boolean): does the menu contains the current page? (default: false)
+        "children" (array) (default: []): [{
+          "items" (array) (default: [{}]): [{
+            - "label" (string): label of the link
+            - "href" (string): target of the link
+          }]
+        }]
+    }]
+      
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
+      ]
+
+#}
+
+{# Internal properties #}
+
+{% set _menu_label = label|default('') %}
+{% set _links = items|default([]) %}
+{% set _css_class = 'ecl-menu-legacy' %}
+{% set _prefix_class = 'ecl-menu-legacy' %}
+{% set _extra_attributes = '' %}
+
+{% set _icon = {
+  path: 'static/media/icons.a11fa655.svg',
+  type: '',
+  name: 'ui--corner-arrow',
+  size: 'xs',
+  transform: 'rotate-180',
+  color: '',
+  extra_classes:'ecl-menu-legacy_link-icon ecl-link__icon ecl-icon'}|merge(icon|default({})) 
+%}
+
+
+
+{# Internal logic - Process properties #}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+<nav data-ecl-auto-init="MenuLegacy" class="{{ _css_class }}"  data-ecl-menu-legacy="true" aria-expanded="false"  {{ _extra_attributes|raw }}>
+  <div class="ecl-container">
+    <button class="{{ _prefix_class }}__toggle {{ _prefix_class }}__hamburger  ecl-button ecl-button--ghost" type="button"  data-ecl-menu-legacy-hamburger-button="true" >
+      <div class="ecl-menu-legacy__toggle-container">
+        <div class="ecl-menu-legacy__hamburger">
+          <div class="ecl-menu-legacy__hamburger--bar1"></div>
+          <div class="ecl-menu-legacy__hamburger--bar2"></div>
+          <div class="ecl-menu-legacy__hamburger--bar3"></div>
+        </div>
+        {{- _menu_label -}}
+      </div>
+    </button>
+    <ul class="{{ _prefix_class }}__list" data-{{ _prefix_class }}-list="true">
+      {% block navigation %}
+        {% if _links is not empty and _links is iterable %}
+          {% for _link in _links %}
+            {% set _link_class_name = 'ecl-menu-legacy__item' ~ (_link.is_active ? ' ecl-menu-legacy__item--active' : '') ~ (_link.isCurrent ? ' ecl-menu-legacy__item--current' : '' ) %}
+            {% set _extra_classes = 'ecl-menu-legacy__link' ~ (_link.isCurrent ? ' ecl-menu-legacy__link--current' : '') %}
+              {% if _link.children is not defined or _link.children is empty %}
+              <li class="{{ _link_class_name }}" data-ecl-menu-legacy-item="true" data-ecl-has-children="false" >
+                 {%- include '../ec-component-link/link.html.twig' with { link: { 'type': 'standalone','label':_link.label, 'path': _link.href }, extra_classes :  _extra_classes } only -%}
+              {% else %}
+              <li class="{{ _link_class_name }}" data-ecl-menu-legacy-item="true" data-ecl-has-children="true" >
+               
+                 {%- include '../ec-component-link/link.html.twig' with { 
+                      link : {'type': 'standalone','label':_link.label, 'path': _link.href, 'icon_position': 'after'},
+                      icon : _icon,
+                      extra_classes : _extra_classes,
+                      extra_attributes: [ { name: 'data-ecl-menu-legacy-link', value: true }],
+                    } only -%}
+               {#second level#}
+                <div class="ecl-menu-legacy__mega" data-ecl-menu-legacy-mega="true">
+                  {% for _column in _link.children %}
+                  {#columns#}
+                    <div class="ecl-menu-legacy__column">
+                      {% if _column.title is defined and _column.title is not empty %}
+                        <div class="ecl-menu-legacy__separator">{{ _column.title }}</div>
+                      {% endif %}
+                      <ul class="ecl-menu-legacy__sublist" data-ecl-menu-legacy-sublist="true">
+                        {% for _child_link in _column.items %}
+                          {% set _child_link_class_name = 'ecl-menu-legacy_link' ~ (_child_link.is_active ? ' ecl-menu-legacy_link--active' : '') %}
+                          <li class="ecl-menu-legacy__subitem" data-ecl-menu-legacy-subitem="true">
+                             {%- include '../ec-component-link/link.html.twig' with { 
+                                link : {'type': 'standalone','label': _child_link.label, 'path': _child_link.href},
+                                extra_classes : 'ecl-menu-legacy__sublink'
+                              } only -%}
+                          </li>
+                        {% endfor %}
+                      </ul>
+                    </div>
+                  {% endfor %}
+                </div>
+              {% endif %}
+            </li>
+          {% endfor %}
+        {% endif %}
+      {% endblock %}
+    </ul>
+  </div>
+</nav>
+
+{% endspaceless %}
