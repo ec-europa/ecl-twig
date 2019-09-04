@@ -67,7 +67,9 @@ Parameters:
       {% set extra_class = (loop.index > _display_amount and loop.revindex > _bottom_amount) ? ' ecl-timeline2__item--collapsed' : '' %}
       <li class="ecl-timeline2__item{{ extra_class }}" id="{{ _item.id }}">
         <div class="ecl-timeline2__label">{{ _item.label }}</div>
+        {% if _item.title is not empty %}
         <div class="ecl-timeline2__title">{{ _item.title }}</div>
+        {% endif %}
         <div class="ecl-timeline2__content">{{ _item.content|default('') }}</div>
       </li>
       {# Display the show more button if required. #}
