@@ -13,7 +13,7 @@
     "postinstall": "lerna run postinstall && lerna run prepublish",
     "pretty-check": "prettier --check \"src/**/*.{md,mdx,html,json,yml,js}\"",
     "publish": "scripts/publish.sh",
-    "start:ec": "start-storybook -p 8082 -c ./src/ec/.storybook",
+    "start:ec": "start-storybook -p 9001 -c ./src/ec/.storybook",
     "start:eu": "echo \"Nothing to do...\"",
     "update-version": "lerna version --conventional-commits --no-push --no-git-tag-version",
     "test": "npm run jest"
