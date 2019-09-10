@@ -57,39 +57,43 @@ exports[`EC - Site Header Default renders correctly 1`] = `
       role="search"
     >
       <div
-        class="ecl-form-group ecl-form-group--text-input"
+        class="ecl-search-form-wrapper"
       >
-        <input
-          class="ecl-text-input ecl-search-form__text-input"
-          id="input-search"
-          name="search"
-          type="text"
-        />
-      </div>
-      <button
-        class="ecl-button ecl-button--search ecl-search-form__button"
-        type="submit"
-      >
-        <span
-          class="ecl-button__container"
+        <div
+          class="ecl-form-group ecl-form-group--text-input"
+        >
+          <input
+            class="ecl-text-input ecl-search-form__text-input"
+            id="input-search"
+            name="search"
+            type="text"
+          />
+        </div>
+        <button
+          class="ecl-button ecl-button--search ecl-search-form__button"
+          type="submit"
         >
           <span
-            class="ecl-button__label"
-            data-ecl-label=""
+            class="ecl-button__container"
           >
-            Search
+            <span
+              class="ecl-button__label"
+              data-ecl-label=""
+            >
+              Search
+            </span>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--xs ecl-button__icon ecl-button__icon--after"
+              focusable="false"
+            >
+              <use
+                xlink:href="static/icons.svg#general--search"
+              />
+            </svg>
           </span>
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--xs ecl-button__icon ecl-button__icon--after"
-            focusable="false"
-          >
-            <use
-              xlink:href="static/icons.svg#general--search"
-            />
-          </svg>
-        </span>
-      </button>
+        </button>
+      </div>
     </form>
   </div>
 </header>
@@ -154,39 +158,43 @@ exports[`EC - Site Header Default renders correctly with extra attributes 1`] = 
       role="search"
     >
       <div
-        class="ecl-form-group ecl-form-group--text-input"
+        class="ecl-search-form-wrapper"
       >
-        <input
-          class="ecl-text-input ecl-search-form__text-input"
-          id="input-search"
-          name="search"
-          type="text"
-        />
-      </div>
-      <button
-        class="ecl-button ecl-button--search ecl-search-form__button"
-        type="submit"
-      >
-        <span
-          class="ecl-button__container"
+        <div
+          class="ecl-form-group ecl-form-group--text-input"
+        >
+          <input
+            class="ecl-text-input ecl-search-form__text-input"
+            id="input-search"
+            name="search"
+            type="text"
+          />
+        </div>
+        <button
+          class="ecl-button ecl-button--search ecl-search-form__button"
+          type="submit"
         >
           <span
-            class="ecl-button__label"
-            data-ecl-label=""
+            class="ecl-button__container"
           >
-            Search
+            <span
+              class="ecl-button__label"
+              data-ecl-label=""
+            >
+              Search
+            </span>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--xs ecl-button__icon ecl-button__icon--after"
+              focusable="false"
+            >
+              <use
+                xlink:href="static/icons.svg#general--search"
+              />
+            </svg>
           </span>
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--xs ecl-button__icon ecl-button__icon--after"
-            focusable="false"
-          >
-            <use
-              xlink:href="static/icons.svg#general--search"
-            />
-          </svg>
-        </span>
-      </button>
+        </button>
+      </div>
     </form>
   </div>
 </header>
@@ -249,39 +257,43 @@ exports[`EC - Site Header Default renders correctly with extra class names 1`] =
       role="search"
     >
       <div
-        class="ecl-form-group ecl-form-group--text-input"
+        class="ecl-search-form-wrapper"
       >
-        <input
-          class="ecl-text-input ecl-search-form__text-input"
-          id="input-search"
-          name="search"
-          type="text"
-        />
-      </div>
-      <button
-        class="ecl-button ecl-button--search ecl-search-form__button"
-        type="submit"
-      >
-        <span
-          class="ecl-button__container"
+        <div
+          class="ecl-form-group ecl-form-group--text-input"
+        >
+          <input
+            class="ecl-text-input ecl-search-form__text-input"
+            id="input-search"
+            name="search"
+            type="text"
+          />
+        </div>
+        <button
+          class="ecl-button ecl-button--search ecl-search-form__button"
+          type="submit"
         >
           <span
-            class="ecl-button__label"
-            data-ecl-label=""
+            class="ecl-button__container"
           >
-            Search
+            <span
+              class="ecl-button__label"
+              data-ecl-label=""
+            >
+              Search
+            </span>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--xs ecl-button__icon ecl-button__icon--after"
+              focusable="false"
+            >
+              <use
+                xlink:href="static/icons.svg#general--search"
+              />
+            </svg>
           </span>
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--xs ecl-button__icon ecl-button__icon--after"
-            focusable="false"
-          >
-            <use
-              xlink:href="static/icons.svg#general--search"
-            />
-          </svg>
-        </span>
-      </button>
+        </button>
+      </div>
     </form>
   </div>
 </header>
@@ -344,39 +356,43 @@ exports[`EC - Site Header Translated renders correctly 1`] = `
       role="search"
     >
       <div
-        class="ecl-form-group ecl-form-group--text-input"
+        class="ecl-search-form-wrapper"
       >
-        <input
-          class="ecl-text-input ecl-search-form__text-input"
-          id="input-search"
-          name="search"
-          type="text"
-        />
-      </div>
-      <button
-        class="ecl-button ecl-button--search ecl-search-form__button"
-        type="submit"
-      >
-        <span
-          class="ecl-button__container"
+        <div
+          class="ecl-form-group ecl-form-group--text-input"
+        >
+          <input
+            class="ecl-text-input ecl-search-form__text-input"
+            id="input-search"
+            name="search"
+            type="text"
+          />
+        </div>
+        <button
+          class="ecl-button ecl-button--search ecl-search-form__button"
+          type="submit"
         >
           <span
-            class="ecl-button__label"
-            data-ecl-label=""
+            class="ecl-button__container"
           >
-            Recherche
+            <span
+              class="ecl-button__label"
+              data-ecl-label=""
+            >
+              Recherche
+            </span>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--xs ecl-button__icon ecl-button__icon--after"
+              focusable="false"
+            >
+              <use
+                xlink:href="static/icons.svg#general--search"
+              />
+            </svg>
           </span>
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--xs ecl-button__icon ecl-button__icon--after"
-            focusable="false"
-          >
-            <use
-              xlink:href="static/icons.svg#general--search"
-            />
-          </svg>
-        </span>
-      </button>
+        </button>
+      </div>
     </form>
   </div>
 </header>
@@ -441,39 +457,43 @@ exports[`EC - Site Header Translated renders correctly with extra attributes 1`]
       role="search"
     >
       <div
-        class="ecl-form-group ecl-form-group--text-input"
+        class="ecl-search-form-wrapper"
       >
-        <input
-          class="ecl-text-input ecl-search-form__text-input"
-          id="input-search"
-          name="search"
-          type="text"
-        />
-      </div>
-      <button
-        class="ecl-button ecl-button--search ecl-search-form__button"
-        type="submit"
-      >
-        <span
-          class="ecl-button__container"
+        <div
+          class="ecl-form-group ecl-form-group--text-input"
+        >
+          <input
+            class="ecl-text-input ecl-search-form__text-input"
+            id="input-search"
+            name="search"
+            type="text"
+          />
+        </div>
+        <button
+          class="ecl-button ecl-button--search ecl-search-form__button"
+          type="submit"
         >
           <span
-            class="ecl-button__label"
-            data-ecl-label=""
+            class="ecl-button__container"
           >
-            Recherche
+            <span
+              class="ecl-button__label"
+              data-ecl-label=""
+            >
+              Recherche
+            </span>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--xs ecl-button__icon ecl-button__icon--after"
+              focusable="false"
+            >
+              <use
+                xlink:href="static/icons.svg#general--search"
+              />
+            </svg>
           </span>
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--xs ecl-button__icon ecl-button__icon--after"
-            focusable="false"
-          >
-            <use
-              xlink:href="static/icons.svg#general--search"
-            />
-          </svg>
-        </span>
-      </button>
+        </button>
+      </div>
     </form>
   </div>
 </header>
@@ -536,39 +556,43 @@ exports[`EC - Site Header Translated renders correctly with extra class names 1`
       role="search"
     >
       <div
-        class="ecl-form-group ecl-form-group--text-input"
+        class="ecl-search-form-wrapper"
       >
-        <input
-          class="ecl-text-input ecl-search-form__text-input"
-          id="input-search"
-          name="search"
-          type="text"
-        />
-      </div>
-      <button
-        class="ecl-button ecl-button--search ecl-search-form__button"
-        type="submit"
-      >
-        <span
-          class="ecl-button__container"
+        <div
+          class="ecl-form-group ecl-form-group--text-input"
+        >
+          <input
+            class="ecl-text-input ecl-search-form__text-input"
+            id="input-search"
+            name="search"
+            type="text"
+          />
+        </div>
+        <button
+          class="ecl-button ecl-button--search ecl-search-form__button"
+          type="submit"
         >
           <span
-            class="ecl-button__label"
-            data-ecl-label=""
+            class="ecl-button__container"
           >
-            Recherche
+            <span
+              class="ecl-button__label"
+              data-ecl-label=""
+            >
+              Recherche
+            </span>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--xs ecl-button__icon ecl-button__icon--after"
+              focusable="false"
+            >
+              <use
+                xlink:href="static/icons.svg#general--search"
+              />
+            </svg>
           </span>
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--xs ecl-button__icon ecl-button__icon--after"
-            focusable="false"
-          >
-            <use
-              xlink:href="static/icons.svg#general--search"
-            />
-          </svg>
-        </span>
-      </button>
+        </button>
+      </div>
     </form>
   </div>
 </header>
