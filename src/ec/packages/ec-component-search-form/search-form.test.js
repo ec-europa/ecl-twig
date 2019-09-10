@@ -53,5 +53,16 @@ describe('EC - Search Form', () => {
 
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
     });
+
+    test('renders correctly with extra form elements', () => {
+      expect.assertions(1);
+
+      const withExtraFormElements = merge(options, {
+        extra_form_elements:
+          '<input type="hidden" id="custId" name="custId" value="1">',
+      });
+
+      return expect(render(withExtraFormElements)).resolves.toMatchSnapshot();
+    });
   });
 });
