@@ -12,10 +12,13 @@
         },
         ...
       ]
+  Blocks:
+    - "extra_form_elements"
 #}
 
 {# Internal properties #}
 
+{% set _extra_form_elements = extra_form_elements|default('') %}
 {% set _css_class = 'ecl-search-form' %}
 {% set _extra_attributes = '' %}
 {% set _extra_blocks = '' %}
@@ -46,6 +49,7 @@
   {% if _extra_blocks is not empty %}
        {{ _extra_blocks }}
   {% endif %}
+  {% block extra_form_elements _extra_form_elements %}
 </form>
 
 {% endspaceless %}

@@ -1,0 +1,771 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EC - Table Default renders correctly 1`] = `
+<table
+  class="ecl-table"
+>
+  <thead
+    class="ecl-table__head"
+  >
+    <tr
+      class="ecl-table__row"
+    >
+      <th
+        class="ecl-table__header"
+      >
+        Name
+      </th>
+      <th
+        class="ecl-table__header"
+      >
+        Registration date
+      </th>
+      <th
+        class="ecl-table__header"
+      >
+        Email
+      </th>
+    </tr>
+  </thead>
+  <tbody
+    class="ecl-table__body"
+  >
+    <tr
+      class="ecl-table__row"
+    >
+      <td
+        class="ecl-table__cell"
+        data-ecl-table-header="Name"
+      >
+        John
+      </td>
+      <td
+        class="ecl-table__cell"
+        data-ecl-table-header="Registration date"
+      >
+        September 14, 2013
+      </td>
+      <td
+        class="ecl-table__cell"
+        data-ecl-table-header="Email"
+      >
+        <a
+          class="ecl-link"
+          href="/example"
+        >
+          john@example.com
+        </a>
+      </td>
+    </tr>
+    <tr
+      class="ecl-table__row"
+    >
+      <td
+        class="ecl-table__cell"
+        data-ecl-table-header="Name"
+      >
+        Ron
+      </td>
+      <td
+        class="ecl-table__cell"
+        data-ecl-table-header="Registration date"
+      >
+        October 23, 2014
+      </td>
+      <td
+        class="ecl-table__cell"
+        data-ecl-table-header="Email"
+      >
+        <a
+          class="ecl-link"
+          href="/example"
+        >
+          ron@example.com
+        </a>
+      </td>
+    </tr>
+    <tr
+      class="ecl-table__row"
+    >
+      <td
+        class="ecl-table__cell"
+        data-ecl-table-header="Name"
+      >
+        Albert
+      </td>
+      <td
+        class="ecl-table__cell"
+        data-ecl-table-header="Registration date"
+      >
+        December 13, 2014
+      </td>
+      <td
+        class="ecl-table__cell"
+        data-ecl-table-header="Email"
+      >
+        <a
+          class="ecl-link"
+          href="/example"
+        >
+          albert@example.com
+        </a>
+      </td>
+    </tr>
+    <tr
+      class="ecl-table__row"
+    >
+      <td
+        class="ecl-table__cell"
+        data-ecl-table-header="Name"
+      >
+        Marcel
+      </td>
+      <td
+        class="ecl-table__cell"
+        data-ecl-table-header="Registration date"
+      >
+        January 12, 1995
+      </td>
+      <td
+        class="ecl-table__cell"
+        data-ecl-table-header="Email"
+      >
+        <a
+          class="ecl-link"
+          href="/example"
+        >
+          marcel@example.com
+        </a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
+
+exports[`EC - Table Default renders correctly with extra attributes 1`] = `
+<table
+  class="ecl-table"
+  data-test="data-test-value"
+  data-test-1="data-test-value-1"
+>
+  <thead
+    class="ecl-table__head"
+  >
+    <tr
+      class="ecl-table__row"
+    >
+      <th
+        class="ecl-table__header"
+      >
+        Name
+      </th>
+      <th
+        class="ecl-table__header"
+      >
+        Registration date
+      </th>
+      <th
+        class="ecl-table__header"
+      >
+        Email
+      </th>
+    </tr>
+  </thead>
+  <tbody
+    class="ecl-table__body"
+  >
+    <tr
+      class="ecl-table__row"
+    >
+      <td
+        class="ecl-table__cell"
+        data-ecl-table-header="Name"
+      >
+        John
+      </td>
+      <td
+        class="ecl-table__cell"
+        data-ecl-table-header="Registration date"
+      >
+        September 14, 2013
+      </td>
+      <td
+        class="ecl-table__cell"
+        data-ecl-table-header="Email"
+      >
+        <a
+          class="ecl-link"
+          href="/example"
+        >
+          john@example.com
+        </a>
+      </td>
+    </tr>
+    <tr
+      class="ecl-table__row"
+    >
+      <td
+        class="ecl-table__cell"
+        data-ecl-table-header="Name"
+      >
+        Ron
+      </td>
+      <td
+        class="ecl-table__cell"
+        data-ecl-table-header="Registration date"
+      >
+        October 23, 2014
+      </td>
+      <td
+        class="ecl-table__cell"
+        data-ecl-table-header="Email"
+      >
+        <a
+          class="ecl-link"
+          href="/example"
+        >
+          ron@example.com
+        </a>
+      </td>
+    </tr>
+    <tr
+      class="ecl-table__row"
+    >
+      <td
+        class="ecl-table__cell"
+        data-ecl-table-header="Name"
+      >
+        Albert
+      </td>
+      <td
+        class="ecl-table__cell"
+        data-ecl-table-header="Registration date"
+      >
+        December 13, 2014
+      </td>
+      <td
+        class="ecl-table__cell"
+        data-ecl-table-header="Email"
+      >
+        <a
+          class="ecl-link"
+          href="/example"
+        >
+          albert@example.com
+        </a>
+      </td>
+    </tr>
+    <tr
+      class="ecl-table__row"
+    >
+      <td
+        class="ecl-table__cell"
+        data-ecl-table-header="Name"
+      >
+        Marcel
+      </td>
+      <td
+        class="ecl-table__cell"
+        data-ecl-table-header="Registration date"
+      >
+        January 12, 1995
+      </td>
+      <td
+        class="ecl-table__cell"
+        data-ecl-table-header="Email"
+      >
+        <a
+          class="ecl-link"
+          href="/example"
+        >
+          marcel@example.com
+        </a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
+
+exports[`EC - Table Default renders correctly with extra class names 1`] = `
+<table
+  class="ecl-table custom-table--test"
+>
+  <thead
+    class="ecl-table__head"
+  >
+    <tr
+      class="ecl-table__row"
+    >
+      <th
+        class="ecl-table__header"
+      >
+        Name
+      </th>
+      <th
+        class="ecl-table__header"
+      >
+        Registration date
+      </th>
+      <th
+        class="ecl-table__header"
+      >
+        Email
+      </th>
+    </tr>
+  </thead>
+  <tbody
+    class="ecl-table__body"
+  >
+    <tr
+      class="ecl-table__row"
+    >
+      <td
+        class="ecl-table__cell"
+        data-ecl-table-header="Name"
+      >
+        John
+      </td>
+      <td
+        class="ecl-table__cell"
+        data-ecl-table-header="Registration date"
+      >
+        September 14, 2013
+      </td>
+      <td
+        class="ecl-table__cell"
+        data-ecl-table-header="Email"
+      >
+        <a
+          class="ecl-link"
+          href="/example"
+        >
+          john@example.com
+        </a>
+      </td>
+    </tr>
+    <tr
+      class="ecl-table__row"
+    >
+      <td
+        class="ecl-table__cell"
+        data-ecl-table-header="Name"
+      >
+        Ron
+      </td>
+      <td
+        class="ecl-table__cell"
+        data-ecl-table-header="Registration date"
+      >
+        October 23, 2014
+      </td>
+      <td
+        class="ecl-table__cell"
+        data-ecl-table-header="Email"
+      >
+        <a
+          class="ecl-link"
+          href="/example"
+        >
+          ron@example.com
+        </a>
+      </td>
+    </tr>
+    <tr
+      class="ecl-table__row"
+    >
+      <td
+        class="ecl-table__cell"
+        data-ecl-table-header="Name"
+      >
+        Albert
+      </td>
+      <td
+        class="ecl-table__cell"
+        data-ecl-table-header="Registration date"
+      >
+        December 13, 2014
+      </td>
+      <td
+        class="ecl-table__cell"
+        data-ecl-table-header="Email"
+      >
+        <a
+          class="ecl-link"
+          href="/example"
+        >
+          albert@example.com
+        </a>
+      </td>
+    </tr>
+    <tr
+      class="ecl-table__row"
+    >
+      <td
+        class="ecl-table__cell"
+        data-ecl-table-header="Name"
+      >
+        Marcel
+      </td>
+      <td
+        class="ecl-table__cell"
+        data-ecl-table-header="Registration date"
+      >
+        January 12, 1995
+      </td>
+      <td
+        class="ecl-table__cell"
+        data-ecl-table-header="Email"
+      >
+        <a
+          class="ecl-link"
+          href="/example"
+        >
+          marcel@example.com
+        </a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
+
+exports[`EC - Table Multi renders correctly 1`] = `
+<table
+  class="ecl-table"
+>
+  <thead
+    class="ecl-table__head"
+  >
+    <tr
+      class="ecl-table__row"
+    >
+      <th
+        class="ecl-table__header"
+      >
+        Name
+      </th>
+      <th
+        class="ecl-table__header"
+      >
+        Registration date
+      </th>
+      <th
+        class="ecl-table__header"
+        colspan="3"
+      >
+        Languages
+      </th>
+    </tr>
+    <tr
+      class="ecl-table__row"
+    >
+      <th
+        class="ecl-table__header"
+      />
+      <th
+        class="ecl-table__header"
+      />
+      <th
+        class="ecl-table__header"
+      >
+        English
+      </th>
+      <th
+        class="ecl-table__header"
+      >
+        French
+      </th>
+      <th
+        class="ecl-table__header"
+      >
+        German
+      </th>
+    </tr>
+  </thead>
+  <tbody
+    class="ecl-table__body"
+  >
+    <tr
+      class="ecl-table__row"
+    >
+      <td
+        class="ecl-table__cell"
+        data-ecl-table-header="Name"
+      >
+        John
+      </td>
+      <td
+        class="ecl-table__cell"
+        data-ecl-table-header="Registration date"
+      >
+        September 14, 2013
+      </td>
+      <td
+        class="ecl-table__cell ecl-table__cell--group"
+        data-ecl-table-header="English"
+        data-ecl-table-header-group="Language"
+      >
+        Yes
+      </td>
+      <td
+        class="ecl-table__cell ecl-table__cell--group ecl-table__cell--group"
+        data-ecl-table-header="French"
+      >
+        No
+      </td>
+      <td
+        class="ecl-table__cell ecl-table__cell--group ecl-table__cell--group ecl-table__cell--group"
+        data-ecl-table-header="German"
+      >
+        Yes
+      </td>
+    </tr>
+    <tr
+      class="ecl-table__row"
+    >
+      <td
+        class="ecl-table__cell ecl-table__cell--group ecl-table__cell--group ecl-table__cell--group"
+        data-ecl-table-header="Name"
+      >
+        Ron
+      </td>
+      <td
+        class="ecl-table__cell ecl-table__cell--group ecl-table__cell--group ecl-table__cell--group"
+        data-ecl-table-header="Registration date"
+      >
+        October 23, 2014
+      </td>
+      <td
+        class="ecl-table__cell ecl-table__cell--group ecl-table__cell--group ecl-table__cell--group ecl-table__cell--group"
+        data-ecl-table-header="English"
+        data-ecl-table-header-group="Language"
+      >
+        Yes
+      </td>
+      <td
+        class="ecl-table__cell ecl-table__cell--group ecl-table__cell--group ecl-table__cell--group ecl-table__cell--group ecl-table__cell--group"
+        data-ecl-table-header="French"
+      >
+        Yes
+      </td>
+      <td
+        class="ecl-table__cell ecl-table__cell--group ecl-table__cell--group ecl-table__cell--group ecl-table__cell--group ecl-table__cell--group ecl-table__cell--group"
+        data-ecl-table-header="German"
+      >
+        Yes
+      </td>
+    </tr>
+    <tr
+      class="ecl-table__row"
+    >
+      <td
+        class="ecl-table__cell ecl-table__cell--group ecl-table__cell--group ecl-table__cell--group ecl-table__cell--group ecl-table__cell--group ecl-table__cell--group"
+        data-ecl-table-header="Name"
+      >
+        Albert
+      </td>
+      <td
+        class="ecl-table__cell ecl-table__cell--group ecl-table__cell--group ecl-table__cell--group ecl-table__cell--group ecl-table__cell--group ecl-table__cell--group"
+        data-ecl-table-header="Registration date"
+      >
+        December 13, 2014
+      </td>
+      <td
+        class="ecl-table__cell ecl-table__cell--group ecl-table__cell--group ecl-table__cell--group ecl-table__cell--group ecl-table__cell--group ecl-table__cell--group ecl-table__cell--group"
+        data-ecl-table-header="English"
+        data-ecl-table-header-group="Language"
+      >
+        No
+      </td>
+      <td
+        class="ecl-table__cell ecl-table__cell--group ecl-table__cell--group ecl-table__cell--group ecl-table__cell--group ecl-table__cell--group ecl-table__cell--group ecl-table__cell--group ecl-table__cell--group"
+        data-ecl-table-header="French"
+      >
+        No
+      </td>
+      <td
+        class="ecl-table__cell ecl-table__cell--group ecl-table__cell--group ecl-table__cell--group ecl-table__cell--group ecl-table__cell--group ecl-table__cell--group ecl-table__cell--group ecl-table__cell--group ecl-table__cell--group"
+        data-ecl-table-header="German"
+      >
+        Yes
+      </td>
+    </tr>
+    <tr
+      class="ecl-table__row"
+    >
+      <td
+        class="ecl-table__cell ecl-table__cell--group ecl-table__cell--group ecl-table__cell--group ecl-table__cell--group ecl-table__cell--group ecl-table__cell--group ecl-table__cell--group ecl-table__cell--group ecl-table__cell--group"
+        data-ecl-table-header="Name"
+      >
+        Marcel
+      </td>
+      <td
+        class="ecl-table__cell ecl-table__cell--group ecl-table__cell--group ecl-table__cell--group ecl-table__cell--group ecl-table__cell--group ecl-table__cell--group ecl-table__cell--group ecl-table__cell--group ecl-table__cell--group"
+        data-ecl-table-header="Registration date"
+      >
+        January 12, 1995
+      </td>
+      <td
+        class="ecl-table__cell ecl-table__cell--group ecl-table__cell--group ecl-table__cell--group ecl-table__cell--group ecl-table__cell--group ecl-table__cell--group ecl-table__cell--group ecl-table__cell--group ecl-table__cell--group ecl-table__cell--group"
+        data-ecl-table-header="English"
+        data-ecl-table-header-group="Language"
+      >
+        Yes
+      </td>
+      <td
+        class="ecl-table__cell ecl-table__cell--group ecl-table__cell--group ecl-table__cell--group ecl-table__cell--group ecl-table__cell--group ecl-table__cell--group ecl-table__cell--group ecl-table__cell--group ecl-table__cell--group ecl-table__cell--group ecl-table__cell--group"
+        data-ecl-table-header="French"
+      >
+        Yes
+      </td>
+      <td
+        class="ecl-table__cell ecl-table__cell--group ecl-table__cell--group ecl-table__cell--group ecl-table__cell--group ecl-table__cell--group ecl-table__cell--group ecl-table__cell--group ecl-table__cell--group ecl-table__cell--group ecl-table__cell--group ecl-table__cell--group ecl-table__cell--group"
+        data-ecl-table-header="German"
+      >
+        Yes
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
+
+exports[`EC - Table Zebra renders correctly 1`] = `
+<table
+  class="ecl-table ecl-table--zebra"
+>
+  <thead
+    class="ecl-table__head"
+  >
+    <tr
+      class="ecl-table__row"
+    >
+      <th
+        class="ecl-table__header"
+      >
+        Name
+      </th>
+      <th
+        class="ecl-table__header"
+      >
+        Registration date
+      </th>
+      <th
+        class="ecl-table__header"
+      >
+        Email
+      </th>
+    </tr>
+  </thead>
+  <tbody
+    class="ecl-table__body"
+  >
+    <tr
+      class="ecl-table__row"
+    >
+      <td
+        class="ecl-table__cell"
+        data-ecl-table-header="Name"
+      >
+        John
+      </td>
+      <td
+        class="ecl-table__cell"
+        data-ecl-table-header="Registration date"
+      >
+        September 14, 2013
+      </td>
+      <td
+        class="ecl-table__cell"
+        data-ecl-table-header="Email"
+      >
+        <a
+          class="ecl-link"
+          href="/example"
+        >
+          john@example.com
+        </a>
+      </td>
+    </tr>
+    <tr
+      class="ecl-table__row"
+    >
+      <td
+        class="ecl-table__cell"
+        data-ecl-table-header="Name"
+      >
+        Ron
+      </td>
+      <td
+        class="ecl-table__cell"
+        data-ecl-table-header="Registration date"
+      >
+        October 23, 2014
+      </td>
+      <td
+        class="ecl-table__cell"
+        data-ecl-table-header="Email"
+      >
+        <a
+          class="ecl-link"
+          href="/example"
+        >
+          ron@example.com
+        </a>
+      </td>
+    </tr>
+    <tr
+      class="ecl-table__row"
+    >
+      <td
+        class="ecl-table__cell"
+        data-ecl-table-header="Name"
+      >
+        Albert
+      </td>
+      <td
+        class="ecl-table__cell"
+        data-ecl-table-header="Registration date"
+      >
+        December 13, 2014
+      </td>
+      <td
+        class="ecl-table__cell"
+        data-ecl-table-header="Email"
+      >
+        <a
+          class="ecl-link"
+          href="/example"
+        >
+          albert@example.com
+        </a>
+      </td>
+    </tr>
+    <tr
+      class="ecl-table__row"
+    >
+      <td
+        class="ecl-table__cell"
+        data-ecl-table-header="Name"
+      >
+        Marcel
+      </td>
+      <td
+        class="ecl-table__cell"
+        data-ecl-table-header="Registration date"
+      >
+        January 12, 1995
+      </td>
+      <td
+        class="ecl-table__cell"
+        data-ecl-table-header="Email"
+      >
+        <a
+          class="ecl-link"
+          href="/example"
+        >
+          marcel@example.com
+        </a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
