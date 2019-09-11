@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.9.0](https://github.com/ec-europa/ecl-twig/compare/v2.8.0...v2.9.0) (2019-09-11)
+
+### Bug Fixes
+
+- **search-form:** add test with extra_from_elements - TWIG-11 ([#121](https://github.com/ec-europa/ecl-twig/issues/121)) ([2f3aa06](https://github.com/ec-europa/ecl-twig/commit/2f3aa06))
+
+### Features
+
+- **search-from:** add extra_blocks parameter - INNO-1665 ([#114](https://github.com/ec-europa/ecl-twig/issues/114)) ([50baf82](https://github.com/ec-europa/ecl-twig/commit/50baf82))
+
 # [2.8.0](https://github.com/ec-europa/ecl-twig/compare/v2.7.0...v2.8.0) (2019-07-16)
 
 **Note:** Version bump only for package @ecl-twig/ec-component-search-form
