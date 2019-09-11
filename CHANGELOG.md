@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.9.0](https://github.com/ec-europa/ecl-twig/compare/v2.8.0...v2.9.0) (2019-09-11)
+
+### Bug Fixes
+
+- INNO-1696 Alt is not trigger on ec-component-card. ([#113](https://github.com/ec-europa/ecl-twig/issues/113)) ([853a8c8](https://github.com/ec-europa/ecl-twig/commit/853a8c8))
+- **language-list-overlay:** Missing </div> - TWIG-19 ([#116](https://github.com/ec-europa/ecl-twig/issues/116)) ([b176b51](https://github.com/ec-europa/ecl-twig/commit/b176b51))
+- **search-form:** add test with extra_from_elements - TWIG-11 ([#121](https://github.com/ec-europa/ecl-twig/issues/121)) ([2f3aa06](https://github.com/ec-europa/ecl-twig/commit/2f3aa06))
+- **timeline:** wrap with condition div.ecl-timeline2\_\_title - TWIG-13 ([#115](https://github.com/ec-europa/ecl-twig/issues/115)) ([972a62b](https://github.com/ec-europa/ecl-twig/commit/972a62b))
+
+### Features
+
+- **menu-legacy:** menu-legacy twig implementation - TWIG-5 ([#119](https://github.com/ec-europa/ecl-twig/issues/119)) ([550b48f](https://github.com/ec-europa/ecl-twig/commit/550b48f))
+- **search-from:** add extra_blocks parameter - INNO-1665 ([#114](https://github.com/ec-europa/ecl-twig/issues/114)) ([50baf82](https://github.com/ec-europa/ecl-twig/commit/50baf82))
+- **skip-link:** skip-link implementation - TWIG-18 ([#118](https://github.com/ec-europa/ecl-twig/issues/118)) ([946b256](https://github.com/ec-europa/ecl-twig/commit/946b256))
+- **table:** implement table accordingly to ECL 2.9.0 - INNO-1660 ([#112](https://github.com/ec-europa/ecl-twig/issues/112)) ([15ffcba](https://github.com/ec-europa/ecl-twig/commit/15ffcba))
+
 # [2.8.0](https://github.com/ec-europa/ecl-twig/compare/v2.7.0...v2.8.0) (2019-07-16)
 
 ### Features
