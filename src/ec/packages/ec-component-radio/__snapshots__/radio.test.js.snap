@@ -2,20 +2,12 @@
 
 exports[`EC - Radio Binary invalid renders correctly 1`] = `
 <div
-  aria-describedby="radio-binary-invalid-helper"
-  aria-labelledby="radio-binary-invalid-label"
+  aria-labelledby=""
   class="ecl-radio__group ecl-radio__group--invalid ecl-radio__group--binary"
   role="radiogroup"
 >
-  <div
-    class="ecl-form-label"
-    id="radio-binary-invalid-label"
-  >
-    Do you need help?
-  </div>
   <p
     class="ecl-radio__help ecl-help-block"
-    id="radio-binary-invalid-helper"
   >
     Helper text for the group
   </p>
@@ -31,7 +23,7 @@ exports[`EC - Radio Binary invalid renders correctly 1`] = `
       checked=""
       class="ecl-radio__input"
       id="radio-binary-invalid-1"
-      name="radio-binaryinvalid-"
+      name=""
       type="radio"
       value="yes"
     />
@@ -51,7 +43,7 @@ exports[`EC - Radio Binary invalid renders correctly 1`] = `
     <input
       class="ecl-radio__input"
       id="radio-binary-invalid-2"
-      name="radio-binaryinvalid-"
+      name=""
       type="radio"
       value="no"
     />
@@ -70,20 +62,12 @@ exports[`EC - Radio Binary invalid renders correctly 1`] = `
 
 exports[`EC - Radio Binary renders correctly 1`] = `
 <div
-  aria-describedby="radio-binary-helper"
-  aria-labelledby="radio-binary-label"
+  aria-labelledby=""
   class="ecl-radio__group ecl-radio__group--binary"
   role="radiogroup"
 >
-  <div
-    class="ecl-form-label"
-    id="radio-binary-label"
-  >
-    Do you need help?
-  </div>
   <p
     class="ecl-radio__help ecl-help-block"
-    id="radio-binary-helper"
   >
     Helper text for the group
   </p>
@@ -94,7 +78,7 @@ exports[`EC - Radio Binary renders correctly 1`] = `
       checked=""
       class="ecl-radio__input"
       id="radio-binary-1"
-      name="radio-binary"
+      name=""
       type="radio"
       value="yes"
     />
@@ -114,7 +98,7 @@ exports[`EC - Radio Binary renders correctly 1`] = `
     <input
       class="ecl-radio__input"
       id="radio-binary-2"
-      name="radio-binary"
+      name=""
       type="radio"
       value="no"
     />
@@ -133,32 +117,24 @@ exports[`EC - Radio Binary renders correctly 1`] = `
 
 exports[`EC - Radio Default renders correctly 1`] = `
 <div
-  aria-describedby="radio-default-helper"
-  aria-labelledby="radio-default-label"
+  aria-labelledby=""
   class="ecl-radio__group"
   role="radiogroup"
 >
-  <div
-    class="ecl-form-label"
-    id="radio-default-label"
-  >
-    Select your country
-  </div>
   <p
     class="ecl-radio__help ecl-help-block"
-    id="radio-default-helper"
   >
-    Helper text for the group
+    This is the group's helper text.
   </p>
   <div
     class="ecl-radio"
   >
     <input
-      aria-describedby="helper-default-1"
+      aria-describedby="helper-1"
       checked=""
       class="ecl-radio__input"
       id="radio-default-1"
-      name="radio-default"
+      name=""
       type="radio"
       value="lu"
     />
@@ -173,7 +149,7 @@ exports[`EC - Radio Default renders correctly 1`] = `
     </label>
     <p
       class="ecl-radio__help ecl-help-block"
-      id="helper-default-1"
+      id="helper-1"
     >
       Help text for option 1
     </p>
@@ -182,10 +158,10 @@ exports[`EC - Radio Default renders correctly 1`] = `
     class="ecl-radio"
   >
     <input
-      aria-describedby="helper-default-2"
+      aria-describedby="helper-2"
       class="ecl-radio__input"
       id="radio-default-2"
-      name="radio-default"
+      name=""
       type="radio"
       value="be"
     />
@@ -200,7 +176,7 @@ exports[`EC - Radio Default renders correctly 1`] = `
     </label>
     <p
       class="ecl-radio__help ecl-help-block"
-      id="helper-default-2"
+      id="helper-2"
     >
       Help text for option 2
     </p>
@@ -209,11 +185,11 @@ exports[`EC - Radio Default renders correctly 1`] = `
     class="ecl-radio ecl-radio--disabled"
   >
     <input
-      aria-describedby="helper-default-3"
+      aria-describedby="helper-3"
       class="ecl-radio__input"
       disabled=""
       id="radio-default-3"
-      name="radio-default"
+      name=""
       type="radio"
       value="fr"
     />
@@ -228,7 +204,7 @@ exports[`EC - Radio Default renders correctly 1`] = `
     </label>
     <p
       class="ecl-radio__help ecl-help-block"
-      id="helper-default-3"
+      id="helper-3"
     >
       Help text for option 3
     </p>
@@ -238,34 +214,26 @@ exports[`EC - Radio Default renders correctly 1`] = `
 
 exports[`EC - Radio Default renders correctly with extra attributes 1`] = `
 <div
-  aria-describedby="radio-default-helper"
-  aria-labelledby="radio-default-label"
+  aria-labelledby=""
   class="ecl-radio__group"
   data-test="data-test-value"
   data-test-1="data-test-value-1"
   role="radiogroup"
 >
-  <div
-    class="ecl-form-label"
-    id="radio-default-label"
-  >
-    Select your country
-  </div>
   <p
     class="ecl-radio__help ecl-help-block"
-    id="radio-default-helper"
   >
-    Helper text for the group
+    This is the group's helper text.
   </p>
   <div
     class="ecl-radio"
   >
     <input
-      aria-describedby="helper-default-1"
+      aria-describedby="helper-1"
       checked=""
       class="ecl-radio__input"
       id="radio-default-1"
-      name="radio-default"
+      name=""
       type="radio"
       value="lu"
     />
@@ -280,7 +248,7 @@ exports[`EC - Radio Default renders correctly with extra attributes 1`] = `
     </label>
     <p
       class="ecl-radio__help ecl-help-block"
-      id="helper-default-1"
+      id="helper-1"
     >
       Help text for option 1
     </p>
@@ -289,10 +257,10 @@ exports[`EC - Radio Default renders correctly with extra attributes 1`] = `
     class="ecl-radio"
   >
     <input
-      aria-describedby="helper-default-2"
+      aria-describedby="helper-2"
       class="ecl-radio__input"
       id="radio-default-2"
-      name="radio-default"
+      name=""
       type="radio"
       value="be"
     />
@@ -307,7 +275,7 @@ exports[`EC - Radio Default renders correctly with extra attributes 1`] = `
     </label>
     <p
       class="ecl-radio__help ecl-help-block"
-      id="helper-default-2"
+      id="helper-2"
     >
       Help text for option 2
     </p>
@@ -316,11 +284,11 @@ exports[`EC - Radio Default renders correctly with extra attributes 1`] = `
     class="ecl-radio ecl-radio--disabled"
   >
     <input
-      aria-describedby="helper-default-3"
+      aria-describedby="helper-3"
       class="ecl-radio__input"
       disabled=""
       id="radio-default-3"
-      name="radio-default"
+      name=""
       type="radio"
       value="fr"
     />
@@ -335,7 +303,7 @@ exports[`EC - Radio Default renders correctly with extra attributes 1`] = `
     </label>
     <p
       class="ecl-radio__help ecl-help-block"
-      id="helper-default-3"
+      id="helper-3"
     >
       Help text for option 3
     </p>
@@ -345,32 +313,24 @@ exports[`EC - Radio Default renders correctly with extra attributes 1`] = `
 
 exports[`EC - Radio Default renders correctly with extra class names 1`] = `
 <div
-  aria-describedby="radio-default-helper"
-  aria-labelledby="radio-default-label"
+  aria-labelledby=""
   class="ecl-radio__group custom-class custom-class--test"
   role="radiogroup"
 >
-  <div
-    class="ecl-form-label"
-    id="radio-default-label"
-  >
-    Select your country
-  </div>
   <p
     class="ecl-radio__help ecl-help-block"
-    id="radio-default-helper"
   >
-    Helper text for the group
+    This is the group's helper text.
   </p>
   <div
     class="ecl-radio"
   >
     <input
-      aria-describedby="helper-default-1"
+      aria-describedby="helper-1"
       checked=""
       class="ecl-radio__input"
       id="radio-default-1"
-      name="radio-default"
+      name=""
       type="radio"
       value="lu"
     />
@@ -385,7 +345,7 @@ exports[`EC - Radio Default renders correctly with extra class names 1`] = `
     </label>
     <p
       class="ecl-radio__help ecl-help-block"
-      id="helper-default-1"
+      id="helper-1"
     >
       Help text for option 1
     </p>
@@ -394,10 +354,10 @@ exports[`EC - Radio Default renders correctly with extra class names 1`] = `
     class="ecl-radio"
   >
     <input
-      aria-describedby="helper-default-2"
+      aria-describedby="helper-2"
       class="ecl-radio__input"
       id="radio-default-2"
-      name="radio-default"
+      name=""
       type="radio"
       value="be"
     />
@@ -412,7 +372,7 @@ exports[`EC - Radio Default renders correctly with extra class names 1`] = `
     </label>
     <p
       class="ecl-radio__help ecl-help-block"
-      id="helper-default-2"
+      id="helper-2"
     >
       Help text for option 2
     </p>
@@ -421,11 +381,11 @@ exports[`EC - Radio Default renders correctly with extra class names 1`] = `
     class="ecl-radio ecl-radio--disabled"
   >
     <input
-      aria-describedby="helper-default-3"
+      aria-describedby="helper-3"
       class="ecl-radio__input"
       disabled=""
       id="radio-default-3"
-      name="radio-default"
+      name=""
       type="radio"
       value="fr"
     />
@@ -440,7 +400,7 @@ exports[`EC - Radio Default renders correctly with extra class names 1`] = `
     </label>
     <p
       class="ecl-radio__help ecl-help-block"
-      id="helper-default-3"
+      id="helper-3"
     >
       Help text for option 3
     </p>
@@ -450,37 +410,29 @@ exports[`EC - Radio Default renders correctly with extra class names 1`] = `
 
 exports[`EC - Radio Invalid renders correctly 1`] = `
 <div
-  aria-describedby="radio-invalid-helper"
-  aria-labelledby="radio-invalid-label"
+  aria-labelledby=""
   class="ecl-radio__group ecl-radio__group--invalid"
   role="radiogroup"
 >
-  <div
-    class="ecl-form-label"
-    id="radio-invalid-label"
-  >
-    Select your country
-  </div>
   <p
     class="ecl-radio__help ecl-help-block"
-    id="radio-invalid-helper"
   >
-    Helper text for the group
+    This is the group's helper text.
   </p>
   <p
     class="ecl-radio__invalid ecl-feedback-message"
   >
-    Error message for the group
+    This is the error message
   </p>
   <div
     class="ecl-radio"
   >
     <input
-      aria-describedby="helper-invalid-1"
+      aria-describedby="helper-1"
       checked=""
       class="ecl-radio__input"
       id="radio-invalid-1"
-      name="radio-invalid"
+      name=""
       type="radio"
       value="lu"
     />
@@ -495,7 +447,7 @@ exports[`EC - Radio Invalid renders correctly 1`] = `
     </label>
     <p
       class="ecl-radio__help ecl-help-block"
-      id="helper-invalid-1"
+      id="helper-1"
     >
       Help text for option 1
     </p>
@@ -504,10 +456,10 @@ exports[`EC - Radio Invalid renders correctly 1`] = `
     class="ecl-radio"
   >
     <input
-      aria-describedby="helper-invalid-2"
+      aria-describedby="helper-2"
       class="ecl-radio__input"
       id="radio-invalid-2"
-      name="radio-invalid"
+      name=""
       type="radio"
       value="be"
     />
@@ -522,7 +474,7 @@ exports[`EC - Radio Invalid renders correctly 1`] = `
     </label>
     <p
       class="ecl-radio__help ecl-help-block"
-      id="helper-invalid-2"
+      id="helper-2"
     >
       Help text for option 2
     </p>
@@ -531,11 +483,11 @@ exports[`EC - Radio Invalid renders correctly 1`] = `
     class="ecl-radio ecl-radio--disabled"
   >
     <input
-      aria-describedby="helper-invalid-3"
+      aria-describedby="helper-3"
       class="ecl-radio__input"
       disabled=""
       id="radio-invalid-3"
-      name="radio-invalid"
+      name=""
       type="radio"
       value="fr"
     />
@@ -550,7 +502,7 @@ exports[`EC - Radio Invalid renders correctly 1`] = `
     </label>
     <p
       class="ecl-radio__help ecl-help-block"
-      id="helper-invalid-3"
+      id="helper-3"
     >
       Help text for option 3
     </p>
