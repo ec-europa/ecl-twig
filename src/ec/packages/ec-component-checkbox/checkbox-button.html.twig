@@ -68,13 +68,13 @@
     {{ _checked ? "checked" }}
   />
 
-  <label 
+  <label
     {{ _id ? 'for="' ~ _id ~  '"' }}
     class="ecl-form-label ecl-checkbox__label
     {{- _invalid ? " ecl-form-label--invalid" -}}"
   >
     <span class="ecl-checkbox__box{{ _invalid ? " ecl-checkbox__box--invalid" }}">
-      {% include '../ec-component-icon/icon.html.twig' with {
+      {% include 'ec-component-icon/icon.html.twig' with {
         icon: {
           path: _icon_path,
           type: "ui",

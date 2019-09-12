@@ -74,7 +74,7 @@
 {% set _css_class = 'ecl-site-header' %}
 
 {% set _extra_attributes = [
-  'data-ecl-site-header="true"', 
+  'data-ecl-site-header="true"',
   'data-ecl-auto-init="SiteHeader"']|join(' ')
 %}
 
@@ -113,12 +113,12 @@
 <header class="{{ _css_class }}"{{ _extra_attributes|raw }}>
   <div class="ecl-site-header__container ecl-container">
     <div class="ecl-site-header__banner">
-      <a 
+      <a
         class="ecl-link ecl-link--standalone"
         href="{{ _logo.href }}"
         aria-label="{{ _logo.title }}"
       >
-        <img 
+        <img
           alt="{{ _logo.alt }}"
           title="{{ _logo.title }}"
           class="ecl-site-header__logo-image"
@@ -126,14 +126,14 @@
         />
       </a>
       <div class="ecl-site-header__selector">
-        <a 
+        <a
           class="ecl-link ecl-link--standalone ecl-site-header__selector-link"
           href="{{ _language_selector.href }}"
           data-ecl-language-selector="true"
         >
           {{- _language_selector.name -}}
           <span class="ecl-site-header__language-icon">
-            {% include '../ec-component-icon/icon.html.twig' with {
+            {% include 'ec-component-icon/icon.html.twig' with {
               icon: {
                 path: _icon_file_path,
                 type: 'general',
@@ -143,7 +143,7 @@
             <span class="ecl-site-header__language-code">{{ _language_selector.code }}</span>
           </span>
         </a>
-        {% include '../ec-component-language-list/language-list-overlay.html.twig' with {
+        {% include 'ec-component-language-list/language-list-overlay.html.twig' with {
           items: _language_selector.overlay.items,
           close_label: _language_selector.overlay.close_label,
           title: _language_selector.overlay.title,
@@ -156,7 +156,7 @@
         } %}
       </div>
     </div>
-    {% include '../ec-component-search-form/search-form.html.twig' with _search_form only %}
+    {% include 'ec-component-search-form/search-form.html.twig' with _search_form only %}
   </div>
 </header>
 

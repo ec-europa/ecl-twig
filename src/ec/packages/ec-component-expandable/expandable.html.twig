@@ -6,7 +6,7 @@
     - "label_expanded" (string) (default: '')
     - "label_collapsed" (string) (default: '')
     - "expanded" (boolean) (default: false)
-    - "button" (predefined structure) :  Button component structure 
+    - "button" (predefined structure) :  Button component structure
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
         {
@@ -17,7 +17,7 @@
       ]
 
   Blocks:
-    - "content"      
+    - "content"
 #}
 
 {# Internal properties #}
@@ -58,7 +58,7 @@
       { name: 'data-ecl-expandable-toggle', value: 'true' },
       { name: 'data-ecl-label-expanded', value: _label_expanded },
       { name: 'data-ecl-label-collapsed', value: _label_collapsed },
-    ] 
+    ]
   %}
 
   {% if _expanded %}
@@ -75,7 +75,7 @@
     {% set _content_hidden_attribute = 'hidden' %}
   {% endif %}
 
-  {% include '../ec-component-button/button.html.twig' with {
+  {% include 'ec-component-button/button.html.twig' with {
     label: _label,
     variant: 'secondary',
     type: 'button',

@@ -3,7 +3,7 @@
 {#
   Parameters:
     - "id" (string) (default: '')
-    - "button" (predefined structure) :  Button component structure 
+    - "button" (predefined structure) :  Button component structure
     - "list" (object) (default: {})
       - "items" (array) (default: []): format: [
       {
@@ -18,7 +18,7 @@
           "value" (string) (default: '')
         },
         ...
-      ]  
+      ]
 #}
 
 {# Internal properties #}
@@ -52,10 +52,10 @@
   {% set _button_attributes = [
       { name: 'aria-controls', value: _aria_controls },
       { name: 'data-ecl-dropdown-legacy-toggle', value: 'true' },
-    ] 
+    ]
   %}
 
-  {% include '../ec-component-button/button.html.twig' with {
+  {% include 'ec-component-button/button.html.twig' with {
     label: _button.label,
     variant: _button.variant,
     type: 'button',
@@ -75,7 +75,7 @@
           {{- item.label -}}
         </li>
       {% endfor %}
-    </ul>  
+    </ul>
   </div>
 </div>
 

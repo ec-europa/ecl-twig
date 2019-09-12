@@ -51,7 +51,7 @@
   {% if _items is not empty %}
     {% for _item in _items %}
       <h{{ _item.level|default(3) }} class="ecl-accordion__title">
-        {% include '../ec-component-button/button.html.twig' with {
+        {% include 'ec-component-button/button.html.twig' with {
           label: _item.toggle.label,
           variant: 'ghost',
           type: 'button',

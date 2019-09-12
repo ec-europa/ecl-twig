@@ -45,7 +45,7 @@
 <div class="{{ _css_class }}"{{ _extra_attributes }}>
   <div class="ecl-container">
     {% if breadcrumb is defined %}
-      {% include '../ec-component-breadcrumb/breadcrumb.html.twig' with breadcrumb|merge({
+      {% include 'ec-component-breadcrumb/breadcrumb.html.twig' with breadcrumb|merge({
         extra_classes: 'ecl-page-header__breadcrumb'
       }) only %}
     {% endif %}
@@ -60,7 +60,7 @@
       <ul class="ecl-page-header__info-list">
         {% for info in infos %}
           <li class="ecl-page-header__info-item">
-            {% include '../ec-component-icon/icon.html.twig' with {
+            {% include 'ec-component-icon/icon.html.twig' with {
               icon: info.icon|merge({ size: 's' }),
               extra_classes: 'ecl-page-header__info-icon'
             } only %}

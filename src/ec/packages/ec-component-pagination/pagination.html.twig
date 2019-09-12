@@ -42,7 +42,7 @@
       <li class="ecl-pagination__item{{ _item.type ? ' ecl-pagination__item--' ~ _item.type }}">
         {% if _item.link is not empty %}
 
-          {% include '../ec-component-link/link.html.twig' with _item.link|merge({
+          {% include 'ec-component-link/link.html.twig' with _item.link|merge({
             link: _item.link.link|merge({
               type: 'standalone',
             }),
@@ -52,7 +52,7 @@
 
         {% else %}
 
-          <span 
+          <span
             class="ecl-pagination__text ecl-pagination__text--summary"
             aria-label="{{ _item.aria_label }}"
             {{ _item.type == 'current' ? 'aria-current="true"' }}

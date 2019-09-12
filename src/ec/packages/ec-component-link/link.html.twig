@@ -82,7 +82,7 @@
   {% for attr in extra_attributes %}
     {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
   {% endfor %}
-{% endif %} 
+{% endif %}
 
 {# Print the result #}
 
@@ -94,7 +94,7 @@
         {%- if icon.extra_classes is defined and icon.extra_classes is not empty -%}
           {% set _icon_extra_classes = _icon_extra_classes ~ ' ' ~ icon.extra_classes %}
         {%- endif -%}
-        {%- include '../ec-component-icon/icon.html.twig' with _icon|merge({
+        {%- include 'ec-component-icon/icon.html.twig' with _icon|merge({
           icon: icon|default({}),
           extra_classes: _icon_extra_classes
         }) only -%}
@@ -113,7 +113,7 @@
         {%- if icon.extra_classes is defined and icon.extra_classes is not empty -%}
           {% set _icon_extra_classes = _icon_extra_classes ~ ' ' ~ icon.extra_classes %}
         {%- endif -%}
-        {%- include '../ec-component-icon/icon.html.twig' with _icon|merge({
+        {%- include 'ec-component-icon/icon.html.twig' with _icon|merge({
           icon: icon|default({}),
           extra_classes: _icon_extra_classes
         }) only -%}
