@@ -1,9 +1,13 @@
 const webpack = require('webpack');
+const path = require('path');
 
 module.exports = ({ config, mode }) => {
   config.module.rules.push({
     test: /\.twig$/,
-    loader: 'twig-loader',
+    loader: 'twing-loader',
+    options: {
+      environmentModulePath: path.resolve(__dirname + '/environment.js')
+    }
   });
 
   // Trick "babel-loader", force it to transpile @ecl-twig addons
