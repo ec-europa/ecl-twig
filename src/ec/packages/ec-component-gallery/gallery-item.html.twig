@@ -79,7 +79,7 @@
       {% endif %}
 
       {% if _item.icon is not empty and _item.icon.name is not empty %}
-        {% include '../ec-component-icon/icon.html.twig' with {
+        {% include 'ec-component-icon/icon.html.twig' with {
           icon: _item.icon|merge({
             size: "l",
           }),
@@ -93,7 +93,7 @@
         {{- _item.description -}}
 
         {% if _item.icon is not empty and _item.icon.name is not empty %}
-          {%- include '../ec-component-icon/icon.html.twig' with {
+          {%- include 'ec-component-icon/icon.html.twig' with {
             icon: _item.icon|merge({
               size: "l",
             }),

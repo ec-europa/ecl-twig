@@ -79,7 +79,7 @@ Parameters:
       {# Display the show more button if required. #}
       {% if (_hide_amount > 0 and loop.revindex == _bottom_amount + 1) or (_hide_amount > 0 and _hide_to == 0 and loop.revindex == 1) %}
         <li class="ecl-timeline2__item ecl-timeline2__item--toggle">
-          {% include '../ec-component-button/button.html.twig' with {
+          {% include 'ec-component-button/button.html.twig' with {
             label: toggle_collapsed,
             variant: 'secondary',
             type: 'button',
