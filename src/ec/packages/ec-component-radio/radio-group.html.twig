@@ -97,7 +97,7 @@
 
   {% if _items is not empty and _items is iterable %}
     {%- for _item in _items %}
-      {% include '../ec-component-radio/radio-button.html.twig' with _item|merge({
+      {% include 'ec-component-radio/radio-button.html.twig' with _item|merge({
         name: _name,
         invalid: _invalid,
       }) only %}
