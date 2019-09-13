@@ -46,4 +46,20 @@ describe('EC - Date Block', () => {
 
     return expect(render(optionsWithTimeSet)).resolves.toMatchSnapshot();
   });
+
+  test('renders correctly with extra attributes and time set', () => {
+    expect.assertions(1);
+
+    const optionsWithExtraClassesAndTime = merge(demoData, {
+      extra_attributes: [
+        { name: 'data-test', value: 'data-test-value' },
+        { name: 'data-test-1', value: 'data-test-value-1' },
+      ],
+      date_time: '15:30',
+    });
+
+    return expect(
+      render(optionsWithExtraClassesAndTime)
+    ).resolves.toMatchSnapshot();
+  });
 });
