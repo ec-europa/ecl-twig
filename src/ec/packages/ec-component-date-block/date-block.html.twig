@@ -53,7 +53,7 @@
     {% set _extra_attributes = _extra_attributes ~ 'dateTime=' ~ _date_time %}
   {% endif %}
 
-  <time class="{{ _css_class }}"{{ _extra_attributes|raw }} >
+  <time class="{{ _css_class }}"{{ _extra_attributes|raw }}>
     <span class="ecl-date-block__day">{{ _day }}</span>
     {{ _month_markup }}
     <span class="ecl-date-block__year">{{ _year }}</span>

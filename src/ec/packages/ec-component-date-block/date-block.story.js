@@ -4,7 +4,7 @@ import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
 
 import data from './demo/data';
-import docs from './README.md';
+import docs from './docs/date-block.md';
 import dateBlock from './date-block.html.twig';
 
 const options = {
