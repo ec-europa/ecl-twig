@@ -1,0 +1,87 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EC - File Upload  Default renders correctly 1`] = `
+<div
+  class="ecl-form-group ecl-form-group--file-upload"
+>
+  <label
+    class="ecl-form-label ecl-form-label--invalid"
+    for="example"
+  >
+    Label
+    <span
+      class="ecl-form-label__optional"
+    >
+      optional message
+    </span>
+  </label>
+  <p
+    class="ecl-help-block"
+  >
+    This is the input's helper text.
+  </p>
+  <input
+    class="ecl-file-upload "
+    id="example-input-id-1"
+    type="file"
+  />
+</div>
+`;
+
+exports[`EC - File Upload  Default renders correctly with extra attributes 1`] = `
+<div
+  class="ecl-form-group ecl-form-group--file-upload"
+  data-test="data-test-value"
+  data-test-1="data-test-value-1"
+>
+  <label
+    class="ecl-form-label ecl-form-label--invalid"
+    for="example"
+  >
+    Label
+    <span
+      class="ecl-form-label__optional"
+    >
+      optional message
+    </span>
+  </label>
+  <p
+    class="ecl-help-block"
+  >
+    This is the input's helper text.
+  </p>
+  <input
+    class="ecl-file-upload "
+    id="example-input-id-1"
+    type="file"
+  />
+</div>
+`;
+
+exports[`EC - File Upload  Default renders correctly with extra class names 1`] = `
+<div
+  class="ecl-form-group ecl-form-group--file-upload custom-class custom-class--test"
+>
+  <label
+    class="ecl-form-label ecl-form-label--invalid"
+    for="example"
+  >
+    Label
+    <span
+      class="ecl-form-label__optional"
+    >
+      optional message
+    </span>
+  </label>
+  <p
+    class="ecl-help-block"
+  >
+    This is the input's helper text.
+  </p>
+  <input
+    class="ecl-file-upload "
+    id="example-input-id-1"
+    type="file"
+  />
+</div>
+`;
