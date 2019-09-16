@@ -1,6 +1,6 @@
 import path from 'path';
 import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
-import data from '@ecl/ec-specs-list/demo/data--description';
+import data from '@ecl/ec-specs-description-list/demo/data';
 import dataHorizontal from '@ecl/ec-specs-description-list/demo/data--horizontal';
 
 describe('EC - Description list', () => {
