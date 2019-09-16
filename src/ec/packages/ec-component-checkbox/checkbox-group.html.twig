@@ -14,11 +14,11 @@
     - "name" (string) Attribute name, eg. 'data-test'
     - "value" (string) Attribute value, eg: 'data-test-1'
   Blocks:
+  - "label"
   - "helper_text"
   - "invalid_text"
   - "optional_text"
   - "required_text"
-  - "label"
 #}
 
 {# Internal properties #}
@@ -57,13 +57,15 @@
 <fieldset
   class="{{ _css_class }}"
   aria-labelledby="{{ _label_id }}"
-  {{ _helper_id is not empty ? "aria-describedby=\"" ~ _helper_id ~ "\""}}
+  {{ _helper_id is not empty ? 'aria-describedby="' ~ _helper_id ~ '"'}}
   {{ _extra_attributes|raw }}
 >
 
   {%- if _label is not empty %}
     <legend
-      class="ecl-form-label{{ hide_label ? ' ecl-form-label--hidden'}}{{ _invalid_text ? ' ecl-checkbox__group--invalid'}}"
+      class="ecl-form-label
+      {{- hide_label ? ' ecl-form-label--hidden' -}}
+      {{- _invalid and _invalid_text is not empty ? ' ecl-checkbox__group--invalid' -}}"
       id="{{ _label_id }}"
     >
       {%- block label _label -%}
@@ -78,7 +80,7 @@
   {% if _helper_text is not empty %}
     <p
       class="ecl-checkbox__help ecl-help-block"
-      {{ _helper_id is not empty ? "id=\"" ~ _helper_id ~ "\""}}
+      {{ _helper_id is not empty ? 'id="' ~ _helper_id ~ '"'}}
     >
       {%- block helper_text _helper_text -%}
     </p>
@@ -90,12 +92,14 @@
     </p>
   {% endif %}
 
-  {%- for _item in _items %}
-    {% include '../ec-component-checkbox/checkbox-button.html.twig' with _item|merge({
-      name: _name,
-      invalid: _invalid,
-    }) only %}
-  {% endfor -%}
+  {% if _items is not empty %}
+    {%- for _item in _items %}
+      {% include '../ec-component-checkbox/checkbox-button.html.twig' with _item|merge({
+        name: _name,
+        invalid: _invalid,
+      }) only %}
+    {% endfor -%}
+  {% endif %}
 
 </fieldset>
 

@@ -66,7 +66,7 @@
     value="{{ _value }}"
     {{ _disabled ? "disabled" }}
     {{ _checked ? "checked" }}
-    {{ _helper_id is not empty ? "aria-describedby=\"" ~ _helper_id ~ "\"" -}}
+    {{ _helper_id is not empty ? 'aria-describedby="' ~ _helper_id ~ '"' -}}
   />
 
   <label for="{{ _id }}" class="ecl-form-label ecl-checkbox__label{{ _invalid ? " ecl-form-label--invalid" }}">
