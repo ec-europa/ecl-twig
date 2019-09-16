@@ -1,6 +1,7 @@
 import path from 'path';
 import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 import data from '@ecl/ec-specs-list/demo/data--description';
+import dataHorizontal from '@ecl/ec-specs-description-list/demo/data--horizontal';
 
 describe('EC - Description list', () => {
   const template = path.resolve(__dirname, './description-list.html.twig');
@@ -11,6 +12,12 @@ describe('EC - Description list', () => {
       expect.assertions(1);
 
       return expect(render(data)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly in the horizontal variant', () => {
+      expect.assertions(1);
+
+      return expect(render(dataHorizontal)).resolves.toMatchSnapshot();
     });
 
     test('renders correctly with extra class names', () => {
