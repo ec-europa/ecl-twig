@@ -6,7 +6,6 @@
   - "items" (array) (default: []): array of checkbox_button
   - "name" (string) (default: '')
   - "helper_id" (string) (default: '')
-  - "hide_label" (boolean) (default: false)
   - "invalid" (boolean) (default: false)
   - "required" (boolean) (default: false)
   - "extra_classes" (optional) (string) (default: '')
@@ -27,7 +26,6 @@
 {% set _items = items|default([]) %}
 {% set _name = name|default('') %}
 {% set _helper_id = helper_id|default('') %}
-{% set _hide_label = hide_label|default(false) %}
 {% set _invalid = invalid|default(false) %}
 {% set _required = required|default(false) %}
 
@@ -64,7 +62,6 @@
   {%- if _label is not empty %}
     <legend
       class="ecl-form-label
-      {{- hide_label ? ' ecl-form-label--hidden' -}}
       {{- _invalid and _invalid_text is not empty ? ' ecl-checkbox__group--invalid' -}}"
       id="{{ _label_id }}"
     >

@@ -24,7 +24,6 @@ npm install --save @ecl-twig/ec-component-checkbox
   - "icon_path" (string) (default: ''): file containing the svg icons
 - "name" (string) (default: '')
 - "helper_id" (string) (default: '')
-- "hide_label" (boolean) (default: false)
 - "invalid" (boolean) (default: false)
 - "required" (boolean) (default: false)
 - "extra_classes" (optional) (string) (default: '')
