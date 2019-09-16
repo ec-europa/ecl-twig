@@ -21,7 +21,6 @@ npm install --save @ecl-twig/ec-component-radio
   - "label" (block) (default: '')
 - "name" (string) (default: '')
 - "helper_id" (string) (default: '')
-- "hide_label" (boolean) (default: false)
 - "invalid" (boolean) (default: false)
 - "binary" (boolean) (default: false)
 - "required" (boolean) (default: false)

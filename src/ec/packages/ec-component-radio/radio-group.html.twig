@@ -5,7 +5,6 @@
   - "items" (array) (default: []): array of radio_button
   - "name" (string) (default: '')
   - "helper_id" (string) (default: '')
-  - "hide_label" (boolean) (default: false)
   - "invalid" (boolean) (default: false)
   - "binary" (boolean) (default: false)
   - "required" (boolean) (default: false)
@@ -25,8 +24,7 @@
 
 {% set _items = items|default([]) %}
 {% set _name = name|default('') %}
-{% set _helper_id = helper_id|default('helper-id-1') %}
-{% set _hide_label = hide_label|default(false) %}
+{% set _helper_id = helper_id|default('') %}
 {% set _invalid = invalid|default(false) %}
 {% set _required = required|default(false) %}
 {% set _binary = binary|default(false) %}
@@ -60,32 +58,31 @@
 
 <fieldset
   class="{{ _css_class }}"
-  {{ _helper_id is not empty ? "aria-describedby=\"" ~ _helper_id ~ "\""}}
+  {{ _helper_id is not empty ? 'aria-describedby="' ~ _helper_id ~ '"'}}
   {{ _extra_attributes|raw }}
 >
 
   {%- if _label is not empty %}
     <legend
       class="ecl-form-label
-      {{- hide_label ? ' ecl-form-label--hidden' -}}
       {{- _invalid ? ' ecl-form-label--invalid' }}"
     >
       {%- block label _label -%}
-      {%- if _required %}
+      {%- if _required -%}
         <span class="ecl-form-label__required">{{ _required_text }}</span>
-      {% else %}
+      {%- else -%}
         <span className="ecl-form-label__optional">{{ _optional_text }}</span>
-      {% endif -%}
+      {%- endif -%}
     </legend>
   {% endif %}
 
   {% if _helper_text is not empty %}
-    <p
+    <div
       class="ecl-help-block"
-      {{ _helper_id is not empty ? "id=\"" ~ _helper_id ~ "\""}}
+      {{ _helper_id is not empty ? 'id="' ~ _helper_id ~ '"'}}
     >
       {%- block helper_text _helper_text -%}
-    </p>
+    </div>
   {% endif %}
 
   {% if _invalid and _invalid_text is not empty %}

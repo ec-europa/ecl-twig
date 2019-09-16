@@ -19,6 +19,7 @@ storiesOf('Components/Forms/Radio', module)
         ...dataDefault,
         name: 'radio-group-1',
         label: text('Label', 'Select your country'),
+        helper_id: 'helper-id-1',
         helper_text: text('Help message', dataDefault.helperText),
         invalid: boolean('Invalid', false),
         invalid_text: text(
@@ -40,6 +41,7 @@ storiesOf('Components/Forms/Radio', module)
         ...dataBinary,
         name: 'radio-group-1',
         label: text('Label', 'Select your country'),
+        helper_id: 'helper-id-1',
         helper_text: text('Help message', dataBinary.helperText),
         invalid: boolean('Invalid', false),
         invalid_text: text(
