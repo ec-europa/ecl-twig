@@ -7,12 +7,12 @@
     - "items" (array) (default: []): [{
         "label" (string): label of the link
         "href" (string): target of the link
-        "isCurrent" (boolean): does the menu contains the current page? (default: false)
+        "is_current" (boolean): does the menu contains the current page? (default: false)
         "children" (array) (default: []): [{
           "items" (array) (default: [{}]): [{
             - "label" (string): label of the link
             - "href" (string): target of the link
-            - "isCurrent" (boolean): target of the link
+            - "is_current" (boolean): target of the link
           }]
         }]
     }]
@@ -43,7 +43,7 @@
   size: 'xs',
   transform: 'rotate-180',
   color: '',
-  extra_classes:'ecl-menu-legacy_link-icon ecl-link__icon ecl-icon'}|merge(icon|default({})) 
+  extra_classes:'ecl-menu-legacy_link-icon ecl-link__icon ecl-icon'}|merge(icon|default({}))
 %}
 
 {# Internal logic - Process properties #}
@@ -75,8 +75,8 @@
       {% block navigation %}
         {% if _links is not empty and _links is iterable %}
           {% for _link in _links %}
-            {% set _link_class_name = _prefix_class ~ '__item' ~ (_link.is_active ? ' ' ~ _prefix_class ~ '__item--active' : '') ~ (_link.isCurrent ? ' ' ~ _prefix_class ~ '__item--current' : '' ) %}
-            {% set _extra_classes = _prefix_class ~ '__link' ~ (_link.isCurrent ? ' ' ~ _prefix_class ~ '__link--current' : '') %}
+            {% set _link_class_name = _prefix_class ~ '__item' ~ (_link.is_active ? ' ' ~ _prefix_class ~ '__item--active' : '') ~ (_link.is_current ? ' ' ~ _prefix_class ~ '__item--current' : '' ) %}
+            {% set _extra_classes = _prefix_class ~ '__link' ~ (_link.is_current ? ' ' ~ _prefix_class ~ '__link--current' : '') %}
               {% if _link.children is not defined or _link.children is empty %}
               <li class="{{ _link_class_name }}" data-{{ _prefix_class }}-item="true" data-ecl-has-children="false" >
                  {%- include '../ec-component-link/link.html.twig' with { link: { 'type': 'standalone','label':_link.label, 'path': _link.href }, extra_classes : _extra_classes } only -%}
@@ -98,7 +98,7 @@
                       {% endif %}
                       <ul class="{{ _prefix_class }}__sublist" data-{{ _prefix_class }}-sublist="true">
                         {% for _child_link in _column.items %}
-                          {% set _extra_classes = _prefix_class ~ '__sublink' ~ (_child_link.isCurrent ? ' ' ~ _prefix_class ~ '__sublink--current' : '') %}
+                          {% set _extra_classes = _prefix_class ~ '__sublink' ~ (_child_link.is_current ? ' ' ~ _prefix_class ~ '__sublink--current' : '') %}
                           <li class="{{ _prefix_class }}__subitem" data-ecl-menu-legacy-subitem="true">
                              {%- include '../ec-component-link/link.html.twig' with {
                                 link : {'type': 'standalone','label': _child_link.label, 'path': _child_link.href},
