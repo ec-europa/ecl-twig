@@ -11,6 +11,7 @@
   - "name" (string) (default: '')
   - "hide_label" (boolean) (default: '')
   - "icon_path" (string) (default: ''): file containing the svg icons
+  - "extra_group_classes" (optional) (string) (default: '') Extra classes (space separated) for the select group
   - "extra_classes" (optional) (string) (default: '') Extra classes (space separated) for the select
   - "extra_attributes" (optional) (array) (default: []) Extra attributes for select
     - "name" (string) Attribute name, eg. 'data-test'
@@ -35,7 +36,9 @@
 {% set _invalid_text = invalid_text|default('') %}
 {% set _label = label|default('') %}
 
+{% set _css_group_class = 'ecl-form-group ecl-form-group--select' %}
 {% set _css_class = ['ecl-select'] %}
+
 {% if _invalid %}
   {% set _css_class = _css_class|merge(['ecl-select--invalid']) %}
 {% endif %}
@@ -44,6 +47,10 @@
 {% set _extra_attributes = '' %}
 
 {# Internal logic - Process properties #}
+
+{% if extra_group_classes is defined and extra_group_classes is not empty %}
+  {% set _css_group_class = _css_group_class ~ ' ' ~ extra_group_classes %}
+{% endif %}
 
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
@@ -56,8 +63,7 @@
 {% endif %}
 
 {# Print the result #}
-
-<div class="ecl-form-group ecl-form-group--select">
+<div class="{{ _css_group_class }}">
   {% if _label is not empty %}
     <label
       class="ecl-form-label{{ invalid ? ' ecl-form-label--invalid' }}{{ hide_label ? ' ecl-form-label--hidden'}}"

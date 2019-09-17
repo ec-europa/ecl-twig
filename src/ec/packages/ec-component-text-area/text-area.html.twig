@@ -10,6 +10,7 @@
   - "hide_label" (boolean) (default: '')
   - "placeholder" (string) (default: '')
   - "rows" (int) (default: 4)
+  - "extra_group_classes" (optional) (string) (default: '') Extra classes (space separated) for the text-area group  
   - "extra_classes" (optional) (string) (default: '') Extra classes (space separated) for the text area
   - "extra_attributes" (optional) (array) (default: []) Extra attributes for text area
     - "name" (string) Attribute name, eg. 'data-test'
@@ -35,6 +36,8 @@
 {% set _invalid_text = invalid_text|default('') %}
 {% set _label = label|default('') %}
 
+{% set _css_group_class = 'ecl-form-group ecl-form-group--text-area' %}
+
 {% set _css_class = ['ecl-text-area'] %}
 {% if _invalid %}
   {% set _css_class = _css_class|merge(['ecl-text-area--invalid']) %}
@@ -57,7 +60,7 @@
 
 {# Print the result #}
 
-<div class="ecl-form-group ecl-form-group--text-area">
+<div class="{{ _css_group_class }}">
   {% if _label is not empty %}
     <label
       class="ecl-form-label{{ invalid ? ' ecl-form-label--invalid' }}{{ hide_label ? ' ecl-form-label--hidden' }}"

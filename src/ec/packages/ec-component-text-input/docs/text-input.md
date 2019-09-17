@@ -18,6 +18,7 @@ npm install --save @ecl-twig/ec-component-text-input
 - "hide_label" (boolean) (default: '')
 - "placeholder" (string) (default: '')
 - "type" (string) (default: 'text')
+- "extra_group_classes" (optional) (string) (default: '') Extra classes (space separated) for the text-input group
 - "extra_classes" (optional) (string) (default: '') Extra classes (space separated) for the icon
 - "extra_attributes" (optional) (array) (default: []) Extra attributes for icon
   - "name" (string) Attribute name, eg. 'data-test'

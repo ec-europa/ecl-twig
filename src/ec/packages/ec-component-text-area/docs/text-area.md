@@ -18,6 +18,7 @@ npm install --save @ecl-twig/ec-component-text-area
 - "hide_label" (boolean) (default: '')
 - "placeholder" (string) (default: '')
 - "rows" (int) (default: 4)
+- "extra_group_classes" (optional) (string) (default: '') Extra classes (space separated) for the text-area group
 - "extra_classes" (optional) (string) (default: '') Extra classes (space separated) for the text area
 - "extra_attributes" (optional) (array) (default: []) Extra attributes for text area
   - "name" (string) Attribute name, eg. 'data-test'

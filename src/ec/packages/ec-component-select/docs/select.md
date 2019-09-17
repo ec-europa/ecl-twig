@@ -19,6 +19,7 @@ npm install --save @ecl-twig/ec-component-select
 - "name" (string) (default: '')
 - "hide_label" (boolean) (default: '')
 - "icon_path" (string) (default: ''): file containing the svg icons
+- "extra_group_classes" (optional) (string) (default: '') Extra classes (space separated) for the select group
 - "extra_classes" (optional) (string) (default: '') Extra classes (space separated) for the select
 - "extra_attributes" (optional) (array) (default: []) Extra attributes for select
   - "name" (string) Attribute name, eg. 'data-test'
