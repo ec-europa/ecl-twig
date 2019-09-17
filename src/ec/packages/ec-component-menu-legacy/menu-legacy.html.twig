@@ -3,7 +3,7 @@
 {#
   Parameters:
     - "label" (string) (default: ''): visible on mobile
-
+    - "icon_path" (string) (default: ''): path to icons svg
     - "items" (array) (default: []): [{
         "label" (string): label of the link
         "href" (string): target of the link
@@ -34,10 +34,11 @@
 {% set _links = items|default([]) %}
 {% set _css_class = 'ecl-menu-legacy' %}
 {% set _prefix_class = 'ecl-menu-legacy' %}
+{% set _icon_path = icon_path|default('') %}
 {% set _extra_attributes = '' %}
 
 {% set _icon = {
-  path: 'static/media/icons.a11fa655.svg',
+  path: _icon_path,
   type: '',
   name: 'ui--corner-arrow',
   size: 'xs',
@@ -79,16 +80,16 @@
             {% set _extra_classes = _prefix_class ~ '__link' ~ (_link.is_current ? ' ' ~ _prefix_class ~ '__link--current' : '') %}
               {% if _link.children is not defined or _link.children is empty %}
               <li class="{{ _link_class_name }}" data-{{ _prefix_class }}-item="true" data-ecl-has-children="false" >
-                 {%- include '../ec-component-link/link.html.twig' with { link: { 'type': 'standalone','label':_link.label, 'path': _link.href }, extra_classes : _extra_classes } only -%}
+                {%- include '../ec-component-link/link.html.twig' with { link: { 'type': 'standalone','label':_link.label, 'path': _link.href }, extra_classes : _extra_classes } only -%}
               {% else %}
               <li class="{{ _link_class_name }}" data-{{ _prefix_class }}-item="true" data-ecl-has-children="true" >
-                 {%- include '../ec-component-link/link.html.twig' with {
-                      link : {'type': 'standalone','label':_link.label, 'path': _link.href, 'icon_position': 'after'},
-                      icon : _icon,
-                      extra_classes : _extra_classes,
-                      extra_attributes: [ { name: 'data-' ~ _prefix_class ~ '-link', value: true }],
-                    } only -%}
-               {#second level#}
+                {%- include '../ec-component-link/link.html.twig' with {
+                  link : {'type': 'standalone','label':_link.label, 'path': _link.href, 'icon_position': 'after'},
+                  icon : _icon,
+                  extra_classes : _extra_classes,
+                  extra_attributes: [ { name: 'data-' ~ _prefix_class ~ '-link', value: true }],
+                } only -%}
+                {#second level#}
                 <div class="{{ _prefix_class }}__mega" data-{{ _prefix_class }}-mega="true">
                   {% for _column in _link.children %}
                   {#columns#}
