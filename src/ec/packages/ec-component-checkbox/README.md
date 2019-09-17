@@ -51,7 +51,7 @@ npm install --save @ecl-twig/ec-component-checkbox
   invalid_text: 'Error message for the group', 
   name: 'checkbox-default', 
   invalid: false, 
-  required: true,
+  required: true, 
   required_text: '*',
   items: [ 
     { 

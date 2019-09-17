@@ -3,7 +3,6 @@
 exports[`EC - checkbox Default renders correctly 1`] = `
 <fieldset
   aria-describedby="checkbox-default-helper"
-  aria-labelledby="checkbox-default-label"
   class="ecl-form-group ecl-form-group--checkbox"
 >
   <div
@@ -16,7 +15,6 @@ exports[`EC - checkbox Default renders correctly 1`] = `
     class="ecl-checkbox"
   >
     <input
-      aria-describedby="helper-default-1"
       class="ecl-checkbox__input"
       id="checkbox-default-1"
       name="checkbox-default"
@@ -53,7 +51,6 @@ exports[`EC - checkbox Default renders correctly 1`] = `
     class="ecl-checkbox"
   >
     <input
-      aria-describedby="helper-default-2"
       class="ecl-checkbox__input"
       id="checkbox-default-2"
       name="checkbox-default"
@@ -90,7 +87,6 @@ exports[`EC - checkbox Default renders correctly 1`] = `
     class="ecl-checkbox ecl-checkbox--disabled"
   >
     <input
-      aria-describedby="helper-default-3"
       class="ecl-checkbox__input"
       disabled=""
       id="checkbox-default-3"
@@ -130,7 +126,6 @@ exports[`EC - checkbox Default renders correctly 1`] = `
 exports[`EC - checkbox Default renders correctly with extra attributes 1`] = `
 <fieldset
   aria-describedby="checkbox-default-helper"
-  aria-labelledby="checkbox-default-label"
   class="ecl-form-group ecl-form-group--checkbox"
   data-test="data-test-value"
   data-test-1="data-test-value-1"
@@ -145,7 +140,6 @@ exports[`EC - checkbox Default renders correctly with extra attributes 1`] = `
     class="ecl-checkbox"
   >
     <input
-      aria-describedby="helper-default-1"
       class="ecl-checkbox__input"
       id="checkbox-default-1"
       name="checkbox-default"
@@ -182,7 +176,6 @@ exports[`EC - checkbox Default renders correctly with extra attributes 1`] = `
     class="ecl-checkbox"
   >
     <input
-      aria-describedby="helper-default-2"
       class="ecl-checkbox__input"
       id="checkbox-default-2"
       name="checkbox-default"
@@ -219,7 +212,6 @@ exports[`EC - checkbox Default renders correctly with extra attributes 1`] = `
     class="ecl-checkbox ecl-checkbox--disabled"
   >
     <input
-      aria-describedby="helper-default-3"
       class="ecl-checkbox__input"
       disabled=""
       id="checkbox-default-3"
@@ -259,7 +251,6 @@ exports[`EC - checkbox Default renders correctly with extra attributes 1`] = `
 exports[`EC - checkbox Default renders correctly with extra class names 1`] = `
 <fieldset
   aria-describedby="checkbox-default-helper"
-  aria-labelledby="checkbox-default-label"
   class="ecl-form-group ecl-form-group--checkbox custom-class custom-class--test"
 >
   <div
@@ -272,7 +263,6 @@ exports[`EC - checkbox Default renders correctly with extra class names 1`] = `
     class="ecl-checkbox"
   >
     <input
-      aria-describedby="helper-default-1"
       class="ecl-checkbox__input"
       id="checkbox-default-1"
       name="checkbox-default"
@@ -309,7 +299,6 @@ exports[`EC - checkbox Default renders correctly with extra class names 1`] = `
     class="ecl-checkbox"
   >
     <input
-      aria-describedby="helper-default-2"
       class="ecl-checkbox__input"
       id="checkbox-default-2"
       name="checkbox-default"
@@ -346,7 +335,6 @@ exports[`EC - checkbox Default renders correctly with extra class names 1`] = `
     class="ecl-checkbox ecl-checkbox--disabled"
   >
     <input
-      aria-describedby="helper-default-3"
       class="ecl-checkbox__input"
       disabled=""
       id="checkbox-default-3"
@@ -386,7 +374,6 @@ exports[`EC - checkbox Default renders correctly with extra class names 1`] = `
 exports[`EC - checkbox Invalid renders correctly 1`] = `
 <fieldset
   aria-describedby="checkbox-default-helper"
-  aria-labelledby="checkbox-default-label"
   class="ecl-form-group ecl-form-group--checkbox"
 >
   <div
@@ -395,16 +382,15 @@ exports[`EC - checkbox Invalid renders correctly 1`] = `
   >
     Helper text for the group
   </div>
-  <p
+  <div
     class="ecl-feedback-message"
   >
     Error message for the group
-  </p>
+  </div>
   <div
     class="ecl-checkbox ecl-checkbox--invalid"
   >
     <input
-      aria-describedby="helper-invalid-1"
       class="ecl-checkbox__input"
       id="checkbox-invalid-1"
       name="checkbox-invalid"
@@ -441,7 +427,6 @@ exports[`EC - checkbox Invalid renders correctly 1`] = `
     class="ecl-checkbox ecl-checkbox--invalid"
   >
     <input
-      aria-describedby="helper-invalid-2"
       class="ecl-checkbox__input"
       id="checkbox-invalid-2"
       name="checkbox-invalid"
@@ -478,7 +463,6 @@ exports[`EC - checkbox Invalid renders correctly 1`] = `
     class="ecl-checkbox ecl-checkbox--invalid ecl-checkbox--disabled"
   >
     <input
-      aria-describedby="helper-invalid-3"
       class="ecl-checkbox__input"
       disabled=""
       id="checkbox-invalid-3"
