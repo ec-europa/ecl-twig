@@ -39,12 +39,12 @@
 
 {% set _icon = {
   path: _icon_path,
-  type: '',
-  name: 'ui--corner-arrow',
+  type: 'ui',
+  name: 'corner-arrow',
   size: 'xs',
   transform: 'rotate-180',
   color: '',
-  extra_classes:'ecl-menu-legacy_link-icon ecl-link__icon ecl-icon'}|merge(icon|default({}))
+  extra_classes:'ecl-menu-legacy_link-icon'}|merge(icon|default({}))
 %}
 
 {# Internal logic - Process properties #}

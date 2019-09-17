@@ -11,7 +11,7 @@ npm install --save @ecl-twig/ec-component-menu-legacy
 ### Parameters
 
 - "label" (string) (default: ''): visible on mobile
-- "icon_path" (string) default: ''): path to the icons svg
+- "icon_path" (string) (default: ''): path to the icons svg
 - "items" (array) (default: []): [{
   - "label" (string) - label of the link
   - "href" (string) - target of the link
