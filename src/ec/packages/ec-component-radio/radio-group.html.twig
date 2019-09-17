@@ -68,10 +68,10 @@
       {{- _invalid ? ' ecl-form-label--invalid' }}"
     >
       {%- block label _label -%}
-      {%- if _required -%}
+      {%- if _required and _required_text is not empty %}
         <span class="ecl-form-label__required">{{ _required_text }}</span>
-      {%- else -%}
-        <span className="ecl-form-label__optional">{{ _optional_text }}</span>
+      {%- elseif _optional_text is not empty %}
+        <span class="ecl-form-label__optional"> {{ _optional_text }}</span>
       {%- endif -%}
     </legend>
   {% endif %}
@@ -86,9 +86,9 @@
   {% endif %}
 
   {% if _invalid and _invalid_text is not empty %}
-    <p class="ecl-feedback-message">
+    <div class="ecl-feedback-message">
       {%- block invalid_text _invalid_text -%}
-    </p>
+    </div>
   {% endif %}
 
   {%- for _item in _items %}

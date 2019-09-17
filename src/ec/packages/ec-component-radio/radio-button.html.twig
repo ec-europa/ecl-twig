@@ -72,12 +72,12 @@
   </label>
 
   {% if _helper_text is not empty %}
-    <p
+    <div
       class="ecl-help-block ecl-radio__help{{ _disabled ? " ecl-help-block--disabled" }}"
       {{ _helper_id is not empty ? 'id="' ~ _helper_id ~ '"'}}
     >
       {%- block helper_text _helper_text -%}
-    </p>
+    </div>
   {% endif %}
 </div>
 
