@@ -37,5 +37,20 @@ describe('EC - File Upload ', () => {
 
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
     });
+
+    test('renders correctly with disabled', () => {
+      expect.assertions(1);
+      const dataDisabled = merge(dataDefault, { disabled: true });
+      return expect(render(dataDisabled)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly with invalid', () => {
+      expect.assertions(1);
+      const dataInvalid = merge(dataDefault, {
+        invalid: true,
+        invalidText: 'Invalid test text',
+      });
+      return expect(render(dataInvalid)).resolves.toMatchSnapshot();
+    });
   });
 });

@@ -5,23 +5,52 @@ exports[`EC - File Upload  Default renders correctly 1`] = `
   class="ecl-form-group ecl-form-group--file-upload"
 >
   <label
-    class="ecl-form-label ecl-form-label--invalid"
-    for="example"
+    class="ecl-form-label  "
+    for="example-input-id-1"
   >
-    Label
+    Label          
     <span
       class="ecl-form-label__optional"
     >
       (optional)
     </span>
   </label>
-  <p
-    class="ecl-help-block"
+  <div
+    class="ecl-help-block "
   >
     This is the input's helper text.
-  </p>
+  </div>
   <input
     class="ecl-file-upload "
+    id="example-input-id-1"
+    type="file"
+  />
+</div>
+`;
+
+exports[`EC - File Upload  Default renders correctly with disabled 1`] = `
+<div
+  class="ecl-form-group ecl-form-group--file-upload"
+>
+  <label
+    class="ecl-form-label  ecl-form-label--disabled"
+    for="example-input-id-1"
+  >
+    Label          
+    <span
+      class="ecl-form-label__optional"
+    >
+      (optional)
+    </span>
+  </label>
+  <div
+    class="ecl-help-block ecl-help-block--disabled"
+  >
+    This is the input's helper text.
+  </div>
+  <input
+    class="ecl-file-upload "
+    disabled=""
     id="example-input-id-1"
     type="file"
   />
@@ -35,21 +64,21 @@ exports[`EC - File Upload  Default renders correctly with extra attributes 1`] =
   data-test-1="data-test-value-1"
 >
   <label
-    class="ecl-form-label ecl-form-label--invalid"
-    for="example"
+    class="ecl-form-label  "
+    for="example-input-id-1"
   >
-    Label
+    Label          
     <span
       class="ecl-form-label__optional"
     >
       (optional)
     </span>
   </label>
-  <p
-    class="ecl-help-block"
+  <div
+    class="ecl-help-block "
   >
     This is the input's helper text.
-  </p>
+  </div>
   <input
     class="ecl-file-upload "
     id="example-input-id-1"
@@ -63,23 +92,56 @@ exports[`EC - File Upload  Default renders correctly with extra class names 1`] 
   class="ecl-form-group ecl-form-group--file-upload custom-class custom-class--test"
 >
   <label
-    class="ecl-form-label ecl-form-label--invalid"
-    for="example"
+    class="ecl-form-label  "
+    for="example-input-id-1"
   >
-    Label
+    Label          
     <span
       class="ecl-form-label__optional"
     >
       (optional)
     </span>
   </label>
-  <p
-    class="ecl-help-block"
+  <div
+    class="ecl-help-block "
   >
     This is the input's helper text.
-  </p>
+  </div>
   <input
     class="ecl-file-upload "
+    id="example-input-id-1"
+    type="file"
+  />
+</div>
+`;
+
+exports[`EC - File Upload  Default renders correctly with invalid 1`] = `
+<div
+  class="ecl-form-group ecl-form-group--file-upload"
+>
+  <label
+    class="ecl-form-label ecl-form-label--invalid "
+    for="example-input-id-1"
+  >
+    Label          
+    <span
+      class="ecl-form-label__optional"
+    >
+      (optional)
+    </span>
+  </label>
+  <div
+    class="ecl-help-block "
+  >
+    This is the input's helper text.
+  </div>
+  <div
+    class="ecl-feedback-message"
+  >
+    Invalid test text
+  </div>
+  <input
+    class="ecl-file-upload ecl-file-upload--invalid "
     id="example-input-id-1"
     type="file"
   />
