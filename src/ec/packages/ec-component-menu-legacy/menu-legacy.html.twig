@@ -46,8 +46,6 @@
   extra_classes:'ecl-menu-legacy_link-icon ecl-link__icon ecl-icon'}|merge(icon|default({})) 
 %}
 
-
-
 {# Internal logic - Process properties #}
 
 {% if extra_classes is defined and extra_classes is not empty %}
@@ -61,9 +59,9 @@
 {% endif %}
 
 {# Print the result #}
-<nav data-ecl-auto-init="MenuLegacy" class="{{ _css_class }}"  data-ecl-menu-legacy="true" aria-expanded="false"  {{ _extra_attributes|raw }}>
+<nav data-ecl-auto-init="MenuLegacy" class="{{ _css_class }}" data-ecl-menu-legacy="true" aria-expanded="false" {{ _extra_attributes|raw }}>
   <div class="ecl-container">
-    <button class="{{ _prefix_class }}__toggle {{ _prefix_class }}__hamburger  ecl-button ecl-button--ghost" type="button"  data-ecl-menu-legacy-hamburger-button="true" >
+    <button class="{{ _prefix_class }}__toggle {{ _prefix_class }}__hamburger ecl-button ecl-button--ghost" type="button" data-ecl-menu-legacy-hamburger-button="true" >
       <div class="{{ _prefix_class }}__toggle-container">
         <div class="{{ _prefix_class }}__hamburger">
           <div class="{{ _prefix_class }}__hamburger--bar1"></div>
@@ -81,10 +79,10 @@
             {% set _extra_classes = _prefix_class ~ '__link' ~ (_link.isCurrent ? ' ' ~ _prefix_class ~ '__link--current' : '') %}
               {% if _link.children is not defined or _link.children is empty %}
               <li class="{{ _link_class_name }}" data-{{ _prefix_class }}-item="true" data-ecl-has-children="false" >
-                 {%- include '../ec-component-link/link.html.twig' with { link: { 'type': 'standalone','label':_link.label, 'path': _link.href }, extra_classes :  _extra_classes } only -%}
+                 {%- include '../ec-component-link/link.html.twig' with { link: { 'type': 'standalone','label':_link.label, 'path': _link.href }, extra_classes : _extra_classes } only -%}
               {% else %}
               <li class="{{ _link_class_name }}" data-{{ _prefix_class }}-item="true" data-ecl-has-children="true" >
-                 {%- include '../ec-component-link/link.html.twig' with { 
+                 {%- include '../ec-component-link/link.html.twig' with {
                       link : {'type': 'standalone','label':_link.label, 'path': _link.href, 'icon_position': 'after'},
                       icon : _icon,
                       extra_classes : _extra_classes,
@@ -102,9 +100,9 @@
                         {% for _child_link in _column.items %}
                           {% set _extra_classes = _prefix_class ~ '__sublink' ~ (_child_link.isCurrent ? ' ' ~ _prefix_class ~ '__sublink--current' : '') %}
                           <li class="{{ _prefix_class }}__subitem" data-ecl-menu-legacy-subitem="true">
-                             {%- include '../ec-component-link/link.html.twig' with { 
+                             {%- include '../ec-component-link/link.html.twig' with {
                                 link : {'type': 'standalone','label': _child_link.label, 'path': _child_link.href},
-                                extra_classes :  _extra_classes
+                                extra_classes : _extra_classes
                               } only -%}
                           </li>
                         {% endfor %}
