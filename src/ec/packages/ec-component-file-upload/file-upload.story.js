@@ -19,13 +19,13 @@ storiesOf('Components/Forms/File Upload', module)
       fileUpload({
         id: text('input Id', dataDefault.id),
         label: text('Label', dataDefault.label),
-        helperText: text('Help message', dataDefault.helperText),
+        helper_text: text('Help message', dataDefault.helperText),
         invalid: boolean('Invalid', false),
         disabled: boolean('Disabled', false),
         required: boolean('Required', false),
-        invalidText: text('invalid text', dataDefault.invalidText),
-        requiredText: text('Required text', dataDefault.requiredText),
-        optionalText: text('Optional Text', dataDefault.optionalText),
+        invalid_text: text('invalid text', dataDefault.invalidText),
+        required_text: text('Required text', dataDefault.requiredText),
+        optional_text: text('Optional Text', dataDefault.optionalText),
         extra_classes: text('Extra classes', ''),
       }),
     {

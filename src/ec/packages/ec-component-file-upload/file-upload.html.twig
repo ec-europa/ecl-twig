@@ -8,11 +8,11 @@
   Parameters:
   - "id" (string) (default: '')
   - "invalid" (boolean) (default: false)
-  - "invalidText" (string) (default: '')
+  - "invalid_text" (string) (default: '')
   - "disabled" (boolean) (default: false)
   - "required" (boolean) (default: false)
-  - "requiredText" (string) (default: '')
-  - "optionalText" (string) (default: '')
+  - "required_text" (string) (default: '')
+  - "optional_text" (string) (default: '')
   - "extra_classes" (string) (default: '')
   - "extra_attributes" (array) (default: []): format: [
         {
@@ -30,11 +30,11 @@
 
 {% set _input_id = id|default('') %}
 {% set _invalid = invalid|default(false) %}
-{% set _invalid_text = invalidText|default('') %}
+{% set _invalid_text = invalid_text|default('') %}
 {% set _disabled = disabled|default(false) %}
 {% set _required = required|default(false) %}
-{% set _required_text = requiredText|default('*') %}
-{% set _optional_text = optionalText|default('(optional)') %}
+{% set _required_text = required_text|default('*') %}
+{% set _optional_text = optional_text|default('(optional)') %}
 
 {% set _css_class = 'ecl-form-group ecl-form-group--file-upload' %}
 {% set _class_prefix = 'ecl-file-upload' %}
