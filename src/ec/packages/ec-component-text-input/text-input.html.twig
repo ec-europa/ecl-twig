@@ -44,7 +44,7 @@
 {% if _invalid %}
   {% set _css_class = _css_class|merge(['ecl-text-input--invalid']) %}
 {% endif %}
-{% set _css_class = _css_class|merge(['ecl-text-area--' ~ _width ]) %}
+{% set _css_class = _css_class|merge(['ecl-text-input--' ~ _width ]) %}
 {% set _css_class = _css_class|join(' ') %}
 
 {% set _extra_attributes = '' %}
@@ -73,16 +73,16 @@
       for="{{ _id }}"
     >
       {%- block label _label -%}
-      {%- if _required %}
+      {%- if _required and _required_text is not empty -%}
         <span class="ecl-form-label__required">{{ _required_text }}</span>
-      {%- else %}
-        <span class="ecl-form-label__optional"> {{ _optional_text }}</span>
+      {%- elseif not _required and _optional_text is not empty -%}
+        <span class="ecl-form-label__optional">{{ ' ' ~ _optional_text }}</span>
       {%- endif -%}
     </label>
   {% endif %}
 
   {% if _helper_text is not empty %}
-    <div class="ecl-help-block {{ _disabled ? ' ecl-help-block--disabled' }}">{% block helper_text _helper_text %}</div>
+    <div class="ecl-help-block{{ _disabled ? ' ecl-help-block--disabled' }}">{% block helper_text _helper_text %}</div>
   {% endif %}
 
   {% if _invalid and _invalid_text is not empty %}

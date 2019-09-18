@@ -41,7 +41,7 @@ npm install --save @ecl-twig/ec-component-text-input
   helper_text: 'This address will be used for contact purpose', 
   id: 'input-email', 
   name: 'email', 
-  width: 'm' 
+  width: 'm', 
   extra_classes: 'my-extra-class-1 my-extra-class-2', 
   extra_attributes: [ 
     { name: 'data-test-1', value: 'data-test-value-1' }, 
