@@ -21,7 +21,6 @@
 
 {# Internal properties #}
 
-{% set _id = id|default('') %}
 {% set _name = name|default('') %}
 {% set _value = value|default('') %}
 {% set _disabled = disabled|default(false) %}
@@ -59,7 +58,7 @@
 
 <div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
   <input
-    id="{{ _id }}"
+    {{ id ? 'id="' ~ id ~  '"' }}
     name="{{ _name }}"
     class="ecl-checkbox__input"
     type="checkbox"
@@ -68,7 +67,11 @@
     {{ _checked ? "checked" }}
   />
 
-  <label for="{{ _id }}" class="ecl-form-label ecl-checkbox__label{{ _invalid ? " ecl-form-label--invalid" }}">
+  <label 
+  {{ id ? 'for="' ~ id ~  '"' }}
+  class="ecl-form-label ecl-checkbox__label
+  {{- _invalid ? " ecl-form-label--invalid" -}}
+  ">
     <span class="ecl-checkbox__box{{ _invalid ? " ecl-checkbox__box--invalid" }}">
       {% include '../ec-component-icon/icon.html.twig' with {
         icon: {
