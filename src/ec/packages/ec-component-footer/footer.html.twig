@@ -167,7 +167,7 @@
   </div>
 
   {# Common #}
-  <section class="ecl-footer__common">
+  <div class="ecl-footer__common">
     <div class="ecl-container ecl-footer__common-container">
       {% for item in _common %}
         {% include '../ec-component-link/link.html.twig' with item|merge({
@@ -181,7 +181,7 @@
         }) only %}
       {% endfor %}
     </div>
-  </section>
+  </div>
 </footer>
 
 {% endspaceless %}
