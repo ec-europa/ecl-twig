@@ -28,7 +28,7 @@ npm install --save @ecl-twig/ec-component-icon
 ```twig
 {% include 'path/to/icon.html.twig' with { 
   icon: { 
-    path: '/static/media/icons.cbfd6efe.svg', 
+    path: '/static/media/icons.svg', 
     type: 'branded', 
     name: 'facebook', 
     size: 'm', 
@@ -40,5 +40,5 @@ npm install --save @ecl-twig/ec-component-icon
     { name: 'data-test', value: 'data-test-value' }, 
     { name: 'data-test-1', value: 'data-test-value-1' } 
   ] 
-} %}
+} %} 
 ```
