@@ -6,6 +6,7 @@
   - "name" (string) (default: '')
   - "value" (string) (default: '')
   - "disabled" (boolean) (default: false)
+  - "invalid" (boolean) (default: false)
   - "checked" (boolean) (default: false)
   - "helper_id" (string) (default: '')
   - "extra_classes" (optional) (string) (default: '')
@@ -23,6 +24,7 @@
 {% set _name = name|default('') %}
 {% set _value = value|default('') %}
 {% set _disabled = disabled|default(false) %}
+{% set _invalid = invalid|default(false) %}
 {% set _checked = checked|default(false) %}
 {% set _helper_id = helper_id|default('') %}
 
@@ -52,28 +54,33 @@
 
 <div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
   <input
-    id="{{ _id }}"
+    {{ _id ? 'id="' ~ _id ~ '"' }}
     name="{{ _name }}"
     class="ecl-radio__input"
     type="radio"
     value="{{ _value }}"
     {{ _disabled ? "disabled" }}
     {{ _checked ? "checked" }}
-    {{ _helper_id is not empty ? "aria-describedby=\"" ~ _helper_id ~ "\"" -}}
+    {{ _helper_id is not empty ? 'aria-describedby="' ~ _helper_id ~ '"' -}}
   />
-
-  <label for="{{ _id }}" class="ecl-radio__label">
-    <span class="ecl-radio__box"></span>
+ 
+  <label 
+    class="ecl-radio__label"
+    {{ _id ? ' for="' ~ _id ~ '"' }}
+  >
+    <span class="ecl-radio__box
+    {{- _invalid ? " ecl-radio__box--invalid" -}}
+    {{- _disabled ? " ecl-radio__box--disabled" -}}"></span>
     {%- block label _label -%}
   </label>
 
   {% if _helper_text is not empty %}
-    <p
-      class="ecl-radio__help ecl-help-block"
-      {{ _helper_id is not empty ? "id=\"" ~ _helper_id ~ "\""}}
+    <div
+      class="ecl-help-block ecl-radio__help{{ _disabled ? " ecl-help-block--disabled" }}"
+      {{ _helper_id is not empty ? 'id="' ~ _helper_id ~ '"' }}
     >
       {%- block helper_text _helper_text -%}
-    </p>
+    </div>
   {% endif %}
 </div>
 
