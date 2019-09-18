@@ -7,6 +7,10 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package ecl-twig
 
+- **table:** implement table accordingly to ECL 2.9.0 - INNO-1660 ([#112](https://github.com/ec-europa/ecl-twig/issues/112)) ([15ffcba](https://github.com/ec-europa/ecl-twig/commit/15ffcba))
+
+- **menu-legacy:** fixing component template - ([#143](https://github.com/ec-europa/ecl-twig/pull/143)) ([27bf757](https://github.com/ec-europa/ecl-twig/commit/27bf757))
+
 # [2.9.0](https://github.com/ec-europa/ecl-twig/compare/v2.8.0...v2.9.0) (2019-09-11)
 
 ### Bug Fixes
@@ -21,7 +25,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 - **menu-legacy:** menu-legacy twig implementation - TWIG-5 ([#119](https://github.com/ec-europa/ecl-twig/issues/119)) ([550b48f](https://github.com/ec-europa/ecl-twig/commit/550b48f))
 - **search-from:** add extra_blocks parameter - INNO-1665 ([#114](https://github.com/ec-europa/ecl-twig/issues/114)) ([50baf82](https://github.com/ec-europa/ecl-twig/commit/50baf82))
 - **skip-link:** skip-link implementation - TWIG-18 ([#118](https://github.com/ec-europa/ecl-twig/issues/118)) ([946b256](https://github.com/ec-europa/ecl-twig/commit/946b256))
-- **table:** implement table accordingly to ECL 2.9.0 - INNO-1660 ([#112](https://github.com/ec-europa/ecl-twig/issues/112)) ([15ffcba](https://github.com/ec-europa/ecl-twig/commit/15ffcba))
 
 # [2.8.0](https://github.com/ec-europa/ecl-twig/compare/v2.7.0...v2.8.0) (2019-07-16)
 
