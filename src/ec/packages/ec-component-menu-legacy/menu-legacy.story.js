@@ -1,5 +1,4 @@
 import { storiesOf } from '@storybook/html';
-import { withKnobs } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
 import iconPath from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
@@ -11,7 +10,6 @@ import demoData from './demo/data';
 import menuLegacy from './menu-legacy.html.twig';
 
 storiesOf('Components/Navigation/Menu Legacy', module)
-  .addDecorator(withKnobs)
   .addDecorator(withNotes)
   .addDecorator(withCode)
   .add(

@@ -3,11 +3,16 @@
 import path from 'path';
 import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
-import demoData from './demo/data';
+import defaultDataStructure from './demo/data';
 
 describe('EC - Menu Legacy', () => {
   const template = path.resolve(__dirname, './menu-legacy.html.twig');
   const render = params => renderTwigFileAsNode(template, params);
+  const defaultIconPath = 'static/icons.svg';
+
+  const demoData = merge(defaultDataStructure, {
+    icon_path: defaultIconPath,
+  });
 
   test('renders correctly', () => {
     expect.assertions(1);
