@@ -52,7 +52,7 @@ npm install --save @ecl-twig/ec-component-checkbox
   name: 'checkbox-default', 
   invalid: false, 
   required: true, 
-  required_text: '*',
+  required_text: '*', 
   items: [ 
     { 
       id: 'checkbox-default-1', 
