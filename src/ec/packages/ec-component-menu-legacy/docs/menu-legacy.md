@@ -11,16 +11,17 @@ npm install --save @ecl-twig/ec-component-menu-legacy
 ### Parameters
 
 - "label" (string) (default: ''): visible on mobile
+- "icon_path" (string) (default: ''): path to the icons svg
 - "items" (array) (default: []): [{
   - "label" (string) - label of the link
   - "href" (string) - target of the link
-  - "isCurrent" (boolean) (default: false) - does the menu contains the current page?
+  - "is_current" (boolean) (default: false) - does the menu contain the current page?
   - "children" (array) (default: [{}])
-    - "title" (string) [optional](default:)
+    - "title" (string) (default: '')
     - "items" (array) (default: [{}])
       - "label" (string): label of the link
       - "href" (string): target of the link
-      - "isCurrent" (boolean) (default: false)
+      - "is_current" (boolean) (default: false)
 - "extra_classes" (string) (default: '')
 - "extra_attributes" (array) (default: []): format: [
   - "name" (string) (default: ''),
@@ -30,26 +31,27 @@ npm install --save @ecl-twig/ec-component-menu-legacy
 
 <!-- prettier-ignore -->
 ```twig
-{% include 'path/to/menu-legacy.html.twig' with {  
-  label: "Menu",  
-  items: [  
+{% include 'path/to/menu-legacy.html.twig' with { 
+  label: "Menu", 
+  icon_path: '/static/media/icons.svg', 
+  items: [ 
     {  
-      label: "first menu item",  
-      href: "node/101",  
-      isCurrent: false,  
-      children: [  
+      label: "first menu item", 
+      href: "node/101", 
+      is_current: false, 
+      children: [ 
         {  
-          "title": "column 1",  
-          "items": [  
+          "title": "column 1", 
+          "items": [ 
             {  
-              label: "sub-menu column 1 link 1",  
-              href: "#",  
-              isCurrent: false  
-            }  
-            ...  
-        ]  
-      }    
-      ...  
+              label: "sub-menu column 1 link 1", 
+              href: "#", 
+              is_current: false 
+            } 
+            ... 
+        ] 
+      } 
+      ... 
       ], 
     } 
   ], 
@@ -61,5 +63,5 @@ npm install --save @ecl-twig/ec-component-menu-legacy
     }, 
     ... 
     ] 
-} %}
+} %} 
 ```
