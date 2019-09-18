@@ -24,7 +24,7 @@ npm install --save @ecl-twig/ec-component-description-list
 <!-- prettier-ignore -->
 ```twig
 {% include 'path/to/description-list.html.twig' with { 
-  variant: horizontal,
+  variant: 'horizontal',
   items: [
     { 
       term: 'European Commission', 

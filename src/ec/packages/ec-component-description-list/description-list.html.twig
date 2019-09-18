@@ -29,7 +29,7 @@
 
 {# Internal logic - Process properties #}
 
-{% if (_variant is not empty) %}
+{% if _variant is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ _css_class ~ '--' ~ _variant %}
 {% endif %}
 
@@ -45,7 +45,7 @@
 
 {# Print the result #}
 
-{% if _items is not empty %}
+{% if _items is not empty and _items is iterable %}
   <dl class="{{ _css_class }}"{{ _extra_attributes|raw }}>
     {% for _item in _items %}
       {% if _item.term is not empty %}
