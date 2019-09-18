@@ -1,28 +1,30 @@
-# ECL Twig - EC Radio component
+# ECL Twig - EC Checkbox component
 
-npm package: `@ecl-twig/ec-component-radio`
+npm package: `@ecl-twig/ec-component-checkbox`
 
 ```shell
-npm install --save @ecl-twig/ec-component-radio
+npm install --save @ecl-twig/ec-component-checkbox
 ```
 
-## Radio group
+## Checkbox group
 
 ### Parameters:
 
+- "label_id" (string) (default: '')
 - "items" (array) (default: [])
   - "id" (string) (default: '')
   - "name" (string) (default: '')
   - "value" (string) (default: '')
+  - "invalid" (boolean) (default: false)
   - "disabled" (boolean) (default: false)
   - "checked" (boolean) (default: false)
   - "helper_id" (string) (default: '')
   - "helper_text" (block) (default: '')
   - "label" (block) (default: '')
+  - "icon_path" (string) (default: ''): file containing the svg icons
 - "name" (string) (default: '')
 - "helper_id" (string) (default: '')
 - "invalid" (boolean) (default: false)
-- "binary" (boolean) (default: false)
 - "required" (boolean) (default: false)
 - "extra_classes" (optional) (string) (default: '')
 - "extra_attributes" (optional) (array) (default: [])
@@ -31,28 +33,29 @@ npm install --save @ecl-twig/ec-component-radio
 
 ### Blocks:
 
-- "label"
 - "helper_text"
 - "invalid_text"
-- "label"
 - "optional_text"
 - "required_text"
+- "label"
 
 ### Example:
 
 <!-- prettier-ignore -->
 ```twig
-{% include 'path/to/radio-group.html.twig' with { 
+{% include 'path/to/checkbox-group.html.twig' with { 
+  label_id: 'checkbox-default-label', 
   label: 'Select your country', 
-  helper_id: 'radio-default-helper', 
+  helper_id: 'checkbox-default-helper', 
   helper_text: 'Helper text for the group', 
   invalid_text: 'Error message for the group', 
-  name: 'radio-default', 
+  name: 'checkbox-default', 
   invalid: false, 
-  binary: false, 
+  required: true, 
+  required_text: '*', 
   items: [ 
     { 
-      id: 'radio-default-1', 
+      id: 'checkbox-default-1', 
       value: 'lu', 
       label: 'Luxembourg', 
       helper_id: 'helper-default-1', 
@@ -60,14 +63,14 @@ npm install --save @ecl-twig/ec-component-radio
       checked: true, 
     }, 
     { 
-      id: 'radio-default-2', 
+      id: 'checkbox-default-2', 
       value: 'be', 
       label: 'Belgium', 
       helper_id: 'helper-default-2', 
       helper_text: 'Help text for option 2', 
     }, 
     { 
-      id: 'radio-default-3', 
+      id: 'checkbox-default-3', 
       value: 'fr', 
       label: 'France (disabled)', 
       helper_id: 'helper-default-3', 
