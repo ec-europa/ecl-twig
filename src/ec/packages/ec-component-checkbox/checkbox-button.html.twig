@@ -21,6 +21,7 @@
 
 {# Internal properties #}
 
+{% set _id = id|default('') %}
 {% set _name = name|default('') %}
 {% set _value = value|default('') %}
 {% set _disabled = disabled|default(false) %}
@@ -58,7 +59,7 @@
 
 <div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
   <input
-    {{ id ? 'id="' ~ id ~ '"' }}
+    {{ _id ? 'id="' ~ _id ~ '"' }}
     name="{{ _name }}"
     class="ecl-checkbox__input"
     type="checkbox"
@@ -68,7 +69,7 @@
   />
 
   <label 
-    {{ id ? 'for="' ~ id ~  '"' }}
+    {{ _id ? 'for="' ~ _id ~  '"' }}
     class="ecl-form-label ecl-checkbox__label
     {{- _invalid ? " ecl-form-label--invalid" -}}"
   >

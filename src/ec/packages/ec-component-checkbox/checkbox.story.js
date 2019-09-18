@@ -22,6 +22,7 @@ storiesOf('Components/Forms/Checkbox', module)
     () =>
       checkboxGroup({
         ...dataDefault,
+        label_id: 'checkbox-default-label',
         helper_text: text('Help message', dataDefault.helperText),
         invalid: boolean('Invalid', false),
         invalid_text: text(

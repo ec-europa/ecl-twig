@@ -22,7 +22,7 @@
 
 {# Internal properties #}
 
-{% set _label_id = label_id|default('checkbox-default-label') %}
+{% set _label_id = label_id|default('') %}
 {% set _items = items|default([]) %}
 {% set _name = name|default('') %}
 {% set _helper_id = helper_id|default('') %}
@@ -62,7 +62,7 @@
     <legend
       class="ecl-form-label
       {{- _invalid and _invalid_text is not empty ? ' ecl-checkbox__group--invalid' -}}"
-      id="{{ _label_id }}"
+      {{ id ? 'id="' ~ _label_id ~ '"' }}
     >
       {%- block label _label -%}
       {%- if _required and _required_text is not empty -%}
