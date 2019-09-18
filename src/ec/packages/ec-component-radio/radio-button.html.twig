@@ -20,7 +20,6 @@
 
 {# Internal properties #}
 
-{% set _id = id|default('') %}
 {% set _name = name|default('') %}
 {% set _value = value|default('') %}
 {% set _disabled = disabled|default(false) %}
@@ -54,7 +53,7 @@
 
 <div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
   <input
-    id="{{ _id }}"
+    {{ id ? 'id="' ~ id ~ '"' }}
     name="{{ _name }}"
     class="ecl-radio__input"
     type="radio"
@@ -64,7 +63,10 @@
     {{ _helper_id is not empty ? 'aria-describedby="' ~ _helper_id ~ '"' -}}
   />
  
-  <label for="{{ _id }}" class="ecl-radio__label">
+  <label 
+    class="ecl-radio__label"
+    {{ id ? ' for="' ~ id ~ '"' }}
+  >
     <span class="ecl-radio__box
     {{- _invalid ? " ecl-radio__box--invalid" -}}
     {{- _disabled ? " ecl-radio__box--disabled" -}}"></span>
@@ -74,7 +76,7 @@
   {% if _helper_text is not empty %}
     <div
       class="ecl-help-block ecl-radio__help{{ _disabled ? " ecl-help-block--disabled" }}"
-      {{ _helper_id is not empty ? 'id="' ~ _helper_id ~ '"'}}
+      {{ _helper_id is not empty ? 'id="' ~ _helper_id ~ '"' }}
     >
       {%- block helper_text _helper_text -%}
     </div>
