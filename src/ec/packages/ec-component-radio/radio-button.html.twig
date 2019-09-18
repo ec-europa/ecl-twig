@@ -20,6 +20,7 @@
 
 {# Internal properties #}
 
+{% set _id = id|default('') %}
 {% set _name = name|default('') %}
 {% set _value = value|default('') %}
 {% set _disabled = disabled|default(false) %}
@@ -53,7 +54,7 @@
 
 <div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
   <input
-    {{ id ? 'id="' ~ id ~ '"' }}
+    {{ _id ? 'id="' ~ _id ~ '"' }}
     name="{{ _name }}"
     class="ecl-radio__input"
     type="radio"
@@ -65,7 +66,7 @@
  
   <label 
     class="ecl-radio__label"
-    {{ id ? ' for="' ~ id ~ '"' }}
+    {{ _id ? ' for="' ~ _id ~ '"' }}
   >
     <span class="ecl-radio__box
     {{- _invalid ? " ecl-radio__box--invalid" -}}
