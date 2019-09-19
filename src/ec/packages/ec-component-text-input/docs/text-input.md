@@ -18,6 +18,7 @@ npm install --save @ecl-twig/ec-component-text-input
 - "name" (string) (default: '')
 - "type" (string) (default: '')
 - "width" (string) (default: '') Input width size (s, m or l)
+- "extra_group_classes" (optional) (string) (default: '') Extra classes (space separated) for the text-input group
 - "extra_classes" (optional) (string) (default: '') Extra classes (space separated) for the icon
 - "extra_attributes" (optional) (array) (default: []) Extra attributes for icon
   - "name" (string) Attribute name, eg. 'data-test'
@@ -42,6 +43,7 @@ npm install --save @ecl-twig/ec-component-text-input
   id: 'input-email', 
   name: 'email', 
   width: 'm', 
+  extra_group_classes: 'my-extra-group-class-1 my-extra-group-class-2', 
   extra_classes: 'my-extra-class-1 my-extra-class-2', 
   extra_attributes: [ 
     { name: 'data-test-1', value: 'data-test-value-1' }, 
