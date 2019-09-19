@@ -29,6 +29,18 @@ describe('EC - Text area', () => {
       return expect(render(optionsWithDefaultValue)).resolves.toMatchSnapshot();
     });
 
+    test('renders correctly with extra group class names', () => {
+      expect.assertions(1);
+
+      const optionsWithExtraGroupClasses = merge(options, {
+        extra_group_classes: 'custom-group-class custom-group-class--test',
+      });
+
+      return expect(
+        render(optionsWithExtraGroupClasses)
+      ).resolves.toMatchSnapshot();
+    });
+
     test('renders correctly with extra class names', () => {
       expect.assertions(1);
 
@@ -65,6 +77,18 @@ describe('EC - Text area', () => {
     test('renders correctly', () => {
       expect.assertions(1);
       return expect(render(options)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly with extra group class names', () => {
+      expect.assertions(1);
+
+      const optionsWithExtraGroupClasses = merge(options, {
+        extra_group_classes: 'custom-group-class custom-group-class--test',
+      });
+
+      return expect(
+        render(optionsWithExtraGroupClasses)
+      ).resolves.toMatchSnapshot();
     });
 
     test('renders correctly with extra class names', () => {
@@ -105,6 +129,18 @@ describe('EC - Text area', () => {
     test('renders correctly', () => {
       expect.assertions(1);
       return expect(render(options)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly with extra group class names', () => {
+      expect.assertions(1);
+
+      const optionsWithExtraGroupClasses = merge(options, {
+        extra_group_classes: 'custom-group-class custom-group-class--test',
+      });
+
+      return expect(
+        render(optionsWithExtraGroupClasses)
+      ).resolves.toMatchSnapshot();
     });
 
     test('renders correctly with extra class names', () => {
