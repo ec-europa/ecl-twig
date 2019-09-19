@@ -11,7 +11,12 @@ exports[`EC - Select Default renders correctly 1`] = `
     Select a country
   </label>
   <div
-    class="ecl-select__container"
+    class="ecl-help-block"
+  >
+    Help message
+  </div>
+  <div
+    class="ecl-select__container ecl-select__container--m"
   >
     <select
       class="ecl-select"
@@ -58,11 +63,6 @@ exports[`EC - Select Default renders correctly 1`] = `
       </svg>
     </div>
   </div>
-  <div
-    class="ecl-help-block"
-  >
-    Help message
-  </div>
 </div>
 `;
 
@@ -71,13 +71,18 @@ exports[`EC - Select Disabled renders correctly 1`] = `
   class="ecl-form-group ecl-form-group--select"
 >
   <label
-    class="ecl-form-label"
+    class="ecl-form-label ecl-form-label--disabled"
     for="example-id"
   >
     Select a country
   </label>
   <div
-    class="ecl-select__container ecl-select__container--disabled"
+    class="ecl-help-block ecl-help-block--disabled"
+  >
+    Help message
+  </div>
+  <div
+    class="ecl-select__container ecl-select__container--disabled ecl-select__container--m"
   >
     <select
       class="ecl-select"
@@ -125,11 +130,6 @@ exports[`EC - Select Disabled renders correctly 1`] = `
       </svg>
     </div>
   </div>
-  <div
-    class="ecl-help-block"
-  >
-    Help message
-  </div>
 </div>
 `;
 
@@ -144,7 +144,17 @@ exports[`EC - Select With error renders correctly 1`] = `
     Select a country
   </label>
   <div
-    class="ecl-select__container"
+    class="ecl-help-block"
+  >
+    Help message
+  </div>
+  <div
+    class="ecl-feedback-message"
+  >
+    Error message
+  </div>
+  <div
+    class="ecl-select__container ecl-select__container--m"
   >
     <select
       class="ecl-select ecl-select--invalid"
@@ -191,16 +201,6 @@ exports[`EC - Select With error renders correctly 1`] = `
       </svg>
     </div>
   </div>
-  <div
-    class="ecl-feedback-message"
-  >
-    Error message
-  </div>
-  <div
-    class="ecl-help-block"
-  >
-    Help message
-  </div>
 </div>
 `;
 
@@ -215,7 +215,17 @@ exports[`EC - Select With error renders correctly with extra attributes 1`] = `
     Select a country
   </label>
   <div
-    class="ecl-select__container"
+    class="ecl-help-block"
+  >
+    Help message
+  </div>
+  <div
+    class="ecl-feedback-message"
+  >
+    Error message
+  </div>
+  <div
+    class="ecl-select__container ecl-select__container--m"
   >
     <select
       class="ecl-select ecl-select--invalid"
@@ -264,16 +274,6 @@ exports[`EC - Select With error renders correctly with extra attributes 1`] = `
       </svg>
     </div>
   </div>
-  <div
-    class="ecl-feedback-message"
-  >
-    Error message
-  </div>
-  <div
-    class="ecl-help-block"
-  >
-    Help message
-  </div>
 </div>
 `;
 
@@ -288,7 +288,17 @@ exports[`EC - Select With error renders correctly with extra class names 1`] = `
     Select a country
   </label>
   <div
-    class="ecl-select__container"
+    class="ecl-help-block"
+  >
+    Help message
+  </div>
+  <div
+    class="ecl-feedback-message"
+  >
+    Error message
+  </div>
+  <div
+    class="ecl-select__container ecl-select__container--m"
   >
     <select
       class="ecl-select ecl-select--invalid custom-class custom-class--test"
@@ -334,16 +344,6 @@ exports[`EC - Select With error renders correctly with extra class names 1`] = `
         />
       </svg>
     </div>
-  </div>
-  <div
-    class="ecl-feedback-message"
-  >
-    Error message
-  </div>
-  <div
-    class="ecl-help-block"
-  >
-    Help message
   </div>
 </div>
 `;
