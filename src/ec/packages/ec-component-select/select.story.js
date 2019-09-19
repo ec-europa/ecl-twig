@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/html';
-import { withKnobs, text, boolean } from '@storybook/addon-knobs';
+import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
 
@@ -7,7 +7,13 @@ import specData from '@ecl/ec-specs-select/demo/data';
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 
 import selectDocs from './docs/select.md';
-import select from './select.html.twig';
+import selectBox from './select.html.twig';
+
+const inputWidthOptions = {
+  small: 's',
+  medium: 'm',
+  large: 'l',
+};
 
 storiesOf('Components/Forms/Select', module)
   .addDecorator(withKnobs)
@@ -15,19 +21,25 @@ storiesOf('Components/Forms/Select', module)
   .addDecorator(withCode)
   .add(
     'default',
-    () =>
-      select({
+    () => {
+      const inputWidthSelect = select('Width', inputWidthOptions, 'm');
+
+      return selectBox({
         label: text('Label', specData.label),
         options: specData.options,
         invalid: boolean('Invalid', false),
-        invalid_text: text('Error message', 'Error message'),
-        helper_text: text('Help message', 'Help message'),
+        invalid_text: text('Invalid text', 'This is the error message'),
+        helper_text: text('Help message', "This is the input's helper text."),
         disabled: boolean('Disabled', false),
-        hide_label: boolean('Hide label', false),
+        required: boolean('Required', false),
+        required_text: text('Required Text', '*'),
+        optional_text: text('Optional text', '(optional)'),
+        width: inputWidthSelect,
         id: 'example-id',
         name: 'example-name',
         icon_path: defaultSprite,
-      }),
+      });
+    },
     {
       notes: { markdown: selectDocs },
     }
