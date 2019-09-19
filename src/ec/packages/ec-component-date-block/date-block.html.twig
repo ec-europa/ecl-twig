@@ -3,10 +3,10 @@
 {#
   Parameters:
     - "variant" (string) (default: '')
-    - "day" (string) (default: '')
+    - "day" (integer) (default: '')
     - "month" (string) (default: '')
-    - "year" (string) (default: '')
-    - "date_time" (string) (default: '')
+    - "year" (integer) (default: '')
+    - "date_time" (date/time) (default: '')
     - "month_full" (string) (default: '')
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
@@ -33,9 +33,11 @@
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
 {% endif %}
+
 {% if _variant is not empty %}
-    {% set _css_class = _css_class ~ ' ' ~ _css_class ~ '--' ~ _variant %}
+  {% set _css_class = _css_class ~ ' ' ~ _css_class ~ '--' ~ _variant %}
 {% endif %}
+
 {% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
   {% for attr in extra_attributes %}
     {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
@@ -44,12 +46,12 @@
 
 {% if _month is not empty or _year is not empty or _date_time is not empty %}
   {% if __month_full != '' and _month_full != _month %}
-    {% set _month_markup = '<abbr title=' ~ _month_full ~ ' class="ecl-date-block__month">' ~ _month ~ '</abbr>' %}
+    {% set _month_markup = '<abbr title="' ~ _month_full ~ '" class="ecl-date-block__month">' ~ _month ~ '</abbr>' %}
   {% else %}
     {% set _month_markup = '<span className="ecl-date-block__month">' ~ _month ~ '</span>' %}
   {% endif %}
   {% if _date_time is not empty %}
-    {% set _extra_attributes = _extra_attributes ~ 'dateTime=' ~ _date_time %}
+    {% set _extra_attributes = _extra_attributes ~ 'dateTime="' ~ _date_time ~ '"' %}
   {% endif %}
 
   <time class="{{ _css_class }}"{{ _extra_attributes|raw }}>

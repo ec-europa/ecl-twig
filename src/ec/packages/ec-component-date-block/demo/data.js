@@ -5,7 +5,7 @@ const adapter = initialData => {
   // Copy reference specification demo data.
   const adaptedData = JSON.parse(JSON.stringify(initialData));
   adaptedData.month_full = initialData.monthFull;
-  adaptedData.date_time = initialData.DateTime;
+  adaptedData.date_time = initialData.dateTime;
   delete adaptedData.monthFull;
   delete adaptedData.dateTime;
 
