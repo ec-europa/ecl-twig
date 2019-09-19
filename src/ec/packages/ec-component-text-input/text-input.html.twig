@@ -72,11 +72,11 @@
 <div class="{{ _css_group_class }}">
   {% if _label is not empty %}
     <label
+      {{ _id ? 'for="' ~ _id ~ '"' }}
       class="ecl-form-label
       {{- _invalid ? ' ecl-form-label--invalid' -}}
       {{- _disabled ? ' ecl-form-label--disabled' -}}
       "
-      for="{{ _id }}"
     >
       {%- block label _label -%}
       {%- if _required and _required_text is not empty -%}
@@ -96,8 +96,8 @@
   {% endif %}
 
   <input
+    {{ _id ? 'id="' ~ _id ~ '"' }}
     class="{{ _css_class }}"
-    id="{{ _id }}"
     name="{{ _name }}"
     type="{{ _type }}"
     {{ _disabled ? "disabled" }}
