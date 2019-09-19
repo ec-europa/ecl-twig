@@ -19,7 +19,6 @@ export const dataDefault = {
   label_id: specDataDefault.labelId,
   items: specDataDefault.items.map(formatItem),
   helper_id: specDataDefault.helperId,
-  hide_label: specDataDefault.hideLabel,
   helper_text: specDataDefault.helperText,
   invalid_text: specDataDefault.invalidText,
 };
@@ -29,7 +28,6 @@ export const dataInvalid = {
   label_id: specDataInvalid.labelId,
   items: specDataInvalid.items.map(formatItem),
   helper_id: specDataInvalid.helperId,
-  hide_label: specDataInvalid.hideLabel,
   helper_text: specDataInvalid.helperText,
   invalid_text: specDataInvalid.invalidText,
 };
@@ -39,7 +37,6 @@ export const dataBinary = {
   label_id: specDataBinary.labelId,
   items: specDataBinary.items.map(formatItem),
   helper_id: specDataBinary.helperId,
-  hide_label: specDataBinary.hideLabel,
   helper_text: specDataBinary.helperText,
   invalid_text: specDataBinary.invalidText,
 };
@@ -49,7 +46,6 @@ export const dataBinaryInvalid = {
   label_id: specDataBinaryInvalid.labelId,
   items: specDataBinaryInvalid.items.map(formatItem),
   helper_id: specDataBinaryInvalid.helperId,
-  hide_label: specDataBinaryInvalid.hideLabel,
   helper_text: specDataBinaryInvalid.helperText,
   invalid_text: specDataBinaryInvalid.invalidText,
 };
