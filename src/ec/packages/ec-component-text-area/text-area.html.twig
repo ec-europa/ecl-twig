@@ -9,8 +9,8 @@
   - "name" (string) (default: '')
   - "default_value" (string) (default: '')
   - "rows" (int) (default: 4)
-  - "width" (string) (default: '') 
-  - "extra_group_classes" (optional) (string) (default: '') Extra classes (space separated) for the text-area group  
+  - "width" (string) (default: '')
+  - "extra_group_classes" (optional) (string) (default: '') Extra classes (space separated) for the text-area group
   - "extra_classes" (optional) (string) (default: '') Extra classes (space separated) for the text area
   - "extra_attributes" (optional) (array) (default: []) Extra attributes for text area
     - "name" (string) Attribute name, eg. 'data-test'
@@ -33,22 +33,18 @@
 {% set _default_value = default_value|default('') %}
 {% set _rows = rows|default(4) %}
 {% set _width = width|default('m') %}
-
 {% set _helper_text = helper_text|default('') %}
 {% set _invalid_text = invalid_text|default('') %}
 {% set _required_text = required_text|default('') %}
 {% set _optional_text = optional_text|default('') %}
 {% set _label = label|default('') %}
-
 {% set _css_group_class = 'ecl-form-group ecl-form-group--text-area' %}
-
 {% set _css_class = ['ecl-text-area'] %}
 {% if _invalid %}
   {% set _css_class = _css_class|merge(['ecl-text-area--invalid']) %}
 {% endif %}
 {% set _css_class = _css_class|merge(['ecl-text-area--' ~ _width]) %}
 {% set _css_class = _css_class|join(' ') %}
-
 {% set _extra_attributes = '' %}
 
 {# Internal logic - Process properties #}
