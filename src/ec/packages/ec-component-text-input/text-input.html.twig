@@ -46,7 +46,7 @@
 {% if _invalid %}
   {% set _css_class = _css_class|merge(['ecl-text-input--invalid']) %}
 {% endif %}
-{% set _css_class = _css_class|merge(['ecl-text-input--' ~ _width ]) %}
+{% set _css_class = _css_class|merge(['ecl-text-input--' ~ _width]) %}
 {% set _css_class = _css_class|join(' ') %}
 
 {% set _extra_attributes = '' %}
