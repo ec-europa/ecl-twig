@@ -7,6 +7,7 @@
   - "invalid" (boolean) (default: false)
   - "invalid_icon_label" (string) (default: '')
   - "required" (boolean) (default: false)
+  - "hide_label" (boolean) (default: '')
   - "name" (string) (default: '')
   - "type" (string) (default: 'text')
   - "width" (string) (default: '') 
@@ -27,6 +28,7 @@
 
 {% set _id = id|default('') %}
 {% set _disabled = disabled|default(false) %}
+{% set _hide_label = hide_label|default(false) %}
 {% set _invalid = invalid|default(false) %}
 {% set _required = required|default(false) %}
 {% set _required_text = required_text|default('') %}
@@ -74,6 +76,7 @@
     <label
       {{ _id ? 'for="' ~ _id ~ '"' }}
       class="ecl-form-label
+      {{- _hide_label ? ' ecl-form-label--hidden' -}}
       {{- _invalid ? ' ecl-form-label--invalid' -}}
       {{- _disabled ? ' ecl-form-label--disabled' -}}
       "

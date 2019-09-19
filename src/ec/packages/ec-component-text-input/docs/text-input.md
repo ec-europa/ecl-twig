@@ -17,6 +17,7 @@ npm install --save @ecl-twig/ec-component-text-input
 - "required" (boolean) (default: false)
 - "name" (string) (default: '')
 - "type" (string) (default: '')
+- "hide_label" (boolean) (default: '')
 - "width" (string) (default: '') Input width size (s, m or l)
 - "extra_group_classes" (optional) (string) (default: '') Extra classes (space separated) for the text-input group
 - "extra_classes" (optional) (string) (default: '') Extra classes (space separated) for the icon
