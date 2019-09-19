@@ -9,6 +9,7 @@
   - "invalid" (boolean) (default: false)
   - "checked" (boolean) (default: false)
   - "helper_id" (string) (default: '')
+  - "icon_path" (string) (default: ''): file containing the svg icons
   - "extra_classes" (optional) (string) (default: '')
   - "extra_attributes" (optional) (array) (default: [])
     - "name" (string) Attribute name, eg. 'data-test'
@@ -27,17 +28,21 @@
 {% set _invalid = invalid|default(false) %}
 {% set _checked = checked|default(false) %}
 {% set _helper_id = helper_id|default('') %}
+{% set _icon_path = icon_path|default('') %}
 
 {% set _helper_text = helper_text|default('') %}
 {% set _label = label|default('') %}
 
-{% set _css_class = 'ecl-radio' %}
+{% set _css_class = 'ecl-checkbox' %}
 {% set _extra_attributes = '' %}
 
 {# Internal logic - Process properties #}
+{% if _invalid %}
+  {% set _css_class = _css_class ~ ' ecl-checkbox--invalid' %}
+{% endif %}
 
 {% if _disabled %}
-  {% set _css_class = _css_class ~ ' ecl-radio--disabled' %}
+  {% set _css_class = _css_class ~ ' ecl-checkbox--disabled' %}
 {% endif %}
 
 {% if extra_classes is defined and extra_classes is not empty %}
@@ -56,31 +61,39 @@
   <input
     {{ _id ? 'id="' ~ _id ~ '"' }}
     name="{{ _name }}"
-    class="ecl-radio__input"
-    type="radio"
+    class="ecl-checkbox__input"
+    type="checkbox"
     value="{{ _value }}"
     {{ _disabled ? "disabled" }}
     {{ _checked ? "checked" }}
-    {{ _helper_id is not empty ? 'aria-describedby="' ~ _helper_id ~ '"' -}}
   />
- 
+
   <label 
-    class="ecl-radio__label"
-    {{ _id ? ' for="' ~ _id ~ '"' }}
+    {{ _id ? 'for="' ~ _id ~  '"' }}
+    class="ecl-form-label ecl-checkbox__label
+    {{- _invalid ? " ecl-form-label--invalid" -}}"
   >
-    <span class="ecl-radio__box
-    {{- _invalid ? " ecl-radio__box--invalid" -}}
-    {{- _disabled ? " ecl-radio__box--disabled" -}}"></span>
+    <span class="ecl-checkbox__box{{ _invalid ? " ecl-checkbox__box--invalid" }}">
+      {% include '../ec-component-icon/icon.html.twig' with {
+        icon: {
+          path: _icon_path,
+          type: "ui",
+          name: "check",
+          size: "s"
+        },
+        extra_classes: 'ecl-checkbox__icon',
+      } only %}
+    </span>
     {%- block label _label -%}
   </label>
 
   {% if _helper_text is not empty %}
-    <div
-      class="ecl-help-block ecl-radio__help{{ _disabled ? " ecl-help-block--disabled" }}"
-      {{ _helper_id is not empty ? 'id="' ~ _helper_id ~ '"' }}
+    <p
+      class="ecl-checkbox__help ecl-help-block{{ _disabled ? " ecl-help-block--disabled" }}"
+      {{ _helper_id is not empty ? "id=\"" ~ _helper_id ~ "\""}}
     >
       {%- block helper_text _helper_text -%}
-    </div>
+    </p>
   {% endif %}
 </div>
 

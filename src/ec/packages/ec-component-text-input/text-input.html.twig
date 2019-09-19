@@ -6,10 +6,10 @@
   - "disabled" (boolean) (default: false)
   - "invalid" (boolean) (default: false)
   - "invalid_icon_label" (string) (default: '')
+  - "required" (boolean) (default: false)
   - "name" (string) (default: '')
-  - "hide_label" (boolean) (default: '')
-  - "placeholder" (string) (default: '')
   - "type" (string) (default: 'text')
+  - "width" (string) (default: '') 
   - "extra_group_classes" (optional) (string) (default: '') Extra classes (space separated) for the text-input group
   - "extra_classes" (optional) (string) (default: '') Extra classes (space separated) for the icon
   - "extra_attributes" (optional) (array) (default: []) Extra attributes for icon
@@ -18,6 +18,8 @@
   Blocks:
   - "helper_text"
   - "invalid_text"
+  - "required_text"
+  - "optional_text"
   - "label"
 #}
 
@@ -26,11 +28,14 @@
 {% set _id = id|default('') %}
 {% set _disabled = disabled|default(false) %}
 {% set _invalid = invalid|default(false) %}
+{% set _required = required|default(false) %}
+{% set _required_text = required_text|default('') %}
+{% set _optional_text = optional_text|default('') %}
 {% set _invalid_icon_label = invalid_icon_label|default('') %}
 {% set _name = name|default('') %}
-{% set _hide_label = hide_label|default(false) %}
 {% set _placeholder = placeholder|default('') %}
 {% set _type = type|default('text') %}
+{% set _width = width|default('m') %}
 
 {% set _helper_text = helper_text|default('') %}
 {% set _invalid_text = invalid_text|default('') %}
@@ -42,6 +47,7 @@
 {% if _invalid %}
   {% set _css_class = _css_class|merge(['ecl-text-input--invalid']) %}
 {% endif %}
+{% set _css_class = _css_class|merge(['ecl-text-input--' ~ _width ]) %}
 {% set _css_class = _css_class|join(' ') %}
 
 {% set _extra_attributes = '' %}
@@ -67,11 +73,27 @@
 <div class="{{ _css_group_class }}">
   {% if _label is not empty %}
     <label
-      class="ecl-form-label{{ invalid ? ' ecl-form-label--invalid' }}{{ hide_label ? ' ecl-form-label--hidden' }}"
+      class="ecl-form-label
+      {{- _invalid ? ' ecl-form-label--invalid' -}}
+      {{- _disabled ? ' ecl-form-label--disabled' -}}
+      "
       for="{{ _id }}"
     >
       {%- block label _label -%}
+      {%- if _required and _required_text is not empty -%}
+        <span class="ecl-form-label__required">{{ _required_text }}</span>
+      {%- elseif not _required and _optional_text is not empty -%}
+        <span class="ecl-form-label__optional">{{ ' ' ~ _optional_text }}</span>
+      {%- endif -%}
     </label>
+  {% endif %}
+
+  {% if _helper_text is not empty %}
+    <div class="ecl-help-block{{ _disabled ? ' ecl-help-block--disabled' }}">{% block helper_text _helper_text %}</div>
+  {% endif %}
+
+  {% if _invalid and _invalid_text is not empty %}
+    <div class="ecl-feedback-message">{% block invalid_text _invalid_text %}</div>
   {% endif %}
 
   <input
@@ -79,18 +101,10 @@
     id="{{ _id }}"
     name="{{ _name }}"
     type="{{ _type }}"
-    {% if _placeholder is not empty %}placeholder="{{ _placeholder }}"{% endif %}
     {{ _disabled ? "disabled" }}
     {{ _extra_attributes|raw }}
   />
 
-  {% if _invalid and _invalid_text is not empty %}
-    <div class="ecl-feedback-message">{% block invalid_text _invalid_text %}</div>
-  {% endif %}
-
-  {% if _helper_text is not empty %}
-    <div class="ecl-help-block">{% block helper_text _helper_text %}</div>
-  {% endif %}
 </div>
 
 {% endspaceless %}
