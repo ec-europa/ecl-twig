@@ -18,8 +18,9 @@ npm install --save @ecl-twig/ec-component-select
 - "invalid" (boolean) (default: false)
 - "required" (boolean) (default: false)
 - "name" (string) (default: '')
-- "icon_path" (string) (default: ''): file containing the svg icons
 - "width" (string) (default: '') Input width size (s, m or l)
+- "icon_path" (string) (default: ''): file containing the svg icons
+- "extra_group_classes" (optional) (string) (default: '') Extra classes (space separated) for the select group
 - "extra_classes" (optional) (string) (default: '') Extra classes (space separated) for the select
 - "extra_attributes" (optional) (array) (default: []) Extra attributes for select
   - "name" (string) Attribute name, eg. 'data-test'
