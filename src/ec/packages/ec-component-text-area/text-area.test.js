@@ -41,6 +41,18 @@ describe('EC - Text area', () => {
       ).resolves.toMatchSnapshot();
     });
 
+    test('renders correctly with extra label class names', () => {
+      expect.assertions(1);
+
+      const optionsWithExtraLabelClasses = merge(options, {
+        label_class_name: 'custom-label-class custom-label-class--test',
+      });
+
+      return expect(
+        render(optionsWithExtraLabelClasses)
+      ).resolves.toMatchSnapshot();
+    });
+
     test('renders correctly with extra class names', () => {
       expect.assertions(1);
 

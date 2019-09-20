@@ -38,6 +38,8 @@
 {% set _required_text = required_text|default('') %}
 {% set _optional_text = optional_text|default('') %}
 {% set _label = label|default('') %}
+{% set _label_class = 'ecl-form-label' %}
+{% set _label_class_name = label_class_name|default('') %}
 {% set _css_group_class = 'ecl-form-group ecl-form-group--text-area' %}
 {% set _css_class = ['ecl-text-area'] %}
 {% if _invalid %}
@@ -57,6 +59,10 @@
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
 {% endif %}
 
+{% if _label_class_name is defined and _label_class_name is not empty %}
+  {% set _label_class = _label_class ~ ' ' ~ _label_class_name %}
+{% endif %}
+
 {% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
   {% for attr in extra_attributes %}
     {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
@@ -68,8 +74,10 @@
 <div class="{{ _css_group_class }}">
   {% if _label is not empty %}
     <label
-      class="ecl-form-label{{ invalid ? ' ecl-form-label--invalid' }}{{ hide_label ? ' ecl-form-label--hidden' }}"
-      for="{{ _id }}"
+      class="{{- _label_class -}}
+      {{- disabled ? ' ecl-form-label--disabled' -}}
+      {{- invalid ? ' ecl-form-label--invalid' -}}"
+      {{ _id ? 'for="' ~ _id ~ '"' }}
     >
       {%- block label _label -%}
       {%- if _required and _required_text is not empty -%}
