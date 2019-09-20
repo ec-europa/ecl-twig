@@ -98,6 +98,30 @@ exports[`EC - Text field Default renders correctly with extra group class names 
 </div>
 `;
 
+exports[`EC - Text field Default renders correctly with extra label class names 1`] = `
+<div
+  class="ecl-form-group ecl-form-group--text-input"
+>
+  <label
+    class="ecl-form-label custom-label-class custom-label-class--test"
+    for="example-id"
+  >
+    Label
+  </label>
+  <div
+    class="ecl-help-block"
+  >
+    Help message
+  </div>
+  <input
+    class="ecl-text-input ecl-text-input--m"
+    id="example-id"
+    name="example-name"
+    type="text"
+  />
+</div>
+`;
+
 exports[`EC - Text field Disabled renders correctly 1`] = `
 <div
   class="ecl-form-group ecl-form-group--text-input"
