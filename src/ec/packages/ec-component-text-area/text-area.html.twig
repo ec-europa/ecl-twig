@@ -39,7 +39,6 @@
 {% set _optional_text = optional_text|default('') %}
 {% set _label = label|default('') %}
 {% set _label_class = 'ecl-form-label' %}
-{% set _label_class_name = label_class_name|default('') %}
 {% set _css_group_class = 'ecl-form-group ecl-form-group--text-area' %}
 {% set _css_class = ['ecl-text-area'] %}
 {% if _invalid %}
@@ -59,8 +58,8 @@
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
 {% endif %}
 
-{% if _label_class_name is defined and _label_class_name is not empty %}
-  {% set _label_class = _label_class ~ ' ' ~ _label_class_name %}
+{% if extra_label_classes is defined and extra_label_classes is not empty %}
+  {% set _label_class = _label_class ~ ' ' ~ extra_label_classes %}
 {% endif %}
 
 {% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
