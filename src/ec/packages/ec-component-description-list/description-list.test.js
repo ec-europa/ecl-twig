@@ -17,7 +17,11 @@ describe('EC - Description list', () => {
     test('renders correctly in the horizontal variant', () => {
       expect.assertions(1);
 
-      return expect(render(dataHorizontal)).resolves.toMatchSnapshot();
+      const horizontal = merge(dataHorizontal, {
+        variant: 'horizontal',
+      });
+
+      return expect(render(horizontal)).resolves.toMatchSnapshot();
     });
 
     test('renders correctly with extra class names', () => {
