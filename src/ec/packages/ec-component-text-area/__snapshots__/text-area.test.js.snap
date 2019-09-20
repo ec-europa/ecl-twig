@@ -10,18 +10,17 @@ exports[`EC - Text area Default renders correctly 1`] = `
   >
     Label
   </label>
-  <textarea
-    class="ecl-text-area"
-    id="example-id"
-    name="example-name"
-    placeholder="Placeholder"
-    rows="4"
-  />
   <div
     class="ecl-help-block"
   >
     Help message
   </div>
+  <textarea
+    class="ecl-text-area ecl-text-area--m"
+    id="example-id"
+    name="example-name"
+    rows="4"
+  />
 </div>
 `;
 
@@ -35,20 +34,19 @@ exports[`EC - Text area Default renders correctly with a default value 1`] = `
   >
     Label
   </label>
-  <textarea
-    class="ecl-text-area"
-    id="example-id"
-    name="example-name"
-    placeholder="Placeholder"
-    rows="4"
-  >
-    Hello world!
-  </textarea>
   <div
     class="ecl-help-block"
   >
     Help message
   </div>
+  <textarea
+    class="ecl-text-area ecl-text-area--m"
+    id="example-id"
+    name="example-name"
+    rows="4"
+  >
+    Hello world!
+  </textarea>
 </div>
 `;
 
@@ -62,20 +60,19 @@ exports[`EC - Text area Default renders correctly with extra attributes 1`] = `
   >
     Label
   </label>
-  <textarea
-    class="ecl-text-area"
-    data-test="data-test-value"
-    data-test-1="data-test-value-1"
-    id="example-id"
-    name="example-name"
-    placeholder="Placeholder"
-    rows="4"
-  />
   <div
     class="ecl-help-block"
   >
     Help message
   </div>
+  <textarea
+    class="ecl-text-area ecl-text-area--m"
+    data-test="data-test-value"
+    data-test-1="data-test-value-1"
+    id="example-id"
+    name="example-name"
+    rows="4"
+  />
 </div>
 `;
 
@@ -89,18 +86,65 @@ exports[`EC - Text area Default renders correctly with extra class names 1`] = `
   >
     Label
   </label>
-  <textarea
-    class="ecl-text-area custom-class custom-class--test"
-    id="example-id"
-    name="example-name"
-    placeholder="Placeholder"
-    rows="4"
-  />
   <div
     class="ecl-help-block"
   >
     Help message
   </div>
+  <textarea
+    class="ecl-text-area ecl-text-area--m custom-class custom-class--test"
+    id="example-id"
+    name="example-name"
+    rows="4"
+  />
+</div>
+`;
+
+exports[`EC - Text area Default renders correctly with extra group class names 1`] = `
+<div
+  class="ecl-form-group ecl-form-group--text-area custom-group-class custom-group-class--test"
+>
+  <label
+    class="ecl-form-label"
+    for="example-id"
+  >
+    Label
+  </label>
+  <div
+    class="ecl-help-block"
+  >
+    Help message
+  </div>
+  <textarea
+    class="ecl-text-area ecl-text-area--m"
+    id="example-id"
+    name="example-name"
+    rows="4"
+  />
+</div>
+`;
+
+exports[`EC - Text area Default renders correctly with extra label class names 1`] = `
+<div
+  class="ecl-form-group ecl-form-group--text-area"
+>
+  <label
+    class="ecl-form-label custom-label-class custom-label-class--test"
+    for="example-id"
+  >
+    Label
+  </label>
+  <div
+    class="ecl-help-block"
+  >
+    Help message
+  </div>
+  <textarea
+    class="ecl-text-area ecl-text-area--m"
+    id="example-id"
+    name="example-name"
+    rows="4"
+  />
 </div>
 `;
 
@@ -109,24 +153,23 @@ exports[`EC - Text area Disabled renders correctly 1`] = `
   class="ecl-form-group ecl-form-group--text-area"
 >
   <label
-    class="ecl-form-label"
+    class="ecl-form-label ecl-form-label--disabled"
     for="example-id"
   >
     Label
   </label>
-  <textarea
-    class="ecl-text-area"
-    disabled=""
-    id="example-id"
-    name=""
-    placeholder="Placeholder"
-    rows="4"
-  />
   <div
-    class="ecl-help-block"
+    class="ecl-help-block ecl-help-block--disabled"
   >
     Help message
   </div>
+  <textarea
+    class="ecl-text-area ecl-text-area--m"
+    disabled=""
+    id="example-id"
+    name=""
+    rows="4"
+  />
 </div>
 `;
 
@@ -135,26 +178,25 @@ exports[`EC - Text area Disabled renders correctly with extra attributes 1`] = `
   class="ecl-form-group ecl-form-group--text-area"
 >
   <label
-    class="ecl-form-label"
+    class="ecl-form-label ecl-form-label--disabled"
     for="example-id"
   >
     Label
   </label>
+  <div
+    class="ecl-help-block ecl-help-block--disabled"
+  >
+    Help message
+  </div>
   <textarea
-    class="ecl-text-area"
+    class="ecl-text-area ecl-text-area--m"
     data-test="data-test-value"
     data-test-1="data-test-value-1"
     disabled=""
     id="example-id"
     name=""
-    placeholder="Placeholder"
     rows="4"
   />
-  <div
-    class="ecl-help-block"
-  >
-    Help message
-  </div>
 </div>
 `;
 
@@ -163,24 +205,48 @@ exports[`EC - Text area Disabled renders correctly with extra class names 1`] = 
   class="ecl-form-group ecl-form-group--text-area"
 >
   <label
-    class="ecl-form-label"
+    class="ecl-form-label ecl-form-label--disabled"
     for="example-id"
   >
     Label
   </label>
-  <textarea
-    class="ecl-text-area custom-class custom-class--test"
-    disabled=""
-    id="example-id"
-    name=""
-    placeholder="Placeholder"
-    rows="4"
-  />
   <div
-    class="ecl-help-block"
+    class="ecl-help-block ecl-help-block--disabled"
   >
     Help message
   </div>
+  <textarea
+    class="ecl-text-area ecl-text-area--m custom-class custom-class--test"
+    disabled=""
+    id="example-id"
+    name=""
+    rows="4"
+  />
+</div>
+`;
+
+exports[`EC - Text area Disabled renders correctly with extra group class names 1`] = `
+<div
+  class="ecl-form-group ecl-form-group--text-area custom-group-class custom-group-class--test"
+>
+  <label
+    class="ecl-form-label ecl-form-label--disabled"
+    for="example-id"
+  >
+    Label
+  </label>
+  <div
+    class="ecl-help-block ecl-help-block--disabled"
+  >
+    Help message
+  </div>
+  <textarea
+    class="ecl-text-area ecl-text-area--m"
+    disabled=""
+    id="example-id"
+    name=""
+    rows="4"
+  />
 </div>
 `;
 
@@ -194,23 +260,22 @@ exports[`EC - Text area With error renders correctly 1`] = `
   >
     Label
   </label>
-  <textarea
-    class="ecl-text-area ecl-text-area--invalid"
-    id="example-id"
-    name="example-name"
-    placeholder="Placeholder"
-    rows="4"
-  />
-  <div
-    class="ecl-feedback-message"
-  >
-    Error message
-  </div>
   <div
     class="ecl-help-block"
   >
     Help message
   </div>
+  <div
+    class="ecl-feedback-message"
+  >
+    Error message
+  </div>
+  <textarea
+    class="ecl-text-area ecl-text-area--invalid ecl-text-area--m"
+    id="example-id"
+    name="example-name"
+    rows="4"
+  />
 </div>
 `;
 
@@ -224,25 +289,24 @@ exports[`EC - Text area With error renders correctly with extra attributes 1`] =
   >
     Label
   </label>
-  <textarea
-    class="ecl-text-area ecl-text-area--invalid"
-    data-test="data-test-value"
-    data-test-1="data-test-value-1"
-    id="example-id"
-    name="example-name"
-    placeholder="Placeholder"
-    rows="4"
-  />
-  <div
-    class="ecl-feedback-message"
-  >
-    Error message
-  </div>
   <div
     class="ecl-help-block"
   >
     Help message
   </div>
+  <div
+    class="ecl-feedback-message"
+  >
+    Error message
+  </div>
+  <textarea
+    class="ecl-text-area ecl-text-area--invalid ecl-text-area--m"
+    data-test="data-test-value"
+    data-test-1="data-test-value-1"
+    id="example-id"
+    name="example-name"
+    rows="4"
+  />
 </div>
 `;
 
@@ -256,22 +320,50 @@ exports[`EC - Text area With error renders correctly with extra class names 1`] 
   >
     Label
   </label>
-  <textarea
-    class="ecl-text-area ecl-text-area--invalid custom-class custom-class--test"
-    id="example-id"
-    name="example-name"
-    placeholder="Placeholder"
-    rows="4"
-  />
-  <div
-    class="ecl-feedback-message"
-  >
-    Error message
-  </div>
   <div
     class="ecl-help-block"
   >
     Help message
   </div>
+  <div
+    class="ecl-feedback-message"
+  >
+    Error message
+  </div>
+  <textarea
+    class="ecl-text-area ecl-text-area--invalid ecl-text-area--m custom-class custom-class--test"
+    id="example-id"
+    name="example-name"
+    rows="4"
+  />
+</div>
+`;
+
+exports[`EC - Text area With error renders correctly with extra group class names 1`] = `
+<div
+  class="ecl-form-group ecl-form-group--text-area custom-group-class custom-group-class--test"
+>
+  <label
+    class="ecl-form-label ecl-form-label--invalid"
+    for="example-id"
+  >
+    Label
+  </label>
+  <div
+    class="ecl-help-block"
+  >
+    Help message
+  </div>
+  <div
+    class="ecl-feedback-message"
+  >
+    Error message
+  </div>
+  <textarea
+    class="ecl-text-area ecl-text-area--invalid ecl-text-area--m"
+    id="example-id"
+    name="example-name"
+    rows="4"
+  />
 </div>
 `;
