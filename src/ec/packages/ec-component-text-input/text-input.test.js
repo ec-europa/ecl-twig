@@ -40,6 +40,18 @@ describe('EC - Text field', () => {
       return expect(render(optionsWithExtraClasses)).resolves.toMatchSnapshot();
     });
 
+    test('renders correctly with extra label class names', () => {
+      expect.assertions(1);
+
+      const optionsWithExtraLabelClasses = merge(options, {
+        extra_label_classes: 'custom-label-class custom-label-class--test',
+      });
+
+      return expect(
+        render(optionsWithExtraLabelClasses)
+      ).resolves.toMatchSnapshot();
+    });
+
     test('renders correctly with extra attributes', () => {
       expect.assertions(1);
 
