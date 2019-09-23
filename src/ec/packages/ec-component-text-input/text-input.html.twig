@@ -35,20 +35,17 @@
 {% set _name = name|default('') %}
 {% set _type = type|default('text') %}
 {% set _width = width|default('m') %}
-
 {% set _helper_text = helper_text|default('') %}
 {% set _invalid_text = invalid_text|default('') %}
 {% set _label = label|default('') %}
-
+{% set _label_class = 'ecl-form-label' %}
 {% set _css_group_class = 'ecl-form-group ecl-form-group--text-input' %}
-
 {% set _css_class = ['ecl-text-input'] %}
 {% if _invalid %}
   {% set _css_class = _css_class|merge(['ecl-text-input--invalid']) %}
 {% endif %}
 {% set _css_class = _css_class|merge(['ecl-text-input--' ~ _width]) %}
 {% set _css_class = _css_class|join(' ') %}
-
 {% set _extra_attributes = '' %}
 
 {# Internal logic - Process properties #}
@@ -59,6 +56,10 @@
 
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_label_classes is defined and extra_label_classes is not empty %}
+  {% set _label_class = _label_class ~ ' ' ~ extra_label_classes %}
 {% endif %}
 
 {% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
@@ -73,10 +74,9 @@
   {% if _label is not empty %}
     <label
       {{ _id ? 'for="' ~ _id ~ '"' }}
-      class="ecl-form-label
+      class="{{- _label_class -}}
       {{- _invalid ? ' ecl-form-label--invalid' -}}
-      {{- _disabled ? ' ecl-form-label--disabled' -}}
-      "
+      {{- _disabled ? ' ecl-form-label--disabled' -}}"
     >
       {%- block label _label -%}
       {%- if _required and _required_text is not empty -%}
