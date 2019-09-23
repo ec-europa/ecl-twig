@@ -991,7 +991,7 @@
     "@ecl/ec-base" "^2.11.0"
     "@ecl/ec-component-link" "^2.11.0"
 
-"@ecl/ec-component-search-form@2.11.0":
+"@ecl/ec-component-search-form@2.11.0", "@ecl/ec-component-search-form@^2.11.0":
   version "2.11.0"
   resolved "https://registry.yarnpkg.com/@ecl/ec-component-search-form/-/ec-component-search-form-2.11.0.tgz#bd3fb7c8046495e331ac5b21085cdb4260e371a7"
   integrity sha512-wcBv6cxZnmrS+6cAbrxEJuIrXc1QIVTSu1Vw4P6vaGITuV+ufsYlJdOtEAAeJddNNAUe7dgQM45ndCoT6LV+0w==
@@ -999,6 +999,16 @@
     "@ecl/ec-base" "^2.11.0"
     "@ecl/ec-component-button" "^2.11.0"
     "@ecl/ec-component-form-text-input" "^2.11.0"
+
+"@ecl/ec-component-site-header@2.11.0":
+  version "2.11.0"
+  resolved "https://registry.yarnpkg.com/@ecl/ec-component-site-header/-/ec-component-site-header-2.11.0.tgz#d4283be9bb79ba91a672b6a3d60a8206c0599d1b"
+  integrity sha512-tiYwAIoSfGBQHuERpebDPj504VVU8b0vzM0KHTHWXF3fNAhcLSzRnzIq1OU/oohitfzoFtyuo+SMtO0SiYUkKg==
+  dependencies:
+    "@ecl/ec-base" "^2.11.0"
+    "@ecl/ec-component-icon" "^2.11.0"
+    "@ecl/ec-component-search-form" "^2.11.0"
+    focus-trap "5.0.2"
 
 "@ecl/ec-component-skip-link@2.11.0":
   version "2.11.0"
@@ -1196,6 +1206,11 @@
   version "2.11.0"
   resolved "https://registry.yarnpkg.com/@ecl/ec-specs-select/-/ec-specs-select-2.11.0.tgz#ec69ce0ffe07ce6b7f22f480d2ad8df39afb9653"
   integrity sha512-zmmmXj4Kw/2NqHi5oCmogK8osyRc4aylxishRbGmoE7YrKb3Uei+7bMvAbThtsVr/NGm0DfpbDufPBS+XK4/zQ==
+
+"@ecl/ec-specs-site-header@2.11.0":
+  version "2.11.0"
+  resolved "https://registry.yarnpkg.com/@ecl/ec-specs-site-header/-/ec-specs-site-header-2.11.0.tgz#3876d651c1774aac375f27f3b83488e68c0f2d66"
+  integrity sha512-KM60Rco/ptIsABl9SG5aSd6GD8f4LJU/oKkVWNF58fhJ3u4TkYy17ixqMDq65VUlEYeUMnH6MbEsQ+6zy2LkAA==
 
 "@ecl/ec-specs-skip-link@2.11.0":
   version "2.11.0"
