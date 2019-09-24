@@ -10,43 +10,44 @@ npm install --save @ecl-twig/ec-component-file-upload
 
 ### Parameters:
 
-- "id" (string) (default: '')
-- "invalid" (boolean) (default: false)
-- "invalid_text" (string) (default: '')
-- "disabled" (boolean) (default: false)
-- "required" (boolean) (default: false)
-- "required_text" (string) (default: '')
-- "optional_text" (string) (default: '')
-- "extra_classes" (string) (default: '')
-- "extra_attributes" (optional) (array) (default: []) Extra attributes
-  - "name" (string) Attribute name, eg. 'data-test'
-  - "value" (string) Attribute value, eg: 'data-test-1'
+- "id" (string) (default: '') - Input id
+- "name" (string) (default: '') - Input id
+- "invalid" (boolean) (default: false) - When an error is found
+- "invalid_text" (string) (default: '') - Error message
+- "disabled" (boolean) (default: false) - Disables the input field
+- "required" (boolean) (default: false) - Makes the input required
+- "required_text" (string) (default: '') - Text after the label when required
+- "optional_text" (string) (default: '') - Text after the label when not required
+- "extra_classes" (string) (default: '') - Extra classes for the wrapper
+- "extra_attributes" (optional) (array) (default: []) Form extra attributes
+  - "name" (string) Attribute name
+  - "value" (string) Attribute value
 
 ### Blocks:
 
 - "label" (string) (default: '')
-- "helperText" (string) (default: '')
+- "helper_text" (string) (default: '')
 
 ### Example:
 
 <!-- prettier-ignore -->
 ```twig
-{% include 'path/to/file-upload.html.twig' with {  
-  id: 'my-file-upload',  
-  label: 'my file upload label',  
-  helper_text: 'this is a helper text',  
-  invalid_text: 'this is an invalid text',  
-  required_text: 'this is a required text',  
-  optional_text: 'this is an optional text',  
-  disable: false,  
-  required: false,  
-  invalid: false,  
-  extra_classes: 'ecl-deprecated',  
-  extra_attributes: [  
-    {  
-        name: 'data-test',  
-        value : 'data-test-1'  
-    },  
-  ],  
+{% include 'path/to/file-upload.html.twig' with { 
+  id: 'my-file-upload', 
+  label: 'my file upload label', 
+  helper_text: 'this is a helper text', 
+  invalid_text: 'this is an invalid text', 
+  required_text: '*', 
+  optional_text: 'this is an optional text', 
+  disabled: false, 
+  required: false, 
+  invalid: false, 
+  extra_classes: 'ecl-deprecated', 
+  extra_attributes: [ 
+    { 
+        name: 'data-test', 
+        value : 'data-test-1' 
+    }, 
+  ], 
 } %}
 ```

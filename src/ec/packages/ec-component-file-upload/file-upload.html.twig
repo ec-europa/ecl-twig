@@ -3,15 +3,16 @@
 {#
   Blocks:
   - "label" (string) (default: '')
-  - "helperText" (string) (default: '')
+  - "helper_text" (string) (default: '')
   
   Parameters:
   - "id" (string) (default: '')
+  - "name" (string) (default: '')
   - "invalid" (boolean) (default: false)
   - "invalid_text" (string) (default: '')
   - "disabled" (boolean) (default: false)
   - "required" (boolean) (default: false)
-  - "required_text" (string) (default: '')
+  - "required_text" (string) (default: '*')
   - "optional_text" (string) (default: '')
   - "extra_classes" (string) (default: '')
   - "extra_attributes" (array) (default: []): format: [
@@ -23,95 +24,104 @@
       ]
 #}
 
-{# Internal properties #}
+{# Parameters #}
 
-{% set _label = label|default('') %}
-{% set _helper_text = helperText|default('') %}
-
-{% set _input_id = id|default('') %}
+{% set _id = id|default('') %}
+{% set _name = name|default('') %}
 {% set _invalid = invalid|default(false) %}
 {% set _invalid_text = invalid_text|default('') %}
 {% set _disabled = disabled|default(false) %}
 {% set _required = required|default(false) %}
 {% set _required_text = required_text|default('*') %}
-{% set _optional_text = optional_text|default('(optional)') %}
-
-{% set _css_class = 'ecl-form-group ecl-form-group--file-upload' %}
-{% set _class_prefix = 'ecl-file-upload' %}
-{% set _extra_attributes = '' %}
-
-{# Internal logic - Process properties #}
-
-{# required attribute #}
-{% set _required_attr = _required ? 'required=""':'' %}{# required attribute #}
-
-{# disabled attribute #}
-{% set _disabled_attr = _disabled ? 'disabled=""':'' %}
-
-
-{% if extra_classes is defined and extra_classes is not empty %}
-  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
-{% endif %}
-
+{% set _optional_text = optional_text|default('') %}
+{% set _extra_classes = extra_classes|default('') %}
 {% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
   {% for attr in extra_attributes %}
     {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
   {% endfor %}
 {% endif %}
 
+{# Blocks #}
+{% set _label = label|default('') %}
+{% set _helper_text = helper_text|default('') %}
+
+{# Internal properties #}
+
+{% set _component_class = 'ecl-file-upload' %}
+{% set _main_attributes = '' %}
+{% set _disabled_variant = '--disabled' %}
+{% set _invalid_variant = '--invalid' %}
+{% set _label_base_class = 'ecl-form-label' %}
+{% set _label_classes = _label_base_class %}
+{% set _help_classes = 'ecl-help-block' %}
+{% set _group_css_classes = 'ecl-form-group ecl-form-group--file-upload' %}
+
+{# Internal logic - Process properties #}
+
+{% if _id is not empty %}
+  {% set _main_attributes = _component_attributes ~ ' ' ~ 'id="' ~ _id ~ '"' %}
+{% endif %}
+
+{% if _name is not empty %}
+  {% set _main_attributes = _component_attributes ~ ' ' ~ 'name="' ~ _name ~ '"' %}
+{% endif %}
+
+{% if _required %}
+  {% set _main_attributes = _component_attributes ~ ' ' ~ 'required' %}
+{% endif %}
+
+{% if _invalid %}
+  {% set _label_classes = _label_base_class ~ ' ' ~ _label_base_class ~ _invalid_variant %}
+  {% set _component_class = _component_class ~ ' ' ~ _component_class ~ _invalid_variant %}
+{% endif %}
+
+{% if _disabled %}
+  {% set _label_classes = _label_base_class ~ ' ' ~ _label_base_class ~ _disabled_variant %}
+  {% set _help_classes = _help_classes ~ ' ' ~ _help_classes ~ _disabled_variant %}
+  {% set _component_attributes = _component_attributes ~ ' ' ~ 'disabled' %}
+{% endif %}
+
+{% if _extra_classes is not empty %}
+  {% set _group_css_classes = _group_css_classes ~ ' ' ~ _extra_classes %}
+{% endif %}
+
 {# Print the result #}
 
-<div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
-    
-  {# label #}
-  {% if _label is not empty %}  
-    {% set _class_prefix = 'ecl-form-label' %}
-    {% set _class_invalid = _invalid ?  _class_prefix ~ '--invalid':'' %}
-    {% set _class_disabled = _disabled ?  _class_prefix ~ '--disabled':'' %}
-    <label class="{{ _class_prefix  }} {{ _class_invalid }} {{ _class_disabled }}" for="{{- _input_id -}}">  
+<div class="{{ _group_css_classes }}">
+  {% if _label is not empty %}
+    <label class="{{ _label_classes }}"
+      {{- _id ? 'for="' ~ _id ~ '"' -}}
+    >
       {%- block label _label -%}
-      {%- if _required %}
-        <span class="ecl-form-label__required">  
+      {%- if _required and _required_text is not empty -%}
+        <span class="{{ _label_base_class }}__required">
           {{- _required_text -}}
         </span>
-      {%- else %}
-        {%- if _optional_text is not empty %}
-          <span class="{{ _class_prefix  }}__optional">  
-              {{- _optional_text -}}
-          </span>
-        {% endif %}
+      {%- elseif not _required and _optional_text is not empty -%}
+        <span class="{{ _label_base_class }}__optional">
+          {{ _optional_text -}}
+        </span>
       {% endif %}
-    </label>  
+    </label>
   {% endif %}
   
-  {# reinit _class_prefix #}
-  {% set _class_prefix = 'ecl-help-block' %}
-  {% set _class_disabled = _disabled ?  _class_prefix ~ '--disabled':'' %}
-  
-  {#helper text#}
   {% if _helper_text is not empty %}
-    <div class="{{- _class_prefix }} {{ _class_disabled }}">
+    <div class="{{ _help_classes }}">
       {%- block helper_text _helper_text -%}
-    </div>  
+    </div>
   {% endif %}
-  
-  {#invalid text#}
+
   {% if _invalid and _invalid_text is not empty %}
     <div class="ecl-feedback-message">
       {%- block invalid_text _invalid_text -%}
     </div>
   {% endif %}
-  
-  {# reinit _class_prefix #}
-  {% set _class_prefix = 'ecl-file-upload' %}
-  {% set _invalid_class = _invalid ? _class_prefix ~ '--invalid ':'' %}
-  
-  {#input#}
-  <input 
-    type="file" 
-    id="{{- _input_id -}}" 
-    class="{{- _class_prefix }} {{ _invalid_class}}" {{ _disabled_attr }} {{ _required_attr }} />
-        
+
+  <input type="file"
+    class="{{ _component_class }}"
+    {{- _main_attributes -}}
+    {{- _extra_attributes|raw -}}
+  />
 </div>
 
 {% endspaceless %}

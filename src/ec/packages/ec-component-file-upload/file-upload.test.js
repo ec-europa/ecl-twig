@@ -2,7 +2,7 @@ import path from 'path';
 import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
 // Import data for tests
-import dataDefault from '@ecl/ec-specs-file-upload/demo/data--default';
+import dataDefault from './demo/data';
 
 describe('EC - File Upload ', () => {
   const template = path.resolve(__dirname, './file-upload.html.twig');
@@ -38,17 +38,26 @@ describe('EC - File Upload ', () => {
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
     });
 
-    test('renders correctly with disabled', () => {
+    test('renders correctly when required', () => {
+      expect.assertions(1);
+      const dataRequired = merge(dataDefault, {
+        required: true,
+        required_text: '*',
+      });
+      return expect(render(dataRequired)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly when disabled', () => {
       expect.assertions(1);
       const dataDisabled = merge(dataDefault, { disabled: true });
       return expect(render(dataDisabled)).resolves.toMatchSnapshot();
     });
 
-    test('renders correctly with invalid', () => {
+    test('renders correctly when invalid', () => {
       expect.assertions(1);
       const dataInvalid = merge(dataDefault, {
         invalid: true,
-        invalidText: 'Invalid test text',
+        invalid_text: 'Invalid text',
       });
       return expect(render(dataInvalid)).resolves.toMatchSnapshot();
     });

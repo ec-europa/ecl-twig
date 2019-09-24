@@ -4,7 +4,7 @@ import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
 
 // Import data for tests
-import dataDefault from '@ecl/ec-specs-file-upload/demo/data--default';
+import dataDefault from './demo/data';
 
 import fileDocs from './README.md';
 import fileUpload from './file-upload.html.twig';
@@ -17,15 +17,16 @@ storiesOf('Components/Forms/File Upload', module)
     'default',
     () =>
       fileUpload({
-        id: text('input Id', dataDefault.id),
-        label: text('Label', dataDefault.label),
-        helper_text: text('Help message', dataDefault.helperText),
-        invalid: boolean('Invalid', false),
-        disabled: boolean('Disabled', false),
         required: boolean('Required', false),
-        invalid_text: text('invalid text', dataDefault.invalidText),
-        required_text: text('Required text', dataDefault.requiredText),
-        optional_text: text('Optional Text', dataDefault.optionalText),
+        disabled: boolean('Disabled', false),
+        invalid: boolean('Invalid', false),
+        id: text('Input id', dataDefault.id),
+        name: text('Name', dataDefault.name),
+        label: text('Label', dataDefault.label),
+        helper_text: text('Help message', dataDefault.helper_text),
+        invalid_text: text('Invalid text', 'This is an error message'),
+        required_text: text('Required text', '*'),
+        optional_text: text('Optional Text', '(optional)'),
         extra_classes: text('Extra classes', ''),
       }),
     {
