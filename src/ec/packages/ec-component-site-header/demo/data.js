@@ -1,42 +1,43 @@
-/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable import/no-extraneous-dependencies, no-param-reassign  */
 import specEnglishData from '@ecl/ec-specs-site-header/demo/data--en';
 import specFrenchData from '@ecl/ec-specs-site-header/demo/data--fr';
 
-const defaultSprite = '/static/icons.svg';
+const defaultSprite = 'static/icons.svg';
 
-const englishBanner = 'static/media//logo--en.svg';
-const frenchBanner = 'static/media//logo--fr.svg';
+const englishBanner = 'static/media/logo--en.svg';
+const frenchBanner = 'static/media/logo--fr.svg';
 
-function prepareSiteHeaderData(data, lng) {
-  const output = data;
+const adapter = initialData => {
+  const adaptedData = JSON.parse(JSON.stringify(initialData));
 
-  output.logo.src = lng === 'en' ? englishBanner : frenchBanner;
+  const lng = adaptedData.logo.language;
+  adaptedData.logo.src = lng === 'en' ? englishBanner : frenchBanner;
 
-  output.language_selector = output.languageSelector;
+  adaptedData.language_selector = adaptedData.languageSelector;
 
-  output.language_selector.overlay.close_label =
-    output.languageSelector.overlay.closeLabel;
+  adaptedData.language_selector.overlay.close_label =
+    adaptedData.languageSelector.overlay.closeLabel;
 
-  output.language_selector.overlay.items.forEach(item => {
-    if (item.isActive !== undefined) {
+  adaptedData.language_selector.overlay.items.forEach(item => {
+    if (item.isActive) {
       item.is_active = true; // eslint-disable-line no-param-reassign
     }
   });
 
-  output.search_form = {
+  adaptedData.search_form = {
     text_input: {
-      id: output.searchForm.textInputId,
-      name: output.searchForm.inputLabel,
+      id: adaptedData.searchForm.textInputId,
+      name: adaptedData.searchForm.inputLabel,
     },
     button: {
-      label: output.searchForm.buttonLabel,
+      label: adaptedData.searchForm.buttonLabel,
     },
   };
 
-  output.icon_file_path = defaultSprite;
+  adaptedData.icon_file_path = defaultSprite;
 
-  return output;
-}
+  return adaptedData;
+};
 
-export const englishData = prepareSiteHeaderData(specEnglishData, 'en');
-export const frenchData = prepareSiteHeaderData(specFrenchData, 'fr');
+export const englishData = adapter(specEnglishData);
+export const frenchData = adapter(specFrenchData);

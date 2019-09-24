@@ -46,6 +46,8 @@
 
 {% set _logo = logo|default({}) %}
 {% set _language_selector = language_selector|default({}) %}
+{% set _icon_file_path = icon_file_path|default('') %}
+{% set _auto_init = auto_init|default(true) %}
 
 {% set _search_form = {
   text_input: {
@@ -59,6 +61,7 @@
       type: 'general',
       name: 'search',
       path: _icon_file_path,
+      size: 'fluid',
     },
     label: 'Search',
     extra_classes: 'ecl-search-form__button'
@@ -74,9 +77,6 @@
   size: 'xs',
 }
 %}
-
-{% set _icon_file_path = icon_file_path|default('') %}
-{% set _auto_init = auto_init|default(true) %}
 
 {% set _css_class = 'ecl-site-header' %}
 

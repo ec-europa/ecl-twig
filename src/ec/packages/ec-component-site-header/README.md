@@ -62,12 +62,7 @@ npm install --save @ecl-twig/ec-component-site-header
         { lang: 'de', label: 'Deutsch', href: '/example#language_de' },  
         { lang: 'et', label: 'eesti', href: '/example#language_et' },  
         { lang: 'el', label: 'ελληνικά', href: '/example#language_el' },  
-        {  
-          lang: 'en',  
-          label: 'English',  
-          href: '/example#language_en',  
-          is_active: true,  
-        },  
+        { lang: 'en', label: 'English', href: '/example#language_en', is_active: true, },   
         { lang: 'fr', label: 'français', href: '/example#language_fr' },  
         { lang: 'ga', label: 'Gaeilge', href: '/example#language_ga' },  
         { lang: 'hr', label: 'hrvatski', href: '/example#language_hr' },  
@@ -88,10 +83,14 @@ npm install --save @ecl-twig/ec-component-site-header
     },  
   },  
   searchForm: {  
-    textInputId: 'search-form',  
-    inputLabel: 'Search',  
-    buttonLabel: 'Search',  
-  },  
+    text_input: {  
+      id: 'input-search',  
+      name: 'search',  
+    },  
+    button: {  
+      label: 'Search',  
+    },  
+  },    
   extra_classes: 'my-extra-class-1 my-extra-class-2', 
   extra_attributes: [ 
     { name: 'data-test', value: 'data-test-value' }, 
