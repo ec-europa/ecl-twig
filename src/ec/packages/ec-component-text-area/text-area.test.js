@@ -45,7 +45,7 @@ describe('EC - Text area', () => {
       expect.assertions(1);
 
       const optionsWithExtraLabelClasses = merge(options, {
-        label_class_name: 'custom-label-class custom-label-class--test',
+        extra_label_classes: 'custom-label-class custom-label-class--test',
       });
 
       return expect(

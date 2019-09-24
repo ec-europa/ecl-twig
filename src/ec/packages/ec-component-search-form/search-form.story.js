@@ -20,8 +20,7 @@ storiesOf('Components/Forms/Search Form', module)
           id: 'input-search',
           name: 'search',
           extra_classes: 'ecl-search-form__text-input',
-          hide_label: true,
-          label: text('Button label', 'Search'),
+          label: text('Field label', 'Search'),
         },
         button: {
           variant: 'search',
