@@ -15,9 +15,10 @@ npm install --save @ecl-twig/ec-component-text-area
 - "invalid" (boolean) (default: false)
 - "name" (string) (default: '')
 - "default_value" (string) (default: '')
-- "hide_label" (boolean) (default: '')
-- "placeholder" (string) (default: '')
 - "rows" (int) (default: 4)
+- "extra_label_classes" (string) (default: '') Extra classes for the label (space separated)
+- "width" (string) (default: '') Input width size (s, m or l)
+- "extra_group_classes" (optional) (string) (default: '') Extra classes (space separated) for the text-area group
 - "extra_classes" (optional) (string) (default: '') Extra classes (space separated) for the text area
 - "extra_attributes" (optional) (array) (default: []) Extra attributes for text area
   - "name" (string) Attribute name, eg. 'data-test'
@@ -27,6 +28,8 @@ npm install --save @ecl-twig/ec-component-text-area
 
 - "helper_text"
 - "invalid_text"
+- "required_text"
+- "optional_text"
 - "label"
 
 ### Example:
@@ -42,6 +45,8 @@ npm install --save @ecl-twig/ec-component-text-area
   name: 'comment', 
   default_value: 'Hello world!',
   rows: 4, 
+  width: 'm', 
+  extra_group_classes: 'my-extra-group-class-1 my-extra-group-class-2', 
   extra_classes: 'my-extra-class-1 my-extra-class-2', 
   extra_attributes: [ 
     { name: 'data-test-1', value: 'data-test-value-1' }, 
