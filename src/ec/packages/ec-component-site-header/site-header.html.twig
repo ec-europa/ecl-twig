@@ -53,6 +53,7 @@
   text_input: {
     id: 'input-search',
     name: 'search',
+    label: 'search',
     extra_classes: 'ecl-search-form__text-input'
   },
   button: {
@@ -70,20 +71,9 @@
 }
 %}
 
-{% set _item_link_active_icon = {
-  type: 'ui',
-  name: 'check',
-  path: _icon_file_path,
-  size: 'xs',
-}
-%}
-
 {% set _css_class = 'ecl-site-header' %}
 
-{% set _extra_attributes = ['data-ecl-site-header="true"'] %}
-{% if _auto_init %}
-  {% set _extra_attributes = _extra_attributes|merge(['data-ecl-auto-init="SiteHeader"']) %}
-{% endif %}
+{% set _extra_attributes = ['data-ecl-site-header="true"', 'data-ecl-auto-init="SiteHeader"'] %}
 {% set _extra_attributes = _extra_attributes|join(' ') %}
 
 {# Merge options #}
@@ -106,9 +96,6 @@
 
 {# Internal logic - Process properties #}
 
-{% set _total_items = _language_selector.overlay.items|length %}
-{% set _items_per_columns = (_total_items / 2)|round(0, 'ceil')  %}
-
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
 {% endif %}
@@ -125,20 +112,20 @@
   <div class="ecl-site-header__container ecl-container">
     <div class="ecl-site-header__banner">
       <a 
-        class="ecl-link ecl-link--standalone" 
-        href="{{ _logo.url }}" 
+        class="ecl-link ecl-link--standalone"
+        href="{{ _logo.url }}"
         aria-label="{{ _logo.title }}"
       >
         <img 
-          alt="{{ _logo.alt }}" 
-          title="{{ _logo.title }}" 
-          class="ecl-site-header__logo-image" 
+          alt="{{ _logo.alt }}"
+          title="{{ _logo.title }}"
+          class="ecl-site-header__logo-image"
           src="{{ _logo.src }}"
         />
       </a>
       <div class="ecl-site-header__selector">
         <a 
-          class="ecl-link ecl-link--standalone ecl-site-header__selector-link" 
+          class="ecl-link ecl-link--standalone ecl-site-header__selector-link"
           href="{{ _language_selector.url }}"
           data-ecl-language-selector="true"
         >
@@ -154,78 +141,17 @@
             <span class="ecl-site-header__language-code">{{ _language_selector.code }}</span>
           </span>
         </a>
-
-        <div 
-          hidden 
-          class="ecl-language-list ecl-language-list--overlay" 
-          aria-labelledby="ecl-language-list__title" 
-          role="dialog" 
-          data-ecl-language-list-overlay="true"
-        >
-          <div class="ecl-language-list__container ecl-container">
-            <div class="ecl-row">
-              <div class="ecl-language-list__close ecl-col-12 ecl-col-lg-8 ecl-offset-lg-2">
-               {% include '../ec-component-button/button.html.twig' with {
-                  label: _language_selector.overlay.close_label,
-                  variant: 'ghost',
-                  type: 'submit',
-                  icon: {
-                    path: _icon_file_path,
-                    type: 'ui',
-                    name: 'close',
-                    size: 's'
-                  },
-                  icon_position: "after",
-                  extra_classes: 'ecl-language-list__close-button',
-                  extra_attributes: [
-                    { name: 'data-ecl-language-list-close', value: true },
-                  ],
-                } only %}
-              </div>
-
-              <div class="ecl-language-list__title ecl-col-12 ecl-col-lg-8 ecl-offset-lg-2" id="ecl-language-list__title">
-                {% include '../ec-component-icon/icon.html.twig' with {
-                  icon: {
-                    path: _icon_file_path,
-                    type: 'general',
-                    name: 'generic-lang',
-                  },
-                  extra_classes: 'ecl-language-list__title-icon',
-                } only %}
-                {{- _language_selector.overlay.title -}}
-              </div>
-            </div>
-            <div class="ecl-row">
-              {% if _language_selector.overlay.items is not empty %}
-                {% for row in _language_selector.overlay.items|batch(_items_per_columns) %}
-                  <div class="ecl-language-list__column ecl-col-12 ecl-col-lg-4{{ loop.index == 1 ? ' ecl-offset-lg-2' }}">
-                    <ul class="ecl-language-list__list">
-                      {% for column in row %}
-                        <li class="ecl-language-list__item{{ column.is_active ? '  ecl-language-list__item--is-active' }}">
-                          {% include '../ec-component-link/link.html.twig' with { 
-                            link: { 
-                              type: 'standalone', 
-                              label: column.lang, 
-                              path: column.href, 
-                              icon_position: 'after',
-                            }, 
-                            icon: column.is_active ? _item_link_active_icon : {},
-                            extra_classes: 'ecl-language-list__link', 
-                            extra_attributes: [ 
-                              { name: 'lang', value: column.lang }, 
-                              { name: 'hrefLang', value: column.lang },
-                              { name: 'rel', value: 'alternate' },
-                            ],
-                          } only %}
-                        </li>
-                      {% endfor %}
-                    </ul>
-                  </div>
-                {% endfor %}
-              {% endif %}
-            </div>
-          </div>
-        </div>
+        {% include '../ec-component-language-list/language-list-overlay.html.twig' with { 
+          items: _language_selector.overlay.items,
+          close_label: _language_selector.overlay.close_label,
+          title: _language_selector.overlay.title,
+          icon_path: _icon_file_path,
+          extra_attributes: [
+            { name: 'aria-labelledby', value: 'ecl-language-list__title' }, 
+            { name: 'role', value: 'dialog' },
+            { name: 'hidden', value: '' }
+          ]
+        } %}
       </div>
     </div>
     {% include '../ec-component-search-form/search-form.html.twig' with _search_form only %}

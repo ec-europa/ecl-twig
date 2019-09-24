@@ -26,8 +26,8 @@ npm install --save @ecl-twig/ec-component-site-header
     - "items" (array) (default: []): (array) (default: []): format:
       - "lang" (string) (default: '') Item language code, eg. 'en', 'fr', etc.
       - "label" (string) (default: '') Item language label, eg. 'English', 'Français', etc.
-      - "href" (string) (default: '') Item language URL eg. '/example#language_en'.
-      - "is_active" (boolean) (default: false) define if item is the active language.
+      - "path" (string) (default: '') Item language URL eg. '/example#language_en'.
+      - "active" (boolean) (default: false) define if item is the active language.
 - "search_form" (associative array) (default: predefined structure): EC Search Form component structure
 - "auto_init" (boolean) (default: false)
 - "extra_classes" (string) (default: '')
@@ -40,57 +40,36 @@ npm install --save @ecl-twig/ec-component-site-header
 <!-- prettier-ignore -->
 ```twig
 {% include 'path/to/site-header.html.twig' with { 
-  icon_file_path: '/path-to-the-icons-file',   
-  logo: {  
-    title: 'European Commission',  
-    alt: 'European Commission logo',  
-    href: '/example',  
-    src: 'dist/images/logo--en.svg',    
-  },  
-  language_selector: {  
-    href: '/example',  
-    name: 'English',  
-    code: 'en',  
-    overlay: {  
-      close_label: 'Close',  
-      title: 'Select your language',  
-      items: [  
-        { lang: 'bg', label: 'български', href: '/example#language_bg' },  
-        { lang: 'es', label: 'español', href: '/example#language_es' },  
-        { lang: 'cs', label: 'čeština', href: '/example#language_cs' },  
-        { lang: 'da', label: 'dansk', href: '/example#language_da' },  
-        { lang: 'de', label: 'Deutsch', href: '/example#language_de' },  
-        { lang: 'et', label: 'eesti', href: '/example#language_et' },  
-        { lang: 'el', label: 'ελληνικά', href: '/example#language_el' },  
-        { lang: 'en', label: 'English', href: '/example#language_en', is_active: true, },   
-        { lang: 'fr', label: 'français', href: '/example#language_fr' },  
-        { lang: 'ga', label: 'Gaeilge', href: '/example#language_ga' },  
-        { lang: 'hr', label: 'hrvatski', href: '/example#language_hr' },  
-        { lang: 'it', label: 'italiano', href: '/example#language_it' },  
-        { lang: 'lv', label: 'latviešu', href: '/example#language_lv' },  
-        { lang: 'lt', label: 'lietuvių', href: '/example#language_lt' },  
-        { lang: 'hu', label: 'magyar', href: '/example#language_hu' },  
-        { lang: 'mt', label: 'Malti', href: '/example#language_mt' },  
-        { lang: 'nl', label: 'Nederlands', href: '/example#language_nl' },  
-        { lang: 'pl', label: 'polski', href: '/example#language_pl' },  
-        { lang: 'pt', label: 'português', href: '/example#language_pt' },  
-        { lang: 'ro', label: 'română', href: '/example#language_ro' },  
-        { lang: 'sk', label: 'slovenčina', href: '/example#language_sk' },  
-        { lang: 'sl', label: 'slovenščina', href: '/example#language_sl' },  
-        { lang: 'fi', label: 'suomi', href: '/example#language_fi' },  
-        { lang: 'sv', label: 'svenska', href: '/example#language_sv' },  
-      ],  
-    },  
-  },  
-  searchForm: {  
-    text_input: {  
-      id: 'input-search',  
-      name: 'search',  
-    },  
-    button: {  
-      label: 'Search',  
-    },  
-  },    
+  icon_file_path: '/path-to-the-icons-file', 
+  logo: { 
+    title: 'European Commission', 
+    alt: 'European Commission logo', 
+    href: '/example', 
+    src: 'dist/images/logo--en.svg', 
+  }, 
+  language_selector: { 
+    href: '/example', 
+    name: 'English', 
+    code: 'en', 
+    overlay: { 
+      close_label: 'Close', 
+      title: 'Select your language', 
+      items: [ 
+        { lang: 'bg', label: 'български', path: '/example#language_bg' }, 
+        { lang: 'es', label: 'español', path: '/example#language_es', active: true }, 
+        ... 
+      ], 
+    }, 
+  }, 
+  searchForm: { 
+    text_input: { 
+      id: 'input-search', 
+      name: 'search', 
+    }, 
+    button: { 
+      label: 'Search', 
+    }, 
+  }, 
   extra_classes: 'my-extra-class-1 my-extra-class-2', 
   extra_attributes: [ 
     { name: 'data-test', value: 'data-test-value' }, 

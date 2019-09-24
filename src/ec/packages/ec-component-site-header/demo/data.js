@@ -14,25 +14,32 @@ const adapter = initialData => {
   adaptedData.logo.src = lng === 'en' ? englishBanner : frenchBanner;
 
   adaptedData.language_selector = adaptedData.languageSelector;
+  delete adaptedData.languageSelector;
 
   adaptedData.language_selector.overlay.close_label =
-    adaptedData.languageSelector.overlay.closeLabel;
+    adaptedData.language_selector.overlay.closeLabel;
+  delete adaptedData.language_selector.overlay.closeLabel;
 
   adaptedData.language_selector.overlay.items.forEach(item => {
     if (item.isActive) {
-      item.is_active = true; // eslint-disable-line no-param-reassign
+      item.active = true; // eslint-disable-line no-param-reassign
+      delete item.isActive;
     }
+    item.path = item.url;
+    delete item.url;
   });
 
   adaptedData.search_form = {
     text_input: {
       id: adaptedData.searchForm.textInputId,
       name: adaptedData.searchForm.inputLabel,
+      label: adaptedData.searchForm.inputLabel,
     },
     button: {
       label: adaptedData.searchForm.buttonLabel,
     },
   };
+  delete adaptedData.searchForm;
 
   adaptedData.icon_file_path = defaultSprite;
 
