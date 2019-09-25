@@ -8,7 +8,6 @@ describe('EC - Text field', () => {
   describe('Default', () => {
     const options = {
       label: 'Label',
-      placeholder: 'Placeholder',
       helper_text: 'Help message',
       id: 'example-id',
       name: 'example-name',
@@ -19,6 +18,18 @@ describe('EC - Text field', () => {
       return expect(render(options)).resolves.toMatchSnapshot();
     });
 
+    test('renders correctly with extra group class names', () => {
+      expect.assertions(1);
+
+      const optionsWithExtraGroupClasses = merge(options, {
+        extra_group_classes: 'custom-group-class custom-group-class--test',
+      });
+
+      return expect(
+        render(optionsWithExtraGroupClasses)
+      ).resolves.toMatchSnapshot();
+    });
+
     test('renders correctly with extra class names', () => {
       expect.assertions(1);
 
@@ -27,6 +38,18 @@ describe('EC - Text field', () => {
       });
 
       return expect(render(optionsWithExtraClasses)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly with extra label class names', () => {
+      expect.assertions(1);
+
+      const optionsWithExtraLabelClasses = merge(options, {
+        extra_label_classes: 'custom-label-class custom-label-class--test',
+      });
+
+      return expect(
+        render(optionsWithExtraLabelClasses)
+      ).resolves.toMatchSnapshot();
     });
 
     test('renders correctly with extra attributes', () => {
@@ -46,7 +69,6 @@ describe('EC - Text field', () => {
   describe('Disabled', () => {
     const options = {
       label: 'Label',
-      placeholder: 'Placeholder',
       helper_text: 'Help message',
       disabled: true,
       id: 'example-id',
@@ -55,6 +77,18 @@ describe('EC - Text field', () => {
     test('renders correctly', () => {
       expect.assertions(1);
       return expect(render(options)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly with extra group class names', () => {
+      expect.assertions(1);
+
+      const optionsWithExtraGroupClasses = merge(options, {
+        extra_group_classes: 'custom-group-class custom-group-class--test',
+      });
+
+      return expect(
+        render(optionsWithExtraGroupClasses)
+      ).resolves.toMatchSnapshot();
     });
 
     test('renders correctly with extra class names', () => {
@@ -84,7 +118,6 @@ describe('EC - Text field', () => {
   describe('With error', () => {
     const options = {
       label: 'Label',
-      placeholder: 'Placeholder',
       invalid: true,
       invalid_text: 'Error message',
       helper_text: 'Help message',
@@ -95,6 +128,18 @@ describe('EC - Text field', () => {
     test('renders correctly', () => {
       expect.assertions(1);
       return expect(render(options)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly with extra group class names', () => {
+      expect.assertions(1);
+
+      const optionsWithExtraGroupClasses = merge(options, {
+        extra_group_classes: 'custom-group-class custom-group-class--test',
+      });
+
+      return expect(
+        render(optionsWithExtraGroupClasses)
+      ).resolves.toMatchSnapshot();
     });
 
     test('renders correctly with extra class names', () => {
