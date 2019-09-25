@@ -32,6 +32,10 @@
 {% set _css_class = 'ecl-file' %}
 {% set _extra_attributes = '' %}
 
+{% if _translation is not empty and _translation.items is not empty and _translation.items is iterable %}
+  {% set _extra_attributes = _extra_attributes ~ ' ' ~ 'data-ecl-auto-init="FileDownload"' %}
+{% endif %}
+
 {# Internal logic - Process properties #}
 
 {% if extra_classes is defined and extra_classes is not empty %}
