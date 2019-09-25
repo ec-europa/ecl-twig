@@ -31,6 +31,8 @@
 {% set _items = items|default([]) %}
 {% set _selected_item_id = selected_item_id|default(0) %}
 
+{% set _extra_attributes = 'data-ecl-auto-init="Gallery"' %}
+
 {# Internal logic - Process properties #}
 
 {% if extra_classes is defined and extra_classes is not empty %}
