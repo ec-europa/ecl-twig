@@ -39,26 +39,8 @@ storiesOf('Components/Timeline', module)
         },
       };
 
-      const html = timeline(fullDemoData);
-
-      const demo = document.createDocumentFragment();
-
-      const htmlElement = document.createElement('div');
-      htmlElement.innerHTML = html.trim();
-      demo.appendChild(htmlElement.firstChild);
-
-      const scriptElement = document.createElement('script');
-      scriptElement.innerHTML = `
-        var elements = document.querySelectorAll('[data-ecl-timeline]');
-
-        var timeline = new ECL.Timeline(elements[0]);
-        timeline.init();
-      `;
-      demo.appendChild(scriptElement);
-
-      return demo;
+      return timeline(fullDemoData);
     },
-
     {
       notes: { markdown: notes },
     }
