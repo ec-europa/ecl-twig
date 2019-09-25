@@ -21,20 +21,7 @@ storiesOf('Components/Site Header', module)
     () => {
       englishData.icon_file_path = defaultSprite;
       englishData.logo.src = englishBanner;
-
-      const html = siteHeader(englishData);
-
-      const demo = document.createDocumentFragment();
-
-      const htmlElement = document.createElement('div');
-      htmlElement.innerHTML = html.trim();
-      demo.appendChild(htmlElement.firstChild);
-
-      const scriptElement = document.createElement('script');
-      scriptElement.innerHTML = `ECL.autoInit();`;
-      demo.appendChild(scriptElement);
-
-      return demo;
+      return siteHeader(englishData);
     },
     {
       notes: { markdown: siteHeaderDocs },
@@ -45,20 +32,7 @@ storiesOf('Components/Site Header', module)
     () => {
       frenchData.icon_file_path = defaultSprite;
       frenchData.logo.src = frenchBanner;
-
-      const html = siteHeader(frenchData);
-
-      const demo = document.createDocumentFragment();
-
-      const htmlElement = document.createElement('div');
-      htmlElement.innerHTML = html.trim();
-      demo.appendChild(htmlElement.firstChild);
-
-      const scriptElement = document.createElement('script');
-      scriptElement.innerHTML = `ECL.autoInit();`;
-      demo.appendChild(scriptElement);
-
-      return demo;
+      return siteHeader(frenchData);
     },
     {
       notes: { markdown: siteHeaderDocs },
