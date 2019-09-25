@@ -746,6 +746,11 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
+"@ecl-twig/ec-component-description-list@2.9.1":
+  version "2.9.1"
+  resolved "https://registry.yarnpkg.com/@ecl-twig/ec-component-description-list/-/ec-component-description-list-2.9.1.tgz#c474a01930951481642b5c28a08785a3599b202c"
+  integrity sha512-QV4O67fEyZHqmh0Dyac46N5BdqX1IGew4ZSW1rK6471M804tr2CBkfVZFoDroQ9hoM4wkI4z03vSYOmwlaGFTQ==
+
 "@ecl-twig/storybook-addon-code@file:utils/storybook-addon-code":
   version "0.0.0-dev-only"
 
@@ -809,6 +814,13 @@
   dependencies:
     "@ecl/ec-base" "^2.11.0"
 
+"@ecl/ec-component-description-list@2.11.0":
+  version "2.11.0"
+  resolved "https://registry.yarnpkg.com/@ecl/ec-component-description-list/-/ec-component-description-list-2.11.0.tgz#72da0022fc80c8258615bdd2d196341288763776"
+  integrity sha512-V8CboDXTfMRxW7TV47/IKMwbJFyIpD2/Js95WbzgP4Ybz3BP9kNk6OqA5zWwipkl7ZAlr2i+cUdRssHBCenJvA==
+  dependencies:
+    "@ecl/ec-base" "^2.11.0"
+
 "@ecl/ec-component-expandable@2.11.0":
   version "2.11.0"
   resolved "https://registry.yarnpkg.com/@ecl/ec-component-expandable/-/ec-component-expandable-2.11.0.tgz#339e4fdb1d9392cbd24a873d741272b460b0c07f"
@@ -843,10 +855,17 @@
     "@ecl/ec-base" "^2.11.0"
     "@ecl/ec-component-icon" "^2.11.0"
 
-"@ecl/ec-component-form-feedback-message@2.11.0":
+"@ecl/ec-component-form-feedback-message@2.11.0", "@ecl/ec-component-form-feedback-message@^2.11.0":
   version "2.11.0"
   resolved "https://registry.yarnpkg.com/@ecl/ec-component-form-feedback-message/-/ec-component-form-feedback-message-2.11.0.tgz#f5512bfae69e0f474fe3f3d8ed009ee0c1ad2c37"
   integrity sha512-DbL5CWwhijIlMlc1Nyn6tcaz7CATo+8MeZJM4OEqb8utK6Wxmem/45nD3emEEvuuwWnE1cc1DIH4pDczRoolkg==
+  dependencies:
+    "@ecl/ec-base" "^2.11.0"
+
+"@ecl/ec-component-form-file-upload@^2.11.0":
+  version "2.11.0"
+  resolved "https://registry.yarnpkg.com/@ecl/ec-component-form-file-upload/-/ec-component-form-file-upload-2.11.0.tgz#dd2f6eb95ff60508b74ff96d7c4306c4a7b9b0e2"
+  integrity sha512-US4PS/akDBlISn7OybCwMv2HGC2DbuiiscbUxnX2aL89+VIFsS4i0ytkQj25Lo6EgsMCDOwbWfSMC+m54C95sA==
   dependencies:
     "@ecl/ec-base" "^2.11.0"
 
@@ -857,14 +876,14 @@
   dependencies:
     "@ecl/ec-base" "^2.11.0"
 
-"@ecl/ec-component-form-help-block@2.11.0":
+"@ecl/ec-component-form-help-block@2.11.0", "@ecl/ec-component-form-help-block@^2.11.0":
   version "2.11.0"
   resolved "https://registry.yarnpkg.com/@ecl/ec-component-form-help-block/-/ec-component-form-help-block-2.11.0.tgz#017137def2dc6a72911abdd8240a5fede539f6c7"
   integrity sha512-ZIzYf35y3fog0n8r+W4YvbDyrI3gJWH9U2eDJz4FezpHk+nnbFDYXraz0O7cN6BQnu1YfH4OD5kVw7dM6D8zKg==
   dependencies:
     "@ecl/ec-base" "^2.11.0"
 
-"@ecl/ec-component-form-label@2.11.0":
+"@ecl/ec-component-form-label@2.11.0", "@ecl/ec-component-form-label@^2.11.0":
   version "2.11.0"
   resolved "https://registry.yarnpkg.com/@ecl/ec-component-form-label/-/ec-component-form-label-2.11.0.tgz#fc928c357e6d3792a04d5c9e23db3e2538fa94af"
   integrity sha512-lDTr5Xf7eVuCBn/0HMar9d0ujm3qUl+hOauBBVTMsclfWuqNOHL8gP9Ixmr4xWTJcIofu5Mz/zw150QagZIfWw==
@@ -1127,10 +1146,20 @@
   resolved "https://registry.yarnpkg.com/@ecl/ec-specs-date-block/-/ec-specs-date-block-2.11.0.tgz#4885ca7eb7dca3a2686dedb0fe6a767c0f8ec7b5"
   integrity sha512-0wPAg6gtjZROB10LAM0X6NRqFhCiT3wXBRnQOuXFEfLpixRJEfUu+Uc/mFQGrhn+6NGgw4Vr4aLRHILxzeS7Tg==
 
+"@ecl/ec-specs-description-list@2.11.0":
+  version "2.11.0"
+  resolved "https://registry.yarnpkg.com/@ecl/ec-specs-description-list/-/ec-specs-description-list-2.11.0.tgz#cec85db7a50e42b64db40be09f221c13ddaba33d"
+  integrity sha512-ZiX2HU4iw+TM1nXiR6TMn20aLJzpDzI2UJepcUnLNSMHyuUepRqjFqCLWsdhgBxIGikNtgrC+o7Bolt8sA+Ssw==
+
 "@ecl/ec-specs-expandable@2.11.0":
   version "2.11.0"
   resolved "https://registry.yarnpkg.com/@ecl/ec-specs-expandable/-/ec-specs-expandable-2.11.0.tgz#4129bc9fc286c60cc9f214178283859f19d37b49"
   integrity sha512-Sral2lsbNB46BAvtuQ0KptX541Yy19anPrvpSIhptkWkp0VcLZAO78csEIeBrDmp7SQxSt8JV5iPNhoqClUypw==
+
+"@ecl/ec-specs-file-upload@^2.11.0":
+  version "2.11.0"
+  resolved "https://registry.yarnpkg.com/@ecl/ec-specs-file-upload/-/ec-specs-file-upload-2.11.0.tgz#147819d3308be6f24c05bbe9644664f93c6b090f"
+  integrity sha512-9zeJIdd5OxXBmcukScE2f6kyGyLB5jCsoWPV7ZKhTue0WAdATGqc73Vq8Kja5ozgRgFB1j8sJnD66gbRsMIDqg==
 
 "@ecl/ec-specs-file@2.11.0":
   version "2.11.0"
