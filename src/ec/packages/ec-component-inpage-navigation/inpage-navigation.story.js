@@ -33,14 +33,6 @@ storiesOf('Components/Navigation/Inpage navigation', module)
       htmlElement.innerHTML = `<div class="ecl-container"><div class="ecl-row ecl-u-mt-l"><div class="ecl-col-md-3">${html}</div><div class="ecl-col-md-9">${pageFillerHtml}</div></div></div>`;
       demo.appendChild(htmlElement.firstChild);
 
-      const scriptElement = document.createElement('script');
-      scriptElement.innerHTML = `
-        var elements = document.querySelectorAll('[data-ecl-inpage-navigation]');
-        var inpageNavigation = new ECL.InpageNavigation(elements[0]);
-        inpageNavigation.init();
-      `;
-      demo.appendChild(scriptElement);
-
       return demo;
     },
     {
