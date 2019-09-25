@@ -18,22 +18,8 @@ storiesOf('Components/Dropdowns legacy', module)
     () => {
       demoData.button.icon.path = defaultSprite;
       demoData.button.label = text('Dropdown button', demoData.button.label);
-
-      const html = dropdown(demoData);
-
-      const demo = document.createDocumentFragment();
-
-      const htmlElement = document.createElement('div');
-      htmlElement.innerHTML = html.trim();
-      demo.appendChild(htmlElement.firstChild);
-
-      const scriptElement = document.createElement('script');
-      scriptElement.innerHTML = `ECL.autoInit();`;
-      demo.appendChild(scriptElement);
-
-      return demo;
+      return dropdown(demoData);
     },
-
     {
       notes: { markdown: notes },
     }
