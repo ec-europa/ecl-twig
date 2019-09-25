@@ -35,11 +35,6 @@
 {% set _required_text = required_text|default('*') %}
 {% set _optional_text = optional_text|default('') %}
 {% set _extra_classes = extra_classes|default('') %}
-{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
-  {% for attr in extra_attributes %}
-    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
-  {% endfor %}
-{% endif %}
 
 {# Blocks #}
 {% set _label = label|default('') %}
@@ -55,6 +50,7 @@
 {% set _label_classes = _label_base_class %}
 {% set _help_classes = 'ecl-help-block' %}
 {% set _group_css_classes = 'ecl-form-group ecl-form-group--file-upload' %}
+{% set _extra_attributes = '' %}
 
 {# Internal logic - Process properties #}
 
@@ -83,6 +79,12 @@
 
 {% if _extra_classes is not empty %}
   {% set _group_css_classes = _group_css_classes ~ ' ' ~ _extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+  {% endfor %}
 {% endif %}
 
 {# Print the result #}

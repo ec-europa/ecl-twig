@@ -27,7 +27,6 @@ storiesOf('Components/Forms/File Upload', module)
         invalid_text: text('Invalid text', 'This is an error message'),
         required_text: text('Required text', '*'),
         optional_text: text('Optional Text', '(optional)'),
-        extra_classes: text('Extra classes', ''),
       }),
     {
       notes: { markdown: fileDocs },
