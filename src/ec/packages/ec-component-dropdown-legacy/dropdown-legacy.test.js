@@ -4,7 +4,7 @@ import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 import demoData from './demo/data';
 
 // Add SVG icon path.
-demoData.button.icon.path = 'example';
+demoData.button.icon.path = 'static/icons.svg';
 
 describe('EC - Dropdown legacy', () => {
   const template = path.resolve(__dirname, './dropdown-legacy.html.twig');

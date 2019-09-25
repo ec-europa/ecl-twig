@@ -4,7 +4,6 @@
   Parameters:
     - "id" (string) (default: '')
     - "button" (predefined structure) :  Button component structure 
-    - "auto_init" (boolean) (default: true)
     - "list" (object) (default: {})
       - "items" (array) (default: []): format: [
       {
@@ -31,9 +30,7 @@
 {% set _auto_init = auto_init|default(true) %}
 
 {% set _css_class = 'ecl-dropdown-legacy ecl-dropdown-legacy--padded' %}
-{% if _auto_init %}
-  {% set _extra_attributes = 'data-ecl-auto-init="DropdownLegacy"' %}
-{% endif %}
+{% set _extra_attributes = 'data-ecl-auto-init="DropdownLegacy"' %}
 
 {% set _content_hidden_attribute = '' %}
 
@@ -58,18 +55,6 @@
     ] 
   %}
 
-  {% if _expanded %}
-    {% set _button_attributes = _button_attributes|merge([
-        { name: 'aria-expanded', value: _expanded },
-      ])
-    %}
-
-    {% set _content_hidden_attribute = '' %}
-
-  {% else %}
-    {% set _content_hidden_attribute = 'hidden' %}
-  {% endif %}
-
   {% include '../ec-component-button/button.html.twig' with {
     label: _button.label,
     variant: _button.variant,
@@ -82,7 +67,7 @@
   <div
     id="{{ _id ~ '-dropdown-content' }}"
     class="ecl-dropdown-legacy__content"
-    {{ _content_hidden_attribute }}
+    hidden
   >
     <ul class="ecl-unordered-list ecl-unordered-list--no-bullet">
       {% for item in _list.items %}

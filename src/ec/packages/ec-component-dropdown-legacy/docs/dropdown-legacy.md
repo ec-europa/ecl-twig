@@ -10,7 +10,6 @@ npm install --save @ecl-twig/ec-component-expandable
 
 - "id" (string) (default: '')
 - "button" (predefined structure) : Button component structure
-- "auto_init" (boolean) (default: true)
 - "list" (object) (default: {})
   - "items" (array) (default: [])
     - "label" (string) (default: '') link html markup
@@ -23,7 +22,7 @@ npm install --save @ecl-twig/ec-component-expandable
 
 <!-- prettier-ignore -->
 ```twig
-{% include 'path/to/expandable.html.twig' with { 
+{% include 'path/to/dropdown-legacy.html.twig' with { 
   id: 'dropdown-legacy-example',  
   button: {  
     label: 'Dropdown button',  
