@@ -1,4 +1,4 @@
-/* eslint-disable import/no-extraneous-dependencies, no-param-reassign  */
+/* eslint-disable import/no-extraneous-dependencies, no-param-reassign */
 import specEnglishData from '@ecl/ec-specs-site-header/demo/data--en';
 import specFrenchData from '@ecl/ec-specs-site-header/demo/data--fr';
 

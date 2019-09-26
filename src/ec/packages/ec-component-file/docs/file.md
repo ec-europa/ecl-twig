@@ -24,7 +24,7 @@ npm install --save @ecl-twig/ec-component-file
 - "extra_classes" (optional) (string) (default: '')
 - "extra_attributes" (optional) (array) (default: [])
   - "name" (string) Attribute name, eg. 'data-test'
-  - "value" (string) Attribute value, eg: 'data-test-1'
+  - "value" (string) (optional) Attribute value, eg: 'data-test-1'
 
 ## Example:
 

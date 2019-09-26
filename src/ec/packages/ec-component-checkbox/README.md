@@ -14,7 +14,7 @@ npm install --save @ecl-twig/ec-component-checkbox
 - "items" (array) (default: [])
   - "id" (string) (default: '')
   - "name" (string) (default: '')
-  - "value" (string) (default: '')
+  - "value" (string) (optional)
   - "invalid" (boolean) (default: false)
   - "disabled" (boolean) (default: false)
   - "checked" (boolean) (default: false)
@@ -29,7 +29,7 @@ npm install --save @ecl-twig/ec-component-checkbox
 - "extra_classes" (optional) (string) (default: '')
 - "extra_attributes" (optional) (array) (default: [])
   - "name" (string) Attribute name, eg. 'data-test'
-  - "value" (string) Attribute value, eg: 'data-test-1'
+  - "value" (string) (optional) Attribute value, eg: 'data-test-1'
 
 ### Blocks:
 

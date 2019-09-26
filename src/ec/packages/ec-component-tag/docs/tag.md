@@ -18,7 +18,7 @@ npm install --save @ecl-twig/ec-component-tag
 - "extra_classes" (optional) (string) (default: '') Extra classes (space separated) for the tag
 - "extra_attributes" (optional) (array) (default: []) Extra attributes for tag
   - "name" (string) Attribute name, eg. 'data-test'
-  - "value" (string) Attribute value, eg: 'data-test-1'
+  - "value" (string) (optional) Attribute value, eg: 'data-test-1'
 
 ### Example:
 

@@ -3,7 +3,7 @@
 {#
   Parameters:
     - "id" (string) (default: '')
-    - "button" (predefined structure) :  Button component structure 
+    - "button" (predefined structure) : Button component structure
     - "list" (object) (default: {})
       - "items" (array) (default: []): format: [
       {
@@ -15,7 +15,7 @@
     - "extra_attributes" (array) (default: []): format: [
         {
           "name" (string) (default: ''),
-          "value" (string) (default: '')
+          "value" (string) (optional)
         },
         ...
       ]  
@@ -75,7 +75,7 @@
           {{- item.label -}}
         </li>
       {% endfor %}
-    </ul>  
+    </ul>
   </div>
 </div>
 

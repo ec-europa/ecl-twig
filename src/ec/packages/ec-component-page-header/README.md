@@ -20,35 +20,35 @@ npm install --save @ecl-twig/ec-component-page-header
 - "extra_classes" (string) (default: '')
 - "extra_attributes" (array) (default: []): format:
   - "name" (string) (default: '')
-  - "value" (string) (default: '')
+  - "value" (string) (optional)
 
 ### Example :
 
 <!-- prettier-ignore -->
 ```twig
-{% include 'path/to/page-header.html.twig' with {  
-  title: 'Page title',  
-  description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium',  
-  meta: 'News article | 17 October 2015',  
-  breadcrumb: {  
-    links: [    
+{% include 'path/to/page-header.html.twig' with { 
+  title: 'Page title', 
+  description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium', 
+  meta: 'News article | 17 October 2015', 
+  breadcrumb: { 
+    links: [ 
       {  
-        label: 'Link 1',  
-        path: '/example'  
+        label: 'Link 1', 
+        path: '/example' 
       },  
     ],  
-    icon_file_path: '/path-to-the-icons-file',  
+    icon_file_path: '/path-to-the-icons-file', 
     navigation_text: 'You are here:',
-  },  
-  infos: [  
+  }, 
+  infos: [ 
     {  
-      text: 'Monday 8 February',  
-      icon: {  
-        type: 'general',  
-        name: 'calendar',  
-        path: '/path-to-the-icons-file',  
-      },  
-    },  
-  ]  
-} %}  
+      text: 'Monday 8 February', 
+      icon: { 
+        type: 'general', 
+        name: 'calendar', 
+        path: '/path-to-the-icons-file', 
+      }, 
+    }, 
+  ] 
+} %} 
 ```

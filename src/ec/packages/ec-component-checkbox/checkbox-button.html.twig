@@ -4,7 +4,7 @@
   Parameters:
   - "id" (string) (default: '')
   - "name" (string) (default: '')
-  - "value" (string) (default: '')
+  - "value" (string) (optional)
   - "disabled" (boolean) (default: false)
   - "invalid" (boolean) (default: false)
   - "checked" (boolean) (default: false)
@@ -13,7 +13,7 @@
   - "extra_classes" (optional) (string) (default: '')
   - "extra_attributes" (optional) (array) (default: [])
     - "name" (string) Attribute name, eg. 'data-test'
-    - "value" (string) Attribute value, eg: 'data-test-1'
+    - "value" (string) (optional) Attribute value, eg: 'data-test-1'
   Blocks:
   - "helper_text"
   - "label"
@@ -45,13 +45,23 @@
   {% set _css_class = _css_class ~ ' ecl-checkbox--disabled' %}
 {% endif %}
 
-{% if extra_classes is defined and extra_classes is not empty %}
-  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% if attr.value is defined and attr.value is not empty %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name %}
+    {% endif %}
+  {% endfor %}
 {% endif %}
 
 {% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
   {% for attr in extra_attributes %}
-    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+    {% if attr.value is defined and attr.value is not empty %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name %}
+    {% endif %}
   {% endfor %}
 {% endif %}
 
@@ -68,8 +78,8 @@
     {{ _checked ? "checked" }}
   />
 
-  <label 
-    {{ _id ? 'for="' ~ _id ~  '"' }}
+  <label
+    {{ _id ? 'for="' ~ _id ~ '"' }}
     class="ecl-form-label ecl-checkbox__label
     {{- _invalid ? " ecl-form-label--invalid" -}}"
   >

@@ -26,7 +26,7 @@ npm install --save @ecl-twig/ec-component-card
 - "extra_classes" (optional) (string) (default: '') Extra classes (space separated) for the Card
 - "extra_attributes" (optional) (array) (default: []) Extra attributes for Card
   - "name" (string) Attribute name, eg. 'data-test'
-  - "value" (string) Attribute value, eg: 'data-test-1'
+  - "value" (string) (optional) Attribute value, eg: 'data-test-1'
 
 ### Example for default Card:
 

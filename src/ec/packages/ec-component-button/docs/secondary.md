@@ -19,7 +19,7 @@ npm install --save @ecl-twig/ec-component-button
 - "extra_classes" (optional) (string) (default: '') Extra classes (space separated) for the button
 - "extra_attributes" (optional) (array) (default: []) Extra attributes for button
   - "name" (string) Attribute name, eg. 'data-test'
-  - "value" (string) Attribute value, eg: 'data-test-1'
+  - "value" (string) (optional) Attribute value, eg: 'data-test-1'
 
 ### Example:
 

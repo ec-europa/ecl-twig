@@ -21,7 +21,7 @@ npm install --save @ecl-twig/ec-component-file-upload
 - "extra_classes" (string) (default: '') - Extra classes for the wrapper
 - "extra_attributes" (optional) (array) (default: []) Form extra attributes
   - "name" (string) Attribute name
-  - "value" (string) Attribute value
+  - "value" (string) (optional) Attribute value
 
 ### Blocks:
 

@@ -20,7 +20,7 @@ npm install --save @ecl-twig/ec-component-hero-banner
 - "extra_classes" (optional) (string) (default: '') Extra classes (space separated) for the form
 - "extra_attributes" (optional) (array) (default: []) Extra attributes for the form
   - "name" (string) Attribute name, eg. 'data-test'
-  - "value" (string) Attribute value, eg: 'data-test-1'
+  - "value" (string) (optional) Attribute value, eg: 'data-test-1'
 
 ### Example :
 

@@ -20,7 +20,7 @@ npm install --save @ecl-twig/ec-component-accordion
 - "extra_classes" (string) (default: '')
 - "extra_attributes" (array) (default: []): format:
   - "name" (string) (default: '')
-  - "value" (string) (default: '')
+  - "value" (string) (optional)
 
 ### Example :
 

@@ -33,7 +33,7 @@ npm install --save @ecl-twig/ec-component-site-header
 - "extra_classes" (string) (default: '')
 - "extra_attributes" (array) (default: []): format:
   - "name" (string) (default: '')
-  - "value" (string) (default: '')
+  - "value" (string) (optional)
 
 ### Example :
 

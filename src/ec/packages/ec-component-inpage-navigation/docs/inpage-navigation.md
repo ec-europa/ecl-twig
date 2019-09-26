@@ -22,7 +22,7 @@ Parameters:
 - "extra_attributes" (array) (default: []): format: [
   {
   "name" (string) (default: ''),
-  "value" (string) (default: '')
+  "value" (string) (optional)
   },
   ...
   ]
@@ -31,7 +31,7 @@ Parameters:
 
 <!-- prettier-ignore -->
 ```twig
-{% include 'path/to/inpage-navigation.html.twig' with {  
+{% include 'path/to/inpage-navigation.html.twig' with { 
   title: 'Inpage navigation', 
   links: [ 
     { 

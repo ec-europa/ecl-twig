@@ -13,7 +13,7 @@ npm install --save @ecl-twig/ec-component-radio
 - "items" (array) (default: [])
   - "id" (string) (default: '')
   - "name" (string) (default: '')
-  - "value" (string) (default: '')
+  - "value" (string) (optional)
   - "disabled" (boolean) (default: false)
   - "checked" (boolean) (default: false)
   - "helper_id" (string) (default: '')
@@ -27,7 +27,7 @@ npm install --save @ecl-twig/ec-component-radio
 - "extra_classes" (optional) (string) (default: '')
 - "extra_attributes" (optional) (array) (default: [])
   - "name" (string) Attribute name, eg. 'data-test'
-  - "value" (string) Attribute value, eg: 'data-test-1'
+  - "value" (string) (optional) Attribute value, eg: 'data-test-1'
 
 ### Blocks:
 
