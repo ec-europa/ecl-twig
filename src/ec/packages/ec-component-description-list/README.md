@@ -13,6 +13,7 @@ npm install --save @ecl-twig/ec-component-description-list
 - "items" (array) (default: [])
   - "term" (string or array of string)
   - "definition" (string or array of string)
+- "variant" (optional) (string) (default: '') Modifier of the component
 - "extra_classes" (optional) (string) (default: '') Extra classes (space separated)
 - "extra_attributes" (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
@@ -23,7 +24,8 @@ npm install --save @ecl-twig/ec-component-description-list
 <!-- prettier-ignore -->
 ```twig
 {% include 'path/to/description-list.html.twig' with { 
-  items: [ 
+  variant: 'horizontal',
+  items: [
     { 
       term: 'European Commission', 
       definition: 
