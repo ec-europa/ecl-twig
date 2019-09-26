@@ -751,6 +751,14 @@
   resolved "https://registry.yarnpkg.com/@ecl-twig/ec-component-description-list/-/ec-component-description-list-2.9.1.tgz#c474a01930951481642b5c28a08785a3599b202c"
   integrity sha512-QV4O67fEyZHqmh0Dyac46N5BdqX1IGew4ZSW1rK6471M804tr2CBkfVZFoDroQ9hoM4wkI4z03vSYOmwlaGFTQ==
 
+"@ecl-twig/ec-component-site-header@2.9.1":
+  version "2.9.1"
+  resolved "https://registry.yarnpkg.com/@ecl-twig/ec-component-site-header/-/ec-component-site-header-2.9.1.tgz#6ee362d37c697f6028968b1ee1cb738df61d1e94"
+  integrity sha512-QP5Pgz0t6phisZy5NWsPFtSywftxFOjtTgFqR+QyLD/05LvGYE+qfdr29aBOLMeGFUm+naMINXplFiYeH1lnfw==
+  dependencies:
+    "@ecl-twig/ec-component-icon" "2.9.1"
+    "@ecl-twig/ec-component-search-form" "2.9.1"
+
 "@ecl-twig/storybook-addon-code@file:utils/storybook-addon-code":
   version "0.0.0-dev-only"
 
@@ -818,6 +826,13 @@
   version "2.11.0"
   resolved "https://registry.yarnpkg.com/@ecl/ec-component-description-list/-/ec-component-description-list-2.11.0.tgz#72da0022fc80c8258615bdd2d196341288763776"
   integrity sha512-V8CboDXTfMRxW7TV47/IKMwbJFyIpD2/Js95WbzgP4Ybz3BP9kNk6OqA5zWwipkl7ZAlr2i+cUdRssHBCenJvA==
+  dependencies:
+    "@ecl/ec-base" "^2.11.0"
+
+"@ecl/ec-component-dropdown-legacy@2.11.0":
+  version "2.11.0"
+  resolved "https://registry.yarnpkg.com/@ecl/ec-component-dropdown-legacy/-/ec-component-dropdown-legacy-2.11.0.tgz#b5e6dbe78a1e427e9e143ba77033183aad2154da"
+  integrity sha512-mFfCpzT29aLOCtOGEdjewTTgfErMJQXuzfbWgfRuWsT092VNOGKY6RZ8HW2rVh37xJEe6CqBIMdw17NoowASoQ==
   dependencies:
     "@ecl/ec-base" "^2.11.0"
 
@@ -1030,7 +1045,7 @@
     "@ecl/ec-base" "^2.11.0"
     "@ecl/ec-component-link" "^2.11.0"
 
-"@ecl/ec-component-search-form@2.11.0":
+"@ecl/ec-component-search-form@2.11.0", "@ecl/ec-component-search-form@^2.11.0":
   version "2.11.0"
   resolved "https://registry.yarnpkg.com/@ecl/ec-component-search-form/-/ec-component-search-form-2.11.0.tgz#bd3fb7c8046495e331ac5b21085cdb4260e371a7"
   integrity sha512-wcBv6cxZnmrS+6cAbrxEJuIrXc1QIVTSu1Vw4P6vaGITuV+ufsYlJdOtEAAeJddNNAUe7dgQM45ndCoT6LV+0w==
@@ -1038,6 +1053,16 @@
     "@ecl/ec-base" "^2.11.0"
     "@ecl/ec-component-button" "^2.11.0"
     "@ecl/ec-component-form-text-input" "^2.11.0"
+
+"@ecl/ec-component-site-header@2.11.0":
+  version "2.11.0"
+  resolved "https://registry.yarnpkg.com/@ecl/ec-component-site-header/-/ec-component-site-header-2.11.0.tgz#d4283be9bb79ba91a672b6a3d60a8206c0599d1b"
+  integrity sha512-tiYwAIoSfGBQHuERpebDPj504VVU8b0vzM0KHTHWXF3fNAhcLSzRnzIq1OU/oohitfzoFtyuo+SMtO0SiYUkKg==
+  dependencies:
+    "@ecl/ec-base" "^2.11.0"
+    "@ecl/ec-component-icon" "^2.11.0"
+    "@ecl/ec-component-search-form" "^2.11.0"
+    focus-trap "5.0.2"
 
 "@ecl/ec-component-skip-link@2.11.0":
   version "2.11.0"
@@ -1151,6 +1176,11 @@
   resolved "https://registry.yarnpkg.com/@ecl/ec-specs-description-list/-/ec-specs-description-list-2.11.0.tgz#cec85db7a50e42b64db40be09f221c13ddaba33d"
   integrity sha512-ZiX2HU4iw+TM1nXiR6TMn20aLJzpDzI2UJepcUnLNSMHyuUepRqjFqCLWsdhgBxIGikNtgrC+o7Bolt8sA+Ssw==
 
+"@ecl/ec-specs-dropdown-legacy@2.11.0":
+  version "2.11.0"
+  resolved "https://registry.yarnpkg.com/@ecl/ec-specs-dropdown-legacy/-/ec-specs-dropdown-legacy-2.11.0.tgz#132d9592583f856d5d0b5d0500e4580ce76f97ed"
+  integrity sha512-qac3FgjOWdrajvZtVBVrc420cGQjAGvougzQXC+0eWBtpHDnZ0Oap0+wzlMgWte7Q0zZ6lXPoU8JYv4uUMNqkQ==
+
 "@ecl/ec-specs-expandable@2.11.0":
   version "2.11.0"
   resolved "https://registry.yarnpkg.com/@ecl/ec-specs-expandable/-/ec-specs-expandable-2.11.0.tgz#4129bc9fc286c60cc9f214178283859f19d37b49"
@@ -1250,6 +1280,11 @@
   version "2.11.0"
   resolved "https://registry.yarnpkg.com/@ecl/ec-specs-select/-/ec-specs-select-2.11.0.tgz#ec69ce0ffe07ce6b7f22f480d2ad8df39afb9653"
   integrity sha512-zmmmXj4Kw/2NqHi5oCmogK8osyRc4aylxishRbGmoE7YrKb3Uei+7bMvAbThtsVr/NGm0DfpbDufPBS+XK4/zQ==
+
+"@ecl/ec-specs-site-header@2.11.0":
+  version "2.11.0"
+  resolved "https://registry.yarnpkg.com/@ecl/ec-specs-site-header/-/ec-specs-site-header-2.11.0.tgz#3876d651c1774aac375f27f3b83488e68c0f2d66"
+  integrity sha512-KM60Rco/ptIsABl9SG5aSd6GD8f4LJU/oKkVWNF58fhJ3u4TkYy17ixqMDq65VUlEYeUMnH6MbEsQ+6zy2LkAA==
 
 "@ecl/ec-specs-skip-link@2.11.0":
   version "2.11.0"
