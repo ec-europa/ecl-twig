@@ -113,7 +113,7 @@
     <div class="ecl-site-header__banner">
       <a 
         class="ecl-link ecl-link--standalone"
-        href="{{ _logo.url }}"
+        href="{{ _logo.href }}"
         aria-label="{{ _logo.title }}"
       >
         <img 
@@ -141,15 +141,15 @@
             <span class="ecl-site-header__language-code">{{ _language_selector.code }}</span>
           </span>
         </a>
-        {% include '../ec-component-language-list/language-list-overlay.html.twig' with { 
+        {% include '../ec-component-language-list/language-list-overlay.html.twig' with {
           items: _language_selector.overlay.items,
           close_label: _language_selector.overlay.close_label,
           title: _language_selector.overlay.title,
           icon_path: _icon_file_path,
           extra_attributes: [
-            { name: 'aria-labelledby', value: 'ecl-language-list__title' }, 
+            { name: 'aria-labelledby', value: 'ecl-language-list__title' },
             { name: 'role', value: 'dialog' },
-            { name: 'hidden', value: '' }
+            { name: 'hidden' }
           ]
         } %}
       </div>

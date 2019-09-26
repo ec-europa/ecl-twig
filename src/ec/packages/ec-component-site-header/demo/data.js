@@ -21,12 +21,12 @@ const adapter = initialData => {
   delete adaptedData.language_selector.overlay.closeLabel;
 
   adaptedData.language_selector.overlay.items.forEach(item => {
+    item.path = item.href;
+    delete item.href;
     if (item.isActive) {
       item.active = true; // eslint-disable-line no-param-reassign
       delete item.isActive;
     }
-    item.path = item.url;
-    delete item.url;
   });
 
   adaptedData.search_form = {
