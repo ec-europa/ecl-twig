@@ -34,7 +34,6 @@
           }
         }
       };
-
       const observer = new MutationObserver(callback);
       const config = { childList: true, subtree: false };
       observer.observe(document.getElementById('root'), config);
