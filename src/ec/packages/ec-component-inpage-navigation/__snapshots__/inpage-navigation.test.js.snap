@@ -3,6 +3,7 @@
 exports[`EC - Inpage navigation renders correctly 1`] = `
 <nav
   class="ecl-inpage-navigation"
+  data-ecl-auto-init="InpageNavigation"
   data-ecl-inpage-navigation="true"
 >
   <div
@@ -94,6 +95,7 @@ exports[`EC - Inpage navigation renders correctly 1`] = `
 exports[`EC - Inpage navigation renders correctly with extra attributes 1`] = `
 <nav
   class="ecl-inpage-navigation"
+  data-ecl-auto-init="InpageNavigation"
   data-ecl-inpage-navigation="true"
   data-test="data-test-value"
   data-test-1="data-test-value-1"
@@ -187,6 +189,7 @@ exports[`EC - Inpage navigation renders correctly with extra attributes 1`] = `
 exports[`EC - Inpage navigation renders correctly with extra class names 1`] = `
 <nav
   class="ecl-inpage-navigation custom-class custom-class--test"
+  data-ecl-auto-init="InpageNavigation"
   data-ecl-inpage-navigation="true"
 >
   <div

@@ -24,28 +24,6 @@ storiesOf('Components/Gallery', module)
   .addDecorator(withKnobs)
   .addDecorator(withCode)
   .addDecorator(withNotes)
-  .add(
-    'default',
-    () => {
-      const html = gallery(data);
-
-      const demo = document.createDocumentFragment();
-
-      const htmlElement = document.createElement('div');
-      htmlElement.innerHTML = html.trim();
-      demo.appendChild(htmlElement.firstChild);
-
-      const scriptElement = document.createElement('script');
-      scriptElement.innerHTML = `
-      var galleryElement = document.querySelector("[data-ecl-gallery]");
-      var gallery = new ECL.Gallery(galleryElement);
-      gallery.init();
-      `;
-      demo.appendChild(scriptElement);
-
-      return demo;
-    },
-    {
-      notes: { markdown: notes },
-    }
-  );
+  .add('default', () => gallery(data), {
+    notes: { markdown: notes },
+  });

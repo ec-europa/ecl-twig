@@ -24,7 +24,10 @@
 
 {% set _id = id|default('') %}
 {% set _css_class = 'ecl-expandable' %}
-{% set _extra_attributes = "data-ecl-expandable='true'" %}
+{% set _extra_attributes = [
+  'data-ecl-expandable="true"', 
+  'data-ecl-auto-init="Expandable"']|join(' ')
+%}
 
 {% set _label_expanded = label_expanded|default('') %}
 {% set _label_collapsed = label_collapsed|default('') %}

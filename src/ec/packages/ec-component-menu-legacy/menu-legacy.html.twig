@@ -35,7 +35,11 @@
 {% set _css_class = 'ecl-menu-legacy' %}
 {% set _prefix_class = 'ecl-menu-legacy' %}
 {% set _icon_path = icon_path|default('') %}
-{% set _extra_attributes = '' %}
+{% set _extra_attributes = [
+  'data-ecl-auto-init="MenuLegacy"',
+  'aria-expanded="false"',
+  'data-ecl-menu-legacy="true"']|join(' ')
+%}
 
 {% set _icon = {
   path: _icon_path,
@@ -64,7 +68,7 @@
 {% endif %}
 
 {# Print the result #}
-<nav data-ecl-auto-init="MenuLegacy" class="{{ _css_class }}" data-ecl-menu-legacy="true" aria-expanded="false" {{ _extra_attributes|raw }}>
+<nav class="{{ _css_class }}" {{ _extra_attributes|raw }}>
   <div class="ecl-container">
     <button class="{{ _prefix_class }}__toggle {{ _prefix_class }}__hamburger ecl-button ecl-button--ghost" type="button" data-ecl-menu-legacy-hamburger-button="true" >
       <div class="{{ _prefix_class }}__toggle-container">

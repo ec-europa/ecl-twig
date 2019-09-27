@@ -73,8 +73,10 @@
 
 {% set _css_class = 'ecl-site-header' %}
 
-{% set _extra_attributes = ['data-ecl-site-header="true"', 'data-ecl-auto-init="SiteHeader"'] %}
-{% set _extra_attributes = _extra_attributes|join(' ') %}
+{% set _extra_attributes = [
+  'data-ecl-site-header="true"', 
+  'data-ecl-auto-init="SiteHeader"']|join(' ')
+%}
 
 {# Merge options #}
 

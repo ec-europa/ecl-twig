@@ -3,6 +3,7 @@
 exports[`EC - Contextual Navigation renders correctly 1`] = `
 <nav
   class="ecl-contextual-navigation"
+  data-ecl-auto-init="ContextualNavigation"
   data-ecl-contextual-navigation=""
 >
   <div
@@ -110,6 +111,7 @@ exports[`EC - Contextual Navigation renders correctly 1`] = `
 exports[`EC - Contextual Navigation renders correctly with extra attributes 1`] = `
 <nav
   class="ecl-contextual-navigation"
+  data-ecl-auto-init="ContextualNavigation"
   data-ecl-contextual-navigation=""
   data-test="data-test-value"
   data-test-1="data-test-value-1"
@@ -219,6 +221,7 @@ exports[`EC - Contextual Navigation renders correctly with extra attributes 1`] 
 exports[`EC - Contextual Navigation renders correctly with extra class names 1`] = `
 <nav
   class="ecl-contextual-navigation custom-class custom-class--test"
+  data-ecl-auto-init="ContextualNavigation"
   data-ecl-contextual-navigation=""
 >
   <div

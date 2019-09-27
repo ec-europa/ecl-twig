@@ -4,6 +4,7 @@ exports[`EC - Accordion renders correctly 1`] = `
 <div
   class="ecl-accordion"
   data-ecl-accordion="true"
+  data-ecl-auto-init="Accordion"
 >
   <h3
     class="ecl-accordion__title"
@@ -126,6 +127,7 @@ exports[`EC - Accordion renders correctly with extra attributes 1`] = `
 <div
   class="ecl-accordion"
   data-ecl-accordion="true"
+  data-ecl-auto-init="Accordion"
   data-test="data-test-value"
   data-test-1="data-test-value-1"
 >
@@ -250,6 +252,7 @@ exports[`EC - Accordion renders correctly with extra class names 1`] = `
 <div
   class="ecl-accordion custom-class custom-class--test"
   data-ecl-accordion="true"
+  data-ecl-auto-init="Accordion"
 >
   <h3
     class="ecl-accordion__title"
