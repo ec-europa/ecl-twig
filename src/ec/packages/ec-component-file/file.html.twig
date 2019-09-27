@@ -28,12 +28,11 @@
 {% set _meta = meta|default('') %}
 {% set _download = download|default({}) %}
 {% set _translation = translation|default([]) %}
-
 {% set _css_class = 'ecl-file' %}
-{% set _extra_attributes = '' %}
+{% set _extra_attributes = 'data-ecl-auto-init="FileDownload"' %}
 
 {% if _translation is not empty and _translation.items is not empty and _translation.items is iterable %}
-  {% set _extra_attributes = _extra_attributes ~ ' ' ~ 'data-ecl-auto-init="FileDownload"' %}
+  {% set _extra_attributes = 'data-ecl-auto-init="FileDownload"' %}
 {% endif %}
 
 {# Internal logic - Process properties #}
