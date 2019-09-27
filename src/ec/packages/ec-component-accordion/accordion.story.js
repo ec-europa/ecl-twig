@@ -29,26 +29,7 @@ storiesOf('Components/Accordion', module)
         item.toggle.icon.path = defaultSprite;
       });
 
-      const html = accordion(demoData);
-
-      const demo = document.createDocumentFragment();
-
-      const htmlElement = document.createElement('div');
-      htmlElement.innerHTML = html.trim();
-      demo.appendChild(htmlElement.firstChild);
-
-      const scriptElement = document.createElement('script');
-      scriptElement.innerHTML = `
-        var elements = document.querySelectorAll('[data-ecl-accordion]');
-
-        for (var i = 0; i < elements.length; i += 1) {
-          var accordion = new ECL.Accordion(elements[i]);
-          accordion.init();
-        }
-      `;
-      demo.appendChild(scriptElement);
-
-      return demo;
+      return accordion(demoData);
     },
 
     {

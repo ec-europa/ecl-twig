@@ -43,7 +43,11 @@
 } %}
 
 {% set _css_class = 'ecl-breadcrumb' %}
-{% set _extra_attributes = ' aria-label="' ~ _navigation_text ~ '" data-ecl-breadcrumb="true"' %}
+{% set _extra_attributes = [
+  'aria-label="' ~ _navigation_text ~ '"',
+  'data-ecl-breadcrumb="true"',
+  'data-ecl-auto-init="Breadcrumb"']|join(' ')
+%}
 
 {# Internal logic - Process properties #}
 
