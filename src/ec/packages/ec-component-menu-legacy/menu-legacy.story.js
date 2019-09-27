@@ -17,23 +17,7 @@ storiesOf('Components/Navigation/Menu Legacy', module)
     () => {
       const fullDemoData = { ...demoData, icon_path: iconPath };
 
-      const html = menuLegacy(fullDemoData);
-
-      const demo = document.createDocumentFragment();
-
-      const htmlElement = document.createElement('div');
-      htmlElement.innerHTML = `<div>${html}</div>`;
-      demo.appendChild(htmlElement.firstChild);
-
-      const scriptElement = document.createElement('script');
-      scriptElement.innerHTML = `
-        var elements = document.querySelectorAll('[data-ecl-menu-legacy]');
-        var menuLegacy = new ECL.MenuLegacy(elements[0]);
-        menuLegacy.init();
-      `;
-      demo.appendChild(scriptElement);
-
-      return demo;
+      return menuLegacy(fullDemoData);
     },
     {
       notes: { markdown: menuLegacyDocs },

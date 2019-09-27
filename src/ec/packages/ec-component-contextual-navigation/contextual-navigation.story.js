@@ -29,25 +29,8 @@ storiesOf('Components/Navigation/Contextual Navigation', module)
         item.label = text(`Item ${key} label:`, item.label);
       });
 
-      const html = contextualNavigation(demoData);
-
-      const demo = document.createDocumentFragment();
-
-      const htmlElement = document.createElement('div');
-      htmlElement.innerHTML = html.trim();
-      demo.appendChild(htmlElement.firstChild);
-
-      const scriptElement = document.createElement('script');
-      scriptElement.innerHTML = `
-        var element = document.querySelector('[data-ecl-contextual-navigation]');
-        var contextualNavigation = new ECL.ContextualNavigation(element);
-        contextualNavigation.init();
-      `;
-      demo.appendChild(scriptElement);
-
-      return demo;
+      return contextualNavigation(demoData);
     },
-
     {
       notes: { markdown: notes },
     }

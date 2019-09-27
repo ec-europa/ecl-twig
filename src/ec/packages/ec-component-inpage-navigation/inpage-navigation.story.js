@@ -1,5 +1,4 @@
 import { storiesOf } from '@storybook/html';
-import { withKnobs } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
 import iconPath from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
@@ -12,7 +11,6 @@ import pageFiller from './demo/page-filler';
 import inpageNavigation from './inpage-navigation.html.twig';
 
 storiesOf('Components/Navigation/Inpage navigation', module)
-  .addDecorator(withKnobs)
   .addDecorator(withNotes)
   .addDecorator(withCode)
   .add(
@@ -32,14 +30,6 @@ storiesOf('Components/Navigation/Inpage navigation', module)
       const htmlElement = document.createElement('div');
       htmlElement.innerHTML = `<div class="ecl-container"><div class="ecl-row ecl-u-mt-l"><div class="ecl-col-md-3">${html}</div><div class="ecl-col-md-9">${pageFillerHtml}</div></div></div>`;
       demo.appendChild(htmlElement.firstChild);
-
-      const scriptElement = document.createElement('script');
-      scriptElement.innerHTML = `
-        var elements = document.querySelectorAll('[data-ecl-inpage-navigation]');
-        var inpageNavigation = new ECL.InpageNavigation(elements[0]);
-        inpageNavigation.init();
-      `;
-      demo.appendChild(scriptElement);
 
       return demo;
     },
