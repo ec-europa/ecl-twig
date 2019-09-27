@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/html';
-import { withKnobs } from '@storybook/addon-knobs';
+import { withKnobs, text, select } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
 
@@ -18,19 +18,33 @@ dataSuccess.close.icon.path = defaultSprite;
 dataWarning.icon.path = defaultSprite;
 dataWarning.close.icon.path = defaultSprite;
 
+const msgVariants = {
+  info: 'info',
+  success: 'success',
+  error: 'error',
+  warning: 'warning',
+};
+
 storiesOf('Components/Messages', module)
   .addDecorator(withKnobs)
   .addDecorator(withCode)
   .addDecorator(withNotes)
-  .add('info', () => message(dataInfo), {
-    notes: { markdown: notes },
-  })
-  .add('success', () => message(dataSuccess), {
-    notes: { markdown: notes },
-  })
-  .add('warning', () => message(dataWarning), {
-    notes: { markdown: notes },
-  })
-  .add('error', () => message(dataError), {
-    notes: { markdown: notes },
-  });
+  .add(
+    'default',
+    () => {
+      const msgVariantsSelect = select('Message variant', msgVariants, 'info');
+
+      return message({
+        ...dataInfo,
+        title: text('Title', 'Information message'),
+        description: text(
+          'Description',
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam accumsan semper lorem, ac mollis lacus tincidunt eu. Duis scelerisque diam eu tempus fringilla.'
+        ),
+        variant: msgVariantsSelect,
+      });
+    },
+    {
+      notes: { markdown: notes },
+    }
+  );
