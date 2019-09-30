@@ -55,6 +55,61 @@ exports[`EC - Unordered list Default renders correctly 1`] = `
 </ul>
 `;
 
+exports[`EC - Unordered list Default renders correctly with divider variant 1`] = `
+<ul
+  class="ecl-unordered-list ecl-unordered-list--divider"
+>
+  <li
+    class="ecl-unordered-list__item"
+  >
+    Jobs, growth and investment
+    <ul
+      class="ecl-unordered-list"
+    >
+      <li
+        class="ecl-unordered-list__item"
+      >
+        Investment Plan for Europe: the Juncker Plan
+      </li>
+      <li
+        class="ecl-unordered-list__item"
+      >
+        European Semester
+      </li>
+    </ul>
+  </li>
+  <li
+    class="ecl-unordered-list__item"
+  >
+    Digital single market
+  </li>
+  <li
+    class="ecl-unordered-list__item"
+  >
+    Energy union and climate
+    <ul
+      class="ecl-unordered-list"
+    >
+      <li
+        class="ecl-unordered-list__item"
+      >
+        Security, solidarity and trust
+      </li>
+      <li
+        class="ecl-unordered-list__item"
+      >
+        A fully-integrated internal energy market
+      </li>
+      <li
+        class="ecl-unordered-list__item"
+      >
+        Energy efficiency
+      </li>
+    </ul>
+  </li>
+</ul>
+`;
+
 exports[`EC - Unordered list Default renders correctly with extra attributes 1`] = `
 <ul
   class="ecl-unordered-list"
@@ -115,6 +170,61 @@ exports[`EC - Unordered list Default renders correctly with extra attributes 1`]
 exports[`EC - Unordered list Default renders correctly with extra class names 1`] = `
 <ul
   class="ecl-unordered-list custom-class custom-class--test"
+>
+  <li
+    class="ecl-unordered-list__item"
+  >
+    Jobs, growth and investment
+    <ul
+      class="ecl-unordered-list"
+    >
+      <li
+        class="ecl-unordered-list__item"
+      >
+        Investment Plan for Europe: the Juncker Plan
+      </li>
+      <li
+        class="ecl-unordered-list__item"
+      >
+        European Semester
+      </li>
+    </ul>
+  </li>
+  <li
+    class="ecl-unordered-list__item"
+  >
+    Digital single market
+  </li>
+  <li
+    class="ecl-unordered-list__item"
+  >
+    Energy union and climate
+    <ul
+      class="ecl-unordered-list"
+    >
+      <li
+        class="ecl-unordered-list__item"
+      >
+        Security, solidarity and trust
+      </li>
+      <li
+        class="ecl-unordered-list__item"
+      >
+        A fully-integrated internal energy market
+      </li>
+      <li
+        class="ecl-unordered-list__item"
+      >
+        Energy efficiency
+      </li>
+    </ul>
+  </li>
+</ul>
+`;
+
+exports[`EC - Unordered list Default renders correctly with no-bullet variant 1`] = `
+<ul
+  class="ecl-unordered-list ecl-unordered-list--no-bullet"
 >
   <li
     class="ecl-unordered-list__item"

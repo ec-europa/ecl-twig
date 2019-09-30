@@ -17,6 +17,7 @@ npm install --save @ecl-twig/ec-component-unordered-list
 - "extra_attributes" (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
+- "variant" (optional) (string) (default: '') - Name of the variant
 
 ### Example:
 
@@ -52,6 +53,7 @@ npm install --save @ecl-twig/ec-component-unordered-list
         } 
       ] 
     } 
-  ] 
+  ],
+  variant: 'no-bullet' 
 } %}
 ```
