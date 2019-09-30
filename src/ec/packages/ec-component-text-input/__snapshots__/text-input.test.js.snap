@@ -10,18 +10,17 @@ exports[`EC - Text field Default renders correctly 1`] = `
   >
     Label
   </label>
-  <input
-    class="ecl-text-input"
-    id="example-id"
-    name="example-name"
-    placeholder="Placeholder"
-    type="text"
-  />
   <div
     class="ecl-help-block"
   >
     Help message
   </div>
+  <input
+    class="ecl-text-input ecl-text-input--m"
+    id="example-id"
+    name="example-name"
+    type="text"
+  />
 </div>
 `;
 
@@ -35,20 +34,19 @@ exports[`EC - Text field Default renders correctly with extra attributes 1`] = `
   >
     Label
   </label>
-  <input
-    class="ecl-text-input"
-    data-test="data-test-value"
-    data-test-1="data-test-value-1"
-    id="example-id"
-    name="example-name"
-    placeholder="Placeholder"
-    type="text"
-  />
   <div
     class="ecl-help-block"
   >
     Help message
   </div>
+  <input
+    class="ecl-text-input ecl-text-input--m"
+    data-test="data-test-value"
+    data-test-1="data-test-value-1"
+    id="example-id"
+    name="example-name"
+    type="text"
+  />
 </div>
 `;
 
@@ -62,18 +60,65 @@ exports[`EC - Text field Default renders correctly with extra class names 1`] = 
   >
     Label
   </label>
-  <input
-    class="ecl-text-input custom-class custom-class--test"
-    id="example-id"
-    name="example-name"
-    placeholder="Placeholder"
-    type="text"
-  />
   <div
     class="ecl-help-block"
   >
     Help message
   </div>
+  <input
+    class="ecl-text-input ecl-text-input--m custom-class custom-class--test"
+    id="example-id"
+    name="example-name"
+    type="text"
+  />
+</div>
+`;
+
+exports[`EC - Text field Default renders correctly with extra group class names 1`] = `
+<div
+  class="ecl-form-group ecl-form-group--text-input custom-group-class custom-group-class--test"
+>
+  <label
+    class="ecl-form-label"
+    for="example-id"
+  >
+    Label
+  </label>
+  <div
+    class="ecl-help-block"
+  >
+    Help message
+  </div>
+  <input
+    class="ecl-text-input ecl-text-input--m"
+    id="example-id"
+    name="example-name"
+    type="text"
+  />
+</div>
+`;
+
+exports[`EC - Text field Default renders correctly with extra label class names 1`] = `
+<div
+  class="ecl-form-group ecl-form-group--text-input"
+>
+  <label
+    class="ecl-form-label custom-label-class custom-label-class--test"
+    for="example-id"
+  >
+    Label
+  </label>
+  <div
+    class="ecl-help-block"
+  >
+    Help message
+  </div>
+  <input
+    class="ecl-text-input ecl-text-input--m"
+    id="example-id"
+    name="example-name"
+    type="text"
+  />
 </div>
 `;
 
@@ -82,24 +127,23 @@ exports[`EC - Text field Disabled renders correctly 1`] = `
   class="ecl-form-group ecl-form-group--text-input"
 >
   <label
-    class="ecl-form-label"
+    class="ecl-form-label ecl-form-label--disabled"
     for="example-id"
   >
     Label
   </label>
-  <input
-    class="ecl-text-input"
-    disabled=""
-    id="example-id"
-    name=""
-    placeholder="Placeholder"
-    type="text"
-  />
   <div
-    class="ecl-help-block"
+    class="ecl-help-block ecl-help-block--disabled"
   >
     Help message
   </div>
+  <input
+    class="ecl-text-input ecl-text-input--m"
+    disabled=""
+    id="example-id"
+    name=""
+    type="text"
+  />
 </div>
 `;
 
@@ -108,26 +152,25 @@ exports[`EC - Text field Disabled renders correctly with extra attributes 1`] = 
   class="ecl-form-group ecl-form-group--text-input"
 >
   <label
-    class="ecl-form-label"
+    class="ecl-form-label ecl-form-label--disabled"
     for="example-id"
   >
     Label
   </label>
+  <div
+    class="ecl-help-block ecl-help-block--disabled"
+  >
+    Help message
+  </div>
   <input
-    class="ecl-text-input"
+    class="ecl-text-input ecl-text-input--m"
     data-test="data-test-value"
     data-test-1="data-test-value-1"
     disabled=""
     id="example-id"
     name=""
-    placeholder="Placeholder"
     type="text"
   />
-  <div
-    class="ecl-help-block"
-  >
-    Help message
-  </div>
 </div>
 `;
 
@@ -136,24 +179,48 @@ exports[`EC - Text field Disabled renders correctly with extra class names 1`] =
   class="ecl-form-group ecl-form-group--text-input"
 >
   <label
-    class="ecl-form-label"
+    class="ecl-form-label ecl-form-label--disabled"
     for="example-id"
   >
     Label
   </label>
-  <input
-    class="ecl-text-input custom-class custom-class--test"
-    disabled=""
-    id="example-id"
-    name=""
-    placeholder="Placeholder"
-    type="text"
-  />
   <div
-    class="ecl-help-block"
+    class="ecl-help-block ecl-help-block--disabled"
   >
     Help message
   </div>
+  <input
+    class="ecl-text-input ecl-text-input--m custom-class custom-class--test"
+    disabled=""
+    id="example-id"
+    name=""
+    type="text"
+  />
+</div>
+`;
+
+exports[`EC - Text field Disabled renders correctly with extra group class names 1`] = `
+<div
+  class="ecl-form-group ecl-form-group--text-input custom-group-class custom-group-class--test"
+>
+  <label
+    class="ecl-form-label ecl-form-label--disabled"
+    for="example-id"
+  >
+    Label
+  </label>
+  <div
+    class="ecl-help-block ecl-help-block--disabled"
+  >
+    Help message
+  </div>
+  <input
+    class="ecl-text-input ecl-text-input--m"
+    disabled=""
+    id="example-id"
+    name=""
+    type="text"
+  />
 </div>
 `;
 
@@ -167,23 +234,22 @@ exports[`EC - Text field With error renders correctly 1`] = `
   >
     Label
   </label>
-  <input
-    class="ecl-text-input ecl-text-input--invalid"
-    id="example-id"
-    name="example-name"
-    placeholder="Placeholder"
-    type="text"
-  />
-  <div
-    class="ecl-feedback-message"
-  >
-    Error message
-  </div>
   <div
     class="ecl-help-block"
   >
     Help message
   </div>
+  <div
+    class="ecl-feedback-message"
+  >
+    Error message
+  </div>
+  <input
+    class="ecl-text-input ecl-text-input--invalid ecl-text-input--m"
+    id="example-id"
+    name="example-name"
+    type="text"
+  />
 </div>
 `;
 
@@ -197,25 +263,24 @@ exports[`EC - Text field With error renders correctly with extra attributes 1`] 
   >
     Label
   </label>
-  <input
-    class="ecl-text-input ecl-text-input--invalid"
-    data-test="data-test-value"
-    data-test-1="data-test-value-1"
-    id="example-id"
-    name="example-name"
-    placeholder="Placeholder"
-    type="text"
-  />
-  <div
-    class="ecl-feedback-message"
-  >
-    Error message
-  </div>
   <div
     class="ecl-help-block"
   >
     Help message
   </div>
+  <div
+    class="ecl-feedback-message"
+  >
+    Error message
+  </div>
+  <input
+    class="ecl-text-input ecl-text-input--invalid ecl-text-input--m"
+    data-test="data-test-value"
+    data-test-1="data-test-value-1"
+    id="example-id"
+    name="example-name"
+    type="text"
+  />
 </div>
 `;
 
@@ -229,22 +294,50 @@ exports[`EC - Text field With error renders correctly with extra class names 1`]
   >
     Label
   </label>
-  <input
-    class="ecl-text-input ecl-text-input--invalid custom-class custom-class--test"
-    id="example-id"
-    name="example-name"
-    placeholder="Placeholder"
-    type="text"
-  />
-  <div
-    class="ecl-feedback-message"
-  >
-    Error message
-  </div>
   <div
     class="ecl-help-block"
   >
     Help message
   </div>
+  <div
+    class="ecl-feedback-message"
+  >
+    Error message
+  </div>
+  <input
+    class="ecl-text-input ecl-text-input--invalid ecl-text-input--m custom-class custom-class--test"
+    id="example-id"
+    name="example-name"
+    type="text"
+  />
+</div>
+`;
+
+exports[`EC - Text field With error renders correctly with extra group class names 1`] = `
+<div
+  class="ecl-form-group ecl-form-group--text-input custom-group-class custom-group-class--test"
+>
+  <label
+    class="ecl-form-label ecl-form-label--invalid"
+    for="example-id"
+  >
+    Label
+  </label>
+  <div
+    class="ecl-help-block"
+  >
+    Help message
+  </div>
+  <div
+    class="ecl-feedback-message"
+  >
+    Error message
+  </div>
+  <input
+    class="ecl-text-input ecl-text-input--invalid ecl-text-input--m"
+    id="example-id"
+    name="example-name"
+    type="text"
+  />
 </div>
 `;

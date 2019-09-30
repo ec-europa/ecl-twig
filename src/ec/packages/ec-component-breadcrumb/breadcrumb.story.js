@@ -42,30 +42,13 @@ storiesOf('Components/Navigation/Breadcrumb', module)
   )
   .add(
     'long',
-    () => {
-      const html = breadcrumb({
+    () =>
+      breadcrumb({
         links: longBreadcrumbLinks,
         icon_file_path: defaultSprite,
         navigation_text: breadcrumbDataLong.label,
         ellipsis_label: 'Click to expand',
-      });
-
-      const demo = document.createDocumentFragment();
-
-      const htmlElement = document.createElement('div');
-      htmlElement.innerHTML = html.trim();
-      demo.appendChild(htmlElement.firstChild);
-
-      const scriptElement = document.createElement('script');
-      scriptElement.innerHTML = `
-      var breadcrumbElement = document.querySelector("[data-ecl-breadcrumb]");
-      var breadcrumb = new ECL.Breadcrumb(breadcrumbElement);
-      breadcrumb.init();
-      `;
-      demo.appendChild(scriptElement);
-
-      return demo;
-    },
+      }),
     {
       notes: { markdown: breadcrumbDocs },
     }

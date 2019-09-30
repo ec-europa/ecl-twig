@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/html';
-import { withKnobs } from '@storybook/addon-knobs';
+import { withKnobs, text, select } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
 
@@ -18,105 +18,31 @@ dataSuccess.close.icon.path = defaultSprite;
 dataWarning.icon.path = defaultSprite;
 dataWarning.close.icon.path = defaultSprite;
 
+const msgVariants = {
+  info: 'info',
+  success: 'success',
+  error: 'error',
+  warning: 'warning',
+};
+
 storiesOf('Components/Messages', module)
   .addDecorator(withKnobs)
   .addDecorator(withCode)
   .addDecorator(withNotes)
   .add(
-    'info',
+    'default',
     () => {
-      const html = message(dataInfo);
+      const msgVariantsSelect = select('Message variant', msgVariants, 'info');
 
-      const demo = document.createDocumentFragment();
-
-      const htmlElement = document.createElement('div');
-      htmlElement.innerHTML = html.trim();
-      demo.append(htmlElement.firstChild);
-
-      const scriptElement = document.createElement('script');
-      scriptElement.innerHTML = `
-      var messageElement = document.querySelector("[data-ecl-message]");
-      var message = new ECL.Message(messageElement);
-      message.init();
-      `;
-      demo.append(scriptElement);
-
-      return demo;
-    },
-    {
-      notes: { markdown: notes },
-    }
-  )
-  .add(
-    'success',
-    () => {
-      const html = message(dataSuccess);
-
-      const demo = document.createDocumentFragment();
-
-      const htmlElement = document.createElement('div');
-      htmlElement.innerHTML = html.trim();
-      demo.append(htmlElement.firstChild);
-
-      const scriptElement = document.createElement('script');
-      scriptElement.innerHTML = `
-      var messageElement = document.querySelector("[data-ecl-message]");
-      var message = new ECL.Message(messageElement);
-      message.init();
-      `;
-      demo.append(scriptElement);
-
-      return demo;
-    },
-    {
-      notes: { markdown: notes },
-    }
-  )
-  .add(
-    'warning',
-    () => {
-      const html = message(dataWarning);
-
-      const demo = document.createDocumentFragment();
-
-      const htmlElement = document.createElement('div');
-      htmlElement.innerHTML = html.trim();
-      demo.append(htmlElement.firstChild);
-
-      const scriptElement = document.createElement('script');
-      scriptElement.innerHTML = `
-      var messageElement = document.querySelector("[data-ecl-message]");
-      var message = new ECL.Message(messageElement);
-      message.init();
-      `;
-      demo.append(scriptElement);
-
-      return demo;
-    },
-    {
-      notes: { markdown: notes },
-    }
-  )
-  .add(
-    'error',
-    () => {
-      const html = message(dataError);
-
-      const demo = document.createDocumentFragment();
-
-      const htmlElement = document.createElement('div');
-      htmlElement.innerHTML = html.trim();
-      demo.append(htmlElement.firstChild);
-
-      const scriptElement = document.createElement('script');
-      scriptElement.innerHTML = `
-      var messageElement = document.querySelector("[data-ecl-message]");
-      var message = new ECL.Message(messageElement);
-      message.init();
-      `;
-      demo.append(scriptElement);
-
-      return demo;
+      return message({
+        ...dataInfo,
+        title: text('Title', 'Information message'),
+        description: text(
+          'Description',
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam accumsan semper lorem, ac mollis lacus tincidunt eu. Duis scelerisque diam eu tempus fringilla.'
+        ),
+        variant: msgVariantsSelect,
+      });
     },
     {
       notes: { markdown: notes },

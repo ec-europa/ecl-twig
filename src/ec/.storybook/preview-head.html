@@ -1,25 +1,44 @@
 <link
   rel="stylesheet"
-  href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v2.9.0/ec-preset-legacy-website/styles/ecl-ec-preset-legacy-website.css"
-  integrity="sha256-1crNKXPu4FcaFAbYlT0w9vk2qPokq/25xnIsE9BpjOM= sha384-3yPKaL5TA7/O0mJZoo7AAftDQPRJEhlqvaGkjdVClDYw0Z84pHvurPwdnyTAXoss sha512-YjLAPmsTqF+BfQxQ2FduRpWc+7KGj32qrVnepm/wS1YirDWpfhZriu+6si8VMM7PILYxImsgB4rUUmyRsVteNw=="
+  href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v2.11.0/ec-preset-legacy-website/styles/ecl-ec-preset-legacy-website.css"
+  integrity="sha256-XWNHHPhhLjilsuAEukHakuhwqK/BxrIpH6z5FuNWJ2A= sha384-bbPd6syHQvmXu7vi8GLwhto+gTfeIEKWGfH8fiymfzsVwfXNNbWQh6OYk/cxnO9O sha512-Uqk1z3MmsHWk87ftLFXUl6DA3bYAQ0H+7Xt/2AWJg+t8BmdOZFddjpxbEwolQMOjSttuDqL11H9wRsbVatZoLQ=="
   crossorigin="anonymous"
   media="screen"
 />
 <link
   rel="stylesheet"
-  href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v2.9.0/ec-preset-legacy-website/styles/ecl-ec-preset-legacy-website-print.css"
-  integrity="sha256-lkGfTL9MJhNsSxXUyntwHLHEflW1hodEUr9nstVaZMw= sha384-oUJ4qLsrLT7mAGFAGEdyZYMbgB94krygKD3ThitnDUYNy1BZ9azBChDhUmr0Rnp/ sha512-RcpHJ9Zf0R1X96U9rSd6Q2sE5am3O7YNi2Jg7a+r9bj/8B8DGrPlMmyE28jKtfCsaAW6/luPAsUG2OkfXIQTzQ=="
+  href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v2.11.0/ec-preset-legacy-website/styles/ecl-ec-preset-legacy-website-print.css"
+  integrity="sha256-KaHMR825SzKge3139+dxIc/jHd3cDwJXY8/DvVHuMuk= sha384-0gzBY6o/qllJU0S4kcPlOfBuyGon7CFznPgOxUquU/VhTJMhFK8V2cH93uY2ITMv sha512-Gwv0oXfgADlRs+edZwoUGIEaLK/HQBT5C6UqAlU4D66fnWad0SQ+Oq3m9V7qL4nTrw/95Ln6D/ybFIp+6By2GQ=="
   crossorigin="anonymous"
   media="print"
 />
 <script
-  type="text/javascript"
-  src="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v2.9.0/ec-preset-legacy-website/scripts/ecl-ec-preset-legacy-website.js"
-  integrity="sha256-NJiueP4dVG6/YGI3m4pOvIMLOxhvHE3AcPN3OtxGoj0= sha384-PhkD+jdW3ZoBh7um+IVANSMsl5p/JjLXxov/lycrMxDW+cMdg3PKqWR5VIlACJXm sha512-yEmnqK34vqLLq3fswC19fI8wn3wrbVpG5zwapxT4MSVbM8X9TgQuD1qQ23hq0uBcYuoc1O/A8EnvSfWBfCSAOQ=="
+  src="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v2.11.0/ec-preset-legacy-website/scripts/ecl-ec-preset-legacy-website.js"
+  integrity="sha256-tsBVaRxJlo9sIsLj4UCFyWrqnxRPPGNwVv2p8DNJul4= sha384-JR4MXSyly5+x7L6myTQCn83vw3zGJGSD4omNxQeHZlZ72oPjFS5v3/AGzGGxeVCr sha512-SGF+x0GqxaUDh/XdX/yooFnhtE9hwgXPX5A+9pJcppQ4XyqKeppj9NjpUz1iEhaVWAbxY5iO8LCcGiw8OFcLyQ=="
   crossorigin="anonymous"
-  defer
 ></script>
 <script src="https://unpkg.com/svg4everybody@2.1.9/dist/svg4everybody.min.js"></script>
 <script>
+  // https://github.com/storybookjs/storybook/issues/6113#issuecomment-473965255
+  function runOnPageChange() {
+    ECL.autoInit();
+  }
+  document.addEventListener(
+    'DOMContentLoaded',
+    function() {
+      const callback = function(mutationsList) {
+        for (let i = 0, len = mutationsList.length; i < len; i++) {
+          if (mutationsList[i].type == 'childList') {
+            runOnPageChange();
+            break;
+          }
+        }
+      };
+      const observer = new MutationObserver(callback);
+      const config = { childList: true, subtree: false };
+      observer.observe(document.getElementById('root'), config);
+    },
+    false
+  );
   svg4everybody();
 </script>

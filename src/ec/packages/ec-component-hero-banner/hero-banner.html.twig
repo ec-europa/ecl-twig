@@ -62,10 +62,9 @@
       {% endif %}
       {% if _link is not empty %}
         {% include '../ec-component-link/link.html.twig' with _link|merge({
-          link: _link.link|merge({
-            type: 'standalone',
-          }),
-          extra_classes: 'ecl-hero-banner__link'
+          link: _link.link|merge({ 
+            type: 'cta',
+          })
         }) only %}
       {% elseif _button is not empty %}
         {% include '../ec-component-button/button.html.twig' with _button|merge({

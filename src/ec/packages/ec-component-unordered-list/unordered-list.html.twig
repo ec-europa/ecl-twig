@@ -18,18 +18,21 @@
         },
         ...
       ]
+    - "variant" (string) Component variants (no-bullet, divider)
 #}
 
 {# Define main macro #}
-{% macro unordered_list(items, extra_classes, extra_attributes) %}{% spaceless %}
+{% macro unordered_list(items, extra_classes, extra_attributes, variant) %}{% spaceless %}
   {% import _self as list %}
-
   {# Internal properties #}
   {% set _items = items|default([]) %}
   {% set _css_class = 'ecl-unordered-list' %}
   {% set _extra_attributes = '' %}
-
+  {% set _variant = variant|default('') %}
   {# Internal logic - Process properties #}
+  {% if _variant is not empty %}
+    {% set _css_class = _css_class ~ ' ' ~ _css_class ~ '--' ~ _variant %}
+  {% endif %}
 
   {% if extra_classes is defined and extra_classes is not empty %}
     {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
@@ -59,6 +62,6 @@
 {% endspaceless %}{% endmacro %}
 
 {# Render macro #}
-{{ list.unordered_list(items, extra_classes, extra_attributes) }}
+{{ list.unordered_list(items, extra_classes, extra_attributes, variant) }}
 
 {% endspaceless %}
