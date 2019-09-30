@@ -1,10 +1,7 @@
 import { configure, addDecorator, addParameters } from '@storybook/html';
 import { withOptions } from '@storybook/addon-options';
 import { create } from '@storybook/theming';
-import Twig from 'twig';
 import { version } from '../../../lerna.json';
-
-Twig.cache();
 
 addParameters({
   options: {
