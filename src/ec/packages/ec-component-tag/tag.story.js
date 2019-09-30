@@ -25,8 +25,6 @@ storiesOf('Components/Tag', module)
       notes: { markdown: tagDocs },
     }
   )
-  /* Hide button variant (on hold) */
-  /*
   .add(
     'as a button',
     () =>
@@ -40,7 +38,6 @@ storiesOf('Components/Tag', module)
       notes: { markdown: tagDocs },
     }
   )
-  */
   .add(
     'removable',
     () =>
