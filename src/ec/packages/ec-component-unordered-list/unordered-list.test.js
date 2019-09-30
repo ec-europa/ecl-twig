@@ -23,6 +23,26 @@ describe('EC - Unordered list', () => {
       return expect(render(withExtraClasses)).resolves.toMatchSnapshot();
     });
 
+    test('renders correctly with no-bullet variant', () => {
+      expect.assertions(1);
+
+      const noBullet = merge(data, {
+        variant: 'no-bullet',
+      });
+
+      return expect(render(noBullet)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly with divider variant', () => {
+      expect.assertions(1);
+
+      const divider = merge(data, {
+        variant: 'divider',
+      });
+
+      return expect(render(divider)).resolves.toMatchSnapshot();
+    });
+
     test('renders correctly with extra attributes', () => {
       expect.assertions(1);
 
