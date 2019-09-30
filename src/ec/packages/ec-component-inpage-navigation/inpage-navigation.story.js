@@ -20,7 +20,7 @@ storiesOf('Components/Navigation/Inpage navigation', module)
 
       let pageFillerHtml = '';
       pageFiller.items.forEach(item => {
-        pageFillerHtml += `<h1 id="${item.hash}">${item.label}</h1><p>${item.content}</p><p>${item.content}</p>`;
+        pageFillerHtml += `<h2 class="ecl-u-type-heading-2" id="${item.hash}">${item.label}</h2><p class="ecl-u-type-paragraph-m">${item.content}</p><p class="ecl-u-type-paragraph-m">${item.content}</p>`;
       });
 
       const html = inpageNavigation(fullDemoData);
