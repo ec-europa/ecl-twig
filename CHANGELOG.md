@@ -3,6 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.11.0](https://github.com/ec-europa/ecl-twig/compare/v2.9.1...v2.11.0) (2019-09-30)
+
+**Note:** Version bump only for package ecl-twig
+
+- **checkbox:** feat(checkbox): add component - TWIG-9 ([#132]) (https://github.com/ec-europa/ecl-twig/issues/132) ([6b52750](https://github.com/ec-europa/ecl-twig/commit/6b52750))
+
+- **media-container:** Refactor markup - TWIG-42 ([#138]) (https://github.com/ec-europa/ecl-twig/issues/138) ([63e2235](https://github.com/ec-europa/ecl-twig/commit/63e2235))
+
+- **text-input:** Updates on the component - TWIG-38 - ([#141]) (https://github.com/ec-europa/ecl-twig/issues/141) ([b7d7e5d](https://github.com/ec-europa/ecl-twig/commit/b7d7e5d))
+- Extra classes for labels - ([#150]) (https://github.com/ec-europa/ecl-twig/issues/150) ([9b60066](https://github.com/ec-europa/ecl-twig/commit/9b60066))
+
+- **card:** Refactor markup and use aria-label - TWIG-32/33 ([#136]) (https://github.com/ec-europa/ecl-twig/issues/136) ([4a383a4](https://github.com/ec-europa/ecl-twig/commit/4a383a4))
+
+- **radio:** Update markup component - TWIG-36 ([#135]) (https://github.com/ec-europa/ecl-twig/issues/135) ([ae75a07](https://github.com/ec-europa/ecl-twig/commit/ae75a07))
+
+- **footer:** Refactor markup - TWIG-41 ([#137]) (https://github.com/ec-europa/ecl-twig/issues/137) ([f645fb2](https://github.com/ec-europa/ecl-twig/commit/f645fb2))
+
+- **select:** Update style of the component - TWIG-37 ([#147]) (https://github.com/ec-europa/ecl-twig/issues/147) ([508833d](https://github.com/ec-europa/ecl-twig/commit/508833d))
+
+- **text-area:** Update style of the component - TWIG-49 ([#148]) (https://github.com/ec-europa/ecl-twig/issues/148) ([4382b05](https://github.com/ec-europa/ecl-twig/commit/4382b05))
+
+- **date-block:** Add component - TWIG-31 ([#133]) (https://github.com/ec-europa/ecl-twig/issues/133) ([c32ba2b](https://github.com/ec-europa/ecl-twig/commit/c32ba2b))
+
+- **file-upload:** Add component - TWIG-30 ([#134]) (https://github.com/ec-europa/ecl-twig/issues/134) ([bb3ac23](https://github.com/ec-europa/ecl-twig/commit/bb3ac23))
+
+- **form-group:** Allow group classnames - TWIG-35 ([#140]) (https://github.com/ec-europa/ecl-twig/issues/140) ([e10d1be](https://github.com/ec-europa/ecl-twig/commit/e10d1be))
+
+- **drowpdown-legacy:** Add component - TWIG-3 ([#149]) (https://github.com/ec-europa/ecl-twig/issues/149) ([4d08278](https://github.com/ec-europa/ecl-twig/commit/4d08278))
+
+- **description list:** Add horizontal variant - TWIG-39 ([#139]) (https://github.com/ec-europa/ecl-twig/issues/139) ([d6e269a](https://github.com/ec-europa/ecl-twig/commit/d6e269a))
+
+- **tag:** Add button version - TWIG-62 ([#149]) (https://github.com/ec-europa/ecl-twig/issues/161) ([794c8ee](https://github.com/ec-europa/ecl-twig/commit/794c8ee))
+
+- **hero-banner:** Cta button - TWIG-60 ([#160]) (https://github.com/ec-europa/ecl-twig/issues/160) ([c86b699](https://github.com/ec-europa/ecl-twig/commit/c86b699))
+
 ## [2.9.1](https://github.com/ec-europa/ecl-twig/compare/v2.9.0...v2.9.1) (2019-09-18)
 
 **Note:** Version bump only for package ecl-twig
