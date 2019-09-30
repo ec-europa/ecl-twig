@@ -7,7 +7,6 @@ module.exports = {
     'prettier/unicorn',
     'prettier/react',
     'plugin:jest/recommended',
-    'twig',
   ],
   plugins: ['react', 'jsx-a11y'],
   env: {
@@ -29,12 +28,6 @@ module.exports = {
       files: ['utils/**/*.{js,jsx}'],
       rules: {
         'import/no-extraneous-dependencies': false,
-      },
-    },
-    {
-      files: ['src/**/*twig'],
-      rules: {
-        'no-console': 2,
       },
     },
   ],
