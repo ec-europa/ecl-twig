@@ -77,7 +77,7 @@ Executes the [twigcs](https://github.com/friendsoftwig/twigcs) on all the packag
 ```bash
 composer run cs "pathToTheTemplateFile"
 ```  
-Executes the [twigcs](https://github.com/friendsoftwig/twigcs) script on the coponent you specified.
+Executes the [twigcs](https://github.com/friendsoftwig/twigcs) script on the component you specified.
 
 ```bash
 composer run twig-lint

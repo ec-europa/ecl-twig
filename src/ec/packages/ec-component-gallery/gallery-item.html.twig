@@ -20,10 +20,10 @@
 
 {% set _css_class = 'ecl-gallery__item' %}
 {% set _extra_attributes = '' %}
-{% set _useArial = '' %}
-{% set _mediaHref = '' %}
-{% set _mediaSharePath = '' %}
-{% set _imageAlt = '' %}
+{% set _use_arial = '' %}
+{% set _media_href = '' %}
+{% set _media_share_path = '' %}
+{% set _image_alt = '' %}
 {% set _item = item|default({}) %}
 
 {# Internal logic - Process properties #}
@@ -34,20 +34,20 @@
 
 {# Setting up Video and image variables #}
 {% if _item and _item is not empty %}
-  {% set _mediaSharePath = _item.share_path  %}
+  {% set _media_share_path = _item.share_path %}
 
   {% if _item.video is defined and _item.video is not empty %}
-    {% set _mediaHref = _item.video.sources[0].src %}
+    {% set _media_href = _item.video.sources[0].src %}
   {% else %}
     {% if _item.image is defined and _item.image is not empty %}
-      {% set _mediaHref = _item.image.src %}
-      {% set _imageAlt = _item.image.alt %}
-    {%  else %}
-      {% set _mediaHref = _item.path %}
-      {% set _imageAlt = _item.alt %}
+      {% set _media_href = _item.image.src %}
+      {% set _image_alt = _item.image.alt %}
+    {% else %}
+      {% set _media_href = _item.path %}
+      {% set _image_alt = _item.alt %}
     {% endif %}
-    {#   Use Arial only for image.   #}
-    {% set _useArial = 'aria-label="' ~ _imageAlt ~ '"' %}
+    {# Use Arial only for image. #}
+    {% set _use_arial = 'aria-label="' ~ _image_alt ~ '"' %}
   {% endif %}
 {% endif %}
 
@@ -61,17 +61,17 @@
 
 <li class="{{ _css_class }}"{{ _extra_attributes }}>
   <a
-    href="{{ _mediaHref }}"
+    href="{{ _media_href }}"
     class="ecl-gallery__item-link"
-    {{ _useArial }}
+    {{ _use_arial }}
     data-ecl-gallery-item
-    data-ecl-gallery-item-share="{{ _mediaSharePath }}"
+    data-ecl-gallery-item-share="{{ _media_share_path }}"
   >
     <figure class="ecl-gallery__image-container">
-      {% if _item and _item is not empty and _item.video and _item.video is not empty%}
+      {% if _item and _item is not empty and _item.video and _item.video is not empty %}
         {% include './video.html.twig' %}
       {% else %}
-        <img src="{{ _mediaHref }}" alt="{{ _imageAlt }}" class="ecl-gallery__image" />
+        <img src="{{ _media_href }}" alt="{{ _image_alt }}" class="ecl-gallery__image" />
       {% endif %}
 
       {% if _item.icon is not empty and _item.icon.name is not empty %}

@@ -5,6 +5,8 @@ parameters:
   tasks:
     twigcs:
       ruleset: 'Allocine\Twigcs\Ruleset\Official'
+      path: 'src/*'
+      severity: 'error'
     composer:
       no_check_lock: true
     yamllint:
