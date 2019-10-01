@@ -6,18 +6,17 @@
     - "label_expanded" (string) (default: '')
     - "label_collapsed" (string) (default: '')
     - "expanded" (boolean) (default: false)
-    - "button" (predefined structure) :  Button component structure 
+    - "button" (predefined structure) : Button component structure
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
         {
           "name" (string) (default: ''),
-          "value" (string) (default: '')
+          "value" (optional) (string)
         },
         ...
-      ]
-
+      ],
   Blocks:
-    - "content"      
+    - "content"
 #}
 
 {# Internal properties #}
@@ -25,7 +24,7 @@
 {% set _id = id|default('') %}
 {% set _css_class = 'ecl-expandable' %}
 {% set _extra_attributes = [
-  'data-ecl-expandable="true"', 
+  'data-ecl-expandable="true"',
   'data-ecl-auto-init="Expandable"']|join(' ')
 %}
 
@@ -46,7 +45,11 @@
 
 {% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
   {% for attr in extra_attributes %}
-    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name %}
+    {% endif %}
   {% endfor %}
 {% endif %}
 

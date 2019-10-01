@@ -104,7 +104,11 @@
 
 {% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
   {% for attr in extra_attributes %}
-    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name %}
+    {% endif %}
   {% endfor %}
 {% endif %}
 
