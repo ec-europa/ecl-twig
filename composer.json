@@ -13,10 +13,12 @@
     "twig-cs": "./vendor/bin/twigcs ./src/*/packages",
     "cs": "./vendor/bin/twigcs",
     "twig-lint": "./vendor/bin/twig-lint lint ./src/*/packages",
-    "lint": "./vendor/bin/twig-lint lint"
+    "lint": "./vendor/bin/twig-lint lint",
+    "grump-cs" : "php ./vendor/bin/grumphp run"
   },
   "require-dev": {
     "friendsoftwig/twigcs": "^3.1.3",
-    "asm89/twig-lint": "^1.0.2"
+    "asm89/twig-lint": "^1.0.2",
+    "phpro/grumphp": "^0.16.1"
   }
 }
