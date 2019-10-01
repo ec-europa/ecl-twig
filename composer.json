@@ -14,7 +14,9 @@
     "cs": "./vendor/bin/twigcs",
     "twig-lint": "./vendor/bin/twig-lint lint ./src/*/packages",
     "lint": "./vendor/bin/twig-lint lint",
-    "grump-cs" : "php ./vendor/bin/grumphp run"
+    "grump-cs" : "php ./vendor/bin/grumphp run",
+    "grump-en": "php ./vendor/bin/grumphp git:init",
+    "grump-dis": "php ./vendor/bin/grumphp git:deinit"
   },
   "require-dev": {
     "friendsoftwig/twigcs": "^3.1.3",

@@ -49,11 +49,64 @@ yarn start:eu
 
 ## Lint
 
-Check coding conventions (JS only):
+This library is an implementation of the ECL vanilla components using the twig render engine. Being these twig templates used primarily used in a Drupal environment the version of twig language to be used is the [1.x](https://twig.symfony.com/doc/1.x/).
+
+Please ensure that no syntax or features from twig 2.x is used, in order to help you with the checks on the syntax and formatting of the twig templates different solution for sniffig and linting the files are available.
+
+### Js
 
 ```bash
 yarn lint
 ```
+
+### Twig
+
+The libraries we use for sniffing and linting the twig templates all are php ones, therefore in order to be able to use the functionality in ECl-twig you would need a working installation of php (7.x) and composer to be installed.
+
+```bash
+composer install
+```  
+One you have the libraries installed your system should be already configured for automatically running the sniffer in a pre-commit hook.
+You can also run the sniffer manually on the code in different ways using the command line:
+
+```bash
+composer run twig-cs
+```  
+Executes the [twigcs](https://github.com/friendsoftwig/twigcs) on all the packages.
+
+```bash
+composer run cs "pathToTheTemplateFile"
+```  
+Executes the [twigcs](https://github.com/friendsoftwig/twigcs) script on the coponent you specified.
+
+```bash
+composer run twig-lint
+```  
+Runs the [twig-lint](https://github.com/asm89/twig-lint) sniff against all the packages.
+
+```bash
+composer run lint "pathToTheFolder"
+```  
+Runs the [twig-lint](https://github.com/asm89/twig-lint) sniff against the folder you specified.
+
+```bash
+composer run grump-cs
+```  
+Runs [grumphp](https://github.com/phpro/grumphp) on all the packages, one of its tasks is twigcs, the output of this command should be equal to "composer run twig-cs".
+
+#### Disable/Enable pre-commit hook
+
+Your environment should be already configured once composer install has run, but you can enable and disable the automatic check happening in the pre-commit hook by running these commands:
+
+```bash
+composer run grump-en
+```  
+To enable the pre-commit hook.
+
+```bash
+composer run grump-dis
+```  
+To disable the pre-commit hook.
 
 ## Test
 
