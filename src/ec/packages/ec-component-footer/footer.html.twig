@@ -15,7 +15,7 @@
   - "extra_classes" (optional) (string) (default: '') Extra classes (space separated) for the icon
   - "extra_attributes" (optional) (array) (default: []) Extra attributes for icon
     - "name" (string) Attribute name, eg. 'data-test'
-    - "value" (string) Attribute value, eg: 'data-test-1'
+    - "value" (optional) (string) Attribute value, eg: 'data-test-1'
 #}
 
 {# Internal properties #}
@@ -31,7 +31,7 @@
 {# Internal logic - Process properties #}
 
 {% if _identity is not empty %}
-  {% set _css_class =  _css_class ~ ' ecl-footer--custom' %}
+  {% set _css_class = _css_class ~ ' ecl-footer--custom' %}
 {% endif %}
 
 {% if extra_classes is defined and extra_classes is not empty %}

@@ -12,7 +12,7 @@
   - "extra_classes" (optional) (string) (default: '')
   - "extra_attributes" (optional) (array) (default: [])
     - "name" (string) Attribute name, eg. 'data-test'
-    - "value" (string) Attribute value, eg: 'data-test-1'
+    - "value" (optional) (string) Attribute value, eg: 'data-test-1'
   Blocks:
   - "helper_text"
   - "label"
@@ -68,7 +68,7 @@
     {{ _helper_id is not empty ? 'aria-describedby="' ~ _helper_id ~ '"' -}}
   />
  
-  <label 
+  <label
     class="ecl-radio__label"
     {{ _id ? ' for="' ~ _id ~ '"' }}
   >

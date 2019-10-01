@@ -22,7 +22,7 @@
   - "extra_attributes" (array) (default: []): format: [
       {
         "name" (string) (default: ''),
-        "value" (string) (default: '')
+        "value" (optional) (string)
       },
       ...
     ]
@@ -68,7 +68,7 @@
 <table class="{{ _css_class }}"{{ _extra_attributes|raw }} >
   <thead class="{{ _head_css_class }}">
      {% for header in _headers %}
-       <tr class="{{  _row_css_class }}">
+       <tr class="{{ _row_css_class }}">
         {% for cell in header %}
           {% set _colspan_attribute = cell.colspan is not empty ? 'colspan="' ~ cell.colspan ~'"' : '' %}
           <th {{ _colspan_attribute }} class="{{ _header_css_class }}">{{ cell.label }}</th>
@@ -84,7 +84,7 @@
           {% if cell.group %}
             {% set _cell_attribute = _cell_attribute ~ (cell['data-ecl-table-header-group'] is not empty ? ' data-ecl-table-header-group="' ~ cell['data-ecl-table-header-group'] ~ '"' : '') %}
             {% set _cell_css_class = _cell_css_class ~ ' ' ~ _cell_header_group_class %}
-          {%  endif %}
+          {% endif %}
           <td {{ _cell_attribute }} class="{{ _cell_css_class }}" >{{ cell.label }}</td>
         {% endfor %}
       </tr>
