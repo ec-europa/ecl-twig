@@ -63,8 +63,7 @@ function formatItem(i) {
     item.alt = 'VIDEO NOT SUPPORTED YET'; // We don't have equivalent for "alt" in "video"
     if (i.video.tracks && Array.isArray(i.video.tracks)) {
       i.video.tracks.forEach(track => {
-        track.src_lang = track.srcLang;
-        delete track.srcLang;
+        track.src_lang = track.srcLang; // eslint-disable-line no-param-reassign
       });
     }
   } else {
