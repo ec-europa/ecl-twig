@@ -1,10 +1,9 @@
-import path from 'path';
 import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
 import specData from '@ecl/ec-specs-select/demo/data';
 
 describe('EC - Select', () => {
-  const template = path.resolve(__dirname, './select.html.twig');
+  const template = 'ec-component-select/select.html.twig';
   const render = params => renderTwigFileAsNode(template, params);
 
   describe('Default', () => {

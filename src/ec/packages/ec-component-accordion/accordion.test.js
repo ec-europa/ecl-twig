@@ -1,6 +1,4 @@
 /* eslint-disable no-param-reassign */
-
-import path from 'path';
 import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
 import demoData from './demo/data';
@@ -10,7 +8,7 @@ demoData.items.forEach(item => {
 });
 
 describe('EC - Accordion', () => {
-  const template = path.resolve(__dirname, './accordion.html.twig');
+  const template = 'ec-component-accordion/accordion.html.twig';
   const render = params => renderTwigFileAsNode(template, params);
 
   test('renders correctly', () => {

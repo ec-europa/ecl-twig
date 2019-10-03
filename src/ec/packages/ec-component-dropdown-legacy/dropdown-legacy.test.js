@@ -1,4 +1,3 @@
-import path from 'path';
 import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
 import demoData from './demo/data';
@@ -7,7 +6,7 @@ import demoData from './demo/data';
 demoData.button.icon.path = 'static/icons.svg';
 
 describe('EC - Dropdown legacy', () => {
-  const template = path.resolve(__dirname, './dropdown-legacy.html.twig');
+  const template = 'ec-compoennt-dropdown-legacy/dropdown-legacy.html.twig';
   const render = params => renderTwigFileAsNode(template, params);
 
   describe('Default', () => {

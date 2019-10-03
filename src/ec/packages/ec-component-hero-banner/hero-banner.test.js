@@ -1,4 +1,3 @@
-import path from 'path';
 import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
 import bannerDataDefault from '@ecl/ec-specs-hero-banner/demo/data--default';
@@ -39,7 +38,7 @@ function formatBanner(b) {
 }
 
 describe('EC - Hero Banner', () => {
-  const template = path.resolve(__dirname, './hero-banner.html.twig');
+  const template = 'ec-component-hero-banner/hero-banner.html.twig';
   const render = params => renderTwigFileAsNode(template, params);
 
   describe('default', () => {
