@@ -1,8 +1,7 @@
-import path from 'path';
 import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
 describe('EC - Search Form', () => {
-  const template = path.resolve(__dirname, './search-form.html.twig');
+  const template = 'ec-component-search-form/search-form.html.twig';
   const render = params => renderTwigFileAsNode(template, params);
   const defaultIconPath = 'static/icons.svg';
 

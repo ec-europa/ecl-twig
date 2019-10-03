@@ -1,11 +1,10 @@
 /* eslint-disable no-param-reassign */
-import path from 'path';
 import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
 import demoData from './demo/data';
 
 describe('EC - Date Block', () => {
-  const template = path.resolve(__dirname, './date-block.html.twig');
+  const template = 'ec-component-date-block/date-block.html.twig';
   const render = params => renderTwigFileAsNode(template, params);
 
   test('renders correctly', () => {

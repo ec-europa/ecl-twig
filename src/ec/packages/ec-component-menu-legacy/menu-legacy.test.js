@@ -1,12 +1,10 @@
 /* eslint-disable no-param-reassign */
-
-import path from 'path';
 import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
 import defaultDataStructure from './demo/data';
 
 describe('EC - Menu Legacy', () => {
-  const template = path.resolve(__dirname, './menu-legacy.html.twig');
+  const template = 'ec-component-menu-legacy/menu-legacy.html.twig';
   const render = params => renderTwigFileAsNode(template, params);
   const defaultIconPath = 'static/icons.svg';
 

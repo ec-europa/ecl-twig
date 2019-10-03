@@ -1,8 +1,7 @@
-import path from 'path';
 import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
 describe('EC - Skip Link', () => {
-  const template = path.resolve(__dirname, './skip-link.html.twig');
+  const template = 'ec-component-skip-link/skip-link.html.twig';
   const render = params => renderTwigFileAsNode(template, params);
   const defaultDataStructure = {
     label: '',

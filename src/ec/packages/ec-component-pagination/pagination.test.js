@@ -1,11 +1,10 @@
-import path from 'path';
 import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
 // Import data for tests
 import data from './demo/data';
 
 describe('EC - Pagination', () => {
-  const template = path.resolve(__dirname, './pagination.html.twig');
+  const template = 'ec-component-pagination/pagination.html.twig';
   const render = params => renderTwigFileAsNode(template, params);
 
   describe('Default', () => {

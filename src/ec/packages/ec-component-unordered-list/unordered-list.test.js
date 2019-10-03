@@ -1,9 +1,8 @@
-import path from 'path';
 import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 import data from '@ecl/ec-specs-list/demo/data--text';
 
 describe('EC - Unordered list', () => {
-  const template = path.resolve(__dirname, './unordered-list.html.twig');
+  const template = 'ec-component-unordered-list/unordered-list.html.twig';
   const render = params => renderTwigFileAsNode(template, params);
 
   describe('Default', () => {

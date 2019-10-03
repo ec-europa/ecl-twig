@@ -1,11 +1,10 @@
-import path from 'path';
 import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
 // Import data for tests
 import { dataError, dataInfo, dataSuccess, dataWarning } from './demo/data';
 
 describe('EC - Message', () => {
-  const template = path.resolve(__dirname, './message.html.twig');
+  const template = 'ec-component-message/message.html.twig';
   const render = params => renderTwigFileAsNode(template, params);
 
   describe('Info', () => {
