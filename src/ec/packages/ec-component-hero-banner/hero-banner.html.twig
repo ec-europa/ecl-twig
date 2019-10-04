@@ -29,13 +29,13 @@
 {% set _button = button|default({}) %}
 {% set _link = link|default({}) %}
 
-{% set _css_class = ['ecl-hero-banner ecl-hero-banner--'~_type]|join(' ') %}
+{% set _css_class = ['ecl-hero-banner ecl-hero-banner--' ~ _type]|join(' ') %}
 {% set _extra_attributes = '' %}
 
 {# Internal logic - Process properties #}
 
 {% if _centered == true %}
-  {% set _css_class=_css_class~' ecl-hero-banner--centered' %}
+  {% set _css_class = _css_class ~ ' ecl-hero-banner--centered' %}
 {% endif %}
 
 {% if extra_classes is defined and extra_classes is not empty %}
@@ -51,7 +51,7 @@
 {# Print the result #}
 
 <section class="{{ _css_class }}"{{ _extra_attributes }}>
-  {% if _image is not empty and _type in ['image','image-shade'] %}
+  {% if _image is not empty and _type in ['image', 'image-shade'] %}
     <div class="ecl-hero-banner__image" style="background-image:url({{ _image }})"></div>
   {% endif %}
   <div class="ecl-container ecl-hero-banner__container">
