@@ -51,7 +51,7 @@
 
 {% if _zebra %}
   {% set _css_class = _css_class ~ ' ' ~ _zebra_css_class %}
-{% endif%}
+{% endif %}
 
 {% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
   {% for attr in extra_attributes %}
@@ -70,7 +70,7 @@
      {% for header in _headers %}
        <tr class="{{ _row_css_class }}">
         {% for cell in header %}
-          {% set _colspan_attribute = cell.colspan is not empty ? 'colspan="' ~ cell.colspan ~'"' : '' %}
+          {% set _colspan_attribute = cell.colspan is not empty ? 'colspan="' ~ cell.colspan ~ '"' : '' %}
           <th {{ _colspan_attribute }} class="{{ _header_css_class }}">{{ cell.label }}</th>
         {% endfor %}
       </tr>

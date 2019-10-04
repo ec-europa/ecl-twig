@@ -53,10 +53,8 @@
 
 <div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
   {% set _button_attributes = [
-      { name: 'aria-controls', value: _aria_controls },
-      { name: 'data-ecl-dropdown-legacy-toggle', value: 'true' },
-    ] 
-  %}
+    { name: 'aria-controls', value: _aria_controls },
+    { name: 'data-ecl-dropdown-legacy-toggle', value: 'true' }] %}
 
   {% include '../ec-component-button/button.html.twig' with {
     label: _button.label,
@@ -78,7 +76,7 @@
           {{- item.label -}}
         </li>
       {% endfor %}
-    </ul>  
+    </ul>
   </div>
 </div>
 

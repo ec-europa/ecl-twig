@@ -20,7 +20,6 @@
 
 {# Internal properties #}
 
-{% set _back_to_top = back_to_top|default({}) %}
 {% set _identity = identity|default({}) %}
 {% set _sections = sections|default({}) %}
 {% set _common = common|default({}) %}
@@ -53,6 +52,7 @@
 <footer class="{{ _css_class }}"{{ _extra_attributes|raw }}>
   {# Back to top #}
   {# Disabled
+  {% set _back_to_top = back_to_top|default({}) %}
   {% include '../ec-component-link/link.html.twig' with _back_to_top|merge({
     link: _back_to_top.link|default({})|merge({
       type: 'standalone',

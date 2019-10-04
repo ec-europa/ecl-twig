@@ -65,14 +65,9 @@
   %}
 
   {% if _expanded %}
-    {% set _button_attributes = _button_attributes|merge([
-        { name: 'aria-expanded', value: _expanded },
-      ])
-    %}
-
+    {% set _button_attributes = _button_attributes|merge([{ name: 'aria-expanded', value: _expanded }]) %}
     {% set _label = _label_expanded %}
     {% set _content_hidden_attribute = '' %}
-
   {% else %}
     {% set _label = _label_collapsed %}
     {% set _content_hidden_attribute = 'hidden' %}

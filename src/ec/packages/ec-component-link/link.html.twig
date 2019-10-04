@@ -45,20 +45,20 @@
   label: '',
   path: '',
   icon_position: ''
-}%}
+} %}
 
 {% set _icon = {
   type: '',
   name: '',
   path: '',
   size: ''
-}%}
+} %}
 
 {% if link is defined %}
   {% set _link = _link|merge(link) %}
 {% endif %}
 
-{% set _css_class = ['ecl-link','ecl-link--'~_link.type]|join(' ') %}
+{% set _css_class = ['ecl-link', 'ecl-link--' ~ _link.type]|join(' ') %}
 {% set _extra_attributes = '' %}
 
 {% if icon.name is defined and icon.name is not empty %}
