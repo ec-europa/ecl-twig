@@ -6,16 +6,15 @@
     - "label_expanded" (string) (default: '')
     - "label_collapsed" (string) (default: '')
     - "expanded" (boolean) (default: false)
-    - "button" (predefined structure) :  Button component structure
+    - "button" (predefined structure) : Button component structure
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
         {
           "name" (string) (default: ''),
-          "value" (string) (default: '')
+          "value" (optional) (string)
         },
         ...
-      ]
-
+      ],
   Blocks:
     - "content"
 #}
@@ -25,7 +24,7 @@
 {% set _id = id|default('') %}
 {% set _css_class = 'ecl-expandable' %}
 {% set _extra_attributes = [
-  'data-ecl-expandable="true"', 
+  'data-ecl-expandable="true"',
   'data-ecl-auto-init="Expandable"']|join(' ')
 %}
 
@@ -46,7 +45,11 @@
 
 {% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
   {% for attr in extra_attributes %}
-    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name %}
+    {% endif %}
   {% endfor %}
 {% endif %}
 
@@ -54,22 +57,16 @@
 
 <div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
   {% set _button_attributes = [
-      { name: 'aria-controls', value: _aria_controls },
-      { name: 'data-ecl-expandable-toggle', value: 'true' },
-      { name: 'data-ecl-label-expanded', value: _label_expanded },
-      { name: 'data-ecl-label-collapsed', value: _label_collapsed },
-    ]
-  %}
+    { name: 'aria-controls', value: _aria_controls },
+    { name: 'data-ecl-expandable-toggle', value: true },
+    { name: 'data-ecl-label-expanded', value: _label_expanded },
+    { name: 'data-ecl-label-collapsed', value: _label_collapsed }
+  ] %}
 
   {% if _expanded %}
-    {% set _button_attributes = _button_attributes|merge([
-        { name: 'aria-expanded', value: _expanded },
-      ])
-    %}
-
+    {% set _button_attributes = _button_attributes|merge([{ name: 'aria-expanded', value: _expanded }]) %}
     {% set _label = _label_expanded %}
     {% set _content_hidden_attribute = '' %}
-
   {% else %}
     {% set _label = _label_collapsed %}
     {% set _content_hidden_attribute = 'hidden' %}

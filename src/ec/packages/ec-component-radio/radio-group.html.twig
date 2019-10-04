@@ -11,7 +11,7 @@
   - "extra_classes" (optional) (string) (default: '')
   - "extra_attributes" (optional) (array) (default: [])
     - "name" (string) Attribute name, eg. 'data-test'
-    - "value" (string) Attribute value, eg: 'data-test-1'
+    - "value" (optional) (string) Attribute value, eg: 'data-test-1'
   Blocks:
   - "label"
   - "helper_text"
@@ -50,7 +50,11 @@
 
 {% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
   {% for attr in extra_attributes %}
-    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name %}
+    {% endif %}
   {% endfor %}
 {% endif %}
 
@@ -58,7 +62,7 @@
 
 <fieldset
   class="{{ _css_class }}"
-  {{ _helper_id is not empty ? 'aria-describedby="' ~ _helper_id ~ '"'}}
+  {{ _helper_id is not empty ? 'aria-describedby="' ~ _helper_id ~ '"' }}
   {{ _extra_attributes|raw }}
 >
 
@@ -79,7 +83,7 @@
   {% if _helper_text is not empty %}
     <div
       class="ecl-help-block"
-      {{ _helper_id is not empty ? 'id="' ~ _helper_id ~ '"'}}
+      {{ _helper_id is not empty ? 'id="' ~ _helper_id ~ '"' }}
     >
       {%- block helper_text _helper_text -%}
     </div>

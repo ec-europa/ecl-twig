@@ -61,6 +61,11 @@ function formatItem(i) {
   } else if (i.video) {
     item.path = i.video.poster;
     item.alt = 'VIDEO NOT SUPPORTED YET'; // We don't have equivalent for "alt" in "video"
+    if (i.video.tracks && Array.isArray(i.video.tracks)) {
+      i.video.tracks.forEach(track => {
+        track.src_lang = track.srcLang; // eslint-disable-line no-param-reassign
+      });
+    }
   } else {
     // Fallback to previous structure
     item.path = i.src;

@@ -16,16 +16,13 @@
           }]
         }]
     }]
-
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
-        {
-          "name" (string) (default: ''),
-          "value" (string) (default: '')
-        },
-        ...
-      ]
-
+      {
+        "name" (string) (default: ''),
+        "value" (optional) (string)
+      ...
+    ]
 #}
 
 {# Internal properties #}
@@ -48,7 +45,7 @@
   size: 'xs',
   transform: 'rotate-180',
   color: '',
-  extra_classes:'ecl-menu-legacy_link-icon'}|merge(icon|default({}))
+  extra_classes: 'ecl-menu-legacy_link-icon'}|merge(icon|default({}))
 %}
 
 {# Internal logic - Process properties #}
@@ -59,7 +56,11 @@
 
 {% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
   {% for attr in extra_attributes %}
-    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name %}
+    {% endif %}
   {% endfor %}
 {% endif %}
 
@@ -80,17 +81,17 @@
       {% block navigation %}
         {% if _links is not empty and _links is iterable %}
           {% for _link in _links %}
-            {% set _link_class_name = _prefix_class ~ '__item' ~ (_link.is_active ? ' ' ~ _prefix_class ~ '__item--active' : '') ~ (_link.is_current ? ' ' ~ _prefix_class ~ '__item--current' : '' ) %}
+            {% set _link_class_name = _prefix_class ~ '__item' ~ (_link.is_active ? ' ' ~ _prefix_class ~ '__item--active' : '') ~ (_link.is_current ? ' ' ~ _prefix_class ~ '__item--current' : '') %}
             {% set _extra_classes = _prefix_class ~ '__link' ~ (_link.is_current ? ' ' ~ _prefix_class ~ '__link--current' : '') %}
               {% if _link.children is not defined or _link.children is empty %}
               <li class="{{ _link_class_name }}" data-{{ _prefix_class }}-item="true" data-ecl-has-children="false" >
-                {%- include 'ec-component-link/link.html.twig' with { link: { 'type': 'standalone','label':_link.label, 'path': _link.href }, extra_classes : _extra_classes } only -%}
+                {%- include 'ec-component-link/link.html.twig' with { link: { type: 'standalone', 'label': _link.label, 'path': _link.href }, extra_classes: _extra_classes } only -%}
               {% else %}
               <li class="{{ _link_class_name }}" data-{{ _prefix_class }}-item="true" data-ecl-has-children="true" >
                 {%- include 'ec-component-link/link.html.twig' with {
-                  link : {'type': 'standalone','label':_link.label, 'path': _link.href, 'icon_position': 'after'},
-                  icon : _icon,
-                  extra_classes : _extra_classes,
+                  link: {'type': 'standalone', 'label': _link.label, 'path': _link.href, 'icon_position': 'after'},
+                  icon: _icon,
+                  extra_classes: _extra_classes,
                   extra_attributes: [ { name: 'data-' ~ _prefix_class ~ '-link', value: true }],
                 } only -%}
                 {#second level#}
@@ -106,8 +107,8 @@
                           {% set _extra_classes = _prefix_class ~ '__sublink' ~ (_child_link.is_current ? ' ' ~ _prefix_class ~ '__sublink--current' : '') %}
                           <li class="{{ _prefix_class }}__subitem" data-ecl-menu-legacy-subitem="true">
                              {%- include 'ec-component-link/link.html.twig' with {
-                                link : {'type': 'standalone','label': _child_link.label, 'path': _child_link.href},
-                                extra_classes : _extra_classes
+                                link: {'type': 'standalone', 'label': _child_link.label, 'path': _child_link.href},
+                                extra_classes: _extra_classes
                               } only -%}
                           </li>
                         {% endfor %}

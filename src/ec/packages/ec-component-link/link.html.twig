@@ -33,8 +33,7 @@
     - "extra_attributes" (array) (default: []): format: [
         {
           "name" (string) (default: ''),
-          "value" (string) (default: '')
-        },
+          "value" (optional) (string)
         ...
       ]
 #}
@@ -46,20 +45,20 @@
   label: '',
   path: '',
   icon_position: ''
-}%}
+} %}
 
 {% set _icon = {
   type: '',
   name: '',
   path: '',
   size: ''
-}%}
+} %}
 
 {% if link is defined %}
   {% set _link = _link|merge(link) %}
 {% endif %}
 
-{% set _css_class = ['ecl-link','ecl-link--'~_link.type]|join(' ') %}
+{% set _css_class = ['ecl-link', 'ecl-link--' ~ _link.type]|join(' ') %}
 {% set _extra_attributes = '' %}
 
 {% if icon.name is defined and icon.name is not empty %}
@@ -80,7 +79,11 @@
 
 {% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
   {% for attr in extra_attributes %}
-    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name %}
+    {% endif %}
   {% endfor %}
 {% endif %}
 
