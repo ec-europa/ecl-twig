@@ -1,26 +1,19 @@
-const { format } = require('prettier');
 const merge = require('deepmerge');
 const twing = require('../../../src/ec/.storybook/environment'); // eslint-disable-line import/no-unresolved
 
-const renderTwigFile = (file, options, cb) =>
-  twing.render(file, options, (err, html) =>
-    cb(err, format(html, { parser: 'html' }))
-  );
-
 const renderTwigFileAsNode = (file, options) =>
-  new Promise((resolve, reject) =>
-    twing.render(file, options, (err, html) => {
-      if (err) return reject(err);
-
+  new Promise((resolve, reject) => {
+    try {
+      const html = twing.render(file, options);
       const div = document.createElement('div');
       div.innerHTML = html.trim();
-
-      return resolve(div.firstChild);
-    })
-  );
+      resolve(div.firstChild);
+    } catch (error) {
+      reject(error);
+    }
+  });
 
 module.exports = {
   merge,
-  renderTwigFile,
   renderTwigFileAsNode,
 };
