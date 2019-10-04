@@ -18,8 +18,7 @@
     - "extra_attributes" (array) (default: []): format: [
         {
           "name" (string) (default: ''),
-          "value" (string) (default: '')
-        },
+          "value" (optional) (string)
         ...
       ]
 #}
@@ -38,7 +37,11 @@
 
 {% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
   {% for attr in extra_attributes %}
-    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name %}
+    {% endif %}
   {% endfor %}
 {% endif %}
 
@@ -60,7 +63,7 @@
           extra_classes: 'ecl-accordion__toggle',
           extra_attributes: [
             { name: 'aria-controls', value: _item.id },
-            { name: 'data-ecl-accordion-toggle', value: 'true' },
+            { name: 'data-ecl-accordion-toggle', value: true },
           ]
         } only %}
       </h{{ _item.level|default(3) }}>
