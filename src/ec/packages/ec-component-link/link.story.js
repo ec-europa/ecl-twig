@@ -36,7 +36,7 @@ storiesOf('Components/Navigation/Link', module)
 
       const iconsListSelect = select('Icon (sample)', iconsList, null);
 
-      return link({
+      const linkData = {
         link: {
           type: 'default',
           label: text('Label', 'Default link'),
@@ -49,7 +49,15 @@ storiesOf('Components/Navigation/Link', module)
           path: defaultSprite,
           size: 'fluid',
         },
-      });
+      };
+      const demo = document.createDocumentFragment();
+      const wrapper = document.createElement('p');
+      wrapper.className = 'ecl-u-type-paragraph';
+      wrapper.setAttribute('demo_only', true);
+      wrapper.innerHTML = link(linkData);
+      demo.appendChild(wrapper);
+
+      return demo;
     },
     {
       notes: { markdown: linkDocs },
