@@ -32,37 +32,37 @@ if [ "$errors" -gt 0 ]
       isOrAre='is'
     fi
     echo "There $isOrAre $errors $package_s with mismatched version, please check this, the version you are about to release is $mainVersion."
+else
+  echo "All good about the package versions ;)"
 fi
 
 echo -e "_____________________________________________________________________\n"
+
 # STEP 2 - First check the number of packages:
 echo "Checking the release packages:"
 numOfPackages="$($jq -r '[(.dependencies) | keys] | flatten | length' $packageJson)"
 echo "You have $numOfPackages components in your list and"
-# Check the folders
-numOfFolders="$(cd ./src/ec/packages/ && echo */ | wc -w)"
-realNumOfFolders=$((numOfFolders - 1));
-echo "you have $realNumOfFolders packages folders in your filesystem.";
+numOfFolders="$(cd ./src/ec/packages/ && echo ec-component-*/ | wc -w)"
+echo "you have $numOfFolders packages folders in your filesystem.";
 
-if [ $realNumOfFolders == $numOfPackages ]
+if [ $numOfFolders == $numOfPackages ]
   then
     echo "All good for now, then..."
-elif [ $(($realNumOfFolders - $numOfPackages)) -lt 0 ]
+elif [ $(($numOfFolders - $numOfPackages)) -lt 0 ]
   then
     echo "It seems you are about to release more components than the ones we have."
-elif [ $(($realNumOfFolders - $numOfPackages)) -gt 0 ]
+elif [ $(($numOfFolders - $numOfPackages)) -gt 0 ]
   then
-    echo "Ops, why do you have $((realNumOfFolders - numOfPackages)) folder(s) more..?"
+    echo "Ops, why do you have $((numOfFolders - numOfPackages)) folder(s) more..?"
     echo "Looks like you might be forgetting something to release..."
 fi
 
 echo -e "_____________________________________________________________________\n"
 
-echo "Checking the packages list against the folders you have:"
-
 # STEP 3 - Check the packages against the folders.
+echo "Checking the packages list against the folders you have:"
 packages=($(<$packageJson $jq -r '.dependencies | keys | .[] | sub("@ecl-twig/"; ""; "g") | @sh'))
-packagesFolders=(./src/ec/packages/*)
+packagesFolders=(./src/ec/packages/ec-component-*)
 foldersArray=()
 
 for package in "${packagesFolders[@]}"; do
