@@ -10,6 +10,7 @@
     "jest": "jest",
     "jest-update": "jest -u",
     "lint:js": "eslint .",
+    "lint:bash": "shellcheck **/*.sh",
     "lint": "npm run lint:js",
     "postinstall": "lerna run postinstall && lerna run prepublish",
     "pretty-check": "prettier --check \"src/**/*.{md,mdx,html,json,yml,js}\"",
@@ -56,6 +57,7 @@
     "react": "16.9.0",
     "react-dom": "16.9.0",
     "rimraf": "2.6.3",
+    "shellcheck": "0.3.0",
     "twig": "1.13.3",
     "twig-loader": "0.5.1",
     "webpack": "4.40.2"
