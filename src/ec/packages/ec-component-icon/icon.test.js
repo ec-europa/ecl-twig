@@ -6,7 +6,7 @@ import notificationsIcons from '@ecl/ec-resources-icons/dist/lists/notifications
 import uiIcons from '@ecl/ec-resources-icons/dist/lists/ui.json';
 
 describe('EC - Icon', () => {
-  const template = 'ec-component-icon/icon.html.twig';
+  const template = 'icon.html.twig';
   const render = params => renderTwigFileAsNode(template, params);
 
   const defaultDataStructure = {

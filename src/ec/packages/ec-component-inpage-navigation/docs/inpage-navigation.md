@@ -31,7 +31,7 @@ Parameters:
 
 <!-- prettier-ignore -->
 ```twig
-{% include 'path/to/inpage-navigation.html.twig' with {  
+{% include 'inpage-navigation.html.twig' with {  
   title: 'Inpage navigation', 
   links: [ 
     { 

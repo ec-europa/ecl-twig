@@ -41,12 +41,12 @@
 
 <form class="{{ _css_class }}" role="search"{{ _extra_attributes|raw }}>
   {% if text_input is defined %}
-    {% include 'ec-component-text-input/text-input.html.twig' with text_input|merge({
+    {% include 'text-input.html.twig' with text_input|merge({
       extra_label_classes: 'ecl-search-form__label',
     }) only %}
   {% endif %}
   {% if button is defined %}
-    {% include 'ec-component-button/button.html.twig' with button only %}
+    {% include 'button.html.twig' with button only %}
   {% endif %}
   {% block extra_form_elements _extra_form_elements %}
 </form>

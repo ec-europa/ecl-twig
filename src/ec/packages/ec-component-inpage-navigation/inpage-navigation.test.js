@@ -4,7 +4,7 @@ import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 import demoData from './demo/data';
 
 describe('EC - Inpage navigation', () => {
-  const template = 'ec-component-inpage-navigation/inpage-navigation.html.twig';
+  const template = 'inpage-navigation.html.twig';
   const render = params => renderTwigFileAsNode(template, params);
 
   test('renders correctly', () => {

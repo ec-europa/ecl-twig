@@ -26,7 +26,7 @@ npm install --save @ecl-twig/ec-component-hero-banner
 
 <!-- prettier-ignore -->
 ```twig
-{% include 'path/to/site-header.html.twig' with {  
+{% include 'site-header.html.twig' with {  
   title: 'EU Budget for the future',  
   description: 'The European Commission has put forward ambitious yet realistic proposals for a modern EU budget. It is time for an EU budget that reflects rapid developments in innovation, the economy, the environment and geopolitics, amongst others.',  
   centered: true,  

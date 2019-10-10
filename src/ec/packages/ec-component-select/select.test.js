@@ -3,7 +3,7 @@ import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 import specData from '@ecl/ec-specs-select/demo/data';
 
 describe('EC - Select', () => {
-  const template = 'ec-component-select/select.html.twig';
+  const template = 'select.html.twig';
   const render = params => renderTwigFileAsNode(template, params);
 
   describe('Default', () => {

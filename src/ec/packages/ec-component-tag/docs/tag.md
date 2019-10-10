@@ -24,7 +24,7 @@ npm install --save @ecl-twig/ec-component-tag
 
 <!-- prettier-ignore -->
 ```twig
-{% include 'path/to/tag.html.twig' with { 
+{% include 'tag.html.twig' with { 
   tag: { 
     type: 'removable', 
     path: '/example', 

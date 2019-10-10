@@ -25,7 +25,7 @@ npm install --save @ecl-twig/ec-component-breadcrumb
 
 <!-- prettier-ignore -->
 ```twig
-{% include 'path/to/breadcrumb.html.twig' with { 
+{% include 'breadcrumb.html.twig' with { 
   links: [ 
     { 
       label: 'Link 1', 

@@ -4,7 +4,7 @@ import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 import demoData from './demo/data';
 
 describe('EC - Gallery', () => {
-  const template = 'ec-component-gallery/gallery.html.twig';
+  const template = 'gallery.html.twig';
   const render = params => renderTwigFileAsNode(template, params);
 
   describe('Default', () => {

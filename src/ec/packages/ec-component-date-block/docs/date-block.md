@@ -23,7 +23,7 @@ npm install --save @ecl-twig/ec-component-date-block
 
 <!-- prettier-ignore -->
 ```twig
-{% include 'path/to/date-block.html.twig' with { 
+{% include 'date-block.html.twig' with { 
   day: '26', 
   month: 'Dec', 
   year: '2018', 

@@ -28,7 +28,7 @@ npm install --save @ecl-twig/ec-component-media-container
 
 <!-- prettier-ignore -->
 ```twig
-{% include 'path/to/media-container.html.twig' with { 
+{% include 'media-container.html.twig' with { 
   description: 'A description for this component', 
   extra_classes: 'my-extra-class-1 my-extra-class-2', 
   sources: [ 

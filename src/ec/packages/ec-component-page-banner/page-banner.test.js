@@ -38,7 +38,7 @@ function formatBanner(b) {
 }
 
 describe('EC - Page Banner', () => {
-  const template = 'ec-component-page-banner/page-banner.html.twig';
+  const template = 'page-banner.html.twig';
   const render = params => renderTwigFileAsNode(template, params);
 
   describe('default', () => {
