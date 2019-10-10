@@ -55,15 +55,15 @@
 {# Internal logic - Process properties #}
 
 {% if _id is not empty %}
-  {% set _main_attributes = _component_attributes ~ ' ' ~ 'id="' ~ _id ~ '"' %}
+  {% set _main_attributes = "id=" ~ _id %}
 {% endif %}
 
 {% if _name is not empty %}
-  {% set _main_attributes = _component_attributes ~ ' ' ~ 'name="' ~ _name ~ '"' %}
+  {% set _main_attributes = _main_attributes ~ ' ' ~ 'name=' ~ _name %}
 {% endif %}
 
 {% if _required %}
-  {% set _main_attributes = _component_attributes ~ ' ' ~ 'required' %}
+  {% set _main_attributes = _main_attributes ~ ' ' ~ 'required' %}
 {% endif %}
 
 {% if _invalid %}
@@ -74,7 +74,7 @@
 {% if _disabled %}
   {% set _label_classes = _label_base_class ~ ' ' ~ _label_base_class ~ _disabled_variant %}
   {% set _help_classes = _help_classes ~ ' ' ~ _help_classes ~ _disabled_variant %}
-  {% set _component_attributes = _component_attributes ~ ' ' ~ 'disabled' %}
+  {% set _main_attributes = _main_attributes ~ ' ' ~ 'disabled' %}
 {% endif %}
 
 {% if _extra_classes is not empty %}
@@ -96,7 +96,9 @@
 <div class="{{ _group_css_classes }}">
   {% if _label is not empty %}
     <label class="{{ _label_classes }}"
-      {{- _id ? 'for="' ~ _id ~ '"' -}}
+    {% if _id is not empty %}
+      for="{{ _id }}"
+    {% endif %}
     >
       {%- block label _label -%}
       {%- if _required and _required_text is not empty -%}
@@ -123,10 +125,13 @@
     </div>
   {% endif %}
 
-  <input type="file"
+  <input
+    type="file"
     class="{{ _component_class }}"
     {{- _main_attributes -}}
-    {{- _extra_attributes|raw -}}
+  {% if _extra_attributes is not empty %}
+    {{ _extra_attributes|raw }}
+  {% endif %}
   />
 </div>
 
