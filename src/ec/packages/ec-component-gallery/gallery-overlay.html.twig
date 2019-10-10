@@ -45,7 +45,7 @@
 
 <dialog class="{{ _css_class }}"{{ _extra_attributes }} data-ecl-gallery-overlay>
   <header class="ecl-gallery__close" data-ecl-gallery-overlay-header>
-    {% include 'ec-component-button/button.html.twig' with _overlay.close|merge({
+    {% include 'button.html.twig' with _overlay.close|merge({
       extra_classes: 'ecl-gallery__close-button',
       type: _button_type,
       extra_attributes: [
@@ -57,7 +57,7 @@
   <section class="ecl-gallery__slider">
     <div class="{{ _css_media_class }}" data-ecl-gallery-overlay-media></div>
 
-    {% include 'ec-component-button/button.html.twig' with _overlay.previous|merge({
+    {% include 'button.html.twig' with _overlay.previous|merge({
       extra_classes: 'ecl-gallery__slider-previous',
       type: _button_type,
       extra_attributes: [
@@ -65,7 +65,7 @@
       ],
     }) only %}
 
-    {% include 'ec-component-button/button.html.twig' with _overlay.next|merge({
+    {% include 'button.html.twig' with _overlay.next|merge({
       extra_classes: 'ecl-gallery__slider-next',
       type: _button_type,
       extra_attributes: [
@@ -81,7 +81,7 @@
       <span data-ecl-gallery-overlay-counter-max>0</span>
     </div>
     <div class="ecl-gallery__detail-actions">
-      {% include 'ec-component-link/link.html.twig' with _overlay.download|merge({
+      {% include 'link.html.twig' with _overlay.download|merge({
         link: {
           icon_position: 'after',
         }|merge(_overlay.download.link),
@@ -91,7 +91,7 @@
           { name: 'download' },
         ],
       }) only %}
-      {% include 'ec-component-link/link.html.twig' with _overlay.share|merge({
+      {% include 'link.html.twig' with _overlay.share|merge({
         link: {
           icon_position: 'after',
         }|merge(_overlay.share.link),

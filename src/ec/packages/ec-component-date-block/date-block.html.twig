@@ -51,7 +51,7 @@
   {% if __month_full != '' and _month_full != _month %}
     {% set _month_markup = '<abbr title="' ~ _month_full ~ '" class="ecl-date-block__month">' ~ _month ~ '</abbr>' %}
   {% else %}
-    {% set _month_markup = '<span className="ecl-date-block__month">' ~ _month ~ '</span>' %}
+    {% set _month_markup = '<span class="ecl-date-block__month">' ~ _month ~ '</span>' %}
   {% endif %}
   {% if _date_time is not empty %}
     {% set _extra_attributes = _extra_attributes ~ 'dateTime="' ~ _date_time ~ '"' %}

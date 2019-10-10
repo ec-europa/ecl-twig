@@ -6,7 +6,7 @@ import demoData from './demo/data';
 demoData.button.icon.path = 'example';
 
 describe('EC - Expandable', () => {
-  const template = 'ec-component-expandable/expandable.html.twig';
+  const template = 'expandable.html.twig';
   const render = params => renderTwigFileAsNode(template, params);
 
   describe('Collapsed', () => {

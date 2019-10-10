@@ -12,8 +12,7 @@ demoData.links.forEach(link => {
 });
 
 describe('EC - Social Media Follow', () => {
-  const template =
-    'ec-component-social-media-follow/social-media-follow.html.twig';
+  const template = 'social-media-follow.html.twig';
   const render = params => renderTwigFileAsNode(template, params);
   describe('Default', () => {
     test('renders correctly with extra class names', () => {

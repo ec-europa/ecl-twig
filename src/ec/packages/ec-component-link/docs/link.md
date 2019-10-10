@@ -26,7 +26,7 @@ npm install --save @ecl-twig/ec-component-link
 
 <!-- prettier-ignore -->
 ```twig
-{% include 'path/to/icon.html.twig' with { 
+{% include 'icon.html.twig' with { 
   link: { 
     type: 'standalone', 
     label: 'Standalone link', 

@@ -8,7 +8,7 @@ demoData.items.forEach(item => {
 });
 
 describe('EC - Accordion2', () => {
-  const template = 'ec-component-accordion2/accordion2.html.twig';
+  const template = 'accordion2.html.twig';
   const render = params => renderTwigFileAsNode(template, params);
 
   test('renders correctly', () => {

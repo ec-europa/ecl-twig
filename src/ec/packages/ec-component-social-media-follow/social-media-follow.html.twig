@@ -74,7 +74,7 @@
       {% set _link_extra_classes = _link_extra_classes ~ ' ' ~ link.extra_classes %}
     {% endif %}
     <li class="ecl-social-media-follow__item">
-      {% include 'ec-component-link/link.html.twig' with link|merge({
+      {% include 'link.html.twig' with link|merge({
           link: link|default({})|merge({
           type: 'standalone',
         }),

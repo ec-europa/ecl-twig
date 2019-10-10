@@ -39,7 +39,7 @@ npm install --save @ecl-twig/ec-component-site-header
 
 <!-- prettier-ignore -->
 ```twig
-{% include 'path/to/site-header.html.twig' with { 
+{% include 'site-header.html.twig' with { 
   icon_file_path: '/path-to-the-icons-file', 
   logo: { 
     title: 'European Commission', 

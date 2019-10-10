@@ -23,7 +23,7 @@ npm install --save @ecl-twig/ec-component-unordered-list
 
 <!-- prettier-ignore -->
 ```twig
-{% include 'path/to/unordered-list.html.twig' with { 
+{% include 'unordered-list.html.twig' with { 
   items: [ 
     { 
       label: 'Jobs, growth and investment', 
