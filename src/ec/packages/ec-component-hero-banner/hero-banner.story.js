@@ -2,14 +2,14 @@ import { storiesOf } from '@storybook/html';
 import { withKnobs, text, boolean } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
-
-import bannerDataDefault from '@ecl/ec-specs-hero-banner/demo/data--default';
-import bannerDataImage from '@ecl/ec-specs-hero-banner/demo/data--image';
-import bannerDataImageShade from '@ecl/ec-specs-hero-banner/demo/data--image-shade';
-import bannerDataPrimary from '@ecl/ec-specs-hero-banner/demo/data--primary';
-import bannerDataAlignLeft from '@ecl/ec-specs-hero-banner/demo/data--align-left';
-
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
+import {
+  dataDefault,
+  dataImage,
+  dataImageShade,
+  dataPrimary,
+  dataLeft,
+} from './demo/data';
 
 import heroBanner from './hero-banner.html.twig';
 import heroBannerDocs from './docs/hero-banner.md';
@@ -33,7 +33,7 @@ function formatBanner(b) {
         path: defaultSprite,
       },
     },
-    centered: boolean('Centered', b.isCentered),
+    centered: boolean('Centered', b.centered),
   };
 
   if ('image' in b) {
@@ -50,7 +50,7 @@ storiesOf('Components/Banners/Hero Banner', module)
   .add(
     'default',
     () => {
-      const data = formatBanner(bannerDataDefault);
+      const data = formatBanner(dataDefault);
 
       return heroBanner(data);
     },
@@ -61,7 +61,7 @@ storiesOf('Components/Banners/Hero Banner', module)
   .add(
     'image',
     () => {
-      const data = formatBanner(bannerDataImage);
+      const data = formatBanner(dataImage);
 
       return heroBanner(data);
     },
@@ -72,7 +72,7 @@ storiesOf('Components/Banners/Hero Banner', module)
   .add(
     'image-shade',
     () => {
-      const data = formatBanner(bannerDataImageShade);
+      const data = formatBanner(dataImageShade);
 
       return heroBanner(data);
     },
@@ -83,7 +83,7 @@ storiesOf('Components/Banners/Hero Banner', module)
   .add(
     'primary',
     () => {
-      const data = formatBanner(bannerDataPrimary);
+      const data = formatBanner(dataPrimary);
 
       return heroBanner(data);
     },
@@ -94,8 +94,7 @@ storiesOf('Components/Banners/Hero Banner', module)
   .add(
     'align-left',
     () => {
-      const data = formatBanner(bannerDataAlignLeft);
-
+      const data = formatBanner(dataLeft);
       return heroBanner(data);
     },
     {

@@ -48,7 +48,7 @@
   {% if button is defined %}
     {% include 'button.html.twig' with button only %}
   {% endif %}
-  {% block extra_form_elements _extra_form_elements %}
+  {% block extra_form_elements _extra_form_elements|raw %}
 </form>
 
 {% endspaceless %}

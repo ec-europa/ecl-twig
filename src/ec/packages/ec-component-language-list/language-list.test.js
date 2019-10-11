@@ -48,8 +48,7 @@ describe('EC - Language List', () => {
   });
 
   describe('Overlay', () => {
-    const template =
-      'ec-component-language-list/language-list-overlay.html.twig';
+    const template = 'language-list-overlay.html.twig';
     const render = params => renderTwigFileAsNode(template, params);
 
     const options = {
