@@ -55,11 +55,11 @@
 {# Internal logic - Process properties #}
 
 {% if _id is not empty %}
-  {% set _main_attributes = "id=" ~ _id %}
+  {% set _main_attributes = 'id="' ~ _id ~ '"' %}
 {% endif %}
 
 {% if _name is not empty %}
-  {% set _main_attributes = _main_attributes ~ ' ' ~ 'name=' ~ _name %}
+  {% set _main_attributes = _main_attributes ~ ' ' ~ 'name="' ~ _name ~ '"' %}
 {% endif %}
 
 {% if _required %}
@@ -130,7 +130,7 @@
     class="{{ _component_class }}"
     {{- _main_attributes|raw -}}
   {% if _extra_attributes is not empty %}
-    {{ _extra_attributes|raw }}
+    {{- _extra_attributes|raw -}}
   {% endif %}
   />
 </div>
