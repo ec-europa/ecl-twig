@@ -26,7 +26,7 @@
 {% set _aria_controls = _id ~ '-dropdown-content' %}
 {% set _button = button|default({}) %}
 {% set _list = list|default({}) %}
-{% set _auto_init = auto_init|default(true) %}
+{% set _auto_init = auto_init ?? true %}
 
 {% set _css_class = 'ecl-dropdown-legacy ecl-dropdown-legacy--padded' %}
 {% set _extra_attributes = 'data-ecl-auto-init="DropdownLegacy"' %}
@@ -73,7 +73,7 @@
     <ul class="ecl-unordered-list ecl-unordered-list--no-bullet">
       {% for item in _list.items %}
         <li class="ecl-unordered-list__item">
-          {{- item.label -}}
+          {{- item.label|raw -}}
         </li>
       {% endfor %}
     </ul>

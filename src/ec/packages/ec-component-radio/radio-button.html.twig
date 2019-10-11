@@ -58,19 +58,29 @@
 
 <div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
   <input
-    {{ _id ? 'id="' ~ _id ~ '"' }}
+  {% if _id %}
+     id="{{ _id }}"
+   {% endif %}
     name="{{ _name }}"
     class="ecl-radio__input"
     type="radio"
     value="{{ _value }}"
-    {{ _disabled ? "disabled" }}
-    {{ _checked ? "checked" }}
-    {{ _helper_id is not empty ? 'aria-describedby="' ~ _helper_id ~ '"' -}}
+  {% if _disabled %}
+    disabled
+  {% endif %}
+  {% if _checked %}
+    checked
+  {% endif %}
+  {% if _helper_id is not empty %}
+    aria-describedby="{{ _helper_id }}"
+  {% endif %}
   />
 
   <label
     class="ecl-radio__label"
-    {{ _id ? ' for="' ~ _id ~ '"' }}
+  {% if _id %}
+    for="{{ _id }}"
+  {% endif %}
   >
     <span class="ecl-radio__box
     {{- _invalid ? " ecl-radio__box--invalid" -}}
@@ -81,7 +91,9 @@
   {% if _helper_text is not empty %}
     <div
       class="ecl-help-block ecl-radio__help{{ _disabled ? " ecl-help-block--disabled" }}"
-      {{ _helper_id is not empty ? 'id="' ~ _helper_id ~ '"' }}
+    {% if _helper_id is not empty %}
+      id="{{ _helper_id }}"
+    {% endif %}
     >
       {%- block helper_text _helper_text -%}
     </div>

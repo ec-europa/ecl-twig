@@ -71,7 +71,7 @@
        <tr class="{{ _row_css_class }}">
         {% for cell in header %}
           {% set _colspan_attribute = cell.colspan is not empty ? 'colspan="' ~ cell.colspan ~ '"' : '' %}
-          <th {{ _colspan_attribute }} class="{{ _header_css_class }}">{{ cell.label }}</th>
+          <th {{ _colspan_attribute|raw }} class="{{ _header_css_class }}">{{ cell.label }}</th>
         {% endfor %}
       </tr>
     {% endfor %}
@@ -85,7 +85,7 @@
             {% set _cell_attribute = _cell_attribute ~ (cell['data-ecl-table-header-group'] is not empty ? ' data-ecl-table-header-group="' ~ cell['data-ecl-table-header-group'] ~ '"' : '') %}
             {% set _cell_css_class = _cell_css_class ~ ' ' ~ _cell_header_group_class %}
           {% endif %}
-          <td {{ _cell_attribute }} class="{{ _cell_css_class }}" >{{ cell.label }}</td>
+          <td {{ _cell_attribute|raw }} class="{{ _cell_css_class }}" >{{ cell.label|raw }}</td>
         {% endfor %}
       </tr>
     {% endfor %}

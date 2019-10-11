@@ -67,9 +67,6 @@
   <ul class="ecl-social-media-follow__list">
   {% for link in _links %}
     {% set _link_extra_classes = 'ecl-social-media-follow__link' %}
-    {% if link.icon is not empty %}
-      {% set _icon = link.icon %}
-    {% endif %}
     {% if link.extra_classes is not empty %}
       {% set _link_extra_classes = _link_extra_classes ~ ' ' ~ link.extra_classes %}
     {% endif %}
@@ -79,7 +76,6 @@
           type: 'standalone',
         }),
         extra_classes: _link_extra_classes,
-        icon: _icon|default({})
       }) only %}
     </li>
     {% endfor %}
