@@ -6,8 +6,8 @@ module.exports = ({ config, mode }) => {
     test: /\.twig$/,
     loader: 'twing-loader',
     options: {
-      environmentModulePath: path.resolve(__dirname + '/environment.js')
-    }
+      environmentModulePath: path.resolve(__dirname + '/environment.js'),
+    },
   });
 
   // Trick "babel-loader", force it to transpile @ecl-twig addons

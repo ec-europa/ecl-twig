@@ -1,4 +1,4 @@
-const {TwingEnvironment, TwingLoaderFilesystem} = require('twing');
+const { TwingEnvironment, TwingLoaderFilesystem } = require('twing');
 const path = require('path');
 const packages = require('./packages.js');
 

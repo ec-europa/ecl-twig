@@ -12,6 +12,7 @@
     "lint": "npm run lint:js",
     "postinstall": "lerna run postinstall && lerna run prepublish",
     "pretty-check": "prettier --check \"src/**/*.{md,mdx,html,json,yml,js}\"",
+    "pretty-fix": "prettier --write \"src/**/*.{md,mdx,html,json,yml,js}\"",
     "publish": "scripts/publish.sh",
     "start:ec": "start-storybook -p 9001 -c ./src/ec/.storybook",
     "start:eu": "echo \"Nothing to do...\"",

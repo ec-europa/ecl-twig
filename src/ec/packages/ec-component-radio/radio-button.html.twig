@@ -85,7 +85,7 @@
     <span class="ecl-radio__box
     {{- _invalid ? " ecl-radio__box--invalid" -}}
     {{- _disabled ? " ecl-radio__box--disabled" -}}"></span>
-    {%- block label _label -%}
+    {%- block label _label|raw -%}
   </label>
 
   {% if _helper_text is not empty %}
@@ -95,7 +95,7 @@
       id="{{ _helper_id }}"
     {% endif %}
     >
-      {%- block helper_text _helper_text -%}
+      {%- block helper_text _helper_text|raw -%}
     </div>
   {% endif %}
 </div>

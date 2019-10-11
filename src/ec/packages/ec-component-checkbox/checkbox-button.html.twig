@@ -102,7 +102,7 @@
         id="{{ _helper_id }}"
       {% endif %}
     >
-      {%- block helper_text _helper_text -%}
+      {%- block helper_text _helper_text|raw -%}
     </p>
   {% endif %}
 </div>
