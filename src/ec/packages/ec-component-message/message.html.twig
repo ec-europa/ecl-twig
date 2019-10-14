@@ -48,13 +48,13 @@
 {# Print the result #}
 
 <div class="{{ _css_class }}" data-ecl-message role="alert"{{ _extra_attributes|raw }}>
-  {% include 'icon.html.twig' with {
+  {% include '@ecl-twig/icon.html.twig' with {
     icon: _icon,
     extra_classes: 'ecl-message__icon',
   } only %}
 
   <div class="ecl-message__content">
-    {% include 'button.html.twig' with _close|merge({
+    {% include '@ecl-twig/button.html.twig' with _close|merge({
       type: 'button',
       variant: 'ghost',
       extra_classes: 'ecl-message__close',

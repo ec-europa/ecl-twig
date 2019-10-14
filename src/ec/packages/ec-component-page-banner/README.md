@@ -26,7 +26,7 @@ npm install --save @ecl-twig/ec-component-page-banner
 
 <!-- prettier-ignore -->
 ```twig
-{% include 'page-header.html.twig' with {  
+{% include '@ecl-twig/page-header.html.twig' with {  
   title: 'EU Budget for the future',  
   baseline: 'Innovation, economy, environment and geopolitics',  
   centered: true,  

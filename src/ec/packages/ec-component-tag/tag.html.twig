@@ -62,11 +62,11 @@
     {{- _tag.label }}
     {%- if _tag.type == 'removable' -%}
       <span class="ecl-tag__icon">
-        {% include 'icon.html.twig' with {
+        {% include '@ecl-twig/icon.html.twig' with {
           icon: { type: 'ui', name: 'close', size: 'xs', path: default_icon_path },
           extra_classes: 'ecl-tag__icon-close'
         } only %}
-        {% include 'icon.html.twig' with {
+        {% include '@ecl-twig/icon.html.twig' with {
           icon: { type: 'ui', name: 'close-filled', size: 'xs', path: default_icon_path },
           extra_classes: 'ecl-tag__icon-close-filled'
         } only %}

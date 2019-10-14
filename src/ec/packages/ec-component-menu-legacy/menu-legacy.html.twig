@@ -85,10 +85,10 @@
             {% set _extra_classes = _prefix_class ~ '__link' ~ (_link.is_current ? ' ' ~ _prefix_class ~ '__link--current' : '') %}
               {% if _link.children is not defined or _link.children is empty %}
               <li class="{{ _link_class_name }}" data-{{ _prefix_class }}-item="true" data-ecl-has-children="false" >
-                {%- include 'link.html.twig' with { link: { 'type': 'standalone', 'label': _link.label, 'path': _link.href }, extra_classes: _extra_classes } only -%}
+                {%- include '@ecl-twig/link.html.twig' with { link: { type: 'standalone', 'label': _link.label, 'path': _link.href }, extra_classes: _extra_classes } only -%}
               {% else %}
               <li class="{{ _link_class_name }}" data-{{ _prefix_class }}-item="true" data-ecl-has-children="true" >
-                {%- include 'link.html.twig' with {
+                {%- include '@ecl-twig/link.html.twig' with {
                   link: {'type': 'standalone', 'label': _link.label, 'path': _link.href, 'icon_position': 'after'},
                   icon: _icon,
                   extra_classes: _extra_classes,
@@ -106,7 +106,7 @@
                         {% for _child_link in _column.items %}
                           {% set _extra_classes = _prefix_class ~ '__sublink' ~ (_child_link.is_current ? ' ' ~ _prefix_class ~ '__sublink--current' : '') %}
                           <li class="{{ _prefix_class }}__subitem" data-ecl-menu-legacy-subitem="true">
-                             {%- include 'link.html.twig' with {
+                             {%- include '@ecl-twig/link.html.twig' with {
                                 link: {'type': 'standalone', 'label': _child_link.label, 'path': _child_link.href},
                                 extra_classes: _extra_classes
                               } only -%}

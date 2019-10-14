@@ -23,7 +23,7 @@ npm install --save @ecl-twig/ec-component-description-list
 
 <!-- prettier-ignore -->
 ```twig
-{% include 'description-list.html.twig' with { 
+{% include '@ecl-twig/description-list.html.twig' with { 
   variant: 'horizontal',
   items: [
     { 

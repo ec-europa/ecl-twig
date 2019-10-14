@@ -13,7 +13,7 @@ function formatLink(l) {
 }
 
 describe('EC - Breadcrumb', () => {
-  const template = 'breadcrumb.html.twig';
+  const template = '@ecl-twig/breadcrumb.html.twig';
   const render = params => renderTwigFileAsNode(template, params);
   const defaultIconPath = 'static/icons.svg';
 

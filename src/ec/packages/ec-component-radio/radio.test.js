@@ -9,7 +9,7 @@ import {
 } from './demo/data';
 
 describe('EC - Radio', () => {
-  const template = 'radio-group.html.twig';
+  const template = '@ecl-twig/radio-group.html.twig';
   const render = params => renderTwigFileAsNode(template, params);
 
   describe('Default', () => {

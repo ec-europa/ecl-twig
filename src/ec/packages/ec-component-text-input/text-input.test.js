@@ -1,7 +1,7 @@
 import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
 describe('EC - Text field', () => {
-  const template = 'text-input.html.twig';
+  const template = '@ecl-twig/text-input.html.twig';
   const render = params => renderTwigFileAsNode(template, params);
 
   describe('Default', () => {

@@ -36,7 +36,7 @@ npm install --save @ecl-twig/ec-component-text-area
 
 <!-- prettier-ignore -->
 ```twig
-{% include 'text-area.html.twig' with { 
+{% include '@ecl-twig/text-area.html.twig' with { 
   label: 'Comment', 
   placeholder: 'Please enter your comment', 
   invalid_text: "Comment have been locked on this article", 

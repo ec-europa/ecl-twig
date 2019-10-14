@@ -28,7 +28,7 @@ npm install --save @ecl-twig/ec-component-table
 
 <!-- prettier-ignore -->
 ```twig
-{% include 'table.html.twig' with { 
+{% include '@ecl-twig/table.html.twig' with { 
   zebra: true/boolean, 
   headers: [
   [

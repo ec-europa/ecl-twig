@@ -64,13 +64,13 @@
         <p class="ecl-hero-banner__description">{{ _description }}</p>
       {% endif %}
       {% if _link is not empty %}
-        {% include 'link.html.twig' with _link|merge({
+        {% include '@ecl-twig/link.html.twig' with _link|merge({
           link: _link.link|merge({
             type: 'cta',
           })
         }) only %}
       {% elseif _button is not empty %}
-        {% include 'button.html.twig' with _button|merge({
+        {% include '@ecl-twig/button.html.twig' with _button|merge({
           extra_classes: 'ecl-hero-banner__button'
         }) only %}
       {% endif %}

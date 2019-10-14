@@ -82,7 +82,7 @@
     {{- _invalid ? " ecl-form-label--invalid" -}}"
   >
     <span class="ecl-checkbox__box{{ _invalid ? " ecl-checkbox__box--invalid" }}">
-      {% include 'icon.html.twig' with {
+      {% include '@ecl-twig/icon.html.twig' with {
         icon: {
           path: _icon_path,
           type: "ui",

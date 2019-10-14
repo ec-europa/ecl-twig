@@ -80,13 +80,13 @@
           {% if key == 1 %}
             <li class="{{ _breadcrumb_segment_class ~ ' ecl-breadcrumb__segment--ellipsis' }}" aria-hidden="false" data-ecl-breadcrumb-ellipsis="true">
               <button type="button" class="ecl-breadcrumb__ellipsis" aria-label="{{ _ellipsis_label }}" data-ecl-breadcrumb-ellipsis-button="true">…</button>
-              {% include 'icon.html.twig' with _default_icon_structure only %}
+              {% include '@ecl-twig/icon.html.twig' with _default_icon_structure only %}
             </li>
           {% endif %}
           {% set _breadcrumb_segment_attributes = 'data-ecl-breadcrumb-item="expandable" aria-hidden="true"' %}
         {% endif %}
         <li class="{{ _breadcrumb_segment_class }}" {{ _breadcrumb_segment_attributes|raw }}>
-          {% include 'link.html.twig' with {
+          {% include '@ecl-twig/link.html.twig' with {
             link: {
               type: 'standalone',
               label: link.label,
@@ -94,7 +94,7 @@
             },
             extra_classes: 'ecl-breadcrumb__link'
           } only %}
-          {% include 'icon.html.twig' with _default_icon_structure only %}
+          {% include '@ecl-twig/icon.html.twig' with _default_icon_structure only %}
         </li>
       {% endif %}
     {% endfor %}

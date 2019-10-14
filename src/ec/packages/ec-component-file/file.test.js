@@ -4,7 +4,7 @@ import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 import { dataWithTranslation, dataWithoutTranslation } from './demo/data';
 
 describe('EC - File', () => {
-  const template = 'file.html.twig';
+  const template = '@ecl-twig/file.html.twig';
   const render = params => renderTwigFileAsNode(template, params);
 
   describe('With translation', () => {

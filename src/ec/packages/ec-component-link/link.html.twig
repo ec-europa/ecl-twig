@@ -101,7 +101,7 @@
         {%- if icon.extra_classes is defined and icon.extra_classes is not empty -%}
           {% set _icon_extra_classes = _icon_extra_classes ~ ' ' ~ icon.extra_classes %}
         {%- endif -%}
-        {%- include 'icon.html.twig' with _icon|merge({
+        {%- include '@ecl-twig/icon.html.twig' with _icon|merge({
           icon: icon|default({}),
           extra_classes: _icon_extra_classes
         }) only -%}
@@ -120,7 +120,7 @@
         {%- if icon.extra_classes is defined and icon.extra_classes is not empty -%}
           {% set _icon_extra_classes = _icon_extra_classes ~ ' ' ~ icon.extra_classes %}
         {%- endif -%}
-        {%- include 'icon.html.twig' with _icon|merge({
+        {%- include '@ecl-twig/icon.html.twig' with _icon|merge({
           icon: icon|default({}),
           extra_classes: _icon_extra_classes
         }) only -%}

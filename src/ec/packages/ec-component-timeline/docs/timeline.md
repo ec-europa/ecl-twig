@@ -30,7 +30,7 @@ npm install --save @ecl-twig/ec-component-timeline
 
 <!-- prettier-ignore -->
 ```twig
-{% include 'timeline.html.twig' with {  
+{% include '@ecl-twig/timeline.html.twig' with {  
   toggle_collapsed: 'Show 10 more items', 
   toggle_expanded: 'Hide 10 items', 
   hide: {from: 7, to: -2}, 

@@ -31,7 +31,7 @@ npm install --save @ecl-twig/ec-component-social-media-follow
 
 <!-- prettier-ignore -->
 ```twig
-{% include 'social-media-follow.html.twig' with { 
+{% include '@ecl-twig/social-media-follow.html.twig' with { 
   description:
     'Follow the latest progress and learn more about getting involved.', 
   links: [ 

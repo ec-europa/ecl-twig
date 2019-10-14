@@ -1,7 +1,7 @@
 import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
 describe('EC - Text area', () => {
-  const template = 'text-area.html.twig';
+  const template = '@ecl-twig/text-area.html.twig';
   const render = params => renderTwigFileAsNode(template, params);
 
   describe('Default', () => {
