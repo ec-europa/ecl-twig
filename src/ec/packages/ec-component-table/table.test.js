@@ -4,7 +4,7 @@ import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 import { dataDefault, dataMulti } from './demo/data';
 
 describe('EC - Table', () => {
-  const template = 'table.html.twig';
+  const template = '@ecl-twig/table.html.twig';
   const render = params => renderTwigFileAsNode(template, params);
 
   describe('Default', () => {

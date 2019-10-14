@@ -22,7 +22,7 @@ npm install --save @ecl-twig/ec-component-ordered-list
 
 <!-- prettier-ignore -->
 ```twig
-{% include 'ordered-list.html.twig' with { 
+{% include '@ecl-twig/ordered-list.html.twig' with { 
   items: [ 
     { 
       label: 'Jobs, growth and investment', 

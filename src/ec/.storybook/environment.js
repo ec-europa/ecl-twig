@@ -2,14 +2,16 @@ const { TwingEnvironment, TwingLoaderFilesystem } = require('twing');
 const path = require('path');
 const packages = require('./packages.js');
 
-const componentsFolder = [];
 const absPath = path.resolve(__dirname + '/../packages');
-for (let folder in packages.list) {
-  let folderPath = absPath + '/' + packages.list[folder];
-  componentsFolder.push(folderPath);
+let loader = new TwingLoaderFilesystem(absPath);
+// In storybook we get this returned as an instance of
+// TWigLoaderNull, we need to avoid processing this.
+if (typeof loader.addPath === 'function') {
+  for (let folder in packages.list) {
+    let folderPath = absPath + '/' + packages.list[folder];
+    // Add namespace ecl-twig.
+    loader.addPath(folderPath, 'ecl-twig');
+  }
 }
 
-module.exports = new TwingEnvironment(
-  // Pass all the dirs containing templates as an array.
-  new TwingLoaderFilesystem(componentsFolder)
-);
+module.exports = new TwingEnvironment(loader);

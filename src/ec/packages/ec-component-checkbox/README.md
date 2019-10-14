@@ -43,7 +43,7 @@ npm install --save @ecl-twig/ec-component-checkbox
 
 <!-- prettier-ignore -->
 ```twig
-{% include 'checkbox-group.html.twig' with { 
+{% include '@ecl-twig/checkbox-group.html.twig' with { 
   label_id: 'checkbox-default-label', 
   label: 'Select your country', 
   helper_id: 'checkbox-default-helper', 

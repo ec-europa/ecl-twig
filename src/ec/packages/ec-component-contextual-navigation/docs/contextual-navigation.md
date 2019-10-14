@@ -23,7 +23,7 @@ npm install --save @ecl-twig/ec-component-contextual-navigation
 
 <!-- prettier-ignore -->
 ```twig
-{% include 'contextual-navigation.html.twig' with {  
+{% include '@ecl-twig/contextual-navigation.html.twig' with {  
   label: 'Label for contextual navigation',  
   items_limit: 3,     
   items: [  

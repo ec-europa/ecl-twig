@@ -22,7 +22,7 @@ npm install --save @ecl-twig/ec-component-expandable
 
 <!-- prettier-ignore -->
 ```twig
-{% include 'dropdown-legacy.html.twig' with { 
+{% include '@ecl-twig/dropdown-legacy.html.twig' with { 
   id: 'dropdown-legacy-example',  
   button: {  
     label: 'Dropdown button',  

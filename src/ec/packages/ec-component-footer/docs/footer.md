@@ -27,7 +27,7 @@ npm install --save @ecl-twig/ec-component-footer
 
 <!-- prettier-ignore -->
 ```twig
-{% include 'footer.html.twig' with { 
+{% include '@ecl-twig/footer.html.twig' with { 
   identity: { 
     title: 'Site identification', 
     follow: { 

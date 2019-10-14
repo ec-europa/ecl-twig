@@ -59,7 +59,7 @@ function preparePageHeaderData(data) {
 }
 
 describe('EC - Page Header', () => {
-  const template = 'page-header.html.twig';
+  const template = '@ecl-twig/page-header.html.twig';
   const render = params => renderTwigFileAsNode(template, params);
 
   describe('title', () => {

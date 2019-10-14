@@ -27,7 +27,7 @@ npm install --save @ecl-twig/ec-component-expandable
 
 <!-- prettier-ignore -->
 ```twig
-{% include 'expandable.html.twig' with { 
+{% include '@ecl-twig/expandable.html.twig' with { 
   id: 'expandable-example', 
   button: { 
     label: 'Collapsed button', 

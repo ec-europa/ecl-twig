@@ -55,7 +55,7 @@
 
 <div class="{{ _css_class }}"{{ _extra_attributes|raw }} data-ecl-file>
   <div class="ecl-file__container">
-    {% include 'icon.html.twig' with {
+    {% include '@ecl-twig/icon.html.twig' with {
       icon: _icon,
       extra_classes: 'ecl-file__icon'
     } only %}
@@ -66,7 +66,7 @@
       <div class="ecl-file__meta">{{ meta }}</div>
     </div>
 
-    {% include 'link.html.twig' with _download|merge({
+    {% include '@ecl-twig/link.html.twig' with _download|merge({
       link: _download.link|default({})|merge({
         type: 'standalone',
         icon_position: 'after',
@@ -83,7 +83,7 @@
 
   {% if _translation is not empty and _translation.items is not empty and _translation.items is iterable %}
     <div class="ecl-file__translation-container" data-ecl-file-translation-container>
-      {% include 'button.html.twig' with _translation.toggle|merge({
+      {% include '@ecl-twig/button.html.twig' with _translation.toggle|merge({
         variant: 'ghost',
         type: 'button',
         icon: _translation.toggle.icon|default({})|merge({
@@ -108,7 +108,7 @@
               </div>
               <div class="ecl-file__translation-meta">{{ _item.meta }}</div>
             </div>
-            {% include 'link.html.twig' with _download|merge({
+            {% include '@ecl-twig/link.html.twig' with _download|merge({
               link: _item.download.link|default(_download.link|default({}))|merge({
                 type: 'standalone',
                 icon_position: 'after'

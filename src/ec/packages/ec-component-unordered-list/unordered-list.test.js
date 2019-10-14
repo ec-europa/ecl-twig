@@ -2,7 +2,7 @@ import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 import data from '@ecl/ec-specs-list/demo/data--text';
 
 describe('EC - Unordered list', () => {
-  const template = 'unordered-list.html.twig';
+  const template = '@ecl-twig/unordered-list.html.twig';
   const render = params => renderTwigFileAsNode(template, params);
 
   describe('Default', () => {

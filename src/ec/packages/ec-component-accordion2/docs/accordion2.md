@@ -27,7 +27,7 @@ npm install --save @ecl-twig/ec-component-accordion2
 
 <!-- prettier-ignore -->
 ```twig
-{% include 'accordion2.html.twig' with { 
+{% include '@ecl-twig/accordion2.html.twig' with { 
   items: [ 
     { 
       id: 'accordion-example', 
