@@ -30,6 +30,12 @@ yarn update-version 2.6.0
 
 If you don't provide any arguments and just run `yarn update-version`, lerna will try to infer the new version automatically from the git commits messages. This hasn't been tested yet in this repository, so please be careful when using it.
 
+At this point your release should be ready, to help you feeling comfortable with the next steps we provide a script to spot typical errors in a release, like a mismatched version of a package or a missing component in the package.json of the ec-components package. You can run the script and if everything is ok, after a manual double check, you can proceed, otherwise we will try to give you hints on finding the issues in the release.
+
+```sh
+yarn check-release
+```
+
 Now, commit and push your changes to the `master` branch or, if you're not sure about what you're doing, open a new PR with your changes. Please name the commit or the PR `chore: release ECL Twig x.y.z` (don't forget to replace `x.y.z` by the actual version number!)
 
 ## Publish the packages
