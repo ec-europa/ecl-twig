@@ -11,7 +11,17 @@ const withCode = makeDecorator({
       code = story;
     } else if (story instanceof DocumentFragment) {
       const htmlElement = document.createElement('div');
-      htmlElement.appendChild(story.cloneNode(true));
+      code = story.cloneNode(true);
+      const rootEl = code.firstChild;
+      // Check whether we wrapped the story just for the demo.
+      if (rootEl.hasAttribute('demo_only')) {
+        const demoChildren = rootEl.childNodes;
+        demoChildren.forEach(function refillNode(v, i) {
+          htmlElement.appendChild(demoChildren[i]);
+        });
+      } else {
+        htmlElement.appendChild(code);
+      }
       code = htmlElement.innerHTML;
     } else if (story instanceof Node) {
       code = story.outerHTML;
