@@ -78,7 +78,7 @@
       </div>
     </button>
     <ul class="{{ _prefix_class }}__list" data-{{ _prefix_class }}-list="true">
-      {% block navigation %}
+      {%- block navigation %}
         {% if _links is not empty and _links is iterable %}
           {% for _link in _links %}
             {% set _link_class_name = _prefix_class ~ '__item' ~ (_link.is_active ? ' ' ~ _prefix_class ~ '__item--active' : '') ~ (_link.is_current ? ' ' ~ _prefix_class ~ '__item--current' : '') %}

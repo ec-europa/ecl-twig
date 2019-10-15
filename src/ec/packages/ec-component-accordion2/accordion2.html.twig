@@ -85,7 +85,7 @@
           role="region"
         >
           {%- set _content = _item.content|default('') %}
-          {%- block content _content -%}
+          {%- block content _content|raw -%}
         </div>
       </div>
     {% endfor %}
