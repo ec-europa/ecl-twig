@@ -3,19 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [2.11.1](https://github.com/ec-europa/ecl-twig/compare/v2.11.0...v2.11.1) (2019-10-09)
-
+## [2.11.2](https://github.com/ec-europa/ecl-twig/compare/v2.11.1...v2.11.2) (2019-10-15)
 
 ### Bug Fixes
 
-* **contextual-navigation:** Put back contextual-navigation component in main package file - TWIG-68 ([#169](https://github.com/ec-europa/ecl-twig/issues/169)) ([6d34c37](https://github.com/ec-europa/ecl-twig/commit/6d34c37))
+- **card:** render description only if it's not empty - TWIG-83 ([#174](https://github.com/ec-europa/ecl-twig/issues/174)) ([fc9cfbd](https://github.com/ec-europa/ecl-twig/commit/fc9cfbd))
+- **changelog:** fixing files with prettier - TWIG-71 ([#171](https://github.com/ec-europa/ecl-twig/issues/171)) ([a51c364](https://github.com/ec-europa/ecl-twig/commit/a51c364))
+- **date-block:** preventing autoescape on month_markup variable - TWIG-70 ([#170](https://github.com/ec-europa/ecl-twig/issues/170)) ([bc241d1](https://github.com/ec-europa/ecl-twig/commit/bc241d1))
+- **link:** default example in the demo wrapped in a <p>, created logic for not polluting the code tab in storybook ([#167](https://github.com/ec-europa/ecl-twig/issues/167)) ([85ab871](https://github.com/ec-europa/ecl-twig/commit/85ab871))
+- **table:** add raw filter to cells attributes values - TWIG-84 ([#175](https://github.com/ec-europa/ecl-twig/issues/175)) ([7fe9063](https://github.com/ec-europa/ecl-twig/commit/7fe9063))
 
+## [2.11.1](https://github.com/ec-europa/ecl-twig/compare/v2.11.0...v2.11.1) (2019-10-09)
+
+### Bug Fixes
+
+- **contextual-navigation:** Put back contextual-navigation component in main package file - TWIG-68 ([#169](https://github.com/ec-europa/ecl-twig/issues/169)) ([6d34c37](https://github.com/ec-europa/ecl-twig/commit/6d34c37))
 
 ### Features
 
-* **extra_attributes:** Logic for attributes with name only - TWIG-53 ([#163](https://github.com/ec-europa/ecl-twig/issues/163)) ([6d55997](https://github.com/ec-europa/ecl-twig/commit/6d55997))
-* **twig-linter:** Configuration (twigcs + grumphp) and fixes on the templates - TWIG-51 ([#162](https://github.com/ec-europa/ecl-twig/issues/162)) ([3bbf152](https://github.com/ec-europa/ecl-twig/commit/3bbf152))
-
+- **extra_attributes:** Logic for attributes with name only - TWIG-53 ([#163](https://github.com/ec-europa/ecl-twig/issues/163)) ([6d55997](https://github.com/ec-europa/ecl-twig/commit/6d55997))
+- **twig-linter:** Configuration (twigcs + grumphp) and fixes on the templates - TWIG-51 ([#162](https://github.com/ec-europa/ecl-twig/issues/162)) ([3bbf152](https://github.com/ec-europa/ecl-twig/commit/3bbf152))
 
 # [2.11.0](https://github.com/ec-europa/ecl-twig/compare/v2.9.1...v2.11.0) (2019-09-30)
 
