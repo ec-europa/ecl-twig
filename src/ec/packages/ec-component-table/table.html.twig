@@ -77,7 +77,7 @@
     {% endfor %}
   </thead>
   <tbody class="{{ _body_css_class }}">
-    {% for cell in rows %}
+    {% for row in _rows %}
       <tr class="{{ _row_css_class }}">
         {% for cell in row %}
           {% set _cell_attribute = cell['data-ecl-table-header'] is not empty ? 'data-ecl-table-header="' ~ cell['data-ecl-table-header'] ~ '"' : '' %}
