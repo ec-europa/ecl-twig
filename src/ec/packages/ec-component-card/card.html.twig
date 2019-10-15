@@ -104,7 +104,7 @@
     <ul class="ecl-card__link-container">
       {% for link in _card.links %}
         <li class="ecl-card__link-item">
-          {% include '../ec-component-link/link.html.twig' with {
+          {% include '@ecl-twig/link.html.twig' with {
             link: link|merge({ type: 'standalone' }),
             extra_classes: 'ecl-card__link'
           } only %}
