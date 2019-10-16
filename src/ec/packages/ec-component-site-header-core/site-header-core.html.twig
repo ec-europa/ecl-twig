@@ -47,6 +47,7 @@
 {% set _language_selector = language_selector|default({}) %}
 {% set _icon_file_path = icon_file_path|default('') %}
 {% set _auto_init = auto_init|default(true) %}
+{% set _search_toggle = search_toggle|default({ label: 'Search', href: '#'}) %}
 
 {% set _search_form = {
   text_input: {
@@ -129,59 +130,61 @@
         <a
           class="ecl-link ecl-link--standalone ecl-site-header-core__language-selector"
           href="{{ _language_selector.href }}"
-          data-ecl-language-selector="true"
+          data-ecl-language-selector
         >
           <span class="ecl-site-header-core__language-icon">
             {% include '../ec-component-icon/icon.html.twig' with {
               icon: {
                 path: _icon_file_path,
                 type: 'general',
-                name: 'language'
+                name: 'language',
+                size: 's'
               }
             } only %}
             <span class="ecl-site-header-core__language-code">{{ _language_selector.code }}</span>
           </span>
-          {{- _language_selector.name -}}
+          {{- _language_selector.label -}}
         </a>
-        {% include '../ec-component-language-list/language-list-overlay.html.twig' with {
-          items: _language_selector.overlay.items,
-          close_label: _language_selector.overlay.close_label,
-          title: _language_selector.overlay.title,
-          icon_path: _icon_file_path,
-          extra_attributes: [
-            { name: 'aria-labelledby', value: 'ecl-language-list__title' },
-            { name: 'role', value: 'dialog' },
-            { name: 'hidden' }
-          ]
-        } only %}
+        <div class="ecl-site-header-core__search-container">
+          <a
+            class="ecl-link ecl-link--standalone ecl-site-header-core__search-toggle"
+            href="{{ _search_toggle.href }}"
+            data-ecl-search-toggle="true"
+            aria-controls="search-form-id"
+            aria-expanded="false"
+          >
+          {%- include '../ec-component-icon/icon.html.twig' with {
+            icon: {
+              name: 'search',
+              path: _icon_file_path,
+              type: 'general',
+              size: 's',
+              extra_attributes: [
+               { name: 'aria-hidden', value: true }
+              ]
+            }
+          } only -%}
+          {{- _search_toggle.label -}}
+          </a>
+          {% include '../ec-component-search-form/search-form.html.twig' with _search_form|merge({
+            extra_classes: 'ecl-site-header-core__search',
+            extra_attributes: [{ name: 'data-ecl-search-form' }]
+          }) only %}
+        </div>
       </div>
     </div>
-    <div class="ecl-site-header-core__search-container">
-      {% include '../ec-component-link/link.html.twig' with {
-        link: {
-          label: 'Search',
-          href: '/example',
-          icon_position: 'before',
-        },
-        icon: {
-          name: 'search',
-          path: _icon_file_path,
-          type: 'general',
-          size: 's',
-          extra_attributes: [
-           { name: 'aria-hidden', value: true }
-          ]
-        },
-        extra_classes: 'ecl-site-header-core__search-toggle',
-        extra_attributes: [
-          { name: 'data-ecl-search-toggle' },
-          { name: 'aria-controls', value: 'search-form-id' },
-          { name: 'aria-expanded', value: true }
-        ]
-      } only %}
-      {% include '../ec-component-search-form/search-form.html.twig' with _search_form only %}
-    </div>
   </div>
+  {% include '../ec-component-language-list/language-list-overlay.html.twig' with {
+    items: _language_selector.overlay.items,
+    close_label: _language_selector.overlay.close_label,
+    title: _language_selector.overlay.title,
+    icon_path: _icon_file_path,
+    extra_attributes: [
+      { name: 'aria-labelledby', value: 'ecl-language-list__title' },
+      { name: 'role', value: 'dialog' },
+      { name: 'hidden' }
+    ]
+  } only %}
 </header>
 
 {% endspaceless %}

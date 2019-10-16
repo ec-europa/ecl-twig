@@ -1,9 +1,9 @@
-# ECL Twig - EC Site Header component
+# ECL Twig - EC Site Header Core component
 
-npm package: `@ecl-twig/ec-component-site-header`
+npm package: `@ecl-twig/ec-component-site-header-core`
 
 ```shell
-npm install --save @ecl-twig/ec-component-site-header
+npm install --save @ecl-twig/ec-component-site-header-core
 ```
 
 ## Site Header
