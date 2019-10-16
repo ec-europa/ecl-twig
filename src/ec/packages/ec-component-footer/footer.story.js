@@ -23,19 +23,19 @@ sections.forEach(s => {
   });
 });
 
-storiesOf('Components/Footer', module)
+storiesOf('Components/deprecated/Footer', module)
   .addDecorator(withKnobs)
   .addDecorator(withCode)
   .addDecorator(withNotes)
   .add(
-    'corporate',
+    'ECL < 2.12.0 - corporate',
     () => footer({ back_to_top: backToTop, sections, common }),
     {
       notes: { markdown: notes },
     }
   )
   .add(
-    'custom',
+    'ECL < 2.12.0 - custom',
     () => footer({ back_to_top: backToTop, identity, sections, common }),
     {
       notes: { markdown: notes },
