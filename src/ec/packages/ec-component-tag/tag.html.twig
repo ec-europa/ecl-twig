@@ -6,7 +6,8 @@
       {
         type: 'link' (can be 'link', 'button', 'removable'),
         path: '' (tag url if needed),
-        label: '' (tag text as string)
+        label: '' (tag text as string),
+        aria_label: '' (optional) (aria label for removable tag as a string)
       }
     - "default_icon_path" (string) Default path for icon tag (need to render Icon component)
     - "extra_classes" (string) (default: '')
@@ -37,6 +38,9 @@
 
 {% if _tag.type == 'removable' %}
   {% set _css_class = _css_class ~ ' ecl-tag--removable' %}
+  {% if _tag.aria_label is defined and _tag.aria_label is not empty  %}
+    {% set _extra_attributes = 'aria-label="' ~ _tag.aria_label ~ '"' %}
+  {% endif %}
 {% endif %}
 
 {# Internal logic - Process properties #}
@@ -57,26 +61,28 @@
 
 {# Print the result #}
 
-{% if _tag.type != 'link' %}
-  <button class="{{ _css_class }}" type="button"{{ _extra_attributes|raw }}>
-    {{- _tag.label }}
-    {%- if _tag.type == 'removable' -%}
-      <span class="ecl-tag__icon">
-        {% include '../ec-component-icon/icon.html.twig' with {
-          icon: { type: 'ui', name: 'close', size: 'xs', path: default_icon_path },
-          extra_classes: 'ecl-tag__icon-close'
-        } only %}
-        {% include '../ec-component-icon/icon.html.twig' with {
-          icon: { type: 'ui', name: 'close-filled', size: 'xs', path: default_icon_path },
-          extra_classes: 'ecl-tag__icon-close-filled'
-        } only %}
-      </span>
-    {% endif -%}
-  </button>
-{% else %}
+{% if _tag.type == 'link' %}
   <a href="{{ _tag.path }}" class="{{ _css_class }}"{{ _extra_attributes|raw }}>
     {{- _tag.label -}}
   </a>
+{% elseif _tag.type == 'button' %}
+  <button class="{{ _css_class }}" type="button"{{ _extra_attributes|raw }}>
+    {{- _tag.label -}}
+  </button>
+{% elseif _tag.type == 'removable' %}
+  <span class="{{ _css_class }}">
+    {{- _tag.label -}}
+    <button type="button" {{ _extra_attributes|raw }} class="ecl-tag__icon">
+      {% include '../ec-component-icon/icon.html.twig' with {
+        icon: { type: 'ui', name: 'close', size: 'xs', path: default_icon_path },
+        extra_classes: 'ecl-tag__icon-close'
+      } only %}
+      {% include '../ec-component-icon/icon.html.twig' with {
+        icon: { type: 'ui', name: 'close-filled', size: 'xs', path: default_icon_path },
+        extra_classes: 'ecl-tag__icon-close-filled'
+      } only %}
+    </button>
+  </span>
 {% endif %}
 
 {% endspaceless %}
