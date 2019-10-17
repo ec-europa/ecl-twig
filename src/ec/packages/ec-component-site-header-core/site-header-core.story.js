@@ -9,8 +9,8 @@ import frenchBanner from '@ecl/ec-resources-logo/logo--fr.svg';
 
 import { englishData, frenchData } from './demo/data';
 
-import siteHeaderDocs from './README.md';
-import siteHeader from './site-header-core.html.twig';
+import siteHeaderCoreDocs from './README.md';
+import siteHeaderCore from './site-header-core.html.twig';
 
 storiesOf('Components/Site Headers/Core', module)
   .addDecorator(withKnobs)
@@ -21,10 +21,10 @@ storiesOf('Components/Site Headers/Core', module)
     () => {
       englishData.icon_file_path = defaultSprite;
       englishData.logo.src = englishBanner;
-      return siteHeader(englishData);
+      return siteHeaderCore(englishData);
     },
     {
-      notes: { markdown: siteHeaderDocs },
+      notes: { markdown: siteHeaderCoreDocs },
     }
   )
   .add(
@@ -32,9 +32,9 @@ storiesOf('Components/Site Headers/Core', module)
     () => {
       frenchData.icon_file_path = defaultSprite;
       frenchData.logo.src = frenchBanner;
-      return siteHeader(frenchData);
+      return siteHeaderCore(frenchData);
     },
     {
-      notes: { markdown: siteHeaderDocs },
+      notes: { markdown: siteHeaderCoreDocs },
     }
   );

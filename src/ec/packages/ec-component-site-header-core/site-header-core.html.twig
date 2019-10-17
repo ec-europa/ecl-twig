@@ -46,7 +46,7 @@
 {% set _logo = logo|default({}) %}
 {% set _language_selector = language_selector|default({}) %}
 {% set _icon_file_path = icon_file_path|default('') %}
-{% set _auto_init = auto_init|default(true) %}
+{% set _auto_init = auto_init ?? true %}
 {% set _search_toggle = search_toggle|default({ label: 'Search', href: '#'}) %}
 
 {% set _search_form = {
