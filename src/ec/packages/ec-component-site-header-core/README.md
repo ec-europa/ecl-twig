@@ -6,7 +6,7 @@ npm package: `@ecl-twig/ec-component-site-header-core`
 npm install --save @ecl-twig/ec-component-site-header-core
 ```
 
-## Site Header
+## Site Header Core
 
 ### Parameters
 
@@ -28,6 +28,7 @@ npm install --save @ecl-twig/ec-component-site-header-core
       - "label" (string) (default: '') Item language label, eg. 'English', 'Français', etc.
       - "path" (string) (default: '') Item language URL eg. '/example#language_en'.
       - "active" (boolean) (default: false) define if item is the active language.
+- "search_toggle": (associative array) (default: { label: 'Search', href: '/example' }),
 - "search_form" (associative array) (default: predefined structure): EC Search Form component structure
 - "auto_init" (boolean) (default: false)
 - "extra_classes" (string) (default: '')
@@ -61,7 +62,11 @@ npm install --save @ecl-twig/ec-component-site-header-core
       ], 
     }, 
   }, 
-  searchForm: { 
+  search_toggle: { 
+    label: 'Search', 
+    href: '#', 
+  }, 
+  search_form: { 
     text_input: { 
       id: 'input-search', 
       name: 'search', 
@@ -73,7 +78,8 @@ npm install --save @ecl-twig/ec-component-site-header-core
   extra_classes: 'my-extra-class-1 my-extra-class-2', 
   extra_attributes: [ 
     { name: 'data-test', value: 'data-test-value' }, 
-    { name: 'data-test-1', value: 'data-test-value-1' } 
-  ] 
+    { name: 'data-test-1', value: 'data-test-value-1' }, 
+    ... 
+  ], 
 } %} 
 ```
