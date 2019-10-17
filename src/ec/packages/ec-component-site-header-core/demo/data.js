@@ -48,6 +48,6 @@ const adapter = initialData => {
 
   return adaptedData;
 };
-console.log(adapter(specEnglishData));
+
 export const englishData = adapter(specEnglishData);
 export const frenchData = adapter(specFrenchData);
