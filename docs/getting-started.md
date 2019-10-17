@@ -104,22 +104,6 @@ composer grump-cs
 
 Runs [grumphp](https://github.com/phpro/grumphp) on all the packages, one of its tasks is twigcs, the output of this command should be equal to "composer run twig-cs".
 
-#### Disable/Enable pre-commit hook
-
-Your environment should be already configured once composer install has run, but you can enable and disable the automatic check happening in the pre-commit hook by running these commands:
-
-```bash
-composer run grump-en
-```
-
-To enable the pre-commit hook.
-
-```bash
-composer run grump-dis
-```
-
-To disable the pre-commit hook.
-
 ## Test
 
 Check snpashots with:
