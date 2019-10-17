@@ -64,34 +64,29 @@ yarn lint
 The libraries we use for sniffing and linting the twig templates all are php ones, therefore in order to be able to use the functionality in ECl-twig you would need a working installation of php (7.x) and composer to be installed.
 
 ```bash
-composer install
-```  
-One you have the libraries installed your system should be already configured for automatically running the sniffer in a pre-commit hook.
+composer install --no-scripts
+```
+
+We install with the no-scripts flag in order to avoid the override of the git hooks created by husky.
+Grumphp would normally take over the pre-commit git hook script that is already in use in our system.
 You can also run the sniffer manually on the code in different ways using the command line:
 
 ```bash
 composer run twig-cs
-```  
+```
+
 Executes the [twigcs](https://github.com/friendsoftwig/twigcs) on all the packages.
 
 ```bash
 composer run cs "pathToTheTemplateFile"
-```  
+```
+
 Executes the [twigcs](https://github.com/friendsoftwig/twigcs) script on the component you specified.
 
 ```bash
-composer run twig-lint
-```  
-Runs the [twig-lint](https://github.com/asm89/twig-lint) sniff against all the packages.
-
-```bash
-composer run lint "pathToTheFolder"
-```  
-Runs the [twig-lint](https://github.com/asm89/twig-lint) sniff against the folder you specified.
-
-```bash
 composer run grump-cs
-```  
+```
+
 Runs [grumphp](https://github.com/phpro/grumphp) on all the packages, one of its tasks is twigcs, the output of this command should be equal to "composer run twig-cs".
 
 #### Disable/Enable pre-commit hook
@@ -100,12 +95,14 @@ Your environment should be already configured once composer install has run, but
 
 ```bash
 composer run grump-en
-```  
+```
+
 To enable the pre-commit hook.
 
 ```bash
 composer run grump-dis
-```  
+```
+
 To disable the pre-commit hook.
 
 ## Test
