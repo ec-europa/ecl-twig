@@ -1,0 +1,89 @@
+{% spaceless %}
+
+{#
+  Parameters:
+  - "sections" (array objects) (default: [])
+    - "title" (predefined structure) see Link component
+      - "label" (string) (default: ''),
+      - "href" (string) (default: ''),
+    - "description" (string) (default: ''),
+    - "section_class_name" (string) (default: ''),
+    - "links" (array of link objects) (default: []),
+    - "list_class_name" (string) (default: []),
+  - "extra_classes" (optional) (string) (default: '') Extra classes (space separated) for the icon
+  - "extra_attributes" (optional) (array) (default: []) Extra attributes for icon
+    - "name" (string) Attribute name, eg. 'data-test'
+    - "value" (string) Attribute value, eg: 'data-test-1'
+#}
+
+{# Internal properties #}
+
+{% set _sections = sections|default({}) %}
+{% set _css_class = 'ecl-footer-core' %}
+{% set _extra_attributes = '' %}
+
+{# Internal logic - Process properties #}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+
+<footer class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+  <div class="ecl-container ecl-footer-core__container">
+  {% for key, section in _sections %}
+    {% set _section_id = key + 1 %}
+    {% set _section_class = 'ecl-footer-core__section ecl-footer-core__section' ~ _section_id %}
+    {% if section.section_class_name is defined and section.section_class_name is not empty %}
+      {% set _section_class = _section_class ~ ' ' ~ section.section_class_name %}
+    {% endif %}
+    <div class="{{ _section_class }}">
+      {%- if section.title is defined and section.title is not empty -%}
+        {% include '../ec-component-link/link.html.twig' with {
+          link: section.title|default({})|merge({
+            type: 'standalone',
+          }),
+          extra_classes: 'ecl-footer-core__title'
+        } only %}
+      {%- endif -%}
+      {%- if section.description is defined and section.description is not empty -%}
+        <div class="ecl-footer-core__description">{{ section.description }}</div>
+      {%- endif -%}
+      {%- if section.links is defined and section.links is not empty -%}
+        {% set _list_class = 'ecl-footer-core__list' %}
+        {% if section.list_class_name is defined and section.list_class_name is not empty %}
+          {% set _list_class = _list_class ~ ' ' ~ section.list_class_name %}
+        {% endif %}
+        <ul class="{{ _list_class }}">
+          {% for item in section.links %}
+            <li class="ecl-footer-core__list-item">
+              {% include '../ec-component-link/link.html.twig' with item|merge({
+                link: item.link|default({})|merge({
+                  type: 'standalone',
+                }),
+                icon: item.icon|default({})|merge({
+                  size: 'xs',
+                }),
+                extra_classes: 'ecl-footer__section-link'
+              }) only %}
+            </li>
+          {% endfor %}
+        </ul>
+      {%- endif -%}
+    </div>
+  {% endfor %}
+  </div>
+</footer>
+
+{% endspaceless %}

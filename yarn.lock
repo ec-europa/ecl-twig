@@ -760,6 +760,11 @@
   resolved "https://registry.yarnpkg.com/@ecl/ec-base/-/ec-base-2.11.0.tgz#4e5400505144788f9b2331d4d03a35c031947258"
   integrity sha512-8c2fgD+klyU4SPB1cHkoZxiKOAhQX4pvFlbaqxx3XCqTp5gpjzz4xndnQm/Pr/759oxCXwMp1THfRC3AeOQevw==
 
+"@ecl/ec-base@^2.12.0":
+  version "2.12.0"
+  resolved "https://registry.yarnpkg.com/@ecl/ec-base/-/ec-base-2.12.0.tgz#28ab0644eccb0fc4837c3abd6dedebdd7071af66"
+  integrity sha512-q4jra+xWIDigaTc5hugXaErOuRB8NDDZnBJOD3Aqcgn8A+I5uyi6nUroMOpGsE0h5dF4u9iMpYg2IYdE8otdHg==
+
 "@ecl/ec-component-accordion@2.11.0":
   version "2.11.0"
   resolved "https://registry.yarnpkg.com/@ecl/ec-component-accordion/-/ec-component-accordion-2.11.0.tgz#8357e5e0440bcd5b223b29492362d12941d08c44"
@@ -839,6 +844,15 @@
     "@ecl/ec-component-button" "^2.11.0"
     "@ecl/ec-component-icon" "^2.11.0"
     "@ecl/ec-component-link" "^2.11.0"
+
+"@ecl/ec-component-footer-core@2.12.0":
+  version "2.12.0"
+  resolved "https://registry.yarnpkg.com/@ecl/ec-component-footer-core/-/ec-component-footer-core-2.12.0.tgz#bc8cae2abc0e3b3e1e928125062f113bc0c06761"
+  integrity sha512-EbAJMHf/SUM1nJv3kWSKasAZ12YbXvk6xWrbmNlprlsPqtfheEEKqR6UNguoxxys2eXmtS3XiD5DCamW4kng8A==
+  dependencies:
+    "@ecl/ec-base" "^2.12.0"
+    "@ecl/ec-component-link" "^2.12.0"
+    "@ecl/ec-layout-grid" "^2.12.0"
 
 "@ecl/ec-component-footer@2.11.0":
   version "2.11.0"
@@ -945,6 +959,13 @@
   dependencies:
     "@ecl/ec-base" "^2.11.0"
 
+"@ecl/ec-component-icon@^2.12.0":
+  version "2.12.0"
+  resolved "https://registry.yarnpkg.com/@ecl/ec-component-icon/-/ec-component-icon-2.12.0.tgz#c3f8302050c521c5e98af566e6027adbf861f1fb"
+  integrity sha512-w2LUwkfcqspNUTLj2nom70Uw3o6c/GWvlweWoSBAMKtd4GFRC5duzcenM+yD40qWCLezpGEb1wm/OQJY0ROO1A==
+  dependencies:
+    "@ecl/ec-base" "^2.12.0"
+
 "@ecl/ec-component-inpage-navigation@2.11.0":
   version "2.11.0"
   resolved "https://registry.yarnpkg.com/@ecl/ec-component-inpage-navigation/-/ec-component-inpage-navigation-2.11.0.tgz#ce003e424b10885e0bff493fda51065a21d51c61"
@@ -973,6 +994,14 @@
   dependencies:
     "@ecl/ec-base" "^2.11.0"
     "@ecl/ec-component-icon" "^2.11.0"
+
+"@ecl/ec-component-link@^2.12.0":
+  version "2.12.0"
+  resolved "https://registry.yarnpkg.com/@ecl/ec-component-link/-/ec-component-link-2.12.0.tgz#07f5e14459ba1cabb2f766693f166cee91bcb612"
+  integrity sha512-QwzyleafqcTicO6n4C6fvPjFktkrB6L4H8beznS50d/VU1Tdgf2obIsSM6zw511c7fBYco/lO0deWiDahAayfg==
+  dependencies:
+    "@ecl/ec-base" "^2.12.0"
+    "@ecl/ec-component-icon" "^2.12.0"
 
 "@ecl/ec-component-list@2.11.0":
   version "2.11.0"
@@ -1103,10 +1132,22 @@
   dependencies:
     "@ecl/ec-base" "^2.11.0"
 
+"@ecl/ec-layout-grid@^2.12.0":
+  version "2.12.0"
+  resolved "https://registry.yarnpkg.com/@ecl/ec-layout-grid/-/ec-layout-grid-2.12.0.tgz#66ce1ae9a407729042183b3caef95e04c1d7764c"
+  integrity sha512-NuXrtGNQQZZ+YZfbNB8U/Srnv6jitKj1w+tEuN7HdcJhXc0mtobA6cHLHrW+JeNUgncfs3k8WpsQot4SwePEeg==
+  dependencies:
+    "@ecl/ec-base" "^2.12.0"
+
 "@ecl/ec-resources-icons@2.11.0":
   version "2.11.0"
   resolved "https://registry.yarnpkg.com/@ecl/ec-resources-icons/-/ec-resources-icons-2.11.0.tgz#798901eedbeec9a219362617b1ed3e6bc6509a80"
   integrity sha512-7RtPSZXq5+W8sAICRDO8+G1/QqJbfo3ifT57v+P3OXYh1ezpD4E+PJPdSQ5Cp04VPSBi56TnhQdnz2ADRJeD2w==
+
+"@ecl/ec-resources-icons@2.12.0":
+  version "2.12.0"
+  resolved "https://registry.yarnpkg.com/@ecl/ec-resources-icons/-/ec-resources-icons-2.12.0.tgz#09a494466f85d9a3950424944a8fbc1cb94add85"
+  integrity sha512-eBDKTH3WrxwJkroUmTo031hJ3kyTocETOyoIlrzC4vJNKbwIZWKncap/GJeOplJjCDBspCPx3o/c8MsWTeIQZQ==
 
 "@ecl/ec-resources-logo@2.11.0":
   version "2.11.0"
@@ -1182,6 +1223,11 @@
   version "2.11.0"
   resolved "https://registry.yarnpkg.com/@ecl/ec-specs-file/-/ec-specs-file-2.11.0.tgz#2aa7c1e11e088f000f2bb580c5a143a33ea64938"
   integrity sha512-W96mtR4fPs6/gqs2nWe+xsgbGdo11AY2lTjOBZBiC9jzXPflT/Lh21J0C8/Ta1bXE6reHtyAj5aHUM1VjSIgqg==
+
+"@ecl/ec-specs-footer-core@2.12.0":
+  version "2.12.0"
+  resolved "https://registry.yarnpkg.com/@ecl/ec-specs-footer-core/-/ec-specs-footer-core-2.12.0.tgz#4cfdac0b9a9e8acffa6d8a5075f2f30bcfcd012e"
+  integrity sha512-ZWRQghAHecfaQyki/LYUCiWC5UeV08ipXwBQzMnJHUlX1vFmLuZK2j1EZSJSyWmAq6p/k+EkIj4JBzY/1Ol3QQ==
 
 "@ecl/ec-specs-footer@2.11.0":
   version "2.11.0"
