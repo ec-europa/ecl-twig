@@ -2,7 +2,7 @@
 
 **Recommended versions of required software:**
 
-- Node.js >= 8.x
+- Node.js >= 10.16.0
 - yarn >= 1.10.1
 
 We recommend you to use [Node Version Manager](https://github.com/creationix/nvm) and to run `nvm install` in the root followed by `nvm use` to get the right Node.js version, the `.mvrc` file in the root of your project is selecting for you the latest available node lts release.
@@ -65,33 +65,39 @@ The libraries we use for sniffing and linting the twig templates all are php one
 
 ```bash
 composer install
-```  
+```
+
 One you have the libraries installed your system should be already configured for automatically running the sniffer in a pre-commit hook.
 You can also run the sniffer manually on the code in different ways using the command line:
 
 ```bash
 composer run twig-cs
-```  
+```
+
 Executes the [twigcs](https://github.com/friendsoftwig/twigcs) on all the packages.
 
 ```bash
 composer run cs "pathToTheTemplateFile"
-```  
+```
+
 Executes the [twigcs](https://github.com/friendsoftwig/twigcs) script on the component you specified.
 
 ```bash
 composer run twig-lint
-```  
+```
+
 Runs the [twig-lint](https://github.com/asm89/twig-lint) sniff against all the packages.
 
 ```bash
 composer run lint "pathToTheFolder"
-```  
+```
+
 Runs the [twig-lint](https://github.com/asm89/twig-lint) sniff against the folder you specified.
 
 ```bash
 composer run grump-cs
-```  
+```
+
 Runs [grumphp](https://github.com/phpro/grumphp) on all the packages, one of its tasks is twigcs, the output of this command should be equal to "composer run twig-cs".
 
 #### Disable/Enable pre-commit hook
@@ -100,12 +106,14 @@ Your environment should be already configured once composer install has run, but
 
 ```bash
 composer run grump-en
-```  
+```
+
 To enable the pre-commit hook.
 
 ```bash
 composer run grump-dis
-```  
+```
+
 To disable the pre-commit hook.
 
 ## Test
