@@ -8,7 +8,7 @@ describe('EC - Footer Core', () => {
   const render = params => renderTwigFileAsNode(template, params);
 
   describe('default', () => {
-    const options = { sections };
+    const options = sections;
 
     test('renders correctly', () => {
       expect.assertions(1);

@@ -21,17 +21,24 @@ function formatLink(l) {
   return link;
 }
 
-export default specData.sections.map(s => {
-  if (s.sectionClassName) {
-    s.section_class_name = s.sectionClassName;
-    delete s.sectionClassName;
-  }
-  if (s.listClassName) {
-    s.list_class_name = s.listClassName;
-    delete s.listClassName;
-  }
-  if (s.links && Array.isArray(s.links)) {
-    s.links = s.links.map(formatLink);
-  }
-  return s;
-});
+const adapter = initialData => {
+  // Copy reference specification demo data.
+  const adaptedData = JSON.parse(JSON.stringify(initialData));
+  adaptedData.sections.forEach(section => {
+    if (section.sectionClassName) {
+      section.section_class_name = section.sectionClassName;
+      delete section.sectionClassName;
+    }
+    if (section.listClassName) {
+      section.list_class_name = section.listClassName;
+      delete section.listClassName;
+    }
+    if (section.links && Array.isArray(section.links)) {
+      section.links = section.links.map(formatLink);
+    }
+  });
+
+  return adaptedData;
+};
+
+export default adapter(specData);
