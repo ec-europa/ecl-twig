@@ -29,6 +29,7 @@
               ],
             },
         },
+    - "search_toggle" (associate array) (default: {})
     - "search_form" (associative array) (default: predefined structure): EC Search Form component structure
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: data-ecl-auto-init="SiteHeaderCore"): format: [
@@ -45,7 +46,7 @@
 {% set _logo = logo|default({}) %}
 {% set _language_selector = language_selector|default({}) %}
 {% set _icon_file_path = icon_file_path|default('') %}
-{% set _search_toggle = search_toggle|default({ label: 'Search', href: '#'}) %}
+{% set _search_toggle = search_toggle|default({}) %}
 {% set _extra_attributes = '' %}
 {% set _css_class = 'ecl-site-header-core' %}
 
@@ -148,6 +149,7 @@
           {{- _language_selector.label -}}
         </a>
         <div class="ecl-site-header-core__search-container">
+        {% if _search_toggle is not empty %}
           <a
             class="ecl-link ecl-link--standalone ecl-site-header-core__search-toggle"
             href="{{ _search_toggle.href }}"
@@ -168,6 +170,7 @@
           } only -%}
           {{- _search_toggle.label -}}
           </a>
+        {% endif %}
           {% include '../ec-component-search-form/search-form.html.twig' with _search_form only %}
         </div>
       </div>
