@@ -30,7 +30,6 @@ npm install --save @ecl-twig/ec-component-site-header-core
       - "active" (boolean) (default: false) define if item is the active language.
 - "search_toggle": (associative array) (default: { label: 'Search', href: '/example' }),
 - "search_form" (associative array) (default: predefined structure): EC Search Form component structure
-- "auto_init" (boolean) (default: false)
 - "extra_classes" (string) (default: '')
 - "extra_attributes" (array) (default: []): format:
   - "name" (string) (default: '')
