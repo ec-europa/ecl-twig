@@ -46,6 +46,8 @@
 {% set _language_selector = language_selector|default({}) %}
 {% set _icon_file_path = icon_file_path|default('') %}
 {% set _search_toggle = search_toggle|default({ label: 'Search', href: '#'}) %}
+{% set _extra_attributes = '' %}
+{% set _css_class = 'ecl-site-header-core' %}
 
 {% set _search_form = {
   text_input: {
@@ -65,15 +67,17 @@
     label: 'Search',
     extra_classes: 'ecl-search-form__button'
   },
-  extra_classes: 'ecl-site-header__search'
+  extra_attributes: [{ name: 'data-ecl-search-form' }],
+  extra_classes: 'ecl-site-header-core__search'
 }
 %}
 
-{% set _css_class = 'ecl-site-header-core' %}
-
-{% set _extra_attributes = 'data-ecl-auto-init="SiteHeaderCore"' %}
-
 {# Merge options #}
+
+{% set extra_attributes = [
+  { name: 'data-ecl-auto-init', value: 'SiteHeaderCore' }
+  ]|merge(extra_attributes|default([]))
+%}
 
 {% if logo is defined and logo is not empty %}
   {% set _logo = _logo|merge(logo) %}
@@ -164,10 +168,7 @@
           } only -%}
           {{- _search_toggle.label -}}
           </a>
-          {% include '../ec-component-search-form/search-form.html.twig' with _search_form|merge({
-            extra_classes: 'ecl-site-header-core__search',
-            extra_attributes: [{ name: 'data-ecl-search-form' }]
-          }) only %}
+          {% include '../ec-component-search-form/search-form.html.twig' with _search_form only %}
         </div>
       </div>
     </div>
