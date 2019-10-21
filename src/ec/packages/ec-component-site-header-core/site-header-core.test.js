@@ -1,4 +1,3 @@
-import path from 'path';
 import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
 import { englishData, frenchData } from './demo/data';
