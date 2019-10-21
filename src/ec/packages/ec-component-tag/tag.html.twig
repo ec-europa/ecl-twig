@@ -38,7 +38,7 @@
 
 {% if _tag.type == 'removable' %}
   {% set _css_class = _css_class ~ ' ecl-tag--removable' %}
-  {% if _tag.aria_label is defined and _tag.aria_label is not empty  %}
+  {% if _tag.aria_label is defined and _tag.aria_label is not empty %}
     {% set _extra_attributes = 'aria-label="' ~ _tag.aria_label ~ '"' %}
   {% endif %}
 {% endif %}
@@ -62,11 +62,11 @@
 {# Print the result #}
 
 {% if _tag.type == 'link' %}
-  <a href="{{ _tag.path }}" class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+  <a href="{{ _tag.path }}" class="{{ _css_class }}" {{ _extra_attributes|raw }}>
     {{- _tag.label -}}
   </a>
 {% elseif _tag.type == 'button' %}
-  <button class="{{ _css_class }}" type="button"{{ _extra_attributes|raw }}>
+  <button class="{{ _css_class }}" type="button" {{ _extra_attributes|raw }}>
     {{- _tag.label -}}
   </button>
 {% elseif _tag.type == 'removable' %}
