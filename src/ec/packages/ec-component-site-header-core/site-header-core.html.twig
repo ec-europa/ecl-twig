@@ -136,7 +136,7 @@
           data-ecl-language-selector
         >
           <span class="ecl-site-header-core__language-icon">
-            {% include '../ec-component-icon/icon.html.twig' with {
+            {% include '@ecl-twig/icon.html.twig' with {
               icon: {
                 path: _icon_file_path,
                 type: 'general',
@@ -157,7 +157,7 @@
             aria-controls="search-form-id"
             aria-expanded="false"
           >
-          {%- include '../ec-component-icon/icon.html.twig' with {
+          {%- include '@ecl-twig/icon.html.twig' with {
             icon: {
               name: 'search',
               path: _icon_file_path,
@@ -171,12 +171,12 @@
           {{- _search_toggle.label -}}
           </a>
         {% endif %}
-          {% include '../ec-component-search-form/search-form.html.twig' with _search_form only %}
+          {% include '@ecl-twig/search-form.html.twig' with _search_form only %}
         </div>
       </div>
     </div>
   </div>
-  {% include '../ec-component-language-list/language-list-overlay.html.twig' with {
+  {% include '@ecl-twig/language-list-overlay.html.twig' with {
     items: _language_selector.overlay.items,
     close_label: _language_selector.overlay.close_label,
     title: _language_selector.overlay.title,

@@ -10,7 +10,7 @@ import frenchBanner from '@ecl/ec-resources-logo/logo--fr.svg';
 import { englishData, frenchData } from './demo/data';
 
 import siteHeaderCoreDocs from './README.md';
-import siteHeaderCore from './site-header-core.html.twig';
+import siteHeaderCore from '@ecl-twig/site-header-core.html.twig';
 
 storiesOf('Components/Site Headers/Core', module)
   .addDecorator(withKnobs)
