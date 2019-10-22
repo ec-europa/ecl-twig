@@ -1,10 +1,9 @@
-import path from 'path';
 import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
 import { backToTop, identity, sections, common } from './demo/data';
 
 describe('EC - Footer', () => {
-  const template = path.resolve(__dirname, './footer.html.twig');
+  const template = '@ecl-twig/ec-component-footer/footer.html.twig';
   const render = params => renderTwigFileAsNode(template, params);
 
   describe('Corporate', () => {

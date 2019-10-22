@@ -88,7 +88,7 @@
     {% endif %}
     <h1 class="ecl-card__title">
       {%- if _card.title.path %}
-        {% include '../ec-component-link/link.html.twig' with {
+        {% include '@ecl-twig/ec-component-link/link.html.twig' with {
           link: _card.title
         } only %}
       {% else %}
@@ -104,7 +104,7 @@
     <ul class="ecl-card__link-container">
       {% for link in _card.links %}
         <li class="ecl-card__link-item">
-          {% include '../ec-component-link/link.html.twig' with {
+          {% include '@ecl-twig/ec-component-link/link.html.twig' with {
             link: link|merge({ type: 'standalone' }),
             extra_classes: 'ecl-card__link'
           } only %}
@@ -118,7 +118,7 @@
       <ul class="ecl-card__info-container">
         {% for info in _card.infos %}
           <li class="ecl-card__info-item">
-            {% include '../ec-component-icon/icon.html.twig' with {
+            {% include '@ecl-twig/ec-component-icon/icon.html.twig' with {
               icon: info.icon|merge({ size: 'xs' })
             } only %}
             <span class="ecl-card__info-label">{{ info.label }}</span>
@@ -130,7 +130,7 @@
       <ul class="ecl-card__tag-container">
         {% for tag in _card.tags %}
           <li class="ecl-card__tag-item">
-            {% include '../ec-component-tag/tag.html.twig' with {
+            {% include '@ecl-twig/ec-component-tag/tag.html.twig' with {
               tag: tag,
               extra_classes: 'ecl-card__tag'
             } only %}

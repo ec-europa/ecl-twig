@@ -26,7 +26,7 @@ npm install --save @ecl-twig/ec-component-icon
 
 <!-- prettier-ignore -->
 ```twig
-{% include 'path/to/icon.html.twig' with { 
+{% include '@ecl-twig/ec-component-icon/icon.html.twig' with { 
   icon: { 
     path: '/static/media/icons.svg', 
     type: 'branded', 

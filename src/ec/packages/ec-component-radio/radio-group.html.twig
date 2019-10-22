@@ -62,7 +62,9 @@
 
 <fieldset
   class="{{ _css_class }}"
-  {{ _helper_id is not empty ? 'aria-describedby="' ~ _helper_id ~ '"' }}
+{% if _helper_id is not empty %}
+   aria-describedby="{{ _helper_id }}"
+{% endif %}
   {{ _extra_attributes|raw }}
 >
 
@@ -71,7 +73,7 @@
       class="ecl-form-label
       {{- _invalid ? ' ecl-form-label--invalid' }}"
     >
-      {%- block label _label -%}
+      {%- block label _label|raw -%}
       {%- if _required and _required_text is not empty -%}
         <span class="ecl-form-label__required">{{ _required_text }}</span>
       {%- elseif not _required and _optional_text is not empty -%}
@@ -83,21 +85,23 @@
   {% if _helper_text is not empty %}
     <div
       class="ecl-help-block"
-      {{ _helper_id is not empty ? 'id="' ~ _helper_id ~ '"' }}
+    {% if _helper_id is not empty %}
+      id="{{ _helper_id }}"
+    {% endif %}
     >
-      {%- block helper_text _helper_text -%}
+      {%- block helper_text _helper_text|raw -%}
     </div>
   {% endif %}
 
   {% if _invalid and _invalid_text is not empty %}
     <div class="ecl-feedback-message">
-      {%- block invalid_text _invalid_text -%}
+      {%- block invalid_text _invalid_text|raw -%}
     </div>
   {% endif %}
 
   {% if _items is not empty and _items is iterable %}
     {%- for _item in _items %}
-      {% include '../ec-component-radio/radio-button.html.twig' with _item|merge({
+      {% include '@ecl-twig/ec-component-radio/radio-button.html.twig' with _item|merge({
         name: _name,
         invalid: _invalid,
       }) only %}
