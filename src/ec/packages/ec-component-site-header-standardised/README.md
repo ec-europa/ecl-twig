@@ -6,7 +6,7 @@ npm package: `@ecl-twig/ec-component-site-header-standardised`
 npm install --save @ecl-twig/ec-component-site-header-standardised
 ```
 
-## Site Header Core
+## Site Header Standardised
 
 ### Parameters
 
