@@ -31,7 +31,7 @@ Parameters:
 
 <!-- prettier-ignore -->
 ```twig
-{% include '@ecl-twig/inpage-navigation.html.twig' with {  
+{% include '@ecl-twig/ec-component-inpage-navigation/inpage-navigation.html.twig' with {  
   title: 'Inpage navigation', 
   links: [ 
     { 

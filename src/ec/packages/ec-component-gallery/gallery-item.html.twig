@@ -73,13 +73,13 @@
   >
     <figure class="ecl-gallery__image-container">
       {% if _item and _item is not empty and _item.video and _item.video is not empty %}
-        {% include '@ecl-twig/video.html.twig' %}
+        {% include '@ecl-twig/ec-component-gallery/video.html.twig' %}
       {% else %}
         <img src="{{ _media_href }}" alt="{{ _image_alt }}" class="ecl-gallery__image" />
       {% endif %}
 
       {% if _item.icon is not empty and _item.icon.name is not empty %}
-        {% include '@ecl-twig/icon.html.twig' with {
+        {% include '@ecl-twig/ec-component-icon/icon.html.twig' with {
           icon: _item.icon|merge({
             size: "l",
           }),
@@ -93,7 +93,7 @@
         {{- _item.description -}}
 
         {% if _item.icon is not empty and _item.icon.name is not empty %}
-          {%- include '@ecl-twig/icon.html.twig' with {
+          {%- include '@ecl-twig/ec-component-icon/icon.html.twig' with {
             icon: _item.icon|merge({
               size: "l",
             }),

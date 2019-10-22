@@ -1,7 +1,7 @@
 import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
 describe('EC - Tag', () => {
-  const template = '@ecl-twig/tag.html.twig';
+  const template = '@ecl-twig/ec-component-tag/tag.html.twig';
   const render = params => renderTwigFileAsNode(template, params);
   const defaultIconPath = 'static/icons.svg';
   const defaultDataStructure = {

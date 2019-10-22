@@ -4,7 +4,7 @@ import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 import { dataError, dataInfo, dataSuccess, dataWarning } from './demo/data';
 
 describe('EC - Message', () => {
-  const template = '@ecl-twig/message.html.twig';
+  const template = '@ecl-twig/ec-component-message/message.html.twig';
   const render = params => renderTwigFileAsNode(template, params);
 
   describe('Info', () => {

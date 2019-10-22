@@ -30,7 +30,7 @@ npm install --save @ecl-twig/ec-component-file
 
 <!-- prettier-ignore -->
 ```twig
-{% include '@ecl-twig/file.html.twig' with { 
+{% include '@ecl-twig/ec-component-file/file.html.twig' with { 
   title: 'State of the Union 2018 brochure', 
   language: 'English', 
   meta: '(16.2 MB - PDF)', 

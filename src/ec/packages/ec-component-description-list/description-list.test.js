@@ -3,7 +3,8 @@ import data from '@ecl/ec-specs-description-list/demo/data';
 import dataHorizontal from '@ecl/ec-specs-description-list/demo/data--horizontal';
 
 describe('EC - Description list', () => {
-  const template = '@ecl-twig/description-list.html.twig';
+  const template =
+    '@ecl-twig/ec-component-description-list/description-list.html.twig';
   const render = params => renderTwigFileAsNode(template, params);
 
   describe('Default', () => {

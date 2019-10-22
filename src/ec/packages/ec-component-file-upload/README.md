@@ -32,7 +32,7 @@ npm install --save @ecl-twig/ec-component-file-upload
 
 <!-- prettier-ignore -->
 ```twig
-{% include '@ecl-twig/file-upload.html.twig' with { 
+{% include '@ecl-twig/ec-component-file-upload/file-upload.html.twig' with { 
   id: 'my-file-upload', 
   label: 'my file upload label', 
   helper_text: 'this is a helper text', 

@@ -48,7 +48,7 @@
   <div class="ecl-language-list__container ecl-container">
     <div class="ecl-row">
       <div class="ecl-language-list__close ecl-col-12 ecl-col-lg-8 ecl-offset-lg-2">
-        {% include '@ecl-twig/button.html.twig' with {
+        {% include '@ecl-twig/ec-component-button/button.html.twig' with {
           label: _close_label,
           variant: "ghost",
           icon: {
@@ -66,7 +66,7 @@
         class="ecl-language-list__title ecl-col-12 ecl-col-lg-8 ecl-offset-lg-2"
         id="ecl-language-list__title"
       >
-        {% include '@ecl-twig/icon.html.twig' with {
+        {% include '@ecl-twig/ec-component-icon/icon.html.twig' with {
           icon: {
             path: _icon_path,
             type: "general",
@@ -79,7 +79,7 @@
       </div>
     </div>
 
-    {% include '@ecl-twig/language-list.html.twig' with {
+    {% include '@ecl-twig/ec-component-language-list/language-list.html.twig' with {
       items: _items,
       overlay: true,
       icon_path: _icon_path

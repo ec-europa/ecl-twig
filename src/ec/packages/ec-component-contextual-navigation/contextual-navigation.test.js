@@ -4,7 +4,8 @@ import demoData from './demo/data';
 
 describe('EC - Contextual Navigation', () => {
   demoData.itemMore.icon.path = 'static/icons';
-  const template = '@ecl-twig/contextual-navigation.html.twig';
+  const template =
+    '@ecl-twig/ec-component-contextual-navigation/contextual-navigation.html.twig';
   const render = params => renderTwigFileAsNode(template, params);
 
   test('renders correctly', () => {

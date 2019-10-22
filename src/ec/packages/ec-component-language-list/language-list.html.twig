@@ -29,7 +29,7 @@
     <ul class="ecl-language-list__list">
       {% for _item in _column1 %}
         <li class="ecl-language-list__item{{ _item.active ? ' ecl-language-list__item--is-active' : '' }}">
-          {% include '@ecl-twig/language-list-item.html.twig' with {
+          {% include '@ecl-twig/ec-component-language-list/language-list-item.html.twig' with {
             item: _item,
             overlay: _overlay,
             icon_path: _icon_path
@@ -42,7 +42,7 @@
     <ul class="ecl-language-list__list">
       {% for _item in _column2 %}
         <li class="ecl-language-list__item{{ _item.active ? ' ecl-language-list__item--is-active' : '' }}">
-          {% include '@ecl-twig/language-list-item.html.twig' with {
+          {% include '@ecl-twig/ec-component-language-list/language-list-item.html.twig' with {
             item: _item,
             overlay: _overlay,
             icon_path: _icon_path

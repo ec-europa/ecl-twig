@@ -32,7 +32,7 @@ npm install --save @ecl-twig/ec-component-card
 
 <!-- prettier-ignore -->
 ```twig
-{% include '@ecl-twig/card.html.twig' with { 
+{% include '@ecl-twig/ec-component-card/card.html.twig' with { 
   card: { 
     type: 'default', 
     description: 'Transparently designing and evaluating evidence-based EU legislation, backed by citizens views.', 
@@ -86,7 +86,7 @@ npm install --save @ecl-twig/ec-component-card
 
 <!-- prettier-ignore -->
 ```twig
-{% include '@ecl-twig/card.html.twig' with { 
+{% include '@ecl-twig/ec-component-card/card.html.twig' with { 
   card: { 
     description: 'Transparently designing and evaluating evidence-based EU legislation, backed by citizens views', 
     title: { 

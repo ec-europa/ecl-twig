@@ -27,7 +27,7 @@ npm install --save @ecl-twig/ec-component-message
 
 <!-- prettier-ignore -->
 ```twig
-{% include '@ecl-twig/message.html.twig' with { 
+{% include '@ecl-twig/ec-component-message/message.html.twig' with { 
   variant: 'info', 
   icon: { 
     path: 'path/to/icons.svg', 
