@@ -45,10 +45,12 @@
 
 {% set _logo = logo|default({}) %}
 {% set _language_selector = language_selector|default({}) %}
-{% set _icon_file_path = icon_file_path|default('') %}
+{% set _login_box = login_box|default({}) %}
+{% set _login_toggle = login_toggle|default({}) %}
 {% set _search_toggle = search_toggle|default({}) %}
+{% set _icon_file_path = icon_file_path|default('') %}
 {% set _extra_attributes = '' %}
-{% set _css_class = 'ecl-site-header-core' %}
+{% set _css_class = 'ecl-site-header-standardised' %}
 
 {% set _search_form = {
   text_input: {
@@ -69,14 +71,14 @@
     extra_classes: 'ecl-search-form__button'
   },
   extra_attributes: [{ name: 'data-ecl-search-form' }],
-  extra_classes: 'ecl-site-header-core__search'
+  extra_classes: 'ecl-site-header-standardised__search'
 }
 %}
 
 {# Merge options #}
 
 {% set extra_attributes = [
-  { name: 'data-ecl-auto-init', value: 'SiteHeaderCore' }
+  { name: 'data-ecl-auto-init', value: 'SiteHeaderStandardised' }
   ]|merge(extra_attributes|default([]))
 %}
 
@@ -84,8 +86,20 @@
   {% set _logo = _logo|merge(logo) %}
 {% endif %}
 
+{% if login_toggle is defined and login_toggle is not empty %}
+  {% set _login_toggle = _login_toggle|merge(login_toggle) %}
+{% endif %}
+
+{% if login_box is defined and login_box is not empty %}
+  {% set _login_box = _login_box|merge(login_box) %}
+{% endif %}
+
 {% if language_selector is defined and language_selector is not empty %}
   {% set _language_selector = _language_selector|merge(language_selector) %}
+{% endif %}
+
+{% if search_toggle is defined and search_toggle is not empty %}
+  {% set _search_toggle = _search_toggle|merge(search_toggle) %}
 {% endif %}
 
 {% if search_form.text_input is defined and search_form.text_input is not empty %}
@@ -115,27 +129,45 @@
 {# Print the result #}
 
 <header class="{{ _css_class }}"{{ _extra_attributes|raw }}>
-  <div class="ecl-site-header-core__container ecl-container">
-    <div class="ecl-site-header-core__top">
+  <div class="ecl-site-header-standardised__container ecl-container">
+    <div class="ecl-site-header-standardised__top">
       <a
-        class="ecl-link ecl-link--standalone ecl-site-header-core__logo-link"
+        class="ecl-link ecl-link--standalone ecl-site-header-standardised__logo-link"
         href="{{ _logo.href }}"
         aria-label="{{ _logo.title }}"
       >
         <img
           alt="{{ _logo.alt }}"
           title="{{ _logo.title }}"
-          class="ecl-site-header-core__logo-image"
+          class="ecl-site-header-standardised__logo-image"
           src="{{ _logo.src }}"
         />
       </a>
-      <div class="ecl-site-header-core__action">
+      <div class="ecl-site-header-standardised__action">
+      {% if _login_toggle is not empty %}
+        <div class="ecl-site-header-standardised__login-container">
+          <a
+            class="ecl-link ecl-link--standalone ecl-site-header-standardised__login-toggle"
+            href="#">
+            {% include '../ec-component-icon/icon.html.twig' with {
+              icon: {
+                path: _icon_file_path,
+                type: 'general',
+                name: 'log-in',
+                size: 's'
+              }
+            } only %}
+             {{ login_toggle.label_not_logged }}
+          </a>
+        </div>
+      {% endif %}
+      {% if _language_selector is not empty %}
         <a
-          class="ecl-link ecl-link--standalone ecl-site-header-core__language-selector"
+          class="ecl-link ecl-link--standalone ecl-site-header-standardised__language-selector"
           href="{{ _language_selector.href }}"
           data-ecl-language-selector
         >
-          <span class="ecl-site-header-core__language-icon">
+          <span class="ecl-site-header-standardised__language-icon">
             {% include '../ec-component-icon/icon.html.twig' with {
               icon: {
                 path: _icon_file_path,
@@ -144,14 +176,15 @@
                 size: 's'
               }
             } only %}
-            <span class="ecl-site-header-core__language-code">{{ _language_selector.code }}</span>
+            <span class="ecl-site-header-standardised__language-code">{{ _language_selector.code }}</span>
           </span>
           {{- _language_selector.label -}}
         </a>
-        <div class="ecl-site-header-core__search-container">
+      {% endif %}
+        <div class="ecl-site-header-standardised__search-container">
         {% if _search_toggle is not empty %}
           <a
-            class="ecl-link ecl-link--standalone ecl-site-header-core__search-toggle"
+            class="ecl-link ecl-link--standalone ecl-site-header-standardised__search-toggle"
             href="{{ _search_toggle.href }}"
             data-ecl-search-toggle="true"
             aria-controls="search-form-id"
