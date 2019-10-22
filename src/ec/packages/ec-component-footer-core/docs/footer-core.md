@@ -9,9 +9,7 @@ npm install --save @ecl-twig/ec-component-footer-core
 ## Parameters
 
 - "sections" (array objects) (default: [])
-  - "title" (predefined structure) see Link component
-    - "label" (string) (default: ''),
-    - "path" (string) (default: ''),
+  - "title" (link objects) see Link component
   - "description" (string) (default: ''),
   - "section_class_name" (string) (default: ''),
   - "links" (array of link objects) (default: []),
@@ -29,8 +27,10 @@ npm install --save @ecl-twig/ec-component-footer-core
   sections: [ 
     { 
       title: { 
-        label: 'European Commission website', 
-        path: '#', 
+        link: { 
+          label: 'European Commission website', 
+          path: '#', 
+        }, 
       }, 
       description: 
         'This site is managed by the Directorate-General for Communication', 
@@ -39,8 +39,10 @@ npm install --save @ecl-twig/ec-component-footer-core
       section_class_name: 'ecl-footer-core__section--separator', 
       links: [ 
         { 
-          label: 'Strategy', 
-          path: '/example', 
+          link: { 
+            label: 'Standalone link', 
+            path: 'http://google.com', 
+          }, 
         }, 
         ... 
       ], 
@@ -49,12 +51,16 @@ npm install --save @ecl-twig/ec-component-footer-core
     {  
       links: [ 
         { 
-          label: 'Follow the European Commission on social media', 
-          path: '/example', 
-          iconPosition: 'after', 
-          icon: { 
-            shape: 'ui--external', 
-            size: 'xs', 
+          link: { 
+            label: 'Follow the European Commission on social media', 
+            path: '/example', 
+            icon_position: 'after', 
+            }, 
+            icon: { 
+              path: '/path-to-the-icon-file', 
+              type: 'ui', 
+              name: 'external', 
+            }, 
           }, 
         }, 
         ... 
@@ -63,8 +69,10 @@ npm install --save @ecl-twig/ec-component-footer-core
     { 
       links: [ 
         { 
-          label: 'Language policy', 
-          path: '/example', 
+          link: { 
+            label: 'Language policy', 
+            path: '/example', 
+          }, 
         }, 
         ... 
       ], 

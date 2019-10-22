@@ -25,6 +25,9 @@ const adapter = initialData => {
   // Copy reference specification demo data.
   const adaptedData = JSON.parse(JSON.stringify(initialData));
   adaptedData.sections.forEach(section => {
+    if (section.title) {
+      section.title = formatLink(section.title);
+    }
     if (section.sectionClassName) {
       section.section_class_name = section.sectionClassName;
       delete section.sectionClassName;
@@ -37,7 +40,6 @@ const adapter = initialData => {
       section.links = section.links.map(formatLink);
     }
   });
-
   return adaptedData;
 };
 
