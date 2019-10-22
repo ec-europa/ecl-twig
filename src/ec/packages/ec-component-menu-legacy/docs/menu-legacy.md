@@ -31,7 +31,7 @@ npm install --save @ecl-twig/ec-component-menu-legacy
 
 <!-- prettier-ignore -->
 ```twig
-{% include 'path/to/menu-legacy.html.twig' with { 
+{% include '@ecl-twig/ec-component-menu-legacy/menu-legacy.html.twig' with { 
   label: "Menu", 
   icon_path: '/static/media/icons.svg', 
   items: [ 

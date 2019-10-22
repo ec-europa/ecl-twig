@@ -72,7 +72,7 @@
     {% set _content_hidden_attribute = 'hidden' %}
   {% endif %}
 
-  {% include '../ec-component-button/button.html.twig' with {
+  {% include '@ecl-twig/ec-component-button/button.html.twig' with {
     label: _label,
     variant: 'secondary',
     type: 'button',
@@ -86,7 +86,7 @@
     {{ _content_hidden_attribute }}
   >
     <p class="ecl-u-type-paragraph-m">
-      {%- block content _content -%}
+      {%- block content _content|raw -%}
     </p>
   </div>
 </div>

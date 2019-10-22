@@ -1,8 +1,7 @@
-import path from 'path';
 import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
 describe('EC - Text field', () => {
-  const template = path.resolve(__dirname, './text-input.html.twig');
+  const template = '@ecl-twig/ec-component-text-input/text-input.html.twig';
   const render = params => renderTwigFileAsNode(template, params);
 
   describe('Default', () => {

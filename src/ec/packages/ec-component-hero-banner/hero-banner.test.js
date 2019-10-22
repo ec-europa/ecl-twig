@@ -1,11 +1,12 @@
-import path from 'path';
 import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
-import bannerDataDefault from '@ecl/ec-specs-hero-banner/demo/data--default';
-import bannerDataImage from '@ecl/ec-specs-hero-banner/demo/data--image';
-import bannerDataImageShade from '@ecl/ec-specs-hero-banner/demo/data--image-shade';
-import bannerDataPrimary from '@ecl/ec-specs-hero-banner/demo/data--primary';
-import bannerDataAlignLeft from '@ecl/ec-specs-hero-banner/demo/data--align-left';
+import {
+  dataDefault,
+  dataImage,
+  dataImageShade,
+  dataPrimary,
+  dataLeft,
+} from './demo/data';
 
 function formatBanner(b) {
   const iconType = b.link.icon.shape.split('--');
@@ -26,7 +27,7 @@ function formatBanner(b) {
         path: 'static/icons.svg',
       },
     },
-    centered: b.isCentered,
+    centered: b.centered,
   };
 
   if ('image' in b) {
@@ -39,11 +40,11 @@ function formatBanner(b) {
 }
 
 describe('EC - Hero Banner', () => {
-  const template = path.resolve(__dirname, './hero-banner.html.twig');
+  const template = '@ecl-twig/ec-component-hero-banner/hero-banner.html.twig';
   const render = params => renderTwigFileAsNode(template, params);
 
   describe('default', () => {
-    const data = formatBanner(bannerDataDefault);
+    const data = formatBanner(dataDefault);
 
     test(`- renders correctly`, () => {
       expect.assertions(1);
@@ -76,7 +77,7 @@ describe('EC - Hero Banner', () => {
   });
 
   describe('image', () => {
-    const data = formatBanner(bannerDataImage);
+    const data = formatBanner(dataImage);
 
     test(`- renders correctly`, () => {
       expect.assertions(1);
@@ -109,7 +110,7 @@ describe('EC - Hero Banner', () => {
   });
 
   describe('image-shade', () => {
-    const data = formatBanner(bannerDataImageShade);
+    const data = formatBanner(dataImageShade);
 
     test(`- renders correctly`, () => {
       expect.assertions(1);
@@ -142,7 +143,7 @@ describe('EC - Hero Banner', () => {
   });
 
   describe('primary', () => {
-    const data = formatBanner(bannerDataPrimary);
+    const data = formatBanner(dataPrimary);
 
     test(`- renders correctly`, () => {
       expect.assertions(1);
@@ -175,7 +176,7 @@ describe('EC - Hero Banner', () => {
   });
 
   describe('align-left', () => {
-    const data = formatBanner(bannerDataAlignLeft);
+    const data = formatBanner(dataLeft);
 
     test(`- renders correctly`, () => {
       expect.assertions(1);

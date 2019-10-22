@@ -45,6 +45,7 @@ storiesOf('Components/Tag', module)
         tag: {
           label: text('Label', 'Removable tag'),
           type: 'removable',
+          aria_label: 'Dismiss',
         },
         default_icon_path: defaultSprite,
       }),

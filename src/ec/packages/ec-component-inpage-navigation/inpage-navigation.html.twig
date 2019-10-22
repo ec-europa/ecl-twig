@@ -43,7 +43,7 @@
 
 {# Print the result #}
 
-<nav class="{{ _css_class }}"{{ _extra_attributes }} data-ecl-inpage-navigation="true">
+<nav class="{{ _css_class }}"{{ _extra_attributes|raw }} data-ecl-inpage-navigation="true">
   <div class="ecl-inpage-navigation__title">{{ title }}</div>
   <div class="ecl-inpage-navigation__body">
     <button type="button" class="ecl-inpage-navigation__trigger"
@@ -51,7 +51,7 @@
             aria-controls="ecl-inpage-navigation-list" aria-expanded="false"><span
           class="ecl-inpage-navigation__trigger-current"
           data-ecl-inpage-navigation-trigger-current="true"> </span>
-      {% include '../ec-component-icon/icon.html.twig' with {
+      {% include '@ecl-twig/ec-component-icon/icon.html.twig' with {
         icon: {
           path: _icon_path,
           type: "ui",
@@ -65,7 +65,7 @@
         data-ecl-inpage-navigation-list="true" id="ecl-inpage-navigation-list">
       {% for link in links %}
         <li class="ecl-inpage-navigation__item">
-          {% include '../ec-component-link/link.html.twig' with {
+          {% include '@ecl-twig/ec-component-link/link.html.twig' with {
             link: {
               type: 'standalone',
               path: link.href,

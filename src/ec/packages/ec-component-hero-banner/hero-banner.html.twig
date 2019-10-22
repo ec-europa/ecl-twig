@@ -21,7 +21,7 @@
 {# Internal properties #}
 
 {% set _type = type|default('default') %}
-{% set _centered = centered|default(true) %}
+{% set _centered = centered ?? true %}
 {% set _title = title|default('') %}
 {% set _description = description|default('') %}
 {% set _image = image|default('') %}
@@ -33,7 +33,7 @@
 
 {# Internal logic - Process properties #}
 
-{% if _centered == true %}
+{% if _centered %}
   {% set _css_class = _css_class ~ ' ecl-hero-banner--centered' %}
 {% endif %}
 
@@ -53,7 +53,7 @@
 
 {# Print the result #}
 
-<section class="{{ _css_class }}"{{ _extra_attributes }}>
+<section class="{{ _css_class }}"{{ _extra_attributes|raw }}>
   {% if _image is not empty and _type in ['image', 'image-shade'] %}
     <div class="ecl-hero-banner__image" style="background-image:url({{ _image }})"></div>
   {% endif %}
@@ -64,13 +64,13 @@
         <p class="ecl-hero-banner__description">{{ _description }}</p>
       {% endif %}
       {% if _link is not empty %}
-        {% include '../ec-component-link/link.html.twig' with _link|merge({
-          link: _link.link|merge({ 
+        {% include '@ecl-twig/ec-component-link/link.html.twig' with _link|merge({
+          link: _link.link|merge({
             type: 'cta',
           })
         }) only %}
       {% elseif _button is not empty %}
-        {% include '../ec-component-button/button.html.twig' with _button|merge({
+        {% include '@ecl-twig/ec-component-button/button.html.twig' with _button|merge({
           extra_classes: 'ecl-hero-banner__button'
         }) only %}
       {% endif %}
