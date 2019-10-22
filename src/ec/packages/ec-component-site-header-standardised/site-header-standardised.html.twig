@@ -3,6 +3,9 @@
 {#
   Parameters:
     - "icon_file_path" (string) (default: ''): URL to icons file
+    - "banner_top" (string): Class name
+    - "banner" (string): Site name
+    - "menu" (boolean): Whether the component includes a menu
     - "logo" (associative array) (default: predefined structure): Logo image settings. format:
         {
           "title": (string) (default: ''): Logo title attribute.
@@ -29,7 +32,25 @@
               ],
             },
         },
-    - "search_toggle" (associate array) (default: {})
+    - "search_toggle" (associate array) (default: {}) format:
+      {
+        "label": (string) Label of the element
+        "href": (string) Link of the element
+      }
+    - "login_box" (associate array) (default: {}) format:
+        {
+          "id": (string): Id of the box
+          "description": (string) default('Logged in as <last name>, <first name>')
+          "label": (string): Log out label
+          "href": (string): Url of the link
+      }
+    - "login_toggle" (associate array) (default: {}) format:
+      {
+        "label_not_logged": (string) Label for the anonymous users
+        "href_not_logged": (string) Link to the login form
+        "label_logged": (string) Label for the logged in users
+        "href_logged": (string) Link to the logout form
+      }
     - "search_form" (associative array) (default: predefined structure): EC Search Form component structure
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: data-ecl-auto-init="SiteHeaderCore"): format: [
@@ -49,6 +70,7 @@
 {% set _login_toggle = login_toggle|default({}) %}
 {% set _search_toggle = search_toggle|default({}) %}
 {% set _icon_file_path = icon_file_path|default('') %}
+{% set _logged = logged|default(false) %}
 {% set _extra_attributes = '' %}
 {% set _css_class = 'ecl-site-header-standardised' %}
 
@@ -144,11 +166,47 @@
         />
       </a>
       <div class="ecl-site-header-standardised__action">
-      {% if _login_toggle is not empty %}
+      {% if _login_toggle is not empty and login_box is not empty %}
         <div class="ecl-site-header-standardised__login-container">
+        {% if _logged %}
           <a
             class="ecl-link ecl-link--standalone ecl-site-header-standardised__login-toggle"
-            href="#">
+            href="{{ _login_box.href_logged }}"
+            aria-controls={{ _login_box.id }}
+            aria-expanded="false"
+          >
+            {% include '../ec-component-icon/icon.html.twig' with {
+              icon: {
+                path: _icon_file_path,
+                type: 'general',
+                name: 'logged-in',
+                size: 's'
+              }
+            } only %}
+             {{- login_toggle.label_logged -}}
+          </a>
+          <div
+            id="{{ _login_box.id }}"
+            class="ecl-site-header-standardised__login-box"
+            data-ecl-login-box
+          >
+            <p class="ecl-site-header-standardised__login-description">
+              {{- _login_box.description -}}
+            </p>
+            <hr className="ecl-site-header-standardised__login-separator" />
+            {% include '../ec-component-link/link.html.twig' with {
+              link: {
+                label: _login_box.label,
+                href: _login_box.href,
+                variant: "standalone"
+              }
+            } only %}
+          </div>
+        {% else %}
+          <a
+            class="ecl-link ecl-link--standalone ecl-site-header-standardised__login-toggle"
+            href="{{ _login_box.href_not_logged }}"
+          >
             {% include '../ec-component-icon/icon.html.twig' with {
               icon: {
                 path: _icon_file_path,
@@ -157,8 +215,9 @@
                 size: 's'
               }
             } only %}
-             {{ login_toggle.label_not_logged }}
+            {{- login_toggle.label_not_logged -}}
           </a>
+        {% endif %}
         </div>
       {% endif %}
       {% if _language_selector is not empty %}

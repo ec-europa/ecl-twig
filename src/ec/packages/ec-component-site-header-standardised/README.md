@@ -10,12 +10,26 @@ npm install --save @ecl-twig/ec-component-site-header-standardised
 
 ### Parameters
 
-- "icon_file_path" (string) (default: ''): file containing the svg icons
+- "logged" (boolean) (default: false): Whether the user is logged in or not
+- "menu" (boolean) (default: false): Whether the component includes a menu or not
+- "banner" (string): The site name
+- "banner_top" (string): Class name
+- "icon_file_path": (string) (default: ''): file containing the svg icons
 - "logo" (associative array) (default: predefined structure): Logo image settings. format:
   - "title" (string) (default: ''): Logo title attribute.
   - "alt" (string) (default: ''): Logo alt attribute.
   - "href" (string) (default: ''): Logo URL.
   - "src" (string) (default: ''): Logo image file path, eg. dist/images/logo--en.svg.
+- "login_box" (associative array) format:
+  - "id": (string): Id of the box
+  - "description": (string) Label for the logged in users
+  - "label": (string): Log out label
+  - "href": (string): Url of the link
+- "login_toggle" (associative array) format:
+  - "label_not_logged": (string) Label for the anonymous users
+  - "href_not_logged": (string) Link to the login form
+  - "label_logged": (string) Label for the logged in users
+  - "href_logged": (string) Link to the logout form
 - "language_selector" (associative array) (default: predefined structure): Language switcher settings. format:
   - "href" (string) (default: ''): URL for switcher
   - "name" (string) (default: ''): Switcher language label, eg. 'English', 'Français', etc.
@@ -28,7 +42,9 @@ npm install --save @ecl-twig/ec-component-site-header-standardised
       - "label" (string) (default: '') Item language label, eg. 'English', 'Français', etc.
       - "path" (string) (default: '') Item language URL eg. '/example#language_en'.
       - "active" (boolean) (default: false) define if item is the active language.
-- "search_toggle": (associative array) (default: { label: 'Search', href: '/example' }),
+- "search_toggle": (associative array) format:
+  - "label": (string) Label of the element
+  - "href": (string) Link of the element
 - "search_form" (associative array) (default: predefined structure): EC Search Form component structure
 - "extra_classes" (string) (default: '')
 - "extra_attributes" (array) (default: []): format:
@@ -40,6 +56,9 @@ npm install --save @ecl-twig/ec-component-site-header-standardised
 <!-- prettier-ignore -->
 ```twig
 {% include 'path/to/site-header-standardised.html.twig' with { 
+  bannerTop: 'Class name', 
+  banner: 'Site name', 
+  menu: true, 
   icon_file_path: '/path-to-the-icons-file', 
   logo: { 
     title: 'European Commission', 
@@ -60,6 +79,18 @@ npm install --save @ecl-twig/ec-component-site-header-standardised
         ... 
       ], 
     }, 
+  }, 
+  login_toggle: { 
+    label_not_logged: 'Log in', 
+    href_not_logged: '/example', 
+    label_logged: 'Logged in', 
+    href_logged: '/example', 
+  }, 
+  login_box: { 
+    id: 'login-box-id', 
+    description: 'Logged in as <last name>, <first name>', 
+    label: 'Log out', 
+    href: '/example', 
   }, 
   search_toggle: { 
     label: 'Search', 
