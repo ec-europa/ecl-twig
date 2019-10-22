@@ -1,8 +1,7 @@
-/* eslint-disable import/no-extraneous-dependencies */
 const formatIcon = i => {
   const [type, name] = i.shape.split('--');
   const icon = {
-    path: 'static/icons.svg',
+    path: '/static/icons.svg',
     type,
     name,
     size: i.size,
@@ -28,6 +27,32 @@ const formatLink = l => {
   return link;
 };
 
+const formatLinkAlt = a => {
+  const link = {
+    label: a.label,
+    path: a.href ? a.href : '#',
+  };
+
+  if (a.isActive) {
+    link.active = true;
+  }
+
+  if (a.icon) {
+    link.icon_position = a.iconPosition;
+    link.icon = formatIcon(a.icon);
+  }
+
+  if (a.lang) {
+    link.lang = a.lang;
+  }
+
+  if (a.hreflang) {
+    link.hreflang = a.hreflang;
+  }
+
+  return link;
+};
+
 const formatButton = b => {
   const button = {
     variant: b.variant,
@@ -42,4 +67,4 @@ const formatButton = b => {
   return button;
 };
 
-export { formatIcon, formatLink, formatButton };
+export { formatIcon, formatLink, formatLinkAlt, formatButton };
