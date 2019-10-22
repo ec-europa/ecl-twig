@@ -38,7 +38,7 @@ npm install --save @ecl-twig/ec-component-select
 
 <!-- prettier-ignore -->
 ```twig
-{% include 'path/to/select.html.twig' with { 
+{% include '@ecl-twig/ec-component-select/select.html.twig' with { 
   label: 'Select a country', 
   options: [ 
     { 

@@ -1,11 +1,10 @@
-import path from 'path';
 import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
 // Import data for tests
 import dataDefault from './demo/data';
 
 describe('EC - File Upload ', () => {
-  const template = path.resolve(__dirname, './file-upload.html.twig');
+  const template = '@ecl-twig/ec-component-file-upload/file-upload.html.twig';
   const render = params => renderTwigFileAsNode(template, params);
 
   describe('Default', () => {

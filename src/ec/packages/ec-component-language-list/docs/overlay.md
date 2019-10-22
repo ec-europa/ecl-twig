@@ -28,7 +28,7 @@ npm install --save @ecl-twig/ec-component-language-list
 
 <!-- prettier-ignore -->
 ```twig
-{% include 'path/to/language-list-overlay.html.twig' with { 
+{% include '@ecl-twig/ec-component-language-list/language-list-overlay.html.twig' with { 
   items: [ 
     { lang: 'bg', label: 'български', path: '/example' }, 
     { lang: 'es', label: 'español', path: '/example' }, 

@@ -80,9 +80,11 @@
       class="{{- _label_class -}}
       {{- disabled ? ' ecl-form-label--disabled' -}}
       {{- invalid ? ' ecl-form-label--invalid' -}}"
-      {{ _id ? 'for="' ~ _id ~ '"' }}
+    {% if _id %}
+      for="{{ _id }}"
+    {% endif %}
     >
-      {%- block label _label -%}
+      {%- block label _label|raw -%}
       {%- if _required and _required_text is not empty -%}
         <span class="ecl-form-label__required">{{ _required_text }}</span>
       {%- elseif not _required and _optional_text is not empty -%}
@@ -92,19 +94,27 @@
   {% endif %}
 
   {% if _helper_text is not empty %}
-    <div class="ecl-help-block{{ _disabled ? ' ecl-help-block--disabled' }}">{% block helper_text _helper_text %}</div>
+    <div class="ecl-help-block{{ _disabled ? ' ecl-help-block--disabled' }}">
+      {%- block helper_text _helper_text|raw -%}
+    </div>
   {% endif %}
 
   {% if _invalid and _invalid_text is not empty %}
-    <div class="ecl-feedback-message">{% block invalid_text _invalid_text %}</div>
+    <div class="ecl-feedback-message">
+      {%- block invalid_text _invalid_text|raw -%}
+    </div>
   {% endif %}
 
   <textarea
-    {{ _id ? 'id="' ~ _id ~ '"' }}
+  {% if _id %}
+    id="{{ _id }}"
+  {% endif %}
     class="{{ _css_class }}"
     name="{{ _name }}"
     rows="{{ _rows }}"
-    {{ _disabled ? "disabled" }}
+  {% if _disabled %}
+    disabled
+  {% endif %}
     {{ _extra_attributes|raw }}
   >{{ _default_value }}</textarea>
 
