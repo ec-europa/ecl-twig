@@ -2,7 +2,7 @@ import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
 import { englishData, frenchData } from './demo/data';
 
-describe('EC - Site Header Core', () => {
+describe('EC - Site Header Standardised', () => {
   const template =
     '@ecl-twig/ec-component-site-header-standardised/site-header-standardised.html.twig';
   const render = params => renderTwigFileAsNode(template, params);
@@ -21,6 +21,14 @@ describe('EC - Site Header Core', () => {
       });
 
       return expect(render(withExtraClasses)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly when logged in', () => {
+      expect.assertions(1);
+
+      const loggedIn = merge(englishData, { logged: true });
+
+      return expect(render(loggedIn)).resolves.toMatchSnapshot();
     });
 
     test('renders correctly with extra attributes', () => {

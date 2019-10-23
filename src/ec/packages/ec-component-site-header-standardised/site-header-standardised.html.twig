@@ -5,6 +5,7 @@
     - "icon_file_path" (string) (default: ''): URL to icons file
     - "banner_top" (string): Class name
     - "banner" (string): Site name
+    - "logged" (boolean): Whether the user is logged in or not
     - "menu" (boolean): Whether the component includes a menu
     - "logo" (associative array) (default: predefined structure): Logo image settings. format:
         {
@@ -76,9 +77,7 @@
 
 {% set _search_form = {
   text_input: {
-    id: 'input-search',
     name: 'search',
-    label: 'search',
     extra_classes: 'ecl-search-form__text-input'
   },
   button: {
@@ -89,10 +88,11 @@
       path: _icon_file_path,
       size: 'fluid',
     },
-    label: 'Search',
     extra_classes: 'ecl-search-form__button'
   },
-  extra_attributes: [{ name: 'data-ecl-search-form' }],
+  extra_attributes: [
+  { name: 'data-ecl-search-form ' }
+  ]|merge(search_form.extra_attributes|default({})),
   extra_classes: 'ecl-site-header-standardised__search'
 }
 %}
@@ -298,6 +298,7 @@
   </div>
 {% endif %}
 {% if _menu %}
+  {% include '@ecl-twig/ec-component-site-header-standardised/menu.html.twig' with _icon_file_path %}
 {% endif %}
   {% include '@ecl-twig/ec-component-language-list/language-list-overlay.html.twig' with {
     items: _language_selector.overlay.items,
