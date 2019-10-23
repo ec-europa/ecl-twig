@@ -92,7 +92,7 @@
     label: 'Search',
     extra_classes: 'ecl-search-form__button'
   },
-  extra_attributes: [{ name: 'data-ecl-search-form' }],
+  extra_attributes: [{ name: 'data-ecl-search-form ' }]|merge(search_form.extra_attributes),
   extra_classes: 'ecl-site-header-standardised__search'
 }
 %}
@@ -298,6 +298,7 @@
   </div>
 {% endif %}
 {% if _menu %}
+  {% include '@ecl-twig/ec-component-site-header-standardised/menu.html.twig' with _icon_file_path %}
 {% endif %}
   {% include '@ecl-twig/ec-component-language-list/language-list-overlay.html.twig' with {
     items: _language_selector.overlay.items,

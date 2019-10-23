@@ -45,6 +45,7 @@ const adapter = initialData => {
   adaptedData.search_toggle = adaptedData.searchToggle;
   // Search form.
   adaptedData.search_form = {
+    extra_attributes: [{ name: 'id', value: adaptedData.searchForm.id }],
     text_input: {
       id: adaptedData.searchForm.textInputId,
       name: adaptedData.searchForm.inputLabel,
