@@ -23,7 +23,7 @@ npm install --save @ecl-twig/ec-component-footer-core
 
 <!-- prettier-ignore -->
 ```twig
-{% include 'path/to/footer-core.html.twig' with { 
+{% include '@ecl-twig/footer-core/footer-core.html.twig' with { 
   sections: [ 
     { 
       title: { 

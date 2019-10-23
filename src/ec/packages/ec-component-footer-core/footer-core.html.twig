@@ -49,7 +49,7 @@
       {% endif %}
       <div class="{{ _section_class }}">
         {%- if section.title is defined and section.title is not empty -%}
-          {% include '../ec-component-link/link.html.twig' with {
+          {% include '@ecl-twig/ec-component-link/link.html.twig' with {
             link: section.title.link|default({})|merge({
               type: 'standalone',
             }),
@@ -67,14 +67,14 @@
           <ul class="{{ _list_class }}">
             {% for item in section.links %}
               <li class="ecl-footer-core__list-item">
-                {% include '../ec-component-link/link.html.twig' with item|merge({
+                {% include '@ecl-twig/ec-component-link/link.html.twig' with item|merge({
                   link: item.link|default({})|merge({
                     type: 'standalone',
                   }),
                   icon: item.icon|default({})|merge({
                     size: 'xs',
                   }),
-                  extra_classes: 'ecl-footer__core__link'
+                  extra_classes: 'ecl-footer-core__link'
                 }) only %}
               </li>
             {% endfor %}
