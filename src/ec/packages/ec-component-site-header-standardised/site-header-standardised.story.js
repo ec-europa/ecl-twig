@@ -2,6 +2,7 @@ import { storiesOf } from '@storybook/html';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
 
+import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import englishBanner from '@ecl/ec-resources-logo/logo--en.svg';
 import frenchBanner from '@ecl/ec-resources-logo/logo--fr.svg';
 
@@ -16,6 +17,7 @@ storiesOf('Components/Site Headers/Standardised', module)
   .add(
     'default',
     () => {
+      englishData.icon_file_path = defaultSprite;
       englishData.logo.src = englishBanner;
       return siteHeaderStandardised(englishData);
     },
@@ -27,6 +29,7 @@ storiesOf('Components/Site Headers/Standardised', module)
     'logged in',
     () => {
       englishData.logged = true;
+      englishData.icon_file_path = defaultSprite;
       englishData.logo.src = englishBanner;
       return siteHeaderStandardised(englishData);
     },
@@ -37,6 +40,7 @@ storiesOf('Components/Site Headers/Standardised', module)
   .add(
     'translated',
     () => {
+      frenchData.icon_file_path = defaultSprite;
       frenchData.logo.src = frenchBanner;
       return siteHeaderStandardised(frenchData);
     },
