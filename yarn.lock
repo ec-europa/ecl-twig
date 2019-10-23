@@ -10890,7 +10890,7 @@ parse-entities@^1.1.2:
     is-decimal "^1.0.0"
     is-hexadecimal "^1.0.0"
 
-parse-function@^5.2.3:
+parse-function@5.2.x:
   version "5.2.11"
   resolved "https://registry.yarnpkg.com/parse-function/-/parse-function-5.2.11.tgz#89ca2e30b05ecec41e6e12ede647c25839e75036"
   integrity sha512-2nQChgTKz80awFjQqs93ZzgQPOykT+BXomHUfwMdIben3PT2uohAPot+h5D+PNa0T+odzjuMZUMOoCyJfnej1Q==
@@ -13713,10 +13713,10 @@ twing-loader@2.0.2:
     schema-utils "^2.2.0"
     slash "^3.0.0"
 
-twing@2.3.6:
-  version "2.3.6"
-  resolved "https://registry.yarnpkg.com/twing/-/twing-2.3.6.tgz#3e6233515aff76c0aaa20aed8459a77dadf7b252"
-  integrity sha512-OsRfnIvjZYvLACreLs7T0q52gms98CAW8iDBd5O2Z7QgOtDxILiLt/Ae4IKPTnXjYmrOzxhaWxF+NBnQ1MR/5g==
+twing@2.3.7:
+  version "2.3.7"
+  resolved "https://registry.yarnpkg.com/twing/-/twing-2.3.7.tgz#8117576e8a66a06e7229578684d9be54ab04be07"
+  integrity sha512-9Fa38Al62Ld40eRc9faZBghDkNarP4KBNwHami1DFtsNCSX/Z2kcDIYyf71Y0CWlqWMEMNHmx98zScfx6HhKug==
   dependencies:
     "@types/luxon" "^1.4.0"
     camelcase "^4.1.0"
@@ -13736,7 +13736,7 @@ twing@2.3.6:
     merge "^1.2.1"
     object-hash "^1.2.0"
     pad "^2.0.3"
-    parse-function "^5.2.3"
+    parse-function "5.2.x"
     regex-parser "^2.2.8"
     runes "^0.4.3"
     snake-case "^2.1.0"
