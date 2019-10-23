@@ -70,6 +70,7 @@
 {% set _search_toggle = search_toggle|default({}) %}
 {% set _icon_file_path = icon_file_path|default('') %}
 {% set _logged = logged|default(false) %}
+{% set _menu = menu|default(false) %}
 {% set _extra_attributes = '' %}
 {% set _css_class = 'ecl-site-header-standardised' %}
 
@@ -174,7 +175,7 @@
             aria-controls={{ _login_box.id }}
             aria-expanded="false"
           >
-            {% include '../ec-component-icon/icon.html.twig' with {
+            {% include '@ecl-twig/ec-component-icon/icon.html.twig' with {
               icon: {
                 path: _icon_file_path,
                 type: 'general',
@@ -193,7 +194,7 @@
               {{- _login_box.description|raw -}}
             </p>
             <hr className="ecl-site-header-standardised__login-separator" />
-            {% include '../ec-component-link/link.html.twig' with {
+            {% include '@ecl-twig/ec-component-link/link.html.twig' with {
               link: {
                 label: _login_box.label,
                 href: _login_box.href,
@@ -206,7 +207,7 @@
             class="ecl-link ecl-link--standalone ecl-site-header-standardised__login-toggle"
             href="{{ _login_box.href_not_logged }}"
           >
-            {% include '../ec-component-icon/icon.html.twig' with {
+            {% include '@ecl-twig/ec-component-icon/icon.html.twig' with {
               icon: {
                 path: _icon_file_path,
                 type: 'general',
@@ -226,7 +227,7 @@
           data-ecl-language-selector
         >
           <span class="ecl-site-header-standardised__language-icon">
-            {% include '../ec-component-icon/icon.html.twig' with {
+            {% include '@ecl-twig/ec-component-icon/icon.html.twig' with {
               icon: {
                 path: _icon_file_path,
                 type: 'general',
@@ -248,7 +249,7 @@
             aria-controls="search-form-id"
             aria-expanded="false"
           >
-          {%- include '../ec-component-icon/icon.html.twig' with {
+          {%- include '@ecl-twig/ec-component-icon/icon.html.twig' with {
             icon: {
               name: 'search',
               path: _icon_file_path,
@@ -262,7 +263,7 @@
           {{- _search_toggle.label -}}
           </a>
         {% endif %}
-          {% include '../ec-component-search-form/search-form.html.twig' with _search_form only %}
+          {% include '@ecl-twig/ec-component-search-form/search-form.html.twig' with _search_form only %}
         </div>
       </div>
     </div>
@@ -279,7 +280,7 @@
       class="ecl-link ecl-link--standalone ecl-site-header-standardised__menu-toggle"
       href="#"
       >
-        {%- include '../ec-component-icon/icon.html.twig' with {
+        {%- include '@ecl-twig/ec-component-icon/icon.html.twig' with {
             icon: {
               name: 'hamburger',
               path: _icon_file_path,
@@ -296,7 +297,9 @@
     </div>
   </div>
 {% endif %}
-  {% include '../ec-component-language-list/language-list-overlay.html.twig' with {
+{% if _menu %}
+{% endif %}
+  {% include '@ecl-twig/ec-component-language-list/language-list-overlay.html.twig' with {
     items: _language_selector.overlay.items,
     close_label: _language_selector.overlay.close_label,
     title: _language_selector.overlay.title,
