@@ -1,10 +1,9 @@
-import path from 'path';
 import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
 import sections from './demo/data';
 
 describe('EC - Footer Core', () => {
-  const template = path.resolve(__dirname, './footer-core.html.twig');
+  const template = '@ecl-twig/ec-component-footer-core/footer-core.html.twig';
   const render = params => renderTwigFileAsNode(template, params);
 
   describe('default', () => {
