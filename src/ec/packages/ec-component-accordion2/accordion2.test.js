@@ -1,6 +1,4 @@
 /* eslint-disable no-param-reassign */
-
-import path from 'path';
 import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
 import demoData from './demo/data';
@@ -10,7 +8,7 @@ demoData.items.forEach(item => {
 });
 
 describe('EC - Accordion2', () => {
-  const template = path.resolve(__dirname, './accordion2.html.twig');
+  const template = '@ecl-twig/ec-component-accordion2/accordion2.html.twig';
   const render = params => renderTwigFileAsNode(template, params);
 
   test('renders correctly', () => {
@@ -32,13 +30,13 @@ describe('EC - Accordion2', () => {
   test('renders correctly with extra attributes', () => {
     expect.assertions(1);
 
-    const optionsWithExtraClasses = merge(demoData, {
+    const optionsWithExtraAttrs = merge(demoData, {
       extra_attributes: [
         { name: 'data-test', value: 'data-test-value' },
         { name: 'data-test-1', value: 'data-test-value-1' },
       ],
     });
 
-    return expect(render(optionsWithExtraClasses)).resolves.toMatchSnapshot();
+    return expect(render(optionsWithExtraAttrs)).resolves.toMatchSnapshot();
   });
 });

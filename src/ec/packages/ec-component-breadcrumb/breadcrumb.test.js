@@ -1,4 +1,3 @@
-import path from 'path';
 import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
 import breadcrumbDataSimple from '@ecl/ec-specs-breadcrumb/demo/data-simple';
@@ -14,7 +13,7 @@ function formatLink(l) {
 }
 
 describe('EC - Breadcrumb', () => {
-  const template = path.resolve(__dirname, './breadcrumb.html.twig');
+  const template = '@ecl-twig/ec-component-breadcrumb/breadcrumb.html.twig';
   const render = params => renderTwigFileAsNode(template, params);
   const defaultIconPath = 'static/icons.svg';
 

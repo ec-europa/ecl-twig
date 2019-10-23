@@ -77,7 +77,9 @@
 <div class="{{ _css_group_class }}">
   {% if _label is not empty %}
     <label
-      {{ _id ? 'for="' ~ _id ~ '"' }}
+    {% if _id %}
+      for="{{ _id }}"
+    {% endif %}
       class="{{- _label_class -}}
       {{- _invalid ? ' ecl-form-label--invalid' -}}
       {{- _disabled ? ' ecl-form-label--disabled' -}}"
@@ -92,19 +94,27 @@
   {% endif %}
 
   {% if _helper_text is not empty %}
-    <div class="ecl-help-block{{ _disabled ? ' ecl-help-block--disabled' }}">{% block helper_text _helper_text %}</div>
+    <div class="ecl-help-block{{ _disabled ? ' ecl-help-block--disabled' }}">
+      {%- block helper_text _helper_text|raw -%}
+    </div>
   {% endif %}
 
   {% if _invalid and _invalid_text is not empty %}
-    <div class="ecl-feedback-message">{% block invalid_text _invalid_text %}</div>
+    <div class="ecl-feedback-message">
+      {%- block invalid_text _invalid_text|raw -%}
+    </div>
   {% endif %}
 
   <input
-    {{ _id ? 'id="' ~ _id ~ '"' }}
+  {% if _id %}
+    id="{{ _id }}"
+  {% endif %}
     class="{{ _css_class }}"
     name="{{ _name }}"
     type="{{ _type }}"
-    {{ _disabled ? "disabled" }}
+  {% if _disabled %}
+    disabled
+  {% endif %}
     {{ _extra_attributes|raw }}
   />
 

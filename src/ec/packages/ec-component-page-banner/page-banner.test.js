@@ -1,4 +1,3 @@
-import path from 'path';
 import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
 import bannerDataDefault from '@ecl/ec-specs-page-banner/demo/data--default';
@@ -39,7 +38,7 @@ function formatBanner(b) {
 }
 
 describe('EC - Page Banner', () => {
-  const template = path.resolve(__dirname, './page-banner.html.twig');
+  const template = '@ecl-twig/ec-component-page-banner/page-banner.html.twig';
   const render = params => renderTwigFileAsNode(template, params);
 
   describe('default', () => {

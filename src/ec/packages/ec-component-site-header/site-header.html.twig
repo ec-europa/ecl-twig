@@ -136,7 +136,7 @@
         >
           {{- _language_selector.name -}}
           <span class="ecl-site-header__language-icon">
-            {% include '../ec-component-icon/icon.html.twig' with {
+            {% include '@ecl-twig/ec-component-icon/icon.html.twig' with {
               icon: {
                 path: _icon_file_path,
                 type: 'general',
@@ -146,7 +146,7 @@
             <span class="ecl-site-header__language-code">{{ _language_selector.code }}</span>
           </span>
         </a>
-        {% include '../ec-component-language-list/language-list-overlay.html.twig' with {
+        {% include '@ecl-twig/ec-component-language-list/language-list-overlay.html.twig' with {
           items: _language_selector.overlay.items,
           close_label: _language_selector.overlay.close_label,
           title: _language_selector.overlay.title,
@@ -159,7 +159,7 @@
         } %}
       </div>
     </div>
-    {% include '../ec-component-search-form/search-form.html.twig' with _search_form only %}
+    {% include '@ecl-twig/ec-component-search-form/search-form.html.twig' with _search_form only %}
   </div>
 </header>
 
