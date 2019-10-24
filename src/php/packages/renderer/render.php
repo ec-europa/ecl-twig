@@ -20,7 +20,15 @@ $system_path = $root_folder_abs . DIRECTORY_SEPARATOR . $output_folder . DIRECTO
 $components = array_slice(scandir(Path::canonicalize($system_path)), 2);
 
 foreach ($components as $component) {
-  $template = $component . $extension;
+  $template = '@ecl-twig/ec-component-' . $component . '/' . $component;
+  if ($component == 'page-banner') {
+    continue;
+  }
+
+  if ($component == 'checkbox' || $component == 'radio') {
+    $template = $template . '-group';
+  }
+  $template = $template . $extension;
   $folder = Path::canonicalize($system_path . DIRECTORY_SEPARATOR . $component);
 
   // Get the list of data files.
@@ -41,33 +49,30 @@ foreach ($components as $component) {
       );
 
       $data_json = json_decode($data_string, TRUE);
-      if ($template == 'file.html.twig') {
-        $data_json = reset($data_json);
-      }
-      if ($template == 'icon.html.twig') {
-        $test = 'ciao';
-      }
-      $data_html = $twig->render($template, $data_json);
-      // Fix icons.
-      if (strpos($component,'social') === FALSE) {
-        $data_html = preg_replace('(xlink:href="([\/]?static\/icons.svg)?)', 'xlink:href="/icons.svg', $data_html);
-      }
-      else {
-        $data_html = preg_replace('(xlink:href="([\/]?static\/icons.svg)?)', 'xlink:href=/icons-social.svg', $data_html);
-      }
-      $data_story = file_get_contents('./story_template.txt');
-      $adapted_variant = str_replace('-', '_', $variant);
-      $data_story = str_replace(['#component_name#', '#php_file_name#'], [$adapted_variant, $variant . $result_extension], $data_story);
 
-      file_put_contents(
-        $folder . DIRECTORY_SEPARATOR . $variant . '.story.js',
-        $data_story
-      );
+      if (!empty($data_json)) {
+        $data_html = $twig->render($template, $data_json);
+        // Fix icons.
+        if (strpos($component,'social') === FALSE) {
+          $data_html = preg_replace('(xlink:href="([\/]?static\/icons.svg)?)', 'xlink:href="/icons.svg', $data_html);
+        }
+        else {
+          $data_html = preg_replace('(xlink:href="([\/]?static\/icons.svg)?)', 'xlink:href=/icons-social.svg', $data_html);
+        }
+        $data_story = file_get_contents('./story_template.txt');
+        $adapted_variant = str_replace('-', '_', $variant);
+        $data_story = str_replace(['#component_name#', '#php_file_name#'], [$adapted_variant, $variant . $result_extension], $data_story);
 
-      file_put_contents(
-        $folder . DIRECTORY_SEPARATOR . $variant . $result_extension,
-        $data_html
-      );
+        file_put_contents(
+          $folder . DIRECTORY_SEPARATOR . $variant . '.story.js',
+          $data_story
+        );
+
+        file_put_contents(
+          $folder . DIRECTORY_SEPARATOR . $variant . $result_extension,
+          $data_html
+        );
+      }
 
     } catch (exception $e) {
       // Not throwing facilitates continuation.
