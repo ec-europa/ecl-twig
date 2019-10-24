@@ -1,20 +1,23 @@
 {
+  "version": "2.11.2",
+  "npmClient": "yarn",
+  "useWorkspaces": true,
+  "loglevel": "success",
+  "packages": ["src/ec/packages/*", "src/eu/packages/*", "src/php/packages/*"],
+  "version": "independent",
   "command": {
     "create": {
       "license": "EUPL-1.1"
     },
     "publish": {
+      "exact": true,
       "allowBranch": "master",
-      "conventionalCommits": true,
-      "ignoreChanges": ["CHANGELOG.md"],
-      "message": "chore(release): Publish",
-      "npmClient": "npm",
-      "registry": "https://registry.npmjs.org/"
+      "ignoreChanges": [
+        "**/*.md",
+        "**/__snapshots__/**",
+        "**/*.story.js",
+        "**/*.test.js"
+      ]
     }
-  },
-  "loglevel": "success",
-  "packages": ["src/ec/packages/*", "src/eu/packages/*", "src/php/packages/*"],
-  "version": "independent",
-  "npmClient": "yarn",
-  "useWorkspaces": true
+  }
 }

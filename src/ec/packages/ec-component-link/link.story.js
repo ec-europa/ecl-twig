@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/html';
-import { withKnobs, text, select } from '@storybook/addon-knobs';
+import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
 
@@ -36,7 +36,7 @@ storiesOf('Components/Navigation/Link', module)
 
       const iconsListSelect = select('Icon (sample)', iconsList, null);
 
-      return link({
+      const linkData = {
         link: {
           type: 'default',
           label: text('Label', 'Default link'),
@@ -49,7 +49,15 @@ storiesOf('Components/Navigation/Link', module)
           path: defaultSprite,
           size: 'fluid',
         },
-      });
+      };
+      const demo = document.createDocumentFragment();
+      const wrapper = document.createElement('p');
+      wrapper.className = 'ecl-u-type-paragraph';
+      wrapper.setAttribute('demo_only', true);
+      wrapper.innerHTML = link(linkData);
+      demo.appendChild(wrapper);
+
+      return demo;
     },
     {
       notes: { markdown: linkDocs },
@@ -78,6 +86,31 @@ storiesOf('Components/Navigation/Link', module)
           name: iconsListSelect,
           path: defaultSprite,
           size: 'fluid',
+        },
+      });
+    },
+    {
+      notes: { markdown: linkDocs },
+    }
+  )
+  .add(
+    'cta',
+    () => {
+      const iconsListSelect = boolean('Icon (optional)', false);
+
+      return link({
+        link: {
+          type: 'cta',
+          label: text('Label', 'Call to action link'),
+          path: '/example#link-cta',
+          icon_position: 'after',
+        },
+        icon: {
+          type: 'ui',
+          name: iconsListSelect ? 'corner-arrow' : '',
+          path: defaultSprite,
+          size: 'fluid',
+          transform: 'rotate-90',
         },
       });
     },

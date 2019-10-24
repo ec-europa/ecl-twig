@@ -24,25 +24,8 @@ storiesOf('Components/Expandables', module)
       );
       demoData.content = text('Content', demoData.content);
 
-      const html = expandable(demoData);
-
-      const demo = document.createDocumentFragment();
-
-      const htmlElement = document.createElement('div');
-      htmlElement.innerHTML = html.trim();
-      demo.appendChild(htmlElement.firstChild);
-
-      const scriptElement = document.createElement('script');
-      scriptElement.innerHTML = `
-        var expandableElement = document.querySelector('[data-ecl-expandable]');
-        var expandable = new ECL.Expandable(expandableElement);
-        expandable.init();
-      `;
-      demo.appendChild(scriptElement);
-
-      return demo;
+      return expandable(demoData);
     },
-
     {
       notes: { markdown: notes },
     }

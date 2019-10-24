@@ -1,8 +1,7 @@
-import path from 'path';
 import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
 describe('EC - Search Form', () => {
-  const template = path.resolve(__dirname, './search-form.html.twig');
+  const template = '@ecl-twig/ec-component-search-form/search-form.html.twig';
   const render = params => renderTwigFileAsNode(template, params);
   const defaultIconPath = 'static/icons.svg';
 
@@ -52,6 +51,17 @@ describe('EC - Search Form', () => {
       });
 
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly with extra form elements', () => {
+      expect.assertions(1);
+
+      const withExtraFormElements = merge(options, {
+        extra_form_elements:
+          '<input type="hidden" id="custId" name="custId" value="1">',
+      });
+
+      return expect(render(withExtraFormElements)).resolves.toMatchSnapshot();
     });
   });
 });

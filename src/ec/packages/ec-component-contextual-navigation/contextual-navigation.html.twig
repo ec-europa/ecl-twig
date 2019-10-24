@@ -10,8 +10,7 @@
     - "extra_attributes" (array) (default: []): format: [
         {
           "name" (string) (default: ''),
-          "value" (string) (default: '')
-        },
+          "value" (optional) (string)
         ...
       ]
 #}
@@ -19,7 +18,7 @@
 {# Internal properties #}
 
 {% set _css_class = 'ecl-contextual-navigation' %}
-{% set _extra_attributes = '' %}
+{% set _extra_attributes = 'data-ecl-auto-init="ContextualNavigation"' %}
 
 {% set _label = label|default('') %}
 {% set _items = items|default([]) %}
@@ -34,7 +33,11 @@
 
 {% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
   {% for attr in extra_attributes %}
-    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name %}
+    {% endif %}
   {% endfor %}
 {% endif %}
 
@@ -56,7 +59,7 @@
           {% set _item_classes = _item_classes ~ ' ' ~ 'ecl-contextual-navigation__item--collapsed' %}
         {% endif %}
         <li class="{{ _item_classes }}">
-          {% include '../ec-component-link/link.html.twig' with item|merge({
+          {% include '@ecl-twig/ec-component-link/link.html.twig' with item|merge({
             extra_classes: 'ecl-contextual-navigation__link',
             link: item,
           }) only %}
@@ -67,7 +70,7 @@
           }) %}
           {% set _item_classes = _item_classes ~ ' ' ~ 'ecl-contextual-navigation__item--more' %}
           <li class="{{ _item_classes }}">
-            {% include '../ec-component-button/button.html.twig' with _item_more|merge({
+            {% include '@ecl-twig/ec-component-button/button.html.twig' with _item_more|merge({
               type: 'button',
               extra_attributes: [
                 { name: 'data-ecl-contextual-navigation-more', value: 'true' },

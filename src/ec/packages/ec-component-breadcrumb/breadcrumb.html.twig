@@ -16,8 +16,7 @@
     - "extra_attributes" (array) (default: []): format: [
         {
           "name" (string) (default: ''),
-          "value" (string) (default: '')
-        },
+          "value" (optional) (string)
         ...
       ]
 #}
@@ -43,7 +42,11 @@
 } %}
 
 {% set _css_class = 'ecl-breadcrumb' %}
-{% set _extra_attributes = ' aria-label="' ~ _navigation_text ~ '" data-ecl-breadcrumb="true"' %}
+{% set _extra_attributes = [
+  'aria-label="' ~ _navigation_text ~ '"',
+  'data-ecl-breadcrumb="true"',
+  'data-ecl-auto-init="Breadcrumb"']|join(' ')
+%}
 
 {# Internal logic - Process properties #}
 
@@ -53,7 +56,11 @@
 
 {% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
   {% for attr in extra_attributes %}
-    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name %}
+    {% endif %}
   {% endfor %}
 {% endif %}
 
@@ -73,13 +80,13 @@
           {% if key == 1 %}
             <li class="{{ _breadcrumb_segment_class ~ ' ecl-breadcrumb__segment--ellipsis' }}" aria-hidden="false" data-ecl-breadcrumb-ellipsis="true">
               <button type="button" class="ecl-breadcrumb__ellipsis" aria-label="{{ _ellipsis_label }}" data-ecl-breadcrumb-ellipsis-button="true">…</button>
-              {% include '../ec-component-icon/icon.html.twig' with _default_icon_structure only %}
+              {% include '@ecl-twig/ec-component-icon/icon.html.twig' with _default_icon_structure only %}
             </li>
           {% endif %}
           {% set _breadcrumb_segment_attributes = 'data-ecl-breadcrumb-item="expandable" aria-hidden="true"' %}
         {% endif %}
         <li class="{{ _breadcrumb_segment_class }}" {{ _breadcrumb_segment_attributes|raw }}>
-          {% include '../ec-component-link/link.html.twig' with {
+          {% include '@ecl-twig/ec-component-link/link.html.twig' with {
             link: {
               type: 'standalone',
               label: link.label,
@@ -87,7 +94,7 @@
             },
             extra_classes: 'ecl-breadcrumb__link'
           } only %}
-          {% include '../ec-component-icon/icon.html.twig' with _default_icon_structure only %}
+          {% include '@ecl-twig/ec-component-icon/icon.html.twig' with _default_icon_structure only %}
         </li>
       {% endif %}
     {% endfor %}

@@ -6,7 +6,7 @@ npm package: `@ecl-twig/ec-component-button`
 npm install --save @ecl-twig/ec-component-button
 ```
 
-## Ghost button
+## Text button
 
 ### Parameters
 
@@ -25,7 +25,7 @@ npm install --save @ecl-twig/ec-component-button
 
 <!-- prettier-ignore -->
 ```twig
-{% include 'path/to/button.html.twig' with { 
+{% include '@ecl-twig/ec-component-button/button.html.twig' with { 
   variant: 'ghost', 
   label: 'Example button', 
   disabled: false, 

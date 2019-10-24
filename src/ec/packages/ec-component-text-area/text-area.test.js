@@ -1,8 +1,7 @@
-import path from 'path';
 import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
 describe('EC - Text area', () => {
-  const template = path.resolve(__dirname, './text-area.html.twig');
+  const template = '@ecl-twig/ec-component-text-area/text-area.html.twig';
   const render = params => renderTwigFileAsNode(template, params);
 
   describe('Default', () => {
@@ -27,6 +26,30 @@ describe('EC - Text area', () => {
       });
 
       return expect(render(optionsWithDefaultValue)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly with extra group class names', () => {
+      expect.assertions(1);
+
+      const optionsWithExtraGroupClasses = merge(options, {
+        extra_group_classes: 'custom-group-class custom-group-class--test',
+      });
+
+      return expect(
+        render(optionsWithExtraGroupClasses)
+      ).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly with extra label class names', () => {
+      expect.assertions(1);
+
+      const optionsWithExtraLabelClasses = merge(options, {
+        extra_label_classes: 'custom-label-class custom-label-class--test',
+      });
+
+      return expect(
+        render(optionsWithExtraLabelClasses)
+      ).resolves.toMatchSnapshot();
     });
 
     test('renders correctly with extra class names', () => {
@@ -67,6 +90,18 @@ describe('EC - Text area', () => {
       return expect(render(options)).resolves.toMatchSnapshot();
     });
 
+    test('renders correctly with extra group class names', () => {
+      expect.assertions(1);
+
+      const optionsWithExtraGroupClasses = merge(options, {
+        extra_group_classes: 'custom-group-class custom-group-class--test',
+      });
+
+      return expect(
+        render(optionsWithExtraGroupClasses)
+      ).resolves.toMatchSnapshot();
+    });
+
     test('renders correctly with extra class names', () => {
       expect.assertions(1);
 
@@ -105,6 +140,18 @@ describe('EC - Text area', () => {
     test('renders correctly', () => {
       expect.assertions(1);
       return expect(render(options)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly with extra group class names', () => {
+      expect.assertions(1);
+
+      const optionsWithExtraGroupClasses = merge(options, {
+        extra_group_classes: 'custom-group-class custom-group-class--test',
+      });
+
+      return expect(
+        render(optionsWithExtraGroupClasses)
+      ).resolves.toMatchSnapshot();
     });
 
     test('renders correctly with extra class names', () => {

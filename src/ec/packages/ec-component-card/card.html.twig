@@ -8,7 +8,7 @@
           description: '', (string) (default: ''): Description of card
           meta: [], (array) (default: []): Meta's for the Card
           title: {}, (associative array) (default: {}): Predefined structure compatible with Link component. If Card type is a 'tile', only label property is required.
-          image: '', (string) (default: ''): Url/path to background image (non required if Card type is a 'tile')
+          image: {}, (associative array) (default: ''): Url/path and alternate text of the background image (non required if Card type is a 'tile')
           tags: [], (array) (default: []): List of tags compatible with EC Tag component structure
           infos: [], (array) (default: []): format: [
             {
@@ -29,8 +29,7 @@
     - "extra_attributes" (array) (default: []): format: [
         {
           "name" (string) (default: ''),
-          "value" (string) (default: '')
-        },
+          "value" (optional) (string)
         ...
       ]
 #}
@@ -42,7 +41,7 @@
   description: '',
   meta: [],
   title: {},
-  image: '',
+  image: {},
   infos: [],
   tags: [],
   links: []
@@ -69,7 +68,11 @@
 
 {% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
   {% for attr in extra_attributes %}
-    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name %}
+    {% endif %}
   {% endfor %}
 {% endif %}
 
@@ -77,15 +80,15 @@
 
 <article class="{{ _css_class }}"{{ _extra_attributes|raw }}>
   <header class="ecl-card__header">
-    {% if _card.image %}
-      <div class="ecl-card__image" alt="card image" style="background-image:url('{{ _card.image }}')"></div>
+    {% if _card.image.src %}
+      <div class="ecl-card__image" aria-label="{{ _card.image.alt }}" role="img" style="background-image:url('{{ _card.image.src }}')"></div>
     {% endif %}
     {% if _card.meta is not empty %}
       <div class="ecl-card__meta">{{ _card.meta|join(" | ") }}</div>
     {% endif %}
     <h1 class="ecl-card__title">
       {%- if _card.title.path %}
-        {% include '../ec-component-link/link.html.twig' with {
+        {% include '@ecl-twig/ec-component-link/link.html.twig' with {
           link: _card.title
         } only %}
       {% else %}
@@ -93,27 +96,29 @@
       {%- endif -%}
     </h1>
   </header>
-  <section class="ecl-card__body">
+  <div class="ecl-card__body">
+  {% if _card.description is not empty %}
     <div class="ecl-card__description">{{ _card.description }}</div>
-    {% if _card.links is defined and _card.links is not empty and _card.links is iterable %}
-      <ul class="ecl-card__link-container">
-        {% for link in _card.links %}
-          <li class="ecl-card__link-item">
-            {% include '../ec-component-link/link.html.twig' with {
-              link: link|merge({ type: 'standalone' }),
-              extra_classes: 'ecl-card__link'
-            } only %}
-          </li>
-        {% endfor %}
-      </ul>
-    {% endif %}
-  </section>
+  {% endif %}
+  {% if _card.links is defined and _card.links is not empty and _card.links is iterable %}
+    <ul class="ecl-card__link-container">
+      {% for link in _card.links %}
+        <li class="ecl-card__link-item">
+          {% include '@ecl-twig/ec-component-link/link.html.twig' with {
+            link: link|merge({ type: 'standalone' }),
+            extra_classes: 'ecl-card__link'
+          } only %}
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+  </div>
   <footer class="ecl-card__footer">
     {% if _card.infos is defined and _card.infos is not empty and _card.infos is iterable %}
       <ul class="ecl-card__info-container">
         {% for info in _card.infos %}
           <li class="ecl-card__info-item">
-            {% include '../ec-component-icon/icon.html.twig' with {
+            {% include '@ecl-twig/ec-component-icon/icon.html.twig' with {
               icon: info.icon|merge({ size: 'xs' })
             } only %}
             <span class="ecl-card__info-label">{{ info.label }}</span>
@@ -125,7 +130,7 @@
       <ul class="ecl-card__tag-container">
         {% for tag in _card.tags %}
           <li class="ecl-card__tag-item">
-            {% include '../ec-component-tag/tag.html.twig' with {
+            {% include '@ecl-twig/ec-component-tag/tag.html.twig' with {
               tag: tag,
               extra_classes: 'ecl-card__tag'
             } only %}

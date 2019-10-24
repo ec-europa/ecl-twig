@@ -1,4 +1,3 @@
-import path from 'path';
 import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
 // Import data for tests
@@ -9,7 +8,7 @@ import dataGhost from '@ecl/ec-specs-button/demo/data--ghost';
 import dataSearch from '@ecl/ec-specs-button/demo/data--search';
 
 describe('EC - Button', () => {
-  const template = path.resolve(__dirname, './button.html.twig');
+  const template = '@ecl-twig/ec-component-button/button.html.twig';
   const render = params => renderTwigFileAsNode(template, params);
 
   describe('Primary', () => {
@@ -41,7 +40,7 @@ describe('EC - Button', () => {
     });
   });
 
-  describe('Ghost', () => {
+  describe('Text', () => {
     test('renders correctly', () => {
       expect.assertions(1);
 

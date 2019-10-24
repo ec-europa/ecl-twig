@@ -5,10 +5,10 @@
     - "items" (array) (default: []): format: [
       {
         "id": (string),
-        level: (string),
-        toggle: (predefined structure): see Button component, format: {
-          label: (string),
-          icon: (predefined structure): see Icon component,
+        "level": (string),
+        "toggle": (predefined structure): see Button component, format: {
+          "label": (string),
+          "icon": (predefined structure): see Icon component,
         },
         content: (block),
       },
@@ -18,8 +18,7 @@
     - "extra_attributes" (array) (default: []): format: [
         {
           "name" (string) (default: ''),
-          "value" (string) (default: '')
-        },
+          "value" (optional) (string)
         ...
       ]
 #}
@@ -27,7 +26,7 @@
 {# Internal properties #}
 
 {% set _css_class = 'ecl-accordion' %}
-{% set _extra_attributes = '' %}
+{% set _extra_attributes = 'data-ecl-auto-init="Accordion"' %}
 {% set _items = items|default([]) %}
 
 {# Internal logic - Process properties #}
@@ -38,7 +37,11 @@
 
 {% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
   {% for attr in extra_attributes %}
-    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name %}
+    {% endif %}
   {% endfor %}
 {% endif %}
 
@@ -51,7 +54,7 @@
   {% if _items is not empty %}
     {% for _item in _items %}
       <h{{ _item.level|default(3) }} class="ecl-accordion__title">
-        {% include '../ec-component-button/button.html.twig' with {
+        {% include '@ecl-twig/ec-component-button/button.html.twig' with {
           label: _item.toggle.label,
           variant: 'ghost',
           type: 'button',
@@ -60,7 +63,7 @@
           extra_classes: 'ecl-accordion__toggle',
           extra_attributes: [
             { name: 'aria-controls', value: _item.id },
-            { name: 'data-ecl-accordion-toggle', value: 'true' },
+            { name: 'data-ecl-accordion-toggle', value: true },
           ]
         } only %}
       </h{{ _item.level|default(3) }}>
@@ -71,7 +74,7 @@
         role="region"
       >
         {%- set _content = _item.content|default('') %}
-        {%- block content _content -%}
+        {%- block content _content|raw -%}
       </div>
     {% endfor %}
   {% endif %}

@@ -15,7 +15,8 @@ npm install --save @ecl-twig/ec-component-hero-banner
 - "image" (string) (default: '') Image for banner (required for image banner type)
 - "description" (string) (default: '') Description of banner
 - "centered" (bool) (default: true) Define if banner should be centered
-- "button" (associative array) (default: predefined structure) predefined structure for EC Button component
+- [DEPRECATED] "button" (associative array) (default: predefined structure) predefined structure for EC Button component
+- "link" (associative array) (default: predefined structure) predefined structure for EC Link component
 - "extra_classes" (optional) (string) (default: '') Extra classes (space separated) for the form
 - "extra_attributes" (optional) (array) (default: []) Extra attributes for the form
   - "name" (string) Attribute name, eg. 'data-test'
@@ -25,16 +26,20 @@ npm install --save @ecl-twig/ec-component-hero-banner
 
 <!-- prettier-ignore -->
 ```twig
-{% include 'path/to/site-header.html.twig' with {  
+{% include '@ecl-twig/ec-component-hero-banner/hero-banner.html.twig' with {  
   title: 'EU Budget for the future',  
   description: 'The European Commission has put forward ambitious yet realistic proposals for a modern EU budget. It is time for an EU budget that reflects rapid developments in innovation, the economy, the environment and geopolitics, amongst others.',  
   centered: true,  
   type: 'image',  
   image: 'url/path-to-image',  
-  button: {  
-    label: 'Subscribe',  
+  link: {  
+    link: {  
+      label: 'Subscribe',  
+      icon_position: 'after',  
+    },  
     icon: {  
       path: 'path-to-the-icon-file',  
+      ...  
     },  
   },  
 } %}

@@ -26,8 +26,7 @@
     - "extra_attributes" (array) (default: []): format: [
         {
           "name" (string) (default: ''),
-          "value" (string) (default: '')
-        },
+          "value" (optional) (string)
         ...
       ]
 #}
@@ -52,7 +51,11 @@
 
 {% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
   {% for attr in extra_attributes %}
-    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name %}
+    {% endif %}
   {% endfor %}
 {% endif %}
 
@@ -64,19 +67,15 @@
   <ul class="ecl-social-media-follow__list">
   {% for link in _links %}
     {% set _link_extra_classes = 'ecl-social-media-follow__link' %}
-    {% if link.icon is not empty %}
-      {% set _icon = link.icon %}
-    {% endif %}
     {% if link.extra_classes is not empty %}
       {% set _link_extra_classes = _link_extra_classes ~ ' ' ~ link.extra_classes %}
     {% endif %}
     <li class="ecl-social-media-follow__item">
-      {% include '../ec-component-link/link.html.twig' with link|merge({
+      {% include '@ecl-twig/ec-component-link/link.html.twig' with link|merge({
           link: link|default({})|merge({
           type: 'standalone',
         }),
         extra_classes: _link_extra_classes,
-        icon: _icon|default({})
       }) only %}
     </li>
     {% endfor %}

@@ -25,8 +25,6 @@ storiesOf('Components/Tag', module)
       notes: { markdown: tagDocs },
     }
   )
-  /* Hide button variant (on hold) */
-  /*
   .add(
     'as a button',
     () =>
@@ -40,7 +38,6 @@ storiesOf('Components/Tag', module)
       notes: { markdown: tagDocs },
     }
   )
-  */
   .add(
     'removable',
     () =>
@@ -48,6 +45,7 @@ storiesOf('Components/Tag', module)
         tag: {
           label: text('Label', 'Removable tag'),
           type: 'removable',
+          aria_label: 'Dismiss',
         },
         default_icon_path: defaultSprite,
       }),

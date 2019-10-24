@@ -3,6 +3,7 @@
 exports[`EC - Expandable Collapsed renders correctly 1`] = `
 <div
   class="ecl-expandable"
+  data-ecl-auto-init="Expandable"
   data-ecl-expandable="true"
 >
   <button
@@ -18,7 +19,7 @@ exports[`EC - Expandable Collapsed renders correctly 1`] = `
     >
       <span
         class="ecl-button__label"
-        data-ecl-label=""
+        data-ecl-label="true"
       >
         Collapsed button
       </span>
@@ -50,6 +51,7 @@ exports[`EC - Expandable Collapsed renders correctly 1`] = `
 exports[`EC - Expandable Collapsed renders correctly with extra attributes 1`] = `
 <div
   class="ecl-expandable"
+  data-ecl-auto-init="Expandable"
   data-ecl-expandable="true"
   data-test="data-test-value"
   data-test-1="data-test-value-1"
@@ -67,7 +69,7 @@ exports[`EC - Expandable Collapsed renders correctly with extra attributes 1`] =
     >
       <span
         class="ecl-button__label"
-        data-ecl-label=""
+        data-ecl-label="true"
       >
         Collapsed button
       </span>
@@ -99,6 +101,7 @@ exports[`EC - Expandable Collapsed renders correctly with extra attributes 1`] =
 exports[`EC - Expandable Collapsed renders correctly with extra class names 1`] = `
 <div
   class="ecl-expandable custom-class custom-class--test"
+  data-ecl-auto-init="Expandable"
   data-ecl-expandable="true"
 >
   <button
@@ -114,7 +117,7 @@ exports[`EC - Expandable Collapsed renders correctly with extra class names 1`] 
     >
       <span
         class="ecl-button__label"
-        data-ecl-label=""
+        data-ecl-label="true"
       >
         Collapsed button
       </span>
@@ -146,6 +149,7 @@ exports[`EC - Expandable Collapsed renders correctly with extra class names 1`] 
 exports[`EC - Expandable Expanded renders correctly 1`] = `
 <div
   class="ecl-expandable"
+  data-ecl-auto-init="Expandable"
   data-ecl-expandable="true"
 >
   <button
@@ -162,7 +166,7 @@ exports[`EC - Expandable Expanded renders correctly 1`] = `
     >
       <span
         class="ecl-button__label"
-        data-ecl-label=""
+        data-ecl-label="true"
       >
         Collapsed button
       </span>
@@ -193,6 +197,7 @@ exports[`EC - Expandable Expanded renders correctly 1`] = `
 exports[`EC - Expandable Expanded renders correctly with extra attributes 1`] = `
 <div
   class="ecl-expandable"
+  data-ecl-auto-init="Expandable"
   data-ecl-expandable="true"
   data-test="data-test-value"
   data-test-1="data-test-value-1"
@@ -211,7 +216,7 @@ exports[`EC - Expandable Expanded renders correctly with extra attributes 1`] = 
     >
       <span
         class="ecl-button__label"
-        data-ecl-label=""
+        data-ecl-label="true"
       >
         Collapsed button
       </span>
@@ -242,6 +247,7 @@ exports[`EC - Expandable Expanded renders correctly with extra attributes 1`] = 
 exports[`EC - Expandable Expanded renders correctly with extra class names 1`] = `
 <div
   class="ecl-expandable custom-class custom-class--test"
+  data-ecl-auto-init="Expandable"
   data-ecl-expandable="true"
 >
   <button
@@ -258,7 +264,7 @@ exports[`EC - Expandable Expanded renders correctly with extra class names 1`] =
     >
       <span
         class="ecl-button__label"
-        data-ecl-label=""
+        data-ecl-label="true"
       >
         Collapsed button
       </span>

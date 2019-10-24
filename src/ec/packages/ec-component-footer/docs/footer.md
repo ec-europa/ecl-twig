@@ -8,7 +8,6 @@ npm install --save @ecl-twig/ec-component-footer
 
 ## Parameters
 
-- "back_to_top" (link object) (default: {})
 - "identity" (object) (default: {}):
   - "title" (string) (default: '')
   - "follow" (object) (default: {}):
@@ -28,17 +27,7 @@ npm install --save @ecl-twig/ec-component-footer
 
 <!-- prettier-ignore -->
 ```twig
-{% include 'path/to/footer.html.twig' with { 
-  back_to_top: { 
-    link: { 
-      label: 'Go to top', 
-      path: '#top', 
-    }, 
-    icon: { 
-      path: defaultSprite, 
-      size: 'fluid', 
-    }, 
-  }, 
+{% include '@ecl-twig/ec-component-footer/footer.html.twig' with { 
   identity: { 
     title: 'Site identification', 
     follow: { 

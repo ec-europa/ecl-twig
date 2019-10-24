@@ -12,6 +12,7 @@
       - "title" (string) (default: '')
       - "meta" (string) (default: '')
       - "lang" (string) (default: '')
+      - "download" (object) (default to the parent download property) object of type Link
     - "description (string) (default:'')
   - "extra_classes" (optional) (string) (default: '')
   - "extra_attributes" (optional) (array) (default: [])
@@ -27,9 +28,12 @@
 {% set _meta = meta|default('') %}
 {% set _download = download|default({}) %}
 {% set _translation = translation|default([]) %}
-
 {% set _css_class = 'ecl-file' %}
-{% set _extra_attributes = '' %}
+{% set _extra_attributes = 'data-ecl-auto-init="FileDownload"' %}
+
+{% if _translation is not empty and _translation.items is not empty and _translation.items is iterable %}
+  {% set _extra_attributes = 'data-ecl-auto-init="FileDownload"' %}
+{% endif %}
 
 {# Internal logic - Process properties #}
 
@@ -39,7 +43,11 @@
 
 {% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
   {% for attr in extra_attributes %}
-    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name %}
+    {% endif %}
   {% endfor %}
 {% endif %}
 
@@ -47,7 +55,7 @@
 
 <div class="{{ _css_class }}"{{ _extra_attributes|raw }} data-ecl-file>
   <div class="ecl-file__container">
-    {% include '../ec-component-icon/icon.html.twig' with {
+    {% include '@ecl-twig/ec-component-icon/icon.html.twig' with {
       icon: _icon,
       extra_classes: 'ecl-file__icon'
     } only %}
@@ -58,21 +66,32 @@
       <div class="ecl-file__meta">{{ meta }}</div>
     </div>
 
-    {% include '../ec-component-link/link.html.twig' with _download|merge({
+    {% include '@ecl-twig/ec-component-link/link.html.twig' with _download|merge({
       link: _download.link|default({})|merge({
         type: 'standalone',
         icon_position: 'after',
       }),
-      extra_classes: 'ecl-file__download ecl-button ecl-button--secondary',
+      icon: _download.icon|default({})|merge({
+        type: 'ui',
+        name: 'download',
+        size: 'fluid'
+      }),
+      extra_classes: 'ecl-file__download',
       extra_attributes: [{ name: 'download' }]
     }) only %}
   </div>
 
   {% if _translation is not empty and _translation.items is not empty and _translation.items is iterable %}
     <div class="ecl-file__translation-container" data-ecl-file-translation-container>
-      {% include '../ec-component-button/button.html.twig' with _translation.toggle|merge({
+      {% include '@ecl-twig/ec-component-button/button.html.twig' with _translation.toggle|merge({
         variant: 'ghost',
         type: 'button',
+        icon: _translation.toggle.icon|default({})|merge({
+          type: 'ui',
+          name: 'corner-arrow',
+          size: 'fluid',
+          transform: 'rotate-180'
+        }),
         extra_classes: 'ecl-file__translation-toggle',
         extra_attributes: [{ name: 'data-ecl-file-translation-toggle' }]
       }) only %}
@@ -83,16 +102,21 @@
             <div class="ecl-file__translation-info">
               <div
                 class="ecl-file__translation-title"
-                {{ _item.lang ? "lang= " ~ _item.lang }}
+                {{ _item.lang ? "lang=" ~ _item.lang }}
               >
                 {{- _item.title -}}
               </div>
               <div class="ecl-file__translation-meta">{{ _item.meta }}</div>
             </div>
-            {% include '../ec-component-link/link.html.twig' with _download|merge({
-              link: _download.link|default({})|merge({
+            {% include '@ecl-twig/ec-component-link/link.html.twig' with _download|merge({
+              link: _item.download.link|default(_download.link|default({}))|merge({
                 type: 'standalone',
                 icon_position: 'after'
+              }),
+              icon: _item.download.icon|default(_download.icon|default({}))|merge({
+                type: 'ui',
+                name: 'download',
+                size: 'fluid'
               }),
               extra_classes: 'ecl-file__translation-download',
               extra_attributes: [

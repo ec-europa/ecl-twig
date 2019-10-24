@@ -1,4 +1,3 @@
-import path from 'path';
 import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
 import bannerDataDefault from '@ecl/ec-specs-page-banner/demo/data--default';
@@ -8,19 +7,21 @@ import bannerDataPrimary from '@ecl/ec-specs-page-banner/demo/data--primary';
 import bannerDataAlignLeft from '@ecl/ec-specs-page-banner/demo/data--align-left';
 
 function formatBanner(b) {
-  const iconType = b.button.icon.shape.split('--');
+  const iconType = b.link.icon.shape.split('--');
   const banner = {
     type: b.variant,
     title: b.title,
     description: b.description,
-    button: {
-      variant: b.button.variant,
-      label: b.button.label,
+    link: {
+      link: {
+        label: b.link.label,
+        icon_position: 'after',
+      },
       icon: {
         type: iconType[0],
         name: iconType[1],
-        transform: b.button.icon.transform,
-        size: b.button.icon.size,
+        transform: b.link.icon.transform,
+        size: b.link.icon.size,
         path: 'static/icons.svg',
       },
     },
@@ -37,7 +38,7 @@ function formatBanner(b) {
 }
 
 describe('EC - Page Banner', () => {
-  const template = path.resolve(__dirname, './page-banner.html.twig');
+  const template = '@ecl-twig/ec-component-page-banner/page-banner.html.twig';
   const render = params => renderTwigFileAsNode(template, params);
 
   describe('default', () => {

@@ -19,8 +19,8 @@
 
 {# Internal logic - Process properties #}
 
-{% set _column1 = _items|slice(0, (items.length / 2)|round(0, 'ceil')) %}
-{% set _column2 = _items|slice((items.length / 2)|round(0, 'ceil'), items.length) %}
+{% set _column1 = _items|slice(0, (items|length / 2)|round(0, 'ceil')) %}
+{% set _column2 = _items|slice((items|length / 2)|round(0, 'ceil'), items|length) %}
 
 {# Print the result #}
 
@@ -29,7 +29,7 @@
     <ul class="ecl-language-list__list">
       {% for _item in _column1 %}
         <li class="ecl-language-list__item{{ _item.active ? ' ecl-language-list__item--is-active' : '' }}">
-          {% include './language-list-item.html.twig' with {
+          {% include '@ecl-twig/ec-component-language-list/language-list-item.html.twig' with {
             item: _item,
             overlay: _overlay,
             icon_path: _icon_path
@@ -42,7 +42,7 @@
     <ul class="ecl-language-list__list">
       {% for _item in _column2 %}
         <li class="ecl-language-list__item{{ _item.active ? ' ecl-language-list__item--is-active' : '' }}">
-          {% include './language-list-item.html.twig' with {
+          {% include '@ecl-twig/ec-component-language-list/language-list-item.html.twig' with {
             item: _item,
             overlay: _overlay,
             icon_path: _icon_path

@@ -10,20 +10,20 @@ npm install --save @ecl-twig/ec-component-radio
 
 ### Parameters:
 
-- "label_id" (string) (default: '')
 - "items" (array) (default: [])
   - "id" (string) (default: '')
   - "name" (string) (default: '')
   - "value" (string) (default: '')
   - "disabled" (boolean) (default: false)
+  - "checked" (boolean) (default: false)
   - "helper_id" (string) (default: '')
   - "helper_text" (block) (default: '')
   - "label" (block) (default: '')
 - "name" (string) (default: '')
 - "helper_id" (string) (default: '')
-- "hide_label" (boolean) (default: false)
 - "invalid" (boolean) (default: false)
 - "binary" (boolean) (default: false)
+- "required" (boolean) (default: false)
 - "extra_classes" (optional) (string) (default: '')
 - "extra_attributes" (optional) (array) (default: [])
   - "name" (string) Attribute name, eg. 'data-test'
@@ -31,16 +31,18 @@ npm install --save @ecl-twig/ec-component-radio
 
 ### Blocks:
 
+- "label"
 - "helper_text"
 - "invalid_text"
 - "label"
+- "optional_text"
+- "required_text"
 
 ### Example:
 
 <!-- prettier-ignore -->
 ```twig
-{% include 'path/to/radio-group.html.twig' with { 
-  label_id: 'radio-default-label', 
+{% include '@ecl-twig/ec-component-radio/radio-group.html.twig' with { 
   label: 'Select your country', 
   helper_id: 'radio-default-helper', 
   helper_text: 'Helper text for the group', 
@@ -55,6 +57,7 @@ npm install --save @ecl-twig/ec-component-radio
       label: 'Luxembourg', 
       helper_id: 'helper-default-1', 
       helper_text: 'Help text for option 1', 
+      checked: true, 
     }, 
     { 
       id: 'radio-default-2', 

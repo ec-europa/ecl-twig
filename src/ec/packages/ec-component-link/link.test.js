@@ -1,8 +1,7 @@
-import path from 'path';
 import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
 describe('EC - Link', () => {
-  const template = path.resolve(__dirname, './link.html.twig');
+  const template = '@ecl-twig/ec-component-link/link.html.twig';
   const render = params => renderTwigFileAsNode(template, params);
   const defaultIconPath = 'static/icons.svg';
   const defaultDataStructure = {
@@ -234,6 +233,28 @@ describe('EC - Link', () => {
       });
 
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
+    });
+  });
+
+  describe('Cta variant with icon', () => {
+    const options = merge(defaultDataStructure, {
+      link: {
+        type: 'cta',
+        label: 'Call to action link',
+        icon_position: 'after',
+      },
+      icon: {
+        type: 'ui',
+        name: 'corner-arrow',
+        size: 'fluid',
+        path: defaultIconPath,
+        transform: 'rotate-90',
+      },
+    });
+
+    test('renders correctly', () => {
+      expect.assertions(1);
+      return expect(render(options)).resolves.toMatchSnapshot();
     });
   });
 });

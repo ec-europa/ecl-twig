@@ -5,10 +5,11 @@
   - "item" (object) (default: {})
     - "path" (string) (default: '')
     - "alt" (string) (default: '')
-    - "description" (string) (default: '')
     - "meta" (string) (default: '')
     - "icon" (object) (default: {}): object of type icon
     - "share_path" (string) (default: '')
+    - "video" (optional) (array) (default: [])
+    - "image" (optional) (array) (default: [])
   - "extra_classes" (optional) (string) (default: '')
   - "extra_attributes" (optional) (array) (default: [])
     - "name" (string) Attribute name, eg. 'data-test'
@@ -19,6 +20,10 @@
 
 {% set _css_class = 'ecl-gallery__item' %}
 {% set _extra_attributes = '' %}
+{% set _use_arial = '' %}
+{% set _media_href = '' %}
+{% set _media_share_path = '' %}
+{% set _image_alt = '' %}
 {% set _item = item|default({}) %}
 
 {# Internal logic - Process properties #}
@@ -27,33 +32,60 @@
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
 {% endif %}
 
+{# Setting up Video and image variables #}
+{% if _item and _item is not empty %}
+  {% set _media_share_path = _item.share_path %}
+
+  {% if _item.video is defined and _item.video is not empty %}
+    {% set _media_href = _item.video.sources[0].src %}
+  {% else %}
+    {% if _item.image is defined and _item.image is not empty %}
+      {% set _media_href = _item.image.src %}
+      {% set _image_alt = _item.image.alt %}
+    {% else %}
+      {% set _media_href = _item.path %}
+      {% set _image_alt = _item.alt %}
+    {% endif %}
+    {# Use Arial only for image. #}
+    {% set _use_arial = 'aria-label="' ~ _image_alt ~ '"' %}
+  {% endif %}
+{% endif %}
+
 {% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
   {% for attr in extra_attributes %}
-    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name %}
+    {% endif %}
   {% endfor %}
 {% endif %}
 
 {# Print the result #}
 
-<li class="{{ _css_class }}"{{ _extra_attributes }}>
+<li class="{{ _css_class }}"{{ _extra_attributes|raw }}>
   <a
-    href="{{ _item.path }}"
+    href="{{ _media_href }}"
     class="ecl-gallery__item-link"
-    aria-label="{{ _item.alt }}"
+    {{ _use_arial|raw }}
     data-ecl-gallery-item
-    data-ecl-gallery-item-share="{{ _item.share_path }}"
+    data-ecl-gallery-item-share="{{ _media_share_path }}"
   >
     <figure class="ecl-gallery__image-container">
-      <img src="{{ _item.path }}" alt="{{ _item.alt }}" class="ecl-gallery__image" />
-        {% if _item.icon is not empty and _item.icon.name is not empty %}
-          {% include '../ec-component-icon/icon.html.twig' with {
-            icon: _item.icon|merge({
-              size: "l",
-            }),
-            extra_classes: 'ecl-gallery__image-icon'
-          } only %}
-        {% endif %}
+      {% if _item and _item is not empty and _item.video and _item.video is not empty %}
+        {% include '@ecl-twig/ec-component-gallery/video.html.twig' %}
+      {% else %}
+        <img src="{{ _media_href }}" alt="{{ _image_alt }}" class="ecl-gallery__image" />
+      {% endif %}
 
+      {% if _item.icon is not empty and _item.icon.name is not empty %}
+        {% include '@ecl-twig/ec-component-icon/icon.html.twig' with {
+          icon: _item.icon|merge({
+            size: "l",
+          }),
+          extra_classes: 'ecl-gallery__image-icon'
+        } only %}
+      {% endif %}
       <figcaption
         class="ecl-gallery__description"
         data-ecl-gallery-description
@@ -61,7 +93,7 @@
         {{- _item.description -}}
 
         {% if _item.icon is not empty and _item.icon.name is not empty %}
-          {%- include '../ec-component-icon/icon.html.twig' with {
+          {%- include '@ecl-twig/ec-component-icon/icon.html.twig' with {
             icon: _item.icon|merge({
               size: "l",
             }),

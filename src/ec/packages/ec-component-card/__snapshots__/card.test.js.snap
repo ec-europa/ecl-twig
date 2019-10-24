@@ -8,9 +8,10 @@ exports[`EC - Card Default renders correctly 1`] = `
     class="ecl-card__header"
   >
     <div
-      alt="card image"
+      aria-label="Better regulation"
       class="ecl-card__image"
-      style="background-image:url('https://v2--europa-component-library.netlify.com/example-image.jpg')"
+      role="img"
+      style="background-image:url('https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg')"
     />
     <div
       class="ecl-card__meta"
@@ -28,7 +29,7 @@ exports[`EC - Card Default renders correctly 1`] = `
       </a>
     </h1>
   </header>
-  <section
+  <div
     class="ecl-card__body"
   >
     <div
@@ -36,7 +37,7 @@ exports[`EC - Card Default renders correctly 1`] = `
     >
       Transparently designing and evaluating evidence-based EU legislation, backed by citizens views.
     </div>
-  </section>
+  </div>
   <footer
     class="ecl-card__footer"
   >
@@ -128,9 +129,10 @@ exports[`EC - Card Default renders correctly with extra attributes 1`] = `
     class="ecl-card__header"
   >
     <div
-      alt="card image"
+      aria-label="Better regulation"
       class="ecl-card__image"
-      style="background-image:url('https://v2--europa-component-library.netlify.com/example-image.jpg')"
+      role="img"
+      style="background-image:url('https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg')"
     />
     <div
       class="ecl-card__meta"
@@ -148,7 +150,7 @@ exports[`EC - Card Default renders correctly with extra attributes 1`] = `
       </a>
     </h1>
   </header>
-  <section
+  <div
     class="ecl-card__body"
   >
     <div
@@ -156,7 +158,7 @@ exports[`EC - Card Default renders correctly with extra attributes 1`] = `
     >
       Transparently designing and evaluating evidence-based EU legislation, backed by citizens views.
     </div>
-  </section>
+  </div>
   <footer
     class="ecl-card__footer"
   >
@@ -246,9 +248,10 @@ exports[`EC - Card Default renders correctly with extra class names 1`] = `
     class="ecl-card__header"
   >
     <div
-      alt="card image"
+      aria-label="Better regulation"
       class="ecl-card__image"
-      style="background-image:url('https://v2--europa-component-library.netlify.com/example-image.jpg')"
+      role="img"
+      style="background-image:url('https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg')"
     />
     <div
       class="ecl-card__meta"
@@ -266,7 +269,7 @@ exports[`EC - Card Default renders correctly with extra class names 1`] = `
       </a>
     </h1>
   </header>
-  <section
+  <div
     class="ecl-card__body"
   >
     <div
@@ -274,7 +277,7 @@ exports[`EC - Card Default renders correctly with extra class names 1`] = `
     >
       Transparently designing and evaluating evidence-based EU legislation, backed by citizens views.
     </div>
-  </section>
+  </div>
   <footer
     class="ecl-card__footer"
   >
@@ -369,7 +372,7 @@ exports[`EC - Card Tile renders correctly 1`] = `
       Better regulation
     </h1>
   </header>
-  <section
+  <div
     class="ecl-card__body"
   >
     <div
@@ -411,7 +414,7 @@ exports[`EC - Card Tile renders correctly 1`] = `
         </a>
       </li>
     </ul>
-  </section>
+  </div>
   <footer
     class="ecl-card__footer"
   />
@@ -433,7 +436,7 @@ exports[`EC - Card Tile renders correctly with extra attributes 1`] = `
       Better regulation
     </h1>
   </header>
-  <section
+  <div
     class="ecl-card__body"
   >
     <div
@@ -475,7 +478,7 @@ exports[`EC - Card Tile renders correctly with extra attributes 1`] = `
         </a>
       </li>
     </ul>
-  </section>
+  </div>
   <footer
     class="ecl-card__footer"
   />
@@ -495,7 +498,7 @@ exports[`EC - Card Tile renders correctly with extra class names 1`] = `
       Better regulation
     </h1>
   </header>
-  <section
+  <div
     class="ecl-card__body"
   >
     <div
@@ -537,7 +540,7 @@ exports[`EC - Card Tile renders correctly with extra class names 1`] = `
         </a>
       </li>
     </ul>
-  </section>
+  </div>
   <footer
     class="ecl-card__footer"
   />

@@ -1,8 +1,7 @@
-import path from 'path';
 import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
 describe('EC - Card', () => {
-  const template = path.resolve(__dirname, './card.html.twig');
+  const template = '@ecl-twig/ec-component-card/card.html.twig';
   const render = params => renderTwigFileAsNode(template, params);
   const defaultIconPath = 'static/icons.svg';
 
@@ -17,8 +16,11 @@ describe('EC - Card', () => {
         description:
           'Transparently designing and evaluating evidence-based EU legislation, backed by citizens views.',
         meta: ['Meta 1', 'Meta 2', 'Meta 3'],
-        image:
-          'https://v2--europa-component-library.netlify.com/example-image.jpg',
+        image: {
+          src:
+            'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
+          alt: 'Better regulation',
+        },
         infos: [
           {
             label: '2018/10/22',

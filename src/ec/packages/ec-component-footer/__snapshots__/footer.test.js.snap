@@ -4,26 +4,6 @@ exports[`EC - Footer Corporate renders correctly 1`] = `
 <footer
   class="ecl-footer"
 >
-  <a
-    class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-footer__back-to-top"
-    href="#top"
-  >
-    <span
-      class="ecl-link__label"
-    >
-      Go to top
-    </span>
-     
-    <svg
-      aria-hidden="true"
-      class="ecl-icon ecl-icon--fluid ecl-link__icon"
-      focusable="false"
-    >
-      <use
-        xlink:href="static/icons.svg#ui--corner-arrow"
-      />
-    </svg>
-  </a>
   <div
     class="ecl-footer__sections"
   >
@@ -51,17 +31,7 @@ exports[`EC - Footer Corporate renders correctly 1`] = `
                 class="ecl-link ecl-link--standalone ecl-footer__section-link"
                 href="/example"
               >
-                Commission and its priorities
-              </a>
-            </li>
-            <li
-              class="ecl-footer__section-item"
-            >
-              <a
-                class="ecl-link ecl-link--standalone ecl-footer__section-link"
-                href="/example"
-              >
-                Policies, information and services
+                European Commission website
               </a>
             </li>
           </ul>
@@ -215,7 +185,7 @@ exports[`EC - Footer Corporate renders correctly 1`] = `
       </div>
     </div>
   </div>
-  <section
+  <div
     class="ecl-footer__common"
   >
     <div
@@ -264,7 +234,7 @@ exports[`EC - Footer Corporate renders correctly 1`] = `
         Contact
       </a>
     </div>
-  </section>
+  </div>
 </footer>
 `;
 
@@ -274,26 +244,6 @@ exports[`EC - Footer Corporate renders correctly with extra attributes 1`] = `
   data-test="data-test-value"
   data-test-1="data-test-value-1"
 >
-  <a
-    class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-footer__back-to-top"
-    href="#top"
-  >
-    <span
-      class="ecl-link__label"
-    >
-      Go to top
-    </span>
-     
-    <svg
-      aria-hidden="true"
-      class="ecl-icon ecl-icon--fluid ecl-link__icon"
-      focusable="false"
-    >
-      <use
-        xlink:href="static/icons.svg#ui--corner-arrow"
-      />
-    </svg>
-  </a>
   <div
     class="ecl-footer__sections"
   >
@@ -321,17 +271,7 @@ exports[`EC - Footer Corporate renders correctly with extra attributes 1`] = `
                 class="ecl-link ecl-link--standalone ecl-footer__section-link"
                 href="/example"
               >
-                Commission and its priorities
-              </a>
-            </li>
-            <li
-              class="ecl-footer__section-item"
-            >
-              <a
-                class="ecl-link ecl-link--standalone ecl-footer__section-link"
-                href="/example"
-              >
-                Policies, information and services
+                European Commission website
               </a>
             </li>
           </ul>
@@ -485,7 +425,7 @@ exports[`EC - Footer Corporate renders correctly with extra attributes 1`] = `
       </div>
     </div>
   </div>
-  <section
+  <div
     class="ecl-footer__common"
   >
     <div
@@ -534,7 +474,7 @@ exports[`EC - Footer Corporate renders correctly with extra attributes 1`] = `
         Contact
       </a>
     </div>
-  </section>
+  </div>
 </footer>
 `;
 
@@ -542,26 +482,6 @@ exports[`EC - Footer Corporate renders correctly with extra class names 1`] = `
 <footer
   class="ecl-footer custom-class custom-class--test"
 >
-  <a
-    class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-footer__back-to-top"
-    href="#top"
-  >
-    <span
-      class="ecl-link__label"
-    >
-      Go to top
-    </span>
-     
-    <svg
-      aria-hidden="true"
-      class="ecl-icon ecl-icon--fluid ecl-link__icon"
-      focusable="false"
-    >
-      <use
-        xlink:href="static/icons.svg#ui--corner-arrow"
-      />
-    </svg>
-  </a>
   <div
     class="ecl-footer__sections"
   >
@@ -589,17 +509,7 @@ exports[`EC - Footer Corporate renders correctly with extra class names 1`] = `
                 class="ecl-link ecl-link--standalone ecl-footer__section-link"
                 href="/example"
               >
-                Commission and its priorities
-              </a>
-            </li>
-            <li
-              class="ecl-footer__section-item"
-            >
-              <a
-                class="ecl-link ecl-link--standalone ecl-footer__section-link"
-                href="/example"
-              >
-                Policies, information and services
+                European Commission website
               </a>
             </li>
           </ul>
@@ -753,7 +663,7 @@ exports[`EC - Footer Corporate renders correctly with extra class names 1`] = `
       </div>
     </div>
   </div>
-  <section
+  <div
     class="ecl-footer__common"
   >
     <div
@@ -802,7 +712,7 @@ exports[`EC - Footer Corporate renders correctly with extra class names 1`] = `
         Contact
       </a>
     </div>
-  </section>
+  </div>
 </footer>
 `;
 
@@ -810,26 +720,6 @@ exports[`EC - Footer Custom renders correctly 1`] = `
 <footer
   class="ecl-footer ecl-footer--custom"
 >
-  <a
-    class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-footer__back-to-top"
-    href="#top"
-  >
-    <span
-      class="ecl-link__label"
-    >
-      Go to top
-    </span>
-     
-    <svg
-      aria-hidden="true"
-      class="ecl-icon ecl-icon--fluid ecl-link__icon"
-      focusable="false"
-    >
-      <use
-        xlink:href="static/icons.svg#ui--corner-arrow"
-      />
-    </svg>
-  </a>
   <section
     class="ecl-footer__identity"
   >
@@ -975,17 +865,7 @@ exports[`EC - Footer Custom renders correctly 1`] = `
                 class="ecl-link ecl-link--standalone ecl-footer__section-link"
                 href="/example"
               >
-                Commission and its priorities
-              </a>
-            </li>
-            <li
-              class="ecl-footer__section-item"
-            >
-              <a
-                class="ecl-link ecl-link--standalone ecl-footer__section-link"
-                href="/example"
-              >
-                Policies, information and services
+                European Commission website
               </a>
             </li>
           </ul>
@@ -1139,7 +1019,7 @@ exports[`EC - Footer Custom renders correctly 1`] = `
       </div>
     </div>
   </div>
-  <section
+  <div
     class="ecl-footer__common"
   >
     <div
@@ -1188,7 +1068,7 @@ exports[`EC - Footer Custom renders correctly 1`] = `
         Contact
       </a>
     </div>
-  </section>
+  </div>
 </footer>
 `;
 
@@ -1198,26 +1078,6 @@ exports[`EC - Footer Custom renders correctly with extra attributes 1`] = `
   data-test="data-test-value"
   data-test-1="data-test-value-1"
 >
-  <a
-    class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-footer__back-to-top"
-    href="#top"
-  >
-    <span
-      class="ecl-link__label"
-    >
-      Go to top
-    </span>
-     
-    <svg
-      aria-hidden="true"
-      class="ecl-icon ecl-icon--fluid ecl-link__icon"
-      focusable="false"
-    >
-      <use
-        xlink:href="static/icons.svg#ui--corner-arrow"
-      />
-    </svg>
-  </a>
   <section
     class="ecl-footer__identity"
   >
@@ -1363,17 +1223,7 @@ exports[`EC - Footer Custom renders correctly with extra attributes 1`] = `
                 class="ecl-link ecl-link--standalone ecl-footer__section-link"
                 href="/example"
               >
-                Commission and its priorities
-              </a>
-            </li>
-            <li
-              class="ecl-footer__section-item"
-            >
-              <a
-                class="ecl-link ecl-link--standalone ecl-footer__section-link"
-                href="/example"
-              >
-                Policies, information and services
+                European Commission website
               </a>
             </li>
           </ul>
@@ -1527,7 +1377,7 @@ exports[`EC - Footer Custom renders correctly with extra attributes 1`] = `
       </div>
     </div>
   </div>
-  <section
+  <div
     class="ecl-footer__common"
   >
     <div
@@ -1576,7 +1426,7 @@ exports[`EC - Footer Custom renders correctly with extra attributes 1`] = `
         Contact
       </a>
     </div>
-  </section>
+  </div>
 </footer>
 `;
 
@@ -1584,26 +1434,6 @@ exports[`EC - Footer Custom renders correctly with extra class names 1`] = `
 <footer
   class="ecl-footer ecl-footer--custom custom-class custom-class--test"
 >
-  <a
-    class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-footer__back-to-top"
-    href="#top"
-  >
-    <span
-      class="ecl-link__label"
-    >
-      Go to top
-    </span>
-     
-    <svg
-      aria-hidden="true"
-      class="ecl-icon ecl-icon--fluid ecl-link__icon"
-      focusable="false"
-    >
-      <use
-        xlink:href="static/icons.svg#ui--corner-arrow"
-      />
-    </svg>
-  </a>
   <section
     class="ecl-footer__identity"
   >
@@ -1749,17 +1579,7 @@ exports[`EC - Footer Custom renders correctly with extra class names 1`] = `
                 class="ecl-link ecl-link--standalone ecl-footer__section-link"
                 href="/example"
               >
-                Commission and its priorities
-              </a>
-            </li>
-            <li
-              class="ecl-footer__section-item"
-            >
-              <a
-                class="ecl-link ecl-link--standalone ecl-footer__section-link"
-                href="/example"
-              >
-                Policies, information and services
+                European Commission website
               </a>
             </li>
           </ul>
@@ -1913,7 +1733,7 @@ exports[`EC - Footer Custom renders correctly with extra class names 1`] = `
       </div>
     </div>
   </div>
-  <section
+  <div
     class="ecl-footer__common"
   >
     <div
@@ -1962,6 +1782,6 @@ exports[`EC - Footer Custom renders correctly with extra class names 1`] = `
         Contact
       </a>
     </div>
-  </section>
+  </div>
 </footer>
 `;

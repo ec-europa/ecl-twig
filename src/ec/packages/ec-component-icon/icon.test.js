@@ -1,4 +1,3 @@
-import path from 'path';
 import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
 import brandedIcons from '@ecl/ec-resources-icons/dist/lists/branded.json';
@@ -7,7 +6,7 @@ import notificationsIcons from '@ecl/ec-resources-icons/dist/lists/notifications
 import uiIcons from '@ecl/ec-resources-icons/dist/lists/ui.json';
 
 describe('EC - Icon', () => {
-  const template = path.resolve(__dirname, './icon.html.twig');
+  const template = '@ecl-twig/ec-component-icon/icon.html.twig';
   const render = params => renderTwigFileAsNode(template, params);
 
   const defaultDataStructure = {
