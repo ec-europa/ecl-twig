@@ -2,23 +2,17 @@
 
 {#
   Parameters:
-  - "sections" (array) (default: []):
-    - "key" (string) (default: '')
-    - "title" (optional) (string) (default: '') OR (optional) (object) (default: {}):
-      - "label" (string) (default: '')
-      - "href" (string) (default: '')
+  - "sections" (array of objects) (default: []):
+    - "title" (optional) (string) OR ( object with Link component in property )
     - "title_class_name" (optional) (string) (default: '')
     - "description" (optional) (string) (default: '')
     - "content_before" (optional) (string) (default: '')
     - "list_class_name" (optional) (string) (default: '')
-    
-    - "links" (optional) (array of objects) (default: []):
-      - "label" (string) (default: '')
-      - "href" (string) (default: '')
-      - "icon_position" (optional) (string) (default: '')
-      - "icon" (optional) (object) (default: {}):
-        - "shape" (string) (default: '')
-        - "size" (string) (default: '')
+    - "links" (optional) (array of Link components ) (default: []):
+  - "extra_classes" (optional) (string) (default: '') Extra classes (space separated) for the icon
+  - "extra_attributes" (optional) (array) (default: []) Extra attributes for icon
+    - "name" (string) Attribute name, eg. 'data-test'
+    - "value" (string) Attribute value, eg: 'data-test-1'     
 #}
 
 {# Internal properties #}
@@ -46,73 +40,50 @@
 {# Print the result #}
 
 <footer class="{{ _css_class }}"{{ _extra_attributes|raw }}>
-  {# Back to top #}
  
-  {% set _back_to_top = back_to_top|default({}) %}
-  {% include '../ec-component-link/link.html.twig' with _back_to_top|merge({
-    link: _back_to_top.link|default({})|merge({
-      type: 'standalone',
-      icon_position: 'after',
-    }),
-    icon: _back_to_top.icon|default({})|merge({
-      type: 'ui',
-      name: 'corner-arrow',
-    }),
-    extra_classes: 'ecl-footer__back-to-top'
-  }) only %}
-  
-
   {# Main container #}
   <div class="ecl-container {{ _css_class ~ '__container'}}">
     {% for section in _sections %}
       {# Section #}
       <div class="{{ _css_class ~ '__section'}} {{ _css_class ~ '__section' ~ loop.index }}">
+        
         {# content before #}
         {% if  section.content_before is defined and section.content_before is not empty %} 
          <div class="{{ _css_class ~ '__content'}}">{{ section.content_before|e }}</div>
         {% endif %} 
+        
         {# title #}
         {% if  section.title is defined and section.title is not empty %} 
-          {% if  section.title is iterable %} 
-              {% include '../ec-component-link/link.html.twig' with {
-                link: section.title|merge({ type: 'standalone', path: section.title.href }),
-                extra_classes:  _css_class ~ '__title', } only %}
-              {# description #}
-               {% if section.description is defined and section.description is not empty  %} 
-              <div class="{{ _css_class ~ '__description'}}">{{ section.description|e }}</div>
-        {% endif %} 
-        {% else %} 
+          {% if section.title.link is defined and section.title.link is not empty %} 
+            {% include '@ecl-twig/ec-component-link/link.html.twig' with section|merge({
+              link: section.title.link|default({})|merge({ type: 'standalone'}),
+              extra_classes:  _css_class ~ '__title',
+              icon: item.icon|default({})
+            }) only %}
+          {% else %} 
             <div class="{{ _css_class ~ '__title' }} {{ section.title_class_name }}">{{ section.title }}</div>
         {% endif %}
       {% endif %}
+      {# description #}
+      {% if section.description is defined and section.description is not empty  %} 
+        <div class="{{ _css_class ~ '__description'}}">{{ section.description|e }}</div>
+      {% endif %} 
       {# list #}
       {% if  section.links is defined and section.links is not empty %} 
         <ul class="{{ _css_class ~ '__list'}} {{ section.list_class_name }}">
-          {% for link in section.links %}
+          {% for item in section.links %}
             <li class="{{ _css_class ~ '__list-item'}}">
-               {% if ( link.icon is defined and link.icon is not empty )%}
-                 {% include '../ec-component-link/link.html.twig' with {
-                    link: link|merge({  
-                      type: 'standalone',
-                      path:link.href,
-                      icon_position: link.icon_position|default('after'),
-                    }),
-                    icon:link.icon|merge({
-                      path:'static/media/icons.a11fa655.svg',
-                      name: link.icon.shape,
-                      size: link.icon.size,
-                    }),
-                    extra_classes:  _css_class ~ '__link ecl-link--icon ecl-link--icon-before', 
-                  } only %}
+               {% if ( item.icon is defined and item.icon is not empty )%}
+                 {% include '@ecl-twig/ec-component-link/link.html.twig' with item|merge({
+                    link: item.link|default({})|merge({ type: 'standalone' }),
+                    icon: item.icon|default({}),
+                    extra_classes:  _css_class ~ '__link ecl-link--icon ecl-link--icon-before',
+                  }) only %}
                {% else %}
-              
-                 {% include '../ec-component-link/link.html.twig' with {
-                    link: link|merge({ 
-                      type: 'standalone',
-                      path:link.href,
-                    }),
+                 {% include '@ecl-twig/ec-component-link/link.html.twig' with item|merge({
+                    link: item.link|default({})|merge({ type: 'standalone' }),
                     extra_classes:  _css_class ~ '__link',
-                    } only %}
+                    }) only %}
                {% endif %}
             </li>
           {% endfor %}

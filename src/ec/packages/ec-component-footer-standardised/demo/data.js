@@ -1,51 +1,57 @@
 /* eslint-disable import/no-extraneous-dependencies, no-param-reassign */
 import specData from '@ecl/ec-specs-footer-standardised/demo/data';
 
-// function formatLink(l) {
-//   const link = {
-//     link: {
-//       label: l.label,
-//       path: l.href,
-//     },
-//   };
-//   if (l.icon) {
-//     const [type, name] = l.icon.shape.split('--');
-//     link.link.icon_position = l.iconPosition;
-//     link.icon = {
-//       path: 'static/icons.svg',
-//       type,
-//       name: l.icon.shape,
-//       size: l.icon.size,
-//     };
-//   }
-//   console.log('href = ' + link.link.path);
-//   return link;
-// }
-
-export default specData.sections.map(s => {
-  if (s.titleClassName) {
-    s.title_class_name = s.titleClassName;
-    delete s.titleClassName;
+function formatLink(l) {
+  const link = {
+    link: {
+      label: l.label,
+      path: l.href,
+    },
+  };
+  if (l.icon) {
+    const [type, name] = l.icon.shape.split('--');
+    link.link.icon_position = l.iconPosition;
+    link.icon = {
+      path: 'static/media/icons.a11fa655.svg',
+      type,
+      name,
+      size: l.icon.size,
+    };
   }
-  if (s.listClassName) {
-    s.list_class_name = s.listClassName;
-    delete s.listClassName;
-  }
-  if (s.contentBefore) {
-    s.content_before = s.contentBefore;
-    delete s.contentBefore;
-  }
+  return link;
+}
 
-  // if (s.links && Array.isArray(s.links)) {
-  //   s.links.forEach(function(l) {
-  //     formatLink(l);
-  //   });
-  //   // s.links = s.links.map(formatLink);
-  // }
+const adapter = initialData => {
+  // Copy reference specification demo data.
+  const adaptedData = JSON.parse(JSON.stringify(initialData));
 
-  // if (s.title instanceof Object) {
-  //   formatLink(s.title);
-  // }
+  adaptedData.sections.forEach(section => {
+    if (section.contentBefore) {
+      section.content_before = section.contentBefore;
+      delete section.contentBefore;
+    }
 
-  return s;
-});
+    if (section.sectionClassName) {
+      section.section_class_name = section.sectionClassName;
+      delete section.sectionClassName;
+    }
+    if (section.listClassName) {
+      section.list_class_name = section.listClassName;
+      delete section.listClassName;
+    }
+    if (section.titleClassName) {
+      section.title_class_name = section.titleClassName;
+      delete section.titleClassName;
+    }
+    if (section.title && section.title instanceof Object) {
+      section.title = formatLink(section.title);
+    }
+    if (section.links && Array.isArray(section.links)) {
+      section.links = section.links.map(formatLink);
+    }
+  });
+
+  return adaptedData;
+};
+
+export default adapter(specData);
