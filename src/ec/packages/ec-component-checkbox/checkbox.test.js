@@ -1,11 +1,10 @@
-import path from 'path';
 import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
 // Import data for tests
 import { dataDefault, dataInvalid } from './demo/data';
 
 describe('EC - checkbox', () => {
-  const template = path.resolve(__dirname, './checkbox-group.html.twig');
+  const template = '@ecl-twig/ec-component-checkbox/checkbox-group.html.twig';
   const render = params => renderTwigFileAsNode(template, params);
 
   describe('Default', () => {

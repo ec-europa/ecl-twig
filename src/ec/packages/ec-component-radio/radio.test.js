@@ -1,4 +1,3 @@
-import path from 'path';
 import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
 // Import data for tests
@@ -10,7 +9,7 @@ import {
 } from './demo/data';
 
 describe('EC - Radio', () => {
-  const template = path.resolve(__dirname, './radio-group.html.twig');
+  const template = '@ecl-twig/ec-component-radio/radio-group.html.twig';
   const render = params => renderTwigFileAsNode(template, params);
 
   describe('Default', () => {
