@@ -1,7 +1,7 @@
 const formatIcon = i => {
   const [type, name] = i.shape.split('--');
   const icon = {
-    path: '/static/icons.svg',
+    path: 'static/icons.svg',
     type,
     name,
     size: i.size,
@@ -24,6 +24,13 @@ const formatLink = l => {
     link.icon = formatIcon(l.icon);
   }
 
+  if (l.lang) {
+    link.link.lang = l.lang;
+  }
+
+  if (l.hreflang) {
+    link.link.hreflang = l.hreflang;
+  }
   return link;
 };
 
