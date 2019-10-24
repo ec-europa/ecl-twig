@@ -2,7 +2,7 @@ import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
 import { dataGroup1, dataGroup2 } from './demo/data';
 
-describe('EC - Site Header Core', () => {
+describe('EC - Site Header Harmonised', () => {
   const template =
     '@ecl-twig/ec-component-site-header-harmonised/site-header-harmonised.html.twig';
   const render = params => renderTwigFileAsNode(template, params);
