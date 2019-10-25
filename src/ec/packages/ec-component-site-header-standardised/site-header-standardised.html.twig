@@ -171,7 +171,7 @@
         {% if _logged %}
           <a
             class="ecl-link ecl-link--standalone ecl-site-header-standardised__login-toggle"
-            href="{{ _login_box.href_logged }}"
+            href="{{ _login_toggle.href_logged }}"
             aria-controls={{ _login_box.id }}
             aria-expanded="false"
           >
@@ -197,15 +197,15 @@
             {% include '@ecl-twig/ec-component-link/link.html.twig' with {
               link: {
                 label: _login_box.label,
-                href: _login_box.href,
-                variant: "standalone"
+                path: _login_box.href,
+                type: 'standalone'
               }
             } only %}
           </div>
         {% else %}
           <a
             class="ecl-link ecl-link--standalone ecl-site-header-standardised__login-toggle"
-            href="{{ _login_box.href_not_logged }}"
+            href="{{ _login_toggle.href_not_logged }}"
           >
             {% include '@ecl-twig/ec-component-icon/icon.html.twig' with {
               icon: {
@@ -281,17 +281,17 @@
       href="#"
       >
         {%- include '@ecl-twig/ec-component-icon/icon.html.twig' with {
-            icon: {
-              name: 'hamburger',
-              path: _icon_file_path,
-              type: 'general',
-              size: 's',
-              extra_attributes: [
-               { name: 'aria-hidden', value: true }
-              ]
-            }
-          } only -%}
-        Menu
+          icon: {
+            name: 'hamburger',
+            path: _icon_file_path,
+            type: 'general',
+            size: 's',
+            extra_attributes: [
+             { name: 'aria-hidden', value: true }
+            ]
+          }
+        } only -%}
+        {{- menu_label|default('') -}}
       </a>
       {{- banner|raw -}}
     </div>
