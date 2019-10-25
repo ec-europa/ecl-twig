@@ -9,12 +9,12 @@ npm install --save @ecl-twig/ec-component-footer-standardised
 ## Parameters
 
 - "sections" (array of objects) (default: []):
-  - "title" (optional) (string) OR ( object with Link component in property )
+  - "title" (optional) (string) OR (object with Link component in property)
   - "title_class_name" (optional) (string) (default: '')
   - "description" (optional) (string) (default: '')
   - "content_before" (optional) (string) (default: '')
   - "list_class_name" (optional) (string) (default: '')
-  - "links" (optional) (array of Link components ) (default: []):
+  - "links" (optional) (array of Link components) (default: []):
 - "extra_classes" (optional) (string) (default: '') Extra classes (space separated) for the icon
 - "extra_attributes" (optional) (array) (default: []) Extra attributes for icon
   - "name" (string) Attribute name, eg. 'data-test'
