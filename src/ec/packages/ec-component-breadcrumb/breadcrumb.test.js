@@ -1,16 +1,6 @@
 import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
-import breadcrumbDataSimple from '@ecl/ec-specs-breadcrumb/demo/data-simple';
-import breadcrumbDataLong from '@ecl/ec-specs-breadcrumb/demo/data';
-
-function formatLink(l) {
-  const link = {
-    label: l.label,
-    path: l.href,
-  };
-
-  return link;
-}
+import { dataSimple, dataLong } from './demo/data';
 
 describe('EC - Breadcrumb', () => {
   const template = '@ecl-twig/ec-component-breadcrumb/breadcrumb.html.twig';
@@ -19,9 +9,9 @@ describe('EC - Breadcrumb', () => {
 
   describe('Simple', () => {
     const data = {
-      links: breadcrumbDataSimple.items.map(formatLink),
+      links: dataSimple.links,
       icon_file_path: defaultIconPath,
-      navigation_text: breadcrumbDataSimple.label,
+      navigation_text: dataSimple.label,
       ellipsis_label: 'Click to expand',
     };
 
@@ -56,9 +46,9 @@ describe('EC - Breadcrumb', () => {
 
   describe('Long', () => {
     const data = {
-      links: breadcrumbDataLong.items.map(formatLink),
+      links: dataLong.links,
       icon_file_path: defaultIconPath,
-      navigation_text: breadcrumbDataLong.label,
+      navigation_text: dataLong.label,
       ellipsis_label: 'Click to expand',
     };
 
