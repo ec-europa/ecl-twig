@@ -814,6 +814,9 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
+"@ecl-twig/data-utils@file:utils/data-utils":
+  version "0.0.0-dev-only"
+
 "@ecl-twig/storybook-addon-code@file:utils/storybook-addon-code":
   version "0.0.0-dev-only"
 
@@ -845,7 +848,7 @@
     "@ecl/ec-component-icon" "^2.11.0"
     "@ecl/ec-component-link" "^2.11.0"
 
-"@ecl/ec-component-breadcrumb@^2.11.0":
+"@ecl/ec-component-breadcrumb@^2.11.0", "@ecl/ec-component-breadcrumb@^2.13.0":
   version "2.13.0"
   resolved "https://registry.yarnpkg.com/@ecl/ec-component-breadcrumb/-/ec-component-breadcrumb-2.13.0.tgz#bcad3981baa7a7f97556a2cb90f80122a7c98b0a"
   integrity sha512-F3+ifu1n/uwXXi4BozwO/X10aAd8Kho2hXRNGfvc85lzszgZs0qy5qvDiWRpd/Fj003IErQ6TUATsuBP3wVK8w==
@@ -1137,6 +1140,15 @@
     "@ecl/ec-component-button" "^2.11.0"
     "@ecl/ec-component-link" "^2.11.0"
 
+"@ecl/ec-component-page-header-standardised@2.13.0":
+  version "2.13.0"
+  resolved "https://registry.yarnpkg.com/@ecl/ec-component-page-header-standardised/-/ec-component-page-header-standardised-2.13.0.tgz#a5ac7e9902d5d2a9a69fb914616b51d83ddd8c5b"
+  integrity sha512-1HrcXPme4vdl4kyu7P3iXAEEqocHJUvSncrEha1TypAd1TZgDVBzzrq4Z1SG89xlnKvZAJr1PlRK+wOjwepzVQ==
+  dependencies:
+    "@ecl/ec-base" "^2.13.0"
+    "@ecl/ec-component-breadcrumb" "^2.13.0"
+    "@ecl/ec-layout-grid" "^2.13.0"
+
 "@ecl/ec-component-page-header@2.11.0":
   version "2.11.0"
   resolved "https://registry.yarnpkg.com/@ecl/ec-component-page-header/-/ec-component-page-header-2.11.0.tgz#9df44aa559d0923d2302df7ebfff2bf1778359bb"
@@ -1244,7 +1256,7 @@
   dependencies:
     "@ecl/ec-base" "^2.11.0"
 
-"@ecl/ec-layout-grid@^2.11.0", "@ecl/ec-layout-grid@^2.12.0":
+"@ecl/ec-layout-grid@2.13.0", "@ecl/ec-layout-grid@^2.11.0", "@ecl/ec-layout-grid@^2.12.0", "@ecl/ec-layout-grid@^2.13.0":
   version "2.13.0"
   resolved "https://registry.yarnpkg.com/@ecl/ec-layout-grid/-/ec-layout-grid-2.13.0.tgz#62f5a258b9f765d24931823ca21ca90f4e242347"
   integrity sha512-RtGYvwMFG6zeuMJ5hMuMYDvkTmGPImMSC21IrSPJe+XTkLPzSnDvUGzXiF93TIPwAsAMH32oNRhlmPpvWCtFDA==
@@ -1260,6 +1272,11 @@
   version "2.12.0"
   resolved "https://registry.yarnpkg.com/@ecl/ec-resources-icons/-/ec-resources-icons-2.12.0.tgz#09a494466f85d9a3950424944a8fbc1cb94add85"
   integrity sha512-eBDKTH3WrxwJkroUmTo031hJ3kyTocETOyoIlrzC4vJNKbwIZWKncap/GJeOplJjCDBspCPx3o/c8MsWTeIQZQ==
+
+"@ecl/ec-resources-icons@2.13.0":
+  version "2.13.0"
+  resolved "https://registry.yarnpkg.com/@ecl/ec-resources-icons/-/ec-resources-icons-2.13.0.tgz#4ea8fe8d558e8ac369dae46687347060ae27b514"
+  integrity sha512-cYSir/WkRcn4sYoEcC1PmERLzj9SvSQmzZaJO/D7XeoSZJC/+gQTER1g2hnxkUMVYyq06c6zv25zVuIFxoEOcQ==
 
 "@ecl/ec-resources-logo@2.11.0":
   version "2.11.0"
@@ -1285,6 +1302,11 @@
   version "2.11.0"
   resolved "https://registry.yarnpkg.com/@ecl/ec-specs-blockquote/-/ec-specs-blockquote-2.11.0.tgz#420a1d316c401a4a55f687f6a81d98bf1581368f"
   integrity sha512-ZeObp26psFLHQgXlIXHR1+QFBoRXRxkoS5D+I2YMUu/CSVNWus1C2qU6AuZhDIiH9NL16bETSE0Ioe0y4db2Sg==
+
+"@ecl/ec-specs-breadcrumb-standardised@2.13.0":
+  version "2.13.0"
+  resolved "https://registry.yarnpkg.com/@ecl/ec-specs-breadcrumb-standardised/-/ec-specs-breadcrumb-standardised-2.13.0.tgz#7084f8d0a5f05c4e0aed54424c4db9a4d8070c6f"
+  integrity sha512-CYhMITc7vCU8U+NQ0N7Ij67QWd3H5tmHp+SMSVOkFQxT2jPqfHiktidPCXKR8NVbV83KlbKhI+tm7kiIp4ItTQ==
 
 "@ecl/ec-specs-breadcrumb@2.11.0":
   version "2.11.0"
@@ -1405,6 +1427,11 @@
   version "2.11.0"
   resolved "https://registry.yarnpkg.com/@ecl/ec-specs-page-banner/-/ec-specs-page-banner-2.11.0.tgz#b79a89bcba1d80afad6d31ec5239c1deb1c47b49"
   integrity sha512-IvQA7qkbf+rFiLD2KG8Xj8cYxdQI6aDDcXj0spg862FGN5iywqUgGVMqHts7wk2CT+8e0pi9nTyQoZiVP0XorQ==
+
+"@ecl/ec-specs-page-header-standardised@2.13.0":
+  version "2.13.0"
+  resolved "https://registry.yarnpkg.com/@ecl/ec-specs-page-header-standardised/-/ec-specs-page-header-standardised-2.13.0.tgz#b0e653c6e56faad4572c4991168d4bc0731879e0"
+  integrity sha512-hWymb0XyRl8XdHthobdUE98M/nxU+gWnUV6ykvcMC46CBh2NkNSHln3acQzqjgINfcrF0zx8qUgGLzBypzTU8w==
 
 "@ecl/ec-specs-page-header@2.11.0":
   version "2.11.0"
