@@ -57,9 +57,6 @@ const adapter = initialData => {
   };
   delete adaptedData.searchForm;
 
-  adaptedData.search_toggle = adaptedData.searchToggle;
-  delete adaptedData.searchToggle;
-
   adaptedData.icon_file_path = defaultSprite;
   return adaptedData;
 };
