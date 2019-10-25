@@ -1,5 +1,4 @@
 import { storiesOf } from '@storybook/html';
-import { withKnobs } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
@@ -19,7 +18,6 @@ adapter.sections.forEach(s => {
 });
 
 storiesOf('Components/Footers/Standardised', module)
-  .addDecorator(withKnobs)
   .addDecorator(withCode)
   .addDecorator(withNotes)
   .add('default', () => footerStandardised(adapter), {
