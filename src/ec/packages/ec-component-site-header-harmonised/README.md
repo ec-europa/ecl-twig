@@ -12,6 +12,7 @@ npm install --save @ecl-twig/ec-component-site-header-harmonised
 
 - "logged" (boolean) (default: false): Whether the user is logged in or not
 - "menu" (boolean) (default: false): Whether the component includes a menu or not
+- "menu_label" (string) (default: false): The menu toggler label
 - "banner" (string): The site name
 - "banner_top" (string): Class name
 - "icon_file_path": (string) (default: ''): file containing the svg icons
