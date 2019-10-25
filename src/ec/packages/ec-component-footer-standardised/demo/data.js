@@ -1,25 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies, no-param-reassign */
 import specData from '@ecl/ec-specs-footer-standardised/demo/data';
-
-function formatLink(l) {
-  const link = {
-    link: {
-      label: l.label,
-      path: l.href,
-    },
-  };
-  if (l.icon) {
-    const [type, name] = l.icon.shape.split('--');
-    link.link.icon_position = l.iconPosition;
-    link.icon = {
-      path: 'static/media/icons.a11fa655.svg',
-      type,
-      name,
-      size: l.icon.size,
-    };
-  }
-  return link;
-}
+import { formatLink } from '@ecl-twig/data-utils';
 
 const adapter = initialData => {
   // Copy reference specification demo data.
