@@ -43,6 +43,7 @@ const adapter = initialData => {
   });
   // Search toggle.
   adaptedData.search_toggle = adaptedData.searchToggle;
+  delete adaptedData.searchToggle;
   // Search form.
   adaptedData.search_form = {
     extra_attributes: [{ name: 'id', value: adaptedData.searchForm.id }],
@@ -57,10 +58,8 @@ const adapter = initialData => {
   };
   delete adaptedData.searchForm;
 
-  adaptedData.search_toggle = adaptedData.searchToggle;
-  delete adaptedData.searchToggle;
-
   adaptedData.icon_file_path = defaultSprite;
+  adaptedData.menu_label = 'Menu';
   return adaptedData;
 };
 

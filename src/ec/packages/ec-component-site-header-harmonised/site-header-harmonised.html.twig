@@ -91,7 +91,7 @@
     extra_classes: 'ecl-search-form__button'
   },
   extra_attributes: [
-  { name: 'data-ecl-search-form ' }
+  { name: 'data-ecl-search-form' }
   ]|merge(search_form.extra_attributes|default({})),
   extra_classes: 'ecl-site-header-harmonised__search'
 }
@@ -100,7 +100,7 @@
 {# Merge options #}
 
 {% set extra_attributes = [
-  { name: 'data-ecl-auto-init', value: 'SiteHeaderStandardised' }
+  { name: 'data-ecl-auto-init', value: 'SiteHeaderHarmonised' }
   ]|merge(extra_attributes|default([]))
 %}
 
@@ -171,7 +171,7 @@
         {% if _logged %}
           <a
             class="ecl-link ecl-link--standalone ecl-site-header-harmonised__login-toggle"
-            href="{{ _login_box.href_logged }}"
+            href="{{ _login_toggle.href_logged }}"
             aria-controls={{ _login_box.id }}
             aria-expanded="false"
           >
@@ -197,8 +197,8 @@
             {% include '@ecl-twig/ec-component-link/link.html.twig' with {
               link: {
                 label: _login_box.label,
-                href: _login_box.href,
-                variant: "standalone"
+                path: _login_box.href,
+                type: "standalone"
               }
             } only %}
           </div>
@@ -281,17 +281,17 @@
       href="#"
       >
         {%- include '@ecl-twig/ec-component-icon/icon.html.twig' with {
-            icon: {
-              name: 'hamburger',
-              path: _icon_file_path,
-              type: 'general',
-              size: 's',
-              extra_attributes: [
-               { name: 'aria-hidden', value: true }
-              ]
-            }
-          } only -%}
-        Menu
+          icon: {
+            name: 'hamburger',
+            path: _icon_file_path,
+            type: 'general',
+            size: 's',
+            extra_attributes: [
+             { name: 'aria-hidden', value: true }
+            ]
+          }
+        } only -%}
+        {{- menu_label|default('') -}}
       </a>
       {{- banner|raw -}}
     </div>
