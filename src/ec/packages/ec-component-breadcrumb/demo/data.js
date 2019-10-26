@@ -1,26 +1,15 @@
-/* eslint-disable import/no-extraneous-dependencies, no-param-reassign */
-import specData from '@ecl/ec-specs-breadcrumb/demo/data';
-
-function formatLink(l) {
-  const link = {
-    label: l.label,
-    path: l.href,
-  };
-
-  return link;
-}
+/* eslint-disable import/no-extraneous-dependencies */
+import specDataSimple from '@ecl/ec-specs-breadcrumb/demo/data-simple';
+import specDataLong from '@ecl/ec-specs-breadcrumb/demo/data';
+import { formatLinkAlt } from '@ecl-twig/data-utils';
 
 const adapter = initialData => {
   // Copy reference specification demo data.
   const adaptedData = JSON.parse(JSON.stringify(initialData));
-
-  const links = adaptedData.items.map(formatLink);
-
-  return {
-    links,
-    navigation_text: adaptedData.label,
-    ellipsis_label: 'Click to expand',
-  };
+  adaptedData.links = adaptedData.items.map(formatLinkAlt);
+  delete adaptedData.items;
+  return adaptedData;
 };
 
-export default adapter(specData);
+export const dataSimple = adapter(specDataSimple);
+export const dataLong = adapter(specDataLong);
