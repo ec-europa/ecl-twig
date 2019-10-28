@@ -10,6 +10,8 @@ npm install --save @ecl-twig/ec-component-breadcrumb-standardised
 
 ### Parameters
 
+- "min_items_left" (integer) (default('1')) - Min numbers of element on the left
+- "min_items_right" (integer) (default('2')) - Min numbers of element on the right
 - "links" (array) (default: []): format:
   - "label" (string) (default: '') Label of link
   - "path" (string) (default: '') Url of link
@@ -25,7 +27,7 @@ npm install --save @ecl-twig/ec-component-breadcrumb-standardised
 
 <!-- prettier-ignore -->
 ```twig
-{% include '@ecl-twig/ec-component-breadcrumb-standardised/breadcrumb.html.twig' with { 
+{% include '@ecl-twig/ec-component-breadcrumb-standardised/breadcrumb-standardised.html.twig' with { 
   links: [ 
     { 
       label: 'Link 1', 

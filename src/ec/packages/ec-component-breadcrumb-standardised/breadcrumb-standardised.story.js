@@ -28,9 +28,6 @@ storiesOf('Components/Navigation/Breadcrumbs/Breadcrumb Standardised', module)
     'long',
     () =>
       breadcrumb({
-        extra_attributes: [
-          { name: 'data-ecl-auto-init', value: 'BreadcrumbStandardised' },
-        ],
         links: dataLong.links,
         icon_file_path: defaultSprite,
         navigation_text: dataLong.label,
