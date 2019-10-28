@@ -1,14 +1,14 @@
 import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
-import sections from './demo/data';
+import { group2 } from './demo/data';
 
 describe('EC - Footer Harmonised', () => {
   const template =
     '@ecl-twig/ec-component-footer-harmonised/footer-harmonised.html.twig';
   const render = params => renderTwigFileAsNode(template, params);
 
-  describe('default', () => {
-    const options = sections;
+  describe('Group 2', () => {
+    const options = group2.sections;
 
     test('renders correctly', () => {
       expect.assertions(1);

@@ -7,7 +7,7 @@ npm install --save @ecl-twig/ec-component-footer-harmonised
 ```
 
 ## Parameters
-
+- "group" (string) (default: 'group1'): 'group1' or 'group2'
 - "sections" (array of objects) (default: []):
   - "title" (optional) (string) OR (object with Link component in property)
   - "title_class_name" (optional) (string) (default: '')
@@ -25,6 +25,7 @@ npm install --save @ecl-twig/ec-component-footer-harmonised
 <!-- prettier-ignore -->
 ```twig
 {% include '@ecl-twig/ec-component-site-footer-harmonised/footer-harmonised.html.twig' with {
+  group: 'group1'
   sections: [
     {
       key: 'section 1',

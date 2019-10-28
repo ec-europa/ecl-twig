@@ -1,5 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies, no-param-reassign */
-import specData from '@ecl/ec-specs-footer-harmonised/demo/data';
+import specData1 from '@ecl/ec-specs-footer-harmonised/demo/data--group1';
+import specData2 from '@ecl/ec-specs-footer-harmonised/demo/data--group2';
 import { formatLink } from '@ecl-twig/data-utils';
 
 const adapter = initialData => {
@@ -35,4 +36,5 @@ const adapter = initialData => {
   return adaptedData;
 };
 
-export default adapter(specData);
+export const group1 = adapter(specData1);
+export const group2 = adapter(specData2);
