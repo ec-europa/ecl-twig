@@ -2,7 +2,7 @@ import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
 import sections from './demo/data';
 
-describe('EC - Footer Core', () => {
+describe('EC - Footer Standardised', () => {
   const template =
     '@ecl-twig/ec-component-footer-standardised/footer-standardised.html.twig';
   const render = params => renderTwigFileAsNode(template, params);

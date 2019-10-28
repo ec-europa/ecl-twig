@@ -46,14 +46,14 @@
       {# Section #}
       <div class="ecl-footer-standardised__section {{ 'ecl-footer-standardised__section' ~ loop.index }}">
         {# content before #}
-        {% if  section.content_before is defined and section.content_before is not empty %}
+        {% if section.content_before is defined and section.content_before is not empty %}
          <div class="ecl-footer-standardised__content">{{ section.content_before|e }}</div>
         {% endif %}
         {# title #}
-        {% if  section.title is defined and section.title is not empty %}
+        {% if section.title is defined and section.title is not empty %}
           {% if section.title.link is defined and section.title.link is not empty %}
             {% include '@ecl-twig/ec-component-link/link.html.twig' with section|merge({
-              link: section.title.link|default({})|merge({ type: 'standalone'}),
+              link: section.title.link|merge({ type: 'standalone'}),
               extra_classes: 'ecl-footer-standardised__title',
               icon: item.icon|default({})
             }) only %}
@@ -68,7 +68,7 @@
         <div class="ecl-footer-standardised__description">{{ section.description|e }}</div>
       {% endif %}
       {# list #}
-      {% if  section.links is defined and section.links is not empty %}
+      {% if section.links is defined and section.links is iterable %}
         <ul class="ecl-footer-standardised__list
         {{- section.list_class_name is defined and section.list_class_name is not empty ? ' ' + section.list_class_name -}}">
           {% for item in section.links %}
@@ -76,7 +76,7 @@
               {% if (item.icon is defined and item.icon is not empty) %}
                 {% include '@ecl-twig/ec-component-link/link.html.twig' with item|merge({
                   link: item.link|default({})|merge({ type: 'standalone' }),
-                  icon: item.icon|default({}),
+                  icon: item.icon,
                   extra_classes: 'ecl-footer-standardised__link ecl-link--icon',
                 }) only %}
               {% else %}
