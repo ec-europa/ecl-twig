@@ -3,7 +3,7 @@
 {#
   Parameters:
     - "icon_file_path" (string) (default: ''): URL to icons file
-    - "banner_top" (string): Class name
+    - "banner_top" (string) OR (object with Link component in property): Class name
     - "banner" (string): Site name
     - "logged" (boolean): Whether the user is logged in or not
     - "menu" (boolean): Whether the component includes a menu
@@ -271,7 +271,15 @@
   </div>
 {% if banner_top is defined and banner_top is not empty %}
   <div class="ecl-site-header-harmonised__banner-top">
-    <div class="ecl-container">{{ banner_top|raw }}</div>
+    <div class="ecl-container">
+      {%- if banner_top.link is defined and banner_top.link is not empty %}
+        {% include '@ecl-twig/ec-component-link/link.html.twig' with banner_top|merge({
+          link: banner_top.link|merge({ type: 'standalone'})
+        }) only %}
+      {% else %}
+        {{ banner_top|raw }}
+      {% endif -%}
+    </div>
   </div>
 {% endif %}
 {% if banner is defined and banner is not empty %}
