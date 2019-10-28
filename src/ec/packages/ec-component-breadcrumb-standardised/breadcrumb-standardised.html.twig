@@ -26,10 +26,10 @@
 {% set _breadcrumb_size = links|length %}
 {% set _navigation_text = navigation_text|default('') %}
 {% set _ellipsis_label = ellipsis_label|default('') %}
+{% set _ellipsis = ellipsis|default('…') %}
 {% set _breadcrumb_segment_class = 'ecl-breadcrumb-standardised__segment' %}
 {% set _min_items_left = min_items_left|default(1) %}
 {% set _min_items_right = min_items_right|default(2) %}
-{% set _extra_attributes = extra_attributes|default([{}]) %}
 
 {% set _default_icon_structure = {
   icon: {
@@ -43,19 +43,13 @@
   extra_attributes: [{ name: 'role', value: 'presentation' }]
 } %}
 
-{% set _extra_attributes = _extra_attributes|merge([
-  { name: 'aria-label', value: _navigation_text },
-  { name: 'data-ecl-breadcrumb-standardised' }])
+{% set _css_class = 'ecl-breadcrumb-standardised' %}
+{% set _extra_attributes = [
+  'aria-label="' ~ _navigation_text ~ '"',
+  'data-ecl-breadcrumb-standardised="true"']|join(' ')
 %}
 
-{% set _css_class = 'ecl-breadcrumb-standardised' %}
-
 {# Internal logic - Process properties #}
-
-{% if _breadcrumb_size > (_min_items_left + _min_items_right) %}
-  {% set _extra_attributes = _extra_attributes|merge([
-    { name: 'data-ecl-auto-init', value: 'BreadcrumbStandardised' }]) %}
-{% endif %}
 
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
@@ -84,25 +78,19 @@
         </li>
       {% else %}
         {% if _breadcrumb_size > (_min_items_left + _min_items_right) and key > 0 and key < (_breadcrumb_size - _min_items_right) %}
-          {% if key == 1 %}
+          {% if key == _min_items_left %}
             <li class="{{ _breadcrumb_segment_class ~ ' ecl-breadcrumb-standardised__segment--ellipsis' }}" aria-hidden="false" data-ecl-breadcrumb-standardised-ellipsis="true">
-              {% include '@ecl-twig/ec-component-button/button.html.twig' with {
-                label: "…",
-                extra_classes: 'ecl-breadcrumb-standardised__ellipsis',
-                extra_attributes: [
-                  { name: "data-ecl-breadcrumb-standardised-ellipsis-button" },
-                  { name: "aria-label", value: _ellipsis_label }
-                ],
-              } only %}
+              <button
+                type="button"
+                class="ecl-breadcrumb-standardised__ellipsis"
+                aria-label="{{ _ellipsis_label }}"
+                data-ecl-breadcrumb-standardised-ellipsis-button="true">
+                {{- _ellipsis -}}
+              </button>
               {% include '@ecl-twig/ec-component-icon/icon.html.twig' with _default_icon_structure only %}
             </li>
           {% endif %}
-          {% set _breadcrumb_segment_attributes = [
-            { name: 'data-ecl-breadcrumb-standardised-item', value: 'expandable' },
-            { name: 'aria-hidden', value: true }] %}
-            {% for attr in _breadcrumb_segment_attributes %}
-              {% set _breadcrumb_segment_attributes = _breadcrumb_segment_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
-            {% endfor %}
+          {% set _breadcrumb_segment_attributes = 'data-ecl-breadcrumb-standardised-item="expandable" aria-hidden="true"' %}
         {% endif %}
         <li class="{{ _breadcrumb_segment_class }}" {{ _breadcrumb_segment_attributes|raw }}>
           {% include '@ecl-twig/ec-component-link/link.html.twig' with {
