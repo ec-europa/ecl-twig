@@ -10,6 +10,7 @@ npm install --save @ecl-twig/ec-component-site-header-harmonised
 
 ### Parameters
 
+- "group" (string) (default: 'group1'): 'group1' or 'group2'
 - "logged" (boolean) (default: false): Whether the user is logged in or not
 - "menu" (boolean) (default: false): Whether the component includes a menu or not
 - "menu_label" (string) (default: false): The menu toggler label
@@ -57,6 +58,7 @@ npm install --save @ecl-twig/ec-component-site-header-harmonised
 <!-- prettier-ignore -->
 ```twig
 {% include '@ecl-twig/ec-component-site-header-harmonised/site-header-harmonised.html.twig' with { 
+  group: 'group1', 
   bannerTop: 'Class name', 
   banner: 'Site name', 
   menu: true, 
