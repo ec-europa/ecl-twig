@@ -2,6 +2,7 @@
 
 {#
   Parameters:
+    - "group" (string): 'group1' or 'group2'
     - "icon_file_path" (string) (default: ''): URL to icons file
     - "banner_top" (string): Class name
     - "banner" (string): Site name
@@ -65,6 +66,7 @@
 
 {# Default variables #}
 
+{% set _group = group|default('group1') %}
 {% set _logo = logo|default({}) %}
 {% set _language_selector = language_selector|default({}) %}
 {% set _login_box = login_box|default({}) %}
@@ -74,7 +76,7 @@
 {% set _logged = logged|default(false) %}
 {% set _menu = menu|default(false) %}
 {% set _extra_attributes = '' %}
-{% set _css_class = 'ecl-site-header-harmonised' %}
+{% set _css_class = 'ecl-site-header-harmonised ecl-site-header-harmonised--' ~ _group %}
 
 {% set _search_form = {
   text_input: {
@@ -142,7 +144,7 @@
 {% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
   {% for attr in extra_attributes %}
     {% if attr.value is defined %}
-      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
     {% else %}
       {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name %}
     {% endif %}
