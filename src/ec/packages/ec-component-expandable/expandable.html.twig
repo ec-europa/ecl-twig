@@ -56,22 +56,14 @@
 {# Print the result #}
 
 <div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+  {% set _label = _label_expanded %}
   {% set _button_attributes = [
     { name: 'aria-controls', value: _aria_controls },
     { name: 'data-ecl-expandable-toggle', value: true },
     { name: 'data-ecl-label-expanded', value: _label_expanded },
-    { name: 'data-ecl-label-collapsed', value: _label_collapsed }
+    { name: 'data-ecl-label-collapsed', value: _label_collapsed },
+    { name: 'aria-expanded', value: _expanded }
   ] %}
-
-  {% if _expanded %}
-    {% set _button_attributes = _button_attributes|merge([{ name: 'aria-expanded', value: _expanded }]) %}
-    {% set _label = _label_expanded %}
-    {% set _content_hidden_attribute = '' %}
-  {% else %}
-    {% set _label = _label_collapsed %}
-    {% set _content_hidden_attribute = 'hidden' %}
-  {% endif %}
-
   {% include '@ecl-twig/ec-component-button/button.html.twig' with {
     label: _label,
     variant: 'secondary',
@@ -83,7 +75,7 @@
   <div
     id="{{ _id ~ '-content' }}"
     class="ecl-expandable__content"
-    {{ _content_hidden_attribute }}
+    {% if not _expanded %}hidden{% endif %}
   >
     <p class="ecl-u-type-paragraph-m">
       {%- block content _content|raw -%}
