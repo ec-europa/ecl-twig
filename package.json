@@ -22,9 +22,10 @@
     "test": "npm run jest"
   },
   "devDependencies": {
-    "@babel/core": "7.6.0",
-    "@babel/preset-env": "7.6.0",
+    "@babel/core": "7.6.4",
+    "@babel/preset-env": "7.6.3",
     "@babel/preset-react": "7.0.0",
+    "@ecl-twig/data-utils": "file:utils/data-utils",
     "@ecl-twig/storybook-addon-code": "file:utils/storybook-addon-code",
     "@ecl-twig/storybook-addon-notes": "file:utils/storybook-addon-notes",
     "@ecl-twig/test-utils": "file:utils/test-utils",
@@ -34,9 +35,13 @@
     "@storybook/addon-viewport": "5.2.1",
     "@storybook/html": "5.2.1",
     "file-system": "2.2.2",
-    "babel-plugin-preval": "3.0.1",
+    "@storybook/addon-knobs": "5.2.5",
+    "@storybook/addon-options": "5.2.5",
+    "@storybook/addon-viewport": "5.2.5",
+    "@storybook/html": "5.2.5",
     "babel-jest": "24.9.0",
     "babel-loader": "8.0.6",
+    "babel-plugin-preval": "3.0.1",
     "clipboard": "2.0.4",
     "deepmerge": "3.2.1",
     "eslint": "5.16.0",
@@ -48,6 +53,7 @@
     "eslint-plugin-prettier": "3.1.1",
     "eslint-plugin-react": "7.14.3",
     "eslint-plugin-unicorn": "9.1.0",
+    "file-system": "2.2.2",
     "husky": "2.4.1",
     "jest": "24.9.0",
     "jq-cli-wrapper": "1.6.1",
@@ -88,9 +94,6 @@
     "src/eu/packages/*"
   ],
   "jest": {
-    "verbose": true,
-    "transformIgnorePatterns": [
-      "node_modules/?!(@ecl-twig/data-utils)"
-    ]
+    "verbose": true
   }
 }
