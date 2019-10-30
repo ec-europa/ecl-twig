@@ -6,9 +6,9 @@ import withCode from '@ecl-twig/storybook-addon-code';
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 
 import breadcrumbContent from '@ecl/ec-specs-breadcrumb-standardised/demo/data';
-import demoTitleContent from '@ecl/ec-specs-page-header-standardised/demo/data--title';
-import demoMetaTitleContent from '@ecl/ec-specs-page-header-standardised/demo/data--meta-title';
-import demoMetaTitleDescriptionContent from '@ecl/ec-specs-page-header-standardised/demo/data--meta-title-description';
+import demoTitleContent from '@ecl/ec-specs-page-header-standardised/demo/data-title';
+import demoMetaTitleContent from '@ecl/ec-specs-page-header-standardised/demo/data-meta-title';
+import demoMetaTitleDescriptionContent from '@ecl/ec-specs-page-header-standardised/demo/data-meta-title-description';
 
 import pageHeaderStandardisedDocs from './README.md';
 import pageHeaderStandardised from './page-header-standardised.html.twig';
