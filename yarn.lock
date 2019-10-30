@@ -786,6 +786,15 @@
     "@ecl/ec-component-icon" "^2.13.0"
     "@ecl/ec-component-link" "^2.13.0"
 
+"@ecl/ec-component-breadcrumb@^2.14.0":
+  version "2.14.0"
+  resolved "https://registry.yarnpkg.com/@ecl/ec-component-breadcrumb/-/ec-component-breadcrumb-2.14.0.tgz#aa6b9d3dbedb63c9d28efd4e0ef7c7d7dc745689"
+  integrity sha512-5Yc6bYjpLEEY56CKc0cEjmXfILYKALRUNon6uiN99PU2uSK8DXhVQqm0vr1M5z03TJeF/AORHmkuvkwa7JGZvw==
+  dependencies:
+    "@ecl/ec-base" "^2.14.0"
+    "@ecl/ec-component-icon" "^2.14.0"
+    "@ecl/ec-component-link" "^2.14.0"
+
 "@ecl/ec-component-button@^2.11.0", "@ecl/ec-component-button@^2.13.0":
   version "2.13.0"
   resolved "https://registry.yarnpkg.com/@ecl/ec-component-button/-/ec-component-button-2.13.0.tgz#f14512bf8cfaf42088bb422e3374bf5d32521e7a"
@@ -1050,6 +1059,14 @@
     "@ecl/ec-base" "^2.13.0"
     "@ecl/ec-component-icon" "^2.13.0"
 
+"@ecl/ec-component-link@^2.14.0":
+  version "2.14.0"
+  resolved "https://registry.yarnpkg.com/@ecl/ec-component-link/-/ec-component-link-2.14.0.tgz#14a76a04cadb80efba53c149fbdd208239bf67da"
+  integrity sha512-p5Cg7QEoNErg9BcI54iesLD2odYNqi5IXVp5wejdCcwPksO8fHDQqXoK3TsZcOQaEjtqLMtriToUXxrKBajhMA==
+  dependencies:
+    "@ecl/ec-base" "^2.14.0"
+    "@ecl/ec-component-icon" "^2.14.0"
+
 "@ecl/ec-component-list@2.11.0":
   version "2.11.0"
   resolved "https://registry.yarnpkg.com/@ecl/ec-component-list/-/ec-component-list-2.11.0.tgz#ab4b0ea835f6955f380ab2dab96ce5cf53427b64"
@@ -1090,6 +1107,15 @@
     "@ecl/ec-base" "^2.11.0"
     "@ecl/ec-component-button" "^2.11.0"
     "@ecl/ec-component-link" "^2.11.0"
+
+"@ecl/ec-component-page-header-harmonised@2.14.0":
+  version "2.14.0"
+  resolved "https://registry.yarnpkg.com/@ecl/ec-component-page-header-harmonised/-/ec-component-page-header-harmonised-2.14.0.tgz#3cd74c8e43668a64693450072c7f7fb76aaf45f7"
+  integrity sha512-BqSh8uZqfxHe4RqUP+555+4eTzss65kEoEv8HM75Ytp4eQxS8O8H93wAuJE7ebdLLAJ7hgS8kJfEsZ9ir5S0vw==
+  dependencies:
+    "@ecl/ec-base" "^2.14.0"
+    "@ecl/ec-component-breadcrumb" "^2.14.0"
+    "@ecl/ec-layout-grid" "^2.14.0"
 
 "@ecl/ec-component-page-header@2.11.0":
   version "2.11.0"
@@ -1227,6 +1253,13 @@
   dependencies:
     "@ecl/ec-base" "^2.11.0"
 
+"@ecl/ec-layout-grid@2.14.0", "@ecl/ec-layout-grid@^2.14.0":
+  version "2.14.0"
+  resolved "https://registry.yarnpkg.com/@ecl/ec-layout-grid/-/ec-layout-grid-2.14.0.tgz#312fbdbeb1733b9430267d4a23c1e2e6b3db042e"
+  integrity sha512-CzFv+lJf2G7+9C6pxKy/15kF3+yBr7Txhe5sLQL4rIKknC87ZYmNpFlNUHzPaiULyS8Al/hsLwHMGE2vJ5pMZA==
+  dependencies:
+    "@ecl/ec-base" "^2.14.0"
+
 "@ecl/ec-layout-grid@^2.11.0", "@ecl/ec-layout-grid@^2.12.0":
   version "2.13.0"
   resolved "https://registry.yarnpkg.com/@ecl/ec-layout-grid/-/ec-layout-grid-2.13.0.tgz#62f5a258b9f765d24931823ca21ca90f4e242347"
@@ -1278,6 +1311,11 @@
   version "2.11.0"
   resolved "https://registry.yarnpkg.com/@ecl/ec-specs-blockquote/-/ec-specs-blockquote-2.11.0.tgz#420a1d316c401a4a55f687f6a81d98bf1581368f"
   integrity sha512-ZeObp26psFLHQgXlIXHR1+QFBoRXRxkoS5D+I2YMUu/CSVNWus1C2qU6AuZhDIiH9NL16bETSE0Ioe0y4db2Sg==
+
+"@ecl/ec-specs-breadcrumb-core@2.14.0":
+  version "2.14.0"
+  resolved "https://registry.yarnpkg.com/@ecl/ec-specs-breadcrumb-core/-/ec-specs-breadcrumb-core-2.14.0.tgz#e396d95378aa634ba01bbec33cc17c330ba594e6"
+  integrity sha512-BSvSSaO6GDMIQXkq71V/6tsdDaVN4UgUNg77ikX3t+uNfAyePO/NtXxUScK+PyBvoS347O53A2TAo6cIpBWzlg==
 
 "@ecl/ec-specs-breadcrumb@2.11.0":
   version "2.11.0"
@@ -1398,6 +1436,11 @@
   version "2.11.0"
   resolved "https://registry.yarnpkg.com/@ecl/ec-specs-page-banner/-/ec-specs-page-banner-2.11.0.tgz#b79a89bcba1d80afad6d31ec5239c1deb1c47b49"
   integrity sha512-IvQA7qkbf+rFiLD2KG8Xj8cYxdQI6aDDcXj0spg862FGN5iywqUgGVMqHts7wk2CT+8e0pi9nTyQoZiVP0XorQ==
+
+"@ecl/ec-specs-page-header-harmonised@2.14.0":
+  version "2.14.0"
+  resolved "https://registry.yarnpkg.com/@ecl/ec-specs-page-header-harmonised/-/ec-specs-page-header-harmonised-2.14.0.tgz#9dc184b364a0fa238697ee678d773e6c3398c085"
+  integrity sha512-kwT8ZO7rHdVkp6yEEoJQwEZpxb1how5hSLdpkomq1jyvLjr4wxNW+vI+0LlfyZY+PORuV3YaXikUFIOlx1/s+A==
 
 "@ecl/ec-specs-page-header@2.11.0":
   version "2.11.0"
