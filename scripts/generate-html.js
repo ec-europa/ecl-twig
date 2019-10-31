@@ -4,7 +4,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const Twig = require('twig');
+const Twig = require('twing');
 
 const system = process.env.ECL_SYSTEM;
 
@@ -14,8 +14,8 @@ if (!system) {
 
 const extension = 'html.twig';
 const rootFolder = process.cwd();
-const distFolder = `${rootFolder}/dist`;
-const systemFolder = `${distFolder}/${system}`;
+const distFolder = `${rootFolder}/php`;
+const systemFolder = `${distFolder}/packages/${system}`;
 
 const components = fs.readdirSync(systemFolder);
 

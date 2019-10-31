@@ -29,7 +29,7 @@ const createDataFiles = ({ readLocation, saveLocation }) => {
   });
 };
 
-const system = process.env.ECL_SYSTEM;
+const system = 'ec';
 
 if (!system) {
   throw new Error('Missing ECL_SYSTEM environment variable.');
@@ -40,7 +40,7 @@ let readLocation = '';
 // This is for babel to be able to import modules consistently between packages.
 const rootFolder = process.cwd();
 const nodeModules = `${rootFolder}/node_modules`;
-const distFolder = `${rootFolder}/dist`;
+const distFolder = `${rootFolder}/php`;
 const listLocation = path.resolve(
   `${rootFolder}/src/${system}/packages/${system}-components/package.json`
 );
@@ -62,7 +62,7 @@ listRender.forEach(pkg => {
   const eclSpecPath = path.resolve(specLocation);
 
   const saveLocation = path.resolve(
-    `${distFolder}/${system}/${componentRootName}`
+    `${distFolder}/packages/${system}/${componentRootName}`
   );
 
   // Check for data overrides.

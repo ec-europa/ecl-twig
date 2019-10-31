@@ -1,7 +1,7 @@
 import { configure, addDecorator, addParameters } from '@storybook/html';
 import { withOptions } from '@storybook/addon-options';
 import { create } from '@storybook/theming';
-import { version } from '../../../lerna.json';
+import { version } from '../../lerna.json';
 
 addParameters({
   options: {
@@ -15,7 +15,7 @@ addParameters({
   },
 });
 
-const contexts = [require.context('../../../dist/', true, /.*\.story\.js$/)];
+const contexts = [require.context('../packages', true, /.*\.story\.js$/)];
 
 configure(() => {
   contexts.forEach(context => {
