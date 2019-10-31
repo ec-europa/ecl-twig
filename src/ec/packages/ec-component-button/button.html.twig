@@ -55,22 +55,27 @@
 
 {# Print the result #}
 
+
 <button class="{{ _css_class }}" type="{{ _type }}"{{ _extra_attributes|raw }}>
-  <span class="ecl-button__container">
-    {% if _icon.name is not empty and _icon_position == 'before' %}
-      {% include '@ecl-twig/ec-component-icon/icon.html.twig' with {
-        icon: _icon,
-        extra_classes: 'ecl-button__icon ecl-button__icon--before'
-      } only %}
-    {% endif %}
-    <span class="ecl-button__label" data-ecl-label="true">{%- block label _label|raw %}</span>
-    {% if _icon.name is not empty and _icon_position == 'after' %}
-      {% include '@ecl-twig/ec-component-icon/icon.html.twig' with {
-        icon: _icon,
-        extra_classes: 'ecl-button__icon ecl-button__icon--after'
-      } only %}
-    {% endif %}
-  </span>
+  {% if _icon.name is not empty %}
+    <span class="ecl-button__container">
+      {% if _icon_position == 'before' %}
+        {% include '@ecl-twig/ec-component-icon/icon.html.twig' with {
+          icon: _icon,
+          extra_classes: 'ecl-button__icon ecl-button__icon--before'
+        } only %}
+      {% endif %}
+      <span class="ecl-button__label" data-ecl-label="true">{%- block label _label|raw %}</span>
+      {% if _icon_position == 'after' %}
+        {% include '@ecl-twig/ec-component-icon/icon.html.twig' with {
+          icon: _icon,
+          extra_classes: 'ecl-button__icon ecl-button__icon--after'
+        } only %}
+      {% endif %}
+    </span>
+  {% else %}
+  {{- block('label') -}}
+  {% endif %}
 </button>
 
 {% endspaceless %}
