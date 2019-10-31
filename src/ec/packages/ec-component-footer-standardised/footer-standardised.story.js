@@ -15,7 +15,7 @@ adapter.sections.forEach(s => {
       }
     });
   }
-  if(s.title && s.title.icon) {
+  if (s.title && s.title.icon) {
     s.title.icon.path = defaultSprite; // eslint-disable-line no-param-reassign
   }
 });
