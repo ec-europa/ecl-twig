@@ -1,10 +1,44 @@
 <link
   rel="stylesheet"
-  type="text/css"
-  href="https://unpkg.com/@ecl/ec-preset-website@2.3.0/dist/styles/ecl-ec-preset-website.css"
+  href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v2.14.0/ec-preset-legacy-website/styles/ecl-ec-preset-legacy-website.css"
+  integrity="sha256-U2NFhb/J7wesIGY/ZI3ZEitLS7KGSfxmEP+Im/xJJps= sha384-RJG6LyjqF1+Jx0ynsyX3tJ6GKEK8W7/aBljQZdDzb3AURYMDqexXbVQIf9A3l55r sha512-9Zw0ZtcvoN7ndHiEyTDcBbyveWzMuUDH7UlU6xNzQoQ8NoXAuvgGkC6Ajkl35OXh449M5DL4Eq//C+gTun5TFw=="
+  crossorigin="anonymous"
+  media="screen"
 />
-<script src="https://unpkg.com/@ecl/ec-preset-website@2.3.0/dist/scripts/ecl-ec-preset-website.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v2.14.0/ec-preset-legacy-website/styles/ecl-ec-preset-legacy-website-print.css"
+  integrity="sha256-3vF9FM7n+iuqx4iwbtes395PdxQBkXkF4DRvcgFxtuQ= sha384-wipmO8A4EfpV4mr0OFSFoEwaQ0ZFmzMYh9ylj8EVCPnKxnV61PSaw+6AjIPArklJ sha512-w41vUA9nuSBCcXvZPZhNQ8ZfR/b752WpjYv6ckVOhV2uwC4rezIg7Jd1Ljvnw8ETiJYEYS3Hdn8jGE4DuFg3jA=="
+  crossorigin="anonymous"
+  media="print"
+/>
+<script
+  src="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v2.14.0/ec-preset-legacy-website/scripts/ecl-ec-preset-legacy-website.js"
+  integrity="sha256-0HXT9Q8NdfeBaH227l4cdqZUPHMG7P4fK+EdK9PJcEI= sha384-zqlx5/xusqxYuWRZTONNF+lmEE+iOhEddVt5t6/HJdWzq9g/VeESqDlpNmJCRYJi sha512-2Mi238LrvQYIGsv6wuvf+lPYU5pc1g7I3rSPtfrLTA+zP197MTCSvv4ip0oQcCMInlbr5oWGRMoVcxRG44Ejow=="
+  crossorigin="anonymous"
+></script>
 <script src="https://unpkg.com/svg4everybody@2.1.9/dist/svg4everybody.min.js"></script>
 <script>
+  // https://github.com/storybookjs/storybook/issues/6113#issuecomment-473965255
+  function runOnPageChange() {
+    ECL.autoInit();
+  }
+  document.addEventListener(
+    'DOMContentLoaded',
+    function() {
+      const callback = function(mutationsList) {
+        for (let i = 0, len = mutationsList.length; i < len; i++) {
+          if (mutationsList[i].type == 'childList') {
+            runOnPageChange();
+            break;
+          }
+        }
+      };
+      const observer = new MutationObserver(callback);
+      const config = { childList: true, subtree: false };
+      observer.observe(document.getElementById('root'), config);
+    },
+    false
+  );
   svg4everybody();
 </script>
