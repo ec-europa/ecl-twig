@@ -14,7 +14,7 @@ npm install --save @ecl-twig/ec-component-site-header-standardised
 - "menu" (boolean) (default: false): Whether the component includes a menu or not
 - "menu_label" (string): Menu toggler label
 - "banner" (string): The site name
-- "banner_top" (string): Class name
+- "banner_top" (string) OR (object with Link component in property): Class name
 - "icon_file_path": (string) (default: ''): file containing the svg icons
 - "logo" (associative array) (default: predefined structure): Logo image settings. format:
   - "title" (string) (default: ''): Logo title attribute.
