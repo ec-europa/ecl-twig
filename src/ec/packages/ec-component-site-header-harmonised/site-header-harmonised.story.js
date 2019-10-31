@@ -14,6 +14,7 @@ storiesOf('Components/Site Headers/Harmonised', module)
   .add(
     'group 1',
     () => {
+      dataGroup1.group = 'group1';
       dataGroup1.logged = true;
       dataGroup1.icon_file_path = defaultSprite;
       dataGroup1.logo.src = logo;
@@ -26,6 +27,7 @@ storiesOf('Components/Site Headers/Harmonised', module)
   .add(
     'group 2',
     () => {
+      dataGroup2.group = 'group2';
       dataGroup2.icon_file_path = defaultSprite;
       dataGroup2.logo.src = logo;
       return siteHeaderHarmonised(dataGroup2);
