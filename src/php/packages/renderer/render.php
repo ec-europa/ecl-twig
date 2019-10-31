@@ -59,9 +59,18 @@ foreach ($components as $component) {
         else {
           $data_html = preg_replace('(xlink:href="([\/]?static\/icons.svg)?)', 'xlink:href=/icons-social.svg', $data_html);
         }
+        // Create stories files.
         $data_story = file_get_contents('./story_template.txt');
+        $is_modifier = strpos($variant, '--') !== FALSE;
         $adapted_variant = str_replace('-', '_', $variant);
-        $data_story = str_replace(['#component_name#', '#php_file_name#'], [$adapted_variant, $variant . $result_extension], $data_story);
+        // If it's a modifier we demo it in a folder togethers with the other variants.
+        if ($is_modifier) {
+          $base_component = explode('--', $variant)[0];
+          $data_story = str_replace(['#component#', '#component_variant#', '#php_file_name#'], [$base_component, $adapted_variant,  $variant . $result_extension], $data_story);
+        }
+        else {
+          $data_story = str_replace(['/#component#', '#component_variant#', '#php_file_name#'], ['', $adapted_variant,  $variant . $result_extension], $data_story);
+        }
 
         file_put_contents(
           $folder . DIRECTORY_SEPARATOR . $variant . '.story.js',
