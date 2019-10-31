@@ -10,11 +10,12 @@ npm install --save @ecl-twig/ec-component-site-header-harmonised
 
 ### Parameters
 
+- "group" (string) (default: 'group1'): 'group1' or 'group2'
 - "logged" (boolean) (default: false): Whether the user is logged in or not
 - "menu" (boolean) (default: false): Whether the component includes a menu or not
 - "menu_label" (string) (default: false): The menu toggler label
 - "banner" (string): The site name
-- "banner_top" (string): Class name
+- "banner_top" (string) OR (object with Link component in property): Class name
 - "icon_file_path": (string) (default: ''): file containing the svg icons
 - "logo" (associative array) (default: predefined structure): Logo image settings. format:
   - "title" (string) (default: ''): Logo title attribute.
@@ -57,6 +58,7 @@ npm install --save @ecl-twig/ec-component-site-header-harmonised
 <!-- prettier-ignore -->
 ```twig
 {% include '@ecl-twig/ec-component-site-header-harmonised/site-header-harmonised.html.twig' with { 
+  group: 'group1', 
   bannerTop: 'Class name', 
   banner: 'Site name', 
   menu: true, 

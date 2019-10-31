@@ -2,8 +2,9 @@
 
 {#
   Parameters:
+    - "group" (string): 'group1' or 'group2'
     - "icon_file_path" (string) (default: ''): URL to icons file
-    - "banner_top" (string): Class name
+    - "banner_top" (string) OR (object with Link component in property): Class name
     - "banner" (string): Site name
     - "logged" (boolean): Whether the user is logged in or not
     - "menu" (boolean): Whether the component includes a menu
@@ -65,6 +66,7 @@
 
 {# Default variables #}
 
+{% set _group = group|default('group1') %}
 {% set _logo = logo|default({}) %}
 {% set _language_selector = language_selector|default({}) %}
 {% set _login_box = login_box|default({}) %}
@@ -74,7 +76,7 @@
 {% set _logged = logged|default(false) %}
 {% set _menu = menu|default(false) %}
 {% set _extra_attributes = '' %}
-{% set _css_class = 'ecl-site-header-harmonised' %}
+{% set _css_class = 'ecl-site-header-harmonised ecl-site-header-harmonised--' ~ _group %}
 
 {% set _search_form = {
   text_input: {
@@ -271,7 +273,15 @@
   </div>
 {% if banner_top is defined and banner_top is not empty %}
   <div class="ecl-site-header-harmonised__banner-top">
-    <div class="ecl-container">{{ banner_top|raw }}</div>
+    <div class="ecl-container">
+      {%- if banner_top.link is defined and banner_top.link is not empty %}
+        {% include '@ecl-twig/ec-component-link/link.html.twig' with banner_top|merge({
+          link: banner_top.link|merge({ type: 'standalone'})
+        }) only %}
+      {% else %}
+        {{ banner_top|raw }}
+      {% endif -%}
+    </div>
   </div>
 {% endif %}
 {% if banner is defined and banner is not empty %}
