@@ -4,10 +4,23 @@ use Webmozart\PathUtil\Path;
 
 require_once __DIR__ . '/bootstrap.php';
 
+function prepend($string, $orig_filename) {
+  $context = stream_context_create();
+  $orig_file = fopen($orig_filename, 'r', 1, $context);
+
+  $temp_filename = tempnam(sys_get_temp_dir(), 'php_prepend_');
+  file_put_contents($temp_filename, $string);
+  file_put_contents($temp_filename, $orig_file, FILE_APPEND);
+
+  fclose($orig_file);
+  unlink($orig_filename);
+  rename($temp_filename, $orig_filename);
+}
+
 $result_extension = '.php.html';
 $extension = '.html.twig';
 $output_folder = 'php';
-$system = getenv('ECL_SYSTEM');
+$system = 'ec';
 
 $root_folder = __DIR__ . '/../../../';
 $root_folder_abs = Path::canonicalize($root_folder);
@@ -28,15 +41,16 @@ foreach ($components as $component) {
   if ($component == 'checkbox' || $component == 'radio') {
     $template = $template . '-group';
   }
+
   $template = $template . $extension;
   $folder = Path::canonicalize($system_path . DIRECTORY_SEPARATOR . $component);
 
   // Get the list of data files.
   // For each data file the renderer will create an HTML file.
   $files = array_slice(scandir($folder), 2);
-  $data_html = '';
 
   foreach ($files as $file_name) {
+    $data_html = $base_component = $data_story = $prepend = '';
     try {
       $variant = str_replace(
         '.json',
@@ -60,25 +74,37 @@ foreach ($components as $component) {
           $data_html = preg_replace('(xlink:href="([\/]?static\/icons.svg)?)', 'xlink:href=/icons-social.svg', $data_html);
         }
         // Create stories files.
-        $data_story = file_get_contents('./story_template.txt');
         $is_modifier = strpos($variant, '--') !== FALSE;
         $adapted_variant = str_replace('-', '_', $variant);
         // If it's a modifier we demo it in a folder together with the other variants.
         if ($is_modifier) {
           $base_component = explode('--', $variant)[0];
-          if (file_exists($folder . DIRECTORY_SEPARATOR . $base_component . '.story.js')) {
-            $data_story = ".add('" . $variant . "', () => { return " . $adapted_variant . "; });";
-          }
         }
         else {
           $base_component = $variant;
-          $data_story = str_replace(['#component#', '#component_variant#', '#php_file_name#'], [$base_component, $adapted_variant, $variant . $result_extension], $data_story);
+        }
+
+        if (file_exists($folder . DIRECTORY_SEPARATOR . $base_component . '.story.js')) {
+          $prepend = "import " . $adapted_variant . " from './" . $variant . $result_extension . "';\n";
+          $data_story = ".add('" . $variant . "', () => { return " . $adapted_variant . "; })";
+        }
+        else {
+          $data_story = file_get_contents('./story_template.txt');
+          $data_story = str_replace(
+            ['#component#', '#component_variant#', '#php_file_name#'],
+            [$base_component, $adapted_variant, $variant . $result_extension]
+            , $data_story
+          );
         }
 
         file_put_contents(
-          $folder . DIRECTORY_SEPARATOR . $variant . '.story.js',
+          $folder . DIRECTORY_SEPARATOR . $base_component . '.story.js',
           $data_story, FILE_APPEND | LOCK_EX
         );
+
+        if (!empty($prepend)) {
+          prepend($prepend,$folder . DIRECTORY_SEPARATOR . $base_component . '.story.js');
+        }
 
         file_put_contents(
           $folder . DIRECTORY_SEPARATOR . $variant . $result_extension,
