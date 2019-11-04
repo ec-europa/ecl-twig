@@ -43,11 +43,11 @@ foreach ($components as $component) {
   }
 
   $template = $template . $extension;
+  $specs_folder = Path::canonicalize($system_path . DIRECTORY_SEPARATOR . $component . DIRECTORY_SEPARATOR . 'specs');
   $folder = Path::canonicalize($system_path . DIRECTORY_SEPARATOR . $component);
-
   // Get the list of data files.
   // For each data file the renderer will create an HTML file.
-  $files = array_slice(scandir($folder), 2);
+  $files = array_slice(scandir($specs_folder), 2);
 
   foreach ($files as $file_name) {
     $data_html = $base_component = $data_story = $prepend = '';
@@ -59,7 +59,7 @@ foreach ($components as $component) {
       );
 
       $data_string = file_get_contents(
-        $folder . DIRECTORY_SEPARATOR . $file_name
+        $specs_folder . DIRECTORY_SEPARATOR . $file_name
       );
 
       $data_json = json_decode($data_string, TRUE);
@@ -68,7 +68,7 @@ foreach ($components as $component) {
         $data_html = $twig->render($template, $data_json);
         // Fix icons.
         if (strpos($component,'social') === FALSE) {
-          $data_html = preg_replace('(xlink:href="([\/]?static\/icons.svg)?)', 'xlink:href="/icons.svg', $data_html);
+          $data_html = preg_replace('(xlink:href=")', 'xlink:href="/icons.svg', $data_html);
         }
         else {
           $data_html = preg_replace('(xlink:href="([\/]?static\/icons.svg)?)', 'xlink:href=/icons-social.svg', $data_html);
@@ -84,11 +84,14 @@ foreach ($components as $component) {
           $base_component = $variant;
         }
 
-        if (file_exists($folder . DIRECTORY_SEPARATOR . $base_component . '.story.js')) {
-          $prepend = "import " . $adapted_variant . " from './" . $variant . $result_extension . "';\n";
+        if (file_exists($folder . DIRECTORY_SEPARATOR . 'story' . DIRECTORY_SEPARATOR . $base_component . '.story.js')) {
+          $prepend = "import " . $adapted_variant . " from '../" . $variant . $result_extension . "';\n";
           $data_story = ".add('" . $variant . "', () => { return " . $adapted_variant . "; })";
         }
         else {
+          if (!is_dir($folder . DIRECTORY_SEPARATOR . 'story')) {
+            mkdir($folder . DIRECTORY_SEPARATOR . 'story');
+          }
           $data_story = file_get_contents('./story_template.txt');
           $data_story = str_replace(
             ['#component#', '#component_variant#', '#php_file_name#'],
@@ -98,12 +101,12 @@ foreach ($components as $component) {
         }
 
         file_put_contents(
-          $folder . DIRECTORY_SEPARATOR . $base_component . '.story.js',
+          $folder . DIRECTORY_SEPARATOR . 'story' . DIRECTORY_SEPARATOR . $base_component . '.story.js',
           $data_story, FILE_APPEND | LOCK_EX
         );
 
         if (!empty($prepend)) {
-          prepend($prepend,$folder . DIRECTORY_SEPARATOR . $base_component . '.story.js');
+          prepend($prepend,$folder . DIRECTORY_SEPARATOR . 'story' . DIRECTORY_SEPARATOR . $base_component . '.story.js');
         }
 
         file_put_contents(

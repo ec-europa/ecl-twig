@@ -62,7 +62,7 @@ listRender.forEach(pkg => {
   const eclSpecPath = path.resolve(specLocation);
 
   const saveLocation = path.resolve(
-    `${distFolder}/packages/${system}/${componentRootName}`
+    `${distFolder}/packages/${system}/${componentRootName}/specs`
   );
 
   // Check for data overrides.
