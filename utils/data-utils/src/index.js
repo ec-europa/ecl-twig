@@ -74,4 +74,4 @@ const formatButton = b => {
   return button;
 };
 
-export { formatIcon, formatLink, formatLinkAlt, formatButton };
+module.exports = { formatIcon, formatLink, formatLinkAlt, formatButton };

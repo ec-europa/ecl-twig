@@ -8,6 +8,7 @@ describe('EC - Site Header Harmonised', () => {
   const render = params => renderTwigFileAsNode(template, params);
 
   describe('Group 1', () => {
+    dataGroup1.group = 'group1';
     test('renders correctly', () => {
       expect.assertions(1);
       return expect(render(dataGroup1)).resolves.toMatchSnapshot();
@@ -38,6 +39,7 @@ describe('EC - Site Header Harmonised', () => {
   });
 
   describe('Group 2', () => {
+    dataGroup1.group = 'group2';
     test('renders correctly', () => {
       expect.assertions(1);
       return expect(render(dataGroup2)).resolves.toMatchSnapshot();

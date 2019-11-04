@@ -2,6 +2,8 @@
 import specGroup1 from '@ecl/ec-specs-site-header-harmonised/demo/data--group1';
 import specGroup2 from '@ecl/ec-specs-site-header-harmonised/demo/data--group2';
 
+import { formatLink } from '@ecl-twig/data-utils';
+
 const defaultSprite = 'static/icons.svg';
 
 const logo = 'static/media/logo--en.svg';
@@ -9,6 +11,9 @@ const logo = 'static/media/logo--en.svg';
 const adapter = initialData => {
   const adaptedData = JSON.parse(JSON.stringify(initialData));
   adaptedData.banner_top = adaptedData.bannerTop;
+  if (adaptedData.banner_top instanceof Object) {
+    adaptedData.banner_top = formatLink(adaptedData.banner_top);
+  }
   delete adaptedData.bannerTop;
   // Login toggle.
   if (adaptedData.loginToggle) {
