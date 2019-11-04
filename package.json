@@ -6,7 +6,7 @@
     "check-release": "scripts/check-packages.sh",
     "copy:static": "ncp static build",
     "clean": "rimraf build dist",
-    "clean-php": "rimraf build php/ec/packages/",
+    "clean-php": "rimraf build php/packages/",
     "dist": "npm run clean && npm run build:ec && npm run build:eu && npm run copy:static",
     "jest": "jest",
     "jest-update": "jest -u",
