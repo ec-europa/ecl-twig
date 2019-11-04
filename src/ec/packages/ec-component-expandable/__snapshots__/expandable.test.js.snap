@@ -157,7 +157,7 @@ exports[`EC - Expandable Expanded renders correctly 1`] = `
 >
   <button
     aria-controls="expandable-example-content"
-    aria-expanded="true"
+    aria-expanded="false"
     class="ecl-button ecl-button--secondary ecl-expandable__toggle"
     data-ecl-expandable-toggle="true"
     data-ecl-label-collapsed="Collapsed button"
@@ -186,6 +186,7 @@ exports[`EC - Expandable Expanded renders correctly 1`] = `
   </button>
   <div
     class="ecl-expandable__content"
+    hidden=""
     id="expandable-example-content"
   >
     <p
@@ -207,7 +208,7 @@ exports[`EC - Expandable Expanded renders correctly with extra attributes 1`] = 
 >
   <button
     aria-controls="expandable-example-content"
-    aria-expanded="true"
+    aria-expanded="false"
     class="ecl-button ecl-button--secondary ecl-expandable__toggle"
     data-ecl-expandable-toggle="true"
     data-ecl-label-collapsed="Collapsed button"
@@ -236,6 +237,7 @@ exports[`EC - Expandable Expanded renders correctly with extra attributes 1`] = 
   </button>
   <div
     class="ecl-expandable__content"
+    hidden=""
     id="expandable-example-content"
   >
     <p
@@ -255,7 +257,7 @@ exports[`EC - Expandable Expanded renders correctly with extra class names 1`] =
 >
   <button
     aria-controls="expandable-example-content"
-    aria-expanded="true"
+    aria-expanded="false"
     class="ecl-button ecl-button--secondary ecl-expandable__toggle"
     data-ecl-expandable-toggle="true"
     data-ecl-label-collapsed="Collapsed button"
@@ -284,6 +286,7 @@ exports[`EC - Expandable Expanded renders correctly with extra class names 1`] =
   </button>
   <div
     class="ecl-expandable__content"
+    hidden=""
     id="expandable-example-content"
   >
     <p
