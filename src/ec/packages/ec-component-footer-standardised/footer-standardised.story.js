@@ -3,11 +3,11 @@ import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 
-import adapter from './demo/data';
+import data from './demo/data';
 import footerStandardised from './footer-standardised.html.twig';
 import notes from './docs/footer-standardised.md';
 
-adapter.sections.forEach(s => {
+data.sections.forEach(s => {
   if (s.links && Array.isArray(s.links)) {
     s.links.forEach(l => {
       if (l.icon) {
@@ -23,6 +23,6 @@ adapter.sections.forEach(s => {
 storiesOf('Components/Footers/Standardised', module)
   .addDecorator(withCode)
   .addDecorator(withNotes)
-  .add('default', () => footerStandardised(adapter), {
+  .add('default', () => footerStandardised(data), {
     notes: { markdown: notes },
   });
