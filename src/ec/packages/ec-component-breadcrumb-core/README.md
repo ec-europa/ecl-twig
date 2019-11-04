@@ -15,6 +15,7 @@ npm install --save @ecl-twig/ec-component-breadcrumb-core
   - "path" (string) (default: '') Url of link
 - "navigation_text" (string) (default: ''): Text of navigation in breadcrumb
 - "ellipsis_label" (string) (default: ''): Label of the ellipsis, e.g. "Click to expand"
+- "ellipsis_text" (string) (default: '...'): Text of the ellipsis
 - "icon_file_path" (string) (default: ''): URL to icons file
 - "extra_classes" (string) (default: '')
 - "extra_attributes" (array) (default: []): format:
