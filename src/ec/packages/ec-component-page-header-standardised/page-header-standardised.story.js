@@ -15,7 +15,7 @@ demoTitleContent.breadcrumb.icon_file_path = defaultSprite;
 demoMetaTitleContent.breadcrumb.icon_file_path = defaultSprite;
 demoMetaTitleDescriptionContent.breadcrumb.icon_file_path = defaultSprite;
 
-storiesOf('Components/Page Header Standardised', module)
+storiesOf('Components/Page Headers/Page Header Standardised', module)
   .addDecorator(withNotes)
   .addDecorator(withCode)
   .add(
