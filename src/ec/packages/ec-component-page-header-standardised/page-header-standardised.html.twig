@@ -50,7 +50,7 @@
     {% endif %}
     <h1 class="ecl-page-header-standardised__title">{{ _title }}</h1>
     {% if _description is not empty %}
-      <p class="ecl-page-header-standardised__description">{{ _description }}</p>
+      <p class="ecl-page-header-standardised__description">{{ _description|raw }}</p>
     {% endif %}
   </div>
 </div>
