@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import { storiesOf } from '@storybook/html';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
@@ -11,12 +12,12 @@ data.sections.forEach(s => {
   if (s.links && Array.isArray(s.links)) {
     s.links.forEach(l => {
       if (l.icon) {
-        l.icon.path = defaultSprite; // eslint-disable-line no-param-reassign
+        l.icon.path = defaultSprite;
       }
     });
   }
   if (s.title && s.title.icon) {
-    s.title.icon.path = defaultSprite; // eslint-disable-line no-param-reassign
+    s.title.icon.path = defaultSprite;
   }
 });
 
