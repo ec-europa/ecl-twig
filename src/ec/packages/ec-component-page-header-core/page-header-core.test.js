@@ -1,77 +1,32 @@
 import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
-import breadcrumbDataSimple from '@ecl/ec-specs-breadcrumb-core/demo/data-simple';
+import {
+  demoTitleContent,
+  demoMetaTitleContent,
+  demoMetaTitleDescriptionContent,
+} from './demo/data';
 
-import pageHeaderCoreDataTitle from '@ecl/ec-specs-page-header-core/demo/data--title';
-import pageHeaderCoreDataMetaTitle from '@ecl/ec-specs-page-header-core/demo/data--meta-title';
-import pageHeaderCoreDataMetaTitleDescription from '@ecl/ec-specs-page-header-core/demo/data--meta-title-description';
+const defaultSprite = '/static/icons.svg';
 
-function formatBreadcrumbLink(l) {
-  const link = {
-    label: l.label,
-    path: l.href,
-  };
+demoTitleContent.breadcrumb.icon_file_path = defaultSprite;
+demoMetaTitleContent.breadcrumb.icon_file_path = defaultSprite;
+demoMetaTitleDescriptionContent.breadcrumb.icon_file_path = defaultSprite;
 
-  return link;
-}
-
-function formatpageHeaderCoreInfo(i) {
-  const iconType = i.icon.split('--');
-  const info = {
-    text: i.text,
-    icon: {
-      type: iconType[0],
-      name: iconType[1],
-      path: 'static/icons.svg',
-    },
-  };
-
-  return info;
-}
-
-function preparepageHeaderCoreData(data) {
-  const output = {};
-
-  output.breadcrumb = {
-    links: breadcrumbDataSimple.items.map(formatBreadcrumbLink),
-    navigation_text: breadcrumbDataSimple.label,
-    icon_file_path: 'static/icons.svg',
-  };
-
-  output.title = data.title;
-
-  if (data.description) {
-    output.description = data.description;
-  }
-
-  if (data.meta) {
-    output.meta = data.meta;
-  }
-
-  if (data.infos) {
-    output.infos = data.infos.map(formatpageHeaderCoreInfo);
-  }
-
-  return output;
-}
-
-describe('EC - Page Header', () => {
+describe('EC - Page Header Core', () => {
   const template =
     '@ecl-twig/ec-component-page-header-core/page-header-core.html.twig';
   const render = params => renderTwigFileAsNode(template, params);
 
   describe('title', () => {
-    const data = preparepageHeaderCoreData(pageHeaderCoreDataTitle);
-
     test(`- renders correctly`, () => {
       expect.assertions(1);
-      return expect(render(data)).resolves.toMatchSnapshot();
+      return expect(render(demoTitleContent)).resolves.toMatchSnapshot();
     });
 
     test('renders correctly with extra class names', () => {
       expect.assertions(1);
 
-      const withExtraClasses = merge(data, {
+      const withExtraClasses = merge(demoTitleContent, {
         extra_classes: 'custom-class custom-class--test',
       });
 
@@ -81,7 +36,7 @@ describe('EC - Page Header', () => {
     test('renders correctly with extra attributes', () => {
       expect.assertions(1);
 
-      const withExtraAttributes = merge(data, {
+      const withExtraAttributes = merge(demoTitleContent, {
         extra_attributes: [
           { name: 'data-test', value: 'data-test-value' },
           { name: 'data-test-1', value: 'data-test-value-1' },
@@ -93,17 +48,15 @@ describe('EC - Page Header', () => {
   });
 
   describe('meta-title', () => {
-    const data = preparepageHeaderCoreData(pageHeaderCoreDataMetaTitle);
-
     test(`- renders correctly`, () => {
       expect.assertions(1);
-      return expect(render(data)).resolves.toMatchSnapshot();
+      return expect(render(demoMetaTitleContent)).resolves.toMatchSnapshot();
     });
 
     test('renders correctly with extra class names', () => {
       expect.assertions(1);
 
-      const withExtraClasses = merge(data, {
+      const withExtraClasses = merge(demoMetaTitleContent, {
         extra_classes: 'custom-class custom-class--test',
       });
 
@@ -113,7 +66,7 @@ describe('EC - Page Header', () => {
     test('renders correctly with extra attributes', () => {
       expect.assertions(1);
 
-      const withExtraAttributes = merge(data, {
+      const withExtraAttributes = merge(demoMetaTitleContent, {
         extra_attributes: [
           { name: 'data-test', value: 'data-test-value' },
           { name: 'data-test-1', value: 'data-test-value-1' },
@@ -125,19 +78,17 @@ describe('EC - Page Header', () => {
   });
 
   describe('meta-title-description', () => {
-    const data = preparepageHeaderCoreData(
-      pageHeaderCoreDataMetaTitleDescription
-    );
-
     test(`- renders correctly`, () => {
       expect.assertions(1);
-      return expect(render(data)).resolves.toMatchSnapshot();
+      return expect(
+        render(demoMetaTitleDescriptionContent)
+      ).resolves.toMatchSnapshot();
     });
 
     test('renders correctly with extra class names', () => {
       expect.assertions(1);
 
-      const withExtraClasses = merge(data, {
+      const withExtraClasses = merge(demoMetaTitleDescriptionContent, {
         extra_classes: 'custom-class custom-class--test',
       });
 
@@ -147,7 +98,7 @@ describe('EC - Page Header', () => {
     test('renders correctly with extra attributes', () => {
       expect.assertions(1);
 
-      const withExtraAttributes = merge(data, {
+      const withExtraAttributes = merge(demoMetaTitleDescriptionContent, {
         extra_attributes: [
           { name: 'data-test', value: 'data-test-value' },
           { name: 'data-test-1', value: 'data-test-value-1' },

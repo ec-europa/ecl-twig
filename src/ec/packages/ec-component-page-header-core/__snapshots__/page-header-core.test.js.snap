@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`EC - Page Header meta-title - renders correctly 1`] = `
+exports[`EC - Page Header Core meta-title - renders correctly 1`] = `
 <div
   class="ecl-page-header-core"
 >
@@ -10,6 +10,7 @@ exports[`EC - Page Header meta-title - renders correctly 1`] = `
     <nav
       aria-label="You are here:"
       class="ecl-breadcrumb-core ecl-page-header-core__breadcrumb"
+      data-ecl-auto-init="BreadcrumbCore"
       data-ecl-breadcrumb-core="true"
     >
       <ol
@@ -32,13 +33,36 @@ exports[`EC - Page Header meta-title - renders correctly 1`] = `
             role="presentation"
           >
             <use
-              xlink:href="static/icons.svg#ui--corner-arrow"
+              xlink:href="/static/icons.svg#ui--corner-arrow"
+            />
+          </svg>
+        </li>
+        <li
+          class="ecl-breadcrumb-core__segment ecl-breadcrumb-core__segment--ellipsis"
+          data-ecl-breadcrumb-core-ellipsis=""
+        >
+          <button
+            aria-label=""
+            class="ecl-breadcrumb-core__ellipsis"
+            data-ecl-breadcrumb-core-ellipsis-button=""
+            type="button"
+          >
+            …
+          </button>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-core__icon"
+            focusable="false"
+            role="presentation"
+          >
+            <use
+              xlink:href="/static/icons.svg#ui--corner-arrow"
             />
           </svg>
         </li>
         <li
           class="ecl-breadcrumb-core__segment"
-          data-ecl-breadcrumb-core-item="static"
+          data-ecl-breadcrumb-core-item="expandable"
         >
           <a
             class="ecl-link ecl-link--standalone ecl-breadcrumb-core__link"
@@ -53,7 +77,49 @@ exports[`EC - Page Header meta-title - renders correctly 1`] = `
             role="presentation"
           >
             <use
-              xlink:href="static/icons.svg#ui--corner-arrow"
+              xlink:href="/static/icons.svg#ui--corner-arrow"
+            />
+          </svg>
+        </li>
+        <li
+          class="ecl-breadcrumb-core__segment"
+          data-ecl-breadcrumb-core-item="expandable"
+        >
+          <a
+            class="ecl-link ecl-link--standalone ecl-breadcrumb-core__link"
+            href="/example"
+          >
+            Organisational structure
+          </a>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-core__icon"
+            focusable="false"
+            role="presentation"
+          >
+            <use
+              xlink:href="/static/icons.svg#ui--corner-arrow"
+            />
+          </svg>
+        </li>
+        <li
+          class="ecl-breadcrumb-core__segment"
+          data-ecl-breadcrumb-core-item="static"
+        >
+          <a
+            class="ecl-link ecl-link--standalone ecl-breadcrumb-core__link"
+            href="/example"
+          >
+            How the Commission is organised
+          </a>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-core__icon"
+            focusable="false"
+            role="presentation"
+          >
+            <use
+              xlink:href="/static/icons.svg#ui--corner-arrow"
             />
           </svg>
         </li>
@@ -80,7 +146,7 @@ exports[`EC - Page Header meta-title - renders correctly 1`] = `
 </div>
 `;
 
-exports[`EC - Page Header meta-title renders correctly with extra attributes 1`] = `
+exports[`EC - Page Header Core meta-title renders correctly with extra attributes 1`] = `
 <div
   class="ecl-page-header-core"
   data-test="data-test-value"
@@ -92,6 +158,7 @@ exports[`EC - Page Header meta-title renders correctly with extra attributes 1`]
     <nav
       aria-label="You are here:"
       class="ecl-breadcrumb-core ecl-page-header-core__breadcrumb"
+      data-ecl-auto-init="BreadcrumbCore"
       data-ecl-breadcrumb-core="true"
     >
       <ol
@@ -114,13 +181,36 @@ exports[`EC - Page Header meta-title renders correctly with extra attributes 1`]
             role="presentation"
           >
             <use
-              xlink:href="static/icons.svg#ui--corner-arrow"
+              xlink:href="/static/icons.svg#ui--corner-arrow"
+            />
+          </svg>
+        </li>
+        <li
+          class="ecl-breadcrumb-core__segment ecl-breadcrumb-core__segment--ellipsis"
+          data-ecl-breadcrumb-core-ellipsis=""
+        >
+          <button
+            aria-label=""
+            class="ecl-breadcrumb-core__ellipsis"
+            data-ecl-breadcrumb-core-ellipsis-button=""
+            type="button"
+          >
+            …
+          </button>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-core__icon"
+            focusable="false"
+            role="presentation"
+          >
+            <use
+              xlink:href="/static/icons.svg#ui--corner-arrow"
             />
           </svg>
         </li>
         <li
           class="ecl-breadcrumb-core__segment"
-          data-ecl-breadcrumb-core-item="static"
+          data-ecl-breadcrumb-core-item="expandable"
         >
           <a
             class="ecl-link ecl-link--standalone ecl-breadcrumb-core__link"
@@ -135,7 +225,49 @@ exports[`EC - Page Header meta-title renders correctly with extra attributes 1`]
             role="presentation"
           >
             <use
-              xlink:href="static/icons.svg#ui--corner-arrow"
+              xlink:href="/static/icons.svg#ui--corner-arrow"
+            />
+          </svg>
+        </li>
+        <li
+          class="ecl-breadcrumb-core__segment"
+          data-ecl-breadcrumb-core-item="expandable"
+        >
+          <a
+            class="ecl-link ecl-link--standalone ecl-breadcrumb-core__link"
+            href="/example"
+          >
+            Organisational structure
+          </a>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-core__icon"
+            focusable="false"
+            role="presentation"
+          >
+            <use
+              xlink:href="/static/icons.svg#ui--corner-arrow"
+            />
+          </svg>
+        </li>
+        <li
+          class="ecl-breadcrumb-core__segment"
+          data-ecl-breadcrumb-core-item="static"
+        >
+          <a
+            class="ecl-link ecl-link--standalone ecl-breadcrumb-core__link"
+            href="/example"
+          >
+            How the Commission is organised
+          </a>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-core__icon"
+            focusable="false"
+            role="presentation"
+          >
+            <use
+              xlink:href="/static/icons.svg#ui--corner-arrow"
             />
           </svg>
         </li>
@@ -162,7 +294,7 @@ exports[`EC - Page Header meta-title renders correctly with extra attributes 1`]
 </div>
 `;
 
-exports[`EC - Page Header meta-title renders correctly with extra class names 1`] = `
+exports[`EC - Page Header Core meta-title renders correctly with extra class names 1`] = `
 <div
   class="ecl-page-header-core custom-class custom-class--test"
 >
@@ -172,6 +304,7 @@ exports[`EC - Page Header meta-title renders correctly with extra class names 1`
     <nav
       aria-label="You are here:"
       class="ecl-breadcrumb-core ecl-page-header-core__breadcrumb"
+      data-ecl-auto-init="BreadcrumbCore"
       data-ecl-breadcrumb-core="true"
     >
       <ol
@@ -194,13 +327,36 @@ exports[`EC - Page Header meta-title renders correctly with extra class names 1`
             role="presentation"
           >
             <use
-              xlink:href="static/icons.svg#ui--corner-arrow"
+              xlink:href="/static/icons.svg#ui--corner-arrow"
+            />
+          </svg>
+        </li>
+        <li
+          class="ecl-breadcrumb-core__segment ecl-breadcrumb-core__segment--ellipsis"
+          data-ecl-breadcrumb-core-ellipsis=""
+        >
+          <button
+            aria-label=""
+            class="ecl-breadcrumb-core__ellipsis"
+            data-ecl-breadcrumb-core-ellipsis-button=""
+            type="button"
+          >
+            …
+          </button>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-core__icon"
+            focusable="false"
+            role="presentation"
+          >
+            <use
+              xlink:href="/static/icons.svg#ui--corner-arrow"
             />
           </svg>
         </li>
         <li
           class="ecl-breadcrumb-core__segment"
-          data-ecl-breadcrumb-core-item="static"
+          data-ecl-breadcrumb-core-item="expandable"
         >
           <a
             class="ecl-link ecl-link--standalone ecl-breadcrumb-core__link"
@@ -215,7 +371,49 @@ exports[`EC - Page Header meta-title renders correctly with extra class names 1`
             role="presentation"
           >
             <use
-              xlink:href="static/icons.svg#ui--corner-arrow"
+              xlink:href="/static/icons.svg#ui--corner-arrow"
+            />
+          </svg>
+        </li>
+        <li
+          class="ecl-breadcrumb-core__segment"
+          data-ecl-breadcrumb-core-item="expandable"
+        >
+          <a
+            class="ecl-link ecl-link--standalone ecl-breadcrumb-core__link"
+            href="/example"
+          >
+            Organisational structure
+          </a>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-core__icon"
+            focusable="false"
+            role="presentation"
+          >
+            <use
+              xlink:href="/static/icons.svg#ui--corner-arrow"
+            />
+          </svg>
+        </li>
+        <li
+          class="ecl-breadcrumb-core__segment"
+          data-ecl-breadcrumb-core-item="static"
+        >
+          <a
+            class="ecl-link ecl-link--standalone ecl-breadcrumb-core__link"
+            href="/example"
+          >
+            How the Commission is organised
+          </a>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-core__icon"
+            focusable="false"
+            role="presentation"
+          >
+            <use
+              xlink:href="/static/icons.svg#ui--corner-arrow"
             />
           </svg>
         </li>
@@ -242,7 +440,7 @@ exports[`EC - Page Header meta-title renders correctly with extra class names 1`
 </div>
 `;
 
-exports[`EC - Page Header meta-title-description - renders correctly 1`] = `
+exports[`EC - Page Header Core meta-title-description - renders correctly 1`] = `
 <div
   class="ecl-page-header-core"
 >
@@ -252,6 +450,7 @@ exports[`EC - Page Header meta-title-description - renders correctly 1`] = `
     <nav
       aria-label="You are here:"
       class="ecl-breadcrumb-core ecl-page-header-core__breadcrumb"
+      data-ecl-auto-init="BreadcrumbCore"
       data-ecl-breadcrumb-core="true"
     >
       <ol
@@ -274,13 +473,36 @@ exports[`EC - Page Header meta-title-description - renders correctly 1`] = `
             role="presentation"
           >
             <use
-              xlink:href="static/icons.svg#ui--corner-arrow"
+              xlink:href="/static/icons.svg#ui--corner-arrow"
+            />
+          </svg>
+        </li>
+        <li
+          class="ecl-breadcrumb-core__segment ecl-breadcrumb-core__segment--ellipsis"
+          data-ecl-breadcrumb-core-ellipsis=""
+        >
+          <button
+            aria-label=""
+            class="ecl-breadcrumb-core__ellipsis"
+            data-ecl-breadcrumb-core-ellipsis-button=""
+            type="button"
+          >
+            …
+          </button>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-core__icon"
+            focusable="false"
+            role="presentation"
+          >
+            <use
+              xlink:href="/static/icons.svg#ui--corner-arrow"
             />
           </svg>
         </li>
         <li
           class="ecl-breadcrumb-core__segment"
-          data-ecl-breadcrumb-core-item="static"
+          data-ecl-breadcrumb-core-item="expandable"
         >
           <a
             class="ecl-link ecl-link--standalone ecl-breadcrumb-core__link"
@@ -295,7 +517,49 @@ exports[`EC - Page Header meta-title-description - renders correctly 1`] = `
             role="presentation"
           >
             <use
-              xlink:href="static/icons.svg#ui--corner-arrow"
+              xlink:href="/static/icons.svg#ui--corner-arrow"
+            />
+          </svg>
+        </li>
+        <li
+          class="ecl-breadcrumb-core__segment"
+          data-ecl-breadcrumb-core-item="expandable"
+        >
+          <a
+            class="ecl-link ecl-link--standalone ecl-breadcrumb-core__link"
+            href="/example"
+          >
+            Organisational structure
+          </a>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-core__icon"
+            focusable="false"
+            role="presentation"
+          >
+            <use
+              xlink:href="/static/icons.svg#ui--corner-arrow"
+            />
+          </svg>
+        </li>
+        <li
+          class="ecl-breadcrumb-core__segment"
+          data-ecl-breadcrumb-core-item="static"
+        >
+          <a
+            class="ecl-link ecl-link--standalone ecl-breadcrumb-core__link"
+            href="/example"
+          >
+            How the Commission is organised
+          </a>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-core__icon"
+            focusable="false"
+            role="presentation"
+          >
+            <use
+              xlink:href="/static/icons.svg#ui--corner-arrow"
             />
           </svg>
         </li>
@@ -327,7 +591,7 @@ exports[`EC - Page Header meta-title-description - renders correctly 1`] = `
 </div>
 `;
 
-exports[`EC - Page Header meta-title-description renders correctly with extra attributes 1`] = `
+exports[`EC - Page Header Core meta-title-description renders correctly with extra attributes 1`] = `
 <div
   class="ecl-page-header-core"
   data-test="data-test-value"
@@ -339,6 +603,7 @@ exports[`EC - Page Header meta-title-description renders correctly with extra at
     <nav
       aria-label="You are here:"
       class="ecl-breadcrumb-core ecl-page-header-core__breadcrumb"
+      data-ecl-auto-init="BreadcrumbCore"
       data-ecl-breadcrumb-core="true"
     >
       <ol
@@ -361,13 +626,36 @@ exports[`EC - Page Header meta-title-description renders correctly with extra at
             role="presentation"
           >
             <use
-              xlink:href="static/icons.svg#ui--corner-arrow"
+              xlink:href="/static/icons.svg#ui--corner-arrow"
+            />
+          </svg>
+        </li>
+        <li
+          class="ecl-breadcrumb-core__segment ecl-breadcrumb-core__segment--ellipsis"
+          data-ecl-breadcrumb-core-ellipsis=""
+        >
+          <button
+            aria-label=""
+            class="ecl-breadcrumb-core__ellipsis"
+            data-ecl-breadcrumb-core-ellipsis-button=""
+            type="button"
+          >
+            …
+          </button>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-core__icon"
+            focusable="false"
+            role="presentation"
+          >
+            <use
+              xlink:href="/static/icons.svg#ui--corner-arrow"
             />
           </svg>
         </li>
         <li
           class="ecl-breadcrumb-core__segment"
-          data-ecl-breadcrumb-core-item="static"
+          data-ecl-breadcrumb-core-item="expandable"
         >
           <a
             class="ecl-link ecl-link--standalone ecl-breadcrumb-core__link"
@@ -382,7 +670,49 @@ exports[`EC - Page Header meta-title-description renders correctly with extra at
             role="presentation"
           >
             <use
-              xlink:href="static/icons.svg#ui--corner-arrow"
+              xlink:href="/static/icons.svg#ui--corner-arrow"
+            />
+          </svg>
+        </li>
+        <li
+          class="ecl-breadcrumb-core__segment"
+          data-ecl-breadcrumb-core-item="expandable"
+        >
+          <a
+            class="ecl-link ecl-link--standalone ecl-breadcrumb-core__link"
+            href="/example"
+          >
+            Organisational structure
+          </a>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-core__icon"
+            focusable="false"
+            role="presentation"
+          >
+            <use
+              xlink:href="/static/icons.svg#ui--corner-arrow"
+            />
+          </svg>
+        </li>
+        <li
+          class="ecl-breadcrumb-core__segment"
+          data-ecl-breadcrumb-core-item="static"
+        >
+          <a
+            class="ecl-link ecl-link--standalone ecl-breadcrumb-core__link"
+            href="/example"
+          >
+            How the Commission is organised
+          </a>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-core__icon"
+            focusable="false"
+            role="presentation"
+          >
+            <use
+              xlink:href="/static/icons.svg#ui--corner-arrow"
             />
           </svg>
         </li>
@@ -414,7 +744,7 @@ exports[`EC - Page Header meta-title-description renders correctly with extra at
 </div>
 `;
 
-exports[`EC - Page Header meta-title-description renders correctly with extra class names 1`] = `
+exports[`EC - Page Header Core meta-title-description renders correctly with extra class names 1`] = `
 <div
   class="ecl-page-header-core custom-class custom-class--test"
 >
@@ -424,6 +754,7 @@ exports[`EC - Page Header meta-title-description renders correctly with extra cl
     <nav
       aria-label="You are here:"
       class="ecl-breadcrumb-core ecl-page-header-core__breadcrumb"
+      data-ecl-auto-init="BreadcrumbCore"
       data-ecl-breadcrumb-core="true"
     >
       <ol
@@ -446,13 +777,36 @@ exports[`EC - Page Header meta-title-description renders correctly with extra cl
             role="presentation"
           >
             <use
-              xlink:href="static/icons.svg#ui--corner-arrow"
+              xlink:href="/static/icons.svg#ui--corner-arrow"
+            />
+          </svg>
+        </li>
+        <li
+          class="ecl-breadcrumb-core__segment ecl-breadcrumb-core__segment--ellipsis"
+          data-ecl-breadcrumb-core-ellipsis=""
+        >
+          <button
+            aria-label=""
+            class="ecl-breadcrumb-core__ellipsis"
+            data-ecl-breadcrumb-core-ellipsis-button=""
+            type="button"
+          >
+            …
+          </button>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-core__icon"
+            focusable="false"
+            role="presentation"
+          >
+            <use
+              xlink:href="/static/icons.svg#ui--corner-arrow"
             />
           </svg>
         </li>
         <li
           class="ecl-breadcrumb-core__segment"
-          data-ecl-breadcrumb-core-item="static"
+          data-ecl-breadcrumb-core-item="expandable"
         >
           <a
             class="ecl-link ecl-link--standalone ecl-breadcrumb-core__link"
@@ -467,7 +821,49 @@ exports[`EC - Page Header meta-title-description renders correctly with extra cl
             role="presentation"
           >
             <use
-              xlink:href="static/icons.svg#ui--corner-arrow"
+              xlink:href="/static/icons.svg#ui--corner-arrow"
+            />
+          </svg>
+        </li>
+        <li
+          class="ecl-breadcrumb-core__segment"
+          data-ecl-breadcrumb-core-item="expandable"
+        >
+          <a
+            class="ecl-link ecl-link--standalone ecl-breadcrumb-core__link"
+            href="/example"
+          >
+            Organisational structure
+          </a>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-core__icon"
+            focusable="false"
+            role="presentation"
+          >
+            <use
+              xlink:href="/static/icons.svg#ui--corner-arrow"
+            />
+          </svg>
+        </li>
+        <li
+          class="ecl-breadcrumb-core__segment"
+          data-ecl-breadcrumb-core-item="static"
+        >
+          <a
+            class="ecl-link ecl-link--standalone ecl-breadcrumb-core__link"
+            href="/example"
+          >
+            How the Commission is organised
+          </a>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-core__icon"
+            focusable="false"
+            role="presentation"
+          >
+            <use
+              xlink:href="/static/icons.svg#ui--corner-arrow"
             />
           </svg>
         </li>
@@ -499,7 +895,7 @@ exports[`EC - Page Header meta-title-description renders correctly with extra cl
 </div>
 `;
 
-exports[`EC - Page Header title - renders correctly 1`] = `
+exports[`EC - Page Header Core title - renders correctly 1`] = `
 <div
   class="ecl-page-header-core"
 >
@@ -509,6 +905,7 @@ exports[`EC - Page Header title - renders correctly 1`] = `
     <nav
       aria-label="You are here:"
       class="ecl-breadcrumb-core ecl-page-header-core__breadcrumb"
+      data-ecl-auto-init="BreadcrumbCore"
       data-ecl-breadcrumb-core="true"
     >
       <ol
@@ -531,13 +928,36 @@ exports[`EC - Page Header title - renders correctly 1`] = `
             role="presentation"
           >
             <use
-              xlink:href="static/icons.svg#ui--corner-arrow"
+              xlink:href="/static/icons.svg#ui--corner-arrow"
+            />
+          </svg>
+        </li>
+        <li
+          class="ecl-breadcrumb-core__segment ecl-breadcrumb-core__segment--ellipsis"
+          data-ecl-breadcrumb-core-ellipsis=""
+        >
+          <button
+            aria-label=""
+            class="ecl-breadcrumb-core__ellipsis"
+            data-ecl-breadcrumb-core-ellipsis-button=""
+            type="button"
+          >
+            …
+          </button>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-core__icon"
+            focusable="false"
+            role="presentation"
+          >
+            <use
+              xlink:href="/static/icons.svg#ui--corner-arrow"
             />
           </svg>
         </li>
         <li
           class="ecl-breadcrumb-core__segment"
-          data-ecl-breadcrumb-core-item="static"
+          data-ecl-breadcrumb-core-item="expandable"
         >
           <a
             class="ecl-link ecl-link--standalone ecl-breadcrumb-core__link"
@@ -552,7 +972,49 @@ exports[`EC - Page Header title - renders correctly 1`] = `
             role="presentation"
           >
             <use
-              xlink:href="static/icons.svg#ui--corner-arrow"
+              xlink:href="/static/icons.svg#ui--corner-arrow"
+            />
+          </svg>
+        </li>
+        <li
+          class="ecl-breadcrumb-core__segment"
+          data-ecl-breadcrumb-core-item="expandable"
+        >
+          <a
+            class="ecl-link ecl-link--standalone ecl-breadcrumb-core__link"
+            href="/example"
+          >
+            Organisational structure
+          </a>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-core__icon"
+            focusable="false"
+            role="presentation"
+          >
+            <use
+              xlink:href="/static/icons.svg#ui--corner-arrow"
+            />
+          </svg>
+        </li>
+        <li
+          class="ecl-breadcrumb-core__segment"
+          data-ecl-breadcrumb-core-item="static"
+        >
+          <a
+            class="ecl-link ecl-link--standalone ecl-breadcrumb-core__link"
+            href="/example"
+          >
+            How the Commission is organised
+          </a>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-core__icon"
+            focusable="false"
+            role="presentation"
+          >
+            <use
+              xlink:href="/static/icons.svg#ui--corner-arrow"
             />
           </svg>
         </li>
@@ -574,7 +1036,7 @@ exports[`EC - Page Header title - renders correctly 1`] = `
 </div>
 `;
 
-exports[`EC - Page Header title renders correctly with extra attributes 1`] = `
+exports[`EC - Page Header Core title renders correctly with extra attributes 1`] = `
 <div
   class="ecl-page-header-core"
   data-test="data-test-value"
@@ -586,6 +1048,7 @@ exports[`EC - Page Header title renders correctly with extra attributes 1`] = `
     <nav
       aria-label="You are here:"
       class="ecl-breadcrumb-core ecl-page-header-core__breadcrumb"
+      data-ecl-auto-init="BreadcrumbCore"
       data-ecl-breadcrumb-core="true"
     >
       <ol
@@ -608,13 +1071,36 @@ exports[`EC - Page Header title renders correctly with extra attributes 1`] = `
             role="presentation"
           >
             <use
-              xlink:href="static/icons.svg#ui--corner-arrow"
+              xlink:href="/static/icons.svg#ui--corner-arrow"
+            />
+          </svg>
+        </li>
+        <li
+          class="ecl-breadcrumb-core__segment ecl-breadcrumb-core__segment--ellipsis"
+          data-ecl-breadcrumb-core-ellipsis=""
+        >
+          <button
+            aria-label=""
+            class="ecl-breadcrumb-core__ellipsis"
+            data-ecl-breadcrumb-core-ellipsis-button=""
+            type="button"
+          >
+            …
+          </button>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-core__icon"
+            focusable="false"
+            role="presentation"
+          >
+            <use
+              xlink:href="/static/icons.svg#ui--corner-arrow"
             />
           </svg>
         </li>
         <li
           class="ecl-breadcrumb-core__segment"
-          data-ecl-breadcrumb-core-item="static"
+          data-ecl-breadcrumb-core-item="expandable"
         >
           <a
             class="ecl-link ecl-link--standalone ecl-breadcrumb-core__link"
@@ -629,7 +1115,49 @@ exports[`EC - Page Header title renders correctly with extra attributes 1`] = `
             role="presentation"
           >
             <use
-              xlink:href="static/icons.svg#ui--corner-arrow"
+              xlink:href="/static/icons.svg#ui--corner-arrow"
+            />
+          </svg>
+        </li>
+        <li
+          class="ecl-breadcrumb-core__segment"
+          data-ecl-breadcrumb-core-item="expandable"
+        >
+          <a
+            class="ecl-link ecl-link--standalone ecl-breadcrumb-core__link"
+            href="/example"
+          >
+            Organisational structure
+          </a>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-core__icon"
+            focusable="false"
+            role="presentation"
+          >
+            <use
+              xlink:href="/static/icons.svg#ui--corner-arrow"
+            />
+          </svg>
+        </li>
+        <li
+          class="ecl-breadcrumb-core__segment"
+          data-ecl-breadcrumb-core-item="static"
+        >
+          <a
+            class="ecl-link ecl-link--standalone ecl-breadcrumb-core__link"
+            href="/example"
+          >
+            How the Commission is organised
+          </a>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-core__icon"
+            focusable="false"
+            role="presentation"
+          >
+            <use
+              xlink:href="/static/icons.svg#ui--corner-arrow"
             />
           </svg>
         </li>
@@ -651,7 +1179,7 @@ exports[`EC - Page Header title renders correctly with extra attributes 1`] = `
 </div>
 `;
 
-exports[`EC - Page Header title renders correctly with extra class names 1`] = `
+exports[`EC - Page Header Core title renders correctly with extra class names 1`] = `
 <div
   class="ecl-page-header-core custom-class custom-class--test"
 >
@@ -661,6 +1189,7 @@ exports[`EC - Page Header title renders correctly with extra class names 1`] = `
     <nav
       aria-label="You are here:"
       class="ecl-breadcrumb-core ecl-page-header-core__breadcrumb"
+      data-ecl-auto-init="BreadcrumbCore"
       data-ecl-breadcrumb-core="true"
     >
       <ol
@@ -683,13 +1212,36 @@ exports[`EC - Page Header title renders correctly with extra class names 1`] = `
             role="presentation"
           >
             <use
-              xlink:href="static/icons.svg#ui--corner-arrow"
+              xlink:href="/static/icons.svg#ui--corner-arrow"
+            />
+          </svg>
+        </li>
+        <li
+          class="ecl-breadcrumb-core__segment ecl-breadcrumb-core__segment--ellipsis"
+          data-ecl-breadcrumb-core-ellipsis=""
+        >
+          <button
+            aria-label=""
+            class="ecl-breadcrumb-core__ellipsis"
+            data-ecl-breadcrumb-core-ellipsis-button=""
+            type="button"
+          >
+            …
+          </button>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-core__icon"
+            focusable="false"
+            role="presentation"
+          >
+            <use
+              xlink:href="/static/icons.svg#ui--corner-arrow"
             />
           </svg>
         </li>
         <li
           class="ecl-breadcrumb-core__segment"
-          data-ecl-breadcrumb-core-item="static"
+          data-ecl-breadcrumb-core-item="expandable"
         >
           <a
             class="ecl-link ecl-link--standalone ecl-breadcrumb-core__link"
@@ -704,7 +1256,49 @@ exports[`EC - Page Header title renders correctly with extra class names 1`] = `
             role="presentation"
           >
             <use
-              xlink:href="static/icons.svg#ui--corner-arrow"
+              xlink:href="/static/icons.svg#ui--corner-arrow"
+            />
+          </svg>
+        </li>
+        <li
+          class="ecl-breadcrumb-core__segment"
+          data-ecl-breadcrumb-core-item="expandable"
+        >
+          <a
+            class="ecl-link ecl-link--standalone ecl-breadcrumb-core__link"
+            href="/example"
+          >
+            Organisational structure
+          </a>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-core__icon"
+            focusable="false"
+            role="presentation"
+          >
+            <use
+              xlink:href="/static/icons.svg#ui--corner-arrow"
+            />
+          </svg>
+        </li>
+        <li
+          class="ecl-breadcrumb-core__segment"
+          data-ecl-breadcrumb-core-item="static"
+        >
+          <a
+            class="ecl-link ecl-link--standalone ecl-breadcrumb-core__link"
+            href="/example"
+          >
+            How the Commission is organised
+          </a>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-core__icon"
+            focusable="false"
+            role="presentation"
+          >
+            <use
+              xlink:href="/static/icons.svg#ui--corner-arrow"
             />
           </svg>
         </li>

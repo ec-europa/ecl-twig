@@ -6,16 +6,13 @@ npm package: `@ecl-twig/ec-component-page-header-core`
 npm install --save @ecl-twig/ec-component-page-header-core
 ```
 
-## Page Header
+## Page Header Core
 
 ### Parameters
 
 - "title" (string) (default: '') Title of header
 - "description" (string) (default: '') Description of header
 - "meta" (string) (default: '') Meta of header
-- "infos" (array) (default: []) Array of infos. format:
-  - "text" (string) Label of info
-  - "icon" (associative array) Predefined structure compatible with EC Icon
 - "breadcrumb" (associative array) (default: '') Predefined structure compatible with EC Breadcrumb
 - "extra_classes" (string) (default: '')
 - "extra_attributes" (array) (default: []): format:
@@ -38,17 +35,7 @@ npm install --save @ecl-twig/ec-component-page-header-core
       },  
     ],  
     icon_file_path: '/path-to-the-icons-file',  
-    navigation_text: 'You are here:',
+    navigation_text: 'You are here:',  
   },  
-  infos: [  
-    {  
-      text: 'Monday 8 February',  
-      icon: {  
-        type: 'general',  
-        name: 'calendar',  
-        path: '/path-to-the-icons-file',  
-      },  
-    },  
-  ]  
 } %}  
 ```
