@@ -1,58 +1,16 @@
 import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
-import breadcrumbContent from '@ecl/ec-specs-breadcrumb-standardised/demo/data';
-import demoTitleContent from '@ecl/ec-specs-page-header-standardised/demo/data-title';
-import demoMetaTitleContent from '@ecl/ec-specs-page-header-standardised/demo/data-meta-title';
-import demoMetaTitleDescriptionContent from '@ecl/ec-specs-page-header-standardised/demo/data-meta-title-description';
+import {
+  demoTitleContent,
+  demoMetaTitleContent,
+  demoMetaTitleDescriptionContent,
+} from './demo/data';
 
-function formatBreadcrumbLink(l) {
-  const link = {
-    label: l.label,
-    path: l.href,
-  };
+const defaultSprite = '/static/icons.svg';
 
-  return link;
-}
-
-function formatPageHeaderStandardisedInfo(i) {
-  const iconType = i.icon.split('--');
-  const info = {
-    text: i.text,
-    icon: {
-      type: iconType[0],
-      name: iconType[1],
-      path: 'static/icons.svg',
-    },
-  };
-
-  return info;
-}
-
-function preparePageHeaderStandardisedData(data) {
-  const output = {};
-
-  output.breadcrumb = {
-    links: breadcrumbContent.items.map(formatBreadcrumbLink),
-    navigation_text: breadcrumbContent.label,
-    icon_file_path: 'static/icons.svg',
-  };
-
-  output.title = data.title;
-
-  if (data.description) {
-    output.description = data.description;
-  }
-
-  if (data.meta) {
-    output.meta = data.meta;
-  }
-
-  if (data.infos) {
-    output.infos = data.infos.map(formatPageHeaderStandardisedInfo);
-  }
-
-  return output;
-}
+demoTitleContent.breadcrumb.icon_file_path = defaultSprite;
+demoMetaTitleContent.breadcrumb.icon_file_path = defaultSprite;
+demoMetaTitleDescriptionContent.breadcrumb.icon_file_path = defaultSprite;
 
 describe('EC - Page Header Standardised', () => {
   const template =
@@ -60,17 +18,15 @@ describe('EC - Page Header Standardised', () => {
   const render = params => renderTwigFileAsNode(template, params);
 
   describe('title', () => {
-    const data = preparePageHeaderStandardisedData(demoTitleContent);
-
     test(`- renders correctly`, () => {
       expect.assertions(1);
-      return expect(render(data)).resolves.toMatchSnapshot();
+      return expect(render(demoTitleContent)).resolves.toMatchSnapshot();
     });
 
     test('renders correctly with extra class names', () => {
       expect.assertions(1);
 
-      const withExtraClasses = merge(data, {
+      const withExtraClasses = merge(demoTitleContent, {
         extra_classes: 'custom-class custom-class--test',
       });
 
@@ -80,7 +36,7 @@ describe('EC - Page Header Standardised', () => {
     test('renders correctly with extra attributes', () => {
       expect.assertions(1);
 
-      const withExtraAttributes = merge(data, {
+      const withExtraAttributes = merge(demoTitleContent, {
         extra_attributes: [
           { name: 'data-test', value: 'data-test-value' },
           { name: 'data-test-1', value: 'data-test-value-1' },
@@ -92,17 +48,15 @@ describe('EC - Page Header Standardised', () => {
   });
 
   describe('meta-title', () => {
-    const data = preparePageHeaderStandardisedData(demoMetaTitleContent);
-
     test(`- renders correctly`, () => {
       expect.assertions(1);
-      return expect(render(data)).resolves.toMatchSnapshot();
+      return expect(render(demoMetaTitleContent)).resolves.toMatchSnapshot();
     });
 
     test('renders correctly with extra class names', () => {
       expect.assertions(1);
 
-      const withExtraClasses = merge(data, {
+      const withExtraClasses = merge(demoMetaTitleContent, {
         extra_classes: 'custom-class custom-class--test',
       });
 
@@ -112,7 +66,7 @@ describe('EC - Page Header Standardised', () => {
     test('renders correctly with extra attributes', () => {
       expect.assertions(1);
 
-      const withExtraAttributes = merge(data, {
+      const withExtraAttributes = merge(demoMetaTitleContent, {
         extra_attributes: [
           { name: 'data-test', value: 'data-test-value' },
           { name: 'data-test-1', value: 'data-test-value-1' },
@@ -124,19 +78,17 @@ describe('EC - Page Header Standardised', () => {
   });
 
   describe('meta-title-description', () => {
-    const data = preparePageHeaderStandardisedData(
-      demoMetaTitleDescriptionContent
-    );
-
     test(`- renders correctly`, () => {
       expect.assertions(1);
-      return expect(render(data)).resolves.toMatchSnapshot();
+      return expect(
+        render(demoMetaTitleDescriptionContent)
+      ).resolves.toMatchSnapshot();
     });
 
     test('renders correctly with extra class names', () => {
       expect.assertions(1);
 
-      const withExtraClasses = merge(data, {
+      const withExtraClasses = merge(demoMetaTitleDescriptionContent, {
         extra_classes: 'custom-class custom-class--test',
       });
 
@@ -146,7 +98,7 @@ describe('EC - Page Header Standardised', () => {
     test('renders correctly with extra attributes', () => {
       expect.assertions(1);
 
-      const withExtraAttributes = merge(data, {
+      const withExtraAttributes = merge(demoMetaTitleDescriptionContent, {
         extra_attributes: [
           { name: 'data-test', value: 'data-test-value' },
           { name: 'data-test-1', value: 'data-test-value-1' },
