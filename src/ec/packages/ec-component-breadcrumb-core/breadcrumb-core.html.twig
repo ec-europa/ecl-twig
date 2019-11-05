@@ -68,7 +68,7 @@
 
 {% for attr in extra_attributes %}
   {% if attr.value is defined %}
-    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value|e ~ '"' %}
   {% else %}
     {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name %}
   {% endif %}
