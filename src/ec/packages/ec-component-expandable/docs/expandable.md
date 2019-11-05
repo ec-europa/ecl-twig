@@ -12,7 +12,6 @@ npm install --save @ecl-twig/ec-component-expandable
 - "label_expanded" (string) (default: '')
 - "label_collapsed" (string) (default: '')
 - "label_collapsed" (string) (default: '')
-- "expanded" (boolean) (default: false) Rendered in collapsed state by default. Expanded state by default is also possible.
 - "button" (predefined structure) : Button component structure
 - "extra_classes" (optional) (string) (default: '') Extra classes (space separated)
 - "extra_attributes" (optional) (array) (default: []) Extra attributes
