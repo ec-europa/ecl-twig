@@ -3,19 +3,7 @@
 use Webmozart\PathUtil\Path;
 
 require_once __DIR__ . '/bootstrap.php';
-
-function prepend($string, $orig_filename) {
-  $context = stream_context_create();
-  $orig_file = fopen($orig_filename, 'r', 1, $context);
-
-  $temp_filename = tempnam(sys_get_temp_dir(), 'php_prepend_');
-  file_put_contents($temp_filename, $string);
-  file_put_contents($temp_filename, $orig_file, FILE_APPEND);
-
-  fclose($orig_file);
-  unlink($orig_filename);
-  rename($temp_filename, $orig_filename);
-}
+require_once __DIR__ . '/helpers.php';
 
 $result_extension = '.php.html';
 $extension = '.html.twig';
@@ -33,6 +21,7 @@ $system_path = $root_folder_abs . DIRECTORY_SEPARATOR . $output_folder . DIRECTO
 $components = array_slice(scandir(Path::canonicalize($system_path)), 2);
 
 foreach ($components as $component) {
+  $component_group = $component_family = '';
   $template = '@ecl-twig/ec-component-' . $component . '/' . $component;
   if ($component == 'page-banner') {
     continue;
@@ -40,6 +29,23 @@ foreach ($components as $component) {
 
   if ($component == 'checkbox' || $component == 'radio') {
     $template = $template . '-group';
+  }
+  // Deprecated components.
+  $deprecated = ['site-header', 'accordion', 'breadcrumb', 'page-header', 'footer'];
+  $deprecated_component = in_array($component, $deprecated) ? 'deprecated' : '';
+
+  // Grouping in families.
+  $families = ['core', 'harmonised', 'standardised'];
+
+  foreach ($families as $family) {
+    if (strpos($component, $family) !== FALSE) {
+      $component_family = $family;
+      break;
+    }
+  }
+
+  if (!empty($component_family)) {
+    $component_group = str_replace('-' . $component_family, 's', $component);
   }
 
   $template = $template . $extension;
@@ -83,32 +89,36 @@ foreach ($components as $component) {
         else {
           $base_component = $variant;
         }
-
+        // We try to collect all the variants in the same story, so if we find one and the story file exist we inject
+        // the additional story and we prepend the import of the component.
         if (file_exists($folder . DIRECTORY_SEPARATOR . 'story' . DIRECTORY_SEPARATOR . $base_component . '.story.js')) {
           $prepend = "import " . $adapted_variant . " from '../" . $variant . $result_extension . "';\n";
           $data_story = ".add('" . $variant . "', () => { return " . $adapted_variant . "; })";
         }
         else {
+          // Not sure why we needed this, but it's the case.
           if (!is_dir($folder . DIRECTORY_SEPARATOR . 'story')) {
             mkdir($folder . DIRECTORY_SEPARATOR . 'story');
           }
+          // Get the story template.
           $data_story = file_get_contents('./story_template.txt');
+          // Replace its content with our variables.
           $data_story = str_replace(
-            ['#component#', '#component_variant#', '#php_file_name#'],
-            [$base_component, $adapted_variant, $variant . $result_extension]
+            ['#component#', '#component_variant#', '#php_file_name#', '#deprecated#', '#component_group#'],
+            [$base_component, $adapted_variant, $variant . $result_extension, $deprecated_component, $component_group]
             , $data_story
           );
         }
-
+        // Here we create or update the story file.
         file_put_contents(
           $folder . DIRECTORY_SEPARATOR . 'story' . DIRECTORY_SEPARATOR . $base_component . '.story.js',
           $data_story, FILE_APPEND | LOCK_EX
         );
-
+        // Prepending a string in a file is a bit more clumsy in php.
         if (!empty($prepend)) {
           prepend($prepend,$folder . DIRECTORY_SEPARATOR . 'story' . DIRECTORY_SEPARATOR . $base_component . '.story.js');
         }
-
+        // Save the rendered htm in a file .php.html
         file_put_contents(
           $folder . DIRECTORY_SEPARATOR . $variant . $result_extension,
           $data_html
