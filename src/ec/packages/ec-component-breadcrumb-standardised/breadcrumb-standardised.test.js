@@ -12,7 +12,7 @@ describe('EC - Breadcrumb Standardised', () => {
     const data = {
       links: dataSimple.links,
       icon_file_path: defaultIconPath,
-      navigation_text: dataSimple.label,
+      navigation_text: dataSimple.navigation_text,
       ellipsis_label: 'Click to expand',
     };
 
@@ -52,7 +52,7 @@ describe('EC - Breadcrumb Standardised', () => {
       ],
       links: dataLong.links,
       icon_file_path: defaultIconPath,
-      navigation_text: dataLong.label,
+      navigation_text: dataLong.navigation_text,
       ellipsis_label: 'Click to expand',
     };
 
