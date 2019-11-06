@@ -57,7 +57,7 @@ storiesOf('Components/Button', module)
           type: 'ui',
           name: iconsListSelect,
           path: defaultSprite,
-          size: 'fluid',
+          size: 'xs',
         },
       });
     },
@@ -85,7 +85,7 @@ storiesOf('Components/Button', module)
           type: 'ui',
           name: iconsListSelect,
           path: defaultSprite,
-          size: 'fluid',
+          size: 'xs',
         },
       });
     },
@@ -94,7 +94,7 @@ storiesOf('Components/Button', module)
     }
   )
   .add(
-    'call-to-action',
+    'call to action',
     () => {
       const iconsListSelect = select('Icon (sample)', iconsList, null);
 
@@ -113,7 +113,7 @@ storiesOf('Components/Button', module)
           type: 'ui',
           name: iconsListSelect,
           path: defaultSprite,
-          size: 'fluid',
+          size: 'xs',
         },
       });
     },
@@ -141,7 +141,7 @@ storiesOf('Components/Button', module)
           type: 'ui',
           name: iconsListSelect,
           path: defaultSprite,
-          size: 'fluid',
+          size: 'xs',
         },
       });
     },
@@ -169,7 +169,7 @@ storiesOf('Components/Button', module)
           type: 'ui',
           name: iconsListSelect,
           path: defaultSprite,
-          size: 'fluid',
+          size: 'xs',
         },
       });
     },

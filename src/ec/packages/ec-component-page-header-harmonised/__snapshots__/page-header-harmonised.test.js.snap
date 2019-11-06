@@ -8,63 +8,125 @@ exports[`EC - Page Header Harmonised meta-title - renders correctly 1`] = `
     class="ecl-container"
   >
     <nav
-      aria-label="You are here:"
-      class="ecl-breadcrumb ecl-page-header-harmonised__breadcrumb"
-      data-ecl-auto-init="Breadcrumb"
-      data-ecl-breadcrumb="true"
+      aria-label=""
+      class="ecl-breadcrumb-harmonised ecl-page-header-harmonised__breadcrumb"
+      data-ecl-auto-init="BreadcrumbHarmonised"
+      data-ecl-breadcrumb-harmonised="true"
     >
       <ol
-        class="ecl-breadcrumb__container"
+        class="ecl-breadcrumb-harmonised__container"
       >
         <li
-          aria-hidden="false"
-          class="ecl-breadcrumb__segment"
-          data-ecl-breadcrumb-item="static"
+          class="ecl-breadcrumb-harmonised__segment"
+          data-ecl-breadcrumb-harmonised-item="static"
         >
           <a
-            class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
+            class="ecl-link ecl-link--standalone ecl-breadcrumb-harmonised__link"
             href="/example"
           >
             Home
           </a>
           <svg
             aria-hidden="true"
-            class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-icon--inverted ecl-breadcrumb__icon"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-harmonised__icon"
             focusable="false"
             role="presentation"
           >
             <use
-              xlink:href="static/icons.svg#ui--corner-arrow"
+              xlink:href="/static/icons.svg#ui--corner-arrow"
             />
           </svg>
         </li>
         <li
-          aria-hidden="false"
-          class="ecl-breadcrumb__segment"
-          data-ecl-breadcrumb-item="static"
+          class="ecl-breadcrumb-harmonised__segment ecl-breadcrumb-harmonised__segment--ellipsis"
+          data-ecl-breadcrumb-harmonised-ellipsis=""
+        >
+          <button
+            aria-label=""
+            class="ecl-breadcrumb-harmonised__ellipsis"
+            data-ecl-breadcrumb-harmonised-ellipsis-button=""
+            type="button"
+          >
+            …
+          </button>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-harmonised__icon"
+            focusable="false"
+            role="presentation"
+          >
+            <use
+              xlink:href="/static/icons.svg#ui--corner-arrow"
+            />
+          </svg>
+        </li>
+        <li
+          class="ecl-breadcrumb-harmonised__segment"
+          data-ecl-breadcrumb-harmonised-item="expandable"
         >
           <a
-            class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
+            class="ecl-link ecl-link--standalone ecl-breadcrumb-harmonised__link"
             href="/example"
           >
             About the European Commission
           </a>
           <svg
             aria-hidden="true"
-            class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-icon--inverted ecl-breadcrumb__icon"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-harmonised__icon"
             focusable="false"
             role="presentation"
           >
             <use
-              xlink:href="static/icons.svg#ui--corner-arrow"
+              xlink:href="/static/icons.svg#ui--corner-arrow"
+            />
+          </svg>
+        </li>
+        <li
+          class="ecl-breadcrumb-harmonised__segment"
+          data-ecl-breadcrumb-harmonised-item="expandable"
+        >
+          <a
+            class="ecl-link ecl-link--standalone ecl-breadcrumb-harmonised__link"
+            href="/example"
+          >
+            Organisational structure
+          </a>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-harmonised__icon"
+            focusable="false"
+            role="presentation"
+          >
+            <use
+              xlink:href="/static/icons.svg#ui--corner-arrow"
+            />
+          </svg>
+        </li>
+        <li
+          class="ecl-breadcrumb-harmonised__segment"
+          data-ecl-breadcrumb-harmonised-item="static"
+        >
+          <a
+            class="ecl-link ecl-link--standalone ecl-breadcrumb-harmonised__link"
+            href="/example"
+          >
+            How the Commission is organised
+          </a>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-harmonised__icon"
+            focusable="false"
+            role="presentation"
+          >
+            <use
+              xlink:href="/static/icons.svg#ui--corner-arrow"
             />
           </svg>
         </li>
         <li
           aria-current="page"
-          aria-hidden="false"
-          class="ecl-breadcrumb__segment ecl-breadcrumb__current-page"
-          data-ecl-breadcrumb-item="static"
+          class="ecl-breadcrumb-harmonised__segment ecl-breadcrumb-harmonised__current-page"
+          data-ecl-breadcrumb-harmonised-item="static"
         >
           News
         </li>
@@ -94,63 +156,125 @@ exports[`EC - Page Header Harmonised meta-title renders correctly with extra att
     class="ecl-container"
   >
     <nav
-      aria-label="You are here:"
-      class="ecl-breadcrumb ecl-page-header-harmonised__breadcrumb"
-      data-ecl-auto-init="Breadcrumb"
-      data-ecl-breadcrumb="true"
+      aria-label=""
+      class="ecl-breadcrumb-harmonised ecl-page-header-harmonised__breadcrumb"
+      data-ecl-auto-init="BreadcrumbHarmonised"
+      data-ecl-breadcrumb-harmonised="true"
     >
       <ol
-        class="ecl-breadcrumb__container"
+        class="ecl-breadcrumb-harmonised__container"
       >
         <li
-          aria-hidden="false"
-          class="ecl-breadcrumb__segment"
-          data-ecl-breadcrumb-item="static"
+          class="ecl-breadcrumb-harmonised__segment"
+          data-ecl-breadcrumb-harmonised-item="static"
         >
           <a
-            class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
+            class="ecl-link ecl-link--standalone ecl-breadcrumb-harmonised__link"
             href="/example"
           >
             Home
           </a>
           <svg
             aria-hidden="true"
-            class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-icon--inverted ecl-breadcrumb__icon"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-harmonised__icon"
             focusable="false"
             role="presentation"
           >
             <use
-              xlink:href="static/icons.svg#ui--corner-arrow"
+              xlink:href="/static/icons.svg#ui--corner-arrow"
             />
           </svg>
         </li>
         <li
-          aria-hidden="false"
-          class="ecl-breadcrumb__segment"
-          data-ecl-breadcrumb-item="static"
+          class="ecl-breadcrumb-harmonised__segment ecl-breadcrumb-harmonised__segment--ellipsis"
+          data-ecl-breadcrumb-harmonised-ellipsis=""
+        >
+          <button
+            aria-label=""
+            class="ecl-breadcrumb-harmonised__ellipsis"
+            data-ecl-breadcrumb-harmonised-ellipsis-button=""
+            type="button"
+          >
+            …
+          </button>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-harmonised__icon"
+            focusable="false"
+            role="presentation"
+          >
+            <use
+              xlink:href="/static/icons.svg#ui--corner-arrow"
+            />
+          </svg>
+        </li>
+        <li
+          class="ecl-breadcrumb-harmonised__segment"
+          data-ecl-breadcrumb-harmonised-item="expandable"
         >
           <a
-            class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
+            class="ecl-link ecl-link--standalone ecl-breadcrumb-harmonised__link"
             href="/example"
           >
             About the European Commission
           </a>
           <svg
             aria-hidden="true"
-            class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-icon--inverted ecl-breadcrumb__icon"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-harmonised__icon"
             focusable="false"
             role="presentation"
           >
             <use
-              xlink:href="static/icons.svg#ui--corner-arrow"
+              xlink:href="/static/icons.svg#ui--corner-arrow"
+            />
+          </svg>
+        </li>
+        <li
+          class="ecl-breadcrumb-harmonised__segment"
+          data-ecl-breadcrumb-harmonised-item="expandable"
+        >
+          <a
+            class="ecl-link ecl-link--standalone ecl-breadcrumb-harmonised__link"
+            href="/example"
+          >
+            Organisational structure
+          </a>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-harmonised__icon"
+            focusable="false"
+            role="presentation"
+          >
+            <use
+              xlink:href="/static/icons.svg#ui--corner-arrow"
+            />
+          </svg>
+        </li>
+        <li
+          class="ecl-breadcrumb-harmonised__segment"
+          data-ecl-breadcrumb-harmonised-item="static"
+        >
+          <a
+            class="ecl-link ecl-link--standalone ecl-breadcrumb-harmonised__link"
+            href="/example"
+          >
+            How the Commission is organised
+          </a>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-harmonised__icon"
+            focusable="false"
+            role="presentation"
+          >
+            <use
+              xlink:href="/static/icons.svg#ui--corner-arrow"
             />
           </svg>
         </li>
         <li
           aria-current="page"
-          aria-hidden="false"
-          class="ecl-breadcrumb__segment ecl-breadcrumb__current-page"
-          data-ecl-breadcrumb-item="static"
+          class="ecl-breadcrumb-harmonised__segment ecl-breadcrumb-harmonised__current-page"
+          data-ecl-breadcrumb-harmonised-item="static"
         >
           News
         </li>
@@ -178,63 +302,125 @@ exports[`EC - Page Header Harmonised meta-title renders correctly with extra cla
     class="ecl-container"
   >
     <nav
-      aria-label="You are here:"
-      class="ecl-breadcrumb ecl-page-header-harmonised__breadcrumb"
-      data-ecl-auto-init="Breadcrumb"
-      data-ecl-breadcrumb="true"
+      aria-label=""
+      class="ecl-breadcrumb-harmonised ecl-page-header-harmonised__breadcrumb"
+      data-ecl-auto-init="BreadcrumbHarmonised"
+      data-ecl-breadcrumb-harmonised="true"
     >
       <ol
-        class="ecl-breadcrumb__container"
+        class="ecl-breadcrumb-harmonised__container"
       >
         <li
-          aria-hidden="false"
-          class="ecl-breadcrumb__segment"
-          data-ecl-breadcrumb-item="static"
+          class="ecl-breadcrumb-harmonised__segment"
+          data-ecl-breadcrumb-harmonised-item="static"
         >
           <a
-            class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
+            class="ecl-link ecl-link--standalone ecl-breadcrumb-harmonised__link"
             href="/example"
           >
             Home
           </a>
           <svg
             aria-hidden="true"
-            class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-icon--inverted ecl-breadcrumb__icon"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-harmonised__icon"
             focusable="false"
             role="presentation"
           >
             <use
-              xlink:href="static/icons.svg#ui--corner-arrow"
+              xlink:href="/static/icons.svg#ui--corner-arrow"
             />
           </svg>
         </li>
         <li
-          aria-hidden="false"
-          class="ecl-breadcrumb__segment"
-          data-ecl-breadcrumb-item="static"
+          class="ecl-breadcrumb-harmonised__segment ecl-breadcrumb-harmonised__segment--ellipsis"
+          data-ecl-breadcrumb-harmonised-ellipsis=""
+        >
+          <button
+            aria-label=""
+            class="ecl-breadcrumb-harmonised__ellipsis"
+            data-ecl-breadcrumb-harmonised-ellipsis-button=""
+            type="button"
+          >
+            …
+          </button>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-harmonised__icon"
+            focusable="false"
+            role="presentation"
+          >
+            <use
+              xlink:href="/static/icons.svg#ui--corner-arrow"
+            />
+          </svg>
+        </li>
+        <li
+          class="ecl-breadcrumb-harmonised__segment"
+          data-ecl-breadcrumb-harmonised-item="expandable"
         >
           <a
-            class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
+            class="ecl-link ecl-link--standalone ecl-breadcrumb-harmonised__link"
             href="/example"
           >
             About the European Commission
           </a>
           <svg
             aria-hidden="true"
-            class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-icon--inverted ecl-breadcrumb__icon"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-harmonised__icon"
             focusable="false"
             role="presentation"
           >
             <use
-              xlink:href="static/icons.svg#ui--corner-arrow"
+              xlink:href="/static/icons.svg#ui--corner-arrow"
+            />
+          </svg>
+        </li>
+        <li
+          class="ecl-breadcrumb-harmonised__segment"
+          data-ecl-breadcrumb-harmonised-item="expandable"
+        >
+          <a
+            class="ecl-link ecl-link--standalone ecl-breadcrumb-harmonised__link"
+            href="/example"
+          >
+            Organisational structure
+          </a>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-harmonised__icon"
+            focusable="false"
+            role="presentation"
+          >
+            <use
+              xlink:href="/static/icons.svg#ui--corner-arrow"
+            />
+          </svg>
+        </li>
+        <li
+          class="ecl-breadcrumb-harmonised__segment"
+          data-ecl-breadcrumb-harmonised-item="static"
+        >
+          <a
+            class="ecl-link ecl-link--standalone ecl-breadcrumb-harmonised__link"
+            href="/example"
+          >
+            How the Commission is organised
+          </a>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-harmonised__icon"
+            focusable="false"
+            role="presentation"
+          >
+            <use
+              xlink:href="/static/icons.svg#ui--corner-arrow"
             />
           </svg>
         </li>
         <li
           aria-current="page"
-          aria-hidden="false"
-          class="ecl-breadcrumb__segment ecl-breadcrumb__current-page"
-          data-ecl-breadcrumb-item="static"
+          class="ecl-breadcrumb-harmonised__segment ecl-breadcrumb-harmonised__current-page"
+          data-ecl-breadcrumb-harmonised-item="static"
         >
           News
         </li>
@@ -262,63 +448,125 @@ exports[`EC - Page Header Harmonised meta-title-description - renders correctly 
     class="ecl-container"
   >
     <nav
-      aria-label="You are here:"
-      class="ecl-breadcrumb ecl-page-header-harmonised__breadcrumb"
-      data-ecl-auto-init="Breadcrumb"
-      data-ecl-breadcrumb="true"
+      aria-label=""
+      class="ecl-breadcrumb-harmonised ecl-page-header-harmonised__breadcrumb"
+      data-ecl-auto-init="BreadcrumbHarmonised"
+      data-ecl-breadcrumb-harmonised="true"
     >
       <ol
-        class="ecl-breadcrumb__container"
+        class="ecl-breadcrumb-harmonised__container"
       >
         <li
-          aria-hidden="false"
-          class="ecl-breadcrumb__segment"
-          data-ecl-breadcrumb-item="static"
+          class="ecl-breadcrumb-harmonised__segment"
+          data-ecl-breadcrumb-harmonised-item="static"
         >
           <a
-            class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
+            class="ecl-link ecl-link--standalone ecl-breadcrumb-harmonised__link"
             href="/example"
           >
             Home
           </a>
           <svg
             aria-hidden="true"
-            class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-icon--inverted ecl-breadcrumb__icon"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-harmonised__icon"
             focusable="false"
             role="presentation"
           >
             <use
-              xlink:href="static/icons.svg#ui--corner-arrow"
+              xlink:href="/static/icons.svg#ui--corner-arrow"
             />
           </svg>
         </li>
         <li
-          aria-hidden="false"
-          class="ecl-breadcrumb__segment"
-          data-ecl-breadcrumb-item="static"
+          class="ecl-breadcrumb-harmonised__segment ecl-breadcrumb-harmonised__segment--ellipsis"
+          data-ecl-breadcrumb-harmonised-ellipsis=""
+        >
+          <button
+            aria-label=""
+            class="ecl-breadcrumb-harmonised__ellipsis"
+            data-ecl-breadcrumb-harmonised-ellipsis-button=""
+            type="button"
+          >
+            …
+          </button>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-harmonised__icon"
+            focusable="false"
+            role="presentation"
+          >
+            <use
+              xlink:href="/static/icons.svg#ui--corner-arrow"
+            />
+          </svg>
+        </li>
+        <li
+          class="ecl-breadcrumb-harmonised__segment"
+          data-ecl-breadcrumb-harmonised-item="expandable"
         >
           <a
-            class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
+            class="ecl-link ecl-link--standalone ecl-breadcrumb-harmonised__link"
             href="/example"
           >
             About the European Commission
           </a>
           <svg
             aria-hidden="true"
-            class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-icon--inverted ecl-breadcrumb__icon"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-harmonised__icon"
             focusable="false"
             role="presentation"
           >
             <use
-              xlink:href="static/icons.svg#ui--corner-arrow"
+              xlink:href="/static/icons.svg#ui--corner-arrow"
+            />
+          </svg>
+        </li>
+        <li
+          class="ecl-breadcrumb-harmonised__segment"
+          data-ecl-breadcrumb-harmonised-item="expandable"
+        >
+          <a
+            class="ecl-link ecl-link--standalone ecl-breadcrumb-harmonised__link"
+            href="/example"
+          >
+            Organisational structure
+          </a>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-harmonised__icon"
+            focusable="false"
+            role="presentation"
+          >
+            <use
+              xlink:href="/static/icons.svg#ui--corner-arrow"
+            />
+          </svg>
+        </li>
+        <li
+          class="ecl-breadcrumb-harmonised__segment"
+          data-ecl-breadcrumb-harmonised-item="static"
+        >
+          <a
+            class="ecl-link ecl-link--standalone ecl-breadcrumb-harmonised__link"
+            href="/example"
+          >
+            How the Commission is organised
+          </a>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-harmonised__icon"
+            focusable="false"
+            role="presentation"
+          >
+            <use
+              xlink:href="/static/icons.svg#ui--corner-arrow"
             />
           </svg>
         </li>
         <li
           aria-current="page"
-          aria-hidden="false"
-          class="ecl-breadcrumb__segment ecl-breadcrumb__current-page"
-          data-ecl-breadcrumb-item="static"
+          class="ecl-breadcrumb-harmonised__segment ecl-breadcrumb-harmonised__current-page"
+          data-ecl-breadcrumb-harmonised-item="static"
         >
           News
         </li>
@@ -353,63 +601,125 @@ exports[`EC - Page Header Harmonised meta-title-description renders correctly wi
     class="ecl-container"
   >
     <nav
-      aria-label="You are here:"
-      class="ecl-breadcrumb ecl-page-header-harmonised__breadcrumb"
-      data-ecl-auto-init="Breadcrumb"
-      data-ecl-breadcrumb="true"
+      aria-label=""
+      class="ecl-breadcrumb-harmonised ecl-page-header-harmonised__breadcrumb"
+      data-ecl-auto-init="BreadcrumbHarmonised"
+      data-ecl-breadcrumb-harmonised="true"
     >
       <ol
-        class="ecl-breadcrumb__container"
+        class="ecl-breadcrumb-harmonised__container"
       >
         <li
-          aria-hidden="false"
-          class="ecl-breadcrumb__segment"
-          data-ecl-breadcrumb-item="static"
+          class="ecl-breadcrumb-harmonised__segment"
+          data-ecl-breadcrumb-harmonised-item="static"
         >
           <a
-            class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
+            class="ecl-link ecl-link--standalone ecl-breadcrumb-harmonised__link"
             href="/example"
           >
             Home
           </a>
           <svg
             aria-hidden="true"
-            class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-icon--inverted ecl-breadcrumb__icon"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-harmonised__icon"
             focusable="false"
             role="presentation"
           >
             <use
-              xlink:href="static/icons.svg#ui--corner-arrow"
+              xlink:href="/static/icons.svg#ui--corner-arrow"
             />
           </svg>
         </li>
         <li
-          aria-hidden="false"
-          class="ecl-breadcrumb__segment"
-          data-ecl-breadcrumb-item="static"
+          class="ecl-breadcrumb-harmonised__segment ecl-breadcrumb-harmonised__segment--ellipsis"
+          data-ecl-breadcrumb-harmonised-ellipsis=""
+        >
+          <button
+            aria-label=""
+            class="ecl-breadcrumb-harmonised__ellipsis"
+            data-ecl-breadcrumb-harmonised-ellipsis-button=""
+            type="button"
+          >
+            …
+          </button>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-harmonised__icon"
+            focusable="false"
+            role="presentation"
+          >
+            <use
+              xlink:href="/static/icons.svg#ui--corner-arrow"
+            />
+          </svg>
+        </li>
+        <li
+          class="ecl-breadcrumb-harmonised__segment"
+          data-ecl-breadcrumb-harmonised-item="expandable"
         >
           <a
-            class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
+            class="ecl-link ecl-link--standalone ecl-breadcrumb-harmonised__link"
             href="/example"
           >
             About the European Commission
           </a>
           <svg
             aria-hidden="true"
-            class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-icon--inverted ecl-breadcrumb__icon"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-harmonised__icon"
             focusable="false"
             role="presentation"
           >
             <use
-              xlink:href="static/icons.svg#ui--corner-arrow"
+              xlink:href="/static/icons.svg#ui--corner-arrow"
+            />
+          </svg>
+        </li>
+        <li
+          class="ecl-breadcrumb-harmonised__segment"
+          data-ecl-breadcrumb-harmonised-item="expandable"
+        >
+          <a
+            class="ecl-link ecl-link--standalone ecl-breadcrumb-harmonised__link"
+            href="/example"
+          >
+            Organisational structure
+          </a>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-harmonised__icon"
+            focusable="false"
+            role="presentation"
+          >
+            <use
+              xlink:href="/static/icons.svg#ui--corner-arrow"
+            />
+          </svg>
+        </li>
+        <li
+          class="ecl-breadcrumb-harmonised__segment"
+          data-ecl-breadcrumb-harmonised-item="static"
+        >
+          <a
+            class="ecl-link ecl-link--standalone ecl-breadcrumb-harmonised__link"
+            href="/example"
+          >
+            How the Commission is organised
+          </a>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-harmonised__icon"
+            focusable="false"
+            role="presentation"
+          >
+            <use
+              xlink:href="/static/icons.svg#ui--corner-arrow"
             />
           </svg>
         </li>
         <li
           aria-current="page"
-          aria-hidden="false"
-          class="ecl-breadcrumb__segment ecl-breadcrumb__current-page"
-          data-ecl-breadcrumb-item="static"
+          class="ecl-breadcrumb-harmonised__segment ecl-breadcrumb-harmonised__current-page"
+          data-ecl-breadcrumb-harmonised-item="static"
         >
           News
         </li>
@@ -442,63 +752,125 @@ exports[`EC - Page Header Harmonised meta-title-description renders correctly wi
     class="ecl-container"
   >
     <nav
-      aria-label="You are here:"
-      class="ecl-breadcrumb ecl-page-header-harmonised__breadcrumb"
-      data-ecl-auto-init="Breadcrumb"
-      data-ecl-breadcrumb="true"
+      aria-label=""
+      class="ecl-breadcrumb-harmonised ecl-page-header-harmonised__breadcrumb"
+      data-ecl-auto-init="BreadcrumbHarmonised"
+      data-ecl-breadcrumb-harmonised="true"
     >
       <ol
-        class="ecl-breadcrumb__container"
+        class="ecl-breadcrumb-harmonised__container"
       >
         <li
-          aria-hidden="false"
-          class="ecl-breadcrumb__segment"
-          data-ecl-breadcrumb-item="static"
+          class="ecl-breadcrumb-harmonised__segment"
+          data-ecl-breadcrumb-harmonised-item="static"
         >
           <a
-            class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
+            class="ecl-link ecl-link--standalone ecl-breadcrumb-harmonised__link"
             href="/example"
           >
             Home
           </a>
           <svg
             aria-hidden="true"
-            class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-icon--inverted ecl-breadcrumb__icon"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-harmonised__icon"
             focusable="false"
             role="presentation"
           >
             <use
-              xlink:href="static/icons.svg#ui--corner-arrow"
+              xlink:href="/static/icons.svg#ui--corner-arrow"
             />
           </svg>
         </li>
         <li
-          aria-hidden="false"
-          class="ecl-breadcrumb__segment"
-          data-ecl-breadcrumb-item="static"
+          class="ecl-breadcrumb-harmonised__segment ecl-breadcrumb-harmonised__segment--ellipsis"
+          data-ecl-breadcrumb-harmonised-ellipsis=""
+        >
+          <button
+            aria-label=""
+            class="ecl-breadcrumb-harmonised__ellipsis"
+            data-ecl-breadcrumb-harmonised-ellipsis-button=""
+            type="button"
+          >
+            …
+          </button>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-harmonised__icon"
+            focusable="false"
+            role="presentation"
+          >
+            <use
+              xlink:href="/static/icons.svg#ui--corner-arrow"
+            />
+          </svg>
+        </li>
+        <li
+          class="ecl-breadcrumb-harmonised__segment"
+          data-ecl-breadcrumb-harmonised-item="expandable"
         >
           <a
-            class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
+            class="ecl-link ecl-link--standalone ecl-breadcrumb-harmonised__link"
             href="/example"
           >
             About the European Commission
           </a>
           <svg
             aria-hidden="true"
-            class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-icon--inverted ecl-breadcrumb__icon"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-harmonised__icon"
             focusable="false"
             role="presentation"
           >
             <use
-              xlink:href="static/icons.svg#ui--corner-arrow"
+              xlink:href="/static/icons.svg#ui--corner-arrow"
+            />
+          </svg>
+        </li>
+        <li
+          class="ecl-breadcrumb-harmonised__segment"
+          data-ecl-breadcrumb-harmonised-item="expandable"
+        >
+          <a
+            class="ecl-link ecl-link--standalone ecl-breadcrumb-harmonised__link"
+            href="/example"
+          >
+            Organisational structure
+          </a>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-harmonised__icon"
+            focusable="false"
+            role="presentation"
+          >
+            <use
+              xlink:href="/static/icons.svg#ui--corner-arrow"
+            />
+          </svg>
+        </li>
+        <li
+          class="ecl-breadcrumb-harmonised__segment"
+          data-ecl-breadcrumb-harmonised-item="static"
+        >
+          <a
+            class="ecl-link ecl-link--standalone ecl-breadcrumb-harmonised__link"
+            href="/example"
+          >
+            How the Commission is organised
+          </a>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-harmonised__icon"
+            focusable="false"
+            role="presentation"
+          >
+            <use
+              xlink:href="/static/icons.svg#ui--corner-arrow"
             />
           </svg>
         </li>
         <li
           aria-current="page"
-          aria-hidden="false"
-          class="ecl-breadcrumb__segment ecl-breadcrumb__current-page"
-          data-ecl-breadcrumb-item="static"
+          class="ecl-breadcrumb-harmonised__segment ecl-breadcrumb-harmonised__current-page"
+          data-ecl-breadcrumb-harmonised-item="static"
         >
           News
         </li>
@@ -531,63 +903,125 @@ exports[`EC - Page Header Harmonised title - renders correctly 1`] = `
     class="ecl-container"
   >
     <nav
-      aria-label="You are here:"
-      class="ecl-breadcrumb ecl-page-header-harmonised__breadcrumb"
-      data-ecl-auto-init="Breadcrumb"
-      data-ecl-breadcrumb="true"
+      aria-label=""
+      class="ecl-breadcrumb-harmonised ecl-page-header-harmonised__breadcrumb"
+      data-ecl-auto-init="BreadcrumbHarmonised"
+      data-ecl-breadcrumb-harmonised="true"
     >
       <ol
-        class="ecl-breadcrumb__container"
+        class="ecl-breadcrumb-harmonised__container"
       >
         <li
-          aria-hidden="false"
-          class="ecl-breadcrumb__segment"
-          data-ecl-breadcrumb-item="static"
+          class="ecl-breadcrumb-harmonised__segment"
+          data-ecl-breadcrumb-harmonised-item="static"
         >
           <a
-            class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
+            class="ecl-link ecl-link--standalone ecl-breadcrumb-harmonised__link"
             href="/example"
           >
             Home
           </a>
           <svg
             aria-hidden="true"
-            class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-icon--inverted ecl-breadcrumb__icon"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-harmonised__icon"
             focusable="false"
             role="presentation"
           >
             <use
-              xlink:href="static/icons.svg#ui--corner-arrow"
+              xlink:href="/static/icons.svg#ui--corner-arrow"
             />
           </svg>
         </li>
         <li
-          aria-hidden="false"
-          class="ecl-breadcrumb__segment"
-          data-ecl-breadcrumb-item="static"
+          class="ecl-breadcrumb-harmonised__segment ecl-breadcrumb-harmonised__segment--ellipsis"
+          data-ecl-breadcrumb-harmonised-ellipsis=""
+        >
+          <button
+            aria-label=""
+            class="ecl-breadcrumb-harmonised__ellipsis"
+            data-ecl-breadcrumb-harmonised-ellipsis-button=""
+            type="button"
+          >
+            …
+          </button>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-harmonised__icon"
+            focusable="false"
+            role="presentation"
+          >
+            <use
+              xlink:href="/static/icons.svg#ui--corner-arrow"
+            />
+          </svg>
+        </li>
+        <li
+          class="ecl-breadcrumb-harmonised__segment"
+          data-ecl-breadcrumb-harmonised-item="expandable"
         >
           <a
-            class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
+            class="ecl-link ecl-link--standalone ecl-breadcrumb-harmonised__link"
             href="/example"
           >
             About the European Commission
           </a>
           <svg
             aria-hidden="true"
-            class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-icon--inverted ecl-breadcrumb__icon"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-harmonised__icon"
             focusable="false"
             role="presentation"
           >
             <use
-              xlink:href="static/icons.svg#ui--corner-arrow"
+              xlink:href="/static/icons.svg#ui--corner-arrow"
+            />
+          </svg>
+        </li>
+        <li
+          class="ecl-breadcrumb-harmonised__segment"
+          data-ecl-breadcrumb-harmonised-item="expandable"
+        >
+          <a
+            class="ecl-link ecl-link--standalone ecl-breadcrumb-harmonised__link"
+            href="/example"
+          >
+            Organisational structure
+          </a>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-harmonised__icon"
+            focusable="false"
+            role="presentation"
+          >
+            <use
+              xlink:href="/static/icons.svg#ui--corner-arrow"
+            />
+          </svg>
+        </li>
+        <li
+          class="ecl-breadcrumb-harmonised__segment"
+          data-ecl-breadcrumb-harmonised-item="static"
+        >
+          <a
+            class="ecl-link ecl-link--standalone ecl-breadcrumb-harmonised__link"
+            href="/example"
+          >
+            How the Commission is organised
+          </a>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-harmonised__icon"
+            focusable="false"
+            role="presentation"
+          >
+            <use
+              xlink:href="/static/icons.svg#ui--corner-arrow"
             />
           </svg>
         </li>
         <li
           aria-current="page"
-          aria-hidden="false"
-          class="ecl-breadcrumb__segment ecl-breadcrumb__current-page"
-          data-ecl-breadcrumb-item="static"
+          class="ecl-breadcrumb-harmonised__segment ecl-breadcrumb-harmonised__current-page"
+          data-ecl-breadcrumb-harmonised-item="static"
         >
           News
         </li>
@@ -612,63 +1046,125 @@ exports[`EC - Page Header Harmonised title renders correctly with extra attribut
     class="ecl-container"
   >
     <nav
-      aria-label="You are here:"
-      class="ecl-breadcrumb ecl-page-header-harmonised__breadcrumb"
-      data-ecl-auto-init="Breadcrumb"
-      data-ecl-breadcrumb="true"
+      aria-label=""
+      class="ecl-breadcrumb-harmonised ecl-page-header-harmonised__breadcrumb"
+      data-ecl-auto-init="BreadcrumbHarmonised"
+      data-ecl-breadcrumb-harmonised="true"
     >
       <ol
-        class="ecl-breadcrumb__container"
+        class="ecl-breadcrumb-harmonised__container"
       >
         <li
-          aria-hidden="false"
-          class="ecl-breadcrumb__segment"
-          data-ecl-breadcrumb-item="static"
+          class="ecl-breadcrumb-harmonised__segment"
+          data-ecl-breadcrumb-harmonised-item="static"
         >
           <a
-            class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
+            class="ecl-link ecl-link--standalone ecl-breadcrumb-harmonised__link"
             href="/example"
           >
             Home
           </a>
           <svg
             aria-hidden="true"
-            class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-icon--inverted ecl-breadcrumb__icon"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-harmonised__icon"
             focusable="false"
             role="presentation"
           >
             <use
-              xlink:href="static/icons.svg#ui--corner-arrow"
+              xlink:href="/static/icons.svg#ui--corner-arrow"
             />
           </svg>
         </li>
         <li
-          aria-hidden="false"
-          class="ecl-breadcrumb__segment"
-          data-ecl-breadcrumb-item="static"
+          class="ecl-breadcrumb-harmonised__segment ecl-breadcrumb-harmonised__segment--ellipsis"
+          data-ecl-breadcrumb-harmonised-ellipsis=""
+        >
+          <button
+            aria-label=""
+            class="ecl-breadcrumb-harmonised__ellipsis"
+            data-ecl-breadcrumb-harmonised-ellipsis-button=""
+            type="button"
+          >
+            …
+          </button>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-harmonised__icon"
+            focusable="false"
+            role="presentation"
+          >
+            <use
+              xlink:href="/static/icons.svg#ui--corner-arrow"
+            />
+          </svg>
+        </li>
+        <li
+          class="ecl-breadcrumb-harmonised__segment"
+          data-ecl-breadcrumb-harmonised-item="expandable"
         >
           <a
-            class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
+            class="ecl-link ecl-link--standalone ecl-breadcrumb-harmonised__link"
             href="/example"
           >
             About the European Commission
           </a>
           <svg
             aria-hidden="true"
-            class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-icon--inverted ecl-breadcrumb__icon"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-harmonised__icon"
             focusable="false"
             role="presentation"
           >
             <use
-              xlink:href="static/icons.svg#ui--corner-arrow"
+              xlink:href="/static/icons.svg#ui--corner-arrow"
+            />
+          </svg>
+        </li>
+        <li
+          class="ecl-breadcrumb-harmonised__segment"
+          data-ecl-breadcrumb-harmonised-item="expandable"
+        >
+          <a
+            class="ecl-link ecl-link--standalone ecl-breadcrumb-harmonised__link"
+            href="/example"
+          >
+            Organisational structure
+          </a>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-harmonised__icon"
+            focusable="false"
+            role="presentation"
+          >
+            <use
+              xlink:href="/static/icons.svg#ui--corner-arrow"
+            />
+          </svg>
+        </li>
+        <li
+          class="ecl-breadcrumb-harmonised__segment"
+          data-ecl-breadcrumb-harmonised-item="static"
+        >
+          <a
+            class="ecl-link ecl-link--standalone ecl-breadcrumb-harmonised__link"
+            href="/example"
+          >
+            How the Commission is organised
+          </a>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-harmonised__icon"
+            focusable="false"
+            role="presentation"
+          >
+            <use
+              xlink:href="/static/icons.svg#ui--corner-arrow"
             />
           </svg>
         </li>
         <li
           aria-current="page"
-          aria-hidden="false"
-          class="ecl-breadcrumb__segment ecl-breadcrumb__current-page"
-          data-ecl-breadcrumb-item="static"
+          class="ecl-breadcrumb-harmonised__segment ecl-breadcrumb-harmonised__current-page"
+          data-ecl-breadcrumb-harmonised-item="static"
         >
           News
         </li>
@@ -691,63 +1187,125 @@ exports[`EC - Page Header Harmonised title renders correctly with extra class na
     class="ecl-container"
   >
     <nav
-      aria-label="You are here:"
-      class="ecl-breadcrumb ecl-page-header-harmonised__breadcrumb"
-      data-ecl-auto-init="Breadcrumb"
-      data-ecl-breadcrumb="true"
+      aria-label=""
+      class="ecl-breadcrumb-harmonised ecl-page-header-harmonised__breadcrumb"
+      data-ecl-auto-init="BreadcrumbHarmonised"
+      data-ecl-breadcrumb-harmonised="true"
     >
       <ol
-        class="ecl-breadcrumb__container"
+        class="ecl-breadcrumb-harmonised__container"
       >
         <li
-          aria-hidden="false"
-          class="ecl-breadcrumb__segment"
-          data-ecl-breadcrumb-item="static"
+          class="ecl-breadcrumb-harmonised__segment"
+          data-ecl-breadcrumb-harmonised-item="static"
         >
           <a
-            class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
+            class="ecl-link ecl-link--standalone ecl-breadcrumb-harmonised__link"
             href="/example"
           >
             Home
           </a>
           <svg
             aria-hidden="true"
-            class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-icon--inverted ecl-breadcrumb__icon"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-harmonised__icon"
             focusable="false"
             role="presentation"
           >
             <use
-              xlink:href="static/icons.svg#ui--corner-arrow"
+              xlink:href="/static/icons.svg#ui--corner-arrow"
             />
           </svg>
         </li>
         <li
-          aria-hidden="false"
-          class="ecl-breadcrumb__segment"
-          data-ecl-breadcrumb-item="static"
+          class="ecl-breadcrumb-harmonised__segment ecl-breadcrumb-harmonised__segment--ellipsis"
+          data-ecl-breadcrumb-harmonised-ellipsis=""
+        >
+          <button
+            aria-label=""
+            class="ecl-breadcrumb-harmonised__ellipsis"
+            data-ecl-breadcrumb-harmonised-ellipsis-button=""
+            type="button"
+          >
+            …
+          </button>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-harmonised__icon"
+            focusable="false"
+            role="presentation"
+          >
+            <use
+              xlink:href="/static/icons.svg#ui--corner-arrow"
+            />
+          </svg>
+        </li>
+        <li
+          class="ecl-breadcrumb-harmonised__segment"
+          data-ecl-breadcrumb-harmonised-item="expandable"
         >
           <a
-            class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
+            class="ecl-link ecl-link--standalone ecl-breadcrumb-harmonised__link"
             href="/example"
           >
             About the European Commission
           </a>
           <svg
             aria-hidden="true"
-            class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-icon--inverted ecl-breadcrumb__icon"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-harmonised__icon"
             focusable="false"
             role="presentation"
           >
             <use
-              xlink:href="static/icons.svg#ui--corner-arrow"
+              xlink:href="/static/icons.svg#ui--corner-arrow"
+            />
+          </svg>
+        </li>
+        <li
+          class="ecl-breadcrumb-harmonised__segment"
+          data-ecl-breadcrumb-harmonised-item="expandable"
+        >
+          <a
+            class="ecl-link ecl-link--standalone ecl-breadcrumb-harmonised__link"
+            href="/example"
+          >
+            Organisational structure
+          </a>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-harmonised__icon"
+            focusable="false"
+            role="presentation"
+          >
+            <use
+              xlink:href="/static/icons.svg#ui--corner-arrow"
+            />
+          </svg>
+        </li>
+        <li
+          class="ecl-breadcrumb-harmonised__segment"
+          data-ecl-breadcrumb-harmonised-item="static"
+        >
+          <a
+            class="ecl-link ecl-link--standalone ecl-breadcrumb-harmonised__link"
+            href="/example"
+          >
+            How the Commission is organised
+          </a>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-breadcrumb-harmonised__icon"
+            focusable="false"
+            role="presentation"
+          >
+            <use
+              xlink:href="/static/icons.svg#ui--corner-arrow"
             />
           </svg>
         </li>
         <li
           aria-current="page"
-          aria-hidden="false"
-          class="ecl-breadcrumb__segment ecl-breadcrumb__current-page"
-          data-ecl-breadcrumb-item="static"
+          class="ecl-breadcrumb-harmonised__segment ecl-breadcrumb-harmonised__current-page"
+          data-ecl-breadcrumb-harmonised-item="static"
         >
           News
         </li>
