@@ -1,9 +1,9 @@
 # ECL Twig - EC Footer component
 
-npm package: `@ecl-twig/ec-component-footer-standardised`
+npm package: `@ecl-twig/ec-component-footer-harmonised`
 
 ```shell
-npm install --save @ecl-twig/ec-component-footer-standardised
+npm install --save @ecl-twig/ec-component-footer-harmonised
 ```
 
 ## Parameters
@@ -25,7 +25,7 @@ npm install --save @ecl-twig/ec-component-footer-standardised
 
 <!-- prettier-ignore -->
 ```twig
-{% include '@ecl-twig/ec-component-site-footer-standardised/footer-standardised.html.twig' with { 
+{% include '@ecl-twig/ec-component-site-footer-harmonised/footer-harmonised.html.twig' with { 
   group: 'group1', 
   sections: [ 
     { 

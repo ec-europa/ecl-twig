@@ -64,7 +64,7 @@
               icon: section.title.icon|default({}),
             }) only %}
           {% else %}
-            <div class="{{- _title_class_name -}}">
+            <div class="{{ _title_class_name }}">
               {{- section.title -}}
             </div>
         {% endif %}
