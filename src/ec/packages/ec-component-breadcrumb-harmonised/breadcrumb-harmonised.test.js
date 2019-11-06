@@ -2,7 +2,7 @@ import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
 import { dataSimple, dataLong } from './demo/data';
 
-describe('EC - Breadcrumb Core', () => {
+describe('EC - Breadcrumb Harmonised', () => {
   const template =
     '@ecl-twig/ec-component-breadcrumb-harmonised/breadcrumb-harmonised.html.twig';
   const render = params => renderTwigFileAsNode(template, params);
@@ -48,7 +48,7 @@ describe('EC - Breadcrumb Core', () => {
   describe('Long', () => {
     const data = {
       extra_attributes: [
-        { name: 'data-ecl-auto-init', value: 'BreadcrumbCore' },
+        { name: 'data-ecl-auto-init', value: 'BreadcrumbHarmonised' },
       ],
       links: dataLong.links,
       icon_file_path: defaultIconPath,
