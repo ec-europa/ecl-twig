@@ -77,7 +77,7 @@ foreach ($components as $component) {
           $data_html = preg_replace('(xlink:href=")', 'xlink:href="/icons.svg', $data_html);
         }
         else {
-          $data_html = preg_replace('(xlink:href="([\/]?static\/icons.svg)?)', 'xlink:href=/icons-social.svg', $data_html);
+          $data_html = preg_replace('(xlink:href="([\/]?static\/icons.svg)?)', 'xlink:href="/icons-social.svg', $data_html);
         }
         // Create stories files.
         $is_modifier = strpos($variant, '--') !== FALSE;
@@ -103,6 +103,9 @@ foreach ($components as $component) {
           // Get the story template.
           $data_story = file_get_contents('./story_template.txt');
           // Replace its content with our variables.
+          if (!empty($deprecated_component) || !empty($component_group)) {
+            $component_group = $component_group . '/';
+          }
           $data_story = str_replace(
             ['#component#', '#component_variant#', '#php_file_name#', '#deprecated#', '#component_group#'],
             [$base_component, $adapted_variant, $variant . $result_extension, $deprecated_component, $component_group]
