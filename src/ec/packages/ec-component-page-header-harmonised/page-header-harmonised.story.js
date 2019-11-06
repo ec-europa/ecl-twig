@@ -8,8 +8,8 @@ import {
   demoMetaTitleContent,
   demoMetaTitleDescriptionContent,
 } from './demo/data';
-import pageHeaderStandardisedDocs from './README.md';
-import pageHeaderStandardised from './page-header-harmonised.html.twig';
+import pageHeaderHarmonisedDocs from './README.md';
+import pageHeaderHarmonised from './page-header-harmonised.html.twig';
 
 demoTitleContent.breadcrumb.icon_file_path = defaultSprite;
 demoMetaTitleContent.breadcrumb.icon_file_path = defaultSprite;
@@ -21,27 +21,27 @@ storiesOf('Components/Page Headers/Page Header Harmonised', module)
   .add(
     'title',
     () => {
-      return pageHeaderStandardised(demoTitleContent);
+      return pageHeaderHarmonised(demoTitleContent);
     },
     {
-      notes: { markdown: pageHeaderStandardisedDocs },
+      notes: { markdown: pageHeaderHarmonisedDocs },
     }
   )
   .add(
     'meta-title',
     () => {
-      return pageHeaderStandardised(demoMetaTitleContent);
+      return pageHeaderHarmonised(demoMetaTitleContent);
     },
     {
-      notes: { markdown: pageHeaderStandardisedDocs },
+      notes: { markdown: pageHeaderHarmonisedDocs },
     }
   )
   .add(
     'meta-title-description',
     () => {
-      return pageHeaderStandardised(demoMetaTitleDescriptionContent);
+      return pageHeaderHarmonised(demoMetaTitleDescriptionContent);
     },
     {
-      notes: { markdown: pageHeaderStandardisedDocs },
+      notes: { markdown: pageHeaderHarmonisedDocs },
     }
   );
