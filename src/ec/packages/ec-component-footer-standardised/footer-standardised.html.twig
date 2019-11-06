@@ -2,13 +2,13 @@
 
 {#
   Parameters:
-  - "sections" (array of objects) (default: []):
+  - "sections" (array of objects) (default: [])
     - "title" (optional) (string) OR (object with Link component in property)
     - "title_class_name" (optional) (string) (default: '')
     - "description" (optional) (string) (default: '')
     - "content_before" (optional) (string) (default: '')
     - "list_class_name" (optional) (string) (default: '')
-    - "links" (optional) (array of Link components) (default: []):
+    - "links" (optional) (array of Link components) (default: [])
   - "extra_classes" (optional) (string) (default: '') Extra classes (space separated) for the icon
   - "extra_attributes" (optional) (array) (default: []) Extra attributes for icon
     - "name" (string) Attribute name, eg. 'data-test'
@@ -16,11 +16,13 @@
 #}
 
 {# Internal properties #}
+
 {% set _sections = sections|default([]) %}
-{% set _css_class = '' %}
+{% set _css_class = 'ecl-footer-standardised' %}
 {% set _extra_attributes = '' %}
 
 {# Internal logic - Process properties #}
+
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
 {% endif %}
@@ -36,8 +38,7 @@
 {% endif %}
 
 {# Print the result #}
-
-<footer class="ecl-footer-standardised"{{ _extra_attributes|raw }}>
+<footer class="{{ _css_class }}"{{ _extra_attributes|raw }}>
   {# Main container #}
   <div class="ecl-container ecl-footer-standardised__container">
     {% for section in _sections %}
@@ -60,7 +61,7 @@
               icon: section.title.icon|default({}),
             }) only %}
           {% else %}
-            <div class="{{- _title_class_name -}}">
+            <div class="{{ _title_class_name }}">
               {{- section.title -}}
             </div>
         {% endif %}
