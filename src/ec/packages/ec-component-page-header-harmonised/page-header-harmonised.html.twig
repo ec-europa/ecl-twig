@@ -48,7 +48,7 @@
 <div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
   <div class="ecl-container">
     {% if breadcrumb is defined %}
-      {% include '@ecl-twig/ec-component-breadcrumb/breadcrumb.html.twig' with breadcrumb|merge({
+      {% include '@ecl-twig/ec-component-breadcrumb-harmonised/breadcrumb-harmonised.html.twig' with breadcrumb|merge({
         extra_classes: 'ecl-page-header-harmonised__breadcrumb'
       }) only %}
     {% endif %}
