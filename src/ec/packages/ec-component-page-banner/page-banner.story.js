@@ -1,56 +1,33 @@
 import { storiesOf } from '@storybook/html';
-import { withKnobs, text, boolean } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
 
-import bannerDataDefault from '@ecl/ec-specs-page-banner/demo/data--default';
-import bannerDataImage from '@ecl/ec-specs-page-banner/demo/data--image';
-import bannerDataImageShade from '@ecl/ec-specs-page-banner/demo/data--image-shade';
-import bannerDataPrimary from '@ecl/ec-specs-page-banner/demo/data--primary';
-import bannerDataAlignLeft from '@ecl/ec-specs-page-banner/demo/data--align-left';
-
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
-
 import pageBanner from './page-banner.html.twig';
 import pageBannerDocs from './README.md';
 
-function formatBanner(b) {
-  const iconType = b.link.icon.shape.split('--');
-  const banner = {
-    type: b.variant,
-    title: text('Title', b.title),
-    baseline: text('Baseline', b.baseline),
-    link: {
-      link: {
-        label: text('Link label', b.link.label),
-        icon_position: 'after',
-      },
-      icon: {
-        type: iconType[0],
-        name: iconType[1],
-        transform: b.link.icon.transform,
-        size: b.link.icon.size,
-        path: defaultSprite,
-      },
-    },
-    centered: boolean('Centered', b.isCentered),
-  };
+import {
+  bannerDataDefault,
+  bannerDataImage,
+  bannerDataImageShade,
+  bannerDataPrimary,
+  bannerDataAlignLeft,
+} from './demo/data';
 
-  if ('image' in b) {
-    banner.image = b.image;
+function setIconPath(b) {
+  if (b.link.icon) {
+    b.link.icon.path = defaultSprite; // eslint-disable-line no-param-reassign
   }
-
-  return banner;
+  return b;
 }
 
 storiesOf('Components/Banners/Page Banner', module)
-  .addDecorator(withKnobs)
   .addDecorator(withNotes)
   .addDecorator(withCode)
   .add(
     'default',
     () => {
-      const data = formatBanner(bannerDataDefault);
+      const data = setIconPath(bannerDataDefault);
 
       return pageBanner(data);
     },
@@ -61,7 +38,7 @@ storiesOf('Components/Banners/Page Banner', module)
   .add(
     'image',
     () => {
-      const data = formatBanner(bannerDataImage);
+      const data = setIconPath(bannerDataImage);
 
       return pageBanner(data);
     },
@@ -72,7 +49,7 @@ storiesOf('Components/Banners/Page Banner', module)
   .add(
     'image-shade',
     () => {
-      const data = formatBanner(bannerDataImageShade);
+      const data = setIconPath(bannerDataImageShade);
 
       return pageBanner(data);
     },
@@ -83,7 +60,7 @@ storiesOf('Components/Banners/Page Banner', module)
   .add(
     'primary',
     () => {
-      const data = formatBanner(bannerDataPrimary);
+      const data = setIconPath(bannerDataPrimary);
 
       return pageBanner(data);
     },
@@ -94,7 +71,7 @@ storiesOf('Components/Banners/Page Banner', module)
   .add(
     'align-left',
     () => {
-      const data = formatBanner(bannerDataAlignLeft);
+      const data = setIconPath(bannerDataAlignLeft);
 
       return pageBanner(data);
     },

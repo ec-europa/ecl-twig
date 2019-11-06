@@ -23,9 +23,6 @@ $components = array_slice(scandir(Path::canonicalize($system_path)), 2);
 foreach ($components as $component) {
   $component_group = $component_family = '';
   $template = '@ecl-twig/ec-component-' . $component . '/' . $component;
-  if ($component == 'page-banner') {
-    continue;
-  }
 
   if ($component == 'checkbox' || $component == 'radio') {
     $template = $template . '-group';
@@ -46,6 +43,25 @@ foreach ($components as $component) {
 
   if (!empty($component_family)) {
     $component_group = str_replace('-' . $component_family, 's', $component);
+  }
+
+  // Other groups.
+  $list = ['description-list', 'ordered-list', 'unordered-list'];
+  $navigation = ['inpage-navigation', 'link', 'menu-legacy', 'pagination', 'skip-link'];
+  $forms = ['checkbox', 'text-input', 'textarea', 'file-upload', 'radio', 'select', 'search-form'];
+  $banners = ['page_banner', 'hero_banner'];
+
+  if (in_array($component, $list)) {
+    $component_group = 'list';
+  }
+  elseif (in_array($component, $navigation)) {
+    $component_group = 'navigation';
+  }
+  elseif (in_array($component, $banners)) {
+    $component_group = 'banners';
+  }
+  elseif (in_array($component, $forms)) {
+    $component_group = 'forms';
   }
 
   $template = $template . $extension;
