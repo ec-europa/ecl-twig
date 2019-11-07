@@ -66,12 +66,12 @@ function preparePageHeaderData(data) {
   return output;
 }
 
-storiesOf('Components/Page Header', module)
+storiesOf('Components/deprecated/Page Header', module)
   .addDecorator(withKnobs)
   .addDecorator(withNotes)
   .addDecorator(withCode)
   .add(
-    'title',
+    'ECL < 2.14 title',
     () => {
       const sampleData = preparePageHeaderData(pageHeaderDataTitle);
 
@@ -82,7 +82,7 @@ storiesOf('Components/Page Header', module)
     }
   )
   .add(
-    'title-description',
+    'ECL < 2.14 title-description',
     () => {
       const sampleData = preparePageHeaderData(pageHeaderDataTitleDescription);
 
@@ -93,7 +93,7 @@ storiesOf('Components/Page Header', module)
     }
   )
   .add(
-    'meta-title',
+    'ECL < 2.14 meta-title',
     () => {
       const sampleData = preparePageHeaderData(pageHeaderDataMetaTitle);
 
@@ -104,7 +104,7 @@ storiesOf('Components/Page Header', module)
     }
   )
   .add(
-    'meta-title-description',
+    'ECL < 2.14 meta-title-description',
     () => {
       const sampleData = preparePageHeaderData(
         pageHeaderDataMetaTitleDescription
@@ -117,7 +117,7 @@ storiesOf('Components/Page Header', module)
     }
   )
   .add(
-    'events',
+    'ECL < 2.14 events',
     () => {
       const sampleData = preparePageHeaderData(pageHeaderDataEvents);
 
@@ -128,7 +128,7 @@ storiesOf('Components/Page Header', module)
     }
   )
   .add(
-    'events-description',
+    'ECL < 2.14 events-description',
     () => {
       const sampleData = preparePageHeaderData(pageHeaderDataEventsDescription);
 

@@ -2,13 +2,14 @@
 
 {#
   Parameters:
-  - "sections" (array of objects) (default: [])
+  - "group" (string) (default: 'group1'): 'group1' or 'group2'
+  - "sections" (array of objects) (default: []):
     - "title" (optional) (string) OR (object with Link component in property)
     - "title_class_name" (optional) (string) (default: '')
     - "description" (optional) (string) (default: '')
     - "content_before" (optional) (string) (default: '')
     - "list_class_name" (optional) (string) (default: '')
-    - "links" (optional) (array of Link components) (default: [])
+    - "links" (optional) (array of Link components) (default: []):
   - "extra_classes" (optional) (string) (default: '') Extra classes (space separated) for the icon
   - "extra_attributes" (optional) (array) (default: []) Extra attributes for icon
     - "name" (string) Attribute name, eg. 'data-test'
@@ -17,8 +18,9 @@
 
 {# Internal properties #}
 
+{% set _group = group|default('group1') %}
 {% set _sections = sections|default([]) %}
-{% set _css_class = 'ecl-footer-standardised' %}
+{% set _css_class = 'ecl-footer-harmonised ecl-footer-harmonised--' ~ _group %}
 {% set _extra_attributes = '' %}
 
 {# Internal logic - Process properties #}
@@ -38,19 +40,20 @@
 {% endif %}
 
 {# Print the result #}
+
 <footer class="{{ _css_class }}"{{ _extra_attributes|raw }}>
   {# Main container #}
-  <div class="ecl-container ecl-footer-standardised__container">
+  <div class="ecl-container ecl-footer-harmonised__container">
     {% for section in _sections %}
       {# Section #}
-      <div class="ecl-footer-standardised__section {{ 'ecl-footer-standardised__section' ~ loop.index }}">
+      <div class="ecl-footer-harmonised__section {{ 'ecl-footer-harmonised__section' ~ loop.index }}">
         {# content before #}
         {% if section.content_before is defined and section.content_before is not empty %}
-          <div class="ecl-footer-standardised__content">{{ section.content_before|raw }}</div>
+          <div class="ecl-footer-harmonised__content">{{ section.content_before|raw }}</div>
         {% endif %}
         {# title #}
         {% if section.title is defined and section.title is not empty %}
-          {% set _title_class_name = 'ecl-footer-standardised__title' %}
+          {% set _title_class_name = 'ecl-footer-harmonised__title' %}
           {% if section.title_class_name is defined and section.title_class_name is not empty %}
             {% set _title_class_name = _title_class_name ~ ' ' ~ section.title_class_name %}
           {% endif %}
@@ -68,20 +71,20 @@
       {% endif %}
       {# description #}
       {% if section.description is defined and section.description is not empty %}
-        <div class="ecl-footer-standardised__description">{{ section.description|raw }}</div>
+        <div class="ecl-footer-harmonised__description">{{ section.description|raw }}</div>
       {% endif %}
       {# list #}
       {% if section.links is defined and section.links is not empty and section.links is iterable %}
-        {% set _list_class_name = 'ecl-footer-standardised__list' %}
+        {% set _list_class_name = 'ecl-footer-harmonised__list' %}
         {% if section.list_class_name is defined and section.list_class_name is not empty %}
           {% set _list_class_name = _list_class_name ~ ' ' ~ section.list_class_name %}
         {% endif %}
         <ul class="{{ _list_class_name }}">
           {% for item in section.links %}
-            <li class="ecl-footer-standardised__list-item">
+            <li class="ecl-footer-harmonised__list-item">
                {% include '@ecl-twig/ec-component-link/link.html.twig' with item|merge({
                   link: item.link|default({})|merge({ type: 'standalone' }),
-                  extra_classes: 'ecl-footer-standardised__link',
+                  extra_classes: 'ecl-footer-harmonised__link',
                 }) only %}
             </li>
           {% endfor %}
