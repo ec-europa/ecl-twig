@@ -17,7 +17,7 @@ storiesOf('Components/Navigation/Breadcrumbs/Breadcrumb Harmonised', module)
       breadcrumb({
         links: dataSimple.links,
         icon_file_path: defaultSprite,
-        navigation_text: dataSimple.label,
+        navigation_text: dataSimple.navigation_text,
         ellipsis_label: 'Click to expand',
       }),
     {
@@ -30,7 +30,7 @@ storiesOf('Components/Navigation/Breadcrumbs/Breadcrumb Harmonised', module)
       breadcrumb({
         links: dataLong.links,
         icon_file_path: defaultSprite,
-        navigation_text: dataLong.label,
+        navigation_text: dataLong.navigation_text,
         ellipsis_label: 'Click to expand',
       }),
     {
