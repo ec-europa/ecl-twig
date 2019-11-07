@@ -60,7 +60,7 @@ storiesOf('Components/Icon', module)
       return icon({
         icon: {
           type: 'branded',
-          name: name,
+          name,
           size,
           transform,
           color,
@@ -83,7 +83,7 @@ storiesOf('Components/Icon', module)
       return icon({
         icon: {
           type: 'general',
-          name: name,
+          name,
           size,
           transform,
           color,
@@ -106,7 +106,7 @@ storiesOf('Components/Icon', module)
       return icon({
         icon: {
           type: 'notifications',
-          name: name,
+          name,
           size,
           transform,
           color,
@@ -129,7 +129,7 @@ storiesOf('Components/Icon', module)
       return icon({
         icon: {
           type: 'ui',
-          name: name,
+          name,
           size,
           transform,
           color,

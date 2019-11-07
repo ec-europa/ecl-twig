@@ -31,6 +31,14 @@ module.exports = {
       },
     },
     {
+      files: ['php/**/*.story.js'],
+      rules: {
+        'import/no-extraneous-dependencies': false,
+        camelcase: 0,
+        'import/order': false,
+      },
+    },
+    {
       files: ['utils/**/*.{js,jsx}'],
       rules: {
         'import/no-extraneous-dependencies': false,
