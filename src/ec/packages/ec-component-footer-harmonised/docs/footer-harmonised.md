@@ -1,13 +1,14 @@
 # ECL Twig - EC Footer component
 
-npm package: `@ecl-twig/ec-component-footer-standardised`
+npm package: `@ecl-twig/ec-component-footer-harmonised`
 
 ```shell
-npm install --save @ecl-twig/ec-component-footer-standardised
+npm install --save @ecl-twig/ec-component-footer-harmonised
 ```
 
 ## Parameters
 
+- "group" (string) (default: 'group1'): 'group1' or 'group2'
 - "sections" (array of objects) (default: [])
   - "title" (optional) (string) OR (object with Link component in property)
   - "title_class_name" (optional) (string) (default: '')
@@ -24,7 +25,8 @@ npm install --save @ecl-twig/ec-component-footer-standardised
 
 <!-- prettier-ignore -->
 ```twig
-{% include '@ecl-twig/ec-component-footer-standardised/footer-standardised.html.twig' with { 
+{% include '@ecl-twig/ec-component-footer-harmonised/footer-harmonised.html.twig' with { 
+  group: 'group1', 
   sections: [ 
     { 
       title: { 
