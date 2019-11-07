@@ -12,6 +12,7 @@ $system = 'ec';
 
 $root_folder = __DIR__ . '/../../../';
 $root_folder_abs = Path::canonicalize($root_folder);
+$packages_folder = $root_folder_abs . DIRECTORY_SEPARATOR . 'src/' . $system . DIRECTORY_SEPARATOR . 'packages';
 
 // The place to store HTML output of the Twig PHP renderer.
 $system_path = $root_folder_abs . DIRECTORY_SEPARATOR . $output_folder . DIRECTORY_SEPARATOR . 'packages' . DIRECTORY_SEPARATOR . $system;
@@ -89,10 +90,9 @@ foreach ($components as $component) {
       if (!empty($data_json)) {
         $data_html = $twig->render($template, $data_json);
         // Fix icons.
-        if (strpos($component,'social') === FALSE) {
+        if (strpos($component, 'social') === FALSE) {
           $data_html = preg_replace('(xlink:href=")', 'xlink:href="/icons.svg', $data_html);
-        }
-        else {
+        } else {
           $data_html = preg_replace('(xlink:href="([\/]?static\/icons.svg)?)', 'xlink:href="/icons-social.svg', $data_html);
         }
         if ($component == 'gallery') {
@@ -104,8 +104,7 @@ foreach ($components as $component) {
         // If it's a modifier we demo it in a folder together with the other variants.
         if ($is_modifier) {
           $base_component = explode('--', $variant)[0];
-        }
-        else {
+        } else {
           $base_component = $variant;
         }
         // We try to collect all the variants in the same story, so if we find one and the story file exist we inject
@@ -113,8 +112,7 @@ foreach ($components as $component) {
         if (file_exists($folder . DIRECTORY_SEPARATOR . 'story' . DIRECTORY_SEPARATOR . $base_component . '.story.js')) {
           $prepend = "import " . $adapted_variant . " from '../" . $variant . $result_extension . "';\n";
           $data_story = ".add('" . $variant . "', () => { return " . $adapted_variant . "; })";
-        }
-        else {
+        } else {
           // Not sure why we needed this, but it's the case.
           if (!is_dir($folder . DIRECTORY_SEPARATOR . 'story')) {
             mkdir($folder . DIRECTORY_SEPARATOR . 'story');
@@ -139,15 +137,30 @@ foreach ($components as $component) {
         );
         // Prepending a string in a file is a bit more clumsy in php.
         if (!empty($prepend)) {
-          prepend($prepend,$folder . DIRECTORY_SEPARATOR . 'story' . DIRECTORY_SEPARATOR . $base_component . '.story.js');
+          prepend($prepend, $folder . DIRECTORY_SEPARATOR . 'story' . DIRECTORY_SEPARATOR . $base_component . '.story.js');
         }
         // Save the rendered htm in a file .php.html
         file_put_contents(
           $folder . DIRECTORY_SEPARATOR . $variant . $result_extension,
           $data_html
         );
+        // Symlink the docs.
+        $link = $folder . DIRECTORY_SEPARATOR . 'README.md';
+        $target = $packages_folder . DIRECTORY_SEPARATOR . 'ec-component-' . $base_component . DIRECTORY_SEPARATOR . $component . '.md';
+        if (!file_exists($link) && file_exists($target)) {
+          symlink($target, $link);
+        }
+        else {
+          $target = $packages_folder . DIRECTORY_SEPARATOR . 'ec-component-' . $base_component . DIRECTORY_SEPARATOR . 'README.md';
+          if (!file_exists($link) && file_exists($target)) {
+            $target = $packages_folder . DIRECTORY_SEPARATOR . 'ec-component-' . $base_component . DIRECTORY_SEPARATOR . 'README.md';
+            symlink($target, $link);
+          }
+          else {
+            touch($link);
+          }
+        }
       }
-
     } catch (exception $e) {
       // Not throwing facilitates continuation.
       // If a component has an error it's not going to stop the rest.

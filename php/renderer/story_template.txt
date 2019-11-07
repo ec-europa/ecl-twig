@@ -1,10 +1,19 @@
 import { storiesOf } from '@storybook/html';
+import { withNotes } from '@ecl-twig/storybook-addon-notes';
+import withCode from '@ecl-twig/storybook-addon-code';
+
+import docs from '../README.md';
 import #component_variant# from '../#php_file_name#';
 
 storiesOf('Components/#deprecated##component_group##component#', module)
+  .addDecorator(withCode)
+  .addDecorator(withNotes)
   .add(
     '#component_variant#',
     () => {
       return #component_variant#;
+    },
+    {
+      notes: { markdown: docs },
     }
   )
