@@ -124,7 +124,7 @@
       $list = ['description-list', 'ordered-list', 'unordered-list'];
       $navigation = ['inpage-navigation', 'link', 'menu-legacy', 'pagination', 'skip-link'];
       $forms = ['checkbox', 'text-input', 'textarea', 'file-upload', 'radio', 'select', 'search-form'];
-      $banners = ['page_banner', 'hero_banner'];
+      $banners = ['page_-anner', 'hero-banner'];
 
       if (in_array($component, $list)) {
         $component_group = 'list';

@@ -309,7 +309,9 @@
   </div>
 {% endif %}
 {% if _menu %}
-  {% include '@ecl-twig/ec-component-site-header-harmonised/menu.html.twig' with _icon_file_path %}
+  {% include '@ecl-twig/ec-component-site-header-harmonised/menu.html.twig' with {
+    _icon_file_path: _icon_file_path
+  } only %}
 {% endif %}
   {% include '@ecl-twig/ec-component-language-list/language-list-overlay.html.twig' with {
     items: _language_selector.overlay.items,
