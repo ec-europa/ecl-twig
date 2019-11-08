@@ -7,7 +7,7 @@ import menuLegacyDocs from './docs/menu-legacy.md';
 
 import demoData from './demo/data';
 
-import menuLegacy from './menu-legacy.html.twig';
+import menuLegacy from './ecl-menu-legacy.html.twig';
 
 storiesOf('Components/Navigation/Menu Legacy', module)
   .addDecorator(withNotes)

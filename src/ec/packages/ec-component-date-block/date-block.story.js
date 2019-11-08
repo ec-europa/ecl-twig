@@ -5,7 +5,7 @@ import withCode from '@ecl-twig/storybook-addon-code';
 
 import data from './demo/data';
 import docs from './docs/date-block.md';
-import dateBlock from './date-block.html.twig';
+import dateBlock from './ecl-date-block.html.twig';
 
 const options = {
   default: '',

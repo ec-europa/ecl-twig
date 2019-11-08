@@ -5,7 +5,7 @@ import withCode from '@ecl-twig/storybook-addon-code';
 
 import textInputDocs from './docs/text-input.md';
 
-import textInput from './text-input.html.twig';
+import textInput from './ecl-text-input.html.twig';
 
 const inputWidthOptions = {
   small: 's',

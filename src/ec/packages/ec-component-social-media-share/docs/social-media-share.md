@@ -29,7 +29,7 @@ npm install --save @ecl-twig/ec-component-social-media-share
 
 <!-- prettier-ignore -->
 ```twig
-{% include '@ecl-twig/ec-component-social-media-share/social-media-share.html.twig' with { 
+{% include '@ecl-twig/ec-component-social-media-share/ecl-social-media-share.html.twig' with { 
   description: 'Share this page', 
   links: [ 
   { 

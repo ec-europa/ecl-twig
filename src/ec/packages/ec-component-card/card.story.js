@@ -6,7 +6,7 @@ import withCode from '@ecl-twig/storybook-addon-code';
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import cardDocs from './docs/card.md';
 
-import card from './card.html.twig';
+import card from './ecl-card.html.twig';
 
 storiesOf('Components/Card', module)
   .addDecorator(withKnobs)

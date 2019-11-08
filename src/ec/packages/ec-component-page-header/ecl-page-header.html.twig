@@ -1,0 +1,77 @@
+{% spaceless %}
+{#
+  Parameters:
+    - "title" (string) (default: '') Title of header
+    - "description" (string) (default: '') Description of header
+    - "meta" (string) (default: '') Meta of header
+    - "infos" (array) (default: []) Array of infos. format: [
+        {
+            "text" (string) Label of info
+            "icon" (associative array) Predefined structure compatible with EC Icon
+        },
+        ...
+        ]
+    - "breadcrumb" (associative array) (default: '') Predefined structure compatible with EC Breadcrumb
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (optional) (string)
+        ...
+      ]
+#}
+
+{# variables #}
+{% set _title = title|default('') %}
+{% set _meta = meta|default('') %}
+{% set _description = description|default('') %}
+
+{% set _css_class = 'ecl-page-header' %}
+{% set _extra_attributes = '' %}
+
+{# Internal logic - Process properties #}
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value|e ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+<div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+  <div class="ecl-container">
+    {% if breadcrumb is defined %}
+      {% include '@ecl-twig/ec-component-breadcrumb/ecl-breadcrumb.html.twig' with breadcrumb|merge({
+        extra_classes: 'ecl-page-header__breadcrumb'
+      }) only %}
+    {% endif %}
+    {% if _meta is not empty %}
+      <div class="ecl-page-header__meta-list">{{ _meta }}</div>
+    {% endif %}
+    <h1 class="ecl-page-header__title">{{ _title }}</h1>
+    {% if _description is not empty %}
+      <p class="ecl-page-header__description">{{ _description }}</p>
+    {% endif %}
+    {% if infos is defined and infos is not empty and infos is iterable %}
+      <ul class="ecl-page-header__info-list">
+        {% for info in infos %}
+          <li class="ecl-page-header__info-item">
+            {% include '@ecl-twig/ec-component-icon/ecl-icon.html.twig' with {
+              icon: info.icon|merge({ size: 's' }),
+              extra_classes: 'ecl-page-header__info-icon'
+            } only %}
+            {{- info.text -}}
+          </li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </div>
+</div>
+{% endspaceless %}

@@ -9,7 +9,7 @@ import {
   demoMetaTitleDescriptionContent,
 } from './demo/data';
 import pageHeaderCoreDocs from './README.md';
-import pageHeaderCore from './page-header-core.html.twig';
+import pageHeaderCore from './ecl-page-header-core.html.twig';
 
 demoTitleContent.breadcrumb.icon_file_path = defaultSprite;
 demoMetaTitleContent.breadcrumb.icon_file_path = defaultSprite;

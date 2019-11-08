@@ -5,7 +5,7 @@ import withCode from '@ecl-twig/storybook-addon-code';
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 
 import data from './demo/data';
-import footerStandardised from './footer-standardised.html.twig';
+import footerStandardised from './ecl-footer-standardised.html.twig';
 import notes from './docs/footer-standardised.md';
 
 data.sections.forEach(s => {

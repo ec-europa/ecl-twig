@@ -4,7 +4,7 @@ import withCode from '@ecl-twig/storybook-addon-code';
 
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import logo from '@ecl/ec-resources-logo/logo--en.svg';
-import siteHeaderHarmonised from './site-header-harmonised.html.twig';
+import siteHeaderHarmonised from './ecl-site-header-harmonised.html.twig';
 import { dataGroup1, dataGroup2 } from './demo/data';
 import siteHeaderHarmonisedDocs from './README.md';
 

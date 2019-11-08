@@ -5,7 +5,7 @@ import withCode from '@ecl-twig/storybook-addon-code';
 
 import data from '@ecl/ec-specs-blockquote/demo/data';
 
-import blockquote from './blockquote.html.twig';
+import blockquote from './ecl-blockquote.html.twig';
 import notes from './README.md';
 
 storiesOf('Components/Blockquote', module)

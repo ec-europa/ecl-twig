@@ -6,7 +6,7 @@ import withCode from '@ecl-twig/storybook-addon-code';
 import defaultSprite from '@ecl/ec-resources-social-icons/dist/sprites/icons-social.svg';
 import demoData from './demo/data';
 
-import SocialMediaFollow from './social-media-follow.html.twig';
+import SocialMediaFollow from './ecl-social-media-follow.html.twig';
 import notes from './docs/social-media-follow.md';
 
 demoData.links.forEach(link => {

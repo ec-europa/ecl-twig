@@ -25,7 +25,7 @@ npm install --save @ecl-twig/ec-component-breadcrumb-harmonised
 
 <!-- prettier-ignore -->
 ```twig
-{% include '@ecl-twig/ec-component-breadcrumb-harmonised/breadcrumb-harmonised.html.twig' with { 
+{% include '@ecl-twig/ec-component-breadcrumb-harmonised/ecl-breadcrumb-harmonised.html.twig' with { 
   links: [ 
     { 
       label: 'Link 1', 

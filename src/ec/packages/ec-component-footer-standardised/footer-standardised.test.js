@@ -4,7 +4,7 @@ import sections from './demo/data';
 
 describe('EC - Footer Standardised', () => {
   const template =
-    '@ecl-twig/ec-component-footer-standardised/footer-standardised.html.twig';
+    '@ecl-twig/ec-component-footer-standardised/ecl-footer-standardised.html.twig';
   const render = params => renderTwigFileAsNode(template, params);
 
   describe('default', () => {
