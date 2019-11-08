@@ -3,10 +3,9 @@
 /* eslint-disable global-require, import/no-dynamic-require, import/no-extraneous-dependencies */
 
 const fs = require('fs');
-const path = require('path');
-const Twig = require('twing');
+const twing = require('../src/ec/.storybook/environment');
 
-const system = process.env.ECL_SYSTEM;
+const system = 'ec';
 
 if (!system) {
   throw new Error('Missing ECL_SYSTEM environment variable.');
@@ -20,23 +19,26 @@ const systemFolder = `${distFolder}/packages/${system}`;
 const components = fs.readdirSync(systemFolder);
 
 components.forEach(component => {
-  const componentFiles = fs.readdirSync(`${systemFolder}/${component}`);
-  const dataFiles = componentFiles.filter(file =>
-    file.includes('data--audio.js')
-  );
+  const dataFiles = fs.readdirSync(`${systemFolder}/${component}/specs`);
 
   dataFiles.forEach(dataFile => {
-    const data = require(`${systemFolder}/${component}/${dataFile}`);
-    const variant = dataFile
-      .replace('.json', '')
-      .replace('data--audio.js', component);
+    let componentTemplate = '';
+    const data = require(`${systemFolder}/${component}/specs/${dataFile}`);
     const pkg = `${system}-component-${component}`;
-    const template = `${rootFolder}/src/${system}/packages/${pkg}/${component}.${extension}`;
+    if (component === 'checkbox' || component === 'radio') {
+      componentTemplate = `${component}-group`;
+    } else {
+      componentTemplate = component;
+    }
+    const template = `@ecl-twig/${pkg}/${componentTemplate}.${extension}`;
 
-    Twig.renderFile(path.resolve(template), data, (err, html) => {
-      if (err) throw err;
-
-      fs.writeFileSync(`${systemFolder}/${component}/${variant}.js.html`, html);
-    });
+    const html = twing.render(template, data);
+    fs.writeFile(
+      `${systemFolder}/${component}/js/${componentTemplate}.js.html`,
+      html,
+      err => {
+        if (err) throw err;
+      }
+    );
   });
 });

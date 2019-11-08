@@ -74,6 +74,10 @@ foreach ($components as $component) {
           if (!is_dir($folder . DIRECTORY_SEPARATOR . 'story')) {
             mkdir($folder . DIRECTORY_SEPARATOR . 'story');
           }
+          // Prepare a folder for the js rendered files.
+          if (!is_dir($folder . DIRECTORY_SEPARATOR . 'js')) {
+            mkdir($folder . DIRECTORY_SEPARATOR . 'js');
+          }
           // Get the story template.
           $data_story = file_get_contents('./story_template.txt');
           // Replace its content with our variables.
