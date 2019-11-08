@@ -5,6 +5,7 @@ use Webmozart\PathUtil\Path;
 require_once __DIR__ . '/bootstrap.php';
 require_once __DIR__ . '/helpers.php';
 
+$helpers = new storyHelpers();
 $result_extension = '.php.html';
 $extension = '.html.twig';
 $output_folder = 'php';
@@ -29,42 +30,9 @@ foreach ($components as $component) {
     $template = $template . '-group';
   }
   // Deprecated components.
-  $deprecated = ['site-header', 'accordion', 'breadcrumb', 'page-header', 'footer'];
-  $deprecated_component = in_array($component, $deprecated) ? 'deprecated' : '';
-
-  // Grouping in families.
-  $families = ['core', 'harmonised', 'standardised'];
-
-  foreach ($families as $family) {
-    if (strpos($component, $family) !== FALSE) {
-      $component_family = $family;
-      break;
-    }
-  }
-
-  if (!empty($component_family)) {
-    $component_group = str_replace('-' . $component_family, 's', $component);
-  }
-
-  // Other groups.
-  $list = ['description-list', 'ordered-list', 'unordered-list'];
-  $navigation = ['inpage-navigation', 'link', 'menu-legacy', 'pagination', 'skip-link'];
-  $forms = ['checkbox', 'text-input', 'textarea', 'file-upload', 'radio', 'select', 'search-form'];
-  $banners = ['page_banner', 'hero_banner'];
-
-  if (in_array($component, $list)) {
-    $component_group = 'list';
-  }
-  elseif (in_array($component, $navigation)) {
-    $component_group = 'navigation';
-  }
-  elseif (in_array($component, $banners)) {
-    $component_group = 'banners';
-  }
-  elseif (in_array($component, $forms)) {
-    $component_group = 'forms';
-  }
-
+  $deprecated_component = $helpers->deprecatedComponents($component);
+  // Grouping components in families and variants.
+  $component_group = $helpers->groupComponents($component);
   $template = $template . $extension;
   $specs_folder = Path::canonicalize($system_path . DIRECTORY_SEPARATOR . $component . DIRECTORY_SEPARATOR . 'specs');
   $folder = Path::canonicalize($system_path . DIRECTORY_SEPARATOR . $component);
@@ -88,25 +56,14 @@ foreach ($components as $component) {
       $data_json = json_decode($data_string, TRUE);
 
       if (!empty($data_json)) {
+        $data_json = $helpers->fixData($data_json, $variant);
+        // Here we render the template with params.
         $data_html = $twig->render($template, $data_json);
-        // Fix icons.
-        if (strpos($component, 'social') === FALSE) {
-          $data_html = preg_replace('(xlink:href=")', 'xlink:href="/icons.svg', $data_html);
-        } else {
-          $data_html = preg_replace('(xlink:href="([\/]?static\/icons.svg)?)', 'xlink:href="/icons-social.svg', $data_html);
-        }
-        if ($component == 'gallery') {
-          $data_html = preg_replace('(<\/video>)', '/>', $data_html);
-        }
+        $data_html = $helpers->fixHtml($data_html, $component);
         // Create stories files.
-        $is_modifier = strpos($variant, '--') !== FALSE;
         $adapted_variant = str_replace('-', '_', $variant);
         // If it's a modifier we demo it in a folder together with the other variants.
-        if ($is_modifier) {
-          $base_component = explode('--', $variant)[0];
-        } else {
-          $base_component = $variant;
-        }
+        $base_component = $helpers->baseComponent($variant);
         // We try to collect all the variants in the same story, so if we find one and the story file exist we inject
         // the additional story and we prepend the import of the component.
         if (file_exists($folder . DIRECTORY_SEPARATOR . 'story' . DIRECTORY_SEPARATOR . $base_component . '.story.js')) {
@@ -137,7 +94,7 @@ foreach ($components as $component) {
         );
         // Prepending a string in a file is a bit more clumsy in php.
         if (!empty($prepend)) {
-          prepend($prepend, $folder . DIRECTORY_SEPARATOR . 'story' . DIRECTORY_SEPARATOR . $base_component . '.story.js');
+          $helpers->prepend($prepend, $folder . DIRECTORY_SEPARATOR . 'story' . DIRECTORY_SEPARATOR . $base_component . '.story.js');
         }
         // Save the rendered htm in a file .php.html
         file_put_contents(
