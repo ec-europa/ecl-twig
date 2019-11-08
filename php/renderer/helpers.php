@@ -26,11 +26,8 @@
           'href' => $data_json['href'],
           'icon' => !empty($data_json['icon']) ? $data_json['icon'] : ''
         ];
-
-        unset($data_json['variant']);
-        unset($data_json['icon']);
-        unset($data_json['href']);
-        unset($data_json['label']);
+        // Do some cleanup.
+        unset($data_json['variant'], $data_json['icon'], $data_json['href'], $data_json['label']);
       }
       // Icons.
       if (isset($data_json['shape'])) {
@@ -53,6 +50,9 @@
       // Checkbox, Hero banner, Radio, Table, Tag.
       elseif (isset($data_json['dataDefault'])) {
         $data_json = $data_json['dataDefault'];
+        if ($variant == 'hero-banner') {
+          $data_json['link'] = [ 'link' => $data_json['link']];
+        }
       }
       // File.
       elseif (isset($data_json['dataWithTranslation'])) {
@@ -69,6 +69,10 @@
       // Site header Core, Site Header Standardised, Site Header.
       elseif (isset($data_json['englishData'])) {
         $data_json = $data_json['englishData'];
+      }
+      // Page-banner.
+      elseif (isset($data_json['bannerDataDefault'])) {
+        $data_json = $data_json['bannerDataDefault'];
       }
 
       return $data_json;
@@ -124,7 +128,7 @@
       $list = ['description-list', 'ordered-list', 'unordered-list'];
       $navigation = ['inpage-navigation', 'link', 'menu-legacy', 'pagination', 'skip-link'];
       $forms = ['checkbox', 'text-input', 'textarea', 'file-upload', 'radio', 'select', 'search-form'];
-      $banners = ['page_-anner', 'hero-banner'];
+      $banners = ['page-banner', 'hero-banner'];
 
       if (in_array($component, $list)) {
         $component_group = 'list';
