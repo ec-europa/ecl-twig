@@ -4,7 +4,8 @@ import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 import defaultDataStructure from './demo/data';
 
 describe('EC - Menu Legacy', () => {
-  const template = '@ecl-twig/ec-component-menu-legacy/ecl-menu-legacy.html.twig';
+  const template =
+    '@ecl-twig/ec-component-menu-legacy/ecl-menu-legacy.html.twig';
   const render = params => renderTwigFileAsNode(template, params);
   const defaultIconPath = 'static/icons.svg';
 

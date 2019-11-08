@@ -40,7 +40,8 @@ function formatBanner(b) {
 }
 
 describe('EC - Hero Banner', () => {
-  const template = '@ecl-twig/ec-component-hero-banner/ecl-hero-banner.html.twig';
+  const template =
+    '@ecl-twig/ec-component-hero-banner/ecl-hero-banner.html.twig';
   const render = params => renderTwigFileAsNode(template, params);
 
   describe('default', () => {
