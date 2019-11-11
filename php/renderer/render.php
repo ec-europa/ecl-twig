@@ -48,6 +48,10 @@ foreach ($components as $component) {
         '',
         str_replace('data', $component, $file_name)
       );
+      // Problems in loading the js rendered file for these variants.
+      if ($variant == 'breadcrumb-simple'|| $variant == 'page-filler') {
+        continue;
+      }
 
       $data_string = file_get_contents(
         $specs_folder . DIRECTORY_SEPARATOR . $file_name
@@ -87,7 +91,7 @@ foreach ($components as $component) {
 
           $data_story = str_replace(
             ['#component#', '#component_variant#', '#php_file_name#', '#deprecated#', '#component_group#'],
-            [$base_component, $adapted_variant, $variant . $result_extension, $deprecated_component, $component_group]
+            [$base_component, $adapted_variant, $variant, $deprecated_component, $component_group]
             , $data_story
           );
         }

@@ -34,7 +34,7 @@ components.forEach(component => {
 
     const html = twing.render(template, data);
     fs.writeFile(
-      `${systemFolder}/${component}/js/${componentTemplate}.js.html`,
+      `${systemFolder}/${component}/js/${component}.js.html`,
       html,
       err => {
         if (err) throw err;
