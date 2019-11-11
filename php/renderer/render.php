@@ -72,7 +72,8 @@ foreach ($components as $component) {
         // the additional story and we prepend the import of the component.
         if (file_exists($folder . DIRECTORY_SEPARATOR . 'story' . DIRECTORY_SEPARATOR . $base_component . '.story.js')) {
           $prepend = "import " . $adapted_variant . " from '../" . $variant . $result_extension . "';\n";
-          $data_story = ".add('" . $variant . "', () => { return " . $adapted_variant . "; })";
+          $data_story = ".add('" . $variant . "', () => { return " . $adapted_variant . "; },";
+          $data_story .= "{ notes: { markdown: docs }, diff: { jsmarkup: jsCode }})";
         } else {
           // Not sure why we needed this, but it's the case.
           if (!is_dir($folder . DIRECTORY_SEPARATOR . 'story')) {

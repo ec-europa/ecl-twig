@@ -16,7 +16,8 @@
     "postinstall": "lerna run postinstall && lerna run prepublish && patch-package",
     "pretty-check": "prettier --check \"src/**/*.{md,mdx,html,json,yml,js}\"",
     "pretty-fix": "prettier --write \"src/**/*.{md,mdx,html,json,yml,js}\"",
-    "php-pretty-fix": "prettier --write \"php/packages/**/*.js\"",
+    "php-story-fix": "prettier --write \"php/**/*.story.js\"",
+    "php-html-fix": "prettier --write \"php/**/*.php.html\"",
     "publish": "lerna publish",
     "publish-canary": "lerna publish --canary --yes",
     "publish-next": "lerna publish --npm-tag=next --bump=prerelease",
@@ -29,7 +30,7 @@
     "render:setupPhp": "cd ./node_modules/@ecl-twig/php-renderer && composer install",
     "render:php": "cd ./node_modules/@ecl-twig/php-renderer && composer render",
     "render:js": "./scripts/generate-html.js",
-    "render": "yarn clean-php && yarn render:dataGen && yarn render:php && yarn render:js && yarn php-pretty-fix",
+    "render": "yarn clean-php && yarn render:dataGen && yarn render:php && yarn render:js && yarn pretty-php",
     "update-version": "lerna version --conventional-commits --no-push --no-git-tag-version",
     "test": "npm run jest"
   },
