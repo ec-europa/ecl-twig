@@ -123,6 +123,10 @@
   {% set _language_selector = _language_selector|merge(language_selector) %}
 {% endif %}
 
+{% if _language_selector.overlay is defined and _language_selector.overlay is not empty %}
+  {% set _has_overlay = true %}
+{% endif %}
+
 {% if search_toggle is defined and search_toggle is not empty %}
   {% set _search_toggle = _search_toggle|merge(search_toggle) %}
 {% endif %}
@@ -228,6 +232,10 @@
           class="ecl-link ecl-link--standalone ecl-site-header-harmonised__language-selector"
           href="{{ _language_selector.href }}"
           data-ecl-language-selector
+        {% if _has_overlay is defined %}
+          aria-controls="language-list-overlay"
+          aria-expanded="false"
+        {% endif %}
         >
           <span class="ecl-site-header-harmonised__language-icon">
             {% include '@ecl-twig/ec-component-icon/ecl-icon.html.twig' with {
@@ -313,6 +321,7 @@
     _icon_file_path: _icon_file_path
   } only %}
 {% endif %}
+{% if _has_overlay is defined %}
   {% include '@ecl-twig/ec-component-language-list/ecl-language-list-overlay.html.twig' with {
     items: _language_selector.overlay.items,
     close_label: _language_selector.overlay.close_label,
@@ -324,6 +333,7 @@
       { name: 'hidden' }
     ]
   } only %}
+{% endif %}
 </header>
 
 {% endspaceless %}
