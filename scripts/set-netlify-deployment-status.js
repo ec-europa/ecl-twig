@@ -8,6 +8,7 @@ const run = async () => {
     GH_TOKEN,
     DRONE_REPO,
     DRONE_COMMIT_SHA,
+    DRONE_COMMIT_BRANCH,
     DRONE_BUILD_LINK,
   } = process.env;
 
@@ -37,12 +38,21 @@ const run = async () => {
       '../netlify_deployment_result.json'
     ));
 
-    payload = {
-      state: 'success',
-      target_url: deploymentResult.deploy_url,
-      description: 'Preview ready!',
-      context: 'drone/netlify',
-    };
+    if (DRONE_COMMIT_BRANCH && DRONE_COMMIT_BRANCH === 'master') {
+      payload = {
+        state: 'success',
+        target_url: deploymentResult.url,
+        description: 'Production deployment completed!',
+        context: 'drone/netlify',
+      };
+    } else {
+      payload = {
+        state: 'success',
+        target_url: deploymentResult.deploy_url,
+        description: 'Preview ready!',
+        context: 'drone/netlify',
+      };
+    }
   } catch (error) {
     payload = {
       state: 'error',
