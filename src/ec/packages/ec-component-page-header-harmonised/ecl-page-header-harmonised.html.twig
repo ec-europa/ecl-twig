@@ -40,18 +40,21 @@
 {# Print the result #}
 <div class="{{ _css_class }}" {{ _extra_attributes|raw }}>
   <div class="ecl-container">
-    {% if breadcrumb is defined and breadcrumb is not empty %}
-      {% include '@ecl-twig/ec-component-breadcrumb-harmonised/ecl-breadcrumb-harmonised.html.twig' with breadcrumb|merge({
-        extra_classes: 'ecl-page-header-harmonised__breadcrumb'
-      }) only %}
-    {% endif %}
-    {% if _meta is not empty %}
-      <div class="ecl-page-header-harmonised__meta">{{ _meta }}</div>
-    {% endif %}
+  {% if breadcrumb is defined and breadcrumb is not empty %}
+    {% include '@ecl-twig/ec-component-breadcrumb-harmonised/ecl-breadcrumb-harmonised.html.twig' with breadcrumb|merge({
+      extra_classes: 'ecl-page-header-harmonised__breadcrumb'
+    }) only %}
+  {% endif %}
+  {% if _meta is not empty %}
+    <div class="ecl-page-header-harmonised__meta">
+      {{- _meta|raw -}}
+    </div>
+  {% endif %}
     <h1 class="ecl-page-header-harmonised__title">{{ _title }}</h1>
-    {% if _description is not empty %}
-      <p class="ecl-page-header-harmonised__description">{{ _description|raw }}</p>
-    {% endif %}
+  {% if _description is not empty %}
+    <p class="ecl-page-header-harmonised__description">{{ _description|raw }}</p>
+  {% endif %}
   </div>
 </div>
+
 {% endspaceless %}
