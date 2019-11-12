@@ -13,7 +13,7 @@ npm install --save @ecl-twig/ec-component-expandable
 - "label_collapsed" (string) (default: '')
 - "label_collapsed" (string) (default: '')
 - "button" (predefined structure) : Button component structure
-- "dropdown_paragraph_wrapper" (optional) (boolean) (default: false) : Add a default paragraph wrapper to the dropdown
+- "extra_dropdown_classes" (optional) (string) (default: '') Extra dropdown classes (space separated)
 - "extra_classes" (optional) (string) (default: '') Extra classes (space separated)
 - "extra_attributes" (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'

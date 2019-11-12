@@ -6,7 +6,7 @@
     - "label_expanded" (string) (default: '')
     - "label_collapsed" (string) (default: '')
     - "button" (predefined structure): Button component structure
-    - "dropdown_paragraph_wrapper" (default: false): Add a default paragraph wrapper to the dropdown
+    - "extra_dropdown_classes" (string) (default: '')
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
         {
@@ -27,6 +27,7 @@
   'data-ecl-expandable="true"',
   'data-ecl-auto-init="Expandable"']|join(' ')
 %}
+{% set _css_dropdown_class = 'ecl-expandable__content' %}
 
 {% set _label_expanded = label_expanded|default('') %}
 {% set _label_collapsed = label_collapsed|default('') %}
@@ -36,9 +37,12 @@
 
 {% set _expanded = expanded|default(false) %}
 {% set _content_hidden_attribute = '' %}
-{% set _dropdown_paragraph_wrapper = dropdown_paragraph_wrapper|default(false) %}
 
 {# Internal logic - Process properties #}
+
+{% if extra_dropdown_classes is defined and extra_dropdown_classes is not empty %}
+  {% set _css_dropdown_class = _css_dropdown_class ~ ' ' ~ extra_dropdown_classes %}
+{% endif %}
 
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
@@ -75,14 +79,10 @@
   }|merge(_button) only %}
   <div
     id="{{ _id ~ '-content' }}"
-    class="ecl-u-type-paragraph-m ecl-expandable__content"
+    class="{{ _css_dropdown_class }}"
     hidden
   >
-  {% if _dropdown_paragraph_wrapper %}
-    <p>{% block content _content|raw %}</p>
-  {% else %}
-    {{- block('content') -}}
-  {% endif %}
+    {%- block content _content|raw -%}
   </div>
 </div>
 
