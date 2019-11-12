@@ -14,7 +14,7 @@ demoMetaTitleDescriptionContent.breadcrumb.icon_file_path = defaultSprite;
 
 describe('EC - Page Header Harmonised', () => {
   const template =
-    '@ecl-twig/ec-component-page-header-harmonised/page-header-harmonised.html.twig';
+    '@ecl-twig/ec-component-page-header-harmonised/ecl-page-header-harmonised.html.twig';
   const render = params => renderTwigFileAsNode(template, params);
 
   describe('title', () => {

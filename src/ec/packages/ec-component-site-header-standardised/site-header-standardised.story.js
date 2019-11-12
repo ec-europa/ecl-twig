@@ -9,7 +9,7 @@ import frenchBanner from '@ecl/ec-resources-logo/logo--fr.svg';
 import { englishData, frenchData } from './demo/data';
 
 import siteHeaderStandardisedDocs from './README.md';
-import siteHeaderStandardised from './site-header-standardised.html.twig';
+import siteHeaderStandardised from './ecl-site-header-standardised.html.twig';
 
 storiesOf('Components/Site Headers/Standardised', module)
   .addDecorator(withNotes)

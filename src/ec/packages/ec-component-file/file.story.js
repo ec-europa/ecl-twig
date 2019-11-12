@@ -8,7 +8,7 @@ import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import { dataWithTranslation, dataWithoutTranslation } from './demo/data';
 
 import fileDocs from './docs/file.md';
-import file from './file.html.twig';
+import file from './ecl-file.html.twig';
 
 // Add icon path
 dataWithTranslation.icon.path = defaultSprite;

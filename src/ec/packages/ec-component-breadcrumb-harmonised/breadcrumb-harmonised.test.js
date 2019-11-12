@@ -4,7 +4,7 @@ import { dataSimple, dataLong } from './demo/data';
 
 describe('EC - Breadcrumb Harmonised', () => {
   const template =
-    '@ecl-twig/ec-component-breadcrumb-harmonised/breadcrumb-harmonised.html.twig';
+    '@ecl-twig/ec-component-breadcrumb-harmonised/ecl-breadcrumb-harmonised.html.twig';
   const render = params => renderTwigFileAsNode(template, params);
   const defaultIconPath = 'static/icons.svg';
 

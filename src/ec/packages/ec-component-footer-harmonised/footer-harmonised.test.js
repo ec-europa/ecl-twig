@@ -7,7 +7,7 @@ dataGroup2.group = 'group2';
 
 describe('EC - Footer Harmonised', () => {
   const template =
-    '@ecl-twig/ec-component-footer-harmonised/footer-harmonised.html.twig';
+    '@ecl-twig/ec-component-footer-harmonised/ecl-footer-harmonised.html.twig';
   const render = params => renderTwigFileAsNode(template, params);
 
   describe('Group 1', () => {

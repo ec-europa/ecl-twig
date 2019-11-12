@@ -13,7 +13,7 @@ import dataSearch from '@ecl/ec-specs-button/demo/data--search';
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import uiIcons from '@ecl/ec-resources-icons/dist/lists/ui.json';
 
-import button from './button.html.twig';
+import button from './ecl-button.html.twig';
 
 import primaryDocs from './docs/primary.md';
 import secondaryDocs from './docs/secondary.md';

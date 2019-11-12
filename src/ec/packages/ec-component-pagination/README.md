@@ -23,7 +23,7 @@ npm install --save @ecl-twig/ec-component-pagination
 
 <!-- prettier-ignore -->
 ```twig
-{% include '@ecl-twig/ec-component-pagination/pagination.html.twig' with { 
+{% include '@ecl-twig/ec-component-pagination/ecl-pagination.html.twig' with { 
   label: 'Pagination', 
   items: [ 
     { 

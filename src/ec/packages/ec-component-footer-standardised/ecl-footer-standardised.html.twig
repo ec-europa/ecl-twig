@@ -1,0 +1,95 @@
+{% spaceless %}
+
+{#
+  Parameters:
+  - "sections" (array of objects) (default: [])
+    - "title" (optional) (string) OR (object with Link component in property)
+    - "title_class_name" (optional) (string) (default: '')
+    - "description" (optional) (string) (default: '')
+    - "content_before" (optional) (string) (default: '')
+    - "list_class_name" (optional) (string) (default: '')
+    - "links" (optional) (array of Link components) (default: [])
+  - "extra_classes" (optional) (string) (default: '') Extra classes (space separated) for the icon
+  - "extra_attributes" (optional) (array) (default: []) Extra attributes for icon
+    - "name" (string) Attribute name, eg. 'data-test'
+    - "value" (string) Attribute value, eg: 'data-test-1'
+#}
+
+{# Internal properties #}
+
+{% set _sections = sections|default([]) %}
+{% set _css_class = 'ecl-footer-standardised' %}
+{% set _extra_attributes = '' %}
+
+{# Internal logic - Process properties #}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value|e ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+<footer class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+  {# Main container #}
+  <div class="ecl-container ecl-footer-standardised__container">
+    {% for section in _sections %}
+      {# Section #}
+      <div class="ecl-footer-standardised__section {{ 'ecl-footer-standardised__section' ~ loop.index }}">
+        {# content before #}
+        {% if section.content_before is defined and section.content_before is not empty %}
+          <div class="ecl-footer-standardised__content">{{ section.content_before|raw }}</div>
+        {% endif %}
+        {# title #}
+        {% if section.title is defined and section.title is not empty %}
+          {% set _title_class_name = 'ecl-footer-standardised__title' %}
+          {% if section.title_class_name is defined and section.title_class_name is not empty %}
+            {% set _title_class_name = _title_class_name ~ ' ' ~ section.title_class_name %}
+          {% endif %}
+          {% if section.title.link is defined and section.title.link is not empty %}
+            {% include '@ecl-twig/ec-component-link/ecl-link.html.twig' with section|merge({
+              link: section.title.link|merge({ type: 'standalone'}),
+              extra_classes: _title_class_name,
+              icon: section.title.icon|default({}),
+            }) only %}
+          {% else %}
+            <div class="{{ _title_class_name }}">
+              {{- section.title -}}
+            </div>
+        {% endif %}
+      {% endif %}
+      {# description #}
+      {% if section.description is defined and section.description is not empty %}
+        <div class="ecl-footer-standardised__description">{{ section.description|raw }}</div>
+      {% endif %}
+      {# list #}
+      {% if section.links is defined and section.links is not empty and section.links is iterable %}
+        {% set _list_class_name = 'ecl-footer-standardised__list' %}
+        {% if section.list_class_name is defined and section.list_class_name is not empty %}
+          {% set _list_class_name = _list_class_name ~ ' ' ~ section.list_class_name %}
+        {% endif %}
+        <ul class="{{ _list_class_name }}">
+          {% for item in section.links %}
+            <li class="ecl-footer-standardised__list-item">
+               {% include '@ecl-twig/ec-component-link/ecl-link.html.twig' with item|merge({
+                  link: item.link|default({})|merge({ type: 'standalone' }),
+                  extra_classes: 'ecl-footer-standardised__link',
+                }) only %}
+            </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </div>
+    {% endfor %}
+  </div>
+</footer>
+
+{% endspaceless %}

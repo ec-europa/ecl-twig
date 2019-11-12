@@ -1,7 +1,7 @@
 import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
 describe('EC - Card', () => {
-  const template = '@ecl-twig/ec-component-card/card.html.twig';
+  const template = '@ecl-twig/ec-component-card/ecl-card.html.twig';
   const render = params => renderTwigFileAsNode(template, params);
   const defaultIconPath = 'static/icons.svg';
 

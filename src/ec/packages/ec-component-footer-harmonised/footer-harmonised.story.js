@@ -5,7 +5,7 @@ import withCode from '@ecl-twig/storybook-addon-code';
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 
 import { dataGroup1, dataGroup2 } from './demo/data';
-import footerHarmonised from './footer-harmonised.html.twig';
+import footerHarmonised from './ecl-footer-harmonised.html.twig';
 import notes from './docs/footer-harmonised.md';
 
 // add manually group property to change class

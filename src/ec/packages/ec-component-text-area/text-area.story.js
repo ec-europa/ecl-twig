@@ -4,7 +4,7 @@ import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
 import specData from '@ecl/ec-specs-text-area/demo/data--default';
 import textAreaDocs from './docs/text-area.md';
-import textArea from './text-area.html.twig';
+import textArea from './ecl-text-area.html.twig';
 
 const inputWidthOptions = {
   small: 's',

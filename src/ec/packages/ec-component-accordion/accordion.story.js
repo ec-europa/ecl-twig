@@ -8,7 +8,7 @@ import withCode from '@ecl-twig/storybook-addon-code';
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import demoData from './demo/data';
 
-import accordion from './accordion.html.twig';
+import accordion from './ecl-accordion.html.twig';
 import notes from './docs/accordion.md';
 
 storiesOf('Components/deprecated/Accordion', module)

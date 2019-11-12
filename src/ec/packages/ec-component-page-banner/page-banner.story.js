@@ -11,7 +11,7 @@ import bannerDataAlignLeft from '@ecl/ec-specs-page-banner/demo/data--align-left
 
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 
-import pageBanner from './page-banner.html.twig';
+import pageBanner from './ecl-page-banner.html.twig';
 import pageBannerDocs from './README.md';
 
 function formatBanner(b) {

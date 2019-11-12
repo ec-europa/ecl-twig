@@ -7,7 +7,7 @@ import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import { dataSimple, dataLong } from './demo/data';
 
 import breadcrumbDocs from './README.md';
-import breadcrumb from './breadcrumb.html.twig';
+import breadcrumb from './ecl-breadcrumb.html.twig';
 
 storiesOf('Components/Navigation/Breadcrumb', module)
   .addDecorator(withKnobs)

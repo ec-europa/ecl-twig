@@ -11,7 +11,7 @@ import {
   dataLeft,
 } from './demo/data';
 
-import heroBanner from './hero-banner.html.twig';
+import heroBanner from './ecl-hero-banner.html.twig';
 import heroBannerDocs from './docs/hero-banner.md';
 
 function formatBanner(b) {
