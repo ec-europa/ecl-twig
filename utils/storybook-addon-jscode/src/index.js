@@ -17,7 +17,7 @@ export const withJsCode = makeDecorator({
       throw new Error('You must set `jsmarkup` on the `diff` parameter');
     }
 
-    channel.emit('ecl/diff/add_code', jsmarkup);
+    channel.emit('ecl/jsCode/add_code', jsmarkup);
 
     return getStory(context);
   },

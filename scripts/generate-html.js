@@ -30,7 +30,7 @@ components.forEach(component => {
     } else {
       componentTemplate = component;
     }
-    const template = `@ecl-twig/${pkg}/${componentTemplate}.${extension}`;
+    const template = `@ecl-twig/${pkg}/ecl-${componentTemplate}.${extension}`;
 
     const html = twing.render(template, data);
     fs.writeFile(

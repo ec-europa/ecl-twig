@@ -10,6 +10,7 @@ $result_extension = '.php.html';
 $extension = '.html.twig';
 $output_folder = 'php';
 $system = 'ec';
+$prefix = 'ecl-';
 
 $root_folder = __DIR__ . '/../../../';
 $root_folder_abs = Path::canonicalize($root_folder);
@@ -24,7 +25,7 @@ $components = array_slice(scandir(Path::canonicalize($system_path)), 2);
 
 foreach ($components as $component) {
   $component_group = $component_family = '';
-  $template = '@ecl-twig/ec-component-' . $component . '/' . $component;
+  $template = '@ecl-twig/ec-component-' . $component . '/' . $prefix . $component;
 
   if ($component == 'checkbox' || $component == 'radio') {
     $template = $template . '-group';
