@@ -7,6 +7,7 @@ const adapter = initialData => {
 
   adaptedData.label_expanded = adaptedData.labelExpanded;
   adaptedData.label_collapsed = adaptedData.labelCollapsed;
+  adaptedData.extra_dropdown_classes = 'ecl-u-type-paragraph-m';
 
   const [type, name] = adaptedData.button.icon.shape.split('--');
 
