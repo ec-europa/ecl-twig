@@ -16,13 +16,28 @@ pipeline:
       - yarn install --frozen-lockfile
       - yarn lint && yarn pretty-check
 
-  deploy:
+  deploy-preview:
     image: node:dubnium
     secrets: [gh_token, netlify_auth_token, netlify_site]
     commands:
       - yarn clean
       - yarn dist
-      - './node_modules/.bin/netlify deploy --site $${NETLIFY_SITE} --message "Drone build: ${CI_BUILD_NUMBER}" --json > netlify_deployment_result.json'
+      - 'yarn netlify deploy --site $${NETLIFY_SITE} --message "Drone build: ${CI_BUILD_NUMBER}" --json > netlify_deployment_result.json'
       - node scripts/set-netlify-deployment-status.js
     when:
-      event: [push, pull_request]
+      event: push
+      branch:
+        exclude:
+          - master
+
+  deploy-prod:
+    image: node:dubnium
+    secrets: [gh_token, netlify_auth_token, netlify_site]
+    commands:
+      - yarn clean
+      - yarn dist
+      - 'yarn netlify deploy --prod --site $${NETLIFY_SITE} --message "Drone build: ${CI_BUILD_NUMBER}" --json > netlify_deployment_result.json'
+      - node scripts/set-netlify-deployment-status.js
+    when:
+      branch: master
+      event: push
