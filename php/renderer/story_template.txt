@@ -2,14 +2,16 @@ import { storiesOf } from '@storybook/html';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
 import { withDiff } from '@ecl-twig/storybook-addon-diff';
+import { withJsCode } from '@ecl-twig/storybook-addon-jscode';
 import jsCode from '../js/#component#.js.html';
 
 import docs from '../README.md';
 import #component_variant# from '../#php_file_name#.php.html';
 
 storiesOf('Components/#deprecated##component_group##component#', module)
+.addDecorator(withNotes)
   .addDecorator(withCode)
-  .addDecorator(withNotes)
+  .addDecorator(withJsCode)
   .addDecorator(withDiff)
   .add(
     '#component_variant#',
