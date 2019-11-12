@@ -7,6 +7,7 @@ const adapter = initialData => {
 
   adaptedData.label_expanded = adaptedData.labelExpanded;
   adaptedData.label_collapsed = adaptedData.labelCollapsed;
+  adaptedData.dropdown_paragraph_wrapper = true;
 
   const [type, name] = adaptedData.button.icon.shape.split('--');
 

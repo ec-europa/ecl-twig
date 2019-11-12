@@ -5,7 +5,8 @@
     - "id" (string) (default: '')
     - "label_expanded" (string) (default: '')
     - "label_collapsed" (string) (default: '')
-    - "button" (predefined structure) : Button component structure
+    - "button" (predefined structure): Button component structure
+    - "dropdown_paragraph_wrapper" (default: false): Add a default paragraph wrapper to the dropdown
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
         {
@@ -35,6 +36,7 @@
 
 {% set _expanded = expanded|default(false) %}
 {% set _content_hidden_attribute = '' %}
+{% set _dropdown_paragraph_wrapper = dropdown_paragraph_wrapper|default(false) %}
 
 {# Internal logic - Process properties #}
 
@@ -73,12 +75,14 @@
   }|merge(_button) only %}
   <div
     id="{{ _id ~ '-content' }}"
-    class="ecl-expandable__content"
+    class="ecl-u-type-paragraph-m ecl-expandable__content"
     hidden
   >
-    <p class="ecl-u-type-paragraph-m">
-      {%- block content _content|raw -%}
-    </p>
+  {% if _dropdown_paragraph_wrapper %}
+    <p>{% block content _content|raw %}</p>
+  {% else %}
+    {{- block('content') -}}
+  {% endif %}
   </div>
 </div>
 
