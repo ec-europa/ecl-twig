@@ -33,15 +33,6 @@
       if (isset($data_json['shape'])) {
         $data_json['icon']['name'] = $data_json['shape'];
         unset($data_json['shape']);
-        if (strpos($variant,'audio') !== FALSE) {
-          $data_json['icon']['type'] = 'general';
-        }
-        elseif (strpos($variant,'facebook') !== FALSE) {
-          $data_json['icon']['type'] = 'branded';
-        }
-        elseif (strpos($variant,'success') !== FALSE) {
-          $data_json['icon']['type'] = 'notifications';
-        }
       }
       // Breadcrumb.
       if (isset($data_json['dataSimple'])) {

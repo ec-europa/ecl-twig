@@ -49,7 +49,7 @@ foreach ($components as $component) {
         '',
         str_replace('data', $component, $file_name)
       );
-      // Problems in loading the js rendered file for these variants.
+      // Not real variants.
       if ($variant == 'breadcrumb-simple'|| $variant == 'page-filler') {
         continue;
       }
@@ -64,6 +64,7 @@ foreach ($components as $component) {
         $data_json = $helpers->fixData($data_json, $variant);
         // Here we render the template with params.
         $data_html = $twig->render($template, $data_json);
+        // But then we need to fix something...
         $data_html = $helpers->fixHtml($data_html, $component);
         // Create stories files.
         $adapted_variant = str_replace('-', '_', $variant);
@@ -73,8 +74,9 @@ foreach ($components as $component) {
         // the additional story and we prepend the import of the component.
         if (file_exists($folder . DIRECTORY_SEPARATOR . 'story' . DIRECTORY_SEPARATOR . $base_component . '.story.js')) {
           $prepend = "import " . $adapted_variant . " from '../" . $variant . $result_extension . "';\n";
+          $prepend .= "import " . $adapted_variant . "Js from '../js/" . $variant . ".js.html';\n";
           $data_story = ".add('" . $variant . "', () => { return " . $adapted_variant . "; },";
-          $data_story .= "{ notes: { markdown: docs }, diff: { jsmarkup: jsCode }})";
+          $data_story .= "{ notes: { markdown: docs }, diff: { jsmarkup: " . $adapted_variant . "Js }})";
         } else {
           // Not sure why we needed this, but it's the case.
           if (!is_dir($folder . DIRECTORY_SEPARATOR . 'story')) {
