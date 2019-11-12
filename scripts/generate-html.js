@@ -20,19 +20,37 @@ const components = fs.readdirSync(systemFolder);
 
 components.forEach(component => {
   const dataFiles = fs.readdirSync(`${systemFolder}/${component}/specs`);
-
+  let data = '';
   dataFiles.forEach(dataFile => {
     let componentTemplate = '';
-    const data = require(`${systemFolder}/${component}/specs/${dataFile}`);
+    /* We choose some data file specifically in case we can improve the rendering */
+    if (component === 'breadcrumb') {
+      data = require(`${systemFolder}/${component}/specs/data-simple.json`);
+    } else if (component === 'text-area' || component === 'text-input') {
+      data = require(`${systemFolder}/${component}/specs/data--default.json`);
+    } else if (component === 'inpage-navigation') {
+      data = require(`${systemFolder}/${component}/specs/data.json`);
+    } else if (component === 'page-filler') {
+      data = require(`${systemFolder}/${component}/specs/page-filler.json`);
+    } else {
+      data = require(`${systemFolder}/${component}/specs/${dataFile}`);
+    }
+
     const pkg = `${system}-component-${component}`;
+    /* Two known exceptions.. */
     if (component === 'checkbox' || component === 'radio') {
       componentTemplate = `${component}-group`;
     } else {
       componentTemplate = component;
     }
+    /* This is the template we are going to render */
     const template = `@ecl-twig/${pkg}/ecl-${componentTemplate}.${extension}`;
-
-    const html = twing.render(template, data);
+    /* Render with twing */
+    let html = twing.render(template, data);
+    /* Same problem we have with prettier on the php rendered file */
+    if (componentTemplate === 'gallery') {
+      html = html.replace(/<\/video>/g, '/>');
+    }
     fs.writeFile(
       `${systemFolder}/${component}/js/${component}.js.html`,
       html,
