@@ -4,7 +4,7 @@ import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
 
 import skipLinkDocs from './docs/skip-link.md';
-import skipLink from './skip-link.html.twig';
+import skipLink from './ecl-skip-link.html.twig';
 
 storiesOf('Components/Navigation/Skip Link', module)
   .addDecorator(withKnobs)

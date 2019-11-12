@@ -56,7 +56,7 @@ npm install --save @ecl-twig/ec-component-site-header-standardised
 
 <!-- prettier-ignore -->
 ```twig
-{% include '@ecl-twig/ec-component-site-header-standardised/site-header-standardised.html.twig' with { 
+{% include '@ecl-twig/ec-component-site-header-standardised/ecl-site-header-standardised.html.twig' with { 
   bannerTop: 'Class name', 
   banner: 'Site name', 
   menu: true, 

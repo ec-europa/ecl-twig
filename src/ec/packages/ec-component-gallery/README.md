@@ -34,7 +34,7 @@ npm install --save @ecl-twig/ec-component-gallery
 
 <!-- prettier-ignore -->
 ```twig
-{% include '@ecl-twig/ec-component-gallery/gallery.html.twig' with {  
+{% include '@ecl-twig/ec-component-gallery/ecl-gallery.html.twig' with {  
   items: [ 
     { 
       path: 'path/to/image.jpg', 

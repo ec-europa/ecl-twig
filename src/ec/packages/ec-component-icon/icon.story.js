@@ -11,7 +11,7 @@ import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 
 import iconDocs from './docs/icon.md';
 
-import icon from './icon.html.twig';
+import icon from './ecl-icon.html.twig';
 
 const sizes = {
   XS: 'xs',

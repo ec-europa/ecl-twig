@@ -4,7 +4,7 @@ import { dataGroup1, dataGroup2 } from './demo/data';
 
 describe('EC - Site Header Harmonised', () => {
   const template =
-    '@ecl-twig/ec-component-site-header-harmonised/site-header-harmonised.html.twig';
+    '@ecl-twig/ec-component-site-header-harmonised/ecl-site-header-harmonised.html.twig';
   const render = params => renderTwigFileAsNode(template, params);
 
   describe('Group 1', () => {

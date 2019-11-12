@@ -7,7 +7,7 @@ import demoVideo from './demo/data';
 import demoImg from '../../../../static/images/example-image.jpg';
 import imageDocs from './docs/media-container-image.md';
 import videoDocs from './docs/media-container-video.md';
-import mediaContainer from './media-container.html.twig';
+import mediaContainer from './ecl-media-container.html.twig';
 
 storiesOf('Components/Media container', module)
   .addDecorator(withKnobs)

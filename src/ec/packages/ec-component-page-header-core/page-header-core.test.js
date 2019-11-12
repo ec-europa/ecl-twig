@@ -14,7 +14,7 @@ demoMetaTitleDescriptionContent.breadcrumb.icon_file_path = defaultSprite;
 
 describe('EC - Page Header Core', () => {
   const template =
-    '@ecl-twig/ec-component-page-header-core/page-header-core.html.twig';
+    '@ecl-twig/ec-component-page-header-core/ecl-page-header-core.html.twig';
   const render = params => renderTwigFileAsNode(template, params);
 
   describe('title', () => {

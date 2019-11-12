@@ -26,7 +26,7 @@ npm install --save @ecl-twig/ec-component-page-header
 
 <!-- prettier-ignore -->
 ```twig
-{% include '@ecl-twig/ec-component-page-header/page-header.html.twig' with {  
+{% include '@ecl-twig/ec-component-page-header/ecl-page-header.html.twig' with {  
   title: 'Page title',  
   description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium',  
   meta: 'News article | 17 October 2015',  

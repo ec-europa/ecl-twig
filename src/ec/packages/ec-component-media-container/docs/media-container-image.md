@@ -20,7 +20,7 @@ npm install --save @ecl-twig/ec-component-media-container
 
 <!-- prettier-ignore -->
 ```twig
-{% include '@ecl-twig/ec-component-media-container/media-container.html.twig' with { 
+{% include '@ecl-twig/ec-component-media-container/ecl-media-container.html.twig' with { 
   description: 'A description for this image', 
   extra_classes: 'my-extra-class-1 my-extra-class-2', 
   image: '/path/to/your/image', 

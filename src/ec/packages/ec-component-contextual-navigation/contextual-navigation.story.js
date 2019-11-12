@@ -8,7 +8,7 @@ import withCode from '@ecl-twig/storybook-addon-code';
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 
 import demoData from './demo/data';
-import contextualNavigation from './contextual-navigation.html.twig';
+import contextualNavigation from './ecl-contextual-navigation.html.twig';
 import notes from './docs/contextual-navigation.md';
 
 storiesOf('Components/Navigation/Contextual Navigation', module)

@@ -3,7 +3,8 @@ import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
 
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
-import pageBanner from './page-banner.html.twig';
+
+import pageBanner from './ecl-page-banner.html.twig';
 import pageBannerDocs from './README.md';
 
 import {

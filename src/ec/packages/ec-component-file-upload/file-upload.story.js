@@ -7,7 +7,7 @@ import withCode from '@ecl-twig/storybook-addon-code';
 import dataDefault from './demo/data';
 
 import fileDocs from './README.md';
-import fileUpload from './file-upload.html.twig';
+import fileUpload from './ecl-file-upload.html.twig';
 
 storiesOf('Components/Forms/File Upload', module)
   .addDecorator(withKnobs)

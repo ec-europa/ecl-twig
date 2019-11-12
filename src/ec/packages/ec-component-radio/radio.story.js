@@ -6,7 +6,7 @@ import withCode from '@ecl-twig/storybook-addon-code';
 import { dataDefault, dataBinary } from './demo/data';
 
 import radioDocs from './README.md';
-import radioGroup from './radio-group.html.twig';
+import radioGroup from './ecl-radio-group.html.twig';
 
 storiesOf('Components/Forms/Radio', module)
   .addDecorator(withKnobs)

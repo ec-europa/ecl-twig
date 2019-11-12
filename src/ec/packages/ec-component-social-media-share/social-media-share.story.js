@@ -6,7 +6,7 @@ import withCode from '@ecl-twig/storybook-addon-code';
 import defaultSprite from '@ecl/ec-resources-social-icons/dist/sprites/icons-social.svg';
 import demoData from './demo/data';
 
-import SocialMediaShare from './social-media-share.html.twig';
+import SocialMediaShare from './ecl-social-media-share.html.twig';
 import notes from './docs/social-media-share.md';
 
 demoData.links.forEach(link => {

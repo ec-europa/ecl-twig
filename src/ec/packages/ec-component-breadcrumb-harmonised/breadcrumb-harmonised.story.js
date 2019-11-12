@@ -6,7 +6,7 @@ import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import { dataSimple, dataLong } from './demo/data';
 
 import breadcrumbDocs from './README.md';
-import breadcrumb from './breadcrumb-harmonised.html.twig';
+import breadcrumb from './ecl-breadcrumb-harmonised.html.twig';
 
 storiesOf('Components/Navigation/Breadcrumbs/Breadcrumb Harmonised', module)
   .addDecorator(withNotes)

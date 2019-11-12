@@ -3,7 +3,7 @@ import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 import { dataSimple, dataLong } from './demo/data';
 
 describe('EC - Breadcrumb', () => {
-  const template = '@ecl-twig/ec-component-breadcrumb/breadcrumb.html.twig';
+  const template = '@ecl-twig/ec-component-breadcrumb/ecl-breadcrumb.html.twig';
   const render = params => renderTwigFileAsNode(template, params);
   const defaultIconPath = 'static/icons.svg';
 

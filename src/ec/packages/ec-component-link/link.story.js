@@ -7,7 +7,7 @@ import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import uiIcons from '@ecl/ec-resources-icons/dist/lists/ui.json';
 
 import linkDocs from './docs/link.md';
-import link from './link.html.twig';
+import link from './ecl-link.html.twig';
 
 const iconPositionSettings = {
   before: 'before',

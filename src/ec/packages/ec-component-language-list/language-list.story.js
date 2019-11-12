@@ -10,8 +10,8 @@ import { dataSplash, dataOverlay } from './demo/data';
 import splashDocs from './docs/splash.md';
 import overlayDocs from './docs/overlay.md';
 
-import languageListSplash from './language-list-splash.html.twig';
-import languageListOverlay from './language-list-overlay.html.twig';
+import languageListSplash from './ecl-language-list-splash.html.twig';
+import languageListOverlay from './ecl-language-list-overlay.html.twig';
 
 storiesOf('Components/Language list', module)
   .addDecorator(withKnobs)

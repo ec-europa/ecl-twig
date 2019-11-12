@@ -6,7 +6,7 @@ import withCode from '@ecl-twig/storybook-addon-code';
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import demoData from './demo/data';
 
-import expandable from './expandable.html.twig';
+import expandable from './ecl-expandable.html.twig';
 import notes from './docs/expandable.md';
 
 storiesOf('Components/Expandables', module)

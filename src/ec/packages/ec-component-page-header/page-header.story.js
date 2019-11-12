@@ -15,7 +15,7 @@ import pageHeaderDataEvents from '@ecl/ec-specs-page-header/demo/data-events';
 import pageHeaderDataEventsDescription from '@ecl/ec-specs-page-header/demo/data-events-description';
 
 import pageHeaderDocs from './README.md';
-import pageHeader from './page-header.html.twig';
+import pageHeader from './ecl-page-header.html.twig';
 
 function formatBreadcrumbLink(l) {
   const link = {

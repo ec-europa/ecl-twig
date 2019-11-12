@@ -4,7 +4,7 @@ import { englishData, frenchData } from './demo/data';
 
 describe('EC - Site Header Standardised', () => {
   const template =
-    '@ecl-twig/ec-component-site-header-standardised/site-header-standardised.html.twig';
+    '@ecl-twig/ec-component-site-header-standardised/ecl-site-header-standardised.html.twig';
   const render = params => renderTwigFileAsNode(template, params);
 
   describe('Default', () => {

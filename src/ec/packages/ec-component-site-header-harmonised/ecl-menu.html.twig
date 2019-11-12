@@ -1,0 +1,27 @@
+{# This is just a temporary helper for demoing a menu in site-header-harmonised component #}
+{% set _extra_classes = 'ecl-site-header-harmonised__menu-link' %}
+<div class="ecl-site-header-harmonised__menu">
+  <div class="ecl-container">
+    <ul class="ecl-site-header-harmonised__menu-list">
+    {% for i in 0..6 %}
+      <li class="ecl-site-header-harmonised__menu-item">
+        {% include '@ecl-twig/ec-component-link/ecl-link.html.twig' with {
+          link: {
+            path: '/example',
+            type: 'standalone',
+            label: i == 0 ? 'Home' : 'Item ' ~ i,
+            icon_position: 'after',
+          },
+          icon: {
+            size: '2xs',
+            type: 'ui',
+            name: i == 0 ? '' : 'corner-arrow',
+            transform: 'rotate-180',
+          }|merge({ path: _icon_file_path }),
+          extra_classes: i == 1 ? _extra_classes ~ ' ' ~ _extra_classes ~ '--active' : _extra_classes,
+        } only -%}
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>

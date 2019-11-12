@@ -24,7 +24,7 @@ npm install --save @ecl-twig/ec-component-footer-standardised
 
 <!-- prettier-ignore -->
 ```twig
-{% include '@ecl-twig/ec-component-footer-standardised/footer-standardised.html.twig' with { 
+{% include '@ecl-twig/ec-component-footer-standardised/ecl-footer-standardised.html.twig' with { 
   sections: [ 
     { 
       title: { 
