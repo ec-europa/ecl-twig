@@ -4,6 +4,7 @@
     - "title" (string) (default: '') Title of header
     - "description" (string) (default: '') Description of header
     - "meta" (string) (default: '') Meta of header
+    - "composition" (string) (default: '') Room for the language switcher
     - "infos" (array) (default: []) Array of infos. format: [
         {
             "text" (string) Label of info
@@ -47,11 +48,15 @@
 {# Print the result #}
 <div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
   <div class="ecl-container">
-    {% if breadcrumb is defined %}
-      {% include '@ecl-twig/ec-component-breadcrumb/ecl-breadcrumb.html.twig' with breadcrumb|merge({
-        extra_classes: 'ecl-page-header__breadcrumb'
-      }) only %}
-    {% endif %}
+  {% if breadcrumb is defined %}
+    {% include '@ecl-twig/ec-component-breadcrumb/ecl-breadcrumb.html.twig' with breadcrumb|merge({
+      extra_classes: 'ecl-page-header__breadcrumb'
+    }) only %}
+  {% endif %}
+  {% if composition is defined and composition is not empty %}
+    {{- composition|raw -}}
+  {% endif %}
+    <div class="ecl-page-header__title-wrapper">
     {% if _meta is not empty %}
       <div class="ecl-page-header__meta-list">{{ _meta }}</div>
     {% endif %}
@@ -72,6 +77,7 @@
         {% endfor %}
       </ul>
     {% endif %}
+    </div>
   </div>
 </div>
 {% endspaceless %}
