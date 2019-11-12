@@ -13,6 +13,7 @@ npm install --save @ecl-twig/ec-component-page-header
 - "title" (string) (default: '') Title of header
 - "description" (string) (default: '') Description of header
 - "meta" (string) (default: '') Meta of header
+- "composition" (string) (default: '') Room for the language switcher
 - "infos" (array) (default: []) Array of infos. format:
   - "text" (string) Label of info
   - "icon" (associative array) Predefined structure compatible with EC Icon
