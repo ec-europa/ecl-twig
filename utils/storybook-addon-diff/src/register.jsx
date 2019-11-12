@@ -3,7 +3,6 @@ import addons from '@storybook/addons';
 import styled from '@emotion/styled';
 import Prism from 'prismjs';
 import ClipboardJS from 'clipboard';
-import { html as beautifyHtml } from 'js-beautify';
 import 'prismjs/plugins/line-numbers/prism-line-numbers';
 
 const CodePanel = styled.div({
@@ -47,12 +46,10 @@ class HTMLMarkup extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      code: '',
-      pretty: true,
+      code: ''
     };
 
     this.onAddHTMLMarkup = this.onAddHTMLMarkup.bind(this);
-    this.toggleBeautifier = this.toggleBeautifier.bind(this);
 
     this.codeRef = null;
     this.setCodeRef = element => {
@@ -102,33 +99,15 @@ class HTMLMarkup extends React.Component {
     this.setState({ code });
   }
 
-  toggleBeautifier() {
-    this.setState(state => ({
-      pretty: !state.pretty,
-    }));
-  }
-
   render() {
-    const { code: rawCode, pretty } = this.state;
+    const { code: rawCode } = this.state;
     // eslint-disable-next-line react/prop-types
     const { active } = this.props;
 
     let code = rawCode;
-    if (pretty) {
-      code = beautifyHtml(code, {
-        indent_size: 2,
-        max_preserve_newlines: -1,
-        preserve_newlines: false,
-        indent_scripts: 'normal',
-      });
-    }
-
     return active ? (
       <CodePanel>
         <Actions>
-          <CopyButton type="button" onClick={this.toggleBeautifier}>
-            {pretty ? 'Show raw' : 'Show beautified'}
-          </CopyButton>
           <CopyButton type="button" id="copy-code" data-clipboard-text={code}>
             Copy
           </CopyButton>
