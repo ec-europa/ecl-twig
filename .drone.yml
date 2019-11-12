@@ -1,34 +1,21 @@
-matrix:
-  TEST:
-    - dependencies
-    - jest
-    - lint
-    - deploy
-
 pipeline:
   dependencies:
     image: node:dubnium
     commands:
       - ./scripts/check-lockfile.sh
-    when:
-      matrix:
-        TEST: dependencies
+
   jest:
     image: node:dubnium
     commands:
       - yarn install --frozen-lockfile
       - yarn jest
-    when:
-      matrix:
-        TEST: jest
+
   lint:
     image: node:dubnium
     commands:
       - yarn install --frozen-lockfile
       - yarn lint && yarn pretty-check
-    when:
-      matrix:
-        TEST: lint
+
   deploy:
     image: node:dubnium
     secrets: [gh_token, netlify_auth_token, netlify_site]
@@ -39,5 +26,3 @@ pipeline:
       - node scripts/set-netlify-deployment-status.js
     when:
       event: [push, pull_request]
-      matrix:
-        TEST: deploy
