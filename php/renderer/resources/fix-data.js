@@ -1,6 +1,9 @@
 /* eslint-disable no-param-reassign */
 
 function fixDataInput(data, componentRootName) {
+  if (componentRootName.includes('page-header-')) {
+    data = data.demoMetaTitleDescriptionContent;
+  }
   // Search form.
   if (componentRootName === 'search-form') {
     data = {
