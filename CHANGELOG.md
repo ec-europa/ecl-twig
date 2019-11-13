@@ -3,6 +3,44 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.15.0](https://github.com/ec-europa/ecl-twig/compare/v2.11.2...v2.15.0) (2019-11-13)
+
+### Bug Fixes
+
+- **breadcrumb-harmonised:** Escape quoted attribute values in html instead of html_attr ([9062bef](https://github.com/ec-europa/ecl-twig/commit/9062bef))
+- **button:** Simplify markup - TWIG-98 ([#194](https://github.com/ec-europa/ecl-twig/issues/194)) ([7dd5c7e](https://github.com/ec-europa/ecl-twig/commit/7dd5c7e))
+- **date-block:** preventing autoescape on month_markup variable - TWIG-70 ([#170](https://github.com/ec-europa/ecl-twig/issues/170)) ([33fbcc0](https://github.com/ec-europa/ecl-twig/commit/33fbcc0))
+- **expandable:** use aria-expanded attribute - TWIG-103 ([#199](https://github.com/ec-europa/ecl-twig/issues/199)) ([3c7f647](https://github.com/ec-europa/ecl-twig/commit/3c7f647))
+- **grump-php:** Changing approach, maintaining grump-php ([#181](https://github.com/ec-europa/ecl-twig/issues/181)) ([49be277](https://github.com/ec-europa/ecl-twig/commit/49be277))
+- **site-header-harmonised:** Add missing group class - TWIG-106 ([#196](https://github.com/ec-europa/ecl-twig/issues/196)) ([87f9017](https://github.com/ec-europa/ecl-twig/commit/87f9017))
+- **tag:** fix markup for removable tags - TWIG-78 ([#182](https://github.com/ec-europa/ecl-twig/issues/182)) ([e2193be](https://github.com/ec-europa/ecl-twig/commit/e2193be))
+
+### Features
+
+- **attributes:** Escape quoted attribute values in html instead of html_attr - TWIG-107 ([#209](https://github.com/ec-europa/ecl-twig/issues/209)) ([ba1976b](https://github.com/ec-europa/ecl-twig/commit/ba1976b))
+- **attributes:** Escape values of attributes - TWIG-99 ([#190](https://github.com/ec-europa/ecl-twig/issues/190)) ([bc9246e](https://github.com/ec-europa/ecl-twig/commit/bc9246e))
+- **attributes:** Escape values of attributes for siteHeaders - TWIG-105 ([#195](https://github.com/ec-europa/ecl-twig/issues/195)) ([a188400](https://github.com/ec-europa/ecl-twig/commit/a188400))
+- **breadcrumb-core:** Add component - TWIG-97 ([#201](https://github.com/ec-europa/ecl-twig/issues/201)) ([4dc1014](https://github.com/ec-europa/ecl-twig/commit/4dc1014))
+- **breadcrumb-harmonised:** Add component - TWIG-95 ([#202](https://github.com/ec-europa/ecl-twig/issues/202)) ([8ca10cf](https://github.com/ec-europa/ecl-twig/commit/8ca10cf))
+- **breadcrumb-standardised:** Adding component - TWIG-96 ([#192](https://github.com/ec-europa/ecl-twig/issues/192)) ([7a8ebd6](https://github.com/ec-europa/ecl-twig/commit/7a8ebd6))
+- **check-release:** Adding bash script to check the release - TWIG-67 ([#168](https://github.com/ec-europa/ecl-twig/issues/168)) ([8ffbdd9](https://github.com/ec-europa/ecl-twig/commit/8ffbdd9))
+- **deprecated:** old site header and footer are now deprecated - TWIG-86 ([#178](https://github.com/ec-europa/ecl-twig/issues/178)) ([755b441](https://github.com/ec-europa/ecl-twig/commit/755b441))
+- **footer-core:** Add component - TWIG-73 ([#184](https://github.com/ec-europa/ecl-twig/issues/184)) ([332e269](https://github.com/ec-europa/ecl-twig/commit/332e269))
+- **footer-harmonised:** Add component - TWIG-74 ([#211](https://github.com/ec-europa/ecl-twig/issues/211)) ([9377b93](https://github.com/ec-europa/ecl-twig/commit/9377b93))
+- **footer-standardised:** Add component - TWIG-75 ([#189](https://github.com/ec-europa/ecl-twig/issues/189)) ([db65719](https://github.com/ec-europa/ecl-twig/commit/db65719))
+- **page-header:** moved to deprecated as of ECL 2.14 - TWIG-110 ([#210](https://github.com/ec-europa/ecl-twig/issues/210)) ([ef538b6](https://github.com/ec-europa/ecl-twig/commit/ef538b6))
+- **page-header-core:** Add component - TWIG-101 ([#204](https://github.com/ec-europa/ecl-twig/issues/204)) ([a100644](https://github.com/ec-europa/ecl-twig/commit/a100644))
+- **page-header-harmonised:** Add component - TWIG-102 ([#205](https://github.com/ec-europa/ecl-twig/issues/205)) ([7887260](https://github.com/ec-europa/ecl-twig/commit/7887260))
+- **page-header-standardised:** Add component - TWIG-94 ([#206](https://github.com/ec-europa/ecl-twig/issues/206)) ([e63a97b](https://github.com/ec-europa/ecl-twig/commit/e63a97b))
+- **page-header[deprecated]:** Adding room the language switcher, adding wrapper - TWIG-117 ([#217](https://github.com/ec-europa/ecl-twig/issues/217)) ([607ab4f](https://github.com/ec-europa/ecl-twig/commit/607ab4f))
+- **page-headers:** meta in uppercase - TWIG-113 ([#213](https://github.com/ec-europa/ecl-twig/issues/213)) ([2d46e62](https://github.com/ec-europa/ecl-twig/commit/2d46e62))
+- **site-header-core:** Add component - TWIG-79 ([#180](https://github.com/ec-europa/ecl-twig/issues/180)) ([e427edc](https://github.com/ec-europa/ecl-twig/commit/e427edc))
+- **site-header-harmonised:** Adding component - TWIG-80 ([#188](https://github.com/ec-europa/ecl-twig/issues/188)) ([ab79d0c](https://github.com/ec-europa/ecl-twig/commit/ab79d0c))
+- **site-header-standardised:** Add component - TWIG-81 ([#186](https://github.com/ec-europa/ecl-twig/issues/186)) ([27c55ec](https://github.com/ec-europa/ecl-twig/commit/27c55ec))
+- **site-headers:** Additional attributes when overlay is set - TWIG-114 ([#214](https://github.com/ec-europa/ecl-twig/issues/214)) ([892db8c](https://github.com/ec-europa/ecl-twig/commit/892db8c))
+- **site-headers:** Render class name as a link - TWIG-104 ([#198](https://github.com/ec-europa/ecl-twig/issues/198)) ([2f4f7c2](https://github.com/ec-europa/ecl-twig/commit/2f4f7c2))
+- **twing-loader:** Replacing twig and twig-loader - TWIG-63 ([#164](https://github.com/ec-europa/ecl-twig/issues/164)) ([e08b189](https://github.com/ec-europa/ecl-twig/commit/e08b189))
+
 ## [2.11.2](https://github.com/ec-europa/ecl-twig/compare/v2.11.1...v2.11.2) (2019-10-15)
 
 ### Bug Fixes
