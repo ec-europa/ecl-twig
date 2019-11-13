@@ -28,7 +28,7 @@
           $data_html
         );
       } else {
-        $data_html = preg_replace('(xlink:href="[\/]?static\/icons.svg)?)', 'xlink:href="/icons-social.svg', $data_html);
+        $data_html = preg_replace('(xlink:href="([\/]?static\/icons.svg)?)', 'xlink:href="/icons-social.svg', $data_html);
       }
       // Not sure the reason why prettier breaks when it finds a closing video tag...
       if ($component == 'gallery') {

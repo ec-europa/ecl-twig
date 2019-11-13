@@ -21,8 +21,15 @@ const createDataFiles = ({ readLocation, saveLocation, componentRootName }) => {
     const dataImport = require(`${readLocation}/${file}`);
     // Normalize the difference of module systems.
     let data = dataImport.default ? dataImport.default : dataImport;
-
-    if (componentRootName.includes('card')) {
+    // Tag doesn't come with a spec file.
+    if (componentRootName === 'tag') {
+      data = {
+        tag: {
+          label: 'Link tag',
+          path: '/example',
+        },
+      };
+    } else if (componentRootName.includes('card')) {
       if (data.card.image) {
         const src = data.card.image;
         data.card.image = [];
@@ -62,8 +69,6 @@ const createDataFiles = ({ readLocation, saveLocation, componentRootName }) => {
       data = data.dataLong;
     } else if (data.englishData) {
       data = data.englishData;
-    } else if (componentRootName === 'hero-banner') {
-      data.link = { link: data.link };
     }
 
     const fileName = file.replace('js', 'json');
@@ -124,7 +129,6 @@ listRender.forEach(pkg => {
     // Try to fallback to specification data.
     readLocation = `${eclSpecPath}/demo`;
   }
-
   // If data file was located, use it.
   if (readLocation !== '') {
     createDataFiles({ readLocation, saveLocation, componentRootName });
