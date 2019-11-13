@@ -5,7 +5,7 @@
   "type": "library",
   "scripts": {
     "setup": "@composer install --no-interaction --prefer-dist --no-progress",
-    "render": "php render.php"
+    "render": "php src/render.php"
   },
   "require": {
     "twig/twig": "^1.34",
