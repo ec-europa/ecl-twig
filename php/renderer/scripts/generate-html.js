@@ -13,7 +13,6 @@ const distFolder = `${rootFolder}/php`;
 const systemFolder = `${distFolder}/packages/${system}`;
 
 const components = fs.readdirSync(systemFolder);
-console.log();
 
 components.forEach(component => {
   let componentTemplate = '';
