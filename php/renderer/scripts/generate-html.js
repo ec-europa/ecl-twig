@@ -13,6 +13,7 @@ const distFolder = `${rootFolder}/php`;
 const systemFolder = `${distFolder}/packages/${system}`;
 
 const components = fs.readdirSync(systemFolder);
+console.log();
 
 components.forEach(component => {
   let componentTemplate = '';
@@ -35,9 +36,8 @@ components.forEach(component => {
 
     /* We choose some data file specifically in case we can improve the rendering */
     let data = '';
-    if (component === 'breadcrumb') {
-      data = require(`${systemFolder}/${component}/specs/data-simple.json`);
-    } else if (component === 'text-area' || component === 'text-input') {
+
+    if (component === 'text-area' || component === 'text-input') {
       data = require(`${systemFolder}/${component}/specs/data--default.json`);
     } else if (component === 'inpage-navigation') {
       data = require(`${systemFolder}/${component}/specs/data.json`);
