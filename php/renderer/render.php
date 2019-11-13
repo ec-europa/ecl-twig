@@ -87,7 +87,7 @@ foreach ($components as $component) {
             mkdir($folder . DIRECTORY_SEPARATOR . 'js');
           }
           // Get the story template.
-          $data_story = file_get_contents('./story_template.txt');
+          $data_story = file_get_contents('./resources/story_template.txt');
           // Replace its content with our variables.
           if (!empty($deprecated_component) || !empty($component_group)) {
             $component_group = $component_group . '/';

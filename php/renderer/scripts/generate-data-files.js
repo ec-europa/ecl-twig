@@ -21,6 +21,29 @@ const createDataFiles = ({ readLocation, saveLocation, componentRootName }) => {
     const dataImport = require(`${readLocation}/${file}`);
     // Normalize the difference of module systems.
     let data = dataImport.default ? dataImport.default : dataImport;
+
+    // Search form.
+    if (componentRootName === 'search-form') {
+      data = {
+        text_input: {
+          id: 'input-search',
+          name: 'search',
+          extra_classes: 'ecl-search-form__text-input',
+          label: 'Search',
+        },
+        button: {
+          variant: 'search',
+          icon: {
+            type: 'general',
+            name: 'search',
+            path: '/icons.svg',
+            size: 'fluid',
+          },
+          label: 'Search',
+          extra_classes: 'ecl-search-form__button',
+        },
+      };
+    }
     // Tag doesn't come with a spec file.
     if (componentRootName === 'tag') {
       data = {
