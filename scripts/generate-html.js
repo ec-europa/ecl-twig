@@ -46,44 +46,7 @@ components.forEach(component => {
     } else {
       data = require(`${systemFolder}/${component}/specs/${dataFile}`);
     }
-    // Card
-    if (component.includes('card')) {
-      if (data.card.image) {
-        const src = data.card.image;
-        data.card.image = [];
-        data.card.image.src = src;
-      }
-    }
-    if (component === 'link') {
-      data.link = {
-        extra_classes: data.variant ? data.variant : '',
-        type: 'standalone',
-        label: data.label,
-        href: data.href,
-        icon: data.icon ? data.icon : '',
-      };
-    } else if (component === 'icon') {
-      if (data.shape) {
-        data.icon = {};
-        data.icon.name = data.shape;
-      }
-    } else if (component === 'file') {
-      data = data.dataWithTranslation;
-    } else if (data.dataDefault) {
-      // data = data.dataDefault;
-    } else if (data.bannerDataDefault) {
-      data = data.bannerDataDefault;
-    } else if (data.dataInfo) {
-      data = data.dataInfo;
-    } else if (data.dataGroup1) {
-      data = data.dataGroup1;
-    } else if (data.dataLong) {
-      data = data.dataLong;
-    } else if (data.englishData) {
-      data = data.englishData;
-    } else if (component === 'hero-banner') {
-      data.link = { link: data.link };
-    }
+
     /* Render with twing */
     let html = twing.render(template, data);
     /* Same problem we have with prettier on the php rendered file */

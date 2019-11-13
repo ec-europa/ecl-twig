@@ -15,68 +15,6 @@
       rename($temp_filename, $orig_filename);
     }
 
-    // Trying to make data usable.
-    function fixData($data_json, $variant) {
-      // Card
-      if (strpos($variant, 'card') === 0) {
-        if (!empty($data_json['card']['image'])) {
-          $src = $data_json['card']['image'];
-          $data_json['card']['image'] = [];
-          $data_json['card']['image']['src'] = $src;
-        }
-      }
-      // Link.
-      if (strpos($variant, 'link') === 0) {
-        $data_json['link'] = [
-          'extra_classes' => !empty($data_json['variant']) ? $data_json['variant'] : '',
-          'type' => 'standalone',
-          'label' => $data_json['label'],
-          'href' => $data_json['href'],
-          'icon' => !empty($data_json['icon']) ? $data_json['icon'] : ''
-        ];
-        // Do some cleanup.
-        unset($data_json['variant'], $data_json['icon'], $data_json['href'], $data_json['label']);
-      }
-      // Icons.
-      if (isset($data_json['shape'])) {
-        $data_json['icon']['name'] = $data_json['shape'];
-        unset($data_json['shape']);
-      }
-      // Breadcrumb.
-      if (isset($data_json['dataLong'])) {
-        $data_json = $data_json['dataLong'];
-      }
-      // Checkbox, Hero banner, Radio, Table, Tag.
-      elseif (isset($data_json['dataDefault'])) {
-        $data_json = $data_json['dataDefault'];
-        if ($variant == 'hero-banner') {
-          $data_json['link'] = [ 'link' => $data_json['link']];
-        }
-      }
-      // File.
-      elseif (isset($data_json['dataWithTranslation'])) {
-        $data_json = $data_json['dataWithTranslation'];
-      }
-      // Footer harmonised, Site header harmonised.
-      elseif (isset($data_json['dataGroup1'])) {
-        $data_json = $data_json['dataGroup1'];
-      }
-      // Message.
-      elseif (isset($data_json['dataInfo'])) {
-        $data_json = $data_json['dataInfo'];
-      }
-      // Site header Core, Site Header Standardised, Site Header.
-      elseif (isset($data_json['englishData'])) {
-        $data_json = $data_json['englishData'];
-      }
-      // Page-banner.
-      elseif (isset($data_json['bannerDataDefault'])) {
-        $data_json = $data_json['bannerDataDefault'];
-      }
-
-      return $data_json;
-    }
-
     // Used to fix icons and other stuff.
     function fixHtml($data_html, $component) {
       if (strpos($component, 'site-header') === 0) {

@@ -61,7 +61,7 @@ foreach ($components as $component) {
       $data_json = json_decode($data_string, TRUE);
 
       if (!empty($data_json)) {
-        $data_json = $helpers->fixData($data_json, $variant);
+        //$data_json = $helpers->fixData($data_json, $variant);
         // Here we render the template with params.
         $data_html = $twig->render($template, $data_json);
         // But then we need to fix something...

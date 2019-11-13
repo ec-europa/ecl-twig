@@ -12,7 +12,7 @@ import path from 'path';
  * @param {String} readLocation The place to seek for demo data files.
  * @param {String} saveLocation The place to create a demo data file for PHP renderer.
  */
-const createDataFiles = ({ readLocation, saveLocation }) => {
+const createDataFiles = ({ readLocation, saveLocation, componentRootName }) => {
   const files = fs.readdirSync(readLocation);
 
   files.forEach(file => {
@@ -20,7 +20,45 @@ const createDataFiles = ({ readLocation, saveLocation }) => {
     // Sometimes files contain results of adaptation.
     const dataImport = require(`${readLocation}/${file}`);
     // Normalize the difference of module systems.
-    const data = dataImport.default ? dataImport.default : dataImport;
+    let data = dataImport.default ? dataImport.default : dataImport;
+
+    if (componentRootName.includes('card')) {
+      if (data.card.image) {
+        const src = data.card.image;
+        data.card.image = [];
+        data.card.image.src = src;
+      }
+    }
+    if (componentRootName === 'link') {
+      data.link = {
+        extra_classes: data.variant ? data.variant : '',
+        type: 'standalone',
+        label: data.label,
+        href: data.href,
+        icon: data.icon ? data.icon : '',
+      };
+    } else if (componentRootName === 'icon') {
+      if (data.shape) {
+        data.icon = {};
+        data.icon.name = data.shape;
+      }
+    } else if (componentRootName === 'file') {
+      data = data.dataWithTranslation;
+    } else if (data.dataDefault) {
+      // data = data.dataDefault;
+    } else if (data.bannerDataDefault) {
+      data = data.bannerDataDefault;
+    } else if (data.dataInfo) {
+      data = data.dataInfo;
+    } else if (data.dataGroup1) {
+      data = data.dataGroup1;
+    } else if (data.dataLong) {
+      data = data.dataLong;
+    } else if (data.englishData) {
+      data = data.englishData;
+    } else if (componentRootName === 'hero-banner') {
+      data.link = { link: data.link };
+    }
 
     const fileName = file.replace('js', 'json');
     const filePath = path.resolve(`${saveLocation}/${fileName}`);
@@ -83,6 +121,6 @@ listRender.forEach(pkg => {
 
   // If data file was located, use it.
   if (readLocation !== '') {
-    createDataFiles({ readLocation, saveLocation });
+    createDataFiles({ readLocation, saveLocation, componentRootName });
   }
 });
