@@ -115,19 +115,17 @@ foreach ($components as $component) {
         );
         // Symlink the docs.
         $link = $folder . DIRECTORY_SEPARATOR . 'README.md';
-        $target = $packages_folder . DIRECTORY_SEPARATOR . 'ec-component-' . $base_component . DIRECTORY_SEPARATOR . $component . '.md';
+        $target = $packages_folder . DIRECTORY_SEPARATOR . 'ec-component-' . $base_component . DIRECTORY_SEPARATOR . 'docs' . DIRECTORY_SEPARATOR . $component . '.md';
+        $other_target = $packages_folder . DIRECTORY_SEPARATOR . 'ec-component-' . $base_component . DIRECTORY_SEPARATOR . 'README.md';
         if (!file_exists($link) && file_exists($target)) {
           symlink($target, $link);
         }
-        else {
+        else if (!file_exists($link) && file_exists($other_target)) {
           $target = $packages_folder . DIRECTORY_SEPARATOR . 'ec-component-' . $base_component . DIRECTORY_SEPARATOR . 'README.md';
-          if (!file_exists($link) && file_exists($target)) {
-            $target = $packages_folder . DIRECTORY_SEPARATOR . 'ec-component-' . $base_component . DIRECTORY_SEPARATOR . 'README.md';
-            symlink($target, $link);
-          }
-          else {
-            touch($link);
-          }
+          symlink($target, $link);
+        }
+        else {
+          touch($link);
         }
       }
     } catch (exception $e) {
