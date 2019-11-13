@@ -2,9 +2,9 @@
 
 /* eslint-disable global-require, import/no-dynamic-require, import/no-extraneous-dependencies */
 
-import fs from 'fs';
-import fse from 'fs-extra';
-import path from 'path';
+const fs = require('fs');
+const fse = require('fs-extra');
+const path = require('path');
 
 /**
  * Helper to migrate demo data for Twig PHP renderer.

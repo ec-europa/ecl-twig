@@ -3,7 +3,7 @@
 use Webmozart\PathUtil\Path;
 
 require_once __DIR__ . '/bootstrap.php';
-require_once __DIR__ . '/helpers.php';
+require_once __DIR__ . '/scripts/helpers.php';
 
 $helpers = new storyHelpers();
 $result_extension = '.php.html';
