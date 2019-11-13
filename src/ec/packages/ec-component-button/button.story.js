@@ -13,7 +13,7 @@ import dataSearch from '@ecl/ec-specs-button/demo/data--search';
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import uiIcons from '@ecl/ec-resources-icons/dist/lists/ui.json';
 
-import button from './button.html.twig';
+import button from './ecl-button.html.twig';
 
 import primaryDocs from './docs/primary.md';
 import secondaryDocs from './docs/secondary.md';
@@ -57,7 +57,7 @@ storiesOf('Components/Button', module)
           type: 'ui',
           name: iconsListSelect,
           path: defaultSprite,
-          size: 'fluid',
+          size: 'xs',
         },
       });
     },
@@ -85,7 +85,7 @@ storiesOf('Components/Button', module)
           type: 'ui',
           name: iconsListSelect,
           path: defaultSprite,
-          size: 'fluid',
+          size: 'xs',
         },
       });
     },
@@ -94,7 +94,7 @@ storiesOf('Components/Button', module)
     }
   )
   .add(
-    'call-to-action',
+    'call to action',
     () => {
       const iconsListSelect = select('Icon (sample)', iconsList, null);
 
@@ -113,7 +113,7 @@ storiesOf('Components/Button', module)
           type: 'ui',
           name: iconsListSelect,
           path: defaultSprite,
-          size: 'fluid',
+          size: 'xs',
         },
       });
     },
@@ -141,7 +141,7 @@ storiesOf('Components/Button', module)
           type: 'ui',
           name: iconsListSelect,
           path: defaultSprite,
-          size: 'fluid',
+          size: 'xs',
         },
       });
     },
@@ -169,7 +169,7 @@ storiesOf('Components/Button', module)
           type: 'ui',
           name: iconsListSelect,
           path: defaultSprite,
-          size: 'fluid',
+          size: 'xs',
         },
       });
     },

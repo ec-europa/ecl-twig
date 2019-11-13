@@ -25,7 +25,7 @@ npm install --save @ecl-twig/ec-component-button
 
 <!-- prettier-ignore -->
 ```twig
-{% include 'path/to/button.html.twig' with { 
+{% include '@ecl-twig/ec-component-button/ecl-button.html.twig' with { 
   variant: 'call', 
   label: 'Example button', 
   disabled: false, 

@@ -7,7 +7,7 @@ import specData from '@ecl/ec-specs-select/demo/data';
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 
 import selectDocs from './docs/select.md';
-import selectBox from './select.html.twig';
+import selectBox from './ecl-select.html.twig';
 
 const inputWidthOptions = {
   small: 's',

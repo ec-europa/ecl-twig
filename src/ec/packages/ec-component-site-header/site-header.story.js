@@ -10,14 +10,14 @@ import frenchBanner from '@ecl/ec-resources-logo/logo--fr.svg';
 import { englishData, frenchData } from './demo/data';
 
 import siteHeaderDocs from './README.md';
-import siteHeader from './site-header.html.twig';
+import siteHeader from './ecl-site-header.html.twig';
 
-storiesOf('Components/Site Header', module)
+storiesOf('Components/deprecated/Site Header', module)
   .addDecorator(withKnobs)
   .addDecorator(withNotes)
   .addDecorator(withCode)
   .add(
-    'default',
+    'ECL < 2.12 - default',
     () => {
       englishData.icon_file_path = defaultSprite;
       englishData.logo.src = englishBanner;
@@ -28,7 +28,7 @@ storiesOf('Components/Site Header', module)
     }
   )
   .add(
-    'translated',
+    'ECL < 2.12 - translated',
     () => {
       frenchData.icon_file_path = defaultSprite;
       frenchData.logo.src = frenchBanner;

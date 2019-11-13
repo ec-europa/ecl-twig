@@ -6,7 +6,7 @@ import withCode from '@ecl-twig/storybook-addon-code';
 import data from '@ecl/ec-specs-description-list/demo/data';
 import dataHorizontal from '@ecl/ec-specs-description-list/demo/data--horizontal';
 import docs from './README.md';
-import descriptionList from './description-list.html.twig';
+import descriptionList from './ecl-description-list.html.twig';
 
 const options = {
   vertical: '',

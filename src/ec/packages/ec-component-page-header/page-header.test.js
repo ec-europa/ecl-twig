@@ -1,4 +1,3 @@
-import path from 'path';
 import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
 import breadcrumbDataSimple from '@ecl/ec-specs-breadcrumb/demo/data-simple';
@@ -60,7 +59,8 @@ function preparePageHeaderData(data) {
 }
 
 describe('EC - Page Header', () => {
-  const template = path.resolve(__dirname, './page-header.html.twig');
+  const template =
+    '@ecl-twig/ec-component-page-header/ecl-page-header.html.twig';
   const render = params => renderTwigFileAsNode(template, params);
 
   describe('title', () => {

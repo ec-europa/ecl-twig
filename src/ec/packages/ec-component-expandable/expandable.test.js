@@ -1,4 +1,3 @@
-import path from 'path';
 import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
 import demoData from './demo/data';
@@ -7,7 +6,7 @@ import demoData from './demo/data';
 demoData.button.icon.path = 'example';
 
 describe('EC - Expandable', () => {
-  const template = path.resolve(__dirname, './expandable.html.twig');
+  const template = '@ecl-twig/ec-component-expandable/ecl-expandable.html.twig';
   const render = params => renderTwigFileAsNode(template, params);
 
   describe('Collapsed', () => {

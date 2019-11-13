@@ -1,4 +1,3 @@
-import path from 'path';
 import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
 import demoData from './demo/data';
@@ -13,7 +12,8 @@ demoData.links.forEach(link => {
 });
 
 describe('EC - Social Media Follow', () => {
-  const template = path.resolve(__dirname, './social-media-follow.html.twig');
+  const template =
+    '@ecl-twig/ec-component-social-media-follow/ecl-social-media-follow.html.twig';
   const render = params => renderTwigFileAsNode(template, params);
   describe('Default', () => {
     test('renders correctly with extra class names', () => {

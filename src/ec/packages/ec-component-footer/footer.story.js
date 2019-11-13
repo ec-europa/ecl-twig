@@ -6,7 +6,7 @@ import withCode from '@ecl-twig/storybook-addon-code';
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import { backToTop, identity, sections, common } from './demo/data';
 
-import footer from './footer.html.twig';
+import footer from './ecl-footer.html.twig';
 import notes from './docs/footer.md';
 
 backToTop.icon.path = defaultSprite;
@@ -23,19 +23,19 @@ sections.forEach(s => {
   });
 });
 
-storiesOf('Components/Footer', module)
+storiesOf('Components/deprecated/Footer', module)
   .addDecorator(withKnobs)
   .addDecorator(withCode)
   .addDecorator(withNotes)
   .add(
-    'corporate',
+    'ECL < 2.12.0 - corporate',
     () => footer({ back_to_top: backToTop, sections, common }),
     {
       notes: { markdown: notes },
     }
   )
   .add(
-    'custom',
+    'ECL < 2.12.0 - custom',
     () => footer({ back_to_top: backToTop, identity, sections, common }),
     {
       notes: { markdown: notes },

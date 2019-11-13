@@ -8,7 +8,7 @@ import iconPath from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 
 import demoData from './demo/data';
 
-import timeline from './timeline.html.twig';
+import timeline from './ecl-timeline.html.twig';
 import notes from './docs/timeline.md';
 
 storiesOf('Components/Timeline', module)

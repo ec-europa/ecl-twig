@@ -8,15 +8,15 @@ import withCode from '@ecl-twig/storybook-addon-code';
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import demoData from './demo/data';
 
-import accordion from './accordion.html.twig';
+import accordion from './ecl-accordion.html.twig';
 import notes from './docs/accordion.md';
 
-storiesOf('Components/Accordion', module)
+storiesOf('Components/deprecated/Accordion', module)
   .addDecorator(withKnobs)
   .addDecorator(withCode)
   .addDecorator(withNotes)
   .add(
-    '[deprecated] ECL < 2.6.0',
+    'ECL < 2.6.0 - default',
     () => {
       // This needs to be in the scope of this function.
       // Called on knob's change of value.

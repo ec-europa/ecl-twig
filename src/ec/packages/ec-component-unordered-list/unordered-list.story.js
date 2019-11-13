@@ -6,7 +6,7 @@ import withCode from '@ecl-twig/storybook-addon-code';
 import data from '@ecl/ec-specs-list/demo/data--text';
 
 import docs from './README.md';
-import unorderedList from './unordered-list.html.twig';
+import unorderedList from './ecl-unordered-list.html.twig';
 
 const options = {
   default: '',

@@ -1,4 +1,3 @@
-import path from 'path';
 import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
 // Import data for tests
@@ -6,10 +5,8 @@ import { dataSplash, dataOverlay } from './demo/data';
 
 describe('EC - Language List', () => {
   describe('Splash', () => {
-    const template = path.resolve(
-      __dirname,
-      './language-list-splash.html.twig'
-    );
+    const template =
+      '@ecl-twig/ec-component-language-list/ecl-language-list-splash.html.twig';
     const render = params => renderTwigFileAsNode(template, params);
 
     const options = {
@@ -52,10 +49,8 @@ describe('EC - Language List', () => {
   });
 
   describe('Overlay', () => {
-    const template = path.resolve(
-      __dirname,
-      './language-list-overlay.html.twig'
-    );
+    const template =
+      '@ecl-twig/ec-component-language-list/ecl-language-list-overlay.html.twig';
     const render = params => renderTwigFileAsNode(template, params);
 
     const options = {

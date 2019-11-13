@@ -42,7 +42,7 @@ npm install --save @ecl-twig/ec-component-radio
 
 <!-- prettier-ignore -->
 ```twig
-{% include 'path/to/radio-group.html.twig' with { 
+{% include '@ecl-twig/ec-component-radio/ecl-radio-group.html.twig' with { 
   label: 'Select your country', 
   helper_id: 'radio-default-helper', 
   helper_text: 'Helper text for the group', 

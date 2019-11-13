@@ -8,7 +8,7 @@ import inpageNavigationDocs from './docs/inpage-navigation.md';
 import demoData from './demo/data';
 import pageFiller from './demo/page-filler';
 
-import inpageNavigation from './inpage-navigation.html.twig';
+import inpageNavigation from './ecl-inpage-navigation.html.twig';
 
 storiesOf('Components/Navigation/Inpage navigation', module)
   .addDecorator(withNotes)

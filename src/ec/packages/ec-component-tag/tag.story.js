@@ -6,7 +6,7 @@ import withCode from '@ecl-twig/storybook-addon-code';
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import tagDocs from './docs/tag.md';
 
-import tag from './tag.html.twig';
+import tag from './ecl-tag.html.twig';
 
 storiesOf('Components/Tag', module)
   .addDecorator(withKnobs)
@@ -45,6 +45,7 @@ storiesOf('Components/Tag', module)
         tag: {
           label: text('Label', 'Removable tag'),
           type: 'removable',
+          aria_label: 'Dismiss',
         },
         default_icon_path: defaultSprite,
       }),

@@ -1,10 +1,10 @@
-import path from 'path';
 import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
 import { englishData, frenchData } from './demo/data';
 
 describe('EC - Site Header', () => {
-  const template = path.resolve(__dirname, './site-header.html.twig');
+  const template =
+    '@ecl-twig/ec-component-site-header/ecl-site-header.html.twig';
   const render = params => renderTwigFileAsNode(template, params);
 
   describe('Default', () => {

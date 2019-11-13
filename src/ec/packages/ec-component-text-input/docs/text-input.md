@@ -37,7 +37,7 @@ npm install --save @ecl-twig/ec-component-text-input
 
 <!-- prettier-ignore -->
 ```twig
-{% include 'path/to/text-input.html.twig' with { 
+{% include '@ecl-twig/ecl-text-input.html.twig' with { 
   label: 'Email address', 
   invalid_text: "Invalid email address. Valid e-mail can contain only latin letters, numbers, '@' and '.'", 
   helper_text: 'This address will be used for contact purpose', 
