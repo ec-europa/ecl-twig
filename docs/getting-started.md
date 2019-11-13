@@ -162,22 +162,19 @@ Generate HTML rendered by Twig PHP:
 yarn render:php
 ```
 
-Generate HTML rendered by Twig.js
+Generate HTML rendered by Twing
 
 ```bash
 yarn render:js
 ```
 
-All these commands can be executed at once passing them through prettier once
-generated with:
+All these commands can be executed at once passing the generated files through prettier:
 
 ```bash
 yarn render
 ```
 
-The whole process of installing the dependencies, generating the needed files,
-then linting them and finally launching a storybook instance on port 9002 is
-done by:
+The whole process of installing the dependencies, generating the needed files, then linting them and finally launching a storybook instance on port 9002 is done by:
 
 ```bash
 yarn start:php-ec
