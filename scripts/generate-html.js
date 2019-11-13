@@ -46,7 +46,14 @@ components.forEach(component => {
     } else {
       data = require(`${systemFolder}/${component}/specs/${dataFile}`);
     }
-
+    // Card
+    if (component.includes('card')) {
+      if (data.card.image) {
+        const src = data.card.image;
+        data.card.image = [];
+        data.card.image.src = src;
+      }
+    }
     if (component === 'link') {
       data.link = {
         extra_classes: data.variant ? data.variant : '',

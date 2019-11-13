@@ -17,6 +17,14 @@
 
     // Trying to make data usable.
     function fixData($data_json, $variant) {
+      // Card
+      if (strpos($variant, 'card') === 0) {
+        if (!empty($data_json['card']['image'])) {
+          $src = $data_json['card']['image'];
+          $data_json['card']['image'] = [];
+          $data_json['card']['image']['src'] = $src;
+        }
+      }
       // Link.
       if (strpos($variant, 'link') === 0) {
         $data_json['link'] = [
