@@ -58,11 +58,8 @@ components.forEach(component => {
     }
 
     html = html
-      .replace(
-        /xlink:href="([/]?static\/icons.svg)?/g,
-        'xlink:href="/icons.svg'
-      )
-      .replace(/xlink:href="#/g, 'xlink:href="/icons.svg');
+      .replace(/xlink:href="[/]?static\/icons.svg/g, 'xlink:href="/icons.svg')
+      .replace(/xlink:href="#/g, 'xlink:href="/icons.svg#');
 
     fs.writeFile(
       `${systemFolder}/${component}/js/${variant}.js.html`,

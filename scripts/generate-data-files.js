@@ -45,7 +45,13 @@ const createDataFiles = ({ readLocation, saveLocation, componentRootName }) => {
     } else if (componentRootName === 'file') {
       data = data.dataWithTranslation;
     } else if (data.dataDefault) {
-      // data = data.dataDefault;
+      data = data.dataDefault;
+      if (componentRootName === 'hero-banner') {
+        if (data.link) {
+          data.link = [];
+          data.link.link = data.link;
+        }
+      }
     } else if (data.bannerDataDefault) {
       data = data.bannerDataDefault;
     } else if (data.dataInfo) {
