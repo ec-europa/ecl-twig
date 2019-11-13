@@ -1,11 +1,9 @@
-/* eslint-disable no-param-reassign */
+/* eslint-disable no-param-reassign, prefer-destructuring */
 
 function fixDataInput(data, componentRootName) {
   if (componentRootName.includes('page-header-')) {
     data = data.demoMetaTitleDescriptionContent;
-  }
-  // Search form.
-  if (componentRootName === 'search-form') {
+  } else if (componentRootName === 'search-form') {
     data = {
       text_input: {
         id: 'input-search',
@@ -25,9 +23,7 @@ function fixDataInput(data, componentRootName) {
         extra_classes: 'ecl-search-form__button',
       },
     };
-  }
-  // Tag doesn't come with a spec file.
-  if (componentRootName === 'tag') {
+  } else if (componentRootName === 'tag') {
     data = {
       tag: {
         label: 'Link tag',
@@ -35,10 +31,19 @@ function fixDataInput(data, componentRootName) {
       },
     };
   } else if (componentRootName.includes('card')) {
+    if (data.card.meta) {
+      const meta = data.card.meta;
+      data.card.meta = [];
+      data.card.meta.push(meta);
+    }
     if (data.card.image) {
-      const src = data.card.image;
-      data.card.image = [];
-      data.card.image.src = src;
+      data.card.image = {};
+      data.card.image.src =
+        'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg';
+      data.card.image.alt = 'alt';
+    }
+    if (data.card.title.href) {
+      data.card.title.path = data.card.title.href;
     }
   }
   if (componentRootName === 'link') {
