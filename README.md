@@ -2,4 +2,4 @@
 
 Twig components for the EC new visual identity (EU coming soon).
 
-[Read the docs](./docs).
+[Read the docs](./docs)
