@@ -68,8 +68,8 @@ components.forEach(component => {
       data = data.bannerDataDefault;
     } else if (data.dataGroup1) {
       data = data.dataGroup1;
-    } else if (data.dataSimple) {
-      data = data.dataSimple;
+    } else if (data.dataLong) {
+      data = data.dataLong;
     } else if (data.englishData) {
       data = data.englishData;
     } else if (component === 'hero-banner') {

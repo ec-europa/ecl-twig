@@ -35,8 +35,8 @@
         unset($data_json['shape']);
       }
       // Breadcrumb.
-      if (isset($data_json['dataSimple'])) {
-        $data_json = $data_json['dataSimple'];
+      if (isset($data_json['dataLong'])) {
+        $data_json = $data_json['dataLong'];
       }
       // Checkbox, Hero banner, Radio, Table, Tag.
       elseif (isset($data_json['dataDefault'])) {
