@@ -73,6 +73,8 @@ components.forEach(component => {
       // data = data.dataDefault;
     } else if (data.bannerDataDefault) {
       data = data.bannerDataDefault;
+    } else if (data.dataInfo) {
+      data = data.dataInfo;
     } else if (data.dataGroup1) {
       data = data.dataGroup1;
     } else if (data.dataLong) {

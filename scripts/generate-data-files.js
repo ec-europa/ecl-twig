@@ -51,12 +51,20 @@ const listRender = Object.keys(list.dependencies);
 
 listRender.forEach(pkg => {
   const componentRootName = pkg.split(`@ecl-twig/${system}-component-`)[1];
-
   const packageLocation = `${nodeModules}/${pkg}`;
-  const specLocation = packageLocation.replace(
-    `@ecl-twig/${system}-component-${componentRootName}`,
-    `@ecl/${system}-specs-${componentRootName}`
-  );
+  let specLocation = '';
+
+  if (componentRootName === 'ordered-list') {
+    specLocation = packageLocation.replace(
+      `@ecl-twig/${system}-component-${componentRootName}`,
+      `@ecl/${system}-specs-list`
+    );
+  } else {
+    specLocation = packageLocation.replace(
+      `@ecl-twig/${system}-component-${componentRootName}`,
+      `@ecl/${system}-specs-${componentRootName}`
+    );
+  }
 
   const eclTwigPath = path.resolve(packageLocation);
   const eclSpecPath = path.resolve(specLocation);
