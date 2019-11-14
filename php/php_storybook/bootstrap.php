@@ -5,11 +5,6 @@ use Webmozart\PathUtil\Path;
 require_once __DIR__ . '/vendor/autoload.php';
 
 $system = 'ec';
-
-if (!$system) {
-  throw new Error('Missing EC_SYSTEM environment variable.');
-}
-
 $paths = [];
 $twig_path = __DIR__ . '/../../../node_modules/@ecl-twig';
 $twig_path_abs = Path::canonicalize($twig_path);
