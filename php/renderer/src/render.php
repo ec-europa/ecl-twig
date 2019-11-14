@@ -61,15 +61,14 @@ foreach ($components as $component) {
       $data_json = json_decode($data_string, TRUE);
 
       if (!empty($data_json)) {
-        //$data_json = $helpers->fixData($data_json, $variant);
+        // If it's a modifier we demo it in a folder together with the other variants.
+        $base_component = $helpers->baseComponent($variant);
         // Here we render the template with params.
         $data_html = $twig->render($template, $data_json);
         // But then we need to fix something...
         $data_html = $helpers->fixHtml($data_html, $component);
         // Create stories files.
         $adapted_variant = str_replace('-', '_', $variant);
-        // If it's a modifier we demo it in a folder together with the other variants.
-        $base_component = $helpers->baseComponent($variant);
         // We try to collect all the variants in the same story, so if we find one and the story file exist we inject
         // the additional story and we prepend the import of the component.
         if (file_exists($folder . DIRECTORY_SEPARATOR . 'story' . DIRECTORY_SEPARATOR . $base_component . '.story.js')) {

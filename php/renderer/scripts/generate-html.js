@@ -33,12 +33,9 @@ components.forEach(component => {
       .replace(/.json/, '')
       .replace('data', component);
 
-    /* We choose some data file specifically in case we can improve the rendering */
     let data = '';
-
-    if (component === 'text-area' || component === 'text-input') {
-      data = require(`${systemFolder}/${component}/specs/data--default.json`);
-    } else if (component === 'inpage-navigation') {
+    // @todo: Understand the way inpage is built.
+    if (component === 'inpage-navigation') {
       data = require(`${systemFolder}/${component}/specs/data.json`);
     } else if (component === 'page-filler') {
       data = require(`${systemFolder}/${component}/specs/page-filler.json`);
