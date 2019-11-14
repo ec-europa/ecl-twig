@@ -29,7 +29,7 @@
     "render:dataGen": "babel-node ./node_modules/@ecl-twig/php-renderer/scripts/generate-data-files.js",
     "render:setupPhp": "cd ./node_modules/@ecl-twig/php-renderer && composer install",
     "render:php": "cd ./node_modules/@ecl-twig/php-renderer && composer render",
-    "render:js": "./node_modules/@ecl-twig/php-renderer/scripts/generate-html.js",
+    "render:js": "node_modules/@ecl-twig/php-renderer/scripts/render.js",
     "render": "yarn clean-php && yarn render:dataGen && yarn render:php && yarn render:js && yarn pretty-php",
     "update-version": "lerna version --conventional-commits --no-push --no-git-tag-version",
     "test": "npm run jest"

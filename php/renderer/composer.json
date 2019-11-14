@@ -5,7 +5,7 @@
   "type": "library",
   "scripts": {
     "setup": "@composer install --no-interaction --prefer-dist --no-progress",
-    "render": "php src/render.php"
+    "render": "php scripts/render.php"
   },
   "require": {
     "twig/twig": "^1.34",
@@ -18,10 +18,5 @@
   ],
   "license": "EUPL-1.1",
   "minimum-stability": "dev",
-  "prefer-stable": true,
-  "autoload": {
-    "psr-4": {
-      "EclTwig\\Twig\\": "src/"
-    }
-  }
+  "prefer-stable": true
 }

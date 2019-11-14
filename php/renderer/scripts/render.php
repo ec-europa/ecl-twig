@@ -3,7 +3,7 @@
 use Webmozart\PathUtil\Path;
 
 require_once __DIR__ . '/../bootstrap.php';
-require_once __DIR__ . '/../scripts/helpers.php';
+require_once __DIR__ . '/../resources/helpers.php';
 
 $helpers = new storyHelpers();
 $result_extension = '.php.html';
@@ -89,7 +89,7 @@ foreach ($components as $component) {
             mkdir($folder . DIRECTORY_SEPARATOR . 'js');
           }
           // Get the story template.
-          $data_story = file_get_contents(__DIR__ . '/../resources/story_template.txt');
+          $data_story = file_get_contents(__DIR__ . '/../resources/story-template.txt');
 
           if (!empty($deprecated_component) || !empty($component_group)) {
             $component_group = $component_group . '/';
