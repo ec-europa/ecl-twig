@@ -35,7 +35,7 @@
 {% set _extra_attributes = [
   'data-ecl-auto-init="MenuLegacy"',
   'aria-expanded="false"',
-  'data-ecl-menu-legacy="true"']|join(' ')
+  'data-ecl-menu-legacy']|join(' ')
 %}
 
 {% set _icon = {
@@ -67,7 +67,7 @@
 {# Print the result #}
 <nav class="{{ _css_class }}" {{ _extra_attributes|raw }}>
   <div class="ecl-container">
-    <button class="{{ _prefix_class }}__toggle {{ _prefix_class }}__hamburger ecl-button ecl-button--ghost" type="button" data-ecl-menu-legacy-hamburger-button="true" >
+    <button class="{{ _prefix_class }}__toggle {{ _prefix_class }}__hamburger ecl-button ecl-button--ghost" type="button" data-ecl-menu-legacy-hamburger-button="true">
       <div class="{{ _prefix_class }}__toggle-container">
         <div class="{{ _prefix_class }}__hamburger">
           <div class="{{ _prefix_class }}__hamburger--bar1"></div>
@@ -77,7 +77,7 @@
         {{- _menu_label -}}
       </div>
     </button>
-    <ul class="{{ _prefix_class }}__list" data-{{ _prefix_class }}-list="true">
+    <ul class="{{ _prefix_class }}__list" data-{{ _prefix_class }}-list>
       {%- block navigation %}
         {% if _links is not empty and _links is iterable %}
           {% for _link in _links %}
@@ -92,7 +92,7 @@
                   link: {'type': 'standalone', 'label': _link.label, 'path': _link.href, 'icon_position': 'after'},
                   icon: _icon,
                   extra_classes: _extra_classes,
-                  extra_attributes: [ { name: 'data-' ~ _prefix_class ~ '-link', value: true }],
+                  extra_attributes: [ { name: 'data-' ~ _prefix_class ~ '-link' }],
                 } only -%}
                 {#second level#}
                 <div class="{{ _prefix_class }}__mega" data-{{ _prefix_class }}-mega="true">
