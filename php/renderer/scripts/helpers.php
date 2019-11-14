@@ -64,7 +64,7 @@
       // Other groups.
       $list = ['description-list', 'ordered-list', 'unordered-list'];
       $navigation = ['inpage-navigation', 'link', 'menu-legacy', 'pagination', 'skip-link'];
-      $forms = ['checkbox', 'text-input', 'textarea', 'file-upload', 'radio', 'select', 'search-form'];
+      $forms = ['checkbox', 'text-input', 'text-area', 'file-upload', 'radio', 'select', 'search-form'];
       $banners = ['page-banner', 'hero-banner'];
 
       if (in_array($component, $list)) {

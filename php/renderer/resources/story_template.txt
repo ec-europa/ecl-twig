@@ -3,20 +3,20 @@ import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
 import { withDiff } from '@ecl-twig/storybook-addon-diff';
 import { withJsCode } from '@ecl-twig/storybook-addon-jscode';
-import jsCode from '../js/#php_file_name#.js.html';
+import jsCode from '../js/#phpFileName#.js.html';
 
 import docs from '../README.md';
-import #component_variant# from '../#php_file_name#.php.html';
+import #componentVariant# from '../#phpFileName#.php.html';
 
-storiesOf('Components/#deprecated##component_group##component#', module)
+storiesOf('Components/#deprecated##componentGroup##component#', module)
 .addDecorator(withNotes)
   .addDecorator(withCode)
   .addDecorator(withJsCode)
   .addDecorator(withDiff)
   .add(
-    '#component_variant#',
+    '#phpFileName#',
     () => {
-      return #component_variant#;
+      return #componentVariant#;
     },
     {
       notes: { markdown: docs },

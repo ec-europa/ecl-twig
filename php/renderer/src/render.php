@@ -96,7 +96,7 @@ foreach ($components as $component) {
           }
           // Replace the content with our variables.
           $data_story = str_replace(
-            ['#component#', '#component_variant#', '#php_file_name#', '#deprecated#', '#component_group#'],
+            ['#component#', '#componentVariant#', '#phpFileName#', '#deprecated#', '#componentGroup#'],
             [$base_component, $adapted_variant, $variant, $deprecated_component, $component_group]
             , $data_story
           );
