@@ -7,6 +7,8 @@ const fse = require('fs-extra');
 const path = require('path');
 const fixDataInput = require('../resources/fix-data');
 
+const system = 'ec';
+
 /**
  * Helper to migrate demo data for Twig PHP renderer.
  *
@@ -31,12 +33,6 @@ const createDataFiles = ({ readLocation, saveLocation, componentRootName }) => {
     fse.outputFileSync(filePath, JSON.stringify(data));
   });
 };
-
-const system = 'ec';
-
-if (!system) {
-  throw new Error('Missing ECL_SYSTEM environment variable.');
-}
 
 let readLocation = '';
 // The script needs to be executed from the project root of the workspace.
