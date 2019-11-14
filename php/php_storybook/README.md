@@ -13,18 +13,10 @@ Files overview:
 - `composer.lock`: lock file with dependencies, similar to `yarn.lock`
 - `bootstrap.php`: instantiates `$twig`
 - `generate-data-files.js`: Creates the json files for the specs of each component
-- `generate-hrml.js`: Creates the js rendered files (using twing)
+- `render.js`: Creates the js rendered files (using twing)
 - `fix-data.js`: Applies fixes needed to use the specs with our components
-- `story_template.txt`: A model we use to shape the story file in the initial stage
+- `story-template.txt`: A model we use to shape the story file in the initial stage
 - `render.php`: uses `$twig` and renders templates, it also creates the story files used by storybook
-
-## Settings
-
-Please select the ECL system you want to work with:
-
-```bash
-export ECL_SYSTEM=ec
-```
 
 ## Installation
 
