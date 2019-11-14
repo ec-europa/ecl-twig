@@ -30,6 +30,12 @@ function fixDataInput(data, componentRootName) {
         path: '/example',
       },
     };
+  } else if (componentRootName === 'language-list') {
+    data = data.dataSplash;
+    data.icon_file_path = '/icons.svg';
+    data.logo = {};
+    data.logo.path = '/logo--mute.svg';
+    data.logo.alt = 'European Commission logo';
   } else if (componentRootName.includes('card')) {
     if (data.card.meta) {
       const meta = data.card.meta;

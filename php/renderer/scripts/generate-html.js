@@ -17,11 +17,14 @@ const components = fs.readdirSync(systemFolder);
 components.forEach(component => {
   let componentTemplate = '';
   const pkg = `${system}-component-${component}`;
-  /* Two known exceptions.. */
+  /* Three known exceptions.. */
   if (component === 'checkbox' || component === 'radio') {
     componentTemplate = `${component}-group`;
   } else {
     componentTemplate = component;
+  }
+  if (component === 'language-list') {
+    componentTemplate = `${component}-splash`;
   }
   /* This is the template we are going to render */
   const template = `@ecl-twig/${pkg}/ecl-${componentTemplate}.${extension}`;
