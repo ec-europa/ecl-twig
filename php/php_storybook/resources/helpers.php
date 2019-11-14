@@ -1,5 +1,7 @@
 <?php
-
+  /**
+   * Helper class for the automated story files generation and organisation.
+   */
   class storyHelpers {
     // Used to prepend a string in a file.
     function prepend($string, $orig_filename) {
@@ -37,9 +39,8 @@
 
       return $data_html;
     }
-
+    // Grouping by deprecated component.
     function deprecatedComponents($component) {
-      // Deprecated components.
       $deprecated = ['site-header', 'accordion', 'breadcrumb', 'page-header', 'footer'];
       $deprecated_component = in_array($component, $deprecated) ? 'deprecated' : '';
 
