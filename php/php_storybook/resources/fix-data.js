@@ -54,12 +54,20 @@ function fixDataInput(data, componentRootName) {
   }
   if (componentRootName === 'link') {
     data.link = {
-      extra_classes: data.variant ? data.variant : '',
-      type: 'standalone',
+      type: data.variant,
       label: data.label,
-      href: data.href,
-      icon: data.icon ? data.icon : '',
+      path: data.href,
     };
+    delete(data.variant);
+    delete(data.label);
+    delete(data.href);
+
+    if (data.icon) {
+      data.link.icon_position = 'after';
+      data.icon.path = '/icons.svg';
+      data.icon.name = data.icon.shape;
+      delete(data.icon.shape);
+    }
   } else if (componentRootName === 'icon') {
     if (data.shape) {
       data.icon = {};
