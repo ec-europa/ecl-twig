@@ -37,37 +37,52 @@ function fixDataInput(data, componentRootName) {
     data.logo.path = '/logo--mute.svg';
     data.logo.alt = 'European Commission logo';
   } else if (componentRootName.includes('card')) {
-    if (data.card.meta) {
-      const meta = data.card.meta;
+    data.card = {};
+    data.card.description = data.description;
+    data.card.title = data.title;
+    delete(data.description);
+    if (data.meta) {
+      const meta = data.meta;
       data.card.meta = [];
       data.card.meta.push(meta);
+      delete(data.meta);
     }
-    if (data.card.image) {
-      data.card.image = {};
-      data.card.image.src =
-        'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg';
-      data.card.image.alt = 'alt';
+    if (data.tags) {
+      data.card.tags = data.tags;
+      delete(data.tags);
     }
     if (data.card.title.href) {
       data.card.title.path = data.card.title.href;
     }
-  }
-  if (componentRootName === 'link') {
+    if (data.image) {
+      data.card.image = data.image;
+      delete(data.image);
+    }
+    if (data.infos) {
+      data.card.infos = data.infos;
+      delete(data.infos);
+    }
+    if (data.links) {
+      data.card.links = data.links;
+      delete(data.links);
+    }
+    delete(data.title);
+  } else if (componentRootName === 'link') {
     data.link = {
       type: data.variant,
       label: data.label,
       path: data.href,
     };
-    delete(data.variant);
-    delete(data.label);
-    delete(data.href);
-
     if (data.icon) {
       data.link.icon_position = 'after';
       data.icon.path = '/icons.svg';
       data.icon.name = data.icon.shape;
       delete(data.icon.shape);
     }
+    delete(data.variant);
+    delete(data.label);
+    delete(data.href);
+    delete(data.title);
   } else if (componentRootName === 'icon') {
     if (data.shape) {
       data.icon = {};
