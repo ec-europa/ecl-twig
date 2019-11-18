@@ -11,7 +11,7 @@ npm install --save @ecl-twig/ec-component-card
 ### Parameters
 
 - "card" (associative array) (default: predefined structure below)
-  - "type" (string) (default: 'default') - Card type (can be 'default','tile')
+  - "type" (string) (default: '') - Card type ('tile')
   - "description" (string) (default: '') - Description of card
   - "meta" (array) (default: []) - Meta's for the Card
   - "title" (associative array) (default: {}) - Predefined structure compatible with Link component. If Card type is a 'tile', only label property is required.
@@ -34,7 +34,7 @@ npm install --save @ecl-twig/ec-component-card
 ```twig
 {% include '@ecl-twig/ec-component-card/ecl-card.html.twig' with { 
   card: { 
-    type: 'default', 
+    type: 'tile', 
     description: 'Transparently designing and evaluating evidence-based EU legislation, backed by citizens views.', 
     image: { 
       src: 'https://v2--europa-component-library.netlify.com/example-image.jpg', 
