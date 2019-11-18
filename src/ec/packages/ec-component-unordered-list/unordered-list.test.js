@@ -1,5 +1,8 @@
 import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 import data from '@ecl/ec-specs-list/demo/data--text';
+import dataLink from '@ecl/ec-specs-list/demo/data--link';
+import dataLinkDivider from '@ecl/ec-specs-list/demo/data--link-divider';
+import dataLinkNoBullet from '@ecl/ec-specs-list/demo/data--link-no-bullet';
 
 describe('EC - Unordered list', () => {
   const template =
@@ -26,21 +29,19 @@ describe('EC - Unordered list', () => {
     test('renders correctly with no-bullet variant', () => {
       expect.assertions(1);
 
-      const noBullet = merge(data, {
-        variant: 'no-bullet',
-      });
+      return expect(render(dataLinkNoBullet)).resolves.toMatchSnapshot();
+    });
 
-      return expect(render(noBullet)).resolves.toMatchSnapshot();
+    test('renders correctly with links', () => {
+      expect.assertions(1);
+
+      return expect(render(dataLink)).resolves.toMatchSnapshot();
     });
 
     test('renders correctly with divider variant', () => {
       expect.assertions(1);
 
-      const divider = merge(data, {
-        variant: 'divider',
-      });
-
-      return expect(render(divider)).resolves.toMatchSnapshot();
+      return expect(render(dataLinkDivider)).resolves.toMatchSnapshot();
     });
 
     test('renders correctly with extra attributes', () => {
