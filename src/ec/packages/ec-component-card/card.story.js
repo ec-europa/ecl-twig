@@ -4,7 +4,10 @@ import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
 
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
-import { dataCard, dataCardEvent, dataCardTag, dataTile } from './demo/data';
+import dataCard from './demo/data--card';
+import dataCardEvent from './demo/data--card-event';
+import dataCardTag from './demo/data--card-tag';
+import dataTile from './demo/data--tile';
 import cardDocs from './docs/card.md';
 
 import card from './ecl-card.html.twig';

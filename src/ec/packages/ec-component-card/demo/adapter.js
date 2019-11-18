@@ -1,11 +1,5 @@
 /* eslint-disable import/no-extraneous-dependencies, no-param-reassign */
 import { formatLinkAlt } from '@ecl-twig/data-utils';
-import specCard from '@ecl/ec-specs-card/demo/data--card';
-import specCardEvent from '@ecl/ec-specs-card/demo/data--card-event';
-import specCardTag from '@ecl/ec-specs-card/demo/data--card-tag';
-import specTile from '@ecl/ec-specs-card/demo/data--tile';
-
-specTile.type = 'tile';
 
 const adapter = initialData => {
   // Copy reference specification demo adaptedData.
@@ -59,7 +53,4 @@ const adapter = initialData => {
   return adaptedData;
 };
 
-export const dataCard = adapter(specCard);
-export const dataTile = adapter(specTile);
-export const dataCardTag = adapter(specCardTag);
-export const dataCardEvent = adapter(specCardEvent);
+export default adapter;

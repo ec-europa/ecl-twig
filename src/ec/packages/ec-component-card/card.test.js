@@ -1,5 +1,8 @@
 import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
-import { dataCard, dataCardEvent, dataCardTag, dataTile } from './demo/data';
+import dataCard from './demo/data--card';
+import dataCardEvent from './demo/data--card-event';
+import dataCardTag from './demo/data--card-tag';
+import dataTile from './demo/data--tile';
 
 describe('EC - Card', () => {
   const template = '@ecl-twig/ec-component-card/ecl-card.html.twig';
