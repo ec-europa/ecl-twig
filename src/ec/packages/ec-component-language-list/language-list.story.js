@@ -30,7 +30,7 @@ storiesOf('Components/Language list', module)
         },
       }),
     {
-      notes: { markdown: splashDocs },
+      notes: { markdown: splashDocs, json: dataSplash },
     }
   )
   .add(
@@ -44,6 +44,6 @@ storiesOf('Components/Language list', module)
         title: dataOverlay.title,
       }),
     {
-      notes: { markdown: overlayDocs },
+      notes: { markdown: overlayDocs, json: dataOverlay },
     }
   );

@@ -25,5 +25,5 @@ storiesOf('Components/Footers/Standardised', module)
   .addDecorator(withCode)
   .addDecorator(withNotes)
   .add('default', () => footerStandardised(data), {
-    notes: { markdown: notes },
+    notes: { markdown: notes, json: data },
   });

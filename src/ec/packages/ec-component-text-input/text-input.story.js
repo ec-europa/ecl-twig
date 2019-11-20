@@ -4,7 +4,6 @@ import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
 
 import textInputDocs from './docs/text-input.md';
-
 import textInput from './ecl-text-input.html.twig';
 
 const inputWidthOptions = {

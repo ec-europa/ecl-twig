@@ -35,6 +35,6 @@ storiesOf('Components/Forms/Checkbox', module)
         required_text: text('Required text', '*'),
       }),
     {
-      notes: { markdown: checkboxDocs },
+      notes: { markdown: checkboxDocs, json: dataDefault },
     }
   );

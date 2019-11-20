@@ -21,6 +21,6 @@ storiesOf('Components/Dropdowns legacy', module)
       return dropdown(demoData);
     },
     {
-      notes: { markdown: notes },
+      notes: { markdown: notes, json: demoData },
     }
   );

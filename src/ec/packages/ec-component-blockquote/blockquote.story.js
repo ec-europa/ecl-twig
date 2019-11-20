@@ -20,6 +20,6 @@ storiesOf('Components/Blockquote', module)
         author: text('Author name', data.author),
       }),
     {
-      notes: { markdown: notes },
+      notes: { markdown: notes, json: data },
     }
   );

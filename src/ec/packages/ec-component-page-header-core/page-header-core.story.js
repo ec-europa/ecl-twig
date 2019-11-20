@@ -24,7 +24,7 @@ storiesOf('Components/Page Headers/Page Header Core', module)
       return pageHeaderCore(demoTitleContent);
     },
     {
-      notes: { markdown: pageHeaderCoreDocs },
+      notes: { markdown: pageHeaderCoreDocs, json: demoTitleContent },
     }
   )
   .add(
@@ -33,7 +33,7 @@ storiesOf('Components/Page Headers/Page Header Core', module)
       return pageHeaderCore(demoMetaTitleContent);
     },
     {
-      notes: { markdown: pageHeaderCoreDocs },
+      notes: { markdown: pageHeaderCoreDocs, json: demoMetaTitleContent },
     }
   )
   .add(
@@ -42,6 +42,9 @@ storiesOf('Components/Page Headers/Page Header Core', module)
       return pageHeaderCore(demoMetaTitleDescriptionContent);
     },
     {
-      notes: { markdown: pageHeaderCoreDocs },
+      notes: {
+        markdown: pageHeaderCoreDocs,
+        json: demoMetaTitleDescriptionContent,
+      },
     }
   );

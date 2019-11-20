@@ -10,5 +10,5 @@ storiesOf('Components/Footers/Core', module)
   .addDecorator(withCode)
   .addDecorator(withNotes)
   .add('default', () => footer(sections), {
-    notes: { markdown: notes },
+    notes: { markdown: notes, json: sections },
   });

@@ -11,14 +11,17 @@ import { englishData, frenchData } from './demo/data';
 import siteHeaderStandardisedDocs from './README.md';
 import siteHeaderStandardised from './ecl-site-header-standardised.html.twig';
 
+frenchData.icon_file_path = defaultSprite;
+frenchData.logo.src = frenchBanner;
+englishData.icon_file_path = defaultSprite;
+englishData.logo.src = englishBanner;
+
 storiesOf('Components/Site Headers/Standardised', module)
   .addDecorator(withNotes)
   .addDecorator(withCode)
   .add(
     'default',
     () => {
-      englishData.icon_file_path = defaultSprite;
-      englishData.logo.src = englishBanner;
       return siteHeaderStandardised(englishData);
     },
     {
@@ -29,22 +32,18 @@ storiesOf('Components/Site Headers/Standardised', module)
     'logged in',
     () => {
       englishData.logged = true;
-      englishData.icon_file_path = defaultSprite;
-      englishData.logo.src = englishBanner;
       return siteHeaderStandardised(englishData);
     },
     {
-      notes: { markdown: siteHeaderStandardisedDocs },
+      notes: { markdown: siteHeaderStandardisedDocs, json: englishData },
     }
   )
   .add(
     'translated',
     () => {
-      frenchData.icon_file_path = defaultSprite;
-      frenchData.logo.src = frenchBanner;
       return siteHeaderStandardised(frenchData);
     },
     {
-      notes: { markdown: siteHeaderStandardisedDocs },
+      notes: { markdown: siteHeaderStandardisedDocs, json: frenchData },
     }
   );

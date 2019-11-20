@@ -33,6 +33,6 @@ storiesOf('Components/Date block', module)
       });
     },
     {
-      notes: { markdown: docs },
+      notes: { markdown: docs, json: data },
     }
   );

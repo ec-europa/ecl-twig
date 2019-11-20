@@ -24,7 +24,7 @@ storiesOf('Components/deprecated/Site Header', module)
       return siteHeader(englishData);
     },
     {
-      notes: { markdown: siteHeaderDocs },
+      notes: { markdown: siteHeaderDocs, json: englishData },
     }
   )
   .add(
@@ -35,6 +35,6 @@ storiesOf('Components/deprecated/Site Header', module)
       return siteHeader(frenchData);
     },
     {
-      notes: { markdown: siteHeaderDocs },
+      notes: { markdown: siteHeaderDocs, json: frenchData },
     }
   );

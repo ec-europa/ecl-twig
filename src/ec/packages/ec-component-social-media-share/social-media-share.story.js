@@ -29,6 +29,6 @@ storiesOf('Components/Social Media Share', module)
         links: demoData.links,
       }),
     {
-      notes: { markdown: notes },
+      notes: { markdown: notes, json: demoData },
     }
   );
