@@ -53,7 +53,7 @@
       {% for _item in _items %}
         {% if _item is not empty %}
           <li class="ecl-unordered-list__item">
-            {{- _item.label -}}
+            {{- _item.label|raw -}}
             {% if _item.nested is not empty and _item.nested is iterable %}
               {{- list.unordered_list(_item.nested) -}}
             {% endif -%}
