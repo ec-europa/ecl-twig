@@ -1,70 +1,23 @@
 import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
+import dataCard from './demo/data--card';
+import dataCardEvent from './demo/data--card-event';
+import dataCardTag from './demo/data--card-tag';
+import dataTile from './demo/data--tile';
 
 describe('EC - Card', () => {
   const template = '@ecl-twig/ec-component-card/ecl-card.html.twig';
   const render = params => renderTwigFileAsNode(template, params);
-  const defaultIconPath = 'static/icons.svg';
 
   describe('Default', () => {
-    const data = {
-      card: {
-        title: {
-          type: 'standalone',
-          path: '/example',
-          label: 'Better regulation',
-        },
-        description:
-          'Transparently designing and evaluating evidence-based EU legislation, backed by citizens views.',
-        meta: ['Meta 1', 'Meta 2', 'Meta 3'],
-        image: {
-          src:
-            'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
-          alt: 'Better regulation',
-        },
-        infos: [
-          {
-            label: '2018/10/22',
-            icon: {
-              type: 'general',
-              name: 'calendar',
-              path: defaultIconPath,
-            },
-          },
-          {
-            label: 'Luxembourg',
-            icon: {
-              type: 'general',
-              name: 'location',
-              path: defaultIconPath,
-            },
-          },
-        ],
-        tags: [
-          {
-            label: 'Tag 1',
-            path: '/example-1',
-          },
-          {
-            label: 'Tag 2',
-            path: '/example-2',
-          },
-          {
-            label: 'Tag 3',
-            path: '/example-3',
-          },
-        ],
-      },
-    };
-
     test('renders correctly', () => {
       expect.assertions(1);
-      return expect(render(data)).resolves.toMatchSnapshot();
+      return expect(render(dataCard)).resolves.toMatchSnapshot();
     });
 
     test('renders correctly with extra class names', () => {
       expect.assertions(1);
 
-      const withExtraClasses = merge(data, {
+      const withExtraClasses = merge(dataCard, {
         extra_classes: 'custom-class custom-class--test',
       });
 
@@ -74,7 +27,7 @@ describe('EC - Card', () => {
     test('renders correctly with extra attributes', () => {
       expect.assertions(1);
 
-      const withExtraAttributes = merge(data, {
+      const withExtraAttributes = merge(dataCard, {
         extra_attributes: [
           { name: 'data-test', value: 'data-test-value' },
           { name: 'data-test-1', value: 'data-test-value-1' },
@@ -86,40 +39,15 @@ describe('EC - Card', () => {
   });
 
   describe('Tile', () => {
-    const data = {
-      card: {
-        description:
-          'Transparently designing and evaluating evidence-based EU legislation, backed by citizens views.',
-        title: {
-          label: 'Better regulation',
-        },
-        type: 'tile',
-        links: [
-          {
-            label: 'link 1',
-            path: '/example-1',
-          },
-          {
-            label: 'link 2',
-            path: '/example-2',
-          },
-          {
-            label: 'link 3',
-            path: '/example-3',
-          },
-        ],
-      },
-    };
-
     test('renders correctly', () => {
       expect.assertions(1);
-      return expect(render(data)).resolves.toMatchSnapshot();
+      return expect(render(dataTile)).resolves.toMatchSnapshot();
     });
 
     test('renders correctly with extra class names', () => {
       expect.assertions(1);
 
-      const withExtraClasses = merge(data, {
+      const withExtraClasses = merge(dataTile, {
         extra_classes: 'custom-class custom-class--test',
       });
 
@@ -129,7 +57,67 @@ describe('EC - Card', () => {
     test('renders correctly with extra attributes', () => {
       expect.assertions(1);
 
-      const withExtraAttributes = merge(data, {
+      const withExtraAttributes = merge(dataTile, {
+        extra_attributes: [
+          { name: 'data-test', value: 'data-test-value' },
+          { name: 'data-test-1', value: 'data-test-value-1' },
+        ],
+      });
+
+      return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
+    });
+  });
+
+  describe('Tag', () => {
+    test('renders correctly', () => {
+      expect.assertions(1);
+      return expect(render(dataCardTag)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly with extra class names', () => {
+      expect.assertions(1);
+
+      const withExtraClasses = merge(dataCardTag, {
+        extra_classes: 'custom-class custom-class--test',
+      });
+
+      return expect(render(withExtraClasses)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly with extra attributes', () => {
+      expect.assertions(1);
+
+      const withExtraAttributes = merge(dataCardTag, {
+        extra_attributes: [
+          { name: 'data-test', value: 'data-test-value' },
+          { name: 'data-test-1', value: 'data-test-value-1' },
+        ],
+      });
+
+      return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
+    });
+  });
+
+  describe('Events', () => {
+    test('renders correctly', () => {
+      expect.assertions(1);
+      return expect(render(dataCardEvent)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly with extra class names', () => {
+      expect.assertions(1);
+
+      const withExtraClasses = merge(dataCardEvent, {
+        extra_classes: 'custom-class custom-class--test',
+      });
+
+      return expect(render(withExtraClasses)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly with extra attributes', () => {
+      expect.assertions(1);
+
+      const withExtraAttributes = merge(dataCardEvent, {
         extra_attributes: [
           { name: 'data-test', value: 'data-test-value' },
           { name: 'data-test-1', value: 'data-test-value-1' },
