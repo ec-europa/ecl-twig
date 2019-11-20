@@ -4,7 +4,7 @@
   Parameters:
     - "card" (associative array) (default: predefined structure): format:
         {
-          type: 'default', (can be 'default','tile'): Card type
+          type: '', (can be 'tile'): Card type
           description: '', (string) (default: ''): Description of card
           meta: [], (array) (default: []): Meta's for the Card
           title: {}, (associative array) (default: {}): Predefined structure compatible with Link component. If Card type is a 'tile', only label property is required.
@@ -37,7 +37,7 @@
 {# Internal properties #}
 
 {% set _card = {
-  type: 'default',
+  type: '',
   description: '',
   meta: [],
   title: {},
@@ -56,7 +56,7 @@
 
 {# Set class for card different than default #}
 
-{% if _card.type != 'default' %}
+{% if _card.type is not empty %}
   {% set _css_class = _css_class ~ ' ecl-card--' ~ _card.type %}
 {% endif %}
 
