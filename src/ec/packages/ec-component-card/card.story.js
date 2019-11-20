@@ -1,82 +1,34 @@
+/* eslint-disable no-param-reassign */
 import { storiesOf } from '@storybook/html';
-import { withKnobs, text, array } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
 
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
+import dataCard from './demo/data--card';
+import dataCardEvent from './demo/data--card-event';
+import dataCardTag from './demo/data--card-tag';
+import dataTile from './demo/data--tile';
 import cardDocs from './docs/card.md';
 
 import card from './ecl-card.html.twig';
 
+const formatInfo = data => {
+  if (data.card.infos) {
+    data.card.infos.forEach(item => {
+      item.icon.path = defaultSprite;
+    });
+  }
+
+  return data;
+};
+
 storiesOf('Components/Card', module)
-  .addDecorator(withKnobs)
   .addDecorator(withCode)
   .addDecorator(withNotes)
   .add(
     'card',
     () => {
-      const tagsArray = array(
-        'Tags (comma separated)',
-        ['Tag 1', 'Tag 2', 'Tag 3'],
-        ','
-      );
-      const infosArray = array(
-        'Infos (comma separated)',
-        ['2018/10/22', 'Luxembourg'],
-        ','
-      );
-      const metaArray = array(
-        'Meta (comma separated)',
-        ['Meta 1', 'Meta 2', 'Meta 3'],
-        ','
-      );
-      const tags = tagsArray.map(tag => ({
-        label: tag,
-        path: '/example',
-      }));
-
-      const infos = infosArray.map((info, key) => ({
-        label: info,
-        icon: {
-          type: 'general',
-          name: () => {
-            if (key === 0) {
-              return 'calendar';
-            }
-
-            if (key === 1) {
-              return 'location';
-            }
-
-            return 'faq';
-          },
-          path: defaultSprite,
-        },
-      }));
-
-      return card({
-        card: {
-          title: {
-            type: 'standalone',
-            path: '/example',
-            label: text('Title', 'Better regulation'),
-          },
-          description: text(
-            'Description',
-            'Transparently designing and evaluating evidence-based EU legislation, backed by citizens views.'
-          ),
-          meta: metaArray,
-          image: {
-            src: text(
-              'Image path',
-              'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg'
-            ),
-            alt: text('Alternate text', 'Better regulation'),
-          },
-          infos,
-          tags,
-        },
-      });
+      return card(formatInfo(dataCard));
     },
     {
       notes: { markdown: cardDocs },
@@ -85,29 +37,25 @@ storiesOf('Components/Card', module)
   .add(
     'tile',
     () => {
-      const linksArray = array(
-        'Links (comma separated)',
-        ['Link 1', 'Link 2', 'Link 3'],
-        ','
-      );
-      const links = linksArray.map(link => ({
-        label: link,
-        path: '/example',
-      }));
-
-      return card({
-        card: {
-          description: text(
-            'Description',
-            'Transparently designing and evaluating evidence-based EU legislation, backed by citizens views.'
-          ),
-          title: {
-            label: text('Title', 'Better regulation'),
-          },
-          type: 'tile',
-          links,
-        },
-      });
+      return card(dataTile);
+    },
+    {
+      notes: { markdown: cardDocs },
+    }
+  )
+  .add(
+    'tag',
+    () => {
+      return card(formatInfo(dataCardTag));
+    },
+    {
+      notes: { markdown: cardDocs },
+    }
+  )
+  .add(
+    'event',
+    () => {
+      return card(formatInfo(dataCardEvent));
     },
     {
       notes: { markdown: cardDocs },
