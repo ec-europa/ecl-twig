@@ -24,13 +24,15 @@ renderer.code = function customCode(code, infostring, escaped) {
 
   const htmlLang = this.options.langPrefix + escape(lang, true);
   // Due to the format produced by JSON.stringify.
-  const text = code.replace(
-    /(<span class="token punctuation")>\.(<\/span>)/g,
-    '$1 style="visibility:hidden">.$2'
-  );
+  if (infostring === 'twig') {
+    code = code.replace(
+      /(<span class="token punctuation")>\.(<\/span>)/g,
+      '$1 style="visibility:hidden">.$2'
+    );
+  }
 
   return `<pre class="${htmlLang}"><code class="${htmlLang}">${
-    escaped ? text : escape(text, true)
+    escaped ? code : escape(code, true)
   }</code></pre>\n`;
 };
 
