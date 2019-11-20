@@ -36,37 +36,6 @@ function fixDataInput(data, componentRootName) {
     data.logo = {};
     data.logo.path = '/logo--mute.svg';
     data.logo.alt = 'European Commission logo';
-  } else if (componentRootName.includes('card')) {
-    data.card = {};
-    data.card.description = data.description;
-    data.card.title = data.title;
-    delete data.description;
-    if (data.meta) {
-      const meta = data.meta;
-      data.card.meta = [];
-      data.card.meta.push(meta);
-      delete data.meta;
-    }
-    if (data.tags) {
-      data.card.tags = data.tags;
-      delete data.tags;
-    }
-    if (data.card.title.href) {
-      data.card.title.path = data.card.title.href;
-    }
-    if (data.image) {
-      data.card.image = data.image;
-      delete data.image;
-    }
-    if (data.infos) {
-      data.card.infos = data.infos;
-      delete data.infos;
-    }
-    if (data.links) {
-      data.card.links = data.links;
-      delete data.links;
-    }
-    delete data.title;
   } else if (componentRootName === 'link') {
     data.link = {
       type: data.variant,
