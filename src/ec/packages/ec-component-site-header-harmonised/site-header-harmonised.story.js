@@ -21,7 +21,7 @@ storiesOf('Components/Site Headers/Harmonised', module)
       return siteHeaderHarmonised(dataGroup1);
     },
     {
-      notes: { markdown: siteHeaderHarmonisedDocs },
+      notes: { markdown: siteHeaderHarmonisedDocs, json: dataGroup1 },
     }
   )
   .add(
@@ -33,6 +33,6 @@ storiesOf('Components/Site Headers/Harmonised', module)
       return siteHeaderHarmonised(dataGroup2);
     },
     {
-      notes: { markdown: siteHeaderHarmonisedDocs },
+      notes: { markdown: siteHeaderHarmonisedDocs, json: dataGroup2 },
     }
   );

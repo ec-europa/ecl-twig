@@ -35,8 +35,8 @@ storiesOf('Components/Footers/Harmonised', module)
   .addDecorator(withCode)
   .addDecorator(withNotes)
   .add('group 1', () => footerHarmonised(dataGroup1), {
-    notes: { markdown: notes },
+    notes: { markdown: notes, json: dataGroup1 },
   })
   .add('group 2', () => footerHarmonised(dataGroup2), {
-    notes: { markdown: notes },
+    notes: { markdown: notes, json: dataGroup2 },
   });

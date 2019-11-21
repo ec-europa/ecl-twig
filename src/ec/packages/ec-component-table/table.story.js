@@ -16,7 +16,7 @@ storiesOf('Components/Table', module)
       return table(dataDefault);
     },
     {
-      notes: { markdown: docs },
+      notes: { markdown: docs, json: dataDefault },
     }
   )
   .add(
@@ -26,7 +26,7 @@ storiesOf('Components/Table', module)
       return table(dataDefault);
     },
     {
-      notes: { markdown: docs },
+      notes: { markdown: docs, json: dataDefault },
     }
   )
   .add(
@@ -35,6 +35,6 @@ storiesOf('Components/Table', module)
       return table(dataMulti);
     },
     {
-      notes: { markdown: docs },
+      notes: { markdown: docs, json: dataMulti },
     }
   );

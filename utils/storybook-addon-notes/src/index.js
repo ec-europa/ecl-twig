@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import addons, { makeDecorator } from '@storybook/addons';
 import marked from 'marked';
 import Prism from 'prismjs';
@@ -17,19 +18,38 @@ renderer.code = function customCode(code, infostring, escaped) {
 
   const highlightedCode = Prism.highlight(code, Prism.languages[lang], lang);
   if (highlightedCode != null && highlightedCode !== code) {
-    // eslint-disable-next-line no-param-reassign
     escaped = true;
-    // eslint-disable-next-line no-param-reassign
     code = highlightedCode;
   }
 
   const htmlLang = this.options.langPrefix + escape(lang, true);
+  // Due to the format produced by JSON.stringify.
+  if (infostring === 'twig') {
+    code = code.replace(
+      /(<span class="token punctuation")>\.(<\/span>)/g,
+      '$1 style="visibility:hidden">.$2'
+    );
+  }
+
   return `<pre class="${htmlLang}"><code class="${htmlLang}">${
     escaped ? code : escape(code, true)
   }</code></pre>\n`;
 };
 
-function renderMarkdown(text, options) {
+function renderMarkdown(text, options, json) {
+  if (json) {
+    // Ehm, this is the best format we could get.
+    let specs = JSON.stringify(json, null, '\n..');
+    // We only replace the existing example.s
+    specs = specs.replace(/"([^(")"]+)":/g, '$1:');
+    const n = specs.lastIndexOf('}');
+    specs = [specs.slice(0, n), '\n', specs.slice(n)].join('');
+    const preTwig = text.substring(0, text.indexOf("twig' with {"));
+    const postTwig = text.split('```').pop();
+    // eslint-disable-next-line prefer-template
+    text = preTwig + "twig' with \n" + specs + postTwig + ' %}\n```';
+  }
+
   return marked(
     text,
     Object.assign({}, marked.defaults, { renderer }, options)
@@ -43,7 +63,7 @@ export const withNotes = makeDecorator({
   allowDeprecatedUsage: true,
   wrapper: (getStory, context, { options, parameters }) => {
     const channel = addons.getChannel();
-
+    const { json } = parameters;
     const storyOptions = parameters || options;
 
     const { text, markdown, markdownOptions } =
@@ -57,15 +77,16 @@ export const withNotes = makeDecorator({
 
     channel.emit(
       'ecl/notes/add_notes',
-      text || renderMarkdown(markdown, markdownOptions)
+      text || renderMarkdown(markdown, markdownOptions, json)
     );
 
     return getStory(context);
   },
 });
 
-export const withMarkdownNotes = (text, options) =>
+export const withMarkdownNotes = (text, options, json) =>
   withNotes({
     markdown: text,
+    json,
     markdownOptions: options,
   });

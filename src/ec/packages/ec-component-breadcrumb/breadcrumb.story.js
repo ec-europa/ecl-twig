@@ -23,7 +23,7 @@ storiesOf('Components/Navigation/Breadcrumb', module)
         ellipsis_label: 'Click to expand',
       }),
     {
-      notes: { markdown: breadcrumbDocs },
+      notes: { markdown: breadcrumbDocs, json: dataSimple },
     }
   )
   .add(
@@ -36,6 +36,6 @@ storiesOf('Components/Navigation/Breadcrumb', module)
         ellipsis_label: 'Click to expand',
       }),
     {
-      notes: { markdown: breadcrumbDocs },
+      notes: { markdown: breadcrumbDocs, json: dataLong },
     }
   );

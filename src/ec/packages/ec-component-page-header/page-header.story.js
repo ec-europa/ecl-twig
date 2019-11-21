@@ -78,7 +78,10 @@ storiesOf('Components/deprecated/Page Header', module)
       return pageHeader(sampleData);
     },
     {
-      notes: { markdown: pageHeaderDocs },
+      notes: {
+        markdown: pageHeaderDocs,
+        json: preparePageHeaderData(pageHeaderDataTitle),
+      },
     }
   )
   .add(
@@ -89,7 +92,10 @@ storiesOf('Components/deprecated/Page Header', module)
       return pageHeader(sampleData);
     },
     {
-      notes: { markdown: pageHeaderDocs },
+      notes: {
+        markdown: pageHeaderDocs,
+        json: preparePageHeaderData(pageHeaderDataTitleDescription),
+      },
     }
   )
   .add(
@@ -100,7 +106,10 @@ storiesOf('Components/deprecated/Page Header', module)
       return pageHeader(sampleData);
     },
     {
-      notes: { markdown: pageHeaderDocs },
+      notes: {
+        markdown: pageHeaderDocs,
+        json: preparePageHeaderData(pageHeaderDataTitle),
+      },
     }
   )
   .add(
@@ -113,7 +122,10 @@ storiesOf('Components/deprecated/Page Header', module)
       return pageHeader(sampleData);
     },
     {
-      notes: { markdown: pageHeaderDocs },
+      notes: {
+        markdown: pageHeaderDocs,
+        json: preparePageHeaderData(pageHeaderDataMetaTitleDescription),
+      },
     }
   )
   .add(
@@ -124,7 +136,10 @@ storiesOf('Components/deprecated/Page Header', module)
       return pageHeader(sampleData);
     },
     {
-      notes: { markdown: pageHeaderDocs },
+      notes: {
+        markdown: pageHeaderDocs,
+        json: preparePageHeaderData(pageHeaderDataEvents),
+      },
     }
   )
   .add(
@@ -135,6 +150,9 @@ storiesOf('Components/deprecated/Page Header', module)
       return pageHeader(sampleData);
     },
     {
-      notes: { markdown: pageHeaderDocs },
+      notes: {
+        markdown: pageHeaderDocs,
+        json: preparePageHeaderData(pageHeaderDataEventsDescription),
+      },
     }
   );

@@ -27,7 +27,7 @@ storiesOf('Components/List/Description list', module)
       });
     },
     {
-      notes: { markdown: docs },
+      notes: { markdown: docs, json: dataHorizontal },
     }
   )
   .add(
@@ -40,6 +40,6 @@ storiesOf('Components/List/Description list', module)
       });
     },
     {
-      notes: { markdown: docs },
+      notes: { markdown: docs, json: dataHorizontal },
     }
   );

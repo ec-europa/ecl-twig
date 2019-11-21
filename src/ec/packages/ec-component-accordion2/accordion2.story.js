@@ -32,6 +32,6 @@ storiesOf('Components/Accordion2', module)
       return accordion2(demoData);
     },
     {
-      notes: { markdown: notes },
+      notes: { markdown: notes, json: demoData },
     }
   );

@@ -55,7 +55,7 @@ storiesOf('Components/Banners/Hero Banner', module)
       return heroBanner(data);
     },
     {
-      notes: { markdown: heroBannerDocs },
+      notes: { markdown: heroBannerDocs, json: formatBanner(dataDefault) },
     }
   )
   .add(
