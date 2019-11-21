@@ -7,10 +7,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @ecl-twig/ec-component-breadcrumb-harmonised
 
-
-
-
-
 # [2.15.0](https://github.com/ec-europa/ecl-twig/compare/v2.11.2...v2.15.0) (2019-11-13)
 
 ### Bug Fixes
