@@ -1,5 +1,5 @@
 {
-  "version": "2.15.0",
+  "version": "2.15.1",
   "npmClient": "yarn",
   "useWorkspaces": true,
   "loglevel": "success",
@@ -13,6 +13,7 @@
       "allowBranch": "master",
       "ignoreChanges": [
         "**/*.md",
+        "**/demo/**",
         "**/__snapshots__/**",
         "**/*.story.js",
         "**/*.test.js"

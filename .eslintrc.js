@@ -19,9 +19,10 @@ module.exports = {
   },
   overrides: [
     {
-      files: '**/demo/**/*.js',
+      files: '**/demo/*.js',
       rules: {
         'unicorn/filename-case': 'off',
+        'import/no-extraneous-dependencies': false
       },
     },
     {

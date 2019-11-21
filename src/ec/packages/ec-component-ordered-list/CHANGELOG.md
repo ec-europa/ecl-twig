@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.15.1](https://github.com/ec-europa/ecl-twig/compare/v2.15.0...v2.15.1) (2019-11-21)
+
+### Features
+
+- **lists:** Adding example with links, fixing templates - TWIG-135 ([#227](https://github.com/ec-europa/ecl-twig/issues/227)) ([0f9c99b](https://github.com/ec-europa/ecl-twig/commit/0f9c99b))
+
 # [2.15.0](https://github.com/ec-europa/ecl-twig/compare/v2.11.2...v2.15.0) (2019-11-13)
 
 ### Features
