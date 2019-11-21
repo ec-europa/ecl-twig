@@ -5,14 +5,9 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## [2.15.1](https://github.com/ec-europa/ecl-twig/compare/v2.15.0...v2.15.1) (2019-11-21)
 
-
 ### Features
 
-* **card:** using specs file, creating adapter, adding test scenarios - TWIG-132 ([#226](https://github.com/ec-europa/ecl-twig/issues/226)) ([4e4ec70](https://github.com/ec-europa/ecl-twig/commit/4e4ec70))
-
-
-
-
+- **card:** using specs file, creating adapter, adding test scenarios - TWIG-132 ([#226](https://github.com/ec-europa/ecl-twig/issues/226)) ([4e4ec70](https://github.com/ec-europa/ecl-twig/commit/4e4ec70))
 
 # [2.15.0](https://github.com/ec-europa/ecl-twig/compare/v2.11.2...v2.15.0) (2019-11-13)
 
