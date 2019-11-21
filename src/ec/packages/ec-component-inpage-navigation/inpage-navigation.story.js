@@ -28,7 +28,7 @@ storiesOf('Components/Navigation/Inpage navigation', module)
       const demo = document.createDocumentFragment();
 
       const htmlElement = document.createElement('div');
-      htmlElement.innerHTML = `<div class="ecl-container"><div class="ecl-row ecl-u-mt-l"><div class="ecl-col-md-3">${html}</div><div class="ecl-col-md-9">${pageFillerHtml}</div></div></div>`;
+      htmlElement.innerHTML = `<div class="ecl-container"><div class="ecl-row ecl-u-mt-l" data-ecl-inpage-navigation-container><div class="ecl-col-md-3">${html}</div><div class="ecl-col-md-9">${pageFillerHtml}</div></div></div>`;
       demo.appendChild(htmlElement.firstChild);
 
       return demo;
