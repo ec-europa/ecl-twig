@@ -4,8 +4,8 @@ import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
 
 import data from './demo/data';
-import docs from './docs/date-block.md';
 import dateBlock from './ecl-date-block.html.twig';
+import notes from './README.md';
 
 const options = {
   default: '',
@@ -33,6 +33,6 @@ storiesOf('Components/Date block', module)
       });
     },
     {
-      notes: { markdown: docs, json: data },
+      notes: { markdown: notes, json: data },
     }
   );

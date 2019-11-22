@@ -6,8 +6,8 @@ import withCode from '@ecl-twig/storybook-addon-code';
 // Import data for tests
 import dataDefault from './demo/data';
 
-import fileDocs from './README.md';
 import fileUpload from './ecl-file-upload.html.twig';
+import notes from './README.md';
 
 storiesOf('Components/Forms/File Upload', module)
   .addDecorator(withKnobs)
@@ -29,6 +29,6 @@ storiesOf('Components/Forms/File Upload', module)
         optional_text: text('Optional Text', '(optional)'),
       }),
     {
-      notes: { markdown: fileDocs },
+      notes: { markdown: notes },
     }
   );

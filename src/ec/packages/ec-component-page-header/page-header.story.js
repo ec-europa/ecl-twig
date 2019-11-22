@@ -14,8 +14,8 @@ import pageHeaderDataMetaTitleDescription from '@ecl/ec-specs-page-header/demo/d
 import pageHeaderDataEvents from '@ecl/ec-specs-page-header/demo/data-events';
 import pageHeaderDataEventsDescription from '@ecl/ec-specs-page-header/demo/data-events-description';
 
-import pageHeaderDocs from './README.md';
 import pageHeader from './ecl-page-header.html.twig';
+import notes from './README.md';
 
 function formatBreadcrumbLink(l) {
   const link = {
@@ -79,7 +79,7 @@ storiesOf('Components/deprecated/Page Header', module)
     },
     {
       notes: {
-        markdown: pageHeaderDocs,
+        markdown: notes,
         json: preparePageHeaderData(pageHeaderDataTitle),
       },
     }
@@ -93,7 +93,7 @@ storiesOf('Components/deprecated/Page Header', module)
     },
     {
       notes: {
-        markdown: pageHeaderDocs,
+        markdown: notes,
         json: preparePageHeaderData(pageHeaderDataTitleDescription),
       },
     }
@@ -107,7 +107,7 @@ storiesOf('Components/deprecated/Page Header', module)
     },
     {
       notes: {
-        markdown: pageHeaderDocs,
+        markdown: notes,
         json: preparePageHeaderData(pageHeaderDataTitle),
       },
     }
@@ -123,7 +123,7 @@ storiesOf('Components/deprecated/Page Header', module)
     },
     {
       notes: {
-        markdown: pageHeaderDocs,
+        markdown: notes,
         json: preparePageHeaderData(pageHeaderDataMetaTitleDescription),
       },
     }
@@ -137,7 +137,7 @@ storiesOf('Components/deprecated/Page Header', module)
     },
     {
       notes: {
-        markdown: pageHeaderDocs,
+        markdown: notes,
         json: preparePageHeaderData(pageHeaderDataEvents),
       },
     }
@@ -151,7 +151,7 @@ storiesOf('Components/deprecated/Page Header', module)
     },
     {
       notes: {
-        markdown: pageHeaderDocs,
+        markdown: notes,
         json: preparePageHeaderData(pageHeaderDataEventsDescription),
       },
     }

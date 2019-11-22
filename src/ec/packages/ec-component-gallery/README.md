@@ -6,29 +6,27 @@ npm package: `@ecl-twig/ec-component-gallery`
 npm install --save @ecl-twig/ec-component-gallery
 ```
 
-## Gallery
-
 ### Parameters
 
 - **"overlay"** (object) (default: {})
-  - **"close"** (object) (default: {}): object of type button
-  - **"previous"** (object) (default: {}): object of type button
-  - **"next"** (object) (default: {}): object of type button
-  - **"counter_separator"** (string) (default: '')
-  - **"download"** (object) (default: {}): object of type link
-  - **"share"** (object) (default: {}): object of type link
+  - "close" (object) (default: {}): object of type button
+  - "previous" (object) (default: {}): object of type button
+  - "next" (object) (default: {}): object of type button
+  - "counter_separator" (string) (default: '')
+  - "download" (object) (default: {}): object of type link
+  - "share" (object) (default: {}): object of type link
 - **"items"** (array) (default: [])
-  - **"path"** (string) (default: '')
-  - **"alt"** (string) (default: '')
-  - **"description"** (string) (default: '')
-  - **"meta"** (string) (default: '')
-  - **"icon"** (object) (default: {}): object of type icon
-  - **"share_path"** (string) (default: '')
+  - "path" (string) (default: '')
+  - "alt" (string) (default: '')
+  - "description" (string) (default: '')
+  - "meta" (string) (default: '')
+  - "icon" (object) (default: {}): object of type icon
+  - "share_path" (string) (default: '')
 - **"selected_item_id"** (int) (default: 0)
-- **"extra_classes"** (optional) (string) (default: '')
-- **"extra_attributes"** (optional) (array) (default: [])
-  - **"name"** (string) Attribute name, eg. 'data-test'
-  - **"value"** (string) Attribute value, eg: 'data-test-1'
+- **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
+- **"extra_attributes"** (optional) (array) (default: []) Extra attributes
+  - "name" (string) Attribute name, eg. 'data-test'
+  - "value" (string) Attribute value, eg: 'data-test-1'
 
 ### Example :
 

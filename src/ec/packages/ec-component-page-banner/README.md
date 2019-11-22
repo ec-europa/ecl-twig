@@ -6,19 +6,17 @@ npm package: `@ecl-twig/ec-component-page-banner`
 npm install --save @ecl-twig/ec-component-page-banner
 ```
 
-## Page Banner
-
 ### Parameters
 
-- "type" (string) (default: 'default') Type of banner (can be 'default','image','image-shade','primary')
-- "title" (string) (default: '') Title of banner
-- "image" (string) (default: '') Image for banner (required for image banner type)
-- "baseline" (string) (default: '') Baseline of banner
-- "centered" (bool) (default: true) Define if banner should be centered
-- [DEPRECATED] "button" (associative array) (default: predefined structure) predefined structure for EC Button component
-- "link" (associative array) (default: predefined structure) predefined structure for EC Link component
-- "extra_classes" (optional) (string) (default: '')
-- "extra_attributes" (optional) (array) (default: [])
+- **"type"** (string) (default: 'default') Type of banner (can be 'default','image','image-shade','primary')
+- **"title"** (string) (default: '') Title of banner
+- **"image"** (string) (default: '') Image for banner (required for image banner type)
+- **"baseline"** (string) (default: '') Baseline of banner
+- **"centered"** (bool) (default: true) Define if banner should be centered
+- [DEPRECATED] **"button"** (associative array) (default: predefined structure) predefined structure for EC Button component
+- **"link"** (associative array) (default: predefined structure) predefined structure for EC Link component
+- **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
+- **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
 

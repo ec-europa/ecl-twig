@@ -6,12 +6,10 @@ npm package: `@ecl-twig/ec-component-checkbox`
 npm install --save @ecl-twig/ec-component-checkbox
 ```
 
-## Checkbox group
-
 ### Parameters:
 
-- "label_id" (string) (default: '')
-- "items" (array) (default: [])
+- **"label_id"** (string) (default: '')
+- **"items"** (array) (default: [])
   - "id" (string) (default: '')
   - "name" (string) (default: '')
   - "value" (string) (default: '')
@@ -22,22 +20,22 @@ npm install --save @ecl-twig/ec-component-checkbox
   - "helper_text" (block) (default: '')
   - "label" (block) (default: '')
   - "icon_path" (string) (default: ''): file containing the svg icons
-- "name" (string) (default: '')
-- "helper_id" (string) (default: '')
-- "invalid" (boolean) (default: false)
-- "required" (boolean) (default: false)
-- "extra_classes" (optional) (string) (default: '')
-- "extra_attributes" (optional) (array) (default: [])
+- **"name"** (string) (default: '')
+- **"helper_id"** (string) (default: '')
+- **"invalid"** (boolean) (default: false)
+- **"required"** (boolean) (default: false)
+- **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
+- **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
 
 ### Blocks:
 
-- "helper_text"
-- "invalid_text"
-- "optional_text"
-- "required_text"
-- "label"
+- **"helper_text"**
+- **"invalid_text"**
+- **"optional_text"**
+- **"required_text"**
+- **"label"**
 
 ### Example:
 

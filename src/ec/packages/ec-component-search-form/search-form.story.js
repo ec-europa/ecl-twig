@@ -5,8 +5,8 @@ import withCode from '@ecl-twig/storybook-addon-code';
 
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 
-import searchFormDocs from './docs/search-form.md';
 import searchForm from './ecl-search-form.html.twig';
+import notes from './README.md';
 
 storiesOf('Components/Forms/Search Form', module)
   .addDecorator(withKnobs)
@@ -35,6 +35,6 @@ storiesOf('Components/Forms/Search Form', module)
         },
       }),
     {
-      notes: { markdown: searchFormDocs },
+      notes: { markdown: notes },
     }
   );

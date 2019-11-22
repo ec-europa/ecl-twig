@@ -12,7 +12,7 @@ import bannerDataAlignLeft from '@ecl/ec-specs-page-banner/demo/data--align-left
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 
 import pageBanner from './ecl-page-banner.html.twig';
-import pageBannerDocs from './README.md';
+import notes from './README.md';
 
 function formatBanner(b) {
   const iconType = b.link.icon.shape.split('--');
@@ -56,7 +56,7 @@ storiesOf('Components/Banners/Page Banner', module)
     },
     {
       notes: {
-        markdown: pageBannerDocs,
+        markdown: notes,
         json: formatBanner(bannerDataDefault),
       },
     }
@@ -69,7 +69,7 @@ storiesOf('Components/Banners/Page Banner', module)
       return pageBanner(data);
     },
     {
-      notes: { markdown: pageBannerDocs, json: formatBanner(bannerDataImage) },
+      notes: { markdown: notes, json: formatBanner(bannerDataImage) },
     }
   )
   .add(
@@ -81,7 +81,7 @@ storiesOf('Components/Banners/Page Banner', module)
     },
     {
       notes: {
-        markdown: pageBannerDocs,
+        markdown: notes,
         json: formatBanner(bannerDataImageShade),
       },
     }
@@ -95,7 +95,7 @@ storiesOf('Components/Banners/Page Banner', module)
     },
     {
       notes: {
-        markdown: pageBannerDocs,
+        markdown: notes,
         json: formatBanner(bannerDataPrimary),
       },
     }
@@ -109,7 +109,7 @@ storiesOf('Components/Banners/Page Banner', module)
     },
     {
       notes: {
-        markdown: pageBannerDocs,
+        markdown: notes,
         json: formatBanner(bannerDataAlignLeft),
       },
     }

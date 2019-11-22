@@ -6,8 +6,8 @@ import withCode from '@ecl-twig/storybook-addon-code';
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import { dataDefault } from './demo/data';
 
-import checkboxDocs from './README.md';
 import checkboxGroup from './ecl-checkbox-group.html.twig';
+import notes from './README.md';
 
 dataDefault.items.forEach(item => {
   item.icon_path = defaultSprite; // eslint-disable-line no-param-reassign
@@ -35,6 +35,6 @@ storiesOf('Components/Forms/Checkbox', module)
         required_text: text('Required text', '*'),
       }),
     {
-      notes: { markdown: checkboxDocs, json: dataDefault },
+      notes: { markdown: notes, json: dataDefault },
     }
   );

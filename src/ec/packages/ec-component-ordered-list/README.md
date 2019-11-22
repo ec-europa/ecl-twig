@@ -6,15 +6,13 @@ npm package: `@ecl-twig/ec-component-ordered-list`
 npm install --save @ecl-twig/ec-component-ordered-list
 ```
 
-## Link
-
 ### Parameters
 
-- "items" (array) (default: [])
+- **"items"** (array) (default: [])
   - "label" (string)
   - "nested" (optional) Object of type Ordered List
-- "extra_classes" (optional) (string) (default: '') Extra classes (space separated)
-- "extra_attributes" (optional) (array) (default: []) Extra attributes
+- **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
+- **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
 

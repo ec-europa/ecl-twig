@@ -6,8 +6,8 @@ import withCode from '@ecl-twig/storybook-addon-code';
 import specData from '@ecl/ec-specs-select/demo/data';
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 
-import selectDocs from './docs/select.md';
 import selectBox from './ecl-select.html.twig';
+import notes from './README.md';
 
 const inputWidthOptions = {
   small: 's',
@@ -41,6 +41,6 @@ storiesOf('Components/Forms/Select', module)
       });
     },
     {
-      notes: { markdown: selectDocs },
+      notes: { markdown: notes },
     }
   );
