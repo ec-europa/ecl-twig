@@ -1,4 +1,4 @@
-# ECL Twig - EC Footer component
+# ECL Twig - EC Footer Core component
 
 npm package: `@ecl-twig/ec-component-footer-core`
 

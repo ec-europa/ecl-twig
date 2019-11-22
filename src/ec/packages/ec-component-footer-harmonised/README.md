@@ -1,4 +1,4 @@
-# ECL Twig - EC Footer component
+# ECL Twig - EC Footer Harmonised component
 
 npm package: `@ecl-twig/ec-component-footer-harmonised`
 
