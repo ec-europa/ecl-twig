@@ -26,8 +26,6 @@ npm install --save @ecl-twig/ec-component-card
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
 
-### Example for default Card:
-
 <!-- prettier-ignore -->
 ```twig
 {% include '@ecl-twig/ec-component-card/ecl-card.html.twig' with { 
