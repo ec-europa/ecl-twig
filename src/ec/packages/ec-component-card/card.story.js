@@ -31,7 +31,7 @@ storiesOf('Components/Card', module)
       return card(formatInfo(dataCard));
     },
     {
-      notes: { markdown: notes },
+      notes: { markdown: notes, json: formatInfo(dataCard) },
     }
   )
   .add(
@@ -40,7 +40,7 @@ storiesOf('Components/Card', module)
       return card(dataTile);
     },
     {
-      notes: { markdown: notes },
+      notes: { markdown: notes, json: dataTile },
     }
   )
   .add(
@@ -49,7 +49,7 @@ storiesOf('Components/Card', module)
       return card(formatInfo(dataCardTag));
     },
     {
-      notes: { markdown: notes },
+      notes: { markdown: notes, json: formatInfo(dataCardTag) },
     }
   )
   .add(
@@ -58,6 +58,6 @@ storiesOf('Components/Card', module)
       return card(formatInfo(dataCardEvent));
     },
     {
-      notes: { markdown: notes },
+      notes: { markdown: notes, json: formatInfo(dataCardEvent) },
     }
   );
