@@ -7,10 +7,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @ecl-twig/ec-component-site-header-harmonised
 
-
-
-
-
 # [2.16.0](https://github.com/ec-europa/ecl-twig/compare/v2.15.1...v2.16.0) (2019-11-22)
 
 **Note:** Version bump only for package @ecl-twig/ec-component-site-header-harmonised
