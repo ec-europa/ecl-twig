@@ -57,3 +57,27 @@ Note: you might be bombarded with emails from npm (one for each published packag
 Final step: create a new GitHub release from the `master` branch. The tag version should be prefixed with `v`, e.g. `v2.3.0`. As a title, you can use something like `2.3.0 (2019-06-14)` (like in the root `CHANGELOG.md` but without the link). And for the description of the release, you can copy-paste the entry generated in the root `CHANGELOG.md` as well (I know, we're duplicating a lot of information...).
 
 Now, enjoy a well-deserved break! :wink:
+
+
+## Troubleshooting
+
+We experienced some failures while publishing on npm sometimes and we could not fully understand the reason for those but we could, at least, find a procedure that worked in these cases.
+The result of the *npm run publish* command was a partial publication of the packages in the release (it happened with a different number of packages correctly published) and after the script stopped returning an error we had all the packages.json files modified in the various components with the addition of a "githead" property with an hash.
+The first approach was to reset these files and try again which resulted in a failure due to the fact that is not possible on npm to publish a version of a package on top of an existing one, even if that was only partially published.
+We then chose to make a patch, releasing a new version to prevent this error, the result was again a failure for the same reason, despite the fact that no release was ever attempted before with that version.
+Finally we managed to fix this partial release by running npm run publish and after each failure resetting the master branch.
+So:
+
+```
+npm run publish
+```
+then, after the failure:
+```
+git reset --hard
+```
+
+and then again.
+```
+npm run publish
+```
+until the whole set of packages gets published.
