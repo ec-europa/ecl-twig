@@ -25,5 +25,5 @@ storiesOf('Components/Gallery', module)
   .addDecorator(withCode)
   .addDecorator(withNotes)
   .add('default', () => gallery(data), {
-    notes: { markdown: notes },
+    notes: { markdown: notes, json: data },
   });

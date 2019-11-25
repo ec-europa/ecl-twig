@@ -24,7 +24,7 @@ storiesOf('Components/Page Headers/Page Header Standardised', module)
       return pageHeaderStandardised(demoTitleContent);
     },
     {
-      notes: { markdown: pageHeaderStandardisedDocs },
+      notes: { markdown: pageHeaderStandardisedDocs, json: demoTitleContent },
     }
   )
   .add(
@@ -33,7 +33,10 @@ storiesOf('Components/Page Headers/Page Header Standardised', module)
       return pageHeaderStandardised(demoMetaTitleContent);
     },
     {
-      notes: { markdown: pageHeaderStandardisedDocs },
+      notes: {
+        markdown: pageHeaderStandardisedDocs,
+        json: demoMetaTitleContent,
+      },
     }
   )
   .add(
@@ -42,6 +45,9 @@ storiesOf('Components/Page Headers/Page Header Standardised', module)
       return pageHeaderStandardised(demoMetaTitleDescriptionContent);
     },
     {
-      notes: { markdown: pageHeaderStandardisedDocs },
+      notes: {
+        markdown: pageHeaderStandardisedDocs,
+        json: demoMetaTitleDescriptionContent,
+      },
     }
   );

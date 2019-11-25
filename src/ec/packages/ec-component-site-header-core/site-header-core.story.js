@@ -22,7 +22,7 @@ storiesOf('Components/Site Headers/Core', module)
       return siteHeaderCore(englishData);
     },
     {
-      notes: { markdown: siteHeaderCoreDocs },
+      notes: { markdown: siteHeaderCoreDocs, json: englishData },
     }
   )
   .add(
@@ -33,6 +33,6 @@ storiesOf('Components/Site Headers/Core', module)
       return siteHeaderCore(frenchData);
     },
     {
-      notes: { markdown: siteHeaderCoreDocs },
+      notes: { markdown: siteHeaderCoreDocs, json: frenchData },
     }
   );

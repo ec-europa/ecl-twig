@@ -29,7 +29,7 @@ storiesOf('Components/Social Media Follow', module)
         links: demoData.links,
       }),
     {
-      notes: { markdown: notes },
+      notes: { markdown: notes, json: demoData },
     }
   )
   .add(
@@ -41,6 +41,6 @@ storiesOf('Components/Social Media Follow', module)
         variant: 'vertical',
       }),
     {
-      notes: { markdown: notes },
+      notes: { markdown: notes, json: demoData },
     }
   );

@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.16.1](https://github.com/ec-europa/ecl-twig/compare/v2.15.1...v2.16.1) (2019-11-22)
+
+### Bug Fixes
+
+- **inpage-nav:** remove sticky nav when out of viewport - TWIG-138 ([#232](https://github.com/ec-europa/ecl-twig/issues/232)) ([37cd80b](https://github.com/ec-europa/ecl-twig/commit/37cd80b))
+
+# [2.16.0](https://github.com/ec-europa/ecl-twig/compare/v2.15.1...v2.16.0) (2019-11-22)
+
+### Bug Fixes
+
+- **inpage-nav:** remove sticky nav when out of viewport - TWIG-138 ([#232](https://github.com/ec-europa/ecl-twig/issues/232)) ([37cd80b](https://github.com/ec-europa/ecl-twig/commit/37cd80b))
+
 ## [2.15.1](https://github.com/ec-europa/ecl-twig/compare/v2.15.0...v2.15.1) (2019-11-21)
 
 **Note:** Version bump only for package @ecl-twig/ec-components

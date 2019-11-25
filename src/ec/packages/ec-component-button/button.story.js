@@ -62,7 +62,7 @@ storiesOf('Components/Button', module)
       });
     },
     {
-      notes: { markdown: primaryDocs },
+      notes: { markdown: primaryDocs, json: dataPrimary },
     }
   )
   .add(
@@ -90,7 +90,7 @@ storiesOf('Components/Button', module)
       });
     },
     {
-      notes: { markdown: secondaryDocs },
+      notes: { markdown: secondaryDocs, json: dataSecondary },
     }
   )
   .add(
@@ -118,7 +118,7 @@ storiesOf('Components/Button', module)
       });
     },
     {
-      notes: { markdown: ctaDocs },
+      notes: { markdown: ctaDocs, json: dataCall },
     }
   )
   .add(
@@ -146,7 +146,7 @@ storiesOf('Components/Button', module)
       });
     },
     {
-      notes: { markdown: textDocs },
+      notes: { markdown: textDocs, json: dataGhost },
     }
   )
   .add(
@@ -174,6 +174,6 @@ storiesOf('Components/Button', module)
       });
     },
     {
-      notes: { markdown: searchDocs },
+      notes: { markdown: searchDocs, json: dataSearch },
     }
   );

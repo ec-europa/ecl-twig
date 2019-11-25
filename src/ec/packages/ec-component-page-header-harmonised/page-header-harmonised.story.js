@@ -24,7 +24,7 @@ storiesOf('Components/Page Headers/Page Header Harmonised', module)
       return pageHeaderHarmonised(demoTitleContent);
     },
     {
-      notes: { markdown: pageHeaderHarmonisedDocs },
+      notes: { markdown: pageHeaderHarmonisedDocs, json: demoTitleContent },
     }
   )
   .add(
@@ -33,7 +33,7 @@ storiesOf('Components/Page Headers/Page Header Harmonised', module)
       return pageHeaderHarmonised(demoMetaTitleContent);
     },
     {
-      notes: { markdown: pageHeaderHarmonisedDocs },
+      notes: { markdown: pageHeaderHarmonisedDocs, json: demoMetaTitleContent },
     }
   )
   .add(
@@ -42,6 +42,9 @@ storiesOf('Components/Page Headers/Page Header Harmonised', module)
       return pageHeaderHarmonised(demoMetaTitleDescriptionContent);
     },
     {
-      notes: { markdown: pageHeaderHarmonisedDocs },
+      notes: {
+        markdown: pageHeaderHarmonisedDocs,
+        json: demoMetaTitleDescriptionContent,
+      },
     }
   );

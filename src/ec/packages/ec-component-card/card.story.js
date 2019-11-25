@@ -8,7 +8,7 @@ import dataCard from './demo/data--card';
 import dataCardEvent from './demo/data--card-event';
 import dataCardTag from './demo/data--card-tag';
 import dataTile from './demo/data--tile';
-import cardDocs from './docs/card.md';
+import cardDocs from './README.md';
 
 import card from './ecl-card.html.twig';
 
@@ -31,7 +31,7 @@ storiesOf('Components/Card', module)
       return card(formatInfo(dataCard));
     },
     {
-      notes: { markdown: cardDocs },
+      notes: { markdown: cardDocs, json: formatInfo(dataCard) },
     }
   )
   .add(
@@ -40,7 +40,7 @@ storiesOf('Components/Card', module)
       return card(dataTile);
     },
     {
-      notes: { markdown: cardDocs },
+      notes: { markdown: cardDocs, json: dataTile },
     }
   )
   .add(
@@ -49,7 +49,7 @@ storiesOf('Components/Card', module)
       return card(formatInfo(dataCardTag));
     },
     {
-      notes: { markdown: cardDocs },
+      notes: { markdown: cardDocs, json: formatInfo(dataCardTag) },
     }
   )
   .add(
@@ -58,6 +58,6 @@ storiesOf('Components/Card', module)
       return card(formatInfo(dataCardEvent));
     },
     {
-      notes: { markdown: cardDocs },
+      notes: { markdown: cardDocs, json: formatInfo(dataCardEvent) },
     }
   );

@@ -45,6 +45,6 @@ storiesOf('Components/Messages', module)
       });
     },
     {
-      notes: { markdown: notes },
+      notes: { markdown: notes, json: dataInfo },
     }
   );

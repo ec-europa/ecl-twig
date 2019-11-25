@@ -21,5 +21,5 @@ storiesOf('Components/Navigation/Pagination', module)
   .addDecorator(withNotes)
   .addDecorator(withCode)
   .add('default', () => pagination(data), {
-    notes: { markdown: paginationDocs },
+    notes: { markdown: paginationDocs, json: data },
   });

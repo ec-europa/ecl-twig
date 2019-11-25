@@ -16,6 +16,6 @@ storiesOf('Components/List/Ordered list', module)
       return orderedList(data);
     },
     {
-      notes: { markdown: docs },
+      notes: { markdown: docs, json: data },
     }
   );

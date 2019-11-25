@@ -31,8 +31,7 @@ storiesOf('Components/deprecated/Accordion', module)
 
       return accordion(demoData);
     },
-
     {
-      notes: { markdown: notes },
+      notes: { markdown: notes, json: demoData },
     }
   );
