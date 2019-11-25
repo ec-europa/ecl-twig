@@ -35,7 +35,7 @@ storiesOf('Components/Banners/Page Banner', module)
     {
       notes: {
         markdown: pageBannerDocs,
-        json: formatBanner(bannerDataDefault),
+        json: setIconPath(bannerDataDefault),
       },
     }
   )
@@ -47,7 +47,7 @@ storiesOf('Components/Banners/Page Banner', module)
       return pageBanner(data);
     },
     {
-      notes: { markdown: pageBannerDocs, json: formatBanner(bannerDataImage) },
+      notes: { markdown: pageBannerDocs, json: setIconPath(bannerDataImage) },
     }
   )
   .add(
@@ -60,7 +60,7 @@ storiesOf('Components/Banners/Page Banner', module)
     {
       notes: {
         markdown: pageBannerDocs,
-        json: formatBanner(bannerDataImageShade),
+        json: setIconPath(bannerDataImageShade),
       },
     }
   )
@@ -74,7 +74,7 @@ storiesOf('Components/Banners/Page Banner', module)
     {
       notes: {
         markdown: pageBannerDocs,
-        json: formatBanner(bannerDataPrimary),
+        json: setIconPath(bannerDataPrimary),
       },
     }
   )
@@ -88,7 +88,7 @@ storiesOf('Components/Banners/Page Banner', module)
     {
       notes: {
         markdown: pageBannerDocs,
-        json: formatBanner(bannerDataAlignLeft),
+        json: setIconPath(bannerDataAlignLeft),
       },
     }
   );
