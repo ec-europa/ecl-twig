@@ -62,7 +62,7 @@ Now, enjoy a well-deserved break! :wink:
 ## Troubleshooting
 
 We experienced some failures while publishing on npm sometimes and we could not fully understand the reason for those but we could, at least, find a procedure that worked in these cases.
-The result of the *npm run publish* command was a partial publication of the packages in the release (it happened with a different number of packages correctly published) and after the script stopped returning an error we had all the packages.json files modified in the various components with the addition of a "githead" property with an hash.
+In case of failure during publishing packages, retry to publish missing packages after clearing history:
 The first approach was to reset these files and try again which resulted in a failure due to the fact that is not possible on npm to publish a version of a package on top of an existing one, even if that was only partially published.
 We then chose to make a patch, releasing a new version to prevent this error, the result was again a failure for the same reason, despite the fact that no release was ever attempted before with that version.
 Finally we managed to fix this partial release by running npm run publish and after each failure resetting the master branch.
