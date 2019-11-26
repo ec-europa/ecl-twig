@@ -6,8 +6,6 @@ npm package: `@ecl-twig/ec-component-table`
 npm install --save @ecl-twig/ec-component-table
 ```
 
-## Table
-
 ### Parameters:
 
 - **"zebra"** (boolean) (default: false))
@@ -19,8 +17,8 @@ npm install --save @ecl-twig/ec-component-table
   - "data-ecl-table-header" (string) (default: ''),
   - "data-ecl-table-header-group" (string) (default: '')
   - "group" (bool) (default: false),
-- **"extra_classes"** (optional) (string) (default: '')
-- **"extra_attributes"** (optional) (array) (default: [])
+- **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
+- **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
 

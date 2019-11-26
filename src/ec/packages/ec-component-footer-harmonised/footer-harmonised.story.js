@@ -6,7 +6,7 @@ import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 
 import { dataGroup1, dataGroup2 } from './demo/data';
 import footerHarmonised from './ecl-footer-harmonised.html.twig';
-import notes from './docs/footer-harmonised.md';
+import notes from './README.md';
 
 // add manually group property to change class
 dataGroup1.group = 'group1';

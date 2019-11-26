@@ -6,18 +6,16 @@ npm package: `@ecl-twig/ec-component-page-header-core`
 npm install --save @ecl-twig/ec-component-page-header-core
 ```
 
-## Page Header Core
-
 ### Parameters
 
-- "title" (string) (default: '') Title of header
-- "description" (string) (default: '') Description of header
-- "meta" (string) (default: '') Meta of header
-- "breadcrumb" (associative array) (default: '') Predefined structure compatible with EC Breadcrumb
-- "extra_classes" (string) (default: '')
-- "extra_attributes" (array) (default: []): format:
-  - "name" (string) (default: '')
-  - "value" (string) (default: '')
+- **"title"** (string) (default: '') Title of header
+- **"description"** (string) (default: '') Description of header
+- **"meta"** (string) (default: '') Meta of header
+- **"breadcrumb"** (associative array) (default: '') Predefined structure compatible with EC Breadcrumb
+- **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
+- **"extra_attributes"** (optional) (array) (default: []) Extra attributes
+  - "name" (string) Attribute name, eg. 'data-test'
+  - "value" (string) Attribute value, eg: 'data-test-1'
 
 ### Example :
 

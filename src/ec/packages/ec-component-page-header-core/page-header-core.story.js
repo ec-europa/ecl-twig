@@ -8,8 +8,9 @@ import {
   demoMetaTitleContent,
   demoMetaTitleDescriptionContent,
 } from './demo/data';
-import pageHeaderCoreDocs from './README.md';
+
 import pageHeaderCore from './ecl-page-header-core.html.twig';
+import notes from './README.md';
 
 demoTitleContent.breadcrumb.icon_file_path = defaultSprite;
 demoMetaTitleContent.breadcrumb.icon_file_path = defaultSprite;
@@ -24,7 +25,7 @@ storiesOf('Components/Page Headers/Page Header Core', module)
       return pageHeaderCore(demoTitleContent);
     },
     {
-      notes: { markdown: pageHeaderCoreDocs, json: demoTitleContent },
+      notes: { markdown: notes, json: demoTitleContent },
     }
   )
   .add(
@@ -33,7 +34,7 @@ storiesOf('Components/Page Headers/Page Header Core', module)
       return pageHeaderCore(demoMetaTitleContent);
     },
     {
-      notes: { markdown: pageHeaderCoreDocs, json: demoMetaTitleContent },
+      notes: { markdown: notes, json: demoMetaTitleContent },
     }
   )
   .add(
@@ -43,7 +44,7 @@ storiesOf('Components/Page Headers/Page Header Core', module)
     },
     {
       notes: {
-        markdown: pageHeaderCoreDocs,
+        markdown: notes,
         json: demoMetaTitleDescriptionContent,
       },
     }

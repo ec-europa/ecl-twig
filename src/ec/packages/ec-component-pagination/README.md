@@ -6,20 +6,20 @@ npm package: `@ecl-twig/ec-component-pagination`
 npm install --save @ecl-twig/ec-component-pagination
 ```
 
-## Parameters
+### Parameters
 
-- "label" (string) (default: ''): for screen reader
-- "items" (array) (default: []):
+- **"label"** (string) (default: ''): for screen reader
+- **"items"** (array) (default: []):
   - "type" (string) (default: ''): could be 'previous', 'current' or 'next'
   - "label" (string) (default: ''): label used when the item is not a link
   - "aria_label" (string) (default: '')
   - "link" (object) (default: ''): object of type Link
-- "extra_classes" (optional) (string) (default: '')
-- "extra_attributes" (optional) (array) (default: [])
+- **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
+- **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
 
-## Example:
+### Example:
 
 <!-- prettier-ignore -->
 ```twig

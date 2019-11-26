@@ -3,12 +3,11 @@ import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
 import iconPath from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 
-import inpageNavigationDocs from './docs/inpage-navigation.md';
-
 import demoData from './demo/data';
 import pageFiller from './demo/page-filler';
 
 import inpageNavigation from './ecl-inpage-navigation.html.twig';
+import notes from './README.md';
 
 storiesOf('Components/Navigation/Inpage navigation', module)
   .addDecorator(withNotes)
@@ -34,6 +33,6 @@ storiesOf('Components/Navigation/Inpage navigation', module)
       return demo;
     },
     {
-      notes: { markdown: inpageNavigationDocs },
+      notes: { markdown: notes },
     }
   );

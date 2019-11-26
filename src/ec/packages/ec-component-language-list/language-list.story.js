@@ -10,11 +10,9 @@ import iconPath from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import dataSplash from './demo/data--splash';
 import dataOverlay from './demo/data--overlay';
 
-import splashDocs from './docs/splash.md';
-import overlayDocs from './docs/overlay.md';
-
 import languageListSplash from './ecl-language-list-splash.html.twig';
 import languageListOverlay from './ecl-language-list-overlay.html.twig';
+import notes from './README.md';
 
 storiesOf('Components/Language list', module)
   .addDecorator(withKnobs)
@@ -32,7 +30,7 @@ storiesOf('Components/Language list', module)
         })
       ),
     {
-      notes: { markdown: splashDocs, json: dataSplash },
+      notes: { markdown: notes, json: dataSplash },
     }
   )
   .add(
@@ -44,6 +42,6 @@ storiesOf('Components/Language list', module)
         })
       ),
     {
-      notes: { markdown: overlayDocs, json: dataOverlay },
+      notes: { markdown: notes, json: dataOverlay },
     }
   );

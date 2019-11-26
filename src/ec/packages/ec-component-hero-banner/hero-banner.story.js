@@ -2,6 +2,7 @@ import { storiesOf } from '@storybook/html';
 import { withKnobs, text, boolean } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
+
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import {
   dataDefault,
@@ -12,7 +13,7 @@ import {
 } from './demo/data';
 
 import heroBanner from './ecl-hero-banner.html.twig';
-import heroBannerDocs from './docs/hero-banner.md';
+import notes from './README.md';
 
 function formatBanner(b) {
   const iconType = b.link.icon.shape.split('--');
@@ -55,7 +56,7 @@ storiesOf('Components/Banners/Hero Banner', module)
       return heroBanner(data);
     },
     {
-      notes: { markdown: heroBannerDocs, json: formatBanner(dataDefault) },
+      notes: { markdown: notes, json: formatBanner(dataDefault) },
     }
   )
   .add(
@@ -66,7 +67,7 @@ storiesOf('Components/Banners/Hero Banner', module)
       return heroBanner(data);
     },
     {
-      notes: { markdown: heroBannerDocs },
+      notes: { markdown: notes },
     }
   )
   .add(
@@ -77,7 +78,7 @@ storiesOf('Components/Banners/Hero Banner', module)
       return heroBanner(data);
     },
     {
-      notes: { markdown: heroBannerDocs },
+      notes: { markdown: notes },
     }
   )
   .add(
@@ -88,7 +89,7 @@ storiesOf('Components/Banners/Hero Banner', module)
       return heroBanner(data);
     },
     {
-      notes: { markdown: heroBannerDocs },
+      notes: { markdown: notes },
     }
   )
   .add(
@@ -98,6 +99,6 @@ storiesOf('Components/Banners/Hero Banner', module)
       return heroBanner(data);
     },
     {
-      notes: { markdown: heroBannerDocs },
+      notes: { markdown: notes },
     }
   );

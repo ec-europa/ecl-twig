@@ -6,7 +6,7 @@ import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import logo from '@ecl/ec-resources-logo/logo--en.svg';
 import siteHeaderHarmonised from './ecl-site-header-harmonised.html.twig';
 import { dataGroup1, dataGroup2 } from './demo/data';
-import siteHeaderHarmonisedDocs from './README.md';
+import notes from './README.md';
 
 storiesOf('Components/Site Headers/Harmonised', module)
   .addDecorator(withNotes)
@@ -21,7 +21,7 @@ storiesOf('Components/Site Headers/Harmonised', module)
       return siteHeaderHarmonised(dataGroup1);
     },
     {
-      notes: { markdown: siteHeaderHarmonisedDocs, json: dataGroup1 },
+      notes: { markdown: notes, json: dataGroup1 },
     }
   )
   .add(
@@ -33,6 +33,6 @@ storiesOf('Components/Site Headers/Harmonised', module)
       return siteHeaderHarmonised(dataGroup2);
     },
     {
-      notes: { markdown: siteHeaderHarmonisedDocs, json: dataGroup2 },
+      notes: { markdown: notes, json: dataGroup2 },
     }
   );

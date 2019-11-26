@@ -4,8 +4,8 @@ import withCode from '@ecl-twig/storybook-addon-code';
 
 import data from '@ecl/ec-specs-list/demo/data--text';
 
-import docs from './README.md';
 import orderedList from './ecl-ordered-list.html.twig';
+import notes from './README.md';
 
 storiesOf('Components/List/Ordered list', module)
   .addDecorator(withNotes)
@@ -16,6 +16,6 @@ storiesOf('Components/List/Ordered list', module)
       return orderedList(data);
     },
     {
-      notes: { markdown: docs, json: data },
+      notes: { markdown: notes, json: data },
     }
   );
