@@ -7,11 +7,10 @@ import logoPath from '@ecl/ec-resources-logo/logo--mute.svg';
 import iconPath from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 
 import { dataSplash, dataOverlay } from './demo/data';
-import splashDocs from './docs/splash.md';
-import overlayDocs from './docs/overlay.md';
 
 import languageListSplash from './ecl-language-list-splash.html.twig';
 import languageListOverlay from './ecl-language-list-overlay.html.twig';
+import notes from './README.md';
 
 storiesOf('Components/Language list', module)
   .addDecorator(withKnobs)
@@ -30,7 +29,7 @@ storiesOf('Components/Language list', module)
         },
       }),
     {
-      notes: { markdown: splashDocs, json: dataSplash },
+      notes: { markdown: notes, json: dataSplash },
     }
   )
   .add(
@@ -44,6 +43,6 @@ storiesOf('Components/Language list', module)
         title: dataOverlay.title,
       }),
     {
-      notes: { markdown: overlayDocs, json: dataOverlay },
+      notes: { markdown: notes, json: dataOverlay },
     }
   );

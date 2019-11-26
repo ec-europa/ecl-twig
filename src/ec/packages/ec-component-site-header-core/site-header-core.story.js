@@ -8,7 +8,7 @@ import englishBanner from '@ecl/ec-resources-logo/logo--en.svg';
 import frenchBanner from '@ecl/ec-resources-logo/logo--fr.svg';
 import siteHeaderCore from './ecl-site-header-core.html.twig';
 import { englishData, frenchData } from './demo/data';
-import siteHeaderCoreDocs from './README.md';
+import notes from './README.md';
 
 storiesOf('Components/Site Headers/Core', module)
   .addDecorator(withKnobs)
@@ -22,7 +22,7 @@ storiesOf('Components/Site Headers/Core', module)
       return siteHeaderCore(englishData);
     },
     {
-      notes: { markdown: siteHeaderCoreDocs, json: englishData },
+      notes: { markdown: notes, json: englishData },
     }
   )
   .add(
@@ -33,6 +33,6 @@ storiesOf('Components/Site Headers/Core', module)
       return siteHeaderCore(frenchData);
     },
     {
-      notes: { markdown: siteHeaderCoreDocs, json: frenchData },
+      notes: { markdown: notes, json: frenchData },
     }
   );

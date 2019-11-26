@@ -6,22 +6,20 @@ npm package: `@ecl-twig/ec-component-page-header`
 npm install --save @ecl-twig/ec-component-page-header
 ```
 
-## Page Header
-
 ### Parameters
 
-- "title" (string) (default: '') Title of header
-- "description" (string) (default: '') Description of header
-- "meta" (string) (default: '') Meta of header
-- "composition" (string) (default: '') Room for the language switcher
-- "infos" (array) (default: []) Array of infos. format:
+- **"title"** (string) (default: '') Title of header
+- **"description"** (string) (default: '') Description of header
+- **"meta"** (string) (default: '') Meta of header
+- **"composition"** (string) (default: '') Room for the language switcher
+- **"infos"** (array) (default: []) Array of infos. format:
   - "text" (string) Label of info
   - "icon" (associative array) Predefined structure compatible with EC Icon
-- "breadcrumb" (associative array) (default: '') Predefined structure compatible with EC Breadcrumb
-- "extra_classes" (string) (default: '')
-- "extra_attributes" (array) (default: []): format:
-  - "name" (string) (default: '')
-  - "value" (string) (default: '')
+- **"breadcrumb"** (associative array) (default: '') Predefined structure compatible with EC Breadcrumb
+- **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
+- **"extra_attributes"** (optional) (array) (default: []) Extra attributes
+  - "name" (string) Attribute name, eg. 'data-test'
+  - "value" (string) Attribute value, eg: 'data-test-1'
 
 ### Example :
 

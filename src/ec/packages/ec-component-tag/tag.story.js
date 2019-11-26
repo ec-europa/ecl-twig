@@ -4,9 +4,9 @@ import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
 
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
-import tagDocs from './docs/tag.md';
 
 import tag from './ecl-tag.html.twig';
+import notes from './README.md';
 
 storiesOf('Components/Tag', module)
   .addDecorator(withKnobs)
@@ -22,7 +22,7 @@ storiesOf('Components/Tag', module)
         },
       }),
     {
-      notes: { markdown: tagDocs },
+      notes: { markdown: notes },
     }
   )
   .add(
@@ -35,7 +35,7 @@ storiesOf('Components/Tag', module)
         },
       }),
     {
-      notes: { markdown: tagDocs },
+      notes: { markdown: notes },
     }
   )
   .add(
@@ -50,6 +50,6 @@ storiesOf('Components/Tag', module)
         default_icon_path: defaultSprite,
       }),
     {
-      notes: { markdown: tagDocs },
+      notes: { markdown: notes },
     }
   );

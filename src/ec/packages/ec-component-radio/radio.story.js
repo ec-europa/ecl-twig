@@ -5,8 +5,8 @@ import withCode from '@ecl-twig/storybook-addon-code';
 
 import { dataDefault, dataBinary } from './demo/data';
 
-import radioDocs from './README.md';
 import radioGroup from './ecl-radio-group.html.twig';
+import notes from './README.md';
 
 storiesOf('Components/Forms/Radio', module)
   .addDecorator(withKnobs)
@@ -31,7 +31,7 @@ storiesOf('Components/Forms/Radio', module)
         required_text: text('Required text', '*'),
       }),
     {
-      notes: { markdown: radioDocs },
+      notes: { markdown: notes },
     }
   )
   .add(
@@ -53,6 +53,6 @@ storiesOf('Components/Forms/Radio', module)
         required_text: text('Required text', '*'),
       }),
     {
-      notes: { markdown: radioDocs },
+      notes: { markdown: notes },
     }
   );

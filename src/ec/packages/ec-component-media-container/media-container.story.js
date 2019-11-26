@@ -2,12 +2,13 @@ import { storiesOf } from '@storybook/html';
 import { withKnobs, text } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
+
 import imgProps from '@ecl/ec-specs-media-container/demo/data--image';
 import demoVideo from './demo/data';
 import demoImg from '../../../../static/images/example-image.jpg';
-import imageDocs from './docs/media-container-image.md';
-import videoDocs from './docs/media-container-video.md';
+
 import mediaContainer from './ecl-media-container.html.twig';
+import notes from './README.md';
 
 storiesOf('Components/Media container', module)
   .addDecorator(withKnobs)
@@ -22,7 +23,7 @@ storiesOf('Components/Media container', module)
         image: text('Image path', demoImg),
       }),
     {
-      notes: { markdown: imageDocs },
+      notes: { markdown: notes },
     }
   )
   .add(
@@ -36,6 +37,6 @@ storiesOf('Components/Media container', module)
         tracks: demoVideo.tracks,
       }),
     {
-      notes: { markdown: videoDocs },
+      notes: { markdown: notes },
     }
   );
