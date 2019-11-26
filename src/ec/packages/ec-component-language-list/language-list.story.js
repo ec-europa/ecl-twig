@@ -1,3 +1,4 @@
+import merge from 'deepmerge';
 import { storiesOf } from '@storybook/html';
 import { withKnobs } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
@@ -6,7 +7,9 @@ import withCode from '@ecl-twig/storybook-addon-code';
 import logoPath from '@ecl/ec-resources-logo/logo--mute.svg';
 import iconPath from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 
-import { dataSplash, dataOverlay } from './demo/data';
+import dataSplash from './demo/data--splash';
+import dataOverlay from './demo/data--overlay';
+
 import splashDocs from './docs/splash.md';
 import overlayDocs from './docs/overlay.md';
 
@@ -20,15 +23,14 @@ storiesOf('Components/Language list', module)
   .add(
     'splash',
     () =>
-      languageListSplash({
-        items: dataSplash.items,
-        overlay: false,
-        icon_path: iconPath,
-        logo: {
-          alt: dataSplash.logoAlt,
-          path: logoPath,
-        },
-      }),
+      languageListSplash(
+        merge(dataSplash, {
+          icon_path: iconPath,
+          logo: {
+            path: logoPath,
+          },
+        })
+      ),
     {
       notes: { markdown: splashDocs, json: dataSplash },
     }
@@ -36,13 +38,11 @@ storiesOf('Components/Language list', module)
   .add(
     'overlay',
     () =>
-      languageListOverlay({
-        items: dataOverlay.items,
-        overlay: true,
-        icon_path: iconPath,
-        close_label: dataOverlay.closeLabel,
-        title: dataOverlay.title,
-      }),
+      languageListOverlay(
+        merge(dataOverlay, {
+          icon_path: iconPath,
+        })
+      ),
     {
       notes: { markdown: overlayDocs, json: dataOverlay },
     }
