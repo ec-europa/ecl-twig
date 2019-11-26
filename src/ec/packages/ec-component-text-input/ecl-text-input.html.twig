@@ -115,6 +115,9 @@
   {% if _disabled %}
     disabled
   {% endif %}
+  {% if _required %}
+    required
+  {% endif %}
     {{ _extra_attributes|raw }}
   />
 
