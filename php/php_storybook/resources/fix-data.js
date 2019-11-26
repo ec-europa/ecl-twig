@@ -3,26 +3,6 @@
 function fixDataInput(data, componentRootName) {
   if (componentRootName.includes('page-header-')) {
     data = data.demoMetaTitleDescriptionContent;
-  } else if (componentRootName === 'search-form') {
-    data = {
-      text_input: {
-        id: 'input-search',
-        name: 'search',
-        extra_classes: 'ecl-search-form__text-input',
-        label: 'Search',
-      },
-      button: {
-        variant: 'search',
-        icon: {
-          type: 'general',
-          name: 'search',
-          path: '/icons.svg',
-          size: 'fluid',
-        },
-        label: 'Search',
-        extra_classes: 'ecl-search-form__button',
-      },
-    };
   } else if (componentRootName === 'tag') {
     data = {
       tag: {
