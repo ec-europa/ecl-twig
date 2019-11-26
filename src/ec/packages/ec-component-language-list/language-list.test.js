@@ -1,7 +1,8 @@
 import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
 // Import data for tests
-import { dataSplash, dataOverlay } from './demo/data';
+import dataSplash from './demo/data--splash';
+import dataOverlay from './demo/data--overlay';
 
 describe('EC - Language List', () => {
   describe('Splash', () => {
@@ -9,25 +10,15 @@ describe('EC - Language List', () => {
       '@ecl-twig/ec-component-language-list/ecl-language-list-splash.html.twig';
     const render = params => renderTwigFileAsNode(template, params);
 
-    const options = {
-      items: dataSplash.items,
-      overlay: false,
-      logo: {
-        alt: dataSplash.logoAlt,
-        path: '/static/logo--mute.svg',
-      },
-      icon_path: '/static/icons.svg',
-    };
-
     test('renders correctly', () => {
       expect.assertions(1);
-      return expect(render(options)).resolves.toMatchSnapshot();
+      return expect(render(dataSplash)).resolves.toMatchSnapshot();
     });
 
     test('renders correctly with extra class names', () => {
       expect.assertions(1);
 
-      const withExtraClasses = merge(options, {
+      const withExtraClasses = merge(dataSplash, {
         extra_classes: 'custom-class custom-class--test',
       });
 
@@ -37,7 +28,7 @@ describe('EC - Language List', () => {
     test('renders correctly with extra attributes', () => {
       expect.assertions(1);
 
-      const withExtraAttributes = merge(options, {
+      const withExtraAttributes = merge(dataSplash, {
         extra_attributes: [
           { name: 'data-test', value: 'data-test-value' },
           { name: 'data-test-1', value: 'data-test-value-1' },
@@ -53,23 +44,15 @@ describe('EC - Language List', () => {
       '@ecl-twig/ec-component-language-list/ecl-language-list-overlay.html.twig';
     const render = params => renderTwigFileAsNode(template, params);
 
-    const options = {
-      items: dataOverlay.items,
-      overlay: true,
-      close_label: dataOverlay.closeLabel,
-      title: dataOverlay.title,
-      icon_path: '/static/icons.svg',
-    };
-
     test('renders correctly', () => {
       expect.assertions(1);
-      return expect(render(options)).resolves.toMatchSnapshot();
+      return expect(render(dataOverlay)).resolves.toMatchSnapshot();
     });
 
     test('renders correctly with extra class names', () => {
       expect.assertions(1);
 
-      const withExtraClasses = merge(options, {
+      const withExtraClasses = merge(dataOverlay, {
         extra_classes: 'custom-class custom-class--test',
       });
 
@@ -79,7 +62,7 @@ describe('EC - Language List', () => {
     test('renders correctly with extra attributes', () => {
       expect.assertions(1);
 
-      const withExtraAttributes = merge(options, {
+      const withExtraAttributes = merge(dataOverlay, {
         extra_attributes: [
           { name: 'data-test', value: 'data-test-value' },
           { name: 'data-test-1', value: 'data-test-value-1' },
