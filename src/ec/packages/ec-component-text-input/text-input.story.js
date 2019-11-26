@@ -3,8 +3,8 @@ import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
 
-import textInputDocs from './docs/text-input.md';
 import textInput from './ecl-text-input.html.twig';
+import notes from './README.md';
 
 const inputWidthOptions = {
   small: 's',
@@ -36,6 +36,6 @@ storiesOf('Components/Forms/Text field', module)
       });
     },
     {
-      notes: { markdown: textInputDocs },
+      notes: { markdown: notes },
     }
   );

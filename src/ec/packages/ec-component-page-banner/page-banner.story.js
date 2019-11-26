@@ -5,7 +5,7 @@ import withCode from '@ecl-twig/storybook-addon-code';
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 
 import pageBanner from './ecl-page-banner.html.twig';
-import pageBannerDocs from './README.md';
+import notes from './README.md';
 
 import {
   bannerDataDefault,
@@ -34,7 +34,7 @@ storiesOf('Components/Banners/Page Banner', module)
     },
     {
       notes: {
-        markdown: pageBannerDocs,
+        markdown: notes,
         json: setIconPath(bannerDataDefault),
       },
     }
@@ -47,7 +47,7 @@ storiesOf('Components/Banners/Page Banner', module)
       return pageBanner(data);
     },
     {
-      notes: { markdown: pageBannerDocs, json: setIconPath(bannerDataImage) },
+      notes: { markdown: notes, json: setIconPath(bannerDataImage) },
     }
   )
   .add(
@@ -59,7 +59,7 @@ storiesOf('Components/Banners/Page Banner', module)
     },
     {
       notes: {
-        markdown: pageBannerDocs,
+        markdown: notes,
         json: setIconPath(bannerDataImageShade),
       },
     }
@@ -73,7 +73,7 @@ storiesOf('Components/Banners/Page Banner', module)
     },
     {
       notes: {
-        markdown: pageBannerDocs,
+        markdown: notes,
         json: setIconPath(bannerDataPrimary),
       },
     }
@@ -87,7 +87,7 @@ storiesOf('Components/Banners/Page Banner', module)
     },
     {
       notes: {
-        markdown: pageBannerDocs,
+        markdown: notes,
         json: setIconPath(bannerDataAlignLeft),
       },
     }

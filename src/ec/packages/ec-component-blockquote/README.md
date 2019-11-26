@@ -8,10 +8,12 @@ npm install --save @ecl-twig/ec-component-blockquote
 
 ## Parameters
 
-- "citation" (string) (default: '')
-- "author" (string) (default: '')
-- "extra_classes" (string) (default: '')
-- "extra_attributes" (array) (default: [])
+- **"citation"** (string) (default: '')
+- **"author"** (string) (default: '')
+- **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
+- **"extra_attributes"** (optional) (array) (default: []) Extra attributes
+  - "name" (string) Attribute name, eg. 'data-test'
+  - "value" (string) Attribute value, eg: 'data-test-1'
 
 ## Example:
 

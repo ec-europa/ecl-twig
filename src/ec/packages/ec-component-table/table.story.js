@@ -4,7 +4,7 @@ import withCode from '@ecl-twig/storybook-addon-code';
 
 import table from './ecl-table.html.twig';
 import { dataDefault, dataMulti } from './demo/data';
-import docs from './README.md';
+import notes from './README.md';
 
 storiesOf('Components/Table', module)
   .addDecorator(withNotes)
@@ -16,7 +16,7 @@ storiesOf('Components/Table', module)
       return table(dataDefault);
     },
     {
-      notes: { markdown: docs, json: dataDefault },
+      notes: { markdown: notes, json: dataDefault },
     }
   )
   .add(
@@ -26,7 +26,7 @@ storiesOf('Components/Table', module)
       return table(dataDefault);
     },
     {
-      notes: { markdown: docs, json: dataDefault },
+      notes: { markdown: notes, json: dataDefault },
     }
   )
   .add(
@@ -35,6 +35,6 @@ storiesOf('Components/Table', module)
       return table(dataMulti);
     },
     {
-      notes: { markdown: docs, json: dataMulti },
+      notes: { markdown: notes, json: dataMulti },
     }
   );

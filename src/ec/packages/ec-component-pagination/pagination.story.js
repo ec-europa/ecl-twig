@@ -6,8 +6,8 @@ import withCode from '@ecl-twig/storybook-addon-code';
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import data from './demo/data';
 
-import paginationDocs from './README.md';
 import pagination from './ecl-pagination.html.twig';
+import notes from './README.md';
 
 // Add icon path
 data.items.forEach(item => {
@@ -21,5 +21,5 @@ storiesOf('Components/Navigation/Pagination', module)
   .addDecorator(withNotes)
   .addDecorator(withCode)
   .add('default', () => pagination(data), {
-    notes: { markdown: paginationDocs, json: data },
+    notes: { markdown: notes, json: data },
   });

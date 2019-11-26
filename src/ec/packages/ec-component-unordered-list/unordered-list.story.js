@@ -7,8 +7,8 @@ import dataLink from '@ecl/ec-specs-list/demo/data--link';
 import dataLinkDivider from '@ecl/ec-specs-list/demo/data--link-divider';
 import dataLinkNoBullet from '@ecl/ec-specs-list/demo/data--link-no-bullet';
 
-import docs from './README.md';
 import unorderedList from './ecl-unordered-list.html.twig';
+import notes from './README.md';
 
 storiesOf('Components/List/Unordered list', module)
   .addDecorator(withNotes)
@@ -19,7 +19,7 @@ storiesOf('Components/List/Unordered list', module)
       return unorderedList(data);
     },
     {
-      notes: { markdown: docs },
+      notes: { markdown: notes },
     }
   )
   .add(
@@ -28,7 +28,7 @@ storiesOf('Components/List/Unordered list', module)
       return unorderedList(dataLinkDivider);
     },
     {
-      notes: { markdown: docs },
+      notes: { markdown: notes },
     }
   )
   .add(
@@ -37,7 +37,7 @@ storiesOf('Components/List/Unordered list', module)
       return unorderedList(dataLink);
     },
     {
-      notes: { markdown: docs },
+      notes: { markdown: notes },
     }
   )
   .add(
@@ -46,6 +46,6 @@ storiesOf('Components/List/Unordered list', module)
       return unorderedList(dataLinkNoBullet);
     },
     {
-      notes: { markdown: docs },
+      notes: { markdown: notes },
     }
   );

@@ -8,8 +8,8 @@ import frenchBanner from '@ecl/ec-resources-logo/logo--fr.svg';
 
 import { englishData, frenchData } from './demo/data';
 
-import siteHeaderStandardisedDocs from './README.md';
 import siteHeaderStandardised from './ecl-site-header-standardised.html.twig';
+import notes from './README.md';
 
 frenchData.icon_file_path = defaultSprite;
 frenchData.logo.src = frenchBanner;
@@ -25,7 +25,7 @@ storiesOf('Components/Site Headers/Standardised', module)
       return siteHeaderStandardised(englishData);
     },
     {
-      notes: { markdown: siteHeaderStandardisedDocs },
+      notes: { markdown: notes },
     }
   )
   .add(
@@ -35,7 +35,7 @@ storiesOf('Components/Site Headers/Standardised', module)
       return siteHeaderStandardised(englishData);
     },
     {
-      notes: { markdown: siteHeaderStandardisedDocs, json: englishData },
+      notes: { markdown: notes, json: englishData },
     }
   )
   .add(
@@ -44,6 +44,6 @@ storiesOf('Components/Site Headers/Standardised', module)
       return siteHeaderStandardised(frenchData);
     },
     {
-      notes: { markdown: siteHeaderStandardisedDocs, json: frenchData },
+      notes: { markdown: notes, json: frenchData },
     }
   );
