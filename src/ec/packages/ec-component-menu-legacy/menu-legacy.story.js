@@ -3,11 +3,10 @@ import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
 import iconPath from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 
-import menuLegacyDocs from './docs/menu-legacy.md';
-
 import demoData from './demo/data';
 
 import menuLegacy from './ecl-menu-legacy.html.twig';
+import notes from './README.md';
 
 storiesOf('Components/Navigation/Menu Legacy', module)
   .addDecorator(withNotes)
@@ -20,6 +19,6 @@ storiesOf('Components/Navigation/Menu Legacy', module)
       return menuLegacy(fullDemoData);
     },
     {
-      notes: { markdown: menuLegacyDocs },
+      notes: { markdown: notes },
     }
   );

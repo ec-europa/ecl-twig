@@ -7,7 +7,7 @@ import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import { backToTop, identity, sections, common } from './demo/data';
 
 import footer from './ecl-footer.html.twig';
-import notes from './docs/footer.md';
+import notes from './README.md';
 
 backToTop.icon.path = defaultSprite;
 identity.follow.links.forEach(link => {

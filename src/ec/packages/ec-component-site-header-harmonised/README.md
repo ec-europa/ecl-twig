@@ -6,33 +6,31 @@ npm package: `@ecl-twig/ec-component-site-header-harmonised`
 npm install --save @ecl-twig/ec-component-site-header-harmonised
 ```
 
-## Site Header Harmonised
-
 ### Parameters
 
-- "group" (string) (default: 'group1'): 'group1' or 'group2'
-- "logged" (boolean) (default: false): Whether the user is logged in or not
-- "menu" (boolean) (default: false): Whether the component includes a menu or not
-- "menu_label" (string) (default: false): The menu toggler label
-- "banner" (string): The site name
-- "banner_top" (string) OR (object with Link component in property): Class name
-- "icon_file_path": (string) (default: ''): file containing the svg icons
-- "logo" (associative array) (default: predefined structure): Logo image settings. format:
+- **"group"** (string) (default: 'group1'): 'group1' or 'group2'
+- **"logged"** (boolean) (default: false): Whether the user is logged in or not
+- **"menu"** (boolean) (default: false): Whether the component includes a menu or not
+- **"menu_label"** (string) (default: false): The menu toggler label
+- **"banner"** (string): The site name
+- **"banner_top"** (string) OR (object with Link component in property): Class name
+- **"icon_file_path"** (string) (default: ''): file containing the svg icons
+- **"logo"** (associative array) (default: predefined structure): Logo image settings. format:
   - "title" (string) (default: ''): Logo title attribute.
   - "alt" (string) (default: ''): Logo alt attribute.
   - "href" (string) (default: ''): Logo URL.
   - "src" (string) (default: ''): Logo image file path, eg. dist/images/logo--en.svg.
-- "login_box" (associative array) format:
-  - "id": (string): Id of the box
-  - "description": (string) Label for the logged in users
-  - "label": (string): Log out label
-  - "href": (string): Url of the link
-- "login_toggle" (associative array) format:
-  - "label_not_logged": (string) Label for the anonymous users
-  - "href_not_logged": (string) Link to the login form
-  - "label_logged": (string) Label for the logged in users
-  - "href_logged": (string) Link to the logout form
-- "language_selector" (associative array) (default: predefined structure): Language switcher settings. format:
+- **"login_box"** (associative array) format:
+  - "id": (string) Id of the box
+  - "description" (string) Label for the logged in users
+  - "label" (string): Log out label
+  - "href" (string): Url of the link
+- **"login_toggle"** (associative array) format:
+  - "label_not_logged" (string) Label for the anonymous users
+  - "href_not_logged" (string) Link to the login form
+  - "label_logged" (string) Label for the logged in users
+  - "href_logged" (string) Link to the logout form
+- **"language_selector"** (associative array) (default: predefined structure): Language switcher settings. format:
   - "href" (string) (default: ''): URL for switcher
   - "name" (string) (default: ''): Switcher language label, eg. 'English', 'Français', etc.
   - "code" (string) (default: ''): Switcher language code, eg. 'en', 'fr', etc.
@@ -44,14 +42,14 @@ npm install --save @ecl-twig/ec-component-site-header-harmonised
       - "label" (string) (default: '') Item language label, eg. 'English', 'Français', etc.
       - "path" (string) (default: '') Item language URL eg. '/example#language_en'.
       - "active" (boolean) (default: false) define if item is the active language.
-- "search_toggle": (associative array) format:
-  - "label": (string) Label of the element
-  - "href": (string) Link of the element
-- "search_form" (associative array) (default: predefined structure): EC Search Form component structure
-- "extra_classes" (string) (default: '')
-- "extra_attributes" (array) (default: []): format:
-  - "name" (string) (default: '')
-  - "value" (string) (default: '')
+- **"search_toggle"** (associative array) format:
+  - "label" (string) Label of the element
+  - "href" (string) Link of the element
+- **"search_form"** (associative array) (default: predefined structure): EC Search Form component structure
+- **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
+- **"extra_attributes"** (optional) (array) (default: []) Extra attributes
+  - "name" (string) Attribute name, eg. 'data-test'
+  - "value" (string) Attribute value, eg: 'data-test-1'
 
 ### Example :
 

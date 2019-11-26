@@ -6,11 +6,9 @@ npm package: `@ecl-twig/ec-component-card`
 npm install --save @ecl-twig/ec-component-card
 ```
 
-## Card
-
 ### Parameters
 
-- "card" (associative array) (default: predefined structure below)
+- **"card"** (associative array) (default: predefined structure below)
   - "type" (string) (default: '') - Card type ('tile')
   - "description" (string) (default: '') - Description of card
   - "meta" (array) (default: []) - Meta's for the Card
@@ -23,12 +21,10 @@ npm install --save @ecl-twig/ec-component-card
   - "links" (array) (default: []): List of links (required if Card type is a 'tile'). The format of each element in the array
     - "label" (string) (default: ''): Label of link
     - "path" (string) (default: ''): Link url (href attribute)
-- "extra_classes" (optional) (string) (default: '') Extra classes (space separated) for the Card
-- "extra_attributes" (optional) (array) (default: []) Extra attributes for Card
+- **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
+- **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
-
-### Example:
 
 <!-- prettier-ignore -->
 ```twig

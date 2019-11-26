@@ -7,7 +7,7 @@ import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import demoData from './demo/data';
 
 import dropdown from './ecl-dropdown-legacy.html.twig';
-import notes from './docs/dropdown-legacy.md';
+import notes from './README.md';
 
 storiesOf('Components/Dropdowns legacy', module)
   .addDecorator(withKnobs)

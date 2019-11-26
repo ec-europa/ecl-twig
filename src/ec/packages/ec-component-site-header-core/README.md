@@ -6,17 +6,15 @@ npm package: `@ecl-twig/ec-component-site-header-core`
 npm install --save @ecl-twig/ec-component-site-header-core
 ```
 
-## Site Header Core
-
 ### Parameters
 
-- "icon_file_path" (string) (default: ''): file containing the svg icons
-- "logo" (associative array) (default: predefined structure): Logo image settings. format:
+- **"icon_file_path"** (string) (default: ''): file containing the svg icons
+- **"logo"** (associative array) (default: predefined structure): Logo image settings. format:
   - "title" (string) (default: ''): Logo title attribute.
   - "alt" (string) (default: ''): Logo alt attribute.
   - "href" (string) (default: ''): Logo URL.
   - "src" (string) (default: ''): Logo image file path, eg. dist/images/logo--en.svg.
-- "language_selector" (associative array) (default: predefined structure): Language switcher settings. format:
+- **"language_selector"** (associative array) (default: predefined structure): Language switcher settings. format:
   - "href" (string) (default: ''): URL for switcher
   - "name" (string) (default: ''): Switcher language label, eg. 'English', 'Français', etc.
   - "code" (string) (default: ''): Switcher language code, eg. 'en', 'fr', etc.
@@ -28,12 +26,12 @@ npm install --save @ecl-twig/ec-component-site-header-core
       - "label" (string) (default: '') Item language label, eg. 'English', 'Français', etc.
       - "path" (string) (default: '') Item language URL eg. '/example#language_en'.
       - "active" (boolean) (default: false) define if item is the active language.
-- "search_toggle": (associative array) (default: { label: 'Search', href: '/example' }),
-- "search_form" (associative array) (default: predefined structure): EC Search Form component structure
-- "extra_classes" (string) (default: '')
-- "extra_attributes" (array) (default: []): format:
-  - "name" (string) (default: '')
-  - "value" (string) (default: '')
+- **"search_toggle"** (associative array) (default: { label: 'Search', href: '/example' }),
+- **"search_form"** (associative array) (default: predefined structure): EC Search Form component structure
+- **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
+- **"extra_attributes"** (optional) (array) (default: []) Extra attributes
+  - "name" (string) Attribute name, eg. 'data-test'
+  - "value" (string) Attribute value, eg: 'data-test-1'
 
 ### Example :
 

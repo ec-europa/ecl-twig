@@ -6,16 +6,14 @@ npm package: `@ecl-twig/ec-component-message`
 npm install --save @ecl-twig/ec-component-message
 ```
 
-## Message
-
 ### Parameters:
 
 - **"variant"** (string) (default: ''): could be 'info, 'success', 'warning' or 'error'
 - **"icon"** (object of type "icon") (default: {})
 - **"title"** (string) (default: '')
 - **"close"** (object of type "button") (default: {}): close button
-- **"extra_classes"** (optional) (string) (default: '')
-- **"extra_attributes"** (optional) (array) (default: [])
+- **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
+- **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
 
