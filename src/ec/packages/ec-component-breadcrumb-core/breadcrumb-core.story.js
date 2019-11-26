@@ -5,8 +5,8 @@ import withCode from '@ecl-twig/storybook-addon-code';
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import { dataSimple, dataLong } from './demo/data';
 
-import breadcrumbDocs from './README.md';
 import breadcrumb from './ecl-breadcrumb-core.html.twig';
+import notes from './README.md';
 
 storiesOf('Components/Navigation/Breadcrumbs/Breadcrumb Core', module)
   .addDecorator(withNotes)
@@ -21,7 +21,7 @@ storiesOf('Components/Navigation/Breadcrumbs/Breadcrumb Core', module)
         ellipsis_label: 'Click to expand',
       }),
     {
-      notes: { markdown: breadcrumbDocs, json: dataSimple },
+      notes: { markdown: notes, json: dataSimple },
     }
   )
   .add(
@@ -34,6 +34,6 @@ storiesOf('Components/Navigation/Breadcrumbs/Breadcrumb Core', module)
         ellipsis_label: 'Click to expand',
       }),
     {
-      notes: { markdown: breadcrumbDocs, json: dataLong },
+      notes: { markdown: notes, json: dataLong },
     }
   );

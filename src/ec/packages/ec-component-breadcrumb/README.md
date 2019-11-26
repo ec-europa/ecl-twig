@@ -6,20 +6,18 @@ npm package: `@ecl-twig/ec-component-breadcrumb`
 npm install --save @ecl-twig/ec-component-breadcrumb
 ```
 
-## Breadcrumb
-
 ### Parameters
 
-- "links" (array) (default: []): format:
+- **"links"** (array) (default: []): format:
   - "label" (string) (default: '') Label of link
   - "path" (string) (default: '') Url of link
-- "navigation_text" (string) (default: ''): Text of navigation in breadcrumb
-- "ellipsis_label" (string) (default: ''): Label of the ellipsis, e.g. "Click to expand"
-- "icon_file_path" (string) (default: ''): URL to icons file
-- "extra_classes" (string) (default: '')
-- "extra_attributes" (array) (default: []): format:
-  - "name" (string) (default: '')
-  - "value" (string) (default: '')
+- **"navigation_text"** (string) (default: ''): Text of navigation in breadcrumb
+- **"ellipsis_label"** (string) (default: ''): Label of the ellipsis, e.g. "Click to expand"
+- **"icon_file_path"** (string) (default: ''): URL to icons file
+- **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
+- **"extra_attributes"** (optional) (array) (default: []) Extra attributes
+  - "name" (string) Attribute name, eg. 'data-test'
+  - "value" (string) Attribute value, eg: 'data-test-1'
 
 ### Example :
 

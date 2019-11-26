@@ -6,18 +6,16 @@ npm package: `@ecl-twig/ec-component-unordered-list`
 npm install --save @ecl-twig/ec-component-unordered-list
 ```
 
-## Link
-
 ### Parameters
 
-- "items" (array) (default: [])
+- **"items"** (array) (default: [])
   - "label" (string)
   - "nested" (optional) Object of type Unordered List
-- "extra_classes" (optional) (string) (default: '') Extra classes (space separated)
-- "extra_attributes" (optional) (array) (default: []) Extra attributes
+- **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
+- **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
-- "variant" (optional) (string) (default: '') - Name of the variant
+- **"variant"** (optional) (string) (default: '') - Name of the variant
 
 ### Example:
 

@@ -13,9 +13,8 @@ import dataBranded from './demo/data--facebook';
 import dataNotifications from './demo/data--success';
 import dataUi from './demo/data--audio';
 
-import iconDocs from './docs/icon.md';
-
 import icon from './ecl-icon.html.twig';
+import notes from './README.md';
 
 const sizes = {
   XS: 'xs',
@@ -74,7 +73,7 @@ storiesOf('Components/Icon', module)
       );
     },
     {
-      notes: { markdown: iconDocs },
+      notes: { markdown: notes },
     }
   )
   .add(
@@ -97,7 +96,7 @@ storiesOf('Components/Icon', module)
       });
     },
     {
-      notes: { markdown: iconDocs },
+      notes: { markdown: notes },
     }
   )
   .add(
@@ -121,7 +120,7 @@ storiesOf('Components/Icon', module)
       );
     },
     {
-      notes: { markdown: iconDocs },
+      notes: { markdown: notes },
     }
   )
   .add(
@@ -145,6 +144,6 @@ storiesOf('Components/Icon', module)
       );
     },
     {
-      notes: { markdown: iconDocs },
+      notes: { markdown: notes },
     }
   );

@@ -1,5 +1,4 @@
 /* eslint-disable no-param-reassign */
-
 import { storiesOf } from '@storybook/html';
 import { withKnobs, text } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
@@ -9,7 +8,7 @@ import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import demoData from './demo/data';
 
 import accordion from './ecl-accordion.html.twig';
-import notes from './docs/accordion.md';
+import notes from './README.md';
 
 storiesOf('Components/deprecated/Accordion', module)
   .addDecorator(withKnobs)

@@ -6,11 +6,9 @@ npm package: `@ecl-twig/ec-component-radio`
 npm install --save @ecl-twig/ec-component-radio
 ```
 
-## Radio group
-
 ### Parameters:
 
-- "items" (array) (default: [])
+- **"items"** (array) (default: [])
   - "id" (string) (default: '')
   - "name" (string) (default: '')
   - "value" (string) (default: '')
@@ -19,13 +17,13 @@ npm install --save @ecl-twig/ec-component-radio
   - "helper_id" (string) (default: '')
   - "helper_text" (block) (default: '')
   - "label" (block) (default: '')
-- "name" (string) (default: '')
-- "helper_id" (string) (default: '')
-- "invalid" (boolean) (default: false)
-- "binary" (boolean) (default: false)
-- "required" (boolean) (default: false)
-- "extra_classes" (optional) (string) (default: '')
-- "extra_attributes" (optional) (array) (default: [])
+- **"name"** (string) (default: '')
+- **"helper_id"** (string) (default: '')
+- **"invalid"** (boolean) (default: false)
+- **"binary"** (boolean) (default: false)
+- **"required"** (boolean) (default: false)
+- **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
+- **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
 

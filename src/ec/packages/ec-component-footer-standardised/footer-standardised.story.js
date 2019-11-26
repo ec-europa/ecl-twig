@@ -6,7 +6,7 @@ import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 
 import data from './demo/data';
 import footerStandardised from './ecl-footer-standardised.html.twig';
-import notes from './docs/footer-standardised.md';
+import notes from './README.md';
 
 data.sections.forEach(s => {
   if (s.links && Array.isArray(s.links)) {
