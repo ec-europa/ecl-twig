@@ -7,8 +7,8 @@ import withCode from '@ecl-twig/storybook-addon-code';
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import { dataWithTranslation, dataWithoutTranslation } from './demo/data';
 
-import fileDocs from './docs/file.md';
 import file from './ecl-file.html.twig';
+import notes from './README.md';
 
 // Add icon path
 dataWithTranslation.icon.path = defaultSprite;
@@ -32,8 +32,8 @@ storiesOf('Components/File', module)
   .addDecorator(withNotes)
   .addDecorator(withCode)
   .add('without translation', () => file(dataWithoutTranslation), {
-    notes: { markdown: fileDocs },
+    notes: { markdown: notes },
   })
   .add('with translation', () => file(dataWithTranslation), {
-    notes: { markdown: fileDocs },
+    notes: { markdown: notes },
   });

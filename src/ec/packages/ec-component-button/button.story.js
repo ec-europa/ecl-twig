@@ -12,14 +12,8 @@ import dataSearch from '@ecl/ec-specs-button/demo/data--search';
 
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import uiIcons from '@ecl/ec-resources-icons/dist/lists/ui.json';
-
 import button from './ecl-button.html.twig';
-
-import primaryDocs from './docs/primary.md';
-import secondaryDocs from './docs/secondary.md';
-import ctaDocs from './docs/cta.md';
-import searchDocs from './docs/search.md';
-import textDocs from './docs/text.md';
+import notes from './README.md';
 
 const iconPositionSettings = {
   before: 'before',
@@ -62,7 +56,7 @@ storiesOf('Components/Button', module)
       });
     },
     {
-      notes: { markdown: primaryDocs, json: dataPrimary },
+      notes: { markdown: notes, json: dataPrimary },
     }
   )
   .add(
@@ -90,7 +84,7 @@ storiesOf('Components/Button', module)
       });
     },
     {
-      notes: { markdown: secondaryDocs, json: dataSecondary },
+      notes: { markdown: notes, json: dataSecondary },
     }
   )
   .add(
@@ -118,7 +112,7 @@ storiesOf('Components/Button', module)
       });
     },
     {
-      notes: { markdown: ctaDocs, json: dataCall },
+      notes: { markdown: notes, json: dataCall },
     }
   )
   .add(
@@ -146,7 +140,7 @@ storiesOf('Components/Button', module)
       });
     },
     {
-      notes: { markdown: textDocs, json: dataGhost },
+      notes: { markdown: notes, json: dataGhost },
     }
   )
   .add(
@@ -174,6 +168,6 @@ storiesOf('Components/Button', module)
       });
     },
     {
-      notes: { markdown: searchDocs, json: dataSearch },
+      notes: { markdown: notes, json: dataSearch },
     }
   );

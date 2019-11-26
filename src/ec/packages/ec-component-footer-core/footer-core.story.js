@@ -4,7 +4,7 @@ import withCode from '@ecl-twig/storybook-addon-code';
 
 import sections from './demo/data';
 import footer from './ecl-footer-core.html.twig';
-import notes from './docs/footer-core.md';
+import notes from './README.md';
 
 storiesOf('Components/Footers/Core', module)
   .addDecorator(withCode)

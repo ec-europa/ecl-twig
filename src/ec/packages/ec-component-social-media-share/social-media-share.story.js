@@ -7,7 +7,7 @@ import defaultSprite from '@ecl/ec-resources-social-icons/dist/sprites/icons-soc
 import demoData from './demo/data';
 
 import SocialMediaShare from './ecl-social-media-share.html.twig';
-import notes from './docs/social-media-share.md';
+import notes from './README.md';
 
 demoData.links.forEach(link => {
   if (link.icon) {

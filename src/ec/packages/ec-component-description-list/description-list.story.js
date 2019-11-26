@@ -5,8 +5,8 @@ import withCode from '@ecl-twig/storybook-addon-code';
 
 import data from '@ecl/ec-specs-description-list/demo/data';
 import dataHorizontal from '@ecl/ec-specs-description-list/demo/data--horizontal';
-import docs from './README.md';
 import descriptionList from './ecl-description-list.html.twig';
+import notes from './README.md';
 
 const options = {
   vertical: '',
@@ -27,7 +27,7 @@ storiesOf('Components/List/Description list', module)
       });
     },
     {
-      notes: { markdown: docs, json: dataHorizontal },
+      notes: { markdown: notes, json: dataHorizontal },
     }
   )
   .add(
@@ -40,6 +40,6 @@ storiesOf('Components/List/Description list', module)
       });
     },
     {
-      notes: { markdown: docs, json: dataHorizontal },
+      notes: { markdown: notes, json: dataHorizontal },
     }
   );

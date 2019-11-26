@@ -9,9 +9,8 @@ import notificationsIcons from '@ecl/ec-resources-icons/dist/lists/notifications
 import uiIcons from '@ecl/ec-resources-icons/dist/lists/ui.json';
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 
-import iconDocs from './docs/icon.md';
-
 import icon from './ecl-icon.html.twig';
+import notes from './README.md';
 
 const sizes = {
   XS: 'xs',
@@ -69,7 +68,7 @@ storiesOf('Components/Icon', module)
       });
     },
     {
-      notes: { markdown: iconDocs },
+      notes: { markdown: notes },
     }
   )
   .add(
@@ -92,7 +91,7 @@ storiesOf('Components/Icon', module)
       });
     },
     {
-      notes: { markdown: iconDocs },
+      notes: { markdown: notes },
     }
   )
   .add(
@@ -115,7 +114,7 @@ storiesOf('Components/Icon', module)
       });
     },
     {
-      notes: { markdown: iconDocs },
+      notes: { markdown: notes },
     }
   )
   .add(
@@ -138,6 +137,6 @@ storiesOf('Components/Icon', module)
       });
     },
     {
-      notes: { markdown: iconDocs },
+      notes: { markdown: notes },
     }
   );

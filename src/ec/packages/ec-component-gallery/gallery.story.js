@@ -5,9 +5,9 @@ import withCode from '@ecl-twig/storybook-addon-code';
 
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import gallery from './ecl-gallery.html.twig';
-import notes from './README.md';
 
 import data from './demo/data';
+import notes from './README.md';
 
 data.items.forEach(item => {
   if (item.icon) {
