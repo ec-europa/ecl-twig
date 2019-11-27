@@ -123,6 +123,132 @@ exports[`EC - checkbox Default renders correctly 1`] = `
 </fieldset>
 `;
 
+exports[`EC - checkbox Default renders correctly when required 1`] = `
+<fieldset
+  aria-describedby="checkbox-default-helper"
+  class="ecl-form-group ecl-form-group--checkbox"
+>
+  <div
+    class="ecl-checkbox__help ecl-help-block"
+    id="checkbox-default-helper"
+  >
+    Helper text for the group
+  </div>
+  <div
+    class="ecl-checkbox"
+  >
+    <input
+      class="ecl-checkbox__input"
+      id="checkbox-default-1"
+      name="checkbox-default"
+      required=""
+      type="checkbox"
+      value="es"
+    />
+    <label
+      class="ecl-form-label ecl-checkbox__label"
+      for="checkbox-default-1"
+    >
+      <span
+        class="ecl-checkbox__box"
+      >
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--s ecl-checkbox__icon"
+          focusable="false"
+        >
+          <use
+            xlink:href="#ui--check"
+          />
+        </svg>
+      </span>
+      Spain
+    </label>
+    <p
+      class="ecl-checkbox__help ecl-help-block"
+      id="helper-default-1"
+    >
+      Help text for option 1
+    </p>
+  </div>
+  <div
+    class="ecl-checkbox"
+  >
+    <input
+      class="ecl-checkbox__input"
+      id="checkbox-default-2"
+      name="checkbox-default"
+      required=""
+      type="checkbox"
+      value="be"
+    />
+    <label
+      class="ecl-form-label ecl-checkbox__label"
+      for="checkbox-default-2"
+    >
+      <span
+        class="ecl-checkbox__box"
+      >
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--s ecl-checkbox__icon"
+          focusable="false"
+        >
+          <use
+            xlink:href="#ui--check"
+          />
+        </svg>
+      </span>
+      Belgium
+    </label>
+    <p
+      class="ecl-checkbox__help ecl-help-block"
+      id="helper-default-2"
+    >
+      Help text for option 2
+    </p>
+  </div>
+  <div
+    class="ecl-checkbox ecl-checkbox--disabled"
+  >
+    <input
+      class="ecl-checkbox__input"
+      disabled=""
+      id="checkbox-default-3"
+      name="checkbox-default"
+      required=""
+      type="checkbox"
+      value="fr"
+    />
+    <label
+      class="ecl-form-label ecl-checkbox__label"
+      for="checkbox-default-3"
+    >
+      <span
+        class="ecl-checkbox__box"
+      >
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--s ecl-checkbox__icon"
+          focusable="false"
+        >
+          <use
+            xlink:href="#ui--check"
+          />
+        </svg>
+      </span>
+      France (disabled)
+    </label>
+    <p
+      class="ecl-checkbox__help ecl-help-block ecl-help-block--disabled"
+      id="helper-default-3"
+    >
+      Help text for option 3
+    </p>
+  </div>
+</fieldset>
+`;
+
 exports[`EC - checkbox Default renders correctly with extra attributes 1`] = `
 <fieldset
   aria-describedby="checkbox-default-helper"

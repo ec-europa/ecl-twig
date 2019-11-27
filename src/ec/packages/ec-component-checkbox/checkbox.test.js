@@ -1,7 +1,8 @@
 import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
 // Import data for tests
-import { dataDefault, dataInvalid } from './demo/data';
+import dataDefault from './demo/data--default';
+import dataInvalid from './demo/data--invalid';
 
 describe('EC - checkbox', () => {
   const template =
@@ -36,6 +37,16 @@ describe('EC - checkbox', () => {
       });
 
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly when required', () => {
+      expect.assertions(1);
+
+      dataDefault.items.forEach(item => {
+        item.required = true;
+      });
+
+      return expect(render(dataDefault)).resolves.toMatchSnapshot();
     });
   });
 

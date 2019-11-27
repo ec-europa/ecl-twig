@@ -4,7 +4,7 @@ import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
 
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
-import { dataDefault } from './demo/data';
+import dataDefault from './demo/data--default';
 
 import checkboxGroup from './ecl-checkbox-group.html.twig';
 import notes from './README.md';
