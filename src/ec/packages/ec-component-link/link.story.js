@@ -1,3 +1,4 @@
+import merge from 'deepmerge';
 import { storiesOf } from '@storybook/html';
 import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
@@ -5,7 +6,9 @@ import withCode from '@ecl-twig/storybook-addon-code';
 
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import uiIcons from '@ecl/ec-resources-icons/dist/lists/ui.json';
-
+import dataDefault from './demo/data--default';
+import dataCta from './demo/data--cta';
+import dataStandalone from './demo/data--standalone';
 import link from './ecl-link.html.twig';
 import notes from './README.md';
 
@@ -36,11 +39,9 @@ storiesOf('Components/Navigation/Link', module)
 
       const iconsListSelect = select('Icon (sample)', iconsList, null);
 
-      const linkData = {
+      const linkData = merge(dataDefault, {
         link: {
-          type: 'default',
           label: text('Label', 'Default link'),
-          path: '/example#link-default',
           icon_position: iconPosition,
         },
         icon: {
@@ -49,7 +50,8 @@ storiesOf('Components/Navigation/Link', module)
           path: defaultSprite,
           size: 'fluid',
         },
-      };
+      });
+
       const demo = document.createDocumentFragment();
       const wrapper = document.createElement('p');
       wrapper.className = 'ecl-u-type-paragraph';
@@ -60,7 +62,7 @@ storiesOf('Components/Navigation/Link', module)
       return demo;
     },
     {
-      notes: { markdown: notes },
+      notes: { markdown: notes, json: dataDefault },
     }
   )
   .add(
@@ -74,23 +76,23 @@ storiesOf('Components/Navigation/Link', module)
 
       const iconsListSelect = select('Icon (sample)', iconsList, null);
 
-      return link({
-        link: {
-          type: 'standalone',
-          label: text('Label', 'Standalone link'),
-          path: '/example#standalone-link',
-          icon_position: iconPosition,
-        },
-        icon: {
-          type: 'ui',
-          name: iconsListSelect,
-          path: defaultSprite,
-          size: 'fluid',
-        },
-      });
+      return link(
+        merge(dataStandalone, {
+          link: {
+            label: text('Label', 'Standalone link'),
+            icon_position: iconPosition,
+          },
+          icon: {
+            type: 'ui',
+            name: iconsListSelect,
+            path: defaultSprite,
+            size: 'fluid',
+          },
+        })
+      );
     },
     {
-      notes: { markdown: notes },
+      notes: { markdown: notes, json: dataStandalone },
     }
   )
   .add(
@@ -98,23 +100,20 @@ storiesOf('Components/Navigation/Link', module)
     () => {
       const iconsListSelect = boolean('Icon (optional)', false);
 
-      return link({
-        link: {
-          type: 'cta',
-          label: text('Label', 'Call to action link'),
-          path: '/example#link-cta',
-          icon_position: 'after',
-        },
-        icon: {
-          type: 'ui',
-          name: iconsListSelect ? 'corner-arrow' : '',
-          path: defaultSprite,
-          size: 'fluid',
-          transform: 'rotate-90',
-        },
-      });
+      return link(
+        merge(dataCta, {
+          link: {
+            label: text('Label', 'Call to action link'),
+            icon_position: 'after',
+          },
+          icon: {
+            name: iconsListSelect ? 'corner-arrow' : '',
+            path: defaultSprite,
+          },
+        })
+      );
     },
     {
-      notes: { markdown: notes },
+      notes: { markdown: notes, json: dataCta },
     }
   );
