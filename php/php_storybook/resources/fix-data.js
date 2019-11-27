@@ -12,18 +12,6 @@ function fixDataInput(data, componentRootName) {
     };
   } else if (componentRootName === 'file') {
     data = data.dataWithTranslation;
-  } else if (componentRootName === 'text-area') {
-    if (data.has_error) {
-      data.invalid = true;
-      data.invalid_text = 'This is the error message';
-    }
-    if (data.is_disabled) {
-      data.disabled = true;
-    }
-    data.helper_text = "This is the input's helper text";
-    data.optional_text = '(optional)';
-    data.name = 'example-name';
-    data.label = 'Label';
   } else if (data.bannerDataDefault) {
     data = data.bannerDataDefault;
   } else if (data.dataInfo) {

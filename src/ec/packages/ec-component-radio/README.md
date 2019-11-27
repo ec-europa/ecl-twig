@@ -14,6 +14,7 @@ npm install --save @ecl-twig/ec-component-radio
   - "value" (string) (default: '')
   - "disabled" (boolean) (default: false)
   - "checked" (boolean) (default: false)
+  - "required" (boolean) (default: false)
   - "helper_id" (string) (default: '')
   - "helper_text" (block) (default: '')
   - "label" (block) (default: '')
