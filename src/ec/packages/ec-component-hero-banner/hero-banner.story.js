@@ -1,6 +1,6 @@
 import merge from 'deepmerge';
 import { storiesOf } from '@storybook/html';
-import { withKnobs, text, boolean } from '@storybook/addon-knobs';
+import { withKnobs, text } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
 
