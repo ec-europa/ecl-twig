@@ -1,3 +1,4 @@
+import merge from 'deepmerge';
 import { storiesOf } from '@storybook/html';
 import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
@@ -40,9 +41,7 @@ storiesOf('Components/Navigation/Link', module)
 
       const linkData = merge(dataDefault, {
         link: {
-          type: 'default',
           label: text('Label', 'Default link'),
-          path: '/example#link-default',
           icon_position: iconPosition,
         },
         icon: {
@@ -77,18 +76,20 @@ storiesOf('Components/Navigation/Link', module)
 
       const iconsListSelect = select('Icon (sample)', iconsList, null);
 
-      return link({
-        link: {
-          label: text('Label', 'Standalone link'),
-          icon_position: iconPosition,
-        },
-        icon: {
-          type: 'ui',
-          name: iconsListSelect,
-          path: defaultSprite,
-          size: 'fluid',
-        },
-      });
+      return link(
+        merge(dataStandalone, {
+          link: {
+            label: text('Label', 'Standalone link'),
+            icon_position: iconPosition,
+          },
+          icon: {
+            type: 'ui',
+            name: iconsListSelect,
+            path: defaultSprite,
+            size: 'fluid',
+          },
+        })
+      );
     },
     {
       notes: { markdown: notes, json: dataStandalone },
@@ -99,21 +100,18 @@ storiesOf('Components/Navigation/Link', module)
     () => {
       const iconsListSelect = boolean('Icon (optional)', false);
 
-      return link({
-        link: {
-          type: 'cta',
-          label: text('Label', 'Call to action link'),
-          path: '/example#link-cta',
-          icon_position: 'after',
-        },
-        icon: {
-          type: 'ui',
-          name: iconsListSelect ? 'corner-arrow' : '',
-          path: defaultSprite,
-          size: 'fluid',
-          transform: 'rotate-90',
-        },
-      });
+      return link(
+        merge(dataCta, {
+          link: {
+            label: text('Label', 'Call to action link'),
+            icon_position: 'after',
+          },
+          icon: {
+            name: iconsListSelect ? 'corner-arrow' : '',
+            path: defaultSprite,
+          },
+        })
+      );
     },
     {
       notes: { markdown: notes, json: dataCta },
