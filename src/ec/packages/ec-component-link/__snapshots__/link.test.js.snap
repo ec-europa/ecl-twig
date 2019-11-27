@@ -3,7 +3,7 @@
 exports[`EC - Link Cta variant with icon renders correctly 1`] = `
 <a
   class="ecl-link ecl-link--cta ecl-link--icon ecl-link--icon-after"
-  href="/path"
+  href="/example#link-cta"
 >
   <span
     class="ecl-link__label"
@@ -26,16 +26,16 @@ exports[`EC - Link Cta variant with icon renders correctly 1`] = `
 exports[`EC - Link Default renders correctly 1`] = `
 <a
   class="ecl-link ecl-link--default"
-  href="/path"
+  href="/example#link-default"
 >
-  Default link
+  the European Union
 </a>
 `;
 
 exports[`EC - Link Standalone renders correctly 1`] = `
 <a
   class="ecl-link ecl-link--standalone"
-  href="/path"
+  href="/example#link-standalone"
 >
   Standalone link
 </a>
@@ -44,7 +44,7 @@ exports[`EC - Link Standalone renders correctly 1`] = `
 exports[`EC - Link Standalone with missing icon name renders correctly 1`] = `
 <a
   class="ecl-link ecl-link--standalone"
-  href="/path"
+  href="/example#link-standalone"
 >
   Standalone link with icon
 </a>
@@ -53,7 +53,7 @@ exports[`EC - Link Standalone with missing icon name renders correctly 1`] = `
 exports[`EC - Link With icon after renders correctly 1`] = `
 <a
   class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after"
-  href="/path"
+  href="/example#link-standalone"
 >
   <span
     class="ecl-link__label"
@@ -78,7 +78,7 @@ exports[`EC - Link With icon after renders correctly with extra attributes 1`] =
   class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after"
   data-test="data-test-value"
   data-test-1="data-test-value-1"
-  href="/path"
+  href="/example#link-standalone"
 >
   <span
     class="ecl-link__label"
@@ -101,7 +101,7 @@ exports[`EC - Link With icon after renders correctly with extra attributes 1`] =
 exports[`EC - Link With icon after renders correctly with extra class names 1`] = `
 <a
   class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after custom-class custom-class--test"
-  href="/path"
+  href="/example#link-standalone"
 >
   <span
     class="ecl-link__label"
@@ -124,7 +124,7 @@ exports[`EC - Link With icon after renders correctly with extra class names 1`] 
 exports[`EC - Link With icon before renders correctly 1`] = `
 <a
   class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-before"
-  href="/path"
+  href="/example#link-standalone"
 >
   <svg
     aria-hidden="true"
@@ -144,33 +144,10 @@ exports[`EC - Link With icon before renders correctly 1`] = `
 </a>
 `;
 
-exports[`EC - Link With missing icon name renders correctly 1`] = `
-<a
-  class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after"
-  href="/path"
->
-  <span
-    class="ecl-link__label"
-  >
-    Standalone link with icon
-  </span>
-   
-  <svg
-    aria-hidden="true"
-    class="ecl-icon ecl-icon--fluid ecl-link__icon"
-    focusable="false"
-  >
-    <use
-      xlink:href="static/icons.svg#ui--external"
-    />
-  </svg>
-</a>
-`;
-
 exports[`EC - Link With two icons after renders correctly 1`] = `
 <a
   class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after"
-  href="/path"
+  href="/example#link-standalone"
 >
   <span
     class="ecl-link__label"
@@ -201,40 +178,17 @@ exports[`EC - Link With two icons after renders correctly 1`] = `
 
 exports[`EC - Link With two icons after renders correctly with extra class names 1`] = `
 <a
-  class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after custom-class custom-class--test"
-  href="/path"
+  class="ecl-link ecl-link--standalone custom-class custom-class--test"
+  href="/example#link-standalone"
 >
-  <span
-    class="ecl-link__label"
-  >
-    Standalone link with icon
-  </span>
-   
-  <svg
-    aria-hidden="true"
-    class="ecl-icon ecl-icon--fluid ecl-link__icon"
-    focusable="false"
-  >
-    <use
-      xlink:href="static/icons.svg#ui--external"
-    />
-  </svg>
-  <svg
-    aria-hidden="true"
-    class="ecl-icon ecl-icon--fluid ecl-link__icon"
-    focusable="false"
-  >
-    <use
-      xlink:href="static/icons.svg#ui--download"
-    />
-  </svg>
+  Standalone link
 </a>
 `;
 
 exports[`EC - Link With two icons before renders correctly 1`] = `
 <a
   class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-before"
-  href="/path"
+  href="/example#link-standalone"
 >
   <svg
     aria-hidden="true"
@@ -266,7 +220,7 @@ exports[`EC - Link With two icons before renders correctly 1`] = `
 exports[`EC - Link With two icons before renders correctly with extra class names 1`] = `
 <a
   class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-before custom-class custom-class--test"
-  href="/path"
+  href="/example#link-standalone"
 >
   <svg
     aria-hidden="true"
