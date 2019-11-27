@@ -1,43 +1,10 @@
 import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
-import {
-  dataDefault,
-  dataImage,
-  dataImageShade,
-  dataPrimary,
-  dataLeft,
-} from './demo/data';
-
-function formatBanner(b) {
-  const iconType = b.link.icon.shape.split('--');
-  const banner = {
-    type: b.variant,
-    title: b.title,
-    description: b.description,
-    link: {
-      link: {
-        label: b.link.label,
-        icon_position: 'after',
-      },
-      icon: {
-        type: iconType[0],
-        name: iconType[1],
-        transform: b.link.icon.transform,
-        size: b.link.icon.size,
-        path: 'static/icons.svg',
-      },
-    },
-    centered: b.centered,
-  };
-
-  if ('image' in b) {
-    banner.image = 'https://v2--europa-component-library.netlify.com'.concat(
-      b.image
-    );
-  }
-
-  return banner;
-}
+import dataDefault from './demo/data--default';
+import dataImage from './demo/data--image';
+import dataImageShade from './demo/data--image-shade';
+import dataPrimary from './demo/data--primary';
+import dataLeft from './demo/data--align-left';
 
 describe('EC - Hero Banner', () => {
   const template =
@@ -45,18 +12,16 @@ describe('EC - Hero Banner', () => {
   const render = params => renderTwigFileAsNode(template, params);
 
   describe('default', () => {
-    const data = formatBanner(dataDefault);
-
     test(`- renders correctly`, () => {
       expect.assertions(1);
 
-      return expect(render(data)).resolves.toMatchSnapshot();
+      return expect(render(dataDefault)).resolves.toMatchSnapshot();
     });
 
     test('renders correctly with extra class names', () => {
       expect.assertions(1);
 
-      const withExtraClasses = merge(data, {
+      const withExtraClasses = merge(dataDefault, {
         extra_classes: 'custom-class custom-class--test',
       });
 
@@ -66,7 +31,7 @@ describe('EC - Hero Banner', () => {
     test('renders correctly with extra attributes', () => {
       expect.assertions(1);
 
-      const withExtraAttributes = merge(data, {
+      const withExtraAttributes = merge(dataDefault, {
         extra_attributes: [
           { name: 'data-test', value: 'data-test-value' },
           { name: 'data-test-1', value: 'data-test-value-1' },
@@ -78,18 +43,16 @@ describe('EC - Hero Banner', () => {
   });
 
   describe('image', () => {
-    const data = formatBanner(dataImage);
-
     test(`- renders correctly`, () => {
       expect.assertions(1);
 
-      return expect(render(data)).resolves.toMatchSnapshot();
+      return expect(render(dataImage)).resolves.toMatchSnapshot();
     });
 
     test('renders correctly with extra class names', () => {
       expect.assertions(1);
 
-      const withExtraClasses = merge(data, {
+      const withExtraClasses = merge(dataImage, {
         extra_classes: 'custom-class custom-class--test',
       });
 
@@ -99,7 +62,7 @@ describe('EC - Hero Banner', () => {
     test('renders correctly with extra attributes', () => {
       expect.assertions(1);
 
-      const withExtraAttributes = merge(data, {
+      const withExtraAttributes = merge(dataImage, {
         extra_attributes: [
           { name: 'data-test', value: 'data-test-value' },
           { name: 'data-test-1', value: 'data-test-value-1' },
@@ -111,18 +74,16 @@ describe('EC - Hero Banner', () => {
   });
 
   describe('image-shade', () => {
-    const data = formatBanner(dataImageShade);
-
     test(`- renders correctly`, () => {
       expect.assertions(1);
 
-      return expect(render(data)).resolves.toMatchSnapshot();
+      return expect(render(dataImageShade)).resolves.toMatchSnapshot();
     });
 
     test('renders correctly with extra class names', () => {
       expect.assertions(1);
 
-      const withExtraClasses = merge(data, {
+      const withExtraClasses = merge(dataImageShade, {
         extra_classes: 'custom-class custom-class--test',
       });
 
@@ -132,7 +93,7 @@ describe('EC - Hero Banner', () => {
     test('renders correctly with extra attributes', () => {
       expect.assertions(1);
 
-      const withExtraAttributes = merge(data, {
+      const withExtraAttributes = merge(dataImageShade, {
         extra_attributes: [
           { name: 'data-test', value: 'data-test-value' },
           { name: 'data-test-1', value: 'data-test-value-1' },
@@ -144,18 +105,16 @@ describe('EC - Hero Banner', () => {
   });
 
   describe('primary', () => {
-    const data = formatBanner(dataPrimary);
-
     test(`- renders correctly`, () => {
       expect.assertions(1);
 
-      return expect(render(data)).resolves.toMatchSnapshot();
+      return expect(render(dataPrimary)).resolves.toMatchSnapshot();
     });
 
     test('renders correctly with extra class names', () => {
       expect.assertions(1);
 
-      const withExtraClasses = merge(data, {
+      const withExtraClasses = merge(dataPrimary, {
         extra_classes: 'custom-class custom-class--test',
       });
 
@@ -165,7 +124,7 @@ describe('EC - Hero Banner', () => {
     test('renders correctly with extra attributes', () => {
       expect.assertions(1);
 
-      const withExtraAttributes = merge(data, {
+      const withExtraAttributes = merge(dataPrimary, {
         extra_attributes: [
           { name: 'data-test', value: 'data-test-value' },
           { name: 'data-test-1', value: 'data-test-value-1' },
@@ -177,18 +136,16 @@ describe('EC - Hero Banner', () => {
   });
 
   describe('align-left', () => {
-    const data = formatBanner(dataLeft);
-
     test(`- renders correctly`, () => {
       expect.assertions(1);
 
-      return expect(render(data)).resolves.toMatchSnapshot();
+      return expect(render(dataLeft)).resolves.toMatchSnapshot();
     });
 
     test('renders correctly with extra class names', () => {
       expect.assertions(1);
 
-      const withExtraClasses = merge(data, {
+      const withExtraClasses = merge(dataLeft, {
         extra_classes: 'custom-class custom-class--test',
       });
 
@@ -198,7 +155,7 @@ describe('EC - Hero Banner', () => {
     test('renders correctly with extra attributes', () => {
       expect.assertions(1);
 
-      const withExtraAttributes = merge(data, {
+      const withExtraAttributes = merge(dataLeft, {
         extra_attributes: [
           { name: 'data-test', value: 'data-test-value' },
           { name: 'data-test-1', value: 'data-test-value-1' },
