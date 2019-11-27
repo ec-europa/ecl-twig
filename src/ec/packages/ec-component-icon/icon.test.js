@@ -4,28 +4,22 @@ import brandedIcons from '@ecl/ec-resources-icons/dist/lists/branded.json';
 import generalIcons from '@ecl/ec-resources-icons/dist/lists/general.json';
 import notificationsIcons from '@ecl/ec-resources-icons/dist/lists/notifications.json';
 import uiIcons from '@ecl/ec-resources-icons/dist/lists/ui.json';
+import dataBranded from './demo/data--facebook';
+import dataNotifications from './demo/data--success';
+import dataUi from './demo/data--audio';
 
 describe('EC - Icon', () => {
   const template = '@ecl-twig/ec-component-icon/ecl-icon.html.twig';
   const render = params => renderTwigFileAsNode(template, params);
-
-  const defaultDataStructure = {
-    icon: {
-      name: '',
-      type: '',
-      path: 'static/icons.svg',
-    },
-  };
 
   describe('Branded', () => {
     brandedIcons.forEach(icon => {
       test(`- icon ${icon} renders correctly`, () => {
         expect.assertions(1);
 
-        const options = merge(defaultDataStructure, {
+        const options = merge(dataBranded, {
           icon: {
             name: icon,
-            type: 'branded',
           },
         });
 
@@ -39,10 +33,9 @@ describe('EC - Icon', () => {
       test(`- icon ${icon} renders correctly`, () => {
         expect.assertions(1);
 
-        const options = merge(defaultDataStructure, {
+        const options = merge(dataNotifications, {
           icon: {
             name: icon,
-            type: 'notifications',
           },
         });
 
@@ -56,7 +49,7 @@ describe('EC - Icon', () => {
       test(`- icon ${icon} renders correctly`, () => {
         expect.assertions(1);
 
-        const options = merge(defaultDataStructure, {
+        const options = merge(dataUi, {
           icon: {
             name: icon,
             type: 'general',
@@ -73,10 +66,9 @@ describe('EC - Icon', () => {
       test(`- icon ${icon} renders correctly`, () => {
         expect.assertions(1);
 
-        const options = merge(defaultDataStructure, {
+        const options = merge(dataUi, {
           icon: {
             name: icon,
-            type: 'ui',
           },
         });
 
@@ -86,7 +78,7 @@ describe('EC - Icon', () => {
   });
 
   describe('Generic tests - Any icon', () => {
-    const options = merge(defaultDataStructure, {
+    const options = merge(dataUi, {
       icon: {
         name: generalIcons[0],
         type: 'general',

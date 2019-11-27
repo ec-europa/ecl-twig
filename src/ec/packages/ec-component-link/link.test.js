@@ -1,29 +1,18 @@
 import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
+import dataDefault from './demo/data--default';
+import dataCta from './demo/data--cta';
+import dataStandalone from './demo/data--standalone';
 
 describe('EC - Link', () => {
   const template = '@ecl-twig/ec-component-link/ecl-link.html.twig';
   const render = params => renderTwigFileAsNode(template, params);
   const defaultIconPath = 'static/icons.svg';
-  const defaultDataStructure = {
-    link: {
-      type: '',
-      label: '',
-      path: '/path',
-    },
-  };
 
   describe('Default', () => {
     test('renders correctly', () => {
       expect.assertions(1);
 
-      const options = merge(defaultDataStructure, {
-        link: {
-          type: 'default',
-          label: 'Default link',
-        },
-      });
-
-      return expect(render(options)).resolves.toMatchSnapshot();
+      return expect(render(dataDefault)).resolves.toMatchSnapshot();
     });
   });
 
@@ -31,21 +20,13 @@ describe('EC - Link', () => {
     test('renders correctly', () => {
       expect.assertions(1);
 
-      const options = merge(defaultDataStructure, {
-        link: {
-          type: 'standalone',
-          label: 'Standalone link',
-        },
-      });
-
-      return expect(render(options)).resolves.toMatchSnapshot();
+      return expect(render(dataStandalone)).resolves.toMatchSnapshot();
     });
   });
 
   describe('Standalone with missing icon name', () => {
-    const options = merge(defaultDataStructure, {
+    const options = merge(dataStandalone, {
       link: {
-        type: 'standalone',
         label: 'Standalone link with icon',
         icon_position: 'after',
       },
@@ -63,7 +44,7 @@ describe('EC - Link', () => {
   });
 
   describe('With two icons after', () => {
-    const options = merge(defaultDataStructure, {
+    const options = merge(dataStandalone, {
       link: {
         type: 'standalone',
         label: 'Standalone link with icon',
@@ -93,7 +74,7 @@ describe('EC - Link', () => {
     test('renders correctly with extra class names', () => {
       expect.assertions(1);
 
-      const withExtraClasses = merge(options, {
+      const withExtraClasses = merge(dataStandalone, {
         extra_classes: 'custom-class custom-class--test',
       });
 
@@ -101,36 +82,8 @@ describe('EC - Link', () => {
     });
   });
 
-  describe('With missing icon name', () => {
-    const options = merge(defaultDataStructure, {
-      link: {
-        type: 'standalone',
-        label: 'Standalone link with icon',
-        icon_position: 'after',
-      },
-      icon: [
-        {
-          type: 'ui',
-          name: 'external',
-          size: 'fluid',
-          path: defaultIconPath,
-        },
-        {
-          type: 'ui',
-          size: 'xs',
-          path: defaultIconPath,
-        },
-      ],
-    });
-
-    test('renders correctly', () => {
-      expect.assertions(1);
-      return expect(render(options)).resolves.toMatchSnapshot();
-    });
-  });
-
   describe('With two icons before', () => {
-    const options = merge(defaultDataStructure, {
+    const options = merge(dataStandalone, {
       link: {
         type: 'standalone',
         label: 'Standalone link with icon',
@@ -172,9 +125,8 @@ describe('EC - Link', () => {
     test('renders correctly', () => {
       expect.assertions(1);
 
-      const options = merge(defaultDataStructure, {
+      const options = merge(dataStandalone, {
         link: {
-          type: 'standalone',
           label: 'Standalone link with icon',
           icon_position: 'before',
         },
@@ -192,9 +144,8 @@ describe('EC - Link', () => {
   });
 
   describe('With icon after', () => {
-    const options = merge(defaultDataStructure, {
+    const options = merge(dataStandalone, {
       link: {
-        type: 'standalone',
         label: 'Standalone link with icon',
         icon_position: 'after',
       },
@@ -237,9 +188,8 @@ describe('EC - Link', () => {
   });
 
   describe('Cta variant with icon', () => {
-    const options = merge(defaultDataStructure, {
+    const options = merge(dataCta, {
       link: {
-        type: 'cta',
         label: 'Call to action link',
         icon_position: 'after',
       },
