@@ -1,37 +1,42 @@
 import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
+import dataDefault from './demo/data--default';
+import dataDisabled from './demo/data--is-disabled';
+import dataError from './demo/data--has-error';
 
 describe('EC - Text area', () => {
   const template = '@ecl-twig/ec-component-text-area/ecl-text-area.html.twig';
   const render = params => renderTwigFileAsNode(template, params);
 
   describe('Default', () => {
-    const options = {
-      label: 'Label',
-      placeholder: 'Placeholder',
-      helper_text: 'Help message',
-      id: 'example-id',
-      name: 'example-name',
-    };
-
     test('renders correctly', () => {
       expect.assertions(1);
-      return expect(render(options)).resolves.toMatchSnapshot();
+      return expect(render(dataDefault)).resolves.toMatchSnapshot();
     });
 
     test('renders correctly with a default value', () => {
       expect.assertions(1);
 
-      const optionsWithDefaultValue = merge(options, {
+      const optionsWithDefaultValue = merge(dataDefault, {
         default_value: 'Hello world!',
       });
 
       return expect(render(optionsWithDefaultValue)).resolves.toMatchSnapshot();
     });
 
+    test('renders correctly when required', () => {
+      expect.assertions(1);
+
+      const optionsWhenRequired = merge(dataDefault, {
+        required: true,
+      });
+
+      return expect(render(optionsWhenRequired)).resolves.toMatchSnapshot();
+    });
+
     test('renders correctly with extra group class names', () => {
       expect.assertions(1);
 
-      const optionsWithExtraGroupClasses = merge(options, {
+      const optionsWithExtraGroupClasses = merge(dataDefault, {
         extra_group_classes: 'custom-group-class custom-group-class--test',
       });
 
@@ -43,7 +48,7 @@ describe('EC - Text area', () => {
     test('renders correctly with extra label class names', () => {
       expect.assertions(1);
 
-      const optionsWithExtraLabelClasses = merge(options, {
+      const optionsWithExtraLabelClasses = merge(dataDefault, {
         extra_label_classes: 'custom-label-class custom-label-class--test',
       });
 
@@ -55,7 +60,7 @@ describe('EC - Text area', () => {
     test('renders correctly with extra class names', () => {
       expect.assertions(1);
 
-      const optionsWithExtraClasses = merge(options, {
+      const optionsWithExtraClasses = merge(dataDefault, {
         extra_classes: 'custom-class custom-class--test',
       });
 
@@ -65,7 +70,7 @@ describe('EC - Text area', () => {
     test('renders correctly with extra attributes', () => {
       expect.assertions(1);
 
-      const optionsWithExtraClasses = merge(options, {
+      const optionsWithExtraClasses = merge(dataDefault, {
         extra_attributes: [
           { name: 'data-test', value: 'data-test-value' },
           { name: 'data-test-1', value: 'data-test-value-1' },
@@ -77,23 +82,15 @@ describe('EC - Text area', () => {
   });
 
   describe('Disabled', () => {
-    const options = {
-      label: 'Label',
-      placeholder: 'Placeholder',
-      helper_text: 'Help message',
-      disabled: true,
-      id: 'example-id',
-    };
-
     test('renders correctly', () => {
       expect.assertions(1);
-      return expect(render(options)).resolves.toMatchSnapshot();
+      return expect(render(dataDisabled)).resolves.toMatchSnapshot();
     });
 
     test('renders correctly with extra group class names', () => {
       expect.assertions(1);
 
-      const optionsWithExtraGroupClasses = merge(options, {
+      const optionsWithExtraGroupClasses = merge(dataDisabled, {
         extra_group_classes: 'custom-group-class custom-group-class--test',
       });
 
@@ -105,7 +102,7 @@ describe('EC - Text area', () => {
     test('renders correctly with extra class names', () => {
       expect.assertions(1);
 
-      const optionsWithExtraClasses = merge(options, {
+      const optionsWithExtraClasses = merge(dataDisabled, {
         extra_classes: 'custom-class custom-class--test',
       });
 
@@ -115,7 +112,7 @@ describe('EC - Text area', () => {
     test('renders correctly with extra attributes', () => {
       expect.assertions(1);
 
-      const optionsWithExtraClasses = merge(options, {
+      const optionsWithExtraClasses = merge(dataDisabled, {
         extra_attributes: [
           { name: 'data-test', value: 'data-test-value' },
           { name: 'data-test-1', value: 'data-test-value-1' },
@@ -127,25 +124,15 @@ describe('EC - Text area', () => {
   });
 
   describe('With error', () => {
-    const options = {
-      label: 'Label',
-      placeholder: 'Placeholder',
-      invalid: true,
-      invalid_text: 'Error message',
-      helper_text: 'Help message',
-      id: 'example-id',
-      name: 'example-name',
-    };
-
     test('renders correctly', () => {
       expect.assertions(1);
-      return expect(render(options)).resolves.toMatchSnapshot();
+      return expect(render(dataError)).resolves.toMatchSnapshot();
     });
 
     test('renders correctly with extra group class names', () => {
       expect.assertions(1);
 
-      const optionsWithExtraGroupClasses = merge(options, {
+      const optionsWithExtraGroupClasses = merge(dataError, {
         extra_group_classes: 'custom-group-class custom-group-class--test',
       });
 
@@ -157,7 +144,7 @@ describe('EC - Text area', () => {
     test('renders correctly with extra class names', () => {
       expect.assertions(1);
 
-      const optionsWithExtraClasses = merge(options, {
+      const optionsWithExtraClasses = merge(dataError, {
         extra_classes: 'custom-class custom-class--test',
       });
 
@@ -167,7 +154,7 @@ describe('EC - Text area', () => {
     test('renders correctly with extra attributes', () => {
       expect.assertions(1);
 
-      const optionsWithExtraClasses = merge(options, {
+      const optionsWithExtraClasses = merge(dataError, {
         extra_attributes: [
           { name: 'data-test', value: 'data-test-value' },
           { name: 'data-test-1', value: 'data-test-value-1' },

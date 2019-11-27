@@ -1,45 +1,32 @@
+import merge from 'deepmerge';
 import { storiesOf } from '@storybook/html';
-import { withKnobs, text, boolean } from '@storybook/addon-knobs';
+import { withKnobs, text } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
 
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
-import {
-  dataDefault,
-  dataImage,
-  dataImageShade,
-  dataPrimary,
-  dataLeft,
-} from './demo/data';
+import dataDefault from './demo/data--default';
+import dataImage from './demo/data--image';
+import dataImageShade from './demo/data--image-shade';
+import dataPrimary from './demo/data--primary';
+import dataLeft from './demo/data--align-left';
 
 import heroBanner from './ecl-hero-banner.html.twig';
 import notes from './README.md';
 
 function formatBanner(b) {
-  const iconType = b.link.icon.shape.split('--');
-  const banner = {
-    type: b.variant,
+  const banner = merge(b, {
     title: text('Title', b.title),
     description: text('Description', b.description),
     link: {
       link: {
-        label: text('Link label', b.link.label),
-        icon_position: 'after',
+        label: text('Link label', b.link.link.label),
       },
       icon: {
-        type: iconType[0],
-        name: iconType[1],
-        transform: b.link.icon.transform,
-        size: b.link.icon.size,
         path: defaultSprite,
       },
     },
-    centered: boolean('Centered', b.centered),
-  };
-
-  if ('image' in b) {
-    banner.image = b.image;
-  }
+  });
 
   return banner;
 }
@@ -62,43 +49,36 @@ storiesOf('Components/Banners/Hero Banner', module)
   .add(
     'image',
     () => {
-      const data = formatBanner(dataImage);
-
-      return heroBanner(data);
+      return heroBanner(formatBanner(dataImage));
     },
     {
-      notes: { markdown: notes },
+      notes: { markdown: notes, json: formatBanner(dataImage) },
     }
   )
   .add(
     'image-shade',
     () => {
-      const data = formatBanner(dataImageShade);
-
-      return heroBanner(data);
+      return heroBanner(formatBanner(dataImageShade));
     },
     {
-      notes: { markdown: notes },
+      notes: { markdown: notes, json: formatBanner(dataImageShade) },
     }
   )
   .add(
     'primary',
     () => {
-      const data = formatBanner(dataPrimary);
-
-      return heroBanner(data);
+      return heroBanner(formatBanner(dataPrimary));
     },
     {
-      notes: { markdown: notes },
+      notes: { markdown: notes, json: formatBanner(dataPrimary) },
     }
   )
   .add(
     'align-left',
     () => {
-      const data = formatBanner(dataLeft);
-      return heroBanner(data);
+      return heroBanner(formatBanner(dataLeft));
     },
     {
-      notes: { markdown: notes },
+      notes: { markdown: notes, json: formatBanner(dataLeft) },
     }
   );
