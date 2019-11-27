@@ -11,6 +11,7 @@ npm install --save @ecl-twig/ec-component-text-area
 - **"id"** (string) (default: '')
 - **"disabled"** (boolean) (default: false)
 - **"invalid"** (boolean) (default: false)
+- **"required"** (boolean) (default: false)
 - **"name"** (string) (default: '')
 - **"default_value"** (string) (default: '')
 - **"rows"** (int) (default: 4)
