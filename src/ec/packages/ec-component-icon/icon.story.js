@@ -1,3 +1,4 @@
+import merge from 'deepmerge';
 import { storiesOf } from '@storybook/html';
 import { withKnobs, select } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
@@ -8,6 +9,9 @@ import generalIcons from '@ecl/ec-resources-icons/dist/lists/general.json';
 import notificationsIcons from '@ecl/ec-resources-icons/dist/lists/notifications.json';
 import uiIcons from '@ecl/ec-resources-icons/dist/lists/ui.json';
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
+import dataBranded from './demo/data--facebook';
+import dataNotifications from './demo/data--success';
+import dataUi from './demo/data--audio';
 
 import icon from './ecl-icon.html.twig';
 import notes from './README.md';
@@ -56,16 +60,17 @@ storiesOf('Components/Icon', module)
       const color = select('Color', colors, defaultColor);
       const transform = select('Transform', transforms, defaultTransform);
 
-      return icon({
-        icon: {
-          type: 'branded',
-          name: shape,
-          size,
-          transform,
-          color,
-          path: defaultIconPath,
-        },
-      });
+      return icon(
+        merge(dataBranded, {
+          icon: {
+            name: shape,
+            size,
+            transform,
+            color,
+            path: defaultIconPath,
+          },
+        })
+      );
     },
     {
       notes: { markdown: notes },
@@ -102,16 +107,17 @@ storiesOf('Components/Icon', module)
       const color = select('Color', colors, defaultColor);
       const transform = select('Transform', transforms, defaultTransform);
 
-      return icon({
-        icon: {
-          type: 'notifications',
-          name: shape,
-          size,
-          transform,
-          color,
-          path: defaultIconPath,
-        },
-      });
+      return icon(
+        merge(dataNotifications, {
+          icon: {
+            name: shape,
+            size,
+            transform,
+            color,
+            path: defaultIconPath,
+          },
+        })
+      );
     },
     {
       notes: { markdown: notes },
@@ -125,16 +131,17 @@ storiesOf('Components/Icon', module)
       const color = select('Color', colors, defaultColor);
       const transform = select('Transform', transforms, defaultTransform);
 
-      return icon({
-        icon: {
-          type: 'ui',
-          name: shape,
-          size,
-          transform,
-          color,
-          path: defaultIconPath,
-        },
-      });
+      return icon(
+        merge(dataUi, {
+          icon: {
+            name: shape,
+            size,
+            transform,
+            color,
+            path: defaultIconPath,
+          },
+        })
+      );
     },
     {
       notes: { markdown: notes },
