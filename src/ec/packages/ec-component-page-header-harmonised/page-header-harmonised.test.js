@@ -6,12 +6,6 @@ import {
   demoMetaTitleDescriptionContent,
 } from './demo/data';
 
-const defaultSprite = '/static/icons.svg';
-
-demoTitleContent.breadcrumb.icon_file_path = defaultSprite;
-demoMetaTitleContent.breadcrumb.icon_file_path = defaultSprite;
-demoMetaTitleDescriptionContent.breadcrumb.icon_file_path = defaultSprite;
-
 describe('EC - Page Header Harmonised', () => {
   const template =
     '@ecl-twig/ec-component-page-header-harmonised/ecl-page-header-harmonised.html.twig';

@@ -55,11 +55,7 @@ components.forEach(component => {
     if (component.includes('site-header')) {
       html = html.replace(/static\/media\/logo--en.svg/g, '/logo--en.svg');
     }
-    if (!component.includes('social')) {
-      html = html
-        .replace(/xlink:href="[/]?static\/icons.svg/g, 'xlink:href="/icons.svg')
-        .replace(/xlink:href="#/g, 'xlink:href="/icons.svg#');
-    } else {
+    if (component.includes('social')) {
       html = html.replace(/xlink:href="/g, 'xlink:href="/icons-social.svg');
     }
 

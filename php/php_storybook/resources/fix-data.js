@@ -18,8 +18,6 @@ function fixDataInput(data, componentRootName) {
     data = data.dataInfo;
   } else if (data.dataGroup1) {
     data = data.dataGroup1;
-  } else if (data.dataLong) {
-    data = data.dataLong;
   } else if (data.englishData) {
     data = data.englishData;
   }
