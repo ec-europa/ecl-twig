@@ -1,7 +1,7 @@
 const formatIcon = i => {
   const [type, name] = i.shape.split('--');
   const icon = {
-    path: 'static/icons.svg',
+    path: '/icons.svg',
     type,
     name,
     size: i.size,

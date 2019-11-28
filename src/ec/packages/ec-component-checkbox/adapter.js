@@ -28,7 +28,7 @@ const adapter = initialData => {
   delete adaptedData.legendId;
 
   adaptedData.items = adaptedData.items.map(formatItem);
-
+  console.log(adaptedData);
   return adaptedData;
 };
 
