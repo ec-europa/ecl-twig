@@ -52,12 +52,6 @@ components.forEach(component => {
     if (componentTemplate === 'gallery') {
       html = html.replace(/<\/video>/g, '/>');
     }
-    if (component.includes('site-header')) {
-      html = html.replace(/static\/media\/logo--en.svg/g, '/logo--en.svg');
-    }
-    if (component.includes('social')) {
-      html = html.replace(/xlink:href="/g, 'xlink:href="/icons-social.svg');
-    }
 
     fs.writeFile(
       `${systemFolder}/${component}/js/${variant}.js.html`,

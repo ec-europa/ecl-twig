@@ -1,5 +1,7 @@
 <?php
-
+  /**
+   * Helper class for the automated story files generation and organisation.
+   */
   class storyHelpers {
     // Used to prepend a string in a file.
     function prepend($string, $orig_filename) {
@@ -17,19 +19,6 @@
 
     // Used to fix icons and other stuff.
     function fixHtml($data_html, $component) {
-      if (strpos($component, 'site-header') === 0) {
-        $data_html = str_replace('static/media/logo--en.svg','/logo--en.svg', $data_html);
-      }
-      // Fix icons.
-      if (strpos($component, 'social') === FALSE) {
-        $data_html = preg_replace(
-          ['(xlink:href="[\/]?static\/icons.svg)', '(xlink:href="#)'],
-          ['xlink:href="/icons.svg', 'xlink:href="/icons.svg#'],
-          $data_html
-        );
-      } else {
-        $data_html = preg_replace('(xlink:href="([\/]?static\/icons.svg)?)', 'xlink:href="/icons-social.svg', $data_html);
-      }
       // Not sure the reason why prettier breaks when it finds a closing video tag...
       if ($component == 'gallery') {
         $data_html = preg_replace('(<\/video>)', '/>', $data_html);
@@ -37,9 +26,8 @@
 
       return $data_html;
     }
-
+    // Grouping by deprecated component.
     function deprecatedComponents($component) {
-      // Deprecated components.
       $deprecated = ['site-header', 'accordion', 'breadcrumb', 'page-header', 'footer'];
       $deprecated_component = in_array($component, $deprecated) ? 'deprecated' : '';
 
