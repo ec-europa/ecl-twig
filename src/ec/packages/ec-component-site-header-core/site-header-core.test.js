@@ -23,6 +23,14 @@ describe('EC - Site Header Core', () => {
       return expect(render(withExtraClasses)).resolves.toMatchSnapshot();
     });
 
+    test('renders correctly when logged in', () => {
+      expect.assertions(1);
+
+      const loggedIn = merge(englishData, { logged: true });
+
+      return expect(render(loggedIn)).resolves.toMatchSnapshot();
+    });
+
     test('renders correctly with extra attributes', () => {
       expect.assertions(1);
 

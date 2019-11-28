@@ -19,6 +19,7 @@ storiesOf('Components/Site Headers/Core', module)
     () => {
       englishData.icon_file_path = defaultSprite;
       englishData.logo.src = englishBanner;
+      englishData.logged = true;
       return siteHeaderCore(englishData);
     },
     {
