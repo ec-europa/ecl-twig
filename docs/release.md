@@ -57,3 +57,22 @@ Note: you might be bombarded with emails from npm (one for each published packag
 Final step: create a new GitHub release from the `master` branch. The tag version should be prefixed with `v`, e.g. `v2.3.0`. As a title, you can use something like `2.3.0 (2019-06-14)` (like in the root `CHANGELOG.md` but without the link). And for the description of the release, you can copy-paste the entry generated in the root `CHANGELOG.md` as well (I know, we're duplicating a lot of information...).
 
 Now, enjoy a well-deserved break! :wink:
+
+
+## Troubleshooting
+
+In case of a failure during the release of the packages on npmjs.com which results in a subset of the packages being published, retry to publish the missing ones after clearing history:
+
+```
+npm run publish
+```
+then, after the failure:
+```
+git reset --hard
+```
+
+and then again.
+```
+npm run publish
+```
+until the whole set of packages gets published, hopefully.
