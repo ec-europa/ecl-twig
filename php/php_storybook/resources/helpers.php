@@ -19,13 +19,6 @@
 
     // Used to fix icons and other stuff.
     function fixHtml($data_html, $component) {
-      if (strpos($component, 'site-header') === 0) {
-        $data_html = str_replace('static/media/logo--en.svg','/logo--en.svg', $data_html);
-      }
-      // Fix icons.
-      if (strpos($component, 'social') !== FALSE) {
-        $data_html = preg_replace('(xlink:href="([\/]?static\/icons.svg)?)', 'xlink:href="/icons-social.svg', $data_html);
-      }
       // Not sure the reason why prettier breaks when it finds a closing video tag...
       if ($component == 'gallery') {
         $data_html = preg_replace('(<\/video>)', '/>', $data_html);
