@@ -1,7 +1,8 @@
 import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
 // Import data for tests
-import { dataDefault, dataMulti } from './demo/data';
+import dataDefault from '@ecl/ec-specs-table/demo/data--default';
+import dataMulti from '@ecl/ec-specs-table/demo/data--multi';
 
 describe('EC - Table', () => {
   const template = '@ecl-twig/ec-component-table/ecl-table.html.twig';

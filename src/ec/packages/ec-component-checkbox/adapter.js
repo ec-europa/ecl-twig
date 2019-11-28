@@ -3,6 +3,7 @@ function formatItem(i) {
     ...i,
     helper_id: i.helperId,
     helper_text: i.helperText,
+    icon_file_path: '/icons.svg',
   };
   if (i.defaultChecked) {
     item.default_checked = i.defaultChecked;

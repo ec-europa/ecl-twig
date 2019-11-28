@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import { formatLinkAlt } from '@ecl-twig/data-utils';
 
 const adapter = initialData => {

@@ -7,7 +7,6 @@ describe('EC - Breadcrumb Standardised', () => {
   const template =
     '@ecl-twig/ec-component-breadcrumb-standardised/ecl-breadcrumb-standardised.html.twig';
   const render = params => renderTwigFileAsNode(template, params);
-  const defaultIconPath = 'static/icons.svg';
 
   describe('Simple', () => {
     const data = merge(dataSimple, {
