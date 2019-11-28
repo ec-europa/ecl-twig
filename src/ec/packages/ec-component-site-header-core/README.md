@@ -14,6 +14,16 @@ npm install --save @ecl-twig/ec-component-site-header-core
   - "alt" (string) (default: ''): Logo alt attribute.
   - "href" (string) (default: ''): Logo URL.
   - "src" (string) (default: ''): Logo image file path, eg. dist/images/logo--en.svg.
+- **"login_box"** (associative array) format:
+  - "id": (string) Id of the box
+  - "description" (string) Label for the logged in users
+  - "label" (string): Log out label
+  - "href" (string): Url of the link
+- **"login_toggle"** (associative array) format:
+  - "label_not_logged" (string) Label for the anonymous users
+  - "href_not_logged" (string) Link to the login form
+  - "label_logged" (string) Label for the logged in users
+  - "href_logged" (string) Link to the logout form
 - **"language_selector"** (associative array) (default: predefined structure): Language switcher settings. format:
   - "href" (string) (default: ''): URL for switcher
   - "name" (string) (default: ''): Switcher language label, eg. 'English', 'Français', etc.
@@ -58,6 +68,18 @@ npm install --save @ecl-twig/ec-component-site-header-core
         ... 
       ], 
     }, 
+  }, 
+  login_toggle: { 
+    label_not_logged: 'Log in', 
+    href_not_logged: '/example', 
+    label_logged: 'Logged in', 
+    href_logged: '/example', 
+  }, 
+  login_box: { 
+    id: 'login-box-id', 
+    description: 'Logged in as <last name>, <first name>', 
+    label: 'Log out', 
+    href: '/example', 
   }, 
   search_toggle: { 
     label: 'Search', 
