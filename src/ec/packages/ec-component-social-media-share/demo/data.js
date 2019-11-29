@@ -1,4 +1,4 @@
-/* eslint-disable import/no-extraneous-dependencies, no-param-reassign  */
+/* eslint-disable import/no-extraneous-dependencies, no-param-reassign */
 import specData from '@ecl/ec-specs-social-media-share/demo/data';
 
 const adapter = initialData => {
@@ -14,7 +14,7 @@ const adapter = initialData => {
     if (link.icon) {
       link.icon.forEach(icon => {
         icon.name = icon.shape;
-
+        icon.path = '/icons-social.svg';
         // Respect specific class from spec demo data.
         if (icon.className && icon.className !== '') {
           icon.extra_classes = icon.className;

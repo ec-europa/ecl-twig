@@ -6,6 +6,7 @@
   - "name" (string) (default: '')
   - "value" (string) (default: '')
   - "disabled" (boolean) (default: false)
+  - "required" (boolean) (default: false)
   - "invalid" (boolean) (default: false)
   - "checked" (boolean) (default: false)
   - "helper_id" (string) (default: '')
@@ -25,6 +26,7 @@
 {% set _name = name|default('') %}
 {% set _value = value|default('') %}
 {% set _disabled = disabled|default(false) %}
+{% set _required = required|default(false) %}
 {% set _invalid = invalid|default(false) %}
 {% set _checked = checked|default(false) %}
 {% set _helper_id = helper_id|default('') %}
@@ -61,7 +63,7 @@
 
 {# Print the result #}
 
-<div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+<div class="{{ _css_class }}" {{ _extra_attributes|raw }}>
   <input
   {% if _id %}
     id="{{ _id }}"
@@ -70,8 +72,15 @@
     class="ecl-checkbox__input"
     type="checkbox"
     value="{{ _value }}"
-    {{ _disabled ? "disabled" }}
-    {{ _checked ? "checked" }}
+  {% if _disabled %}
+    disabled
+  {% endif %}
+  {% if _checked %}
+    checked
+  {% endif %}
+  {% if _required %}
+    required
+  {% endif %}
   />
 
   <label

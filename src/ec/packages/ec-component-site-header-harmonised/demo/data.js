@@ -4,9 +4,9 @@ import specGroup2 from '@ecl/ec-specs-site-header-harmonised/demo/data--group2';
 
 import { formatLink } from '@ecl-twig/data-utils';
 
-const defaultSprite = 'static/icons.svg';
+const defaultSprite = '/icons.svg';
 
-const logo = 'static/media/logo--en.svg';
+const logo = '/logo--en.svg';
 
 const adapter = initialData => {
   const adaptedData = JSON.parse(JSON.stringify(initialData));

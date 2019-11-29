@@ -2,6 +2,8 @@
   "version": "2.16.1",
   "npmClient": "yarn",
   "useWorkspaces": true,
+  "loglevel": "success",
+  "packages": ["src/ec/packages/*", "src/eu/packages/*", "php/packages/ec/*"],
   "command": {
     "create": {
       "license": "EUPL-1.1"
@@ -11,6 +13,7 @@
       "allowBranch": "master",
       "ignoreChanges": [
         "**/*.md",
+        "**/demo/**",
         "**/__snapshots__/**",
         "**/*.story.js",
         "**/*.test.js"

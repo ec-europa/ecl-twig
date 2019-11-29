@@ -17,7 +17,8 @@
             type: 'ui',
             name: i == 0 ? '' : 'corner-arrow',
             transform: 'rotate-180',
-          }|merge({ path: _icon_file_path }),
+            path: _icon_file_path,
+          },
           extra_classes: i == 1 ? _extra_classes ~ ' ' ~ _extra_classes ~ '--active' : _extra_classes,
         } only -%}
       </li>

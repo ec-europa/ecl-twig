@@ -315,7 +315,9 @@
   </div>
 {% endif %}
 {% if _menu %}
-  {% include '@ecl-twig/ec-component-site-header-standardised/ecl-menu.html.twig' with _icon_file_path %}
+  {% include '@ecl-twig/ec-component-site-header-standardised/ecl-menu.html.twig' with {
+    _icon_file_path: _icon_file_path
+  } only %}
 {% endif %}
 {% if _has_overlay is defined %}
   {% include '@ecl-twig/ec-component-language-list/ecl-language-list-overlay.html.twig' with {

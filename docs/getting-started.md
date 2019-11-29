@@ -104,7 +104,7 @@ Runs [grumphp](https://github.com/phpro/grumphp) on all the packages, one of its
 
 ## Test
 
-Check snpashots with:
+Check snapshots with:
 
 ```bash
 yarn jest
@@ -129,3 +129,55 @@ Test the dist:
 ```bash
 npx serve build
 ```
+
+## PHP Twig Storybook
+
+If you want test components with PHP rendering, please ensure that you have the required dependencies to work also with the PHP tool-chain, i.e. Composer.
+
+Details are included in the `README.md` of `@ecl-twig/php-renderer`.
+
+The following commands are available from the project root: (please ensure data is generated before executing any rendering command)
+
+Get dependencies.
+
+```bash
+yarn render:setupPhp
+```
+
+Remove files and folders from previous builds.
+
+```bash
+yarn clean-php
+```
+
+Generate data from specification files.
+
+```bash
+yarn render:dataGen
+```
+
+Generate HTML rendered by Twig PHP:
+
+```bash
+yarn render:php
+```
+
+Generate HTML rendered by Twing
+
+```bash
+yarn render:js
+```
+
+All these commands can be executed at once passing the generated files through prettier:
+
+```bash
+yarn render
+```
+
+The whole process of installing the dependencies, generating the needed files, then linting them and finally launching a storybook instance on port 9002 is done by:
+
+```bash
+yarn start:php-ec
+```
+
+All output files are stored in `./php/packages/ec` folder.
