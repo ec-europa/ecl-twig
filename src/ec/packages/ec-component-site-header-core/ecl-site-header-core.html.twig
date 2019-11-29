@@ -60,6 +60,7 @@
 
 {% set _logo = logo|default({}) %}
 {% set _language_selector = language_selector|default({}) %}
+{% set _logged = logged|default(false) %}
 {% set _login_box = login_box|default({}) %}
 {% set _login_toggle = login_toggle|default({}) %}
 {% set _icon_file_path = icon_file_path|default('') %}
@@ -211,6 +212,7 @@
             {{- login_toggle.label_not_logged -}}
           </a>
         {% endif %}
+        </div>
       {% endif %}
         <a
           class="ecl-link ecl-link--standalone ecl-site-header-core__language-selector"

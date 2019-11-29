@@ -8,6 +8,7 @@ npm install --save @ecl-twig/ec-component-site-header-core
 
 ### Parameters
 
+- **"logged"** (boolean) (default: false): Whether the user is logged in or not
 - **"icon_file_path"** (string) (default: ''): file containing the svg icons
 - **"logo"** (associative array) (default: predefined structure): Logo image settings. format:
   - "title" (string) (default: ''): Logo title attribute.
@@ -15,7 +16,7 @@ npm install --save @ecl-twig/ec-component-site-header-core
   - "href" (string) (default: ''): Logo URL.
   - "src" (string) (default: ''): Logo image file path, eg. dist/images/logo--en.svg.
 - **"login_box"** (associative array) format:
-  - "id": (string) Id of the box
+  - "id" (string) Id of the box
   - "description" (string) Label for the logged in users
   - "label" (string): Log out label
   - "href" (string): Url of the link
