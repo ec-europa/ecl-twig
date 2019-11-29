@@ -21,6 +21,10 @@ storiesOf('Components/Site Headers/Core', module)
     () =>
       siteHeaderCore(
         merge(englishData, {
+          logo: {
+            src: frenchBanner,
+          },
+          icon_file_path: defaultSprite,
           logged: false,
         })
       ),
