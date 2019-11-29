@@ -14,6 +14,7 @@ const adapter = initialData => {
     if (link.icon) {
       link.icon.forEach(icon => {
         icon.name = icon.shape;
+        icon.path = '/icons-social.svg';
         icon.extra_classes = icon.name.includes('hover')
           ? 'ecl-social-media-follow__icon-hover'
           : 'ecl-social-media-follow__icon';

@@ -64,7 +64,7 @@ Parameters:
 {# Print the result #}
 
 <ol class="{{ _css_class }}"{{ _extra_attributes|raw }}
-    data-ecl-timeline="true">
+    data-ecl-timeline>
   {% if _items is not empty %}
     {% for _item in _items %}
       {# Decide on per item if it should display. #}
@@ -93,7 +93,7 @@ Parameters:
             icon_position: 'after',
             extra_classes: 'ecl-timeline2__toggle',
             extra_attributes: [
-              {name: 'data-ecl-timeline-button', value: true},
+              {name: 'data-ecl-timeline-button'},
               {name: 'data-ecl-label-collapsed', value: toggle_collapsed},
               {name: 'data-ecl-label-expanded', value: toggle_expanded},
             ],

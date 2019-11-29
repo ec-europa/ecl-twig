@@ -4,10 +4,10 @@ import specFrenchData from '@ecl/ec-specs-site-header-standardised/demo/data--fr
 
 import { formatLink } from '@ecl-twig/data-utils';
 
-const defaultSprite = 'static/icons.svg';
+const defaultSprite = '/icons.svg';
 
-const englishBanner = 'static/media/logo--en.svg';
-const frenchBanner = 'static/media/logo--fr.svg';
+const englishBanner = '/logo--en.svg';
+const frenchBanner = '/logo--fr.svg';
 
 const adapter = initialData => {
   const adaptedData = JSON.parse(JSON.stringify(initialData));

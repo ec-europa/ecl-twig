@@ -4,7 +4,7 @@ import specDataInfo from '@ecl/ec-specs-message/demo/data--info';
 import specDataSuccess from '@ecl/ec-specs-message/demo/data--success';
 import specDataWarning from '@ecl/ec-specs-message/demo/data--warning';
 
-const defaultSprite = '/static/icons.svg';
+const defaultSprite = '/icons.svg';
 
 function formatIcon(i) {
   const [type, name] = i.shape.split('--');
