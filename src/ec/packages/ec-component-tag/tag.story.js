@@ -1,10 +1,13 @@
+import merge from 'deepmerge';
 import { storiesOf } from '@storybook/html';
 import { withKnobs, text } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
 
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
-
+import dataLink from './demo/data--link';
+import dataButton from './demo/data--button';
+import dataRemovable from './demo/data--removable';
 import tag from './ecl-tag.html.twig';
 import notes from './README.md';
 
@@ -15,41 +18,44 @@ storiesOf('Components/Tag', module)
   .add(
     'as a link',
     () =>
-      tag({
-        tag: {
-          label: text('Label', 'Link tag'),
-          path: text('Url', '/example'),
-        },
-      }),
+      tag(
+        merge(dataLink, {
+          tag: {
+            label: text('Label', 'Link tag'),
+            path: text('Url', '/example'),
+          },
+        })
+      ),
     {
-      notes: { markdown: notes },
+      notes: { markdown: notes, json: dataLink },
     }
   )
   .add(
     'as a button',
     () =>
-      tag({
-        tag: {
-          label: text('Label', 'Button tag'),
-          type: 'button',
-        },
-      }),
+      tag(
+        merge(dataButton, {
+          tag: {
+            label: text('Label', 'Button tag'),
+          },
+        })
+      ),
     {
-      notes: { markdown: notes },
+      notes: { markdown: notes, json: dataButton },
     }
   )
   .add(
     'removable',
     () =>
-      tag({
-        tag: {
-          label: text('Label', 'Removable tag'),
-          type: 'removable',
-          aria_label: 'Dismiss',
-        },
-        default_icon_path: defaultSprite,
-      }),
+      tag(
+        merge(dataRemovable, {
+          tag: {
+            label: text('Label', 'Removable tag'),
+          },
+          default_icon_path: defaultSprite,
+        })
+      ),
     {
-      notes: { markdown: notes },
+      notes: { markdown: notes, json: dataRemovable },
     }
   );
