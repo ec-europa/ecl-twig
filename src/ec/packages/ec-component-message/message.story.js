@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import { storiesOf } from '@storybook/html';
 import { withKnobs, text, select } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
@@ -7,22 +8,15 @@ import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import message from './ecl-message.html.twig';
 import notes from './README.md';
 
-import { dataError, dataInfo, dataSuccess, dataWarning } from './demo/data';
+import dataInfo from './demo/data--info';
+import dataSuccess from './demo/data--success';
+import dataError from './demo/data--error';
+import dataWarning from './demo/data--warning';
 
-dataError.icon.path = defaultSprite;
-dataError.close.icon.path = defaultSprite;
-dataInfo.icon.path = defaultSprite;
-dataInfo.close.icon.path = defaultSprite;
-dataSuccess.icon.path = defaultSprite;
-dataSuccess.close.icon.path = defaultSprite;
-dataWarning.icon.path = defaultSprite;
-dataWarning.close.icon.path = defaultSprite;
-
-const msgVariants = {
-  info: 'info',
-  success: 'success',
-  error: 'error',
-  warning: 'warning',
+const formatIcon = data => {
+  data.icon.path = defaultSprite;
+  data.close.icon.path = defaultSprite;
+  return data;
 };
 
 storiesOf('Components/Messages', module)
@@ -30,21 +24,62 @@ storiesOf('Components/Messages', module)
   .addDecorator(withCode)
   .addDecorator(withNotes)
   .add(
-    'default',
-    () => {
-      const msgVariantsSelect = select('Message variant', msgVariants, 'info');
-
-      return message({
-        ...dataInfo,
+    'Info',
+    () =>
+      message({
+        ...formatIcon(dataInfo),
         title: text('Title', 'Information message'),
         description: text(
           'Description',
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam accumsan semper lorem, ac mollis lacus tincidunt eu. Duis scelerisque diam eu tempus fringilla.'
         ),
-        variant: msgVariantsSelect,
-      });
-    },
+      }),
     {
-      notes: { markdown: notes, json: dataInfo },
+      notes: { markdown: notes, json: formatIcon(dataInfo) },
+    }
+  )
+  .add(
+    'Success',
+    () =>
+      message({
+        ...formatIcon(dataSuccess),
+        title: text('Title', 'Information message'),
+        description: text(
+          'Description',
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam accumsan semper lorem, ac mollis lacus tincidunt eu. Duis scelerisque diam eu tempus fringilla.'
+        ),
+      }),
+    {
+      notes: { markdown: notes, json: formatIcon(dataSuccess) },
+    }
+  )
+  .add(
+    'Error',
+    () =>
+      message({
+        ...formatIcon(dataError),
+        title: text('Title', 'Information message'),
+        description: text(
+          'Description',
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam accumsan semper lorem, ac mollis lacus tincidunt eu. Duis scelerisque diam eu tempus fringilla.'
+        ),
+      }),
+    {
+      notes: { markdown: notes, json: formatIcon(dataError) },
+    }
+  )
+  .add(
+    'Warning',
+    () =>
+      message({
+        ...formatIcon(dataWarning),
+        title: text('Title', 'Information message'),
+        description: text(
+          'Description',
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam accumsan semper lorem, ac mollis lacus tincidunt eu. Duis scelerisque diam eu tempus fringilla.'
+        ),
+      }),
+    {
+      notes: { markdown: notes, json: formatIcon(dataWarning) },
     }
   );
