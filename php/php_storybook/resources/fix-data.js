@@ -3,13 +3,6 @@
 function fixDataInput(data, componentRootName) {
   if (componentRootName.includes('page-header-')) {
     data = data.demoMetaTitleDescriptionContent;
-  } else if (componentRootName === 'tag') {
-    data = {
-      tag: {
-        label: 'Link tag',
-        path: '/example',
-      },
-    };
   } else if (componentRootName === 'file') {
     data = data.dataWithTranslation;
   } else if (data.bannerDataDefault) {
