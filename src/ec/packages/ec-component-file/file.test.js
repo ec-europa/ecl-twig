@@ -1,7 +1,8 @@
 import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
 // Import data for tests
-import { dataWithTranslation, dataWithoutTranslation } from './demo/data';
+import dataWithTranslation from './demo/data--with-translation';
+import dataWithoutTranslation from './demo/data--without-translation';
 
 describe('EC - File', () => {
   const template = '@ecl-twig/ec-component-file/ecl-file.html.twig';

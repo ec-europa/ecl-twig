@@ -1,13 +1,15 @@
-module.exports = {
-  title: 'State of the Union 2018 brochure',
-  language: 'English',
-  meta: '(16.2 MB - PDF)',
-  icon: {
-    shape: 'general--copy',
-    size: '2xl',
-  },
+import specDataWithoutTranslation from '@ecl/ec-specs-file/demo/data--without-translation';
+import { formatLink, formatIcon } from '@ecl-twig/data-utils';
+
+export default {
+  title: specDataWithoutTranslation.title,
+  language: specDataWithoutTranslation.language,
+  meta: specDataWithoutTranslation.meta,
+  icon: formatIcon(specDataWithoutTranslation.icon),
   download: {
-    label: 'Download',
-    href: '/example',
+    ...formatLink(specDataWithoutTranslation.download),
+    icon: {
+      path: '/icons.svg',
+    },
   },
 };

@@ -1,47 +1,60 @@
-module.exports = {
-  title: 'State of the Union 2018 brochure',
-  language: 'English',
-  meta: '(16.2 MB - PDF)',
-  icon: {
-    shape: 'general--copy',
-    size: '2xl',
-  },
+import specDataWithTranslation from '@ecl/ec-specs-file/demo/data--with-translation';
+import { formatLink, formatIcon } from '@ecl-twig/data-utils';
+
+export default {
+  title: specDataWithTranslation.title,
+  language: specDataWithTranslation.language,
+  meta: specDataWithTranslation.meta,
+  icon: formatIcon(specDataWithTranslation.icon),
   download: {
-    label: 'Download',
-    href: '/example',
+    ...formatLink(specDataWithTranslation.download),
+    icon: {
+      path: '/icons.svg',
+    },
   },
   translation: {
     toggle: {
-      label: 'Other languages (3)',
+      ...specDataWithTranslation.translation.toggle,
+      icon: {
+        path: '/icons.svg',
+      },
     },
-    description:
-      'Looking for another language which is not on the list? Find out why.',
+    description: specDataWithTranslation.translation.description,
     items: [
       {
-        title: 'български',
-        meta: '(15.7 MB - PDF)',
-        lang: 'bg',
+        ...specDataWithTranslation.translation.items[0],
         download: {
-          label: 'Download',
-          href: '/example#bg',
+          link: {
+            label: 'Download',
+            path: '/example#bg',
+          },
+          icon: {
+            path: '/icons.svg',
+          },
         },
       },
       {
-        title: 'español',
-        meta: '(15.8 MB - PDF)',
-        lang: 'es',
+        ...specDataWithTranslation.translation.items[1],
         download: {
-          label: 'Download',
-          href: '/example#es',
+          link: {
+            label: 'Download',
+            path: '/example#es',
+          },
+          icon: {
+            path: '/icons.svg',
+          },
         },
       },
       {
-        title: 'français',
-        meta: '(15.4 MB - PDF)',
-        lang: 'fr',
+        ...specDataWithTranslation.translation.items[2],
         download: {
-          label: 'Download',
-          href: '/example#fr',
+          link: {
+            label: 'Download',
+            path: '/example#fr',
+          },
+          icon: {
+            path: '/icons.svg',
+          },
         },
       },
     ],
