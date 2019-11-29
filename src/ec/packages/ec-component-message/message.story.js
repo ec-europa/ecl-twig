@@ -1,4 +1,5 @@
 /* eslint-disable no-param-reassign */
+import merge from 'deepmerge';
 import { storiesOf } from '@storybook/html';
 import { withKnobs, text } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
@@ -26,14 +27,15 @@ storiesOf('Components/Messages', module)
   .add(
     'Info',
     () =>
-      message({
-        ...formatIcon(dataInfo),
-        title: text('Title', 'Information message'),
-        description: text(
-          'Description',
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam accumsan semper lorem, ac mollis lacus tincidunt eu. Duis scelerisque diam eu tempus fringilla.'
-        ),
-      }),
+      message(
+        merge(formatIcon(dataInfo), {
+          title: text('Title', 'Information message'),
+          description: text(
+            'Description',
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam accumsan semper lorem, ac mollis lacus tincidunt eu. Duis scelerisque diam eu tempus fringilla.'
+          ),
+        })
+      ),
     {
       notes: { markdown: notes, json: formatIcon(dataInfo) },
     }
@@ -41,14 +43,15 @@ storiesOf('Components/Messages', module)
   .add(
     'Success',
     () =>
-      message({
-        ...formatIcon(dataSuccess),
-        title: text('Title', 'Information message'),
-        description: text(
-          'Description',
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam accumsan semper lorem, ac mollis lacus tincidunt eu. Duis scelerisque diam eu tempus fringilla.'
-        ),
-      }),
+      message(
+        merge(formatIcon(dataSuccess), {
+          title: text('Title', 'Information message'),
+          description: text(
+            'Description',
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam accumsan semper lorem, ac mollis lacus tincidunt eu. Duis scelerisque diam eu tempus fringilla.'
+          ),
+        })
+      ),
     {
       notes: { markdown: notes, json: formatIcon(dataSuccess) },
     }
@@ -56,14 +59,15 @@ storiesOf('Components/Messages', module)
   .add(
     'Error',
     () =>
-      message({
-        ...formatIcon(dataError),
-        title: text('Title', 'Information message'),
-        description: text(
-          'Description',
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam accumsan semper lorem, ac mollis lacus tincidunt eu. Duis scelerisque diam eu tempus fringilla.'
-        ),
-      }),
+      message(
+        merge(formatIcon(dataError), {
+          title: text('Title', 'Information message'),
+          description: text(
+            'Description',
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam accumsan semper lorem, ac mollis lacus tincidunt eu. Duis scelerisque diam eu tempus fringilla.'
+          ),
+        })
+      ),
     {
       notes: { markdown: notes, json: formatIcon(dataError) },
     }
@@ -71,14 +75,15 @@ storiesOf('Components/Messages', module)
   .add(
     'Warning',
     () =>
-      message({
-        ...formatIcon(dataWarning),
-        title: text('Title', 'Information message'),
-        description: text(
-          'Description',
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam accumsan semper lorem, ac mollis lacus tincidunt eu. Duis scelerisque diam eu tempus fringilla.'
-        ),
-      }),
+      message(
+        merge(formatIcon(dataWarning), {
+          title: text('Title', 'Information message'),
+          description: text(
+            'Description',
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam accumsan semper lorem, ac mollis lacus tincidunt eu. Duis scelerisque diam eu tempus fringilla.'
+          ),
+        })
+      ),
     {
       notes: { markdown: notes, json: formatIcon(dataWarning) },
     }
