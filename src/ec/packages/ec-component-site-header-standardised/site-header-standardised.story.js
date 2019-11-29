@@ -22,6 +22,7 @@ storiesOf('Components/Site Headers/Standardised', module)
   .add(
     'default',
     () => {
+      englishData.logged = false;
       return siteHeaderStandardised(englishData);
     },
     {
