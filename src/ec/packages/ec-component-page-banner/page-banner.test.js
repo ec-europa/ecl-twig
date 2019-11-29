@@ -1,41 +1,10 @@
 import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
-import bannerDataDefault from '@ecl/ec-specs-page-banner/demo/data--default';
-import bannerDataImage from '@ecl/ec-specs-page-banner/demo/data--image';
-import bannerDataImageShade from '@ecl/ec-specs-page-banner/demo/data--image-shade';
-import bannerDataPrimary from '@ecl/ec-specs-page-banner/demo/data--primary';
-import bannerDataAlignLeft from '@ecl/ec-specs-page-banner/demo/data--align-left';
-
-function formatBanner(b) {
-  const iconType = b.link.icon.shape.split('--');
-  const banner = {
-    type: b.variant,
-    title: b.title,
-    description: b.description,
-    link: {
-      link: {
-        label: b.link.label,
-        icon_position: 'after',
-      },
-      icon: {
-        type: iconType[0],
-        name: iconType[1],
-        transform: b.link.icon.transform,
-        size: b.link.icon.size,
-        path: 'static/icons.svg',
-      },
-    },
-    centered: b.isCentered,
-  };
-
-  if ('image' in b) {
-    banner.image = 'https://v2--europa-component-library.netlify.com'.concat(
-      b.image
-    );
-  }
-
-  return banner;
-}
+import bannerDataDefault from './demo/data--default';
+import bannerDataImage from './demo/data--image';
+import bannerDataImageShade from './demo/data--image-shade';
+import bannerDataPrimary from './demo/data--primary';
+import bannerDataAlignLeft from './demo/data--align-left';
 
 describe('EC - Page Banner', () => {
   const template =
@@ -43,7 +12,7 @@ describe('EC - Page Banner', () => {
   const render = params => renderTwigFileAsNode(template, params);
 
   describe('default', () => {
-    const data = formatBanner(bannerDataDefault);
+    const data = bannerDataDefault;
 
     test(`- renders correctly`, () => {
       expect.assertions(1);
@@ -76,7 +45,7 @@ describe('EC - Page Banner', () => {
   });
 
   describe('image', () => {
-    const data = formatBanner(bannerDataImage);
+    const data = bannerDataImage;
 
     test(`- renders correctly`, () => {
       expect.assertions(1);
@@ -109,7 +78,7 @@ describe('EC - Page Banner', () => {
   });
 
   describe('image-shade', () => {
-    const data = formatBanner(bannerDataImageShade);
+    const data = bannerDataImageShade;
 
     test(`- renders correctly`, () => {
       expect.assertions(1);
@@ -142,7 +111,7 @@ describe('EC - Page Banner', () => {
   });
 
   describe('primary', () => {
-    const data = formatBanner(bannerDataPrimary);
+    const data = bannerDataPrimary;
 
     test(`- renders correctly`, () => {
       expect.assertions(1);
@@ -175,7 +144,7 @@ describe('EC - Page Banner', () => {
   });
 
   describe('align-left', () => {
-    const data = formatBanner(bannerDataAlignLeft);
+    const data = bannerDataAlignLeft;
 
     test(`- renders correctly`, () => {
       expect.assertions(1);

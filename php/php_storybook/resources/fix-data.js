@@ -5,8 +5,6 @@ function fixDataInput(data, componentRootName) {
     data = data.demoMetaTitleDescriptionContent;
   } else if (componentRootName === 'file') {
     data = data.dataWithTranslation;
-  } else if (data.bannerDataDefault) {
-    data = data.bannerDataDefault;
   } else if (data.dataGroup1) {
     data = data.dataGroup1;
   } else if (data.englishData) {
