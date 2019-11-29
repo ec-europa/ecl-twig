@@ -1,11 +1,11 @@
 // eslint-disable-line no-param-reassign
 import { storiesOf } from '@storybook/html';
-import { withKnobs } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
 
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
-import { dataWithTranslation, dataWithoutTranslation } from './demo/data';
+import dataWithTranslation from './demo/data--with-translation';
+import dataWithoutTranslation from './demo/data--without-translation';
 
 import file from './ecl-file.html.twig';
 import notes from './README.md';
@@ -28,12 +28,11 @@ dataWithoutTranslation.icon.path = defaultSprite;
 dataWithoutTranslation.download.icon.path = defaultSprite;
 
 storiesOf('Components/File', module)
-  .addDecorator(withKnobs)
   .addDecorator(withNotes)
   .addDecorator(withCode)
   .add('without translation', () => file(dataWithoutTranslation), {
-    notes: { markdown: notes },
+    notes: { markdown: notes, json: dataWithoutTranslation },
   })
   .add('with translation', () => file(dataWithTranslation), {
-    notes: { markdown: notes },
+    notes: { markdown: notes, json: dataWithTranslation },
   });
