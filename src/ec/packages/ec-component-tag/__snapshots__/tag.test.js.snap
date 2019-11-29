@@ -5,7 +5,7 @@ exports[`EC - Tag Button renders correctly 1`] = `
   class="ecl-tag"
   type="button"
 >
-  Button tag
+  Tag button label
 </button>
 `;
 
@@ -16,7 +16,7 @@ exports[`EC - Tag Button renders correctly with extra attributes 1`] = `
   data-test-1="data-test-value-1"
   type="button"
 >
-  Button tag
+  Tag button label
 </button>
 `;
 
@@ -25,16 +25,16 @@ exports[`EC - Tag Button renders correctly with extra class names 1`] = `
   class="ecl-tag custom-class custom-class--test"
   type="button"
 >
-  Button tag
+  Tag button label
 </button>
 `;
 
 exports[`EC - Tag Link renders correctly 1`] = `
 <a
   class="ecl-tag"
-  href="/example-path"
+  href="/example"
 >
-  Link tag
+  Tag link label
 </a>
 `;
 
@@ -43,18 +43,18 @@ exports[`EC - Tag Link renders correctly with extra attributes 1`] = `
   class="ecl-tag"
   data-test="data-test-value"
   data-test-1="data-test-value-1"
-  href="/example-path"
+  href="/example"
 >
-  Link tag
+  Tag link label
 </a>
 `;
 
 exports[`EC - Tag Link renders correctly with extra class names 1`] = `
 <a
   class="ecl-tag custom-class custom-class--test"
-  href="/example-path"
+  href="/example"
 >
-  Link tag
+  Tag link label
 </a>
 `;
 
@@ -62,8 +62,9 @@ exports[`EC - Tag Removable renders correctly 1`] = `
 <span
   class="ecl-tag ecl-tag--removable"
 >
-  Removable tag
+  Removable tag label
   <button
+    aria-label="Dismiss"
     class="ecl-tag__icon"
     type="button"
   >
@@ -73,7 +74,7 @@ exports[`EC - Tag Removable renders correctly 1`] = `
       focusable="false"
     >
       <use
-        xlink:href="static/icons.svg#ui--close"
+        xlink:href="/icons.svg#ui--close"
       />
     </svg>
     <svg
@@ -82,7 +83,7 @@ exports[`EC - Tag Removable renders correctly 1`] = `
       focusable="false"
     >
       <use
-        xlink:href="static/icons.svg#ui--close-filled"
+        xlink:href="/icons.svg#ui--close-filled"
       />
     </svg>
   </button>
@@ -93,8 +94,9 @@ exports[`EC - Tag Removable renders correctly with extra attributes 1`] = `
 <span
   class="ecl-tag ecl-tag--removable"
 >
-  Removable tag
+  Removable tag label
   <button
+    aria-label="Dismiss"
     class="ecl-tag__icon"
     data-test="data-test-value"
     data-test-1="data-test-value-1"
@@ -106,7 +108,7 @@ exports[`EC - Tag Removable renders correctly with extra attributes 1`] = `
       focusable="false"
     >
       <use
-        xlink:href="static/icons.svg#ui--close"
+        xlink:href="/icons.svg#ui--close"
       />
     </svg>
     <svg
@@ -115,7 +117,7 @@ exports[`EC - Tag Removable renders correctly with extra attributes 1`] = `
       focusable="false"
     >
       <use
-        xlink:href="static/icons.svg#ui--close-filled"
+        xlink:href="/icons.svg#ui--close-filled"
       />
     </svg>
   </button>
@@ -126,8 +128,9 @@ exports[`EC - Tag Removable renders correctly with extra class names 1`] = `
 <span
   class="ecl-tag ecl-tag--removable custom-class custom-class--test"
 >
-  Removable tag
+  Removable tag label
   <button
+    aria-label="Dismiss"
     class="ecl-tag__icon"
     type="button"
   >
@@ -137,7 +140,7 @@ exports[`EC - Tag Removable renders correctly with extra class names 1`] = `
       focusable="false"
     >
       <use
-        xlink:href="static/icons.svg#ui--close"
+        xlink:href="/icons.svg#ui--close"
       />
     </svg>
     <svg
@@ -146,7 +149,7 @@ exports[`EC - Tag Removable renders correctly with extra class names 1`] = `
       focusable="false"
     >
       <use
-        xlink:href="static/icons.svg#ui--close-filled"
+        xlink:href="/icons.svg#ui--close-filled"
       />
     </svg>
   </button>
