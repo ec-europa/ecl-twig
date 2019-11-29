@@ -18,10 +18,12 @@ storiesOf('Components/Site Headers/Core', module)
   .addDecorator(withCode)
   .add(
     'default',
-    () => {
-      englishData.logged = false;
-      return siteHeaderCore(englishData);
-    },
+    () =>
+      siteHeaderCore(
+        merge(englishData, {
+          logged: false,
+        })
+      ),
     {
       notes: { markdown: notes, json: englishData },
     }
