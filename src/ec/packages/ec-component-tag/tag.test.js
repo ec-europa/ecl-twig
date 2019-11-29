@@ -1,36 +1,22 @@
 import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
+import dataLink from './demo/data--link';
+import dataButton from './demo/data--button';
+import dataRemovable from './demo/data--removable';
 
 describe('EC - Tag', () => {
   const template = '@ecl-twig/ec-component-tag/ecl-tag.html.twig';
   const render = params => renderTwigFileAsNode(template, params);
-  const defaultIconPath = 'static/icons.svg';
-  const defaultDataStructure = {
-    tag: {
-      path: '',
-      type: '',
-      label: '',
-    },
-    default_icon_path: defaultIconPath,
-  };
 
   describe('Link', () => {
-    const options = merge(defaultDataStructure, {
-      tag: {
-        type: 'link',
-        label: 'Link tag',
-        path: '/example-path',
-      },
-    });
-
     test('renders correctly', () => {
       expect.assertions(1);
-      return expect(render(options)).resolves.toMatchSnapshot();
+      return expect(render(dataLink)).resolves.toMatchSnapshot();
     });
 
     test('renders correctly with extra class names', () => {
       expect.assertions(1);
 
-      const optionsWithExtraClasses = merge(options, {
+      const optionsWithExtraClasses = merge(dataLink, {
         extra_classes: 'custom-class custom-class--test',
       });
 
@@ -40,7 +26,7 @@ describe('EC - Tag', () => {
     test('renders correctly with extra attributes', () => {
       expect.assertions(1);
 
-      const optionsWithExtraClasses = merge(options, {
+      const optionsWithExtraClasses = merge(dataLink, {
         extra_attributes: [
           { name: 'data-test', value: 'data-test-value' },
           { name: 'data-test-1', value: 'data-test-value-1' },
@@ -52,22 +38,15 @@ describe('EC - Tag', () => {
   });
 
   describe('Button', () => {
-    const options = merge(defaultDataStructure, {
-      tag: {
-        type: 'button',
-        label: 'Button tag',
-      },
-    });
-
     test('renders correctly', () => {
       expect.assertions(1);
-      return expect(render(options)).resolves.toMatchSnapshot();
+      return expect(render(dataButton)).resolves.toMatchSnapshot();
     });
 
     test('renders correctly with extra class names', () => {
       expect.assertions(1);
 
-      const optionsWithExtraClasses = merge(options, {
+      const optionsWithExtraClasses = merge(dataButton, {
         extra_classes: 'custom-class custom-class--test',
       });
 
@@ -77,7 +56,7 @@ describe('EC - Tag', () => {
     test('renders correctly with extra attributes', () => {
       expect.assertions(1);
 
-      const optionsWithExtraClasses = merge(options, {
+      const optionsWithExtraClasses = merge(dataButton, {
         extra_attributes: [
           { name: 'data-test', value: 'data-test-value' },
           { name: 'data-test-1', value: 'data-test-value-1' },
@@ -89,23 +68,15 @@ describe('EC - Tag', () => {
   });
 
   describe('Removable', () => {
-    const options = merge(defaultDataStructure, {
-      tag: {
-        type: 'removable',
-        label: 'Removable tag',
-        default_icon_path: defaultIconPath,
-      },
-    });
-
     test('renders correctly', () => {
       expect.assertions(1);
-      return expect(render(options)).resolves.toMatchSnapshot();
+      return expect(render(dataRemovable)).resolves.toMatchSnapshot();
     });
 
     test('renders correctly with extra class names', () => {
       expect.assertions(1);
 
-      const optionsWithExtraClasses = merge(options, {
+      const optionsWithExtraClasses = merge(dataRemovable, {
         extra_classes: 'custom-class custom-class--test',
       });
 
@@ -115,7 +86,7 @@ describe('EC - Tag', () => {
     test('renders correctly with extra attributes', () => {
       expect.assertions(1);
 
-      const optionsWithExtraClasses = merge(options, {
+      const optionsWithExtraClasses = merge(dataRemovable, {
         extra_attributes: [
           { name: 'data-test', value: 'data-test-value' },
           { name: 'data-test-1', value: 'data-test-value-1' },

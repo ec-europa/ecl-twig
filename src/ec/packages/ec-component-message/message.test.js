@@ -1,7 +1,10 @@
 import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
 // Import data for tests
-import { dataError, dataInfo, dataSuccess, dataWarning } from './demo/data';
+import dataInfo from './demo/data--info';
+import dataSuccess from './demo/data--success';
+import dataError from './demo/data--error';
+import dataWarning from './demo/data--warning';
 
 describe('EC - Message', () => {
   const template = '@ecl-twig/ec-component-message/ecl-message.html.twig';
