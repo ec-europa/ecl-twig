@@ -1,9 +1,7 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import specDataWithTranslation from '@ecl/ec-specs-file/demo/data--with-translation';
-import specDataWithoutTranslation from '@ecl/ec-specs-file/demo/data--without-translation';
 import { formatLink, formatIcon } from '@ecl-twig/data-utils';
 
-export const dataWithTranslation = {
+export default {
   title: specDataWithTranslation.title,
   language: specDataWithTranslation.language,
   meta: specDataWithTranslation.meta,
@@ -11,14 +9,14 @@ export const dataWithTranslation = {
   download: {
     ...formatLink(specDataWithTranslation.download),
     icon: {
-      path: '/static/icons.svg',
+      path: '/icons.svg',
     },
   },
   translation: {
     toggle: {
       ...specDataWithTranslation.translation.toggle,
       icon: {
-        path: '/static/icons.svg',
+        path: '/icons.svg',
       },
     },
     description: specDataWithTranslation.translation.description,
@@ -31,7 +29,7 @@ export const dataWithTranslation = {
             path: '/example#bg',
           },
           icon: {
-            path: '/static/icons.svg',
+            path: '/icons.svg',
           },
         },
       },
@@ -43,7 +41,7 @@ export const dataWithTranslation = {
             path: '/example#es',
           },
           icon: {
-            path: '/static/icons.svg',
+            path: '/icons.svg',
           },
         },
       },
@@ -55,23 +53,10 @@ export const dataWithTranslation = {
             path: '/example#fr',
           },
           icon: {
-            path: '/static/icons.svg',
+            path: '/icons.svg',
           },
         },
       },
     ],
-  },
-};
-
-export const dataWithoutTranslation = {
-  title: specDataWithoutTranslation.title,
-  language: specDataWithoutTranslation.language,
-  meta: specDataWithoutTranslation.meta,
-  icon: formatIcon(specDataWithoutTranslation.icon),
-  download: {
-    ...formatLink(specDataWithTranslation.download),
-    icon: {
-      path: '/static/icons.svg',
-    },
   },
 };
