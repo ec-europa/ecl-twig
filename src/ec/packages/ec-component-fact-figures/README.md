@@ -8,17 +8,56 @@ npm install --save @ecl-twig/ec-component-fact-figures
 
 ### Parameters:
 
+- **"column"** (integer) (default: 3): Number of columns to divide the items with
+- **"items"** (array) (default: []):
+  - "icon" (associate array) (default: { size: 'm' })
+  - "value" (string) (default: '')
+  - "title" (string) (default: '')
+  - "description (string) (default:'')
+- **"view_all"** (optional) (associative array) (default: {})
+  - "link" (associative array) {
+    - "label" (string) (default: ''),
+    - "path" (string) (default: '')
+- **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
+- **"extra_attributes"** (optional) (array) (default: []) Extra attributes
+  - "name" (string) Attribute name, eg. 'data-test'
+  - "value" (string) Attribute value, eg: 'data-test-1'
 
 ### Example:
 
 <!-- prettier-ignore -->
 ```twig
 {% include '@ecl-twig/ec-component-file-upload/ecl-fiact-figures.html.twig' with { 
-  extra_attributes: [ 
+  column: 3, 
+  items: [ 
     { 
-        name: 'data-test', 
-        value : 'data-test-1' 
+      icon: { 
+        path: "static/media/icons.1dbe9812.svg", 
+        type: "general", 
+        name: "digital", 
+        size: "m" 
+      }, 
+      value: "00.0 million", 
+      title: "Lorem ipsum", 
+      description: "Nunc condimentum sapien ut nibh finibus suscipit vitae at justo." 
+    }, 
+    { 
+      icon: { 
+        path: "static/media/icons.1dbe9812.svg", 
+        type: "general", 
+        name: "digital", 
+        size: "m" 
+      }, 
+      value: "00.0 million", 
+      title: "Sed hendrerit", 
+      description: "Turpis varius congue venenatis, erat dui feugiat felis." 
     }, 
   ], 
-} %}
+  view_all: { 
+    link: { 
+      label: "View all metrics", 
+      path: "/example" 
+    } 
+  } 
+} %} 
 ```
