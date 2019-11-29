@@ -1,6 +1,5 @@
 // eslint-disable-line no-param-reassign
 import { storiesOf } from '@storybook/html';
-import { withKnobs } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
 
@@ -20,12 +19,11 @@ const formatIcon = data => {
 };
 
 storiesOf('Components/Fact figures', module)
-  .addDecorator(withKnobs)
   .addDecorator(withNotes)
   .addDecorator(withCode)
   .add('3 Columns', () => factFigures(formatIcon(data3Col)), {
     notes: { markdown: notes, json: data3Col },
   })
   .add('4 Columns', () => factFigures(formatIcon(data4Col)), {
-    notes: { markdown: notes, json: data3Col },
+    notes: { markdown: notes, json: data4Col },
   });
