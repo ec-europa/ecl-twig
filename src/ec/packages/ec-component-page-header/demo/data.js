@@ -9,6 +9,7 @@ const adapter = initialData => {
       const iconName = info.icon;
       info.icon = {};
       info.icon.name = iconName;
+      info.icon.path = '/icons.svg';
     });
   }
 
