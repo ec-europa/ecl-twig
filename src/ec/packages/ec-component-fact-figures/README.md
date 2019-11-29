@@ -13,7 +13,7 @@ npm install --save @ecl-twig/ec-component-fact-figures
   - "icon" (associate array) (default: { size: 'm' })
   - "value" (string) (default: '')
   - "title" (string) (default: '')
-  - "description (string) (default:'')
+  - "description" (string) (default:'')
 - **"view_all"** (optional) (associative array) (default: {})
   - "link" (associative array) {
     - "label" (string) (default: ''),

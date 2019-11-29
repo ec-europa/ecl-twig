@@ -1,19 +1,17 @@
 {% spaceless %}
 
 {#
-  Blocks:
-  - "label" (string) (default: '')
-  - "helper_text" (string) (default: '')
-  
   Parameters:
-  - "id" (string) (default: '')
-  - "name" (string) (default: '')
-  - "invalid" (boolean) (default: false)
-  - "invalid_text" (string) (default: '')
-  - "disabled" (boolean) (default: false)
-  - "required" (boolean) (default: false)
-  - "required_text" (string) (default: '*')
-  - "optional_text" (string) (default: '')
+  - "column" (integer) (default: 3): Number of columns to divide the items with
+  - "items" (array) (default: []):
+    - "icon" (associate array) (default: { size: 'm' })
+    - "value" (string) (default: '')
+    - "title" (string) (default: '')
+    - "description" (string) (default:'')
+  - "view_all" (optional) (associative array) (default: {})
+    - "link" (associative array) {
+      - "label" (string) (default: ''),
+      - "path" (string) (default: '')
   - "extra_classes" (string) (default: '')
   - "extra_attributes" (array) (default: []): format: [
         {
@@ -55,7 +53,7 @@
 {% if items is defined and items is not empty and items is iterable %}
   <div class="ecl-fact-figures__items">
   {% for item in items %}
-    <div class='ecl-fact-figures__item'>
+    <div class="ecl-fact-figures__item">
     {% if item.icon is defined and item.icon is not empty %}
       {% include '@ecl-twig/ec-component-icon/ecl-icon.html.twig' with {
         icon: item.icon|merge(_icon),
