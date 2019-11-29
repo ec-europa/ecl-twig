@@ -1,15 +1,12 @@
 /* eslint-disable import/no-extraneous-dependencies, no-param-reassign */
-import specGroup1 from '@ecl/ec-specs-site-header-harmonised/demo/data--group1';
-import specGroup2 from '@ecl/ec-specs-site-header-harmonised/demo/data--group2';
-
 import { formatLink } from '@ecl-twig/data-utils';
-
-const defaultSprite = '/icons.svg';
-
-const logo = '/logo--en.svg';
 
 const adapter = initialData => {
   const adaptedData = JSON.parse(JSON.stringify(initialData));
+
+  const defaultSprite = '/icons.svg';
+  const logo = '/logo--en.svg';
+
   adaptedData.banner_top = adaptedData.bannerTop;
   if (adaptedData.banner_top instanceof Object) {
     adaptedData.banner_top = formatLink(adaptedData.banner_top);
@@ -68,5 +65,4 @@ const adapter = initialData => {
   return adaptedData;
 };
 
-export const dataGroup1 = adapter(specGroup1);
-export const dataGroup2 = adapter(specGroup2);
+export default adapter;
