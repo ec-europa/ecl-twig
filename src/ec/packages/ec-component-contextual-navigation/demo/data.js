@@ -22,6 +22,7 @@ const adapter = initialData => {
   adaptedData.item_more.icon = {
     name,
     type,
+    path: '/icons.svg',
     ...adaptedData.item_more.icon,
   };
 

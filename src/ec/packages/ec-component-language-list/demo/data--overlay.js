@@ -7,4 +7,8 @@ export default {
   close_label: specDataOverlay.closeLabel,
   title: specDataOverlay.title,
   items: specDataOverlay.items.map(formatLinkAlt),
+  logo: {
+    alt: specDataOverlay.logoAlt,
+    path: '/logo--mute.svg',
+  },
 };

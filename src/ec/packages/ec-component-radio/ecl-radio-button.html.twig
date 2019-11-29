@@ -7,6 +7,7 @@
   - "value" (string) (default: '')
   - "disabled" (boolean) (default: false)
   - "invalid" (boolean) (default: false)
+  - "required" (boolean) (default: false)
   - "checked" (boolean) (default: false)
   - "helper_id" (string) (default: '')
   - "extra_classes" (optional) (string) (default: '')
@@ -70,6 +71,9 @@
   {% endif %}
   {% if _checked %}
     checked
+  {% endif %}
+  {% if _required %}
+    required
   {% endif %}
   {% if _helper_id is not empty %}
     aria-describedby="{{ _helper_id }}"

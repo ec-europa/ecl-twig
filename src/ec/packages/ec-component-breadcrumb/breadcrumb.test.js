@@ -1,19 +1,17 @@
 import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
-import { dataSimple, dataLong } from './demo/data';
+import dataSimple from './demo/data-simple';
+import dataLong from './demo/data';
 
 describe('EC - Breadcrumb', () => {
   const template = '@ecl-twig/ec-component-breadcrumb/ecl-breadcrumb.html.twig';
   const render = params => renderTwigFileAsNode(template, params);
-  const defaultIconPath = 'static/icons.svg';
 
   describe('Simple', () => {
-    const data = {
-      links: dataSimple.links,
-      icon_file_path: defaultIconPath,
+    const data = merge(dataSimple, {
       navigation_text: dataSimple.label,
       ellipsis_label: 'Click to expand',
-    };
+    });
 
     test(`renders correctly`, () => {
       expect.assertions(1);
@@ -45,12 +43,10 @@ describe('EC - Breadcrumb', () => {
   });
 
   describe('Long', () => {
-    const data = {
-      links: dataLong.links,
-      icon_file_path: defaultIconPath,
+    const data = merge(dataLong, {
       navigation_text: dataLong.label,
       ellipsis_label: 'Click to expand',
-    };
+    });
 
     test(`renders correctly`, () => {
       expect.assertions(1);

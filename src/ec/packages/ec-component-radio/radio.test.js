@@ -1,12 +1,10 @@
 import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
 // Import data for tests
-import {
-  dataDefault,
-  dataInvalid,
-  dataBinary,
-  dataBinaryInvalid,
-} from './demo/data';
+import dataDefault from './demo/data--default';
+import dataInvalid from './demo/data--invalid';
+import dataBinary from './demo/data--binary';
+import dataBinaryInvalid from './demo/data--binary-invalid';
 
 describe('EC - Radio', () => {
   const template = '@ecl-twig/ec-component-radio/ecl-radio-group.html.twig';

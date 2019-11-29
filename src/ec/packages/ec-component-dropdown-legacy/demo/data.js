@@ -10,6 +10,7 @@ const adapter = initialData => {
   adaptedData.button.icon = {
     type,
     name,
+    path: '/icons.svg',
     ...adaptedData.button.icon,
   };
 

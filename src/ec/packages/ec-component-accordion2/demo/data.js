@@ -12,7 +12,7 @@ const adapter = initialData => {
     toggle.icon = {
       name,
       type,
-      path: '',
+      path: '/icons.svg',
       size: 's',
     };
   });

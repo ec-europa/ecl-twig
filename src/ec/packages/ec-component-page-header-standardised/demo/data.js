@@ -2,7 +2,7 @@
 import demoTitle from '@ecl/ec-specs-page-header-standardised/demo/data--title';
 import demoMetaTitle from '@ecl/ec-specs-page-header-standardised/demo/data--meta-title';
 import demoMetaTitleDescription from '@ecl/ec-specs-page-header-standardised/demo/data--meta-title-description';
-import { dataLong } from '../../ec-component-breadcrumb-standardised/demo/data';
+import dataLong from '../../ec-component-breadcrumb-standardised/demo/data';
 
 const adapter = initialData => {
   // Copy reference specification demo data.

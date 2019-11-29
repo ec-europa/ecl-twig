@@ -48,7 +48,7 @@
 {# Print the result #}
 
 <div
-  class="{{ _css_class }}"{{ _extra_attributes|raw }}
+  class="{{ _css_class }}" {{ _extra_attributes|raw }}
   data-ecl-accordion2
 >
   {% if _items is not empty %}
@@ -57,7 +57,7 @@
         <h{{ _item.level|default(3) }} class="ecl-accordion2__title">
           <button
             type="button"
-            class='ecl-accordion2__toggle'
+            class="ecl-accordion2__toggle"
             data-ecl-accordion2-toggle
             aria-controls="{{ _item.id }}-content"
           >
