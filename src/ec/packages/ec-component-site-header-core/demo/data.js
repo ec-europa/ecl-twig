@@ -10,6 +10,19 @@ const frenchBanner = '/logo--fr.svg';
 const adapter = initialData => {
   const adaptedData = JSON.parse(JSON.stringify(initialData));
 
+  if (adaptedData.loginToggle) {
+    adaptedData.login_toggle = {
+      label_not_logged: adaptedData.loginToggle.labelNotLogged,
+      href_not_logged: adaptedData.loginToggle.hrefNotLogged,
+      label_logged: adaptedData.loginToggle.labelLogged,
+      href_logged: adaptedData.loginToggle.hrefLogged,
+    };
+    delete adaptedData.loginToggle;
+  }
+  // Login box.
+  adaptedData.login_box = adaptedData.loginBox;
+  delete adaptedData.loginBox;
+
   const lng = adaptedData.logo.language;
   adaptedData.logo.src = lng === 'en' ? englishBanner : frenchBanner;
 

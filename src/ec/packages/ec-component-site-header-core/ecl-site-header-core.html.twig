@@ -10,6 +10,7 @@
           "href": (string) (default: ''): Logo URL.
           "src": (string) (default: ''): Logo image file path, eg. dist/images/logo--en.svg.
         },
+    - "logged" (boolean): Whether the user is logged in or not
     - "language_selector" (associative array) (default: predefined structure): Language switcher settings. format:
         {
           "href": (string) (default: ''): URL for switcher
@@ -30,6 +31,20 @@
             },
         },
     - "search_toggle" (associate array) (default: {})
+    - "login_box" (associate array) (default: {}) format:
+        {
+          "id": (string): Id of the box
+          "description": (string) default('Logged in as <last name>, <first name>')
+          "label": (string): Log out label
+          "href": (string): Url of the link
+      }
+    - "login_toggle" (associate array) (default: {}) format:
+      {
+        "label_not_logged": (string) Label for the anonymous users
+        "href_not_logged": (string) Link to the login form
+        "label_logged": (string) Label for the logged in users
+        "href_logged": (string) Link to the logout form
+      }
     - "search_form" (associative array) (default: predefined structure): EC Search Form component structure
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: data-ecl-auto-init="SiteHeaderCore"): format: [
@@ -45,6 +60,9 @@
 
 {% set _logo = logo|default({}) %}
 {% set _language_selector = language_selector|default({}) %}
+{% set _logged = logged|default(false) %}
+{% set _login_box = login_box|default({}) %}
+{% set _login_toggle = login_toggle|default({}) %}
 {% set _icon_file_path = icon_file_path|default('') %}
 {% set _search_toggle = search_toggle|default({}) %}
 {% set _extra_attributes = '' %}
@@ -79,6 +97,14 @@
   { name: 'data-ecl-auto-init', value: 'SiteHeaderCore' }
   ]|merge(extra_attributes|default([]))
 %}
+
+{% if login_toggle is defined and login_toggle is not empty %}
+  {% set _login_toggle = _login_toggle|merge(login_toggle) %}
+{% endif %}
+
+{% if login_box is defined and login_box is not empty %}
+  {% set _login_box = _login_box|merge(login_box) %}
+{% endif %}
 
 {% if logo is defined and logo is not empty %}
   {% set _logo = _logo|merge(logo) %}
@@ -134,6 +160,60 @@
         />
       </a>
       <div class="ecl-site-header-core__action">
+      {% if _login_toggle is not empty and _login_box is not empty %}
+        <div class="ecl-site-header-core__login-container">
+        {% if _logged %}
+          <a
+            class="ecl-link ecl-link--standalone ecl-site-header-core__login-toggle"
+            href="{{ _login_toggle.href_logged }}"
+            aria-controls={{ _login_box.id }}
+            aria-expanded="false"
+          >
+            {% include '@ecl-twig/ec-component-icon/ecl-icon.html.twig' with {
+              icon: {
+                path: _icon_file_path,
+                type: 'general',
+                name: 'logged-in',
+                size: 's'
+              }
+            } only %}
+             {{- login_toggle.label_logged -}}
+          </a>
+          <div
+            id="{{ _login_box.id }}"
+            class="ecl-site-header-core__login-box"
+            data-ecl-login-box
+          >
+            <p class="ecl-site-header-core__login-description">
+              {{- _login_box.description|raw -}}
+            </p>
+            <hr className="ecl-site-header-core__login-separator" />
+            {% include '@ecl-twig/ec-component-link/ecl-link.html.twig' with {
+              link: {
+                label: _login_box.label,
+                path: _login_box.href,
+                type: "standalone"
+              }
+            } only %}
+          </div>
+        {% else %}
+          <a
+            class="ecl-link ecl-link--standalone ecl-site-header-core__login-toggle"
+            href="{{ _login_box.href_not_logged }}"
+          >
+            {% include '@ecl-twig/ec-component-icon/ecl-icon.html.twig' with {
+              icon: {
+                path: _icon_file_path,
+                type: 'general',
+                name: 'log-in',
+                size: 's'
+              }
+            } only %}
+            {{- login_toggle.label_not_logged -}}
+          </a>
+        {% endif %}
+        </div>
+      {% endif %}
         <a
           class="ecl-link ecl-link--standalone ecl-site-header-core__language-selector"
           href="{{ _language_selector.href }}"

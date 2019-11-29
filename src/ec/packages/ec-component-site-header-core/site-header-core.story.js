@@ -10,6 +10,11 @@ import siteHeaderCore from './ecl-site-header-core.html.twig';
 import { englishData, frenchData } from './demo/data';
 import notes from './README.md';
 
+frenchData.icon_file_path = defaultSprite;
+frenchData.logo.src = frenchBanner;
+englishData.icon_file_path = defaultSprite;
+englishData.logo.src = englishBanner;
+
 storiesOf('Components/Site Headers/Core', module)
   .addDecorator(withKnobs)
   .addDecorator(withNotes)
@@ -17,8 +22,17 @@ storiesOf('Components/Site Headers/Core', module)
   .add(
     'default',
     () => {
-      englishData.icon_file_path = defaultSprite;
-      englishData.logo.src = englishBanner;
+      englishData.logged = false;
+      return siteHeaderCore(englishData);
+    },
+    {
+      notes: { markdown: notes, json: englishData },
+    }
+  )
+  .add(
+    'logged in',
+    () => {
+      englishData.logged = true;
       return siteHeaderCore(englishData);
     },
     {
@@ -28,8 +42,6 @@ storiesOf('Components/Site Headers/Core', module)
   .add(
     'translated',
     () => {
-      frenchData.icon_file_path = defaultSprite;
-      frenchData.logo.src = frenchBanner;
       return siteHeaderCore(frenchData);
     },
     {
