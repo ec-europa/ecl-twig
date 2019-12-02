@@ -6,7 +6,7 @@
     "build:php": "yarn render:setupPhp && yarn clean-php && yarn render && build-storybook -s ../images -c php/.storybook -o php/dist",
     "check-release": "scripts/check-packages.sh",
     "copy:static": "ncp static build",
-    "copy:php": "ncp static php/dist",
+    "copy:php": "ncp static/images* php/dist/images",
     "clean": "rimraf build dist",
     "clean-php": "rimraf php/dist php/packages/",
     "dist": "npm run clean && npm run build:ec && npm run build:eu && npm run copy:static",
