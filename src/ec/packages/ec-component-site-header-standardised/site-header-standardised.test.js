@@ -1,6 +1,7 @@
 import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
-import { englishData, frenchData } from './demo/data';
+import englishData from './demo/data--en';
+import frenchData from './demo/data--fr';
 
 describe('EC - Site Header Standardised', () => {
   const template =

@@ -1,3 +1,4 @@
+import merge from 'deepmerge';
 import { storiesOf } from '@storybook/html';
 import { withKnobs } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
@@ -7,13 +8,9 @@ import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import englishBanner from '@ecl/ec-resources-logo/logo--en.svg';
 import frenchBanner from '@ecl/ec-resources-logo/logo--fr.svg';
 import siteHeaderCore from './ecl-site-header-core.html.twig';
-import { englishData, frenchData } from './demo/data';
+import englishData from './demo/data--en';
+import frenchData from './demo/data--fr';
 import notes from './README.md';
-
-frenchData.icon_file_path = defaultSprite;
-frenchData.logo.src = frenchBanner;
-englishData.icon_file_path = defaultSprite;
-englishData.logo.src = englishBanner;
 
 storiesOf('Components/Site Headers/Core', module)
   .addDecorator(withKnobs)
@@ -21,29 +18,47 @@ storiesOf('Components/Site Headers/Core', module)
   .addDecorator(withCode)
   .add(
     'default',
-    () => {
-      englishData.logged = false;
-      return siteHeaderCore(englishData);
-    },
+    () =>
+      siteHeaderCore(
+        merge(englishData, {
+          logo: {
+            src: frenchBanner,
+          },
+          icon_file_path: defaultSprite,
+          logged: false,
+        })
+      ),
     {
       notes: { markdown: notes, json: englishData },
     }
   )
   .add(
     'logged in',
-    () => {
-      englishData.logged = true;
-      return siteHeaderCore(englishData);
-    },
+    () =>
+      siteHeaderCore(
+        merge(englishData, {
+          logo: {
+            src: englishBanner,
+          },
+          icon_file_path: defaultSprite,
+          logged: true,
+        })
+      ),
     {
       notes: { markdown: notes, json: englishData },
     }
   )
   .add(
     'translated',
-    () => {
-      return siteHeaderCore(frenchData);
-    },
+    () =>
+      siteHeaderCore(
+        merge(frenchData, {
+          logo: {
+            src: frenchBanner,
+          },
+          icon_file_path: defaultSprite,
+        })
+      ),
     {
       notes: { markdown: notes, json: frenchData },
     }
