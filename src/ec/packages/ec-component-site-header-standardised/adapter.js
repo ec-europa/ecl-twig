@@ -1,16 +1,13 @@
 /* eslint-disable import/no-extraneous-dependencies, no-param-reassign */
-import specEnglishData from '@ecl/ec-specs-site-header-standardised/demo/data--en';
-import specFrenchData from '@ecl/ec-specs-site-header-standardised/demo/data--fr';
-
 import { formatLink } from '@ecl-twig/data-utils';
-
-const defaultSprite = '/icons.svg';
-
-const englishBanner = '/logo--en.svg';
-const frenchBanner = '/logo--fr.svg';
 
 const adapter = initialData => {
   const adaptedData = JSON.parse(JSON.stringify(initialData));
+
+  const defaultSprite = '/icons.svg';
+  const englishBanner = '/logo--en.svg';
+  const frenchBanner = '/logo--fr.svg';
+
   adaptedData.banner_top = adaptedData.bannerTop;
   if (adaptedData.banner_top instanceof Object) {
     adaptedData.banner_top = formatLink(adaptedData.banner_top);
@@ -66,5 +63,4 @@ const adapter = initialData => {
   return adaptedData;
 };
 
-export const englishData = adapter(specEnglishData);
-export const frenchData = adapter(specFrenchData);
+export default adapter;
