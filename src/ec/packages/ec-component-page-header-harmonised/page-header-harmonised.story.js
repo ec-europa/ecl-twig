@@ -3,11 +3,9 @@ import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
 
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
-import {
-  demoTitleContent,
-  demoMetaTitleContent,
-  demoMetaTitleDescriptionContent,
-} from './demo/data';
+import demoTitleContent from './demo/data--title';
+import demoMetaTitleContent from './demo/data--meta-title';
+import demoMetaTitleDescriptionContent from './demo/data--meta-title-description';
 
 import pageHeaderHarmonised from './ecl-page-header-harmonised.html.twig';
 import notes from './README.md';

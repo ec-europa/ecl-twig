@@ -14,7 +14,6 @@ Files overview:
 - `bootstrap.php`: instantiates `$twig`
 - `generate-data-files.js`: Creates the json files for the specs of each component
 - `render.js`: Creates the js rendered files (using twing)
-- `fix-data.js`: Applies fixes needed to use the specs with our components
 - `story-template.txt`: A model we use to shape the story file in the initial stage
 - `render.php`: uses `$twig` and renders templates, it also creates the story files used by storybook
 
