@@ -17,7 +17,7 @@ npm install --save @ecl-twig/ec-component-skip-link
 <!-- prettier-ignore -->
 ```twig
 {% include '@ecl-twig/ec-component-skip-link/ecl-skip-link.html.twig' with { 
-    label: 'Skip to main content',
-    href: '#top',
+    label: 'Skip to main content', 
+    href: '#top', 
 } %}
 ```
