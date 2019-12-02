@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.17.3](https://github.com/ec-europa/ecl-twig/compare/v2.16.0...v2.17.3) (2019-12-02)
+
+
+### Features
+
+* **fact-figures:** Add component - TWIG-145 ([#247](https://github.com/ec-europa/ecl-twig/issues/247)) ([d9d8f68](https://github.com/ec-europa/ecl-twig/commit/d9d8f686d3e081483016f660eedaa64d88659702))
+* **php-storybook:** Storybook instance built on the fly with the php rendered files ([#208](https://github.com/ec-europa/ecl-twig/issues/208)) ([a398cce](https://github.com/ec-europa/ecl-twig/commit/a398cce006853e9db2aa95bd31ba923fed05e8c1))
+* **site-header-core:** adding login box, added test - TWIG-144 ([#246](https://github.com/ec-europa/ecl-twig/issues/246)) ([1e320e7](https://github.com/ec-europa/ecl-twig/commit/1e320e7d90c4e7abc6caaeb812939fb670ff1ef9))
+
+
+# [2.17.0](https://github.com/ec-europa/ecl-twig/compare/v2.16.0...v2.17.0) (2019-12-02)
+
+
+### Features
+
+* **fact-figures:** Add component - TWIG-145 ([#247](https://github.com/ec-europa/ecl-twig/issues/247)) ([d9d8f68](https://github.com/ec-europa/ecl-twig/commit/d9d8f686d3e081483016f660eedaa64d88659702))
+* **php-storybook:** Storybook instance built on the fly with the php rendered files ([#208](https://github.com/ec-europa/ecl-twig/issues/208)) ([a398cce](https://github.com/ec-europa/ecl-twig/commit/a398cce006853e9db2aa95bd31ba923fed05e8c1))
+* **site-header-core:** adding login box, added test - TWIG-144 ([#246](https://github.com/ec-europa/ecl-twig/issues/246)) ([1e320e7](https://github.com/ec-europa/ecl-twig/commit/1e320e7d90c4e7abc6caaeb812939fb670ff1ef9))
+
 ## [2.16.1](https://github.com/ec-europa/ecl-twig/compare/v2.15.1...v2.16.1) (2019-11-22)
 
 
@@ -14,9 +33,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 ### Features
 
 * **card:** Improving code examples in notes panel - TWIG-141 ([#233](https://github.com/ec-europa/ecl-twig/issues/233)) ([1bb2e2f](https://github.com/ec-europa/ecl-twig/commit/1bb2e2f))
-
-
-
 
 
 # [2.16.0](https://github.com/ec-europa/ecl-twig/compare/v2.15.1...v2.16.0) (2019-11-22)
