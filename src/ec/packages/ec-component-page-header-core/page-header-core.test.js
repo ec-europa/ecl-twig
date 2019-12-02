@@ -1,12 +1,10 @@
 import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
-import {
-  demoTitleContent,
-  demoMetaTitleContent,
-  demoMetaTitleDescriptionContent,
-} from './demo/data';
+import demoTitleContent from './demo/data--title';
+import demoMetaTitleContent from './demo/data--meta-title';
+import demoMetaTitleDescriptionContent from './demo/data--meta-title-description';
 
-const defaultSprite = '/static/icons.svg';
+const defaultSprite = '/icons.svg';
 
 demoTitleContent.breadcrumb.icon_file_path = defaultSprite;
 demoMetaTitleContent.breadcrumb.icon_file_path = defaultSprite;
