@@ -1,9 +1,13 @@
 {
-  "version": "2.16.1",
+  "version": "2.17.0",
   "npmClient": "yarn",
   "useWorkspaces": true,
   "loglevel": "success",
-  "packages": ["src/ec/packages/*", "src/eu/packages/*", "php/packages/ec/*"],
+  "packages": [
+    "src/ec/packages/*",
+    "src/eu/packages/*",
+    "php/packages/ec/*"
+  ],
   "command": {
     "create": {
       "license": "EUPL-1.1"
