@@ -1,10 +1,11 @@
 #!/usr/bin/env node
 
-/* eslint-disable global-require, import/no-dynamic-require, import/no-extraneous-dependencies */
+/* eslint-disable global-require, no-unused-vars, import/no-dynamic-require, import/no-extraneous-dependencies */
 
 const fs = require('fs');
 const fse = require('fs-extra');
 const path = require('path');
+
 const system = 'ec';
 
 /**
@@ -21,7 +22,7 @@ const createDataFiles = ({ readLocation, saveLocation, componentRootName }) => {
     // Sometimes files contain results of adaptation.
     const dataImport = require(`${readLocation}/${file}`);
     // Normalize the difference of module systems.
-    let data = dataImport.default ? dataImport.default : dataImport;
+    const data = dataImport.default ? dataImport.default : dataImport;
 
     const fileName = file.replace('js', 'json');
     const filePath = path.resolve(`${saveLocation}/${fileName}`);
