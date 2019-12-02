@@ -5,8 +5,6 @@
 const fs = require('fs');
 const fse = require('fs-extra');
 const path = require('path');
-const fixDataInput = require('../resources/fix-data');
-
 const system = 'ec';
 
 /**
@@ -24,8 +22,6 @@ const createDataFiles = ({ readLocation, saveLocation, componentRootName }) => {
     const dataImport = require(`${readLocation}/${file}`);
     // Normalize the difference of module systems.
     let data = dataImport.default ? dataImport.default : dataImport;
-
-    data = fixDataInput(data, componentRootName);
 
     const fileName = file.replace('js', 'json');
     const filePath = path.resolve(`${saveLocation}/${fileName}`);
