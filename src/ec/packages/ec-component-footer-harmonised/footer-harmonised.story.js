@@ -4,13 +4,10 @@ import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 
-import { dataGroup1, dataGroup2 } from './demo/data';
+import dataGroup1 from './demo/data--group1';
+import dataGroup2 from './demo/data--group2';
 import footerHarmonised from './ecl-footer-harmonised.html.twig';
 import notes from './README.md';
-
-// add manually group property to change class
-dataGroup1.group = 'group1';
-dataGroup2.group = 'group2';
 
 const groups = [dataGroup1, dataGroup2];
 

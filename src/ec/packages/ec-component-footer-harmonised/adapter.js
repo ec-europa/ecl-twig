@@ -1,12 +1,9 @@
 /* eslint-disable import/no-extraneous-dependencies, no-param-reassign */
-import specData1 from '@ecl/ec-specs-footer-harmonised/demo/data--group1';
-import specData2 from '@ecl/ec-specs-footer-harmonised/demo/data--group2';
 import { formatLink } from '@ecl-twig/data-utils';
 
 const adapter = initialData => {
   // Copy reference specification demo data.
   const adaptedData = JSON.parse(JSON.stringify(initialData));
-
   adaptedData.sections.forEach(section => {
     if (section.contentBefore) {
       section.content_before = section.contentBefore;
@@ -27,14 +24,21 @@ const adapter = initialData => {
     }
     if (section.title && section.title instanceof Object) {
       section.title = formatLink(section.title);
+      if (section.title.icon) {
+        section.title.icon.path = '/icons.svg';
+      }
     }
     if (section.links && Array.isArray(section.links)) {
       section.links = section.links.map(formatLink);
+      section.links.forEach(l => {
+        if (l.icon) {
+          l.icon.path = '/icons.svg';
+        }
+      });
     }
   });
 
   return adaptedData;
 };
 
-export const dataGroup1 = adapter(specData1);
-export const dataGroup2 = adapter(specData2);
+export default adapter;
