@@ -3,7 +3,7 @@
   "scripts": {
     "build:ec": "build-storybook -c ./src/ec/.storybook -o build/ec",
     "build:eu": "echo \"Nothing to do...\"",
-    "build:php": "yarn render:setupPhp && yarn clean-php && yarn render && build-storybook -s ./images -c php/.storybook -o php/dist",
+    "build:php": "yarn render:setupPhp && yarn clean-php && yarn render && build-storybook -s php/dist/images -c php/.storybook -o php/dist",
     "check-release": "scripts/check-packages.sh",
     "copy:static": "ncp static build",
     "copy:php": "ncp static/images* php/dist/images",
