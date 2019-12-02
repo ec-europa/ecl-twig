@@ -8,6 +8,7 @@ const adapter = initialData => {
     baseline: adaptedData.baseline,
     link: {
       link: {
+        path: '/example',
         label: adaptedData.link.label,
         icon_position: 'after',
       },
