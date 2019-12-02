@@ -1,6 +1,7 @@
 import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
-import { dataGroup1, dataGroup2 } from './demo/data';
+import dataGroup1 from './demo/data--group1';
+import dataGroup2 from './demo/data--group2';
 
 describe('EC - Site Header Harmonised', () => {
   const template =
