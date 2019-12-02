@@ -4,16 +4,14 @@ import withCode from '@ecl-twig/storybook-addon-code';
 
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 
+import bannerDataDefault from './demo/data--default';
+import bannerDataImage from './demo/data--image';
+import bannerDataImageShade from './demo/data--image-shade';
+import bannerDataPrimary from './demo/data--primary';
+import bannerDataAlignLeft from './demo/data--align-left';
+
 import pageBanner from './ecl-page-banner.html.twig';
 import notes from './README.md';
-
-import {
-  bannerDataDefault,
-  bannerDataImage,
-  bannerDataImageShade,
-  bannerDataPrimary,
-  bannerDataAlignLeft,
-} from './demo/data';
 
 function setIconPath(b) {
   if (b.link.icon) {

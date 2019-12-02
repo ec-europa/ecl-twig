@@ -64,9 +64,9 @@
       {% if _link is not empty %}
         {% include '@ecl-twig/ec-component-link/ecl-link.html.twig' with _link|merge({
           link: _link.link|merge({
-            type: 'standalone',
+            type: 'cta',
           }),
-          extra_classes: 'ecl-page-banner__link'
+          extra_classes: 'ecl-page-banner__link-cta'
         }) only %}
       {% elseif _button is not empty %}
         {% include '@ecl-twig/ec-component-button/ecl-button.html.twig' with _button|merge({
