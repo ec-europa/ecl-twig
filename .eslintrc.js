@@ -14,35 +14,35 @@ module.exports = {
     browser: true,
   },
   rules: {
-    'unicorn/prevent-abbreviations': false,
-    'unicorn/prefer-node-append': false,
+    'unicorn/prevent-abbreviations': 0,
+    'unicorn/prefer-node-append': 0,
   },
   overrides: [
     {
       files: '**/demo/*.js',
       rules: {
         'unicorn/filename-case': 'off',
-        'import/no-extraneous-dependencies': false
+        'import/no-extraneous-dependencies': 0
       },
     },
     {
       files: ['src/**/*.{story,test}.js'],
       rules: {
-        'import/no-extraneous-dependencies': false,
+        'import/no-extraneous-dependencies': 0,
       },
     },
     {
       files: ['php/**/*.story.js'],
       rules: {
-        'import/no-extraneous-dependencies': false,
+        'import/no-extraneous-dependencies': 0,
         camelcase: 0,
-        'import/order': false,
+        'import/order': 0,
       },
     },
     {
       files: ['utils/**/*.{js,jsx}'],
       rules: {
-        'import/no-extraneous-dependencies': false,
+        'import/no-extraneous-dependencies': 0,
       },
     },
   ],
