@@ -5,8 +5,3 @@
 [build.environment]
   YARN_VERSION = "1.12.3"
   YARN_FLAGS = "--frozen-lockfile"
-
-[context."TWIG-158"]
-  command = "yarn dist-php"
-  publish = "php/dist"
-
