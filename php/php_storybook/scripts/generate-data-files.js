@@ -8,6 +8,7 @@ const path = require('path');
 
 const system = 'ec';
 
+
 /**
  * Helper to migrate demo data for Twig PHP renderer.
  *
@@ -43,7 +44,12 @@ const listLocation = path.resolve(
 const list = require(listLocation);
 
 // Limit the list temporarily.
-const listRender = Object.keys(list.dependencies);
+let listRender = Object.keys(list.dependencies);
+const args = process.argv.slice(2);
+
+if (args[0]) {
+  listRender = [`@ecl-twig/${system}-component-${args[0]}`];
+}
 
 listRender.forEach(pkg => {
   const componentRootName = pkg.split(`@ecl-twig/${system}-component-`)[1];
