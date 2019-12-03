@@ -7,9 +7,9 @@ const { ncp } = require('ncp');
 const options = {};
 options.dereference = true;
 
-ncp('static/images/', 'php/images/', options, err => {
+ncp('static/images/', 'php/dist/', options, err => {
   if (err) {
     return console.error(err);
   }
-  return console.log('Assets copied in the php/images folder');
+  return console.log('Assets copied in the php/dist folder');
 });
