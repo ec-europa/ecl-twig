@@ -122,7 +122,7 @@ Check the rendering of a single component in php and js and diff the resulting t
 yarn check:component "componentName"
 ```
 
-Check the rendering in php and js and diff the resulting templates:
+Diff the existing templates in php-storybook
 
 ```bash
 yarn diff
