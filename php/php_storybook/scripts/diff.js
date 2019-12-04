@@ -27,9 +27,18 @@ const components = singleComponent[0]
   ? [singleComponent[0]]
   : fs.readdirSync(systemFolder);
 
+let matches = 0;
+let totalComponents = 0;
+let totalVariants = 0;
+const failed = [];
+
 components.forEach(component => {
+  totalComponents += 1;
+  console.log(`Checking component: ${component}:`);
+  console.log(`----------------------------------`);
   const dataFiles = fs.readdirSync(`${systemFolder}/${component}/specs`);
   dataFiles.forEach(dataFile => {
+    totalVariants += 1;
     const jsFileName =
       dataFile.replace('data', component).slice(0, -5) + jsExtension;
     const phpFileName =
@@ -46,11 +55,27 @@ components.forEach(component => {
     let res = '';
 
     if (isEqual) {
-      res = 'Perfectly matching!';
+      res = '> Perfectly matching!';
+      matches += 1;
     } else {
       res = logger.logDiffText(diff, { charsAroundDiff: 40 });
+      failed.push(component);
     }
     console.log(`Comparing ${jsFileName} with ${phpFileName}:`);
     console.log(`${res}\n`);
   });
 });
+
+let percent = (100 * matches) / totalVariants;
+percent = percent.toFixed(2);
+
+console.log(
+  `We've been comparing ${totalVariants} variants in ${totalComponents} components.`
+);
+console.log(
+  `With ${matches} perfect matches, which is the ${percent} of the total amount of variants`
+);
+
+if (failed.length > 0) {
+  console.log(`You might want to check: ${failed.toString()}`);
+}

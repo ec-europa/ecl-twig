@@ -52,9 +52,9 @@ foreach ($components as $component) {
         '',
         str_replace('data', $component, $file_name)
       );
-      // Not real variants.
-      if ($variant == 'breadcrumb-simple'|| $variant == 'page-filler') {
-        continue;
+      // Inpage nav probably needs a review.
+      if ($variant === 'page-filler') {
+        $file_name = 'page-filler.json';
       }
 
       $data_string = file_get_contents(
