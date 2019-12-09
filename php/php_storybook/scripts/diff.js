@@ -36,10 +36,10 @@ components.forEach(component => {
   console.log(`-------------------------------------------------------`);
   const dataFiles = fs.readdirSync(`${systemFolder}/${component}/specs`);
   const markup = [];
-  const filenames = [];
 
   dataFiles.forEach(dataFile => {
     totalVariants += 1;
+    const filenames = [];
 
     ['js', 'php'].forEach(lang => {
       const extension = `.${lang}.html`;
@@ -63,7 +63,7 @@ components.forEach(component => {
       res = logger.logDiffText(diff, { charsAroundDiff: 40 });
       failed.push(component);
     }
-    console.log(`Comparing ${filenames.join(' / ')}: ${res}`);
+    console.log(`Comparing ${filenames.join(' with ')}:`);
     console.log(`${res}`);
   });
 });
