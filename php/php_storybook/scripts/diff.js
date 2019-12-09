@@ -14,9 +14,9 @@ const rootFolder = process.cwd();
 const distFolder = `${rootFolder}/php`;
 const systemFolder = `${distFolder}/packages/${system}`;
 const diffOptions = {
-  ignoreAttributes: [],
-  compareAttributesAsJSON: [],
-  ignoreWhitespaces: true,
+  ignoreAttributes: false,
+  compareAttributesAsJSON: true,
+  ignoreWhitespaces: false,
   ignoreComments: true,
   ignoreEndTags: false,
   ignoreDuplicateAttributes: false,
@@ -34,7 +34,7 @@ const failed = [];
 
 components.forEach(component => {
   totalComponents += 1;
-  console.log(`Checking component: ${component}:`);
+  console.log(`\nChecking component: ${component}:`);
   console.log(`----------------------------------`);
   const dataFiles = fs.readdirSync(`${systemFolder}/${component}/specs`);
   dataFiles.forEach(dataFile => {
@@ -55,14 +55,14 @@ components.forEach(component => {
     let res = '';
 
     if (isEqual) {
-      res = '> Perfectly matching!';
+      res = '> Perfectly matching!*';
       matches += 1;
     } else {
       res = logger.logDiffText(diff, { charsAroundDiff: 40 });
       failed.push(component);
     }
     console.log(`Comparing ${jsFileName} with ${phpFileName}:`);
-    console.log(`${res}\n`);
+    console.log(`${res}`);
   });
 });
 
@@ -70,12 +70,13 @@ let percent = (100 * matches) / totalVariants;
 percent = percent.toFixed(2);
 
 console.log(
-  `We've been comparing ${totalVariants} variants in ${totalComponents} components.`
+  `\nWe've been comparing ${totalVariants} variants in ${totalComponents} components.`
 );
-console.log(
-  `With ${matches} perfect matches, which is the ${percent} of the total amount of variants`
-);
+console.log(`With ${matches} perfect* matches, the ${percent}%.`);
 
 if (failed.length > 0) {
   console.log(`You might want to check: ${failed.toString()}`);
 }
+console.log(`\n* The files we check are formatted with https://www.npmjs.com/package/prettier,
+  for the diff we use https://www.npmjs.com/package/html-differ, with this conf:`);
+console.log(diffOptions);
