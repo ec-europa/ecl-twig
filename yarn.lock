@@ -942,6 +942,11 @@
   resolved "https://registry.yarnpkg.com/@ecl/ec-base/-/ec-base-2.17.3.tgz#95081eee50f7018acb1fce7ce98ba5fe0775d840"
   integrity sha512-+r3tYFPj1YUsQFVXtM+S65RhVhHPls36Nxhx60VZluHIsWV4WGZ1c1jrLoAne/pX/39klIev6o/SNHJAI3n+cQ==
 
+"@ecl/ec-base@^2.18.0":
+  version "2.18.0"
+  resolved "https://registry.yarnpkg.com/@ecl/ec-base/-/ec-base-2.18.0.tgz#4ba70681473e2c374f3e3df54d594b27a46846ba"
+  integrity sha512-X9ZCVNfMOU7SMB34a00vq0c2DyITesl85qNJ+DUVd0hrqatxABNMfFLjthaY6jAMzwxE0SdZrz88ZRgCHEdGww==
+
 "@ecl/ec-component-accordion@2.17.3":
   version "2.17.3"
   resolved "https://registry.yarnpkg.com/@ecl/ec-component-accordion/-/ec-component-accordion-2.17.3.tgz#a81fcbe07dc42da7667e1874226d106f166c76a8"
@@ -993,6 +998,14 @@
   dependencies:
     "@ecl/ec-base" "^2.17.3"
     "@ecl/ec-component-icon" "^2.17.3"
+
+"@ecl/ec-component-button@^2.18.0":
+  version "2.18.0"
+  resolved "https://registry.yarnpkg.com/@ecl/ec-component-button/-/ec-component-button-2.18.0.tgz#a427b231bdde63d1330e403c04eaf66e2fda01db"
+  integrity sha512-mxWahidOl7mbcFXAuPuIhlCAo2a7onakJKNOvs915QFKavE9hgVtCHjnc0+6qNhh7w007tWKU/DX+i+YlmXmrQ==
+  dependencies:
+    "@ecl/ec-base" "^2.18.0"
+    "@ecl/ec-component-icon" "^2.18.0"
 
 "@ecl/ec-component-card@2.17.3":
   version "2.17.3"
@@ -1188,6 +1201,13 @@
   dependencies:
     "@ecl/ec-base" "^2.17.3"
 
+"@ecl/ec-component-icon@^2.18.0":
+  version "2.18.0"
+  resolved "https://registry.yarnpkg.com/@ecl/ec-component-icon/-/ec-component-icon-2.18.0.tgz#cd8b7e68a4f99e79e31ecd07581f26b5852f3c71"
+  integrity sha512-f1L/wyHGtUqZMiiQdF8FyzDf2SW6+1XOdvlyUeezkaoL99pu4S36CLBhM1YmdYnriZXMrHMmpJPrFj/X1bubQQ==
+  dependencies:
+    "@ecl/ec-base" "^2.18.0"
+
 "@ecl/ec-component-inpage-navigation@2.17.3":
   version "2.17.3"
   resolved "https://registry.yarnpkg.com/@ecl/ec-component-inpage-navigation/-/ec-component-inpage-navigation-2.17.3.tgz#23afc7bf8f9ed2aedefec204945b54b82b47f060"
@@ -1217,6 +1237,14 @@
     "@ecl/ec-base" "^2.17.3"
     "@ecl/ec-component-icon" "^2.17.3"
 
+"@ecl/ec-component-link@^2.18.0":
+  version "2.18.0"
+  resolved "https://registry.yarnpkg.com/@ecl/ec-component-link/-/ec-component-link-2.18.0.tgz#51777a7c82da32c288ae8b7be13e655a795151c2"
+  integrity sha512-wbsReFhQfqHeIgVtFLljVLSyr3h74S7MhD0bI6HrS1jv670YBmJfBtwGNymn6M4PvqfPYU0MS1a879qNvZ/BpQ==
+  dependencies:
+    "@ecl/ec-base" "^2.18.0"
+    "@ecl/ec-component-icon" "^2.18.0"
+
 "@ecl/ec-component-list@2.17.3":
   version "2.17.3"
   resolved "https://registry.yarnpkg.com/@ecl/ec-component-list/-/ec-component-list-2.17.3.tgz#162c5c4627b146df1dcabc48c1838e10fd3d038d"
@@ -1239,6 +1267,15 @@
     "@ecl/ec-base" "^2.17.3"
     "@ecl/ec-component-button" "^2.17.3"
     "@ecl/ec-component-link" "^2.17.3"
+
+"@ecl/ec-component-menu-standardised@2.18.0":
+  version "2.18.0"
+  resolved "https://registry.yarnpkg.com/@ecl/ec-component-menu-standardised/-/ec-component-menu-standardised-2.18.0.tgz#3d8d0d66cf9d9a7e353385e922d6421034feb211"
+  integrity sha512-Ue9O9gRMlGDCl2X4pQ3dq3lkoEB/gNTzw+PkZ2UnAsxCPWjtj9yeMScJ6isS2Dogii9Yw5RfCeo2JL8JPRjlxg==
+  dependencies:
+    "@ecl/ec-base" "^2.18.0"
+    "@ecl/ec-component-button" "^2.18.0"
+    "@ecl/ec-component-link" "^2.18.0"
 
 "@ecl/ec-component-message@2.17.3":
   version "2.17.3"
@@ -1408,6 +1445,11 @@
   resolved "https://registry.yarnpkg.com/@ecl/ec-resources-icons/-/ec-resources-icons-2.17.3.tgz#2f9d12969debef2ed9d760a5c1bf4f2415d940e9"
   integrity sha512-6O/fuTBjmK1GgvOx638zM5KRKMync2jh1w4PNaNxXehNTMblQJZ3XCArmFNh5GKTk4sFVRKArMMW/Inu6jvDOg==
 
+"@ecl/ec-resources-icons@2.18.0":
+  version "2.18.0"
+  resolved "https://registry.yarnpkg.com/@ecl/ec-resources-icons/-/ec-resources-icons-2.18.0.tgz#598de240842fe57aed4084ffa13e92b13dc8af0b"
+  integrity sha512-iYGtY2EiUHbSEHM3ICEVGLYRXG06mXDCID8kUQHjVtbAKkcdVjFuxg3G9Ztycm5fm3Gu659nStUIah8ezVt2Sw==
+
 "@ecl/ec-resources-logo@2.17.3":
   version "2.17.3"
   resolved "https://registry.yarnpkg.com/@ecl/ec-resources-logo/-/ec-resources-logo-2.17.3.tgz#260ccef07ac49b437da19c2a4ef5fe672056d196"
@@ -1567,6 +1609,11 @@
   version "2.17.3"
   resolved "https://registry.yarnpkg.com/@ecl/ec-specs-menu-legacy/-/ec-specs-menu-legacy-2.17.3.tgz#43cec9ba12073efae393c0671ca39ce64df55cb9"
   integrity sha512-i6Fb/ky1FVdWSA0s7lbIKqYkh6oJvD05avztY3BJJLduriEsNFsUNUAlqDXhNgKgOnFjTdXvZyKHvCcbPrAqvg==
+
+"@ecl/ec-specs-menu-standardised@2.18.0":
+  version "2.18.0"
+  resolved "https://registry.yarnpkg.com/@ecl/ec-specs-menu-standardised/-/ec-specs-menu-standardised-2.18.0.tgz#88891f253b101ab20f1503b3b1caf38615445256"
+  integrity sha512-K9l2NH96cZmOyol+Dlb5wDTMoWOWXRoKuL8eOA57vzW/bO+vZ9El36Ggtrj5c+O4isTwrGOFZ5/xo+KrgGqlvA==
 
 "@ecl/ec-specs-message@2.17.3":
   version "2.17.3"

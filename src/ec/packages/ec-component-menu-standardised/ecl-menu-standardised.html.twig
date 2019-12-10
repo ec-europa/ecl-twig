@@ -1,0 +1,124 @@
+{% spaceless %}
+
+{#
+  Parameters:
+  - "variant" (string) (default: ''): could be 'info, 'success', 'warning' or 'error'
+  - "icon" (object of type "icon") (default: {})
+  - "title" (string) (default: '')
+  - "close" (object of type "button") (default: {}): close button
+  - "extra_classes" (optional) (string) (default: '') Extra classes (space separated) for the select
+  - "extra_attributes" (optional) (array) (default: []) Extra attributes for select
+    - "name" (string) Attribute name, eg. 'data-test'
+    - "value" (optional) (string) Attribute value, eg: 'data-test-1'
+  Blocks:
+  - "description": content of the message
+#}
+
+{# Internal properties #}
+
+{% set _css_class = 'ecl-menu-standardised' %}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value|e ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+
+<nav
+  class="{{ _css_class }}"
+  data-ecl-menu-standardised
+  data-ecl-auto-init="MenuStandardised"
+  aria-expanded="false"
+  {{ _extra_attributes|raw }}
+>
+  <div class="ecl-container">
+    <a
+      class="ecl-link ecl-link--standalone ecl-menu-standardised__toggle"
+      href={{ toggle_path }}
+      data-ecl-menu-standardised-toggle
+    >
+      <div class="ecl-menu-standardised__toggle-open">
+        {% include '@ecl-twig/ec-component-icon/ecl-icon.html.twig' with {
+          icon: {
+            size: 's',
+            type: 'general',
+            name: 'hamburger',
+            path: icon_path
+          }
+        } only %}
+        {{- toggle_label_open -}}
+      </div>
+      <div class="ecl-menu-standardised__toggle-close">
+        {% include '@ecl-twig/ec-component-icon/ecl-icon.html.twig' with {
+          icon: {
+            size: 's',
+            type: 'general',
+            name: 'close-filled',
+            path: icon_path
+          }
+        } only %}
+        {{- toggle_label_close -}}
+      </div>
+    </a>
+    <div class="ecl-menu-standardised__site-name">{{ site_name }}</div>
+    <ul
+      class="ecl-menu-standardised__list"
+      data-ecl-menu-standardised-list
+    >
+    {% if items is defined and items is not empty and items is iterable %}
+      {% for item in items %}
+        <li
+          class="ecl-menu-standardised__item"
+          data-ecl-menu-standardised-item
+        >
+        {% include '@ecl-twig/ec-component-link/ecl-link.html.twig' with {
+          link: item.link|merge({
+            type: 'standalone',
+          }),
+          icon_position: item.icon_position,
+          extra_classes: 'ecl-menu-standardised__link',
+          icon: {
+            size: 'xs',
+            type: 'ui',
+            name: 'corner-arrow',
+            path: icon_path,
+            transform: 'rotate-180',
+            extra_classes: 'ecl-menu-standardised__link-icon'
+          }
+        } only %}
+        {% if item.children is defined and item.children is not empty and item.children is iterable %}
+          <div
+            class="ecl-menu-standardised__mega"
+            data-ecl-menu-standardised-mega
+          >
+          <ul class="ecl-menu-standardised__sublist">
+          {% for child in item.children %}
+            <li class="ecl-menu-standardised__subitem">
+              {% include '@ecl-twig/ec-component-link/ecl-link.html.twig' with {
+                link: child.link|merge({
+                  type: 'standalone'
+                }),
+                extra_classes: 'ecl-menu-standardised__sublink'
+              } only %}
+            </li>
+          {% endfor %}
+          </ul>
+          </div>
+        {% endif %}
+        </li>
+      {% endfor %}
+    {% endif %}
+    </ul>
+  </div>
+</nav>
+
+{% endspaceless %}
