@@ -116,6 +116,18 @@ Update snapshots with:
 yarn jest-update
 ```
 
+Check the rendering of a single component in php and js and diff the resulting templates:
+
+```bash
+yarn check:component "componentName"
+```
+
+Diff the existing templates in php-storybook
+
+```bash
+yarn diff
+```
+
 ## Dist
 
 Build the dist:
