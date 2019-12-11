@@ -1,5 +1,4 @@
 /* eslint-disable import/no-extraneous-dependencies, no-param-reassign */
-import { formatLinkAlt } from '@ecl-twig/data-utils';
 
 const adapter = initialData => {
   // Copy reference specification demo adaptedData.
@@ -16,7 +15,6 @@ const adapter = initialData => {
   if (adaptedData.items && Array.isArray(adaptedData.items)) {
     adaptedData.items.forEach(mainItem => {
       mainItem.link = { label: mainItem.label, path: mainItem.href };
-      mainItem.link.icon_position = 'after';
       delete mainItem.label;
       delete mainItem.href;
 
@@ -39,8 +37,10 @@ const adapter = initialData => {
         });
       }
     });
+    // Add a parameter for the home segment.
+    adaptedData.items[0].link.is_home_link = true;
   }
-  console.log(adaptedData);
+
   return adaptedData;
 };
 

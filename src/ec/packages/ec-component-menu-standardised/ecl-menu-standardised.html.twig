@@ -2,21 +2,52 @@
 
 {#
   Parameters:
-  - "variant" (string) (default: ''): could be 'info, 'success', 'warning' or 'error'
-  - "icon" (object of type "icon") (default: {})
-  - "title" (string) (default: '')
-  - "close" (object of type "button") (default: {}): close button
-  - "extra_classes" (optional) (string) (default: '') Extra classes (space separated) for the select
-  - "extra_attributes" (optional) (array) (default: []) Extra attributes for select
+  - "icon_path": (string) (default: ''): Path to the icon sprite
+  - "items": (associative array) (default: {}): The menu items - format: [
+  {
+    "link": {
+      "label": "Home",
+      "path": "/example",
+      "is_home_link": true
+    }
+  },
+  {
+    "link": {
+      "label": "Item 1",
+      "path": "/example",
+      "is_current": true
+    },
+    children: [
+    {
+      "link": {
+        label: "Item 1.1",
+        path: "/example"
+      }
+    },
+    {
+      "link": {
+        "label": "Item 1.2",
+        "path": "/example"
+      }
+    },
+  },
+}],
+  - "site_name": (string) (default: ''): Name of the website
+  - "toggle_label_close": (string) (default: ''): Label of the toggler
+  - "toggle_label_open": (string) (default: ''): Label of the toggler
+  - "toggle_path": (string) (default: ''): Href attribute of the toggler
+  - "extra_classes" (optional) (string) (default: '') Extra classes (space separated) for the nav element
+  - "extra_attributes" (optional) (array) (default: []) Extra attributes for the nav element
     - "name" (string) Attribute name, eg. 'data-test'
     - "value" (optional) (string) Attribute value, eg: 'data-test-1'
-  Blocks:
-  - "description": content of the message
 #}
 
 {# Internal properties #}
 
 {% set _css_class = 'ecl-menu-standardised' %}
+{% set _menu_item_class = 'ecl-menu-standardised__link' %}
+{% set _menu_item_attributes = [{ name: 'data-ecl-menu-standardised-link'}] %}
+{% set _menu_list_item_attributes = 'data-ecl-menu-standardised-item' %}
 
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
@@ -74,26 +105,36 @@
       class="ecl-menu-standardised__list"
       data-ecl-menu-standardised-list
     >
-    {% if items is defined and items is not empty and items is iterable %}
-      {% for item in items %}
-        <li
-          class="ecl-menu-standardised__item"
-          data-ecl-menu-standardised-item
-        >
+  {% if items is defined and items is not empty and items is iterable %}
+    {% for item in items %}
+      {% if item.link is defined and item.link is not empty %}
+        {% if item.link.is_current is defined %}
+          {% set _menu_item_class = _menu_item_class ~ ' ' ~ _menu_item_class ~ '--current' %}
+        {% endif %}
+        {% if item.link.is_home_link is not defined %}
+          {% set _icon = {
+              size: 'xs',
+              type: 'ui',
+              name: 'corner-arrow',
+              path: icon_path,
+              transform: 'rotate-180',
+              extra_classes: 'ecl-menu-standardised__link-icon',
+          } %}
+        {% else %}
+          {% set _icon = '' %}
+        {% endif %}
+        {% if item.children is defined %}
+          {% set _menu_list_item_attributes = _menu_list_item_attributes ~ ' data-ecl-has-children' %}
+        {% endif %}
+        <li class="ecl-menu-standardised__item" {{ _menu_list_item_attributes }}>
         {% include '@ecl-twig/ec-component-link/ecl-link.html.twig' with {
           link: item.link|merge({
             type: 'standalone',
+            icon_position: 'after',
           }),
-          icon_position: item.icon_position,
-          extra_classes: 'ecl-menu-standardised__link',
-          icon: {
-            size: 'xs',
-            type: 'ui',
-            name: 'corner-arrow',
-            path: icon_path,
-            transform: 'rotate-180',
-            extra_classes: 'ecl-menu-standardised__link-icon'
-          }
+          extra_classes: _menu_item_class,
+          extra_attributes: _menu_item_attributes,
+          icon: _icon
         } only %}
         {% if item.children is defined and item.children is not empty and item.children is iterable %}
           <div
@@ -105,7 +146,7 @@
             <li class="ecl-menu-standardised__subitem">
               {% include '@ecl-twig/ec-component-link/ecl-link.html.twig' with {
                 link: child.link|merge({
-                  type: 'standalone'
+                  type: 'standalone',
                 }),
                 extra_classes: 'ecl-menu-standardised__sublink'
               } only %}
@@ -115,8 +156,9 @@
           </div>
         {% endif %}
         </li>
-      {% endfor %}
-    {% endif %}
+      {% endif %}
+    {% endfor %}
+  {% endif %}
     </ul>
   </div>
 </nav>
