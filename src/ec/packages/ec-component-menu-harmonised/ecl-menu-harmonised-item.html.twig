@@ -1,0 +1,61 @@
+{% spaceless %}
+
+{% set _menu_item_class = 'ecl-menu-harmonised__link' %}
+{% set _menu_item_attributes = [{ name: 'data-ecl-menu-harmonised-link'}] %}
+{% set _menu_list_item_attributes = 'data-ecl-menu-harmonised-item' %}
+{% set _menu_list_item_class = 'ecl-menu-harmonised__item' %}
+
+{% if item.link.is_current is defined %}
+  {% set _menu_item_class = _menu_item_class ~ ' ecl-menu-harmonised__link--current' %}
+  {% set _menu_list_item_class = _menu_list_item_class ~ ' ecl-menu-harmonised__item--current' %}
+{% endif %}
+
+{% if item.link.is_home_link is defined %}
+  {% set _icon = '' %}
+{% else %}
+  {% set _icon = {
+      size: 'xs',
+      type: 'ui',
+      name: 'corner-arrow',
+      path: icon_path,
+      transform: 'rotate-180',
+      extra_classes: 'ecl-menu-standardised__link-icon',
+  } %}
+{% endif %}
+
+{% if item.children is defined and item.children is not empty %}
+  {% set _menu_list_item_attributes = _menu_list_item_attributes ~ ' data-ecl-has-children' %}
+{% endif %}
+
+<li class="{{ _menu_list_item_class }}" {{ _menu_list_item_attributes }}>
+  {% include '@ecl-twig/ec-component-link/ecl-link.html.twig' with {
+    link: item.link|merge({
+      type: 'standalone',
+      icon_position: 'after',
+    }),
+    extra_classes: _menu_item_class,
+    extra_attributes: _menu_item_attributes,
+    icon: _icon
+  } only %}
+{% if item.children is defined and item.children is not empty and item.children is iterable %}
+  <div
+    class="ecl-menu-harmonised__mega"
+    data-ecl-menu-harmonised-mega
+  >
+    <ul class="ecl-menu-harmonised__sublist">
+    {% for child in item.children %}
+      <li class="ecl-menu-harmonised__subitem">
+        {% include '@ecl-twig/ec-component-link/ecl-link.html.twig' with {
+          link: child.link|merge({
+            type: 'standalone',
+          }),
+          extra_classes: 'ecl-menu-harmonised__sublink'
+        } only %}
+      </li>
+    {% endfor %}
+    </ul>
+</div>
+{% endif %}
+</li>
+
+{% endspaceless %}
