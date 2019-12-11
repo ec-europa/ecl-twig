@@ -9,21 +9,15 @@ npm install --save @ecl-twig/ec-component-menu-harmonised
 ### Parameters
 
 - **"icon_path"** (string) (default: ''): Path to the icon sprite
-- **"items"** (associative array) (default: {}): The menu items - format: [{
-  - "link": (object) {
-    "label": (string) (default: ''),
-    "path": (string) (default: ''),
-    "is_home_link": (boolean) (optional)
-    }
-    },
-  - "children": (associative array) (optional) [{
-    "link": (object) {
-    "label": (string) (default: ''),
-    "path": (string) (default: ''),
-    }
-    },
-    },
-    }],
+- **"items"** (associative array) (default: {}): The menu items - format:
+  - "link": (object)
+    "label": (string) (default: '')
+    "path": (string) (default: '')
+    "is_home_link": (boolean) (optional),
+  - "children": (associative array) (optional)
+    "link": (object),
+    "label": (string) (default: '')
+    "path": (string) (default: '')
 - **"site_name"** (string) (default: ''): Name of the website
 - **"toggle_label_close"** (string) (default: ''): Label of the toggler
 - **"toggle_label_open"** (string) (default: ''): Label of the toggler
@@ -70,7 +64,7 @@ npm install --save @ecl-twig/ec-component-menu-harmonised
   extra_classes: "ecl-menu-harmonised", 
   extra_attributes: [ 
     { 
-      name:"data-ecl-menu-stanrdardised-menu", 
+      name:"data-ecl-menu-harmonised-menu", 
     }, 
     ... 
     ] 

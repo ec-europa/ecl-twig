@@ -64,7 +64,7 @@ npm install --save @ecl-twig/ec-component-menu-standardised
   extra_classes: "ecl-menu-standardised", 
   extra_attributes: [ 
     { 
-      name:"data-ecl-menu-stanrdardised-menu", 
+      name:"data-ecl-menu-standardised-menu", 
     }, 
     ... 
     ] 
