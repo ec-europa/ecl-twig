@@ -18,7 +18,19 @@
     }
 
     // Used to fix icons and other stuff.
-    function fixHtml($data_html, $component) {
+    function fixHtml($data_html, $component, $data_json) {
+      if ($component =='inpage-navigation') {
+        $pageFillerHtml = '';
+        foreach ($data_json['links'] as $item) {
+          $pageFillerHtml .= $item['item'];
+        }
+        $data_html = '<div class="ecl-container">
+                        <div class="ecl-row ecl-u-mt-l" data-ecl-inpage-navigation-container>
+                          <div class="ecl-col-md-3">' . $data_html . '</div>
+                          <div class="ecl-col-md-9">' . $pageFillerHtml . '</div>
+                          </div>
+                        </div>';
+      }
       // Not sure the reason why prettier breaks when it finds a closing video tag...
       if ($component == 'gallery') {
         $data_html = preg_replace('(<\/video>)', '/>', $data_html);
