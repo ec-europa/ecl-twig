@@ -44,7 +44,16 @@
 
 {# Internal properties #}
 
-{% set _css_class = 'ecl-menu-standardised' %}
+{% set _css_class = 'ecl-menu-harmonised' %}
+{% set _menu_item_class = 'ecl-menu-harmonised__link' %}
+{% set _menu_item_attributes = [{ name: 'data-ecl-menu-harmonised-link'}] %}
+{% set _menu_list_item_attributes = 'data-ecl-menu-harmonised-item' %}
+
+{% if group1 is defined %}
+  {% set _css_class = _css_class ~ ' ' ~ _css_class ~ '--group1' %}
+{% else %}
+   {% set _css_class = _css_class ~ ' ' ~ _css_class ~ '--group2' %}
+{% endif %}
 
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
@@ -60,20 +69,21 @@
   {% endfor %}
 {% endif %}
 
+
 <nav
   class="{{ _css_class }}"
-  data-ecl-menu-standardised
-  data-ecl-auto-init="MenuStandardised"
+  data-ecl-menu-harmonised
+  data-ecl-auto-init="MenuHarmonised"
   aria-expanded="false"
   {{ _extra_attributes|raw }}
 >
   <div class="ecl-container">
     <a
-      class="ecl-link ecl-link--standalone ecl-menu-standardised__toggle"
+      class="ecl-link ecl-link--standalone ecl-menu-harmonised__toggle"
       href={{ toggle_path }}
-      data-ecl-menu-standardised-toggle
+      data-ecl-menu-harmonised-toggle
     >
-      <div class="ecl-menu-standardised__toggle-open">
+      <div class="ecl-menu-harmonised__toggle-open">
         {% include '@ecl-twig/ec-component-icon/ecl-icon.html.twig' with {
           icon: {
             size: 's',
@@ -84,7 +94,7 @@
         } only %}
         {{- toggle_label_open -}}
       </div>
-      <div class="ecl-menu-standardised__toggle-close">
+      <div class="ecl-menu-harmonised__toggle-close">
         {% include '@ecl-twig/ec-component-icon/ecl-icon.html.twig' with {
           icon: {
             size: 's',
@@ -96,15 +106,17 @@
         {{- toggle_label_close -}}
       </div>
     </a>
-    <div class="ecl-menu-standardised__site-name">{{ site_name }}</div>
+  {% if group1 is defined %}
+    <div class="ecl-menu-harmonised__site-name">{{ site_name }}</div>
+  {% endif %}
     <ul
-      class="ecl-menu-standardised__list"
-      data-ecl-menu-standardised-list
+      class="ecl-menu-harmonised__list"
+      data-ecl-menu-harmonised-list
     >
   {% if items is defined and items is not empty and items is iterable %}
     {% for item in items %}
       {% if item.link is defined and item.link is not empty %}
-        {% include '@ecl-twig/ec-component-menu-standardised/ecl-menu-standardised-item.html.twig' with {
+        {% include '@ecl-twig/ec-component-menu-harmonised/ecl-menu-harmonised-item.html.twig' with {
           item: item,
           icon_path: icon_path,
         } only %}

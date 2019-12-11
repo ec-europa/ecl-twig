@@ -1,23 +1,29 @@
-# ECL Twig - EC Menu Standardised
+# ECL Twig - EC Menu Harmonised
 
-npm package: `@ecl-twig/ec-component-menu-standardised`
+npm package: `@ecl-twig/ec-component-menu-harmonised`
 
 ```shell
-npm install --save @ecl-twig/ec-component-menu-standardised
+npm install --save @ecl-twig/ec-component-menu-harmonised
 ```
 
 ### Parameters
 
 - **"icon_path"** (string) (default: ''): Path to the icon sprite
 - **"items"** (associative array) (default: {}): The menu items - format: [{
-  - "link": (object)
-    "label": (string) (default: '')
-    "path": (string) (default: '')
+  - "link": (object) {
+    "label": (string) (default: ''),
+    "path": (string) (default: ''),
     "is_home_link": (boolean) (optional)
-  - "children": (associative array) (optional)
-    - "link": (object)
-      "label": (string) (default: '')
-      "path": (string) (default: '')
+    }
+    },
+  - "children": (associative array) (optional) [{
+    "link": (object) {
+    "label": (string) (default: ''),
+    "path": (string) (default: ''),
+    }
+    },
+    },
+    }],
 - **"site_name"** (string) (default: ''): Name of the website
 - **"toggle_label_close"** (string) (default: ''): Label of the toggler
 - **"toggle_label_open"** (string) (default: ''): Label of the toggler
@@ -31,7 +37,7 @@ npm install --save @ecl-twig/ec-component-menu-standardised
 
 <!-- prettier-ignore -->
 ```twig
-{% include '@ecl-twig/ec-component-menu-standardised/ecl-menu-standardised.html.twig' with { 
+{% include '@ecl-twig/ec-component-menu-harmonised/ecl-menu-harmonised.html.twig' with { 
   label: "Menu", 
   icon_path: '/icons.svg', 
   site_name: 'Site name', 
@@ -61,7 +67,7 @@ npm install --save @ecl-twig/ec-component-menu-standardised
       ], 
     } 
   ], 
-  extra_classes: "ecl-menu-standardised", 
+  extra_classes: "ecl-menu-harmonised", 
   extra_attributes: [ 
     { 
       name:"data-ecl-menu-stanrdardised-menu", 

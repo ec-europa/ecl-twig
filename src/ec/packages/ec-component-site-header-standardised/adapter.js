@@ -27,7 +27,6 @@ const adapter = initialData => {
   // Language selector.
   const lng = adaptedData.logo.language;
   adaptedData.logo.src = lng === 'en' ? englishBanner : frenchBanner;
-
   adaptedData.language_selector = adaptedData.languageSelector;
   delete adaptedData.languageSelector;
 
@@ -45,6 +44,10 @@ const adapter = initialData => {
   });
   // Search toggle.
   adaptedData.search_toggle = adaptedData.searchToggle;
+  adaptedData.search_toggle.path = adaptedData.search_toggle.href;
+  delete adaptedData.search_toggle.href;
+  delete adaptedData.searchToggle;
+
   // Search form.
   adaptedData.search_form = {
     extra_attributes: [{ name: 'id', value: adaptedData.searchForm.id }],
@@ -60,6 +63,7 @@ const adapter = initialData => {
   delete adaptedData.searchForm;
   adaptedData.menu_label = 'Menu';
   adaptedData.icon_file_path = defaultSprite;
+
   return adaptedData;
 };
 
