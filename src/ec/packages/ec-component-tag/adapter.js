@@ -6,9 +6,7 @@ const adapter = initialData => {
   if (adaptedData.dismissButtonLabel) {
     tag.default_icon_path = '/icons.svg';
     tag.tag.type = 'removable';
-    tag.extra_attributes = [
-      { name: 'aria-label', value: adaptedData.dismissButtonLabel },
-    ];
+    tag.tag.aria_label = adaptedData.dismissButtonLabel;
     delete tag.tag.dismissButtonLabel;
   } else if (adaptedData.href) {
     tag.tag.type = 'link';
