@@ -22,7 +22,7 @@ pipeline:
     commands:
       - yarn clean
       - yarn dist
-      - 'npx netlify deploy --site $${NETLIFY_SITE} --message "Drone build: ${CI_BUILD_NUMBER}" --json > netlify_deployment_result.json'
+      - 'yarn netlify deploy --site $${NETLIFY_SITE} --message "Drone build: ${CI_BUILD_NUMBER}" --json > netlify_deployment_result.json'
       - node scripts/set-netlify-deployment-status.js
     when:
       event: push
@@ -36,7 +36,7 @@ pipeline:
     commands:
       - yarn clean
       - yarn dist
-      - 'npx netlify deploy --prod --site $${NETLIFY_SITE} --message "Drone build: ${CI_BUILD_NUMBER}" --json > netlify_deployment_result.json'
+      - 'yarn netlify deploy --prod --site $${NETLIFY_SITE} --message "Drone build: ${CI_BUILD_NUMBER}" --json > netlify_deployment_result.json'
       - node scripts/set-netlify-deployment-status.js
     when:
       branch: master
