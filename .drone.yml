@@ -14,7 +14,7 @@ pipeline:
     image: node:dubnium
     commands:
       - yarn install --frozen-lockfile
-      - yarn lint && yarn pretty-check
+      - yarn lint && yarn pretty:check
 
   deploy-preview:
     image: node:dubnium
