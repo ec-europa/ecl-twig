@@ -19,14 +19,14 @@ const run = async () => {
     return;
   }
 
-  if (!DRONE_REPO || !DRONE_COMMIT_SHA) {
+  if (!DRONE_REPO || !DRONE_COMMIT_SHA || !DRONE_BUILD_STATUS) {
     console.info(
       'Current script depends on Drone CI 0.8 environment variables.'
     );
     console.info(
       'Please see https://0-8-0.docs.drone.io/environment-reference'
     );
-    console.log('Required: DRONE_REPO, DRONE_COMMIT_SHA');
+    console.log('Required: DRONE_REPO, DRONE_COMMIT_SHA, DRONE_BUILD_STATUS');
     return;
   }
 
