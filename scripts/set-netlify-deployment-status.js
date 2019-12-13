@@ -10,6 +10,7 @@ const run = async () => {
     DRONE_COMMIT_SHA,
     DRONE_COMMIT_BRANCH,
     DRONE_BUILD_LINK,
+    DRONE_BUILD_STATUS,
   } = process.env;
 
   if (!GH_TOKEN) {
@@ -54,7 +55,7 @@ const run = async () => {
       };
 
       payloadDrone = {
-        state: DRONE_BUILD_LINK,
+        state: DRONE_BUILD_STATUS,
         target_url: DRONE_BUILD_LINK,
         description: 'Build completed!',
         context: 'continuos-integration/drone/push',
@@ -100,7 +101,7 @@ const run = async () => {
         body: JSON.stringify(payloadDrone),
       }
     );
-    console.log('Status check for the drone build successfully updated!');
+    console.log('Status check for the drone build successfully updated with status:' + DRONE_BUILD_STATUS);
   }
 };
 
