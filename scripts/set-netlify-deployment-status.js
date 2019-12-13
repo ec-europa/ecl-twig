@@ -54,7 +54,7 @@ const run = async () => {
       };
 
       payloadDrone = {
-        state: 'success',
+        state: DRONE_BUILD_LINK,
         target_url: DRONE_BUILD_LINK,
         description: 'Build completed!',
         context: 'continuos-integration/drone/push',
@@ -84,21 +84,24 @@ const run = async () => {
     }
   );
 
-  await fetch(
-    `https://api.github.com/repos/${DRONE_REPO}/statuses/${DRONE_COMMIT_SHA}`,
-    {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Accept-Charset': 'utf-8',
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${GH_TOKEN}`,
-      },
-      body: JSON.stringify(payloadDrone),
-    }
-  );
+  console.log('Status check for the netlify preview successfully updated!');
 
-  console.log('Status check for the drone build successfully updated!');
+  if (payloadDrone) {
+    await fetch(
+      `https://api.github.com/repos/${DRONE_REPO}/statuses/${DRONE_COMMIT_SHA}`,
+      {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Accept-Charset': 'utf-8',
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${GH_TOKEN}`,
+        },
+        body: JSON.stringify(payloadDrone),
+      }
+    );
+    console.log('Status check for the drone build successfully updated!');
+  }
 };
 
 try {
