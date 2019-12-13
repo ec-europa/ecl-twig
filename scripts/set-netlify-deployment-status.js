@@ -58,7 +58,7 @@ const run = async () => {
         state: DRONE_BUILD_STATUS,
         target_url: DRONE_BUILD_LINK,
         description: 'Build completed!',
-        context: 'continuos-integration/drone/push',
+        context: 'continuous-integration/drone/push',
       };
     }
   } catch (error) {
