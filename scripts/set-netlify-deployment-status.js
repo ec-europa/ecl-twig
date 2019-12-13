@@ -55,7 +55,7 @@ const run = async () => {
 
       payloadDrone = {
         state: 'success',
-        target_url: deploymentResult.deploy_url,
+        target_url: DRONE_BUILD_LINK,
         description: 'Build completed!',
         context: 'continuos-integration/drone/push',
       };
