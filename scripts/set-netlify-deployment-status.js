@@ -46,11 +46,18 @@ const run = async () => {
         context: 'drone/netlify',
       };
     } else {
-      payload = {
+      payloadNetlify = {
         state: 'success',
         target_url: deploymentResult.deploy_url,
         description: 'Preview ready!',
         context: 'drone/netlify',
+      };
+
+      payloadDrone = {
+        state: 'success',
+        target_url: deploymentResult.deploy_url,
+        description: 'Build completed!',
+        context: 'continuos-integration/drone/push',
       };
     }
   } catch (error) {
@@ -73,11 +80,25 @@ const run = async () => {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${GH_TOKEN}`,
       },
-      body: JSON.stringify(payload),
+      body: JSON.stringify(payloadNetlify),
     }
   );
 
-  console.log('Status on pull request successfully updated!');
+  await fetch(
+    `https://api.github.com/repos/${DRONE_REPO}/statuses/${DRONE_COMMIT_SHA}`,
+    {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Accept-Charset': 'utf-8',
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${GH_TOKEN}`,
+      },
+      body: JSON.stringify(payloadDrone),
+    }
+  );
+
+  console.log('Status check for the drone build successfully updated!');
 };
 
 try {
