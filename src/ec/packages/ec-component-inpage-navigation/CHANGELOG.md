@@ -5,14 +5,9 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # [2.18.0](https://github.com/ec-europa/ecl-twig/compare/v2.17.3...v2.18.0) (2019-12-16)
 
-
 ### Features
 
-* **diff:** Command for diffing components added - TWIG-119 ([#260](https://github.com/ec-europa/ecl-twig/issues/260)) ([8ad18cc](https://github.com/ec-europa/ecl-twig/commit/8ad18ccaba5a0b325c66dec177a40f6a6d211263))
-
-
-
-
+- **diff:** Command for diffing components added - TWIG-119 ([#260](https://github.com/ec-europa/ecl-twig/issues/260)) ([8ad18cc](https://github.com/ec-europa/ecl-twig/commit/8ad18ccaba5a0b325c66dec177a40f6a6d211263))
 
 ## [2.17.3](https://github.com/ec-europa/ecl-twig/compare/v2.16.0...v2.17.3) (2019-12-02)
 

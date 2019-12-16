@@ -5,14 +5,9 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # [2.18.0](https://github.com/ec-europa/ecl-twig/compare/v2.17.3...v2.18.0) (2019-12-16)
 
-
 ### Features
 
-* **language-list:** Icon removed - TWIG-165 ([#261](https://github.com/ec-europa/ecl-twig/issues/261)) ([faa2a5d](https://github.com/ec-europa/ecl-twig/commit/faa2a5dea84a087cd2ae9326c30e0ebc62fc0666))
-
-
-
-
+- **language-list:** Icon removed - TWIG-165 ([#261](https://github.com/ec-europa/ecl-twig/issues/261)) ([faa2a5d](https://github.com/ec-europa/ecl-twig/commit/faa2a5dea84a087cd2ae9326c30e0ebc62fc0666))
 
 ## [2.17.3](https://github.com/ec-europa/ecl-twig/compare/v2.16.0...v2.17.3) (2019-12-02)
 

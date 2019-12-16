@@ -7,10 +7,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @ecl-twig/ec-component-gallery
 
-
-
-
-
 ## [2.17.3](https://github.com/ec-europa/ecl-twig/compare/v2.16.0...v2.17.3) (2019-12-02)
 
 **Note:** Version bump only for package @ecl-twig/ec-component-gallery

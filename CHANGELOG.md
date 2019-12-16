@@ -19,9 +19,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * **menus:** Adding components (standardised and harmonised) - Twig 162 ([#265](https://github.com/ec-europa/ecl-twig/issues/265)) ([53ab675](https://github.com/ec-europa/ecl-twig/commit/53ab67551dc74d17b99f108336ef641a0401673c))
 
 
-
-
-
 ## [2.17.3](https://github.com/ec-europa/ecl-twig/compare/v2.16.0...v2.17.3) (2019-12-02)
 
 
