@@ -1,10 +1,4 @@
-const data = {
-  tag: {
-    label: 'Removable tag label',
-    type: 'removable',
-    aria_label: 'Dismiss',
-  },
-  default_icon_path: '/icons.svg',
-};
+import specs from '@ecl/ec-specs-tag/demo/data--removable';
+import adapter from '../adapter';
 
-export default data;
+export default adapter(specs);

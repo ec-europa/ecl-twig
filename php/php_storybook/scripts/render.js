@@ -36,18 +36,24 @@ components.forEach(component => {
       .replace(/.json/, '')
       .replace('data', component);
 
-    let data = '';
-    // @todo: Understand the way inpage is built.
-    if (component === 'inpage-navigation') {
-      data = require(`${systemFolder}/${component}/specs/data.json`);
-    } else if (component === 'page-filler') {
-      data = require(`${systemFolder}/${component}/specs/page-filler.json`);
-    } else {
-      data = require(`${systemFolder}/${component}/specs/${dataFile}`);
-    }
+    const data = require(`${systemFolder}/${component}/specs/${dataFile}`);
 
     /* Render with twing */
     let html = twing.render(template, data);
+
+    if (component === 'inpage-navigation') {
+      let pageFillerHtml = '';
+      data.links.forEach(content => {
+        pageFillerHtml += content.item;
+      });
+      html = `<div class="ecl-container">
+                <div class="ecl-row ecl-u-mt-l" data-ecl-inpage-navigation-container>
+                  <div class="ecl-col-md-3">${html}</div><div class="ecl-col-md-9">
+                    ${pageFillerHtml}
+                  </div>
+                </div>
+              </div>`;
+    }
     /* Same problem we have with prettier on the php rendered file */
     if (componentTemplate === 'gallery') {
       html = html.replace(/<\/video>/g, '/>');

@@ -1,8 +1,4 @@
-const data = {
-  tag: {
-    type: 'button',
-    label: 'Tag button label',
-  },
-};
+import specs from '@ecl/ec-specs-tag/demo/data--button';
+import adapter from '../adapter';
 
-export default data;
+export default adapter(specs);

@@ -6,8 +6,6 @@ const fs = require('fs');
 const fse = require('fs-extra');
 const path = require('path');
 
-const system = 'ec';
-
 /**
  * Helper to migrate demo data for Twig PHP renderer.
  *
@@ -31,6 +29,7 @@ const createDataFiles = ({ readLocation, saveLocation, componentRootName }) => {
   });
 };
 
+const system = 'ec';
 let readLocation = '';
 // The script needs to be executed from the project root of the workspace.
 // This is for babel to be able to import modules consistently between packages.
@@ -43,7 +42,12 @@ const listLocation = path.resolve(
 const list = require(listLocation);
 
 // Limit the list temporarily.
-const listRender = Object.keys(list.dependencies);
+let listRender = Object.keys(list.dependencies);
+const args = process.argv.slice(2);
+
+if (args[0]) {
+  listRender = [`@ecl-twig/${system}-component-${args[0]}`];
+}
 
 listRender.forEach(pkg => {
   const componentRootName = pkg.split(`@ecl-twig/${system}-component-`)[1];

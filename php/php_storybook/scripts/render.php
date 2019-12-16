@@ -52,10 +52,6 @@ foreach ($components as $component) {
         '',
         str_replace('data', $component, $file_name)
       );
-      // Not real variants.
-      if ($variant == 'breadcrumb-simple'|| $variant == 'page-filler') {
-        continue;
-      }
 
       $data_string = file_get_contents(
         $specs_folder . DIRECTORY_SEPARATOR . $file_name
@@ -69,7 +65,7 @@ foreach ($components as $component) {
         // Here we render the template with params.
         $data_html = $twig->render($template, $data_json);
         // But then we need to fix something...
-        $data_html = $helpers->fixHtml($data_html, $component);
+        $data_html = $helpers->fixHtml($data_html, $component, $data_json);
         // Create stories files.
         $adapted_variant = str_replace('-', '_', $variant);
         // We try to collect all the variants in the same story, so if we find one and the story file exist we inject
@@ -110,7 +106,7 @@ foreach ($components as $component) {
         if (!empty($prepend)) {
           $helpers->prepend($prepend, $folder . DIRECTORY_SEPARATOR . 'story' . DIRECTORY_SEPARATOR . $base_component . '.story.js');
         }
-        // Save the rendered htm in a file .php.html
+        // Save the rendered html in a file .php.html
         file_put_contents(
           $folder . DIRECTORY_SEPARATOR . $variant . $result_extension,
           $data_html

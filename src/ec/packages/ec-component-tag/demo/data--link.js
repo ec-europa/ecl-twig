@@ -1,9 +1,4 @@
-const data = {
-  tag: {
-    type: 'link',
-    label: 'Tag link label',
-    path: '/example',
-  },
-};
+import specs from '@ecl/ec-specs-tag/demo/data--link';
+import adapter from '../adapter';
 
-export default data;
+export default adapter(specs);
