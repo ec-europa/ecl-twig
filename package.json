@@ -10,6 +10,7 @@
     "clean:php": "rimraf build php/packages php/dist",
     "dist": "npm-run-all clean build:* copy:static",
     "diff": "node_modules/@ecl-twig/php-storybook/scripts/diff.js",
+    "ecl-diff": "node_modules/@ecl-twig/php-storybook/scripts/ecl-diff.js --interactive",
     "jest": "jest",
     "jest:update": "jest -u",
     "lint:js": "eslint .",
@@ -55,6 +56,7 @@
     "babel-plugin-preval": "3.0.1",
     "clipboard": "2.0.4",
     "deepmerge": "3.2.1",
+    "decode-html": "2.0.0",
     "eslint": "5.16.0",
     "eslint-config-airbnb": "17.1.0",
     "eslint-config-prettier": "5.0.0",
@@ -80,13 +82,15 @@
     "patch-package": "6.2.0",
     "prettier": "1.19.1",
     "prismjs": "1.17.1",
+    "puppeteer": "2.0.0",
     "react": "16.12.0",
     "react-dom": "16.12.0",
     "rimraf": "2.6.3",
     "shellcheck": "0.3.0",
     "twing": "2.3.7",
     "twing-loader": "2.0.2",
-    "webpack": "4.41.2"
+    "webpack": "4.41.2",
+    "yargs-interactive": "3.0.0"
   },
   "husky": {
     "hooks": {
