@@ -1,0 +1,126 @@
+{% spaceless %}
+
+{#
+  Parameters:
+  - "group": (string) (default: 'group1'): 'group1' or 'group2'
+  - "icon_path": (string) (default: ''): Path to the icon sprite
+  - "items": (associative array) (default: {}): The menu items - format: [
+  {
+    "link": {
+      "label": "Home",
+      "path": "/example",
+      "is_home_link": true
+    }
+  },
+  {
+    "link": {
+      "label": "Item 1",
+      "path": "/example",
+      "is_current": true
+    },
+    children: [
+    {
+      "link": {
+        label: "Item 1.1",
+        path: "/example"
+      }
+    },
+    {
+      "link": {
+        "label": "Item 1.2",
+        "path": "/example"
+      }
+    },
+  },
+}],
+  - "site_name": (string) (default: ''): Name of the website
+  - "toggle_label_close": (string) (default: ''): Label of the toggler
+  - "toggle_label_open": (string) (default: ''): Label of the toggler
+  - "toggle_path": (string) (default: ''): Href attribute of the toggler
+  - "extra_classes" (optional) (string) (default: '') Extra classes (space separated) for the nav element
+  - "extra_attributes" (optional) (array) (default: []) Extra attributes for the nav element
+    - "name" (string) Attribute name, eg. 'data-test'
+    - "value" (optional) (string) Attribute value, eg: 'data-test-1'
+#}
+
+{# Internal properties #}
+
+{% set _group = group|default('group1') %}
+{% set _css_class = 'ecl-menu-harmonised' %}
+{% set _menu_item_class = 'ecl-menu-harmonised__link' %}
+{% set _menu_item_attributes = [{ name: 'data-ecl-menu-harmonised-link'}] %}
+{% set _menu_list_item_attributes = 'data-ecl-menu-harmonised-item' %}
+{% set _css_class = _css_class ~ ' ' ~ _css_class ~ '--' ~ _group %}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value|e ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+<nav
+  class="{{ _css_class }}"
+  data-ecl-menu-harmonised
+  data-ecl-auto-init="MenuHarmonised"
+  aria-expanded="false"
+  {{ _extra_attributes|raw }}
+>
+  <div class="ecl-container">
+    <a
+      class="ecl-link ecl-link--standalone ecl-menu-harmonised__toggle"
+      href={{ toggle_path }}
+      data-ecl-menu-harmonised-toggle
+    >
+      <div class="ecl-menu-harmonised__toggle-open">
+        {% include '@ecl-twig/ec-component-icon/ecl-icon.html.twig' with {
+          icon: {
+            size: 's',
+            type: 'general',
+            name: 'hamburger',
+            path: icon_path
+          }
+        } only %}
+        {{- toggle_label_open -}}
+      </div>
+      <div class="ecl-menu-harmonised__toggle-close">
+        {% include '@ecl-twig/ec-component-icon/ecl-icon.html.twig' with {
+          icon: {
+            size: 's',
+            type: 'general',
+            name: 'close-filled',
+            path: icon_path
+          }
+        } only %}
+        {{- toggle_label_close -}}
+      </div>
+    </a>
+  {% if _group == 'group1' %}
+    <div class="ecl-menu-harmonised__site-name">{{ site_name }}</div>
+  {% endif %}
+    <ul
+      class="ecl-menu-harmonised__list"
+      data-ecl-menu-harmonised-list
+    >
+  {% if items is defined and items is not empty and items is iterable %}
+    {% for item in items %}
+      {% if item.link is defined and item.link is not empty %}
+        {% include '@ecl-twig/ec-component-menu-harmonised/ecl-menu-harmonised-item.html.twig' with {
+          item: item,
+          icon_path: icon_path,
+        } only %}
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+    </ul>
+  </div>
+</nav>
+
+{% endspaceless %}
