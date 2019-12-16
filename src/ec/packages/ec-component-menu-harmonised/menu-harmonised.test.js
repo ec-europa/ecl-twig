@@ -10,6 +10,7 @@ describe('EC - Menu Harmonised', () => {
   const render = params => renderTwigFileAsNode(template, params);
 
   describe('group1', () => {
+    dataGroup1.group = 'group1';
     test('renders correctly', () => {
       expect.assertions(1);
 
@@ -41,6 +42,7 @@ describe('EC - Menu Harmonised', () => {
   });
 
   describe('Group2', () => {
+    dataGroup1.group = 'group2';
     test('renders correctly', () => {
       expect.assertions(1);
 

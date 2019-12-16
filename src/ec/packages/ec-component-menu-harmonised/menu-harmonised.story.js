@@ -1,3 +1,4 @@
+import merge from 'deepmerge';
 import { storiesOf } from '@storybook/html';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
@@ -14,22 +15,26 @@ storiesOf('Components/Menus/Harmonised', module)
   .addDecorator(withCode)
   .add(
     'group 1',
-    () => {
-      const fullDemoData = { ...dataGroup1, icon_path: iconPath };
-
-      return menuStandardised(fullDemoData);
-    },
+    () =>
+      menuStandardised(
+        merge(dataGroup1, {
+          group: 'group1',
+          icon_path: iconPath,
+        })
+      ),
     {
       notes: { markdown: notes, json: dataGroup1 },
     }
   )
   .add(
     'group 2',
-    () => {
-      const fullDemoData = { ...dataGroup2, icon_path: iconPath };
-
-      return menuStandardised(fullDemoData);
-    },
+    () =>
+      menuStandardised(
+        merge(dataGroup2, {
+          group: 'group2',
+          icon_path: iconPath,
+        })
+      ),
     {
       notes: { markdown: notes, json: dataGroup2 },
     }

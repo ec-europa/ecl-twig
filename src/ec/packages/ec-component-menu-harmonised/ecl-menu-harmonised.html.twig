@@ -2,6 +2,7 @@
 
 {#
   Parameters:
+  - "group": (string) (default: 'group1'): 'group1' or 'group2'
   - "icon_path": (string) (default: ''): Path to the icon sprite
   - "items": (associative array) (default: {}): The menu items - format: [
   {
@@ -44,16 +45,12 @@
 
 {# Internal properties #}
 
+{% set _group = group|default('group1') %}
 {% set _css_class = 'ecl-menu-harmonised' %}
 {% set _menu_item_class = 'ecl-menu-harmonised__link' %}
 {% set _menu_item_attributes = [{ name: 'data-ecl-menu-harmonised-link'}] %}
 {% set _menu_list_item_attributes = 'data-ecl-menu-harmonised-item' %}
-
-{% if group1 is defined %}
-  {% set _css_class = _css_class ~ ' ' ~ _css_class ~ '--group1' %}
-{% else %}
-   {% set _css_class = _css_class ~ ' ' ~ _css_class ~ '--group2' %}
-{% endif %}
+{% set _css_class = _css_class ~ ' ' ~ _css_class ~ '--' ~ _group %}
 
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
@@ -105,7 +102,7 @@
         {{- toggle_label_close -}}
       </div>
     </a>
-  {% if group1 is defined %}
+  {% if _group == 'group1' %}
     <div class="ecl-menu-harmonised__site-name">{{ site_name }}</div>
   {% endif %}
     <ul

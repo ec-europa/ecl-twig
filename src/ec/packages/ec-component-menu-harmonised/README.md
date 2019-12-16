@@ -8,6 +8,7 @@ npm install --save @ecl-twig/ec-component-menu-harmonised
 
 ### Parameters
 
+- **"group"** (string) (default: 'group1'): 'group1' or 'group2'
 - **"icon_path"** (string) (default: ''): Path to the icon sprite
 - **"items"** (associative array) (default: {}): The menu items - format:
   - "link": (object)
