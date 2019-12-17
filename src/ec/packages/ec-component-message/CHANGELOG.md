@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.18.0](https://github.com/ec-europa/ecl-twig/compare/v2.17.3...v2.18.0) (2019-12-16)
+
+**Note:** Version bump only for package @ecl-twig/ec-component-message
+
 ## [2.17.3](https://github.com/ec-europa/ecl-twig/compare/v2.16.0...v2.17.3) (2019-12-02)
 
 ### Features
