@@ -293,7 +293,7 @@
   </div>
 {% endif %}
 {% if _menu is not empty %}
-  {% include '@ecl-twig/ec-component-menu-harmonised/ecl-menu-harmonised.html.twig' with _menu|merge({
+  {% include '@ecl-twig/ec-component-menu/ecl-menu.html.twig' with _menu|merge({
     group: _group,
     icon_path: _icon_file_path
   }) only %}

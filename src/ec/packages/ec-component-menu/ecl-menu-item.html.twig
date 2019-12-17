@@ -1,13 +1,13 @@
 {% spaceless %}
 
-{% set _menu_item_class = 'ecl-menu-standardised__link' %}
-{% set _menu_item_attributes = [{ name: 'data-ecl-menu-standardised-link'}] %}
-{% set _menu_list_item_attributes = 'data-ecl-menu-standardised-item' %}
-{% set _menu_list_item_class = 'ecl-menu-standardised__item' %}
+{% set _menu_item_class = 'ecl-menu__link' %}
+{% set _menu_item_attributes = [{ name: 'data-ecl-menu-link'}] %}
+{% set _menu_list_item_attributes = 'data-ecl-menu-item' %}
+{% set _menu_list_item_class = 'ecl-menu__item' %}
 
 {% if item.link.is_current is defined %}
-  {% set _menu_item_class = _menu_item_class ~ ' ecl-menu-standardised__link--current' %}
-  {% set _menu_list_item_class = _menu_list_item_class ~ ' ecl-menu-standardised__item--current' %}
+  {% set _menu_item_class = _menu_item_class ~ ' ecl-menu__link--current' %}
+  {% set _menu_list_item_class = _menu_list_item_class ~ ' ecl-menu__item--current' %}
 {% endif %}
 
 {% if item.link.is_home_link is defined %}
@@ -22,6 +22,7 @@
       extra_classes: 'ecl-menu-standardised__link-icon',
   } %}
 {% endif %}
+
 {% if item.children is defined and item.children is not empty %}
   {% set _menu_list_item_attributes = _menu_list_item_attributes ~ ' data-ecl-has-children=true' %}
 {% endif %}
@@ -38,17 +39,17 @@
   } only %}
 {% if item.children is defined and item.children is not empty and item.children is iterable %}
   <div
-    class="ecl-menu-standardised__mega"
-    data-ecl-menu-standardised-mega
+    class="ecl-menu__mega"
+    data-ecl-menu-mega
   >
-    <ul class="ecl-menu-standardised__sublist">
+    <ul class="ecl-menu__sublist">
     {% for child in item.children %}
-      <li class="ecl-menu-standardised__subitem">
+      <li class="ecl-menu__subitem">
         {% include '@ecl-twig/ec-component-link/ecl-link.html.twig' with {
           link: child.link|merge({
             type: 'standalone',
           }),
-          extra_classes: 'ecl-menu-standardised__sublink'
+          extra_classes: 'ecl-menu__sublink'
         } only %}
       </li>
     {% endfor %}
