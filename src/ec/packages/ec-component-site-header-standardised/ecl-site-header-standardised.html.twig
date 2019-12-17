@@ -290,34 +290,10 @@
     </div>
   </div>
 {% endif %}
-{% if banner is defined and banner is not empty %}
-  <div class="ecl-site-header-standardised__banner">
-    <div class="ecl-container">
-      <a
-      class="ecl-link ecl-link--standalone ecl-site-header-standardised__menu-toggle"
-      href="#"
-      >
-        {%- include '@ecl-twig/ec-component-icon/ecl-icon.html.twig' with {
-          icon: {
-            name: 'hamburger',
-            path: _icon_file_path,
-            type: 'general',
-            size: 's',
-            extra_attributes: [
-             { name: 'aria-hidden', value: true }
-            ]
-          }
-        } only -%}
-        {{- menu_label|default('') -}}
-      </a>
-      {{- banner|raw -}}
-    </div>
-  </div>
-{% endif %}
-{% if _menu %}
-  {% include '@ecl-twig/ec-component-site-header-standardised/ecl-menu.html.twig' with {
-    _icon_file_path: _icon_file_path
-  } only %}
+{% if _menu is defined and _menu is not empty %}
+  {% include '@ecl-twig/ec-component-menu-standardised/ecl-menu-standardised.html.twig' with _menu|merge({
+    icon_path: _icon_file_path
+  }) only %}
 {% endif %}
 {% if _has_overlay is defined %}
   {% include '@ecl-twig/ec-component-language-list/ecl-language-list-overlay.html.twig' with {
