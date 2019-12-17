@@ -164,6 +164,8 @@ yargsInteractive()
             el = 'expandables';
           } else if (el === 'inpage-navigation') {
             el = 'in-page-navigation';
+          } else if (el === 'language-list') {
+            el = 'languagelist';
           }
 
           return el;
