@@ -5,7 +5,7 @@ exports[`EC - Tag Button renders correctly 1`] = `
   class="ecl-tag"
   type="button"
 >
-  Tag button label
+  Button tag
 </button>
 `;
 
@@ -16,7 +16,7 @@ exports[`EC - Tag Button renders correctly with extra attributes 1`] = `
   data-test-1="data-test-value-1"
   type="button"
 >
-  Tag button label
+  Button tag
 </button>
 `;
 
@@ -25,7 +25,7 @@ exports[`EC - Tag Button renders correctly with extra class names 1`] = `
   class="ecl-tag custom-class custom-class--test"
   type="button"
 >
-  Tag button label
+  Button tag
 </button>
 `;
 
@@ -34,7 +34,7 @@ exports[`EC - Tag Link renders correctly 1`] = `
   class="ecl-tag"
   href="/example"
 >
-  Tag link label
+  Link tag
 </a>
 `;
 
@@ -45,7 +45,7 @@ exports[`EC - Tag Link renders correctly with extra attributes 1`] = `
   data-test-1="data-test-value-1"
   href="/example"
 >
-  Tag link label
+  Link tag
 </a>
 `;
 
@@ -54,7 +54,7 @@ exports[`EC - Tag Link renders correctly with extra class names 1`] = `
   class="ecl-tag custom-class custom-class--test"
   href="/example"
 >
-  Tag link label
+  Link tag
 </a>
 `;
 
@@ -62,7 +62,7 @@ exports[`EC - Tag Removable renders correctly 1`] = `
 <span
   class="ecl-tag ecl-tag--removable"
 >
-  Removable tag label
+  Removable tag
   <button
     aria-label="Dismiss"
     class="ecl-tag__icon"
@@ -94,7 +94,7 @@ exports[`EC - Tag Removable renders correctly with extra attributes 1`] = `
 <span
   class="ecl-tag ecl-tag--removable"
 >
-  Removable tag label
+  Removable tag
   <button
     aria-label="Dismiss"
     class="ecl-tag__icon"
@@ -128,7 +128,7 @@ exports[`EC - Tag Removable renders correctly with extra class names 1`] = `
 <span
   class="ecl-tag ecl-tag--removable custom-class custom-class--test"
 >
-  Removable tag label
+  Removable tag
   <button
     aria-label="Dismiss"
     class="ecl-tag__icon"
