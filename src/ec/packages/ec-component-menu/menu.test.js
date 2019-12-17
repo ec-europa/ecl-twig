@@ -6,9 +6,8 @@ import frData from './demo/data--fr';
 import dataGroup1 from './demo/data--group1';
 import dataGroup2 from './demo/data--group2';
 
-describe('EC - Menu Harmonised', () => {
-  const template =
-    '@ecl-twig/ec-component-menu-harmonised/ecl-menu-harmonised.html.twig';
+describe('EC - Menu', () => {
+  const template = '@ecl-twig/ec-component-menu/ecl-menu.html.twig';
   const render = params => renderTwigFileAsNode(template, params);
 
   describe('Default', () => {
