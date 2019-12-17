@@ -89,13 +89,6 @@ yargsInteractive()
           console.error('Please run again yarn ecl-diff, then.');
           process.exit(1);
         }
-
-        if (!component) {
-          console.error(
-            `We need to know which component and variant you want to test`
-          );
-          process.exit(1);
-        }
         // We try to use the variant as it comes from the user, if we don't find it
         // we return the available variants in ecl-twig.
         let fileName = '';
@@ -104,6 +97,7 @@ yargsInteractive()
         } else {
           fileName = component + extension;
         }
+
         const twigFullPath = `${systemFolder}/${component}`;
         if (!fs.existsSync(twigFullPath)) {
           console.error(
@@ -130,22 +124,68 @@ yargsInteractive()
           );
           process.exit(1);
         }
+
+        const eclComponents = el => {
+          if (el === 'text-input') {
+            el = 'text-field';
+          } else if (el === 'text-area') {
+            el = 'textarea';
+          } else if (el === 'unordered-list' || el === 'description-list') {
+            el = 'list';
+          } else if (el === 'message') {
+            el = 'messages';
+          } else if (el === 'search-form') {
+            el = 'searchform';
+          } else if (el === 'media-container') {
+            el = 'mediacontainer';
+          } else if (el === 'social-media-follow') {
+            el = 'socialmediafollow';
+          } else if (el === 'social-media-ahare') {
+            el = 'socialmediashare';
+          } else if (el === 'footer-harmonised') {
+            el = 'footers-harmonised';
+          } else if (el === 'footer-core') {
+            el = 'footers-core';
+          } else if (el === 'footer-standardised') {
+            el = 'footers-standardised';
+          } else if (el === 'site-header-standardised') {
+            el = 'site-headers-standardised';
+          } else if (el === 'site-header-harmonised') {
+            el = 'site-headers-harmonised';
+          } else if (el === 'site-header-core') {
+            el = 'site-headers-core';
+          } else if (el === 'page-header-core') {
+            el = 'page-headers-core';
+          } else if (el === 'page-header-harmonised') {
+            el = 'page-headers-harmonised';
+          } else if (el === 'page-header-standardised') {
+            el = 'page-headers-standardised';
+          } else if (el === 'expandable') {
+            el = 'expandables';
+          } else if (el === 'inpage-navigation') {
+            el = 'in-page-navigation';
+          }
+
+          return el;
+        };
+
+        const eclComponent = eclComponents(component);
         // Now we process the story in ECL,we try to retrieve all the stories available
         // and see if any of them matches the requested one, if none does we return the
         // list of stories available for a component, if we found them.
         const eclPath = `https://ec.europa.eu/component-library/playground/ec/?path=/story/${eclSection}-`;
-        const eclFinalUrl = `${eclPath + component}--${eclStory}`;
+        const eclFinalUrl = `${eclPath + eclComponent}--${eclStory}`;
         // Puppeteer will go to the url and try to click on the link in the left sidebar
         // to reveal the available stories.
         const browser = await puppeteer.launch();
         const page = await browser.newPage();
         await page.goto(eclFinalUrl);
         // Menu link.
-        if ((await page.$(`div#${eclSection}-${component}`)) !== null) {
-          await page.click(`div#${eclSection}-${component}`);
+        if ((await page.$(`div#${eclSection}-${eclComponent}`)) !== null) {
+          await page.click(`div#${eclSection}-${eclComponent}`);
           // All the links to the stories.
           const stories = await page.$$(
-            `a#explorercomponents-${component} + div a`
+            `a#explorercomponents-${eclComponent} + div a`
           );
 
           if (stories) {
@@ -175,44 +215,47 @@ yargsInteractive()
             }
           }
         }
-        // This will reveal the markup container.
-        await page.click('button[title="Show HTML"]');
 
-        const eclTwigMarkup = fs
-          .readFileSync(`${twigFullPath}/${fileName}`, 'utf-8')
-          .toString();
-        let eclMarkup = await page.evaluate(
-          el => el.innerHTML,
-          await page.$('code')
-        );
-        // The html we get is enriched by a syntax highlighter.
-        eclMarkup = decode(eclMarkup.replace(/<\/?[^>]+(>|$)/g, ''));
-        eclMarkup = eclMarkup.replace(/^<div>/, '');
-        eclMarkup = eclMarkup.replace(/<\/div>$/, '');
-        // Make the diff against the php rendered files.
-        const diff = htmlDiffer.diffHtml(eclMarkup, eclTwigMarkup);
-        const isEqual = htmlDiffer.isEqual(eclMarkup, eclTwigMarkup);
+        if ((await page.$('button[title="Show HTML"]')) !== null) {
+          // This will reveal the markup container.
+          await page.click('button[title="Show HTML"]');
 
-        console.log(
-          `Comparing ${fileName} with ECL markup from ${eclFinalUrl}:'`
-        );
+          const eclTwigMarkup = fs
+            .readFileSync(`${twigFullPath}/${fileName}`, 'utf-8')
+            .toString();
+          let eclMarkup = await page.evaluate(
+            el => el.innerHTML,
+            await page.$('code')
+          );
+          // The html we get is enriched by a syntax highlighter.
+          eclMarkup = decode(eclMarkup.replace(/<\/?[^>]+(>|$)/g, ''));
+          eclMarkup = eclMarkup.replace(/^<div>/, '');
+          eclMarkup = eclMarkup.replace(/<\/div>$/, '');
+          // Make the diff against the php rendered files.
+          const diff = htmlDiffer.diffHtml(eclMarkup, eclTwigMarkup);
+          const isEqual = htmlDiffer.isEqual(eclMarkup, eclTwigMarkup);
 
-        let successMsg = false;
-        if (isEqual) {
-          successMsg = '> Perfectly matching!*';
-        } else {
-          logger.logDiffText(diff, { charsAroundDiff: 40 });
+          console.log(
+            `Comparing ${fileName} with ECL markup from ${eclFinalUrl}:'`
+          );
+
+          let successMsg = false;
+          if (isEqual) {
+            successMsg = '> Perfectly matching!*';
+          } else {
+            logger.logDiffText(diff, { charsAroundDiff: 40 });
+          }
+
+          if (successMsg) {
+            console.log(successMsg);
+          }
+          console.log(
+            `\n* For the diff we use https://www.npmjs.com/package/html-differ, with this conf:`
+          );
+          console.log(diffOptions);
+
+          process.exit(0);
         }
-
-        if (successMsg) {
-          console.log(successMsg);
-        }
-        console.log(
-          `\n* For the diff we use https://www.npmjs.com/package/html-differ, with this conf:`
-        );
-        console.log(diffOptions);
-
-        process.exit(0);
       } catch (error) {
         console.error(error.toString());
         process.exit(1);
