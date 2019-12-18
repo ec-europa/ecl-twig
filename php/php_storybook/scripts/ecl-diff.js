@@ -64,9 +64,9 @@ const options = {
 
 const extension = `.php.html`;
 const diffOptions = {
-  ignoreAttributes: false,
-  compareAttributesAsJSON: true,
-  ignoreWhitespaces: false,
+  ignoreAttributes: [],
+  compareAttributesAsJSON: [],
+  ignoreWhitespaces: true,
   ignoreComments: true,
   ignoreEndTags: false,
   ignoreDuplicateAttributes: false,
