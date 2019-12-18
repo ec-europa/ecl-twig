@@ -188,10 +188,20 @@
                 path: _icon_file_path,
                 type: 'general',
                 name: 'logged-in',
-                size: 's'
-              }
+                size: 'm'
+              },
+              extra_classes: 'ecl-site-header-harmonised__icon'
             } only %}
              {{- login_toggle.label_logged -}}
+            {% include '@ecl-twig/ec-component-icon/ecl-icon.html.twig' with {
+              icon: {
+                path: _icon_file_path,
+                type: 'ui',
+                name: 'corner-arrow',
+                size: 'xs'
+              },
+              extra_classes: 'ecl-site-header-harmonised__login-arrow'
+            } only %}
           </a>
           <div
             id="{{ _login_box.id }}"
@@ -220,8 +230,9 @@
                 path: _icon_file_path,
                 type: 'general',
                 name: 'log-in',
-                size: 's'
-              }
+                size: 'm'
+              },
+              extra_classes: 'ecl-site-header-harmonised__icon'
             } only %}
             {{- login_toggle.label_not_logged -}}
           </a>
@@ -244,8 +255,9 @@
                 path: _icon_file_path,
                 type: 'general',
                 name: 'language',
-                size: 's'
-              }
+                size: 'm'
+              },
+              extra_classes: 'ecl-site-header-harmonised__icon'
             } only %}
             <span class="ecl-site-header-harmonised__language-code">{{ _language_selector.code }}</span>
           </span>
