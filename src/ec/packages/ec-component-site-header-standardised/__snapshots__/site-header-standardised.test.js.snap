@@ -2030,6 +2030,7 @@ exports[`EC - Site Header Standardised Default renders correctly when logged in 
             aria-controls="login-box-id"
             aria-expanded="false"
             class="ecl-link ecl-link--standalone ecl-site-header-standardised__login-toggle"
+            data-ecl-login-toggle=""
             href="/example"
           >
             <svg
@@ -2051,15 +2052,7 @@ exports[`EC - Site Header Standardised Default renders correctly when logged in 
             <p
               class="ecl-site-header-standardised__login-description"
             >
-              Logged in as 
-              <last
-                name=""
-              >
-                , 
-                <first
-                  name=""
-                />
-              </last>
+              Logged in as &lt;last name&gt;, &lt;first name&gt;
             </p>
             <hr
               classname="ecl-site-header-standardised__login-separator"

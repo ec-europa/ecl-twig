@@ -74,4 +74,18 @@ const formatButton = b => {
   return button;
 };
 
-module.exports = { formatIcon, formatLink, formatLinkAlt, formatButton };
+const escapeHTML = str => {
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/"/g, '&quot;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+};
+
+module.exports = {
+  formatIcon,
+  formatLink,
+  formatLinkAlt,
+  formatButton,
+  escapeHTML,
+};
