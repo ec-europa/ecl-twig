@@ -4,40 +4,23 @@ import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
 import iconPath from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 
-import dataEn from './demo/data--en';
-import dataFr from './demo/data--fr';
-import dataGroup1 from './demo/data--group1';
-import dataGroup2 from './demo/data--group2';
+import enData from './demo/data--en';
 
-import menuStandardised from './ecl-menu-harmonised.html.twig';
+import menu from './ecl-menu.html.twig';
 import notes from './README.md';
 
-storiesOf('Components/Menus', module)
+storiesOf('Components/Navigation/Menu', module)
   .addDecorator(withNotes)
   .addDecorator(withCode)
   .add(
-    'group 1',
+    'default',
     () =>
       menuStandardised(
-        merge(dataGroup1, {
-          group: 'group1',
+        merge(enData, {
           icon_path: iconPath,
         })
       ),
     {
-      notes: { markdown: notes, json: dataGroup1 },
-    }
-  )
-  .add(
-    'group 2',
-    () =>
-      menuStandardised(
-        merge(dataGroup2, {
-          group: 'group2',
-          icon_path: iconPath,
-        })
-      ),
-    {
-      notes: { markdown: notes, json: dataGroup2 },
+      notes: { markdown: notes, json: enData },
     }
   );
