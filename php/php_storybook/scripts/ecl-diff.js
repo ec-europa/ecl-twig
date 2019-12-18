@@ -9,14 +9,12 @@ const logger = require('html-differ/lib/logger');
 const puppeteer = require('puppeteer');
 const decode = require('decode-html');
 const yargsInteractive = require('yargs-interactive');
-// Retrieve the list of packages from our fs.
 let packages = require('../../../../src/ec/.storybook/ec-packages.js').list;
 
 const system = 'ec';
 const rootFolder = process.cwd();
 const distFolder = `${rootFolder}/php`;
 const systemFolder = `${distFolder}/packages/${system}`;
-
 const getBase = element => {
   [, element] = element.split('ec-component-');
   return element;
@@ -38,25 +36,24 @@ const options = {
     default: '',
     describe: 'The name of the twig variant (what is after the -- Ex: audio) ',
   },
+  language: {
+    type: 'list',
+    describe: 'Choose whether to use the file rendered via js or php',
+    default: 'php',
+    prompt: 'always',
+    choices: ['php', 'js'],
+  },
   eclSection: {
     type: 'list',
     describe: 'The group the component is associated with in ECL',
-    choices: [
-      'components',
-      'page-structure',
-    ],
+    choices: ['components', 'page-structure'],
   },
   eclSubSection: {
     type: 'list',
     describe: 'Is the component nested into a sub-section?',
     default: 'none',
     prompt: 'always',
-    choices: [
-      'none',
-      'forms',
-      'navigation',
-      'banners',
-    ],
+    choices: ['none', 'forms', 'navigation', 'banners'],
   },
   eclStory: {
     type: 'input',
@@ -71,7 +68,6 @@ const options = {
   },
 };
 
-const extension = `.php.html`;
 const diffOptions = {
   ignoreAttributes: ['xlink:href', 'href'],
   compareAttributesAsJSON: [],
@@ -81,19 +77,26 @@ const diffOptions = {
   ignoreDuplicateAttributes: false,
 };
 
-const getVariant = element => {
-  element = element.split('--')[1].replace(extension, '');
-  return element;
-};
-
 yargsInteractive()
   .usage('$0 <command> [args]')
   .interactive(options)
   .then(result => {
     (async () => {
       try {
-        let { component, eclStory, variant, eclSection, eclSubSection, confirm } = result;
-
+        const {
+          component,
+          eclStory,
+          variant,
+          eclSection,
+          eclSubSection,
+          confirm,
+          language,
+        } = result;
+        const extension = language === 'php' ? '.php.html' : '.js.html';
+        const getVariant = element => {
+          element = element.split('--')[1].replace(extension, '');
+          return element;
+        };
         if (!confirm) {
           console.error('Please run again yarn ecl-diff, then.');
           process.exit(1);
@@ -107,32 +110,53 @@ yargsInteractive()
           fileName = component + extension;
         }
 
-        const twigFullPath = `${systemFolder}/${component}`;
+        const twigFullPath =
+          language === 'php'
+            ? `${systemFolder}/${component}`
+            : `${systemFolder}/${component}/js`;
+
         if (!fs.existsSync(twigFullPath)) {
           console.error(
             `It seems that "${component}" has not been rendered yet, please run yarn check:component ${component}`
           );
           process.exit(1);
         } else if (!fs.existsSync(`${twigFullPath}/${fileName}`)) {
-          const files = fs.readdirSync(twigFullPath);
-          let phpFiles = files.filter(file => {
+          let files = fs.readdirSync(twigFullPath);
+
+          files = files.filter(file => {
             return (
               file
                 .split('.')
                 .slice(1)
-                .join('.') === 'php.html'
+                .join('.') === extension.substr(1)
             );
           });
 
-          phpFiles = phpFiles.map(getVariant);
+          files = files.map(getVariant);
 
-          console.error(
-            `The "${variant}" variant for the "${component}" component has not been found in ecl-twig, but we've found these alternatives: ${phpFiles.join(
-              ', '
-            )}`
-          );
+          if (variant !== '') {
+            console.error(
+              `The "${variant}" variant for the "${component}" component has not been found in ecl-twig, but we've found these alternatives: ${files.join(
+                ', '
+              )}`
+            );
+          } else {
+            console.error(
+              `You did not select any variant for the "${component}" component, these are the available ones: ${files.join(
+                ', '
+              )}`
+            );
+          }
           process.exit(1);
         }
+        // The markup from the html file rendered via php or javascript.
+        const eclTwigMarkup = fs
+          .readFileSync(`${twigFullPath}/${fileName}`, 'utf-8')
+          .toString()
+          .replace(
+            /xlink:href="\/?icons(-social)?\.svg#/g,
+            'xlink:href="{{.*icons.*.svg#}}'
+          );
         // Now we process the story in ECL, we try to retrieve all the stories available
         // and see if any of them matches the requested one, if none does we return the
         // list of stories available for a component, if we found them.
@@ -151,7 +175,7 @@ yargsInteractive()
             el = 'mediacontainer';
           } else if (el === 'social-media-follow') {
             el = 'socialmediafollow';
-          } else if (el === 'social-media-ahare') {
+          } else if (el === 'social-media-share') {
             el = 'socialmediashare';
           } else if (el === 'footer-harmonised') {
             el = 'footers-harmonised';
@@ -183,10 +207,11 @@ yargsInteractive()
         };
 
         const eclComponent = eclComponents(component);
+        let eclGluePath = eclSection;
         if (eclSubSection !== 'none') {
-          eclSection = `${eclSection}-${eclSubSection}`;
+          eclGluePath = `${eclSection}-${eclSubSection}`;
         }
-        const eclPath = `https://ec.europa.eu/component-library/playground/ec/?path=/story/${eclSection}-`;
+        const eclPath = `https://ec.europa.eu/component-library/playground/ec/?path=/story/${eclGluePath}-`;
         const eclFinalUrl = `${eclPath + eclComponent}--${eclStory}`;
         // Puppeteer will go to the url and try to click on the link in the left sidebar
         // to reveal the available stories.
@@ -194,15 +219,15 @@ yargsInteractive()
         const page = await browser.newPage();
         await page.goto(eclFinalUrl);
 
-        if ((await page.$(`a#explorer${eclSection}`)) !== null) {
-          await page.click(`a#explorer${eclSection}`);
+        if ((await page.$(`a#explorer${eclGluePath}`)) !== null) {
+          await page.click(`a#explorer${eclGluePath}`);
         }
         // Menu link, if it's there click on it..
-        if ((await page.$(`div#${eclSection}-${eclComponent}`)) !== null) {
-          await page.click(`div#${eclSection}-${eclComponent}`);
+        if ((await page.$(`div#${eclGluePath}-${eclComponent}`)) !== null) {
+          await page.click(`div#${eclGluePath}-${eclComponent}`);
           // All the links to the stories.
           const stories = await page.$$(
-            `a#explorer${eclSection}-${eclComponent} + div a`
+            `a#explorer${eclGluePath}-${eclComponent} + div a`
           );
 
           if (stories) {
@@ -222,7 +247,7 @@ yargsInteractive()
               hrefs.push(eclVariant);
             }
             // We offer alternatives in case we cannot find the requested one.
-            if (hrefs.length > 0) {
+            if (hrefs.length > 0 && page.url() !== eclFinalUrl) {
               console.error(
                 `We couldn't find the story "${eclStory}" for the "${component}" component in the ECL website, but we've found these alternatives: ${hrefs.join(
                   ', '
@@ -232,14 +257,10 @@ yargsInteractive()
             }
           }
         }
-
+        // We are ready to get the html, hopefully of the right story, otherwise we'll tell you.
         if ((await page.$('button[title="Show HTML"]')) !== null) {
           // This will reveal the markup container.
           await page.click('button[title="Show HTML"]');
-
-          const eclTwigMarkup = fs
-            .readFileSync(`${twigFullPath}/${fileName}`, 'utf-8')
-            .toString();
 
           let eclMarkup = await page.evaluate(
             el => el.innerHTML,
@@ -254,7 +275,7 @@ yargsInteractive()
           const isEqual = htmlDiffer.isEqual(eclTwigMarkup, eclMarkup);
 
           console.log(
-            `Comparing ${fileName} with ECL markup from ${eclFinalUrl}:'`
+            `\nComparing ${fileName} with ECL markup from ${eclFinalUrl}:`
           );
 
           let successMsg = false;
@@ -271,7 +292,7 @@ yargsInteractive()
             `\n* For the diff we use https://www.npmjs.com/package/html-differ, with this conf:`
           );
           console.log(diffOptions);
-
+          // We made it!
           process.exit(0);
         }
       } catch (error) {
