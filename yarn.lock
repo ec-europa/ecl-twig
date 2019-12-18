@@ -1329,7 +1329,7 @@
     "@ecl/ec-component-button" "^2.18.0"
     "@ecl/ec-component-form-text-input" "^2.18.0"
 
-"@ecl/ec-component-search-form@^2.18.0":
+"@ecl/ec-component-search-form@^2.18.0", "@ecl/ec-component-search-form@^2.19.0":
   version "2.19.0"
   resolved "https://registry.yarnpkg.com/@ecl/ec-component-search-form/-/ec-component-search-form-2.19.0.tgz#aa5544f7521ac1003f8c16aba7f5321fede011d5"
   integrity sha512-/9J+3qxIky8eqqlt0gl8hFhBGcqc1Ck2U0vzPFS8Np24jWu+INSePb6/00oo8CGoENTulYWnysznKiMheChSFQ==
@@ -1338,34 +1338,34 @@
     "@ecl/ec-component-button" "^2.19.0"
     "@ecl/ec-component-form-text-input" "^2.19.0"
 
-"@ecl/ec-component-site-header-core@2.18.0":
-  version "2.18.0"
-  resolved "https://registry.yarnpkg.com/@ecl/ec-component-site-header-core/-/ec-component-site-header-core-2.18.0.tgz#99ca81884076f100824acbb84374c75f8b8fccf9"
-  integrity sha512-oG/i2d4p3SvlMWBBmDONmjrPDzLDKor/jwF5MxG0+GWbO3ErGkKQ8O7RBo/Aqt3ce0CFWBdRIT63qtbFKf000Q==
+"@ecl/ec-component-site-header-core@2.19.0":
+  version "2.19.0"
+  resolved "https://registry.yarnpkg.com/@ecl/ec-component-site-header-core/-/ec-component-site-header-core-2.19.0.tgz#6969b3f7a346aaf0c4b4a91b1e560fb6c24d0f58"
+  integrity sha512-yUDTq3KB+NxFizQutaenZJa218lZWM4+S2JqskpSfCNp7RYfRAZWE2yaoR3WlzbV8yLjSR42ekguEPj2ACtMYA==
   dependencies:
-    "@ecl/ec-base" "^2.18.0"
-    "@ecl/ec-component-icon" "^2.18.0"
-    "@ecl/ec-component-search-form" "^2.18.0"
+    "@ecl/ec-base" "^2.19.0"
+    "@ecl/ec-component-icon" "^2.19.0"
+    "@ecl/ec-component-search-form" "^2.19.0"
     focus-trap "5.1.0"
 
-"@ecl/ec-component-site-header-harmonised@2.18.0":
-  version "2.18.0"
-  resolved "https://registry.yarnpkg.com/@ecl/ec-component-site-header-harmonised/-/ec-component-site-header-harmonised-2.18.0.tgz#8f8268d8bc942b53d175d98051d0dc4911af73f2"
-  integrity sha512-Lnnpkn6bK6P4i5j76PRgbm5Q9G5v/fP3HFygsjzdLZEO4pN2akpf5fJ1DiHmZ2ZuP1maCJLLy8jcGDEPxfGL4Q==
+"@ecl/ec-component-site-header-harmonised@2.19.0":
+  version "2.19.0"
+  resolved "https://registry.yarnpkg.com/@ecl/ec-component-site-header-harmonised/-/ec-component-site-header-harmonised-2.19.0.tgz#0e389dafb56d5779ea2cf53f5936fc93bb3955bc"
+  integrity sha512-ibjsPNchAl791mLWlwf2KtGVyluTfRxBCV0WY8JUNqEbaJlyHuM7brFz7b/V9JKTvBaqf3+zLNlEkFyYW4RcHg==
   dependencies:
-    "@ecl/ec-base" "^2.18.0"
-    "@ecl/ec-component-icon" "^2.18.0"
-    "@ecl/ec-component-search-form" "^2.18.0"
+    "@ecl/ec-base" "^2.19.0"
+    "@ecl/ec-component-icon" "^2.19.0"
+    "@ecl/ec-component-search-form" "^2.19.0"
     focus-trap "5.1.0"
 
-"@ecl/ec-component-site-header-standardised@2.18.0":
-  version "2.18.0"
-  resolved "https://registry.yarnpkg.com/@ecl/ec-component-site-header-standardised/-/ec-component-site-header-standardised-2.18.0.tgz#fdbc9ecf2e3d0859c2f7225ff1f0942e720303f0"
-  integrity sha512-QvftJWFqYEoajOiDs5UWoEHB0tnR+ruT4hgaY/J23D0rB8ZLBMtLdLd8tQF5nHLvjEUn5uOrNPuU0NIqi733XA==
+"@ecl/ec-component-site-header-standardised@2.19.0":
+  version "2.19.0"
+  resolved "https://registry.yarnpkg.com/@ecl/ec-component-site-header-standardised/-/ec-component-site-header-standardised-2.19.0.tgz#84cf0598a61dbd662a44a75cc17f66392c1acc28"
+  integrity sha512-PI+C4HJ0gVSiEnXWWnjWoGQ1qk0Rc8MWdEnOiJwcU3j+JZvGSHf29vPfpKdkRLo66TPuYuWEXI8MixGivwnCCw==
   dependencies:
-    "@ecl/ec-base" "^2.18.0"
-    "@ecl/ec-component-icon" "^2.18.0"
-    "@ecl/ec-component-search-form" "^2.18.0"
+    "@ecl/ec-base" "^2.19.0"
+    "@ecl/ec-component-icon" "^2.19.0"
+    "@ecl/ec-component-search-form" "^2.19.0"
     focus-trap "5.1.0"
 
 "@ecl/ec-component-site-header@2.18.0":
@@ -1442,10 +1442,20 @@
   resolved "https://registry.yarnpkg.com/@ecl/ec-resources-icons/-/ec-resources-icons-2.18.0.tgz#598de240842fe57aed4084ffa13e92b13dc8af0b"
   integrity sha512-iYGtY2EiUHbSEHM3ICEVGLYRXG06mXDCID8kUQHjVtbAKkcdVjFuxg3G9Ztycm5fm3Gu659nStUIah8ezVt2Sw==
 
+"@ecl/ec-resources-icons@2.19.0":
+  version "2.19.0"
+  resolved "https://registry.yarnpkg.com/@ecl/ec-resources-icons/-/ec-resources-icons-2.19.0.tgz#59dd8f97b2ebd136eb61983a70e60b63d94945e1"
+  integrity sha512-ABnuzCtAQFpOCdksMSe8k/XrEg8IVDqpsgqjQ1hOknIl9Est8eVfettSdbrrsHDcC4ouDST0UwgOQ1VmHpGR2w==
+
 "@ecl/ec-resources-logo@2.18.0":
   version "2.18.0"
   resolved "https://registry.yarnpkg.com/@ecl/ec-resources-logo/-/ec-resources-logo-2.18.0.tgz#a6336ab86e4e4abe0fc428c342af5bcdd0d76b8d"
   integrity sha512-SjtcCBHYN+A65NVLDmb+PdMI2Dg4QC9OYEO7Soc80rf0bP1CLAtX1fiH8eknHi9vfZGa6fi5ZNJiFlD986/6XA==
+
+"@ecl/ec-resources-logo@2.19.0":
+  version "2.19.0"
+  resolved "https://registry.yarnpkg.com/@ecl/ec-resources-logo/-/ec-resources-logo-2.19.0.tgz#1bc73b423811d3b01344a1dad4a02dc39f329e57"
+  integrity sha512-RmUjSh2gdogvutw1SJW3SvYlilqRkdiQAYKbFwFo5l4oSmuEMpNBN2sAm+6tkFXmhR7HSA9NIb6MUwJ7s/LiSA==
 
 "@ecl/ec-resources-social-icons@2.18.0":
   version "2.18.0"
@@ -1662,20 +1672,20 @@
   resolved "https://registry.yarnpkg.com/@ecl/ec-specs-select/-/ec-specs-select-2.18.0.tgz#a7ee0ef1d6f961bccd09ef82a71ec9b2ece93f64"
   integrity sha512-YRj+jWRkxuiuJbeR7DOIIKZUPDuaeyNcbYgvrVdYDa7C4ogwj5B1WU6ZvOSr1acq3wj+XBtaq3nsRgnvi7Giwg==
 
-"@ecl/ec-specs-site-header-core@2.18.0":
-  version "2.18.0"
-  resolved "https://registry.yarnpkg.com/@ecl/ec-specs-site-header-core/-/ec-specs-site-header-core-2.18.0.tgz#4b8143f81de5df1eda071a7d7d067856f7d6ed1c"
-  integrity sha512-PL65/1oBZf2mAK+R7YEHg2VklbMaZFg7K7dUda5fR9wUa+pHba+/8qmRzBumFavCDKspxGF6B3Yn7+oazBiIFA==
+"@ecl/ec-specs-site-header-core@2.19.0":
+  version "2.19.0"
+  resolved "https://registry.yarnpkg.com/@ecl/ec-specs-site-header-core/-/ec-specs-site-header-core-2.19.0.tgz#b60e738206876a3439cb8767e85d506c8d064738"
+  integrity sha512-9ogfUjDzPe/+ej6geMDoBwF7Txtwgo1SKp5RXVTHs5ToNMFlFV8r0j6lwVNjDvBnvBZZ0LcZEuS1HT/OXXooBA==
 
-"@ecl/ec-specs-site-header-harmonised@2.18.0":
-  version "2.18.0"
-  resolved "https://registry.yarnpkg.com/@ecl/ec-specs-site-header-harmonised/-/ec-specs-site-header-harmonised-2.18.0.tgz#977984d0a96b75cbf90204934fc6f7ff1500c2ef"
-  integrity sha512-T0KAd8OQu8mVmN4tPxBVPrXvLqGngNS+MjlS35CStIgkpWHZ32aT4vVGaa8GD3NkFqg/mv2wuDo1BaNzF57i2A==
+"@ecl/ec-specs-site-header-harmonised@2.19.0":
+  version "2.19.0"
+  resolved "https://registry.yarnpkg.com/@ecl/ec-specs-site-header-harmonised/-/ec-specs-site-header-harmonised-2.19.0.tgz#a02e53d6bfb24750f1a160f1ecbb6b7b4313b19d"
+  integrity sha512-z2+AjuF6+fpezkg4Q7TLiaQndGK+fqd+2QWVeMadWoJKy5fFBYslfh9Z+igDRVlFFZkWJv3+ipiXqm5VUMR00g==
 
-"@ecl/ec-specs-site-header-standardised@2.18.0":
-  version "2.18.0"
-  resolved "https://registry.yarnpkg.com/@ecl/ec-specs-site-header-standardised/-/ec-specs-site-header-standardised-2.18.0.tgz#8fdd5397bca6c1de8cbcf243a290c01a53dfd561"
-  integrity sha512-yDgD8oZtkE2BnBvX1oZQXyHcb2Cl0qKfG1M1UZIwy5OekgNtrJozHipx2r0LZRuXI7asiZn0hNWN8w+aUJHZuw==
+"@ecl/ec-specs-site-header-standardised@2.19.0":
+  version "2.19.0"
+  resolved "https://registry.yarnpkg.com/@ecl/ec-specs-site-header-standardised/-/ec-specs-site-header-standardised-2.19.0.tgz#2ae3e4e39bbc4313dd39d7264fd4d1a124ab68d8"
+  integrity sha512-BHd8clE77cd4/D9AHM0JFpcHTRzyDFI0hlS6r9n48qF31TyllPrYG5SBAvkCgMRBQhLQpgw5uG5LQ+AiohRhNg==
 
 "@ecl/ec-specs-site-header@2.18.0":
   version "2.18.0"
