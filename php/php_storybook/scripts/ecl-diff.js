@@ -31,7 +31,12 @@ const options = {
   component: {
     type: 'list',
     choices: packages,
-    describe: 'The name of the base component',
+    describe: 'The component you want to diff',
+  },
+  variant: {
+    type: 'input',
+    default: '',
+    describe: 'The name of the twig variant (what is after the -- Ex: audio) ',
   },
   eclSection: {
     type: 'list',
@@ -39,15 +44,19 @@ const options = {
     choices: [
       'components',
       'page-structure',
-      'components-forms',
-      'components-navigation',
-      'components-banners',
     ],
   },
-  variant: {
-    type: 'input',
-    default: '',
-    describe: 'The name of the twig variant (what is after the -- Ex: audio) ',
+  eclSubSection: {
+    type: 'list',
+    describe: 'Is the component nested into a sub-section?',
+    default: 'none',
+    prompt: 'always',
+    choices: [
+      'none',
+      'forms',
+      'navigation',
+      'banners',
+    ],
   },
   eclStory: {
     type: 'input',
@@ -64,7 +73,7 @@ const options = {
 
 const extension = `.php.html`;
 const diffOptions = {
-  ignoreAttributes: [],
+  ignoreAttributes: ['xlink:href', 'href'],
   compareAttributesAsJSON: [],
   ignoreWhitespaces: true,
   ignoreComments: true,
@@ -83,7 +92,7 @@ yargsInteractive()
   .then(result => {
     (async () => {
       try {
-        const { component, eclStory, variant, eclSection, confirm } = result;
+        let { component, eclStory, variant, eclSection, eclSubSection, confirm } = result;
 
         if (!confirm) {
           console.error('Please run again yarn ecl-diff, then.');
@@ -124,7 +133,9 @@ yargsInteractive()
           );
           process.exit(1);
         }
-
+        // Now we process the story in ECL, we try to retrieve all the stories available
+        // and see if any of them matches the requested one, if none does we return the
+        // list of stories available for a component, if we found them.
         const eclComponents = el => {
           if (el === 'text-input') {
             el = 'text-field';
@@ -172,9 +183,9 @@ yargsInteractive()
         };
 
         const eclComponent = eclComponents(component);
-        // Now we process the story in ECL,we try to retrieve all the stories available
-        // and see if any of them matches the requested one, if none does we return the
-        // list of stories available for a component, if we found them.
+        if (eclSubSection !== 'none') {
+          eclSection = `${eclSection}-${eclSubSection}`;
+        }
         const eclPath = `https://ec.europa.eu/component-library/playground/ec/?path=/story/${eclSection}-`;
         const eclFinalUrl = `${eclPath + eclComponent}--${eclStory}`;
         // Puppeteer will go to the url and try to click on the link in the left sidebar
@@ -182,12 +193,16 @@ yargsInteractive()
         const browser = await puppeteer.launch();
         const page = await browser.newPage();
         await page.goto(eclFinalUrl);
-        // Menu link.
+
+        if ((await page.$(`a#explorer${eclSection}`)) !== null) {
+          await page.click(`a#explorer${eclSection}`);
+        }
+        // Menu link, if it's there click on it..
         if ((await page.$(`div#${eclSection}-${eclComponent}`)) !== null) {
           await page.click(`div#${eclSection}-${eclComponent}`);
           // All the links to the stories.
           const stories = await page.$$(
-            `a#explorercomponents-${eclComponent} + div a`
+            `a#explorer${eclSection}-${eclComponent} + div a`
           );
 
           if (stories) {
@@ -225,6 +240,7 @@ yargsInteractive()
           const eclTwigMarkup = fs
             .readFileSync(`${twigFullPath}/${fileName}`, 'utf-8')
             .toString();
+
           let eclMarkup = await page.evaluate(
             el => el.innerHTML,
             await page.$('code')
@@ -234,8 +250,8 @@ yargsInteractive()
           eclMarkup = eclMarkup.replace(/^<div>/, '');
           eclMarkup = eclMarkup.replace(/<\/div>$/, '');
           // Make the diff against the php rendered files.
-          const diff = htmlDiffer.diffHtml(eclMarkup, eclTwigMarkup);
-          const isEqual = htmlDiffer.isEqual(eclMarkup, eclTwigMarkup);
+          const diff = htmlDiffer.diffHtml(eclTwigMarkup, eclMarkup);
+          const isEqual = htmlDiffer.isEqual(eclTwigMarkup, eclMarkup);
 
           console.log(
             `Comparing ${fileName} with ECL markup from ${eclFinalUrl}:'`
