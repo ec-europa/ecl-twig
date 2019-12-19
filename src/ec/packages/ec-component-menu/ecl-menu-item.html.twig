@@ -1,26 +1,12 @@
 {% spaceless %}
 
 {% set _menu_item_class = 'ecl-menu__link' %}
-{% set _menu_item_attributes = [{ name: 'data-ecl-menu-link'}] %}
-{% set _menu_list_item_attributes = 'data-ecl-menu-item' %}
+{% set _menu_item_attributes = 'data-ecl-menu-link' %}
 {% set _menu_list_item_class = 'ecl-menu__item' %}
 
-{% if item.link.is_current is defined %}
+{% if item.is_current is defined %}
   {% set _menu_item_class = _menu_item_class ~ ' ecl-menu__link--current' %}
   {% set _menu_list_item_class = _menu_list_item_class ~ ' ecl-menu__item--current' %}
-{% endif %}
-
-{% if item.link.is_home_link is defined %}
-  {% set _icon = '' %}
-{% else %}
-  {% set _icon = {
-      size: 'xs',
-      type: 'ui',
-      name: 'corner-arrow',
-      path: icon_path,
-      transform: 'rotate-180',
-      extra_classes: 'ecl-menu-standardised__link-icon',
-  } %}
 {% endif %}
 
 {% if item.children is defined and item.children is not empty %}
@@ -28,15 +14,21 @@
 {% endif %}
 
 <li class="{{ _menu_list_item_class }}" {{ _menu_list_item_attributes }}>
-  {% include '@ecl-twig/ec-component-link/ecl-link.html.twig' with {
-    link: item.link|merge({
-      type: 'standalone',
-      icon_position: 'after',
-    }),
-    extra_classes: _menu_item_class,
-    extra_attributes: _menu_item_attributes,
-    icon: _icon
-  } only %}
+  <a href="{{ item.path }}" class="{{ _menu_item_class }}" data-ecl-menu-item>
+    {{- item.label -}}
+    {% if item.children is defined and item.children is not empty and item.children is iterable %}
+      {% include '@ecl-twig/ec-component-icon/ecl-icon.html.twig' with {
+        icon: {
+          path: icon_path,
+          type: 'ui',
+          name: 'corner-arrow',
+          size: 'xs',
+          transform: 'rotate-180'
+        },
+        extra_classes: 'ecl-menu__link-icon',
+      } %}
+    {% endif %}
+  </a>
 {% if item.children is defined and item.children is not empty and item.children is iterable %}
   <div
     class="ecl-menu__mega"
@@ -44,17 +36,16 @@
   >
     <ul class="ecl-menu__sublist">
     {% for child in item.children %}
-      <li class="ecl-menu__subitem">
-        {% include '@ecl-twig/ec-component-link/ecl-link.html.twig' with {
-          link: child.link|merge({
-            type: 'standalone',
-          }),
-          extra_classes: 'ecl-menu__sublink'
-        } only %}
+      {% set _subitem_class = 'ecl-menu__subitem' ~ (child.is_current is defined ? ' ecl-menu__subitem--current' : '') %}
+      <li class="{{ _subitem_class }}">
+        {% set _sublink_class = 'ecl-menu__sublink' ~ (child.is_current is defined ? ' ecl-menu__sublink--current' : '') %}
+        <a href="{{ child.path }}" class="{{ _sublink_class }}">
+          {{- child.label -}}
+        </a>
       </li>
     {% endfor %}
     </ul>
-</div>
+  </div>
 {% endif %}
 </li>
 

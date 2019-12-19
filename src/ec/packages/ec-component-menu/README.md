@@ -11,14 +11,13 @@ npm install --save @ecl-twig/ec-component-menu-harmonised
 - **"group"** (string) (default: 'group1'): 'group1' or 'group2'
 - **"icon_path"** (string) (default: ''): Path to the icon sprite
 - **"items"** (associative array) (default: {}): The menu items - format:
-  - "link": (object)
     "label": (string) (default: '')
     "path": (string) (default: '')
-    "is_home_link": (boolean) (optional),
+    "is_current": (boolean) (optional),
   - "children": (associative array) (optional)
-    "link": (object),
     "label": (string) (default: '')
     "path": (string) (default: '')
+    "is_current": (boolean) (optional),
 - **"site_name"** (string) (default: ''): Name of the website
 - **"toggle_label_close"** (string) (default: ''): Label of the toggler
 - **"toggle_label_open"** (string) (default: ''): Label of the toggler
@@ -45,17 +44,11 @@ npm install --save @ecl-twig/ec-component-menu-harmonised
       path: "example", 
       is_current: false, 
       children: [ 
-        { 
-          "title": "column 1", 
-          "items": [ 
-            {
-              link: {
-                label: "link 1", 
-                path: "#", 
-                is_current: false 
-              } 
-            } 
-          ... 
+        {
+          label: "Item 1.1",
+          path: "/example"
+        },
+        ...
         ] 
       } 
       ... 

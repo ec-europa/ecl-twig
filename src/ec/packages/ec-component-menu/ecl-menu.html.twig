@@ -5,34 +5,27 @@
   - "group": (string) (default: 'group1'): 'group1' or 'group2'
   - "icon_path": (string) (default: ''): Path to the icon sprite
   - "items": (associative array) (default: {}): The menu items - format: [
-  {
-    "link": {
+    {
       "label": "Home",
-      "path": "/example",
-      "is_home_link": true
-    }
-  },
-  {
-    "link": {
-      "label": "Item 1",
       "path": "/example",
       "is_current": true
     },
-    children: [
     {
-      "link": {
-        label: "Item 1.1",
-        path: "/example"
-      }
+      "label": "Item 1",
+      "path": "/example",
+      "is_current": true
+      "children": [
+        {
+          "label": "Item 1.1",
+          "path": "/example"
+        },
+        {
+          "label": "Item 1.2",
+          "path": "/example"
+        },
+      },
     },
-    {
-      "link": {
-        "label": "Item 1.2",
-        "path": "/example"
-      }
-    },
-  },
-}],
+  }],
   - "site_name": (string) (default: ''): Name of the website
   - "toggle_label_close": (string) (default: ''): Label of the toggler
   - "toggle_label_open": (string) (default: ''): Label of the toggler
@@ -47,9 +40,6 @@
 
 {% set _group = group|default('group1') %}
 {% set _css_class = 'ecl-menu' %}
-{% set _menu_item_class = 'ecl-menu__link' %}
-{% set _menu_item_attributes = [{ name: 'data-ecl-menu-link'}] %}
-{% set _menu_list_item_attributes = 'data-ecl-menu-item' %}
 {% set _css_class = _css_class ~ ' ' ~ _css_class ~ '--' ~ _group %}
 
 {% if extra_classes is defined and extra_classes is not empty %}
@@ -111,7 +101,7 @@
     >
   {% if items is defined and items is not empty and items is iterable %}
     {% for item in items %}
-      {% if item.link is defined and item.link is not empty %}
+      {% if item is defined and item is not empty %}
         {% include '@ecl-twig/ec-component-menu/ecl-menu-item.html.twig' with {
           item: item,
           icon_path: icon_path,

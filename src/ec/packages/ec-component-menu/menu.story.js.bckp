@@ -15,7 +15,7 @@ storiesOf('Components/Navigation/Menu', module)
   .add(
     'default',
     () =>
-      menuStandardised(
+      menu(
         merge(enData, {
           icon_path: iconPath,
         })
