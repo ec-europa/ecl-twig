@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.18.0](https://github.com/ec-europa/ecl-twig/compare/v2.17.3...v2.18.0) (2019-12-16)
+
+
+### Bug Fixes
+
+* **deps:** Uprading serialize-javascript to get rid of warning - TWIG-166 ([#264](https://github.com/ec-europa/ecl-twig/issues/264)) ([1b651ee](https://github.com/ec-europa/ecl-twig/commit/1b651ee916204e93a8b25638e0eb487d0a950cc9))
+* **hide-not-ready-components:** Hiding site headers containing a menu - TWIG-161 ([#267](https://github.com/ec-europa/ecl-twig/issues/267)) ([8ab03f3](https://github.com/ec-europa/ecl-twig/commit/8ab03f31b8387251fa6a22056e1730ccf5b9fff9))
+
+
+### Features
+
+* **diff:** Command for diffing components added - TWIG-119 ([#260](https://github.com/ec-europa/ecl-twig/issues/260)) ([8ad18cc](https://github.com/ec-europa/ecl-twig/commit/8ad18ccaba5a0b325c66dec177a40f6a6d211263))
+* **language-list:** Icon removed - TWIG-165 ([#261](https://github.com/ec-europa/ecl-twig/issues/261)) ([faa2a5d](https://github.com/ec-europa/ecl-twig/commit/faa2a5dea84a087cd2ae9326c30e0ebc62fc0666))
+* **menus:** Adding components (standardised and harmonised) - Twig 162 ([#265](https://github.com/ec-europa/ecl-twig/issues/265)) ([53ab675](https://github.com/ec-europa/ecl-twig/commit/53ab67551dc74d17b99f108336ef641a0401673c))
+
+
 ## [2.17.3](https://github.com/ec-europa/ecl-twig/compare/v2.16.0...v2.17.3) (2019-12-02)
 
 
