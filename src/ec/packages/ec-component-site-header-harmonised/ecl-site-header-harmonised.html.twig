@@ -179,7 +179,8 @@
           <a
             class="ecl-link ecl-link--standalone ecl-site-header-harmonised__login-toggle"
             href="{{ _login_toggle.href_logged }}"
-            aria-controls={{ _login_box.id }}
+            aria-controls="{{ _login_box.id }}"
+            data-ecl-login-toggle
             aria-expanded="false"
           >
             {% include '@ecl-twig/ec-component-icon/ecl-icon.html.twig' with {

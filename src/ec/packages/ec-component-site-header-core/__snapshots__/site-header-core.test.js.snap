@@ -576,6 +576,7 @@ exports[`EC - Site Header Core Default renders correctly when logged in 1`] = `
             aria-controls="login-box-id"
             aria-expanded="false"
             class="ecl-link ecl-link--standalone ecl-site-header-core__login-toggle"
+            data-ecl-login-toggle=""
             href="/example"
           >
             <svg
@@ -606,15 +607,7 @@ exports[`EC - Site Header Core Default renders correctly when logged in 1`] = `
             <p
               class="ecl-site-header-core__login-description"
             >
-              Logged in as 
-              <last
-                name=""
-              >
-                , 
-                <first
-                  name=""
-                />
-              </last>
+              Logged in as &lt;last name&gt;, &lt;first name&gt;
             </p>
             <hr
               classname="ecl-site-header-core__login-separator"
