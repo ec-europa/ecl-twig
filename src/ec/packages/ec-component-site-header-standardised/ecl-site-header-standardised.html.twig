@@ -304,7 +304,7 @@
   </div>
 {% endif %}
 {% if _menu is defined and _menu is not empty %}
-  {% include '@ecl-twig/ec-component-menu-standardised/ecl-menu-standardised.html.twig' with _menu|merge({
+  {% include '@ecl-twig/ec-component-menu/ecl-menu.html.twig' with _menu|merge({
     icon_path: _icon_file_path
   }) only %}
 {% endif %}
