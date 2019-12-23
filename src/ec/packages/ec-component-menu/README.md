@@ -11,9 +11,9 @@ npm install --save @ecl-twig/ec-component-menu
 - **"group"** (string) (default: 'group1'): 'group1' or 'group2'
 - **"icon_path"** (string) (default: ''): Path to the icon sprite
 - **"items"** (associative array) (default: {}): The menu items - format:
-    "label": (string) (default: '')
-    "path": (string) (default: '')
-    "is_current": (boolean) (optional),
+  "label": (string) (default: '')
+  "path": (string) (default: '')
+  "is_current": (boolean) (optional),
   - "children": (associative array) (optional)
     "label": (string) (default: '')
     "path": (string) (default: '')
