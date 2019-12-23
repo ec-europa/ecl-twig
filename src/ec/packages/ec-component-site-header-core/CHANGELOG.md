@@ -5,15 +5,10 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # [2.19.0](https://github.com/ec-europa/ecl-twig/compare/v2.18.0...v2.19.0) (2019-12-23)
 
-
 ### Bug Fixes
 
-* **site-headers:** Add arrow icon to login link - TWIG-183 ([#272](https://github.com/ec-europa/ecl-twig/issues/272)) ([f8343a4](https://github.com/ec-europa/ecl-twig/commit/f8343a4dc03df66f5d0bf38a2ef113d51a23c379))
-* **site-headers:** Logged in dropdown not opening - TWIG-184 ([#273](https://github.com/ec-europa/ecl-twig/issues/273)) ([f921cda](https://github.com/ec-europa/ecl-twig/commit/f921cda83e9c491e33bba5eeeaf7571f60d7c1bb))
-
-
-
-
+- **site-headers:** Add arrow icon to login link - TWIG-183 ([#272](https://github.com/ec-europa/ecl-twig/issues/272)) ([f8343a4](https://github.com/ec-europa/ecl-twig/commit/f8343a4dc03df66f5d0bf38a2ef113d51a23c379))
+- **site-headers:** Logged in dropdown not opening - TWIG-184 ([#273](https://github.com/ec-europa/ecl-twig/issues/273)) ([f921cda](https://github.com/ec-europa/ecl-twig/commit/f921cda83e9c491e33bba5eeeaf7571f60d7c1bb))
 
 # [2.18.0](https://github.com/ec-europa/ecl-twig/compare/v2.17.3...v2.18.0) (2019-12-16)
 
