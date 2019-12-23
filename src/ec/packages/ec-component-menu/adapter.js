@@ -14,12 +14,11 @@ const adapter = initialData => {
 
   if (adaptedData.items && Array.isArray(adaptedData.items)) {
     adaptedData.items.forEach(mainItem => {
-      mainItem.link = { label: mainItem.label, path: mainItem.href };
-      delete mainItem.label;
+      mainItem.path = mainItem.href;
       delete mainItem.href;
 
       if (mainItem.isCurrent) {
-        mainItem.link.is_current = mainItem.isCurrent;
+        mainItem.is_current = mainItem.isCurrent;
         delete mainItem.isCurrent;
       }
 
@@ -27,18 +26,15 @@ const adapter = initialData => {
         mainItem.children = mainItem.subItems;
         delete mainItem.subItems;
         mainItem.children.forEach(item => {
-          item.link = { label: item.label, path: item.href };
-          delete item.label;
+          item.path = item.href;
           delete item.href;
           if (item.isCurrent) {
-            item.link.is_current = item.isCurrent;
+            item.is_current = item.isCurrent;
             delete item.isCurrent;
           }
         });
       }
     });
-    // Add a parameter for the home segment.
-    adaptedData.items[0].link.is_home_link = true;
   }
 
   return adaptedData;

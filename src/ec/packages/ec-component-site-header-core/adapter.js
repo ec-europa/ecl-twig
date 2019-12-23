@@ -1,4 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies, no-param-reassign */
+import { escapeHTML } from '@ecl-twig/data-utils';
+
 const adapter = initialData => {
   const adaptedData = JSON.parse(JSON.stringify(initialData));
 
@@ -18,6 +20,11 @@ const adapter = initialData => {
   // Login box.
   adaptedData.login_box = adaptedData.loginBox;
   delete adaptedData.loginBox;
+  if (adaptedData.login_box) {
+    adaptedData.login_box.description = escapeHTML(
+      adaptedData.login_box.description
+    );
+  }
 
   const lng = adaptedData.logo.language;
   adaptedData.logo.src = lng === 'en' ? englishBanner : frenchBanner;

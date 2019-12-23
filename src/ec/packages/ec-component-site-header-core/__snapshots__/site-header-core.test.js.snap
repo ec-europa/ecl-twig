@@ -35,7 +35,7 @@ exports[`EC - Site Header Core Default renders correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class="ecl-icon ecl-icon--s"
+              class="ecl-icon ecl-icon--m ecl-site-header-core__icon"
               focusable="false"
             >
               <use
@@ -57,7 +57,7 @@ exports[`EC - Site Header Core Default renders correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class="ecl-icon ecl-icon--s"
+              class="ecl-icon ecl-icon--m ecl-site-header-core__icon"
               focusable="false"
             >
               <use
@@ -576,11 +576,12 @@ exports[`EC - Site Header Core Default renders correctly when logged in 1`] = `
             aria-controls="login-box-id"
             aria-expanded="false"
             class="ecl-link ecl-link--standalone ecl-site-header-core__login-toggle"
+            data-ecl-login-toggle=""
             href="/example"
           >
             <svg
               aria-hidden="true"
-              class="ecl-icon ecl-icon--s"
+              class="ecl-icon ecl-icon--m ecl-site-header-core__icon"
               focusable="false"
             >
               <use
@@ -588,6 +589,15 @@ exports[`EC - Site Header Core Default renders correctly when logged in 1`] = `
               />
             </svg>
             Logged in
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--xs ecl-site-header-core__login-arrow"
+              focusable="false"
+            >
+              <use
+                xlink:href="/icons.svg#ui--corner-arrow"
+              />
+            </svg>
           </a>
           <div
             class="ecl-site-header-core__login-box"
@@ -597,15 +607,7 @@ exports[`EC - Site Header Core Default renders correctly when logged in 1`] = `
             <p
               class="ecl-site-header-core__login-description"
             >
-              Logged in as 
-              <last
-                name=""
-              >
-                , 
-                <first
-                  name=""
-                />
-              </last>
+              Logged in as &lt;last name&gt;, &lt;first name&gt;
             </p>
             <hr
               classname="ecl-site-header-core__login-separator"
@@ -630,7 +632,7 @@ exports[`EC - Site Header Core Default renders correctly when logged in 1`] = `
           >
             <svg
               aria-hidden="true"
-              class="ecl-icon ecl-icon--s"
+              class="ecl-icon ecl-icon--m ecl-site-header-core__icon"
               focusable="false"
             >
               <use
@@ -1153,7 +1155,7 @@ exports[`EC - Site Header Core Default renders correctly with extra attributes 1
           >
             <svg
               aria-hidden="true"
-              class="ecl-icon ecl-icon--s"
+              class="ecl-icon ecl-icon--m ecl-site-header-core__icon"
               focusable="false"
             >
               <use
@@ -1175,7 +1177,7 @@ exports[`EC - Site Header Core Default renders correctly with extra attributes 1
           >
             <svg
               aria-hidden="true"
-              class="ecl-icon ecl-icon--s"
+              class="ecl-icon ecl-icon--m ecl-site-header-core__icon"
               focusable="false"
             >
               <use
@@ -1696,7 +1698,7 @@ exports[`EC - Site Header Core Default renders correctly with extra class names 
           >
             <svg
               aria-hidden="true"
-              class="ecl-icon ecl-icon--s"
+              class="ecl-icon ecl-icon--m ecl-site-header-core__icon"
               focusable="false"
             >
               <use
@@ -1718,7 +1720,7 @@ exports[`EC - Site Header Core Default renders correctly with extra class names 
           >
             <svg
               aria-hidden="true"
-              class="ecl-icon ecl-icon--s"
+              class="ecl-icon ecl-icon--m ecl-site-header-core__icon"
               focusable="false"
             >
               <use
@@ -2239,7 +2241,7 @@ exports[`EC - Site Header Core Translated renders correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class="ecl-icon ecl-icon--s"
+              class="ecl-icon ecl-icon--m ecl-site-header-core__icon"
               focusable="false"
             >
               <use
@@ -2261,7 +2263,7 @@ exports[`EC - Site Header Core Translated renders correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class="ecl-icon ecl-icon--s"
+              class="ecl-icon ecl-icon--m ecl-site-header-core__icon"
               focusable="false"
             >
               <use
@@ -2784,7 +2786,7 @@ exports[`EC - Site Header Core Translated renders correctly with extra attribute
           >
             <svg
               aria-hidden="true"
-              class="ecl-icon ecl-icon--s"
+              class="ecl-icon ecl-icon--m ecl-site-header-core__icon"
               focusable="false"
             >
               <use
@@ -2806,7 +2808,7 @@ exports[`EC - Site Header Core Translated renders correctly with extra attribute
           >
             <svg
               aria-hidden="true"
-              class="ecl-icon ecl-icon--s"
+              class="ecl-icon ecl-icon--m ecl-site-header-core__icon"
               focusable="false"
             >
               <use
@@ -3327,7 +3329,7 @@ exports[`EC - Site Header Core Translated renders correctly with extra class nam
           >
             <svg
               aria-hidden="true"
-              class="ecl-icon ecl-icon--s"
+              class="ecl-icon ecl-icon--m ecl-site-header-core__icon"
               focusable="false"
             >
               <use
@@ -3349,7 +3351,7 @@ exports[`EC - Site Header Core Translated renders correctly with extra class nam
           >
             <svg
               aria-hidden="true"
-              class="ecl-icon ecl-icon--s"
+              class="ecl-icon ecl-icon--m ecl-site-header-core__icon"
               focusable="false"
             >
               <use
