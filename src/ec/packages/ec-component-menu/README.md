@@ -1,9 +1,9 @@
-# ECL Twig - EC Menu Harmonised
+# ECL Twig - EC Menu
 
-npm package: `@ecl-twig/ec-component-menu-harmonised`
+npm package: `@ecl-twig/ec-component-menu`
 
 ```shell
-npm install --save @ecl-twig/ec-component-menu-harmonised
+npm install --save @ecl-twig/ec-component-menu
 ```
 
 ### Parameters
@@ -21,7 +21,7 @@ npm install --save @ecl-twig/ec-component-menu-harmonised
 - **"site_name"** (string) (default: ''): Name of the website
 - **"toggle_label_close"** (string) (default: ''): Label of the toggler
 - **"toggle_label_open"** (string) (default: ''): Label of the toggler
-- **toggle_path"** (string) (default: ''): Href attribute of the toggler
+- **"toggle_path"** (string) (default: ''): Href attribute of the toggler
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated) for the nav element
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes for the nav element
   - "name" (string) Attribute name, eg. 'data-test'
@@ -31,7 +31,7 @@ npm install --save @ecl-twig/ec-component-menu-harmonised
 
 <!-- prettier-ignore -->
 ```twig
-{% include '@ecl-twig/ec-component-menu-harmonised/ecl-menu-harmonised.html.twig' with { 
+{% include '@ecl-twig/ec-component-menu/ecl-menu.html.twig' with { 
   label: "Menu", 
   icon_path: '/icons.svg', 
   site_name: 'Site name', 
@@ -55,10 +55,10 @@ npm install --save @ecl-twig/ec-component-menu-harmonised
       ], 
     } 
   ], 
-  extra_classes: "ecl-menu-harmonised", 
+  extra_classes: "ecl-menu-extra-class, 
   extra_attributes: [ 
     { 
-      name:"data-ecl-menu-harmonised-menu", 
+      name:"data-ecl-menu", 
     }, 
     ... 
     ] 
