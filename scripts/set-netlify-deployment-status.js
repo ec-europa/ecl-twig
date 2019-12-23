@@ -10,6 +10,7 @@ const run = async () => {
     DRONE_COMMIT_SHA,
     DRONE_COMMIT_BRANCH,
     DRONE_BUILD_LINK,
+    DRONE_BUILD_STATUS,
   } = process.env;
 
   if (!GH_TOKEN) {
@@ -18,14 +19,14 @@ const run = async () => {
     return;
   }
 
-  if (!DRONE_REPO || !DRONE_COMMIT_SHA) {
+  if (!DRONE_REPO || !DRONE_COMMIT_SHA || !DRONE_BUILD_STATUS) {
     console.info(
       'Current script depends on Drone CI 0.8 environment variables.'
     );
     console.info(
       'Please see https://0-8-0.docs.drone.io/environment-reference'
     );
-    console.log('Required: DRONE_REPO, DRONE_COMMIT_SHA');
+    console.log('Required: DRONE_REPO, DRONE_COMMIT_SHA, DRONE_BUILD_STATUS');
     return;
   }
 
@@ -46,11 +47,18 @@ const run = async () => {
         context: 'drone/netlify',
       };
     } else {
-      payload = {
+      payloadNetlify = {
         state: 'success',
         target_url: deploymentResult.deploy_url,
         description: 'Preview ready!',
         context: 'drone/netlify',
+      };
+
+      payloadDrone = {
+        state: DRONE_BUILD_STATUS,
+        target_url: DRONE_BUILD_LINK,
+        description: 'Build completed!',
+        context: 'continuous-integration/drone/push',
       };
     }
   } catch (error) {
@@ -73,9 +81,28 @@ const run = async () => {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${GH_TOKEN}`,
       },
-      body: JSON.stringify(payload),
+      body: JSON.stringify(payloadNetlify),
     }
   );
+
+  console.log('Status check for the netlify preview successfully updated!');
+
+  if (payloadDrone) {
+    await fetch(
+      `https://api.github.com/repos/${DRONE_REPO}/statuses/${DRONE_COMMIT_SHA}`,
+      {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Accept-Charset': 'utf-8',
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${GH_TOKEN}`,
+        },
+        body: JSON.stringify(payloadDrone),
+      }
+    );
+    console.log('Status check for the drone build successfully updated with status:' + DRONE_BUILD_STATUS);
+  }
 };
 
 try {
