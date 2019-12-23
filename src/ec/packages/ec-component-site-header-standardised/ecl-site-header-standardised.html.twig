@@ -177,7 +177,8 @@
           <a
             class="ecl-link ecl-link--standalone ecl-site-header-standardised__login-toggle"
             href="{{ _login_toggle.href_logged }}"
-            aria-controls={{ _login_box.id }}
+            aria-controls="{{ _login_box.id }}"
+            data-ecl-login-toggle
             aria-expanded="false"
           >
             {% include '@ecl-twig/ec-component-icon/ecl-icon.html.twig' with {
@@ -185,10 +186,20 @@
                 path: _icon_file_path,
                 type: 'general',
                 name: 'logged-in',
-                size: 's'
-              }
+                size: 'm'
+              },
+              extra_classes: 'ecl-site-header-standardised__icon'
             } only %}
              {{- login_toggle.label_logged -}}
+            {% include '@ecl-twig/ec-component-icon/ecl-icon.html.twig' with {
+              icon: {
+                path: _icon_file_path,
+                type: 'ui',
+                name: 'corner-arrow',
+                size: 'xs'
+              },
+              extra_classes: 'ecl-site-header-standardised__login-arrow'
+            } only %}
           </a>
           <div
             id="{{ _login_box.id }}"
@@ -217,8 +228,9 @@
                 path: _icon_file_path,
                 type: 'general',
                 name: 'log-in',
-                size: 's'
-              }
+                size: 'm'
+              },
+              extra_classes: 'ecl-site-header-standardised__icon'
             } only %}
             {{- login_toggle.label_not_logged -}}
           </a>
@@ -241,8 +253,9 @@
                 path: _icon_file_path,
                 type: 'general',
                 name: 'language',
-                size: 's'
-              }
+                size: 'm'
+              },
+              extra_classes: 'ecl-site-header-standardised__icon'
             } only %}
             <span class="ecl-site-header-standardised__language-code">{{ _language_selector.code }}</span>
           </span>

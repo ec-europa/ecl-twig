@@ -35,7 +35,7 @@ exports[`EC - Site Header Standardised Default renders correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class="ecl-icon ecl-icon--s"
+              class="ecl-icon ecl-icon--m ecl-site-header-standardised__icon"
               focusable="false"
             >
               <use
@@ -57,7 +57,7 @@ exports[`EC - Site Header Standardised Default renders correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class="ecl-icon ecl-icon--s"
+              class="ecl-icon ecl-icon--m ecl-site-header-standardised__icon"
               focusable="false"
             >
               <use
@@ -2030,11 +2030,12 @@ exports[`EC - Site Header Standardised Default renders correctly when logged in 
             aria-controls="login-box-id"
             aria-expanded="false"
             class="ecl-link ecl-link--standalone ecl-site-header-standardised__login-toggle"
+            data-ecl-login-toggle=""
             href="/example"
           >
             <svg
               aria-hidden="true"
-              class="ecl-icon ecl-icon--s"
+              class="ecl-icon ecl-icon--m ecl-site-header-standardised__icon"
               focusable="false"
             >
               <use
@@ -2042,6 +2043,15 @@ exports[`EC - Site Header Standardised Default renders correctly when logged in 
               />
             </svg>
             Logged in
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--xs ecl-site-header-standardised__login-arrow"
+              focusable="false"
+            >
+              <use
+                xlink:href="/icons.svg#ui--corner-arrow"
+              />
+            </svg>
           </a>
           <div
             class="ecl-site-header-standardised__login-box"
@@ -2051,15 +2061,7 @@ exports[`EC - Site Header Standardised Default renders correctly when logged in 
             <p
               class="ecl-site-header-standardised__login-description"
             >
-              Logged in as 
-              <last
-                name=""
-              >
-                , 
-                <first
-                  name=""
-                />
-              </last>
+              Logged in as &lt;last name&gt;, &lt;first name&gt;
             </p>
             <hr
               classname="ecl-site-header-standardised__login-separator"
@@ -2084,7 +2086,7 @@ exports[`EC - Site Header Standardised Default renders correctly when logged in 
           >
             <svg
               aria-hidden="true"
-              class="ecl-icon ecl-icon--s"
+              class="ecl-icon ecl-icon--m ecl-site-header-standardised__icon"
               focusable="false"
             >
               <use
@@ -4061,7 +4063,7 @@ exports[`EC - Site Header Standardised Default renders correctly with extra attr
           >
             <svg
               aria-hidden="true"
-              class="ecl-icon ecl-icon--s"
+              class="ecl-icon ecl-icon--m ecl-site-header-standardised__icon"
               focusable="false"
             >
               <use
@@ -4083,7 +4085,7 @@ exports[`EC - Site Header Standardised Default renders correctly with extra attr
           >
             <svg
               aria-hidden="true"
-              class="ecl-icon ecl-icon--s"
+              class="ecl-icon ecl-icon--m ecl-site-header-standardised__icon"
               focusable="false"
             >
               <use
@@ -6058,7 +6060,7 @@ exports[`EC - Site Header Standardised Default renders correctly with extra clas
           >
             <svg
               aria-hidden="true"
-              class="ecl-icon ecl-icon--s"
+              class="ecl-icon ecl-icon--m ecl-site-header-standardised__icon"
               focusable="false"
             >
               <use
@@ -6080,7 +6082,7 @@ exports[`EC - Site Header Standardised Default renders correctly with extra clas
           >
             <svg
               aria-hidden="true"
-              class="ecl-icon ecl-icon--s"
+              class="ecl-icon ecl-icon--m ecl-site-header-standardised__icon"
               focusable="false"
             >
               <use
@@ -8055,7 +8057,7 @@ exports[`EC - Site Header Standardised Translated renders correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class="ecl-icon ecl-icon--s"
+              class="ecl-icon ecl-icon--m ecl-site-header-standardised__icon"
               focusable="false"
             >
               <use
@@ -8077,7 +8079,7 @@ exports[`EC - Site Header Standardised Translated renders correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class="ecl-icon ecl-icon--s"
+              class="ecl-icon ecl-icon--m ecl-site-header-standardised__icon"
               focusable="false"
             >
               <use
@@ -10054,7 +10056,7 @@ exports[`EC - Site Header Standardised Translated renders correctly with extra a
           >
             <svg
               aria-hidden="true"
-              class="ecl-icon ecl-icon--s"
+              class="ecl-icon ecl-icon--m ecl-site-header-standardised__icon"
               focusable="false"
             >
               <use
@@ -10076,7 +10078,7 @@ exports[`EC - Site Header Standardised Translated renders correctly with extra a
           >
             <svg
               aria-hidden="true"
-              class="ecl-icon ecl-icon--s"
+              class="ecl-icon ecl-icon--m ecl-site-header-standardised__icon"
               focusable="false"
             >
               <use
@@ -12051,7 +12053,7 @@ exports[`EC - Site Header Standardised Translated renders correctly with extra c
           >
             <svg
               aria-hidden="true"
-              class="ecl-icon ecl-icon--s"
+              class="ecl-icon ecl-icon--m ecl-site-header-standardised__icon"
               focusable="false"
             >
               <use
@@ -12073,7 +12075,7 @@ exports[`EC - Site Header Standardised Translated renders correctly with extra c
           >
             <svg
               aria-hidden="true"
-              class="ecl-icon ecl-icon--s"
+              class="ecl-icon ecl-icon--m ecl-site-header-standardised__icon"
               focusable="false"
             >
               <use
