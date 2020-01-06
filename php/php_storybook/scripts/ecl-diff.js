@@ -153,10 +153,19 @@ yargsInteractive()
         const eclTwigMarkup = fs
           .readFileSync(`${twigFullPath}/${fileName}`, 'utf-8')
           .toString()
+          // Masks, to avoid repeating patterns in the diff (@see htmldiffer).
+          // Icons.
           .replace(
             /xlink:href="\/?icons(-social)?\.svg#/g,
             'xlink:href="{{.*icons.*.svg#}}'
-          );
+            // Booleans.
+          )
+          .replace(
+            /(data-ecl-)(?!auto-init)([^= \n\r]+)(="(true|false)")?/g,
+            '$1$2="{{true|false}}"'
+            // Logo.
+          )
+          .replace(/\/logo--(en|fr).svg/g, '{{(.*?)logo--(en|fr).*.svg}}');
         // Now we process the story in ECL, we try to retrieve all the stories available
         // and see if any of them matches the requested one, if none does we return the
         // list of stories available for a component, if we found them.
