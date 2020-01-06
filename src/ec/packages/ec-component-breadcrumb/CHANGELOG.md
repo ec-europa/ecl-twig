@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.19.0](https://github.com/ec-europa/ecl-twig/compare/v2.18.0...v2.19.0) (2019-12-23)
+
+**Note:** Version bump only for package @ecl-twig/ec-component-breadcrumb
+
 # [2.18.0](https://github.com/ec-europa/ecl-twig/compare/v2.17.3...v2.18.0) (2019-12-16)
 
 **Note:** Version bump only for package @ecl-twig/ec-component-breadcrumb
