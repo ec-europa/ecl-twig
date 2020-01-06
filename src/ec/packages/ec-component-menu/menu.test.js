@@ -4,9 +4,8 @@ import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 import enData from './demo/data--en';
 import frData from './demo/data--fr';
 
-describe('EC - Menu Standardised', () => {
-  const template =
-    '@ecl-twig/ec-component-menu-standardised/ecl-menu-standardised.html.twig';
+describe('EC - Menu', () => {
+  const template = '@ecl-twig/ec-component-menu/ecl-menu.html.twig';
   const render = params => renderTwigFileAsNode(template, params);
 
   describe('Default', () => {
