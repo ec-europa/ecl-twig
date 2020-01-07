@@ -3,18 +3,21 @@ pipeline:
     image: node:dubnium
     commands:
       - ./scripts/check-lockfile.sh
+      - node scripts/failcheck.js
 
   jest:
     image: node:dubnium
     commands:
       - yarn install --frozen-lockfile
       - yarn jest
+      - node scripts/failcheck.js
 
   lint:
     image: node:dubnium
     commands:
       - yarn install --frozen-lockfile
       - yarn lint && yarn pretty:check
+      - node scripts/failcheck.js
 
   deploy-preview:
     image: node:dubnium
