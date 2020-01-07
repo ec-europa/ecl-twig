@@ -1,12 +1,14 @@
 pipeline:
   dependencies:
     image: node:dubnium
+    secrets: [gh_token]
     commands:
       - ./scripts/check-lockfile.sh
       - node scripts/failcheck.js
 
   jest:
     image: node:dubnium
+    secrets: [gh_token]
     commands:
       - yarn install --frozen-lockfile
       - yarn jest
@@ -14,6 +16,7 @@ pipeline:
 
   lint:
     image: node:dubnium
+    secrets: [gh_token]
     commands:
       - yarn install --frozen-lockfile
       - yarn lint && yarn pretty:check
