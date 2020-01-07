@@ -183,7 +183,7 @@ yarn render:js
 All these commands can be executed at once passing the generated files through prettier:
 
 ```bash
-yarn render
+yarn render-php-js
 ```
 
 The whole process of installing the dependencies, generating the needed files, then linting them and finally launching a storybook instance on port 9002 is done by:
@@ -193,3 +193,21 @@ yarn start:php-ec
 ```
 
 All output files are stored in `./php/packages/ec` folder.
+
+
+## Deployment of the PHP Twig Storybook
+
+We host the php/js storybook on github: https://ec-europa.github.io/ecl-twig
+To be able to deploy a new version on github there are scripts you can execute:
+
+```bash
+yarn dist:php
+```
+
+It will create the bundle and place it in php/dist
+
+```bash
+yarn deploy:php
+```
+
+It uses the npm package https://www.npmjs.com/package/gh-pages to quickly deploy the php/dist folder on github.

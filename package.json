@@ -3,6 +3,7 @@
   "scripts": {
     "build:ec": "build-storybook -c ./src/ec/.storybook -o build/ec",
     "build:eu": "echo \"Nothing to do...\"",
+    "build-storybook": "build-storybook -c php/.storybook -o php/dist && yarn copy:php && yarn fix-php-dist",
     "check:release": "scripts/check-packages.sh",
     "check:component": "run-s clean:php \"render:* {1}\" pretty:php \"diff {1}\" --",
     "copy:static": "ncp static build",
@@ -10,6 +11,9 @@
     "clean": "rimraf build dist",
     "clean:php": "rimraf build php/packages php/dist",
     "dist": "npm-run-all clean build:* copy:static",
+    "dist:php": "npm-run-all clean:php render-php-js build-storybook",
+    "fix-php-dist": "node_modules/@ecl-twig/php-storybook/resources/fix-build.js",
+    "deploy:php": "gh-pages -d php/dist",
     "diff": "node_modules/@ecl-twig/php-storybook/scripts/diff.js",
     "jest": "jest",
     "jest:update": "jest -u",
