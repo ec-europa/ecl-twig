@@ -32,13 +32,19 @@ const run = async () => {
   let payload = {};
 
   try {
-      payloadDrone = {
-        state: DRONE_BUILD_STATUS,
-        target_url: DRONE_BUILD_LINK,
-        description: 'Build completed!',
-        context: 'continuous-integration/drone/push',
-      };
-    }
+    payloadDrone = {
+      state: DRONE_BUILD_STATUS,
+      target_url: DRONE_BUILD_LINK,
+      description: 'Build completed!',
+      context: 'continuous-integration/drone/push',
+    };
+  } catch (error) {
+    payloadDrone = {
+      state: 'error',
+      target_url: DRONE_BUILD_LINK,
+      description: 'Could not get data about Netlify deployment.',
+      context: 'continuous-integration/drone/push',
+    };
   }
 
   await fetch(
