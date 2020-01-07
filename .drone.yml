@@ -11,7 +11,7 @@ pipeline:
     secrets: [gh_token]
     commands:
       - yarn install --frozen-lockfile
-      - yarn jest
+      - yarn jest --ci
       - node scripts/failcheck.js
 
   lint:
