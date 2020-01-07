@@ -10,7 +10,7 @@ const run = async () => {
     DRONE_COMMIT_SHA,
     DRONE_COMMIT_BRANCH,
     DRONE_BUILD_LINK,
-    DRONE_BUILD_STATUS,
+    DRONE_JOB_STATUS,
   } = process.env;
 
   if (!GH_TOKEN) {
@@ -18,7 +18,7 @@ const run = async () => {
     return;
   }
 
-  if (!DRONE_REPO || !DRONE_COMMIT_SHA || !DRONE_BUILD_STATUS) {
+  if (!DRONE_REPO || !DRONE_COMMIT_SHA || !DRONE_JOB_STATUS) {
     console.info(
       'Current script depends on Drone CI 0.8 environment variables.'
     );
@@ -28,12 +28,12 @@ const run = async () => {
     console.log('Required: DRONE_REPO, DRONE_COMMIT_SHA, DRONE_BUILD_STATUS');
     return;
   }
-  console.log(DRONE_BUILD_STATUS);
+  console.log(DRONE_JOB_STATUS);
   let payload = {};
 
   try {
     payloadDrone = {
-      state: DRONE_BUILD_STATUS,
+      state: DRONE_JOB_STATUS,
       target_url: DRONE_BUILD_LINK,
       description: 'Build completed!',
       context: 'continuous-integration/drone/push',
@@ -60,7 +60,7 @@ const run = async () => {
       body: JSON.stringify(payloadDrone),
     }
   );
-  console.log('Status check for the drone build successfully updated with status:' + DRONE_BUILD_STATUS);
+  console.log('Status check for the drone build successfully updated with status:' + DRONE_JOB_STATUS);
 };
 
 

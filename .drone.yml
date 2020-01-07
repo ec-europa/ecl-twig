@@ -12,6 +12,7 @@ pipeline:
     commands:
       - yarn install --frozen-lockfile
       - yarn lint && yarn pretty:check
+      - node scripts/failcheck.js
 
   jest:
     image: node:dubnium
