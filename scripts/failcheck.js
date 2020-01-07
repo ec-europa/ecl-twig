@@ -11,6 +11,9 @@ const run = async () => {
     DRONE_COMMIT_BRANCH,
     DRONE_BUILD_LINK,
     DRONE_JOB_STATUS,
+    DRONE_JOB_NUMBER,
+    DRONE_BUILD_STATUS,
+    DRONE_BUILD_NUMBER,
   } = process.env;
 
   if (!GH_TOKEN) {
@@ -28,7 +31,10 @@ const run = async () => {
     console.log('Required: DRONE_REPO, DRONE_COMMIT_SHA, DRONE_BUILD_STATUS');
     return;
   }
-  console.log(DRONE_JOB_STATUS);
+  console.log('job status: ' + DRONE_JOB_STATUS);
+  console.log('job number: ' + DRONE_JOB_NUMBER);
+  console.log('build number: ' + DRONE_BUILD_NUMBER);
+  console.log('build status: ' + DRONE_BUILD_STATUS);
   let payload = {};
 
   try {
