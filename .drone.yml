@@ -1,13 +1,13 @@
 pipeline:
   dependencies:
-    image: node:dubnium
+    image: node:latest
     secrets: [gh_token]
     commands:
       - ./scripts/check-lockfile.sh
       - node scripts/failcheck.js
 
   lint:
-    image: node:dubnium
+    image: node:latest
     secrets: [gh_token]
     commands:
       - yarn install --frozen-lockfile
@@ -15,7 +15,7 @@ pipeline:
       - node scripts/failcheck.js
 
   jest:
-    image: node:dubnium
+    image: node:latest
     secrets: [gh_token]
     commands:
       - yarn install --frozen-lockfile
@@ -23,7 +23,7 @@ pipeline:
       - node scripts/failcheck.js
 
   deploy-preview:
-    image: node:dubnium
+    image: node:latest
     secrets: [gh_token, netlify_auth_token, netlify_site]
     commands:
       - yarn clean
@@ -37,7 +37,7 @@ pipeline:
           - master
 
   deploy-prod:
-    image: node:dubnium
+    image: node:latest
     secrets: [gh_token, netlify_auth_token, netlify_site]
     commands:
       - yarn clean
