@@ -3,24 +3,21 @@ pipeline:
     image: node:latest
     secrets: [gh_token]
     commands:
-      - ./scripts/check-lockfile.sh
-      - node scripts/failcheck.js
+      - ./scripts/check-lockfile.sh && node scripts/failcheck.js
 
   lint:
     image: node:latest
     secrets: [gh_token]
     commands:
       - yarn install --frozen-lockfile
-      - yarn lint && yarn pretty:check
-      - node scripts/failcheck.js
+      - yarn lint && yarn pretty:check && node scripts/failcheck.js
 
   jest:
     image: node:latest
     secrets: [gh_token]
     commands:
       - yarn install --frozen-lockfile
-      - yarn jest --ci
-      - node scripts/failcheck.js
+      - yarn jest --ci && node scripts/failcheck.js
 
   deploy-preview:
     image: node:latest
