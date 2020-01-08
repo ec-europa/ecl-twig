@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
-const path = require('path');
+/* eslint-disable import/no-extraneous-dependencies, no-console */
+
 const fetch = require('node-fetch');
 
 const run = async () => {
@@ -8,12 +9,8 @@ const run = async () => {
     GH_TOKEN,
     DRONE_REPO,
     DRONE_COMMIT_SHA,
-    DRONE_COMMIT_BRANCH,
     DRONE_BUILD_LINK,
-    DRONE_JOB_STATUS,
-    DRONE_JOB_NUMBER,
     DRONE_BUILD_STATUS,
-    DRONE_BUILD_NUMBER,
   } = process.env;
 
   if (!GH_TOKEN) {
@@ -21,7 +18,7 @@ const run = async () => {
     return;
   }
 
-  if (!DRONE_REPO || !DRONE_COMMIT_SHA || !DRONE_JOB_STATUS) {
+  if (!DRONE_REPO || !DRONE_COMMIT_SHA || !DRONE_BUILD_STATUS) {
     console.info(
       'Current script depends on Drone CI 0.8 environment variables.'
     );
@@ -31,15 +28,12 @@ const run = async () => {
     console.log('Required: DRONE_REPO, DRONE_COMMIT_SHA, DRONE_BUILD_STATUS');
     return;
   }
-  console.log('job status: ' + DRONE_JOB_STATUS);
-  console.log('job number: ' + DRONE_JOB_NUMBER);
-  console.log('build number: ' + DRONE_BUILD_NUMBER);
-  console.log('build status: ' + DRONE_BUILD_STATUS);
-  let payload = {};
+
+  let payloadDrone = {};
 
   try {
     payloadDrone = {
-      state: DRONE_JOB_STATUS,
+      state: DRONE_BUILD_STATUS,
       target_url: DRONE_BUILD_LINK,
       description: 'Build completed!',
       context: 'continuous-integration/drone/push',
@@ -48,7 +42,7 @@ const run = async () => {
     payloadDrone = {
       state: 'error',
       target_url: DRONE_BUILD_LINK,
-      description: 'Could not get data about Netlify deployment.',
+      description: 'Could not get data about the build.',
       context: 'continuous-integration/drone/push',
     };
   }
@@ -66,9 +60,11 @@ const run = async () => {
       body: JSON.stringify(payloadDrone),
     }
   );
-  console.log('Status check for the drone build successfully updated with status:' + DRONE_JOB_STATUS);
+  console.log(
+    `Status check for the drone build successfully updated with status:
+      ${DRONE_BUILD_STATUS}`
+  );
 };
-
 
 try {
   run();
