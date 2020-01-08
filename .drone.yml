@@ -17,7 +17,6 @@ pipeline:
       - yarn jest
 
   check-build:
-    image: node:dubnium
     secrets: [gh_token]
     commands: node scripts/failcheck.js
     when:
