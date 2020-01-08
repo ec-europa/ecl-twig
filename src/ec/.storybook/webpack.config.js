@@ -1,4 +1,3 @@
-const webpack = require('webpack');
 const path = require('path');
 
 module.exports = ({ config, mode }) => {
@@ -10,8 +9,7 @@ module.exports = ({ config, mode }) => {
     },
   });
 
-  // Trick "babel-loader", force it to transpile @ecl-twig addons
-  config.module.rules[0].exclude = /node_modules\/(?!@ecl-twig\/).*/;
+  config.module.rules[0].exclude = /node_modules\/(?!@ecl-twig|twing|twing-loader\/).*/;
 
   // Make it less verbose
   if (mode === 'PRODUCTION') {
