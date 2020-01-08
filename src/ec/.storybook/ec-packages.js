@@ -11,5 +11,5 @@ const getPackagesFolders = () => {
 };
 
 module.exports = {
-  list: getPackagesFolders()
+  list: getPackagesFolders(),
 };
