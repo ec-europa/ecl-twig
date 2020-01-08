@@ -35,9 +35,9 @@
     "test": "npm run jest"
   },
   "devDependencies": {
-    "@babel/core": "7.7.4",
-    "@babel/node": "7.7.4",
-    "@babel/preset-env": "7.7.4",
+    "@babel/core": "7.7.7",
+    "@babel/node": "7.7.7",
+    "@babel/preset-env": "7.7.7",
     "@babel/preset-react": "7.7.4",
     "@ecl-twig/data-utils": "file:utils/data-utils",
     "@ecl-twig/php-storybook": "file:php/php_storybook",
@@ -58,10 +58,10 @@
     "eslint": "5.16.0",
     "eslint-config-airbnb": "17.1.0",
     "eslint-config-prettier": "5.0.0",
-    "eslint-plugin-import": "2.18.2",
+    "eslint-plugin-import": "2.19.1",
     "eslint-plugin-jest": "22.17.0",
     "eslint-plugin-jsx-a11y": "6.2.3",
-    "eslint-plugin-prettier": "3.1.1",
+    "eslint-plugin-prettier": "3.1.2",
     "eslint-plugin-react": "7.17.0",
     "eslint-plugin-unicorn": "9.1.0",
     "file-system": "2.2.2",
@@ -70,23 +70,23 @@
     "jest": "24.9.0",
     "jq-cli-wrapper": "1.6.1",
     "js-beautify": "1.10.2",
-    "lerna": "3.19.0",
+    "lerna": "3.20.2",
     "lint-staged": "8.2.1",
     "marked": "0.6.2",
     "ncp": "2.0.0",
-    "netlify-cli": "2.21.0",
+    "netlify-cli": "2.25.0",
     "node-fetch": "2.6.0",
     "npm-run-all": "4.1.5",
     "patch-package": "6.2.0",
     "prettier": "1.19.1",
-    "prismjs": "1.17.1",
+    "prismjs": "1.18.0",
     "react": "16.12.0",
     "react-dom": "16.12.0",
     "rimraf": "2.6.3",
     "shellcheck": "0.3.0",
     "twing": "2.3.7",
     "twing-loader": "2.0.2",
-    "webpack": "4.41.2"
+    "webpack": "4.41.5"
   },
   "husky": {
     "hooks": {
@@ -114,5 +114,8 @@
   },
   "dependencies": {
     "serialize-javascript": "^2.1.2"
+  },
+  "resolutions": {
+    "istanbul-reports": "^3.0.0"
   }
 }
