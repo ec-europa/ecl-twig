@@ -1,7 +1,9 @@
 const path = require('path');
 
 module.exports = ({ config, mode }) => {
-  config.module.rules[0].exclude = /node_modules\/(?!@ecl-twig\/).*/;
+  // Babel loader is the first rule
+  config.module.rules[0].include.push(path.resolve(__dirname, '../../..'));
+  config.module.rules[0].exclude = /node_modules\/(?![twing|twing-loader|@ecl-twig])/;
 
   config.module.rules.push({
     test: /\.twig$/,

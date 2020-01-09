@@ -37,8 +37,10 @@
   "devDependencies": {
     "@babel/core": "7.7.7",
     "@babel/node": "7.7.7",
+    "@babel/plugin-transform-arrow-functions": "7.7.4",
     "@babel/preset-env": "7.7.7",
     "@babel/preset-react": "7.7.4",
+    "@babel/runtime": "7.7.6",
     "@ecl-twig/data-utils": "file:utils/data-utils",
     "@ecl-twig/php-storybook": "file:php/php_storybook",
     "@ecl-twig/storybook-addon-code": "file:utils/storybook-addon-code",
@@ -50,6 +52,7 @@
     "@storybook/addon-options": "5.2.8",
     "@storybook/addon-viewport": "5.2.8",
     "@storybook/html": "5.2.8",
+    "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "24.9.0",
     "babel-loader": "8.0.6",
     "babel-plugin-preval": "3.0.1",

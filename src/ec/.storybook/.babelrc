@@ -2,12 +2,8 @@
   "presets": [
     [
       "@babel/preset-env",
-      {
-        "shippedProposals": true,
-        "useBuiltIns": "usage",
-        "corejs": 3,
-        "debug": true
-      }
+      { "shippedProposals": true, "useBuiltIns": "usage", "corejs": 3 }
     ]
-  ]
+  ],
+  "plugins": ["@babel/plugin-transform-arrow-functions"]
 }
