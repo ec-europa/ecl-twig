@@ -5,12 +5,14 @@ pipeline:
       - ./scripts/check-lockfile.sh
 
   jest:
+    group: tests
     image: node:dubnium
     commands:
       - yarn install --frozen-lockfile
       - yarn jest
 
   lint:
+    group: tests
     image: node:dubnium
     commands:
       - yarn install --frozen-lockfile
@@ -26,6 +28,7 @@ pipeline:
       - node scripts/set-netlify-deployment-status.js
     when:
       event: push
+      status: [success, failure]
       branch:
         exclude:
           - master
