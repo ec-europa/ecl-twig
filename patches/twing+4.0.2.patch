@@ -1,0 +1,35 @@
+diff --git a/node_modules/twing/dist/cjs/lib/node/module.js b/node_modules/twing/dist/cjs/lib/node/module.js
+index 02b6839..bfa0a8f 100644
+--- a/node_modules/twing/dist/cjs/lib/node/module.js
++++ b/node_modules/twing/dist/cjs/lib/node/module.js
+@@ -36,7 +36,7 @@ class TwingNodeModule extends node_1.TwingNode {
+         let index = this.getAttribute('index');
+         if (index === 0) {
+             compiler
+-                .write('module.exports = (TwingTemplate) => {\n')
++                .write('module.exports = function(TwingTemplate) {\n')
+                 .indent()
+                 .write('return new Map([\n')
+                 .indent();
+diff --git a/node_modules/twing/dist/es/lib/node/module.js b/node_modules/twing/dist/es/lib/node/module.js
+index e1296a9..b510bd6 100644
+--- a/node_modules/twing/dist/es/lib/node/module.js
++++ b/node_modules/twing/dist/es/lib/node/module.js
+@@ -34,7 +34,7 @@ export class TwingNodeModule extends TwingNode {
+         let index = this.getAttribute('index');
+         if (index === 0) {
+             compiler
+-                .write('module.exports = (TwingTemplate) => {\n')
++                .write('module.exports = function (TwingTemplate) {\n')
+                 .indent()
+                 .write('return new Map([\n')
+                 .indent();
+@@ -199,7 +199,7 @@ export class TwingNodeModule extends TwingNode {
+             // if the parent name is not dynamic, then we can cache the parent as it will never change
+             if (parent.getType() === TwingNodeType.EXPRESSION_CONSTANT) {
+                 compiler
+-                    .raw('.then((parent) => {\n')
++                    .raw('.then(function(parent) {\n')
+                     .indent()
+                     .write('this.parent = parent;\n\n')
+                     .write('return parent;\n')

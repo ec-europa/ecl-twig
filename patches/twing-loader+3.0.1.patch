@@ -1,0 +1,48 @@
+diff --git a/node_modules/twing-loader/dist/index.js b/node_modules/twing-loader/dist/index.js
+index 60a94c2..058b133 100644
+--- a/node_modules/twing-loader/dist/index.js
++++ b/node_modules/twing-loader/dist/index.js
+@@ -51,28 +51,31 @@ function default_1(source) {
+         let module = environment.parse(tokenStream);
+         let visitor = new visitor_1.Visitor(loader, resourcePath, getTemplateHash);
+         visitor.visit(module);
++
+         let precompiledTemplate = environment.compile(module);
+-        parts.push(`let templatesModule = (() => {
+-let module = {
+-    exports: undefined
+-};
+ 
+-${precompiledTemplate}
++        parts.push(`var templatesModule = function () {
++            var module = {
++              exports: undefined
++            };
++
++            ${precompiledTemplate} 
++
++            return module.exports;
++          }();`);
+ 
+-    return module.exports;
+-})();
+-`);
+         for (let foundTemplateName of visitor.foundTemplateNames) {
+             // require takes module name separated with forward slashes
+             parts.push(`require('${slash(foundTemplateName)}');`);
+         }
++        
+         parts.push(`env.registerTemplatesModule(templatesModule, '${key}');`);
+         parts.push(`
+-let template = env.loadTemplate('${key}');
++        let template = env.loadTemplate("${key}");
+ 
+-module.exports = (context = {}) => {
+-    return template.render(context);
+-};`);
++        module.exports = function(context = {}) {
++            return template.render(context);
++        };`);
+         return parts.join('\n');
+     }
+     else {
