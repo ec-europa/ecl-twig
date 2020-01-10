@@ -16,6 +16,10 @@ npm install --save @ecl-twig/ec-component-footer-harmonised
   - "content_before" (optional) (string) (default: '')
   - "list_class_name" (optional) (string) (default: '')
   - "links" (optional) (array of Link components) (default: [])
+  - "logos" (optional) (array of images objects) (default: []):
+    "title": (string) (default: '') Title attribute
+    "alt": (string) (default: '') Alternative text
+    "src": (string) (default: '') Url of the image
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
