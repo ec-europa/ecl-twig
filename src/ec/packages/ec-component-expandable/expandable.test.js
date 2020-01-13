@@ -40,7 +40,7 @@ describe('EC - Expandable', () => {
   });
 
   describe('Expanded', () => {
-    const expanded = Object.assign({}, demoData, { expanded: true });
+    const expanded = { ...demoData, expanded: true };
 
     test('renders correctly', () => {
       expect.assertions(1);
