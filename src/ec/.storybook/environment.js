@@ -1,5 +1,6 @@
-const { TwingEnvironment, TwingLoaderFilesystem } = require('twing');
 const path = require('path');
+const { TwingEnvironment, TwingLoaderFilesystem } = require('twing');
+
 const absPath = path.resolve('src/ec/packages');
 const loader = new TwingLoaderFilesystem(absPath);
 

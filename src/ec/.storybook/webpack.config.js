@@ -1,9 +1,8 @@
 const path = require('path');
 
 module.exports = ({ config, mode }) => {
-  // Reset defaults excluding node_modules.
-  // @ecl-twig and other twing-related modules need to be transpiled.
-  config.module.rules[0].exclude = [];
+  // Trick "babel-loader", force it to transpile @ecl-twig addons
+  config.module.rules[0].exclude = /node_modules\/(?!@ecl-twig\/).*/;
 
   config.module.rules.push({
     test: /\.twig$/,
