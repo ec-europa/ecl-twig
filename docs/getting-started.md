@@ -128,13 +128,6 @@ Diff the existing templates in php-storybook
 yarn diff
 ```
 
-Diff a component rendered via php with the ECL markup
-(interactive script that fetches the html from the ECl storybook and matches that with the right variant rendered via php)
-
-```bash
-yarn ecl-diff
-```
-
 ## Dist
 
 Build the dist:
@@ -160,13 +153,13 @@ The following commands are available from the project root: (please ensure data 
 Get dependencies.
 
 ```bash
-yarn setupPhp
+yarn render:setupPhp
 ```
 
 Remove files and folders from previous builds.
 
 ```bash
-yarn clean:php
+yarn clean-php
 ```
 
 Generate data from specification files.

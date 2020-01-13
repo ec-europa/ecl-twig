@@ -12,8 +12,8 @@ const rootFolder = process.cwd();
 const distFolder = `${rootFolder}/php`;
 const systemFolder = `${distFolder}/packages/${system}`;
 const diffOptions = {
-  ignoreAttributes: [],
-  compareAttributesAsJSON: [],
+  ignoreAttributes: false,
+  compareAttributesAsJSON: true,
   ignoreWhitespaces: false,
   ignoreComments: true,
   ignoreEndTags: false,

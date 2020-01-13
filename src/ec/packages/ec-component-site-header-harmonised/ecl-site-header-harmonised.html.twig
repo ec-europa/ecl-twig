@@ -156,7 +156,7 @@
 {% endif %}
 
 {# Print the result #}
-
+{% if group != 'group3' %}
 <header class="{{ _css_class }}"{{ _extra_attributes|raw }}>
   <div class="ecl-site-header-harmonised__container ecl-container">
     <div class="ecl-site-header-harmonised__top">
@@ -171,7 +171,11 @@
           class="ecl-site-header-harmonised__logo-image"
           src="{{ _logo.src }}"
         />
+        {% if site_name is not empty %}
+          <div class="ecl-site-header-harmonised__site-name">{{site_name}}</div>
+        {% endif %}
       </a>
+      
       <div class="ecl-site-header-harmonised__action">
       {% if _login_toggle is not empty and _login_box is not empty %}
         <div class="ecl-site-header-harmonised__login-container">
@@ -325,5 +329,13 @@
   } only %}
 {% endif %}
 </header>
-
+{% else %}
+  <header class="ecl-site-header-harmonised--group3 ecl-site-header-harmonised">
+    <div class="ecl-site-header-harmonised__container ecl-container">
+      <div class="ecl-site-header-harmonised__top"><a class="ecl-link ecl-link--standalone ecl-site-header-harmonised__logo-link" href="{{logo.href}}" aria-label="Site name"><img alt="{{logo.alt}}" title="{{logo.title}}" class="ecl-site-header-harmonised__logo-image" src="{{logo.src}}" /></a>
+        <div class="ecl-site-header-harmonised__site-name">{{site_name}}</div>
+      </div>
+    </div>
+  </header>
+{% endif %}
 {% endspaceless %}

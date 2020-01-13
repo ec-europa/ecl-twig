@@ -2,7 +2,7 @@
 
 {#
   Parameters:
-  - "group" (string) (default: 'group1'): 'group1', 'group2' or 'group3'
+  - "group" (string) (default: 'group1'): 'group1' or 'group2'
   - "sections" (array of objects) (default: []):
     - "title" (optional) (string) OR (object with Link component in property)
     - "title_class_name" (optional) (string) (default: '')
@@ -10,11 +10,6 @@
     - "content_before" (optional) (string) (default: '')
     - "list_class_name" (optional) (string) (default: '')
     - "links" (optional) (array of Link components) (default: []):
-    - "logos" (optional) (array of images objects) (default: []):
-        "title": (string) (default: '') Title attribute
-        "alt": (string) (default: '') Alternative text
-        "src": (string) (default: '') Url of the image
-        "class_name": (string) (default: '') Extra class for the logo
   - "extra_classes" (optional) (string) (default: '') Extra classes (space separated) for the icon
   - "extra_attributes" (optional) (array) (default: []) Extra attributes for icon
     - "name" (string) Attribute name, eg. 'data-test'
@@ -27,8 +22,6 @@
 {% set _sections = sections|default([]) %}
 {% set _css_class = 'ecl-footer-harmonised ecl-footer-harmonised--' ~ _group %}
 {% set _extra_attributes = '' %}
-{% set _section_logos_class_names = 'ecl-footer-harmonised__logo-list' %}
-{% set _logo_class = 'ecl-footer-harmonised__logo' %}
 
 {# Internal logic - Process properties #}
 
@@ -76,28 +69,6 @@
             </div>
         {% endif %}
       {% endif %}
-      {# Logos #}
-      {% if section.logos is defined and section.logos is not empty and section.logos is iterable %}
-        {% if section.list_class_name is defined and section.list_class_name is not empty %}
-          {% set _section_logos_class_names = _section_logos_class_names ~ ' ' ~ section.list_class_name %}
-        {% endif %}
-        <ul class="{{ _section_logos_class_names }}">
-          {% for logo in section.logos %}
-            {% if logo.class_name is defined and logo.class_name is not empty %}
-              {% set _logo_class = _logo_class ~ ' ' ~ logo.class_name %}
-            {% endif %}
-            <li class="ecl-footer-harmonised__logo-item">
-              <img
-                src="{{ logo.src }}"
-                alt="{{ logo.alt }}"
-                title="{{ logo.title }}"
-                class="{{ _logo_class }}"
-              />
-            </li>
-          {% endfor %}
-        </ul>
-      {% endif %}
-
       {# description #}
       {% if section.description is defined and section.description is not empty %}
         <div class="ecl-footer-harmonised__description">{{ section.description|raw }}</div>

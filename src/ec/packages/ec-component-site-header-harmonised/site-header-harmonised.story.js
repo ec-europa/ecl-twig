@@ -8,7 +8,11 @@ import logo from '@ecl/ec-resources-logo/logo--en.svg';
 import siteHeaderHarmonised from './ecl-site-header-harmonised.html.twig';
 import dataGroup1 from './demo/data--group1';
 import dataGroup2 from './demo/data--group2';
+import dataGroup3 from './demo/data--group3';
+
 import notes from './README.md';
+
+console.log(dataGroup3);
 
 storiesOf('Components/Site Headers/Harmonised', module)
   .addDecorator(withNotes)
@@ -44,5 +48,20 @@ storiesOf('Components/Site Headers/Harmonised', module)
       ),
     {
       notes: { markdown: notes, json: dataGroup2 },
+    }
+  )
+  .add(
+    'group 3',
+    () =>
+      siteHeaderHarmonised(
+        merge(dataGroup3, {
+          logo: {
+            src:
+              'https://inno-ecl.s3.amazonaws.com/media/examples/placeholder.svg',
+          },
+        })
+      ),
+    {
+      notes: { markdown: notes },
     }
   );
