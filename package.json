@@ -15,7 +15,7 @@
     "lint:js": "eslint .",
     "lint:bash": "shellcheck **/*.sh",
     "lint": "npm run lint:js",
-    "postinstall": "lerna run postinstall && lerna run prepublish",
+    "postinstall": "lerna run postinstall && lerna run prepublish && patch-package",
     "pretty:check": "prettier --check \"src/**/*.{md,mdx,html,json,yml,js}\"",
     "pretty:fix": "prettier --write \"src/**/*.{md,mdx,html,json,yml,js}\"",
     "pretty:php": "yarn php-html-fix && yarn php-story-fix",
