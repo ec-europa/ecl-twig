@@ -174,6 +174,8 @@ yargsInteractive()
             el = 'text-field';
           } else if (el === 'text-area') {
             el = 'textarea';
+          } else if (el === 'accordion2') {
+            el = 'accordion';
           } else if (el === 'unordered-list' || el === 'description-list') {
             el = 'list';
           } else if (el === 'message') {
