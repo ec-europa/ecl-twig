@@ -87,9 +87,6 @@ foreach ($components as $component) {
           // Get the story template.
           $data_story = file_get_contents(__DIR__ . '/../resources/story-template.txt');
 
-          if (!empty($deprecated_component) || !empty($component_group)) {
-            $component_group = $component_group . '/';
-          }
           // Replace the content with our variables.
           $data_story = str_replace(
             ['#component#', '#componentVariant#', '#phpFileName#', '#deprecated#', '#componentGroup#'],

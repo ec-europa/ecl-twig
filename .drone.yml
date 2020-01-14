@@ -4,6 +4,13 @@ pipeline:
     commands:
       - ./scripts/check-lockfile.sh
 
+  lint:
+    group: tests
+    image: node:dubnium
+    commands:
+      - yarn install --frozen-lockfile
+      - yarn lint && yarn pretty:check
+
   jest:
     group: tests
     image: node:dubnium
@@ -11,12 +18,12 @@ pipeline:
       - yarn install --frozen-lockfile
       - yarn jest
 
-  lint:
-    group: tests
+  check-build:
     image: node:dubnium
-    commands:
-      - yarn install --frozen-lockfile
-      - yarn lint && yarn pretty:check
+    secrets: [gh_token]
+    commands: node scripts/failcheck.js
+    when:
+      status: [ success, failure ]
 
   deploy-preview:
     image: node:dubnium
