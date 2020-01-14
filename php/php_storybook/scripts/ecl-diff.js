@@ -128,7 +128,7 @@ yargsInteractive()
               file
                 .split('.')
                 .slice(1)
-                .join('.') === extension.substr(1)
+                .join('.') === extension.slice(1)
             );
           });
 
@@ -161,7 +161,7 @@ yargsInteractive()
             // Booleans.
           )
           .replace(
-            /(data-ecl-)(?!auto-init)([^= \n\r]+)(="(true|false)")?/g,
+            /(data-ecl-)(?!auto-init)([^\n\r =]+)(="(true|false)")?/g,
             '$1$2="{{true|false}}"'
             // Logo.
           )

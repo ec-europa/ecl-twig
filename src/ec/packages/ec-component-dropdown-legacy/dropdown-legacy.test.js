@@ -11,7 +11,7 @@ describe('EC - Dropdown legacy', () => {
   const render = params => renderTwigFileAsNode(template, params);
 
   describe('Default', () => {
-    const expanded = Object.assign({}, demoData, { expanded: true });
+    const expanded = { ...demoData, expanded: true };
 
     test('renders correctly', () => {
       expect.assertions(1);
