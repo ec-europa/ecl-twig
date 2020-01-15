@@ -52,14 +52,9 @@ storiesOf('Components/Site Headers/Harmonised', module)
     'group 3',
     () =>
       siteHeaderHarmonised(
-        merge(dataGroup3, {
-          logo: {
-            src:
-              'https://inno-ecl.s3.amazonaws.com/media/examples/placeholder.svg',
-          },
-        })
+        merge(dataGroup3, {})
       ),
-    {
-      notes: { markdown: notes },
-    }
+      {
+        notes: { markdown: notes, json: dataGroup3 },
+      }
   );
