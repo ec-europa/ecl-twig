@@ -175,16 +175,15 @@
           class="ecl-site-header-harmonised__logo-image"
           src="{{ _logo.src }}"
         />
-
       </a>
-      {% if _group3 == "group3" and site_name is not empty %}
+      {% if site_name is not empty %}
       <div class="ecl-site-header-harmonised__site-name">{{ site_name }}</div>
-      {% endif %}
-
+       {% endif %}
+      
       {% if _group != 'group3' %}
         <div class="ecl-site-header-harmonised__action">
         {% if _login_toggle is not empty and _login_box is not empty %}
-          <div class="ecl-site-header-harmonised__git login-container">
+          <div class="ecl-site-header-harmonised__login-container">
           {% if _logged %}
             <a
               class="ecl-link ecl-link--standalone ecl-site-header-harmonised__login-toggle"
