@@ -48,13 +48,6 @@ storiesOf('Components/Site Headers/Harmonised', module)
       notes: { markdown: notes, json: dataGroup2 },
     }
   )
-  .add(
-    'group 3',
-    () =>
-      siteHeaderHarmonised(
-        merge(dataGroup3, {})
-      ),
-      {
-        notes: { markdown: notes, json: dataGroup3 },
-      }
-  );
+  .add('group 3', () => siteHeaderHarmonised(dataGroup3), {
+    notes: { markdown: notes, json: dataGroup3 },
+  });

@@ -24,6 +24,9 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly 1`] = `
         />
       </a>
       <div
+        class="ecl-site-header-harmonised__site-name"
+      />
+      <div
         class="ecl-site-header-harmonised__action"
       >
         <div
@@ -1984,6 +1987,9 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly with extra attrib
         />
       </a>
       <div
+        class="ecl-site-header-harmonised__site-name"
+      />
+      <div
         class="ecl-site-header-harmonised__action"
       >
         <div
@@ -3941,6 +3947,9 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly with extra class 
           title="European Commission"
         />
       </a>
+      <div
+        class="ecl-site-header-harmonised__site-name"
+      />
       <div
         class="ecl-site-header-harmonised__action"
       >
@@ -5900,6 +5909,9 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly 1`] = `
         />
       </a>
       <div
+        class="ecl-site-header-harmonised__site-name"
+      />
+      <div
         class="ecl-site-header-harmonised__action"
       >
         <a
@@ -7830,6 +7842,9 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly with extra attrib
         />
       </a>
       <div
+        class="ecl-site-header-harmonised__site-name"
+      />
+      <div
         class="ecl-site-header-harmonised__action"
       >
         <a
@@ -9758,6 +9773,9 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly with extra class 
         />
       </a>
       <div
+        class="ecl-site-header-harmonised__site-name"
+      />
+      <div
         class="ecl-site-header-harmonised__action"
       >
         <a
@@ -11656,6 +11674,107 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly with extra class 
             </li>
           </ul>
         </div>
+      </div>
+    </div>
+  </div>
+</header>
+`;
+
+exports[`EC - Site Header Harmonised Group 3 renders correctly 1`] = `
+<header
+  class="ecl-site-header-harmonised ecl-site-header-harmonised--group3"
+  data-ecl-auto-init="SiteHeaderHarmonised"
+>
+  <div
+    class="ecl-site-header-harmonised__container ecl-container"
+  >
+    <div
+      class="ecl-site-header-harmonised__top"
+    >
+      <a
+        aria-label="Site name"
+        class="ecl-link ecl-link--standalone ecl-site-header-harmonised__logo-link"
+        href="/example"
+      >
+        <img
+          alt="Site logo"
+          class="ecl-site-header-harmonised__logo-image"
+          src="https://inno-ecl.s3.amazonaws.com/media/examples/placeholder.svg"
+          title="Site name"
+        />
+      </a>
+      <div
+        class="ecl-site-header-harmonised__site-name"
+      >
+        Site name
+      </div>
+    </div>
+  </div>
+</header>
+`;
+
+exports[`EC - Site Header Harmonised Group 3 renders correctly with extra class names 1`] = `
+<header
+  class="ecl-site-header-harmonised ecl-site-header-harmonised--group3 custom-class custom-class--test"
+  data-ecl-auto-init="SiteHeaderHarmonised"
+>
+  <div
+    class="ecl-site-header-harmonised__container ecl-container"
+  >
+    <div
+      class="ecl-site-header-harmonised__top"
+    >
+      <a
+        aria-label="Site name"
+        class="ecl-link ecl-link--standalone ecl-site-header-harmonised__logo-link"
+        href="/example"
+      >
+        <img
+          alt="Site logo"
+          class="ecl-site-header-harmonised__logo-image"
+          src="https://inno-ecl.s3.amazonaws.com/media/examples/placeholder.svg"
+          title="Site name"
+        />
+      </a>
+      <div
+        class="ecl-site-header-harmonised__site-name"
+      >
+        Site name
+      </div>
+    </div>
+  </div>
+</header>
+`;
+
+exports[`EC - Site Header Harmonised renders correctly with extra attributes 1`] = `
+<header
+  class="ecl-site-header-harmonised ecl-site-header-harmonised--group3"
+  data-ecl-auto-init="SiteHeaderHarmonised"
+  data-test="data-test-value"
+  data-test-1="data-test-value-1"
+>
+  <div
+    class="ecl-site-header-harmonised__container ecl-container"
+  >
+    <div
+      class="ecl-site-header-harmonised__top"
+    >
+      <a
+        aria-label="Site name"
+        class="ecl-link ecl-link--standalone ecl-site-header-harmonised__logo-link"
+        href="/example"
+      >
+        <img
+          alt="Site logo"
+          class="ecl-site-header-harmonised__logo-image"
+          src="https://inno-ecl.s3.amazonaws.com/media/examples/placeholder.svg"
+          title="Site name"
+        />
+      </a>
+      <div
+        class="ecl-site-header-harmonised__site-name"
+      >
+        Site name
       </div>
     </div>
   </div>
