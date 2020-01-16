@@ -8,6 +8,18 @@ const logger = require('html-differ/lib/logger');
 const puppeteer = require('puppeteer');
 const decode = require('decode-html');
 const yargsInteractive = require('yargs-interactive');
+const { HtmlDiffer } = require('html-differ');
+
+const diffOptions = {
+  ignoreAttributes: ['href'],
+  compareAttributesAsJSON: [],
+  ignoreWhitespaces: true,
+  ignoreComments: true,
+  ignoreEndTags: false,
+  ignoreDuplicateAttributes: false,
+};
+
+const htmlDiffer = new HtmlDiffer(diffOptions);
 let packages = require('../../../../src/ec/.storybook/ec-packages.js').list;
 
 const system = 'ec';
@@ -67,18 +79,6 @@ const options = {
     describe: `Do you confirm the choices you've made?`,
   },
 };
-
-const diffOptions = {
-  ignoreAttributes: ['href'],
-  compareAttributesAsJSON: [],
-  ignoreWhitespaces: true,
-  ignoreComments: true,
-  ignoreEndTags: false,
-  ignoreDuplicateAttributes: false,
-};
-
-var HtmlDiffer = require('html-differ').HtmlDiffer,
-    htmlDiffer = new HtmlDiffer(diffOptions);
 
 yargsInteractive()
   .usage('$0 <command> [args]')
@@ -164,15 +164,9 @@ yargsInteractive()
           )
           // Booleans.
           // Inline attributes.
-          .replace(
-            /(data-ecl-)([^=| ]+) /g,
-            '$1$2="{{true|false}}" '
-          )
+          .replace(/(data-ecl-)([^ =|]+) /g, '$1$2="{{true|false}}" ')
           // Standalone attributes.
-          .replace(
-            /(data-ecl-)([^ |\s]+)(?:="")/g,
-            '$1$2="{{true|false}}"'
-          )
+          .replace(/(data-ecl-)([^\s|]+)=""/g, '$1$2="{{true|false}}"')
           // Logo
           .replace(/\/logo--(en|fr).svg/g, '{{(.*?)logo--(en|fr).*.svg}}');
         // Now we process the story in ECL, we try to retrieve all the stories available
