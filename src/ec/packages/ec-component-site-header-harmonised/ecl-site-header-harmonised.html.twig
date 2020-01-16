@@ -100,10 +100,6 @@
 }
 %}
 
-{% set site_name_wrapper %}
-  <div class="ecl-site-header-harmonised__site-name">{{ site_name }}</div>
-{% endset %}
-
 {# Merge options #}
 
 {% set extra_attributes = [
@@ -179,8 +175,8 @@
           src="{{ _logo.src }}"
         />
       </a>
-      {% if site_name is not empty %}
-        {{ site_name_wrapper }}
+      {% if site_name is not empty and _group == 'group3' %}
+        <div class="ecl-site-header-harmonised__site-name">{{ site_name }}</div>
       {% endif %}
       
       {% if _group != 'group3' %}
