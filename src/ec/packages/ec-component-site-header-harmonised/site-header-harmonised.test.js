@@ -2,6 +2,7 @@ import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
 import dataGroup1 from './demo/data--group1';
 import dataGroup2 from './demo/data--group2';
+import dataGroup3 from './demo/data--group3';
 
 describe('EC - Site Header Harmonised', () => {
   const template =
@@ -9,7 +10,6 @@ describe('EC - Site Header Harmonised', () => {
   const render = params => renderTwigFileAsNode(template, params);
 
   describe('Group 1', () => {
-    dataGroup1.group = 'group1';
     test('renders correctly', () => {
       expect.assertions(1);
       return expect(render(dataGroup1)).resolves.toMatchSnapshot();
@@ -40,7 +40,6 @@ describe('EC - Site Header Harmonised', () => {
   });
 
   describe('Group 2', () => {
-    dataGroup1.group = 'group2';
     test('renders correctly', () => {
       expect.assertions(1);
       return expect(render(dataGroup2)).resolves.toMatchSnapshot();
@@ -68,5 +67,34 @@ describe('EC - Site Header Harmonised', () => {
 
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
     });
+  });
+
+  describe('Group 3', () => {
+    test('renders correctly', () => {
+      expect.assertions(1);
+      return expect(render(dataGroup3)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly with extra class names', () => {
+      expect.assertions(1);
+
+      const withExtraClasses = merge(dataGroup3, {
+        extra_classes: 'custom-class custom-class--test',
+      });
+
+      return expect(render(withExtraClasses)).resolves.toMatchSnapshot();
+    });
+  });
+
+  test('renders correctly with extra attributes', () => {
+    expect.assertions(1);
+    const withExtraAttributes = merge(dataGroup3, {
+      extra_attributes: [
+        { name: 'data-test', value: 'data-test-value' },
+        { name: 'data-test-1', value: 'data-test-value-1' },
+      ],
+    });
+
+    return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
   });
 });
