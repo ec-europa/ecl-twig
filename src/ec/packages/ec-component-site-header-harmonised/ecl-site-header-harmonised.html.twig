@@ -2,13 +2,14 @@
 
 {#
   Parameters:
-    - "group" (string): 'group1' or 'group2'
+    - "group" (string): 'group1', 'group2' or 'group3'
     - "icon_file_path" (string) (default: ''): URL to icons file
     - "banner_top" (string) OR (object with Link component in property): Class name
     - "banner" (string): Site name
     - "logged" (boolean): Whether the user is logged in or not
     - "menu" (boolean): Whether the component includes a menu
-    - "menu_label" (stirng): The menu toggler label
+    - "menu_label" (string): The menu toggler label
+    - "site_name" (string): The site name (only used in group3)
     - "logo" (associative array) (default: predefined structure): Logo image settings. format:
         {
           "title": (string) (default: ''): Logo title attribute.
@@ -102,10 +103,12 @@
 
 {# Merge options #}
 
+{% if group != 'group3' %}
 {% set extra_attributes = [
   { name: 'data-ecl-auto-init', value: 'SiteHeaderHarmonised' }
   ]|merge(extra_attributes|default([]))
 %}
+{% endif %}
 
 {% if logo is defined and logo is not empty %}
   {% set _logo = _logo|merge(logo) %}
@@ -157,7 +160,7 @@
 
 {# Print the result #}
 
-<header class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+<header class="{{ _css_class }}" {{ _extra_attributes|raw }}>
   <div class="ecl-site-header-harmonised__container ecl-container">
     <div class="ecl-site-header-harmonised__top">
       <a
@@ -172,6 +175,10 @@
           src="{{ _logo.src }}"
         />
       </a>
+    {% if site_name is defined and site_name is not empty and _group == 'group3' %}
+      <div class="ecl-site-header-harmonised__site-name">{{ site_name }}</div>
+    {% endif %}
+    {% if _group != 'group3' %}
       <div class="ecl-site-header-harmonised__action">
       {% if _login_toggle is not empty and _login_box is not empty %}
         <div class="ecl-site-header-harmonised__login-container">
@@ -192,7 +199,7 @@
               },
               extra_classes: 'ecl-site-header-harmonised__icon'
             } only %}
-             {{- login_toggle.label_logged -}}
+            {{- login_toggle.label_logged -}}
             {% include '@ecl-twig/ec-component-icon/ecl-icon.html.twig' with {
               icon: {
                 path: _icon_file_path,
@@ -232,7 +239,7 @@
                 name: 'log-in',
                 size: 'm'
               },
-              extra_classes: 'ecl-site-header-harmonised__icon'
+                extra_classes: 'ecl-site-header-harmonised__icon'
             } only %}
             {{- login_toggle.label_not_logged -}}
           </a>
@@ -250,20 +257,20 @@
         {% endif %}
         >
           <span class="ecl-site-header-harmonised__language-icon">
-            {% include '@ecl-twig/ec-component-icon/ecl-icon.html.twig' with {
-              icon: {
-                path: _icon_file_path,
-                type: 'general',
-                name: 'language',
-                size: 'm'
-              },
-              extra_classes: 'ecl-site-header-harmonised__icon'
-            } only %}
+          {% include '@ecl-twig/ec-component-icon/ecl-icon.html.twig' with {
+            icon: {
+              path: _icon_file_path,
+              type: 'general',
+              name: 'language',
+              size: 'm'
+            },
+            extra_classes: 'ecl-site-header-harmonised__icon'
+          } only %}
             <span class="ecl-site-header-harmonised__language-code">{{ _language_selector.code }}</span>
           </span>
-          {{- _language_selector.label -}}
+            {{- _language_selector.label -}}
         </a>
-      {% endif %}
+        {% endif %}
         <div class="ecl-site-header-harmonised__search-container">
         {% if _search_toggle is not empty %}
           <a
@@ -273,23 +280,24 @@
             aria-controls="search-form-id"
             aria-expanded="false"
           >
-          {%- include '@ecl-twig/ec-component-icon/ecl-icon.html.twig' with {
-            icon: {
-              name: 'search',
-              path: _icon_file_path,
-              type: 'general',
-              size: 's',
-              extra_attributes: [
-               { name: 'aria-hidden', value: true }
-              ]
-            }
-          } only -%}
-          {{- _search_toggle.label -}}
+            {%- include '@ecl-twig/ec-component-icon/ecl-icon.html.twig' with {
+              icon: {
+                name: 'search',
+                path: _icon_file_path,
+                type: 'general',
+                size: 's',
+                extra_attributes: [
+                { name: 'aria-hidden', value: true }
+                ]
+              }
+            } only -%}
+            {{- _search_toggle.label -}}
           </a>
-        {% endif %}
+          {% endif %}
           {% include '@ecl-twig/ec-component-search-form/ecl-search-form.html.twig' with _search_form only %}
         </div>
       </div>
+    {% endif %}
     </div>
   </div>
 {% if banner_top is defined and banner_top is not empty %}
