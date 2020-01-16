@@ -13,7 +13,7 @@ const { execSync } = require('child_process');
 
 const eclVersions = execSync('npm view @ecl/ec-component-accordion versions')
   .toString()
-  .replace(/([\s'[]])/g, '')
+  .replace(/([\s'[\]|])/g, '')
   .split(',')
   .reverse();
 
@@ -67,7 +67,7 @@ const options = {
     describe: 'The version of the component you want to make a diff against',
     choices: eclVersions,
     prompt: 'always',
-    default: eclVersions.slice(-1)[0],
+    default: eclVersions[0],
   },
   eclSection: {
     type: 'list',
