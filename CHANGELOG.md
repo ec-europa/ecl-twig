@@ -3,17 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.21.0](https://github.com/ec-europa/ecl-twig/compare/v2.19.0...v2.21.0) (2020-01-16)
+
+
+### Bug Fixes
+
+* **deps:** Updating some deps, using resolutions block to get rid of duplicated version of istanbul-reports ([#276](https://github.com/ec-europa/ecl-twig/issues/276)) ([cf73fad](https://github.com/ec-europa/ecl-twig/commit/cf73fadae024cc40975c3a65a1a8f5ca9802ecd0))
+* **drone:** Attempt to update the status in case of failure in each build step - TWIG-189 ([#277](https://github.com/ec-europa/ecl-twig/issues/277)) ([311f937](https://github.com/ec-europa/ecl-twig/commit/311f937bfdce3c6ffbe859022c82fe62752d8a29))
+* **ec-diff:** accordion2 is named accordion in ECL ([3e75167](https://github.com/ec-europa/ecl-twig/commit/3e75167dd0529e0067192ac13db7a66aa049e5cb))
+* **ecl-assets:** fixing wrong version of the js loaded ([d90b4bf](https://github.com/ec-europa/ecl-twig/commit/d90b4bf6b235f28aadaa862fb42e46fe1ed1d03b))
+* **menu:** href attribute needs quotes - TWIG-187 ([#275](https://github.com/ec-europa/ecl-twig/issues/275)) ([9ff9b16](https://github.com/ec-europa/ecl-twig/commit/9ff9b16d149e2932daf224bbfe7a011ce60d159a))
+* **site-headers:** Icons size reviewed - TWIG_201 ([#282](https://github.com/ec-europa/ecl-twig/issues/282)) ([0f5df24](https://github.com/ec-europa/ecl-twig/commit/0f5df24f9171f1f2d93cc442071f1c08e10f082d))
+
+
+### Features
+
+* **ecl-diff:** Adding command to diff a component against the ECL markup - TWIG-180 ([#270](https://github.com/ec-europa/ecl-twig/issues/270)) ([4a358d8](https://github.com/ec-europa/ecl-twig/commit/4a358d8cc53a731af9613d1bd776394b043a9ac5))
+* **footer-harmonised:** Adding group3 - TWIG-202 ([#281](https://github.com/ec-europa/ecl-twig/issues/281)) ([18a4b02](https://github.com/ec-europa/ecl-twig/commit/18a4b020495d6d3d7e05a256f7c5eb3bc3236289))
+* **php-storybook:** Configuring static version, creating script for deploying to gh pages - TWIG-158 ([#259](https://github.com/ec-europa/ecl-twig/issues/259)) ([61db1c9](https://github.com/ec-europa/ecl-twig/commit/61db1c977aa8df3ba16edd8c51a707ab39aafcd4))
+* **site-header-harmonised:** Adding group3 - TWIG-200 ([#284](https://github.com/ec-europa/ecl-twig/issues/284)) ([63b33b8](https://github.com/ec-europa/ecl-twig/commit/63b33b8c0f7298b54134df794cd2a6744b3e87eb))
+
+
 # [2.19.0](https://github.com/ec-europa/ecl-twig/compare/v2.18.0...v2.19.0) (2019-12-23)
 
 
 ### Bug Fixes
 
+
 * **site-headers:** Add arrow icon to login link - TWIG-183 ([#272](https://github.com/ec-europa/ecl-twig/issues/272)) ([f8343a4](https://github.com/ec-europa/ecl-twig/commit/f8343a4dc03df66f5d0bf38a2ef113d51a23c379))
 * **site-headers:** Logged in dropdown not opening - TWIG-184 ([#273](https://github.com/ec-europa/ecl-twig/issues/273)) ([f921cda](https://github.com/ec-europa/ecl-twig/commit/f921cda83e9c491e33bba5eeeaf7571f60d7c1bb))
 * programmatically setting the status of the drone builds ([#266](https://github.com/ec-europa/ecl-twig/issues/266)) ([d40a55e](https://github.com/ec-europa/ecl-twig/commit/d40a55e12337083f61e6f644e2441a68f9667059))
-
-
-
 
 
 # [2.18.0](https://github.com/ec-europa/ecl-twig/compare/v2.17.3...v2.18.0) (2019-12-16)
@@ -21,11 +40,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
+
 * **deps:** Uprading serialize-javascript to get rid of warning - TWIG-166 ([#264](https://github.com/ec-europa/ecl-twig/issues/264)) ([1b651ee](https://github.com/ec-europa/ecl-twig/commit/1b651ee916204e93a8b25638e0eb487d0a950cc9))
 * **hide-not-ready-components:** Hiding site headers containing a menu - TWIG-161 ([#267](https://github.com/ec-europa/ecl-twig/issues/267)) ([8ab03f3](https://github.com/ec-europa/ecl-twig/commit/8ab03f31b8387251fa6a22056e1730ccf5b9fff9))
 
 
 ### Features
+
 
 * **diff:** Command for diffing components added - TWIG-119 ([#260](https://github.com/ec-europa/ecl-twig/issues/260)) ([8ad18cc](https://github.com/ec-europa/ecl-twig/commit/8ad18ccaba5a0b325c66dec177a40f6a6d211263))
 * **language-list:** Icon removed - TWIG-165 ([#261](https://github.com/ec-europa/ecl-twig/issues/261)) ([faa2a5d](https://github.com/ec-europa/ecl-twig/commit/faa2a5dea84a087cd2ae9326c30e0ebc62fc0666))
