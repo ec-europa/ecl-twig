@@ -4,7 +4,6 @@
 no-param-reassign, no-restricted-syntax, no-await-in-loop */
 
 const fs = require('fs');
-const htmlDiffer = require('html-differ');
 const logger = require('html-differ/lib/logger');
 const puppeteer = require('puppeteer');
 const decode = require('decode-html');
@@ -12,6 +11,7 @@ const yargsInteractive = require('yargs-interactive');
 let packages = require('../../../../src/ec/.storybook/ec-packages.js').list;
 
 const system = 'ec';
+const domain = 'https://ec.europa.eu';
 const rootFolder = process.cwd();
 const distFolder = `${rootFolder}/php`;
 const systemFolder = `${distFolder}/packages/${system}`;
@@ -69,13 +69,16 @@ const options = {
 };
 
 const diffOptions = {
-  ignoreAttributes: ['xlink:href', 'href'],
+  ignoreAttributes: ['href'],
   compareAttributesAsJSON: [],
   ignoreWhitespaces: true,
   ignoreComments: true,
   ignoreEndTags: false,
   ignoreDuplicateAttributes: false,
 };
+
+var HtmlDiffer = require('html-differ').HtmlDiffer,
+    htmlDiffer = new HtmlDiffer(diffOptions);
 
 yargsInteractive()
   .usage('$0 <command> [args]')
@@ -158,13 +161,19 @@ yargsInteractive()
           .replace(
             /xlink:href="\/?icons(-social)?\.svg#/g,
             'xlink:href="{{.*icons.*.svg#}}'
-            // Booleans.
           )
+          // Booleans.
+          // Inline attributes.
           .replace(
-            /(data-ecl-)(?!auto-init)([^\n\r =]+)(="(true|false)")?/g,
-            '$1$2="{{true|false}}"'
-            // Logo.
+            /(data-ecl-)([^=| ]+) /g,
+            '$1$2="{{true|false}}" '
           )
+          // Standalone attributes.
+          .replace(
+            /(data-ecl-)([^ |\s]+)(?:="")/g,
+            '$1$2="{{true|false}}"'
+          )
+          // Logo
           .replace(/\/logo--(en|fr).svg/g, '{{(.*?)logo--(en|fr).*.svg}}');
         // Now we process the story in ECL, we try to retrieve all the stories available
         // and see if any of them matches the requested one, if none does we return the
@@ -222,7 +231,7 @@ yargsInteractive()
         if (eclSubSection !== 'none') {
           eclGluePath = `${eclSection}-${eclSubSection}`;
         }
-        const eclPath = `https://ec.europa.eu/component-library/playground/ec/?path=/story/${eclGluePath}-`;
+        const eclPath = `${domain}/component-library/playground/ec/?path=/story/${eclGluePath}-`;
         const eclFinalUrl = `${eclPath + eclComponent}--${eclStory}`;
         // Puppeteer will go to the url and try to click on the link in the left sidebar
         // to reveal the available stories.
@@ -249,7 +258,7 @@ yargsInteractive()
                 story
               );
               // Try to match the urls found with the one built in this script.
-              if (eclFinalUrl === `https://ec.europa.eu${href}`) {
+              if (eclFinalUrl === `${domain}${href}`) {
                 hrefs = false;
                 break;
               }
