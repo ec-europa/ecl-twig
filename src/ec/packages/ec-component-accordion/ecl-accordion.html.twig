@@ -57,7 +57,7 @@
         <button
           class="ecl-button ecl-button--ghost ecl-accordion__toggle"
           type="button"
-          aria-controls="{{ _item.id }}-content"
+          aria-controls="{{ _item.id }}"
           data-ecl-accordion-toggle
         >
           <span class="ecl-button__container">
@@ -68,7 +68,7 @@
                 name: _item.toggle.icon.name,
                 size: "s"
               },
-              extra_classes: 'ecl-icon ecl-icon--s ecl-button__icon ecl-button__icon--before',
+              extra_classes: 'ecl-button__icon ecl-button__icon--before',
               extra_attributes: [{ name: "data-ecl-icon" }]
             } only %}
 
@@ -82,7 +82,7 @@
       <div
         class="ecl-accordion__content"
         hidden
-        id="{{ _item.id }}-content"
+        id="{{ _item.id }}"
         role="region"
       >
         {%- set _content = _item.content|default('') %}
