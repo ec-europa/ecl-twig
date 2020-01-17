@@ -1,7 +1,9 @@
-const { TwingEnvironment, TwingLoaderFilesystem } = require('twing');
 const path = require('path');
+const { TwingEnvironment, TwingLoaderFilesystem } = require('twing');
+
 const absPath = path.resolve('src/ec/packages');
-let loader = new TwingLoaderFilesystem(absPath);
+const loader = new TwingLoaderFilesystem(absPath);
+
 // In storybook we get this returned as an instance of
 // TWigLoaderNull, we need to avoid processing this.
 if (typeof loader.addPath === 'function') {

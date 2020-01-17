@@ -41,7 +41,7 @@
     // Grouping by deprecated component.
     function deprecatedComponents($component) {
       $deprecated = ['site-header', 'accordion', 'breadcrumb', 'page-header', 'footer'];
-      $deprecated_component = in_array($component, $deprecated) ? 'deprecated' : '';
+      $deprecated_component = in_array($component, $deprecated) ? 'deprecated/' : '';
 
       return $deprecated_component;
     }
@@ -58,7 +58,7 @@
       }
 
       if (!empty($component_family)) {
-        $component_group = str_replace('-' . $component_family, 's', $component);
+        $component_group = str_replace('-' . $component_family, 's', $component) . '/';
       }
 
       // Other groups.

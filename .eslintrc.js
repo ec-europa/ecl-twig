@@ -22,7 +22,7 @@ module.exports = {
       files: '**/demo/*.js',
       rules: {
         'unicorn/filename-case': 'off',
-        'import/no-extraneous-dependencies': 0
+        'import/no-extraneous-dependencies': 0,
       },
     },
     {
