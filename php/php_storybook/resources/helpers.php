@@ -58,7 +58,7 @@
       }
 
       if (!empty($component_family)) {
-        $component_group = str_replace('-' . $component_family, 's', $component) . '/';
+        $component_group = str_replace('-' . $component_family, 's', $component);
       }
 
       // Other groups.
@@ -78,7 +78,7 @@
       }
 
       if (!empty($component_group)) {
-        return $component_group;
+        return $component_group . '/';
       }
     }
     // Retrieves the base component from a variant.
