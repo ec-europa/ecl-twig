@@ -8,6 +8,8 @@ import logo from '@ecl/ec-resources-logo/logo--en.svg';
 import siteHeaderHarmonised from './ecl-site-header-harmonised.html.twig';
 import dataGroup1 from './demo/data--group1';
 import dataGroup2 from './demo/data--group2';
+import dataGroup3 from './demo/data--group3';
+
 import notes from './README.md';
 
 storiesOf('Components/Site Headers/Harmonised', module)
@@ -21,7 +23,6 @@ storiesOf('Components/Site Headers/Harmonised', module)
           logo: {
             src: logo,
           },
-          group: 'group1',
           logged: true,
           icon_file_path: defaultSprite,
         })
@@ -38,11 +39,13 @@ storiesOf('Components/Site Headers/Harmonised', module)
           logo: {
             src: logo,
           },
-          group: 'group2',
           icon_file_path: defaultSprite,
         })
       ),
     {
       notes: { markdown: notes, json: dataGroup2 },
     }
-  );
+  )
+  .add('group 3', () => siteHeaderHarmonised(dataGroup3), {
+    notes: { markdown: notes, json: dataGroup3 },
+  });

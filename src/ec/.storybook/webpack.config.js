@@ -1,7 +1,9 @@
-const webpack = require('webpack');
 const path = require('path');
 
 module.exports = ({ config, mode }) => {
+  // Trick "babel-loader", force it to transpile @ecl-twig addons
+  config.module.rules[0].exclude = /node_modules\/(?!@ecl-twig\/).*/;
+
   config.module.rules.push({
     test: /\.twig$/,
     loader: 'twing-loader',
@@ -9,9 +11,6 @@ module.exports = ({ config, mode }) => {
       environmentModulePath: path.resolve(__dirname + '/environment.js'),
     },
   });
-
-  // Trick "babel-loader", force it to transpile @ecl-twig addons
-  config.module.rules[0].exclude = /node_modules\/(?!@ecl-twig\/).*/;
 
   // Make it less verbose
   if (mode === 'PRODUCTION') {

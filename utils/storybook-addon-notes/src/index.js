@@ -41,19 +41,16 @@ function renderMarkdown(text, options, json) {
     // Ehm, this is the best format we could get.
     let specs = JSON.stringify(json, null, '\n..');
     // We only replace the existing example.s
-    specs = specs.replace(/"([^(")"]+)":/g, '$1:');
+    specs = specs.replace(/"([^"()]+)":/g, '$1:');
     const n = specs.lastIndexOf('}');
     specs = [specs.slice(0, n), '\n', specs.slice(n)].join('');
-    const preTwig = text.substring(0, text.indexOf("twig' with {"));
+    const preTwig = text.slice(0, Math.max(0, text.indexOf("twig' with {")));
     const postTwig = text.split('```').pop();
     // eslint-disable-next-line prefer-template
     text = preTwig + "twig' with \n" + specs + postTwig + ' %}\n```';
   }
 
-  return marked(
-    text,
-    Object.assign({}, marked.defaults, { renderer }, options)
-  );
+  return marked(text, { ...marked.defaults, renderer, ...options });
 }
 
 export const withNotes = makeDecorator({
