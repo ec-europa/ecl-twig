@@ -9,6 +9,13 @@ const puppeteer = require('puppeteer');
 const decode = require('decode-html');
 const yargsInteractive = require('yargs-interactive');
 const { HtmlDiffer } = require('html-differ');
+const { execSync } = require('child_process');
+
+const eclVersions = execSync('npm view @ecl/ec-component-accordion versions')
+  .toString()
+  .replace(/([\s'[\]|])/g, '')
+  .split(',')
+  .reverse();
 
 const diffOptions = {
   ignoreAttributes: ['href'],
@@ -55,6 +62,13 @@ const options = {
     prompt: 'always',
     choices: ['php', 'js'],
   },
+  eclVersion: {
+    type: 'list',
+    describe: 'The version of the component you want to make a diff against',
+    choices: eclVersions,
+    prompt: 'always',
+    default: eclVersions[0],
+  },
   eclSection: {
     type: 'list',
     describe: 'The group the component is associated with in ECL',
@@ -92,6 +106,7 @@ yargsInteractive()
           variant,
           eclSection,
           eclSubSection,
+          eclVersion,
           confirm,
           language,
         } = result;
@@ -100,6 +115,7 @@ yargsInteractive()
           element = element.split('--')[1].replace(extension, '');
           return element;
         };
+
         if (!confirm) {
           console.error('Please run again yarn ecl-diff, then.');
           process.exit(1);
@@ -112,6 +128,8 @@ yargsInteractive()
         } else {
           fileName = component + extension;
         }
+
+        const version = `v${eclVersion}`;
 
         const twigFullPath =
           language === 'php'
@@ -225,7 +243,8 @@ yargsInteractive()
         if (eclSubSection !== 'none') {
           eclGluePath = `${eclSection}-${eclSubSection}`;
         }
-        const eclPath = `${domain}/component-library/playground/ec/?path=/story/${eclGluePath}-`;
+
+        const eclPath = `${domain}/component-library/${version}/playground/ec/?path=/story/${eclGluePath}-`;
         const eclFinalUrl = `${eclPath + eclComponent}--${eclStory}`;
         // Puppeteer will go to the url and try to click on the link in the left sidebar
         // to reveal the available stories.
@@ -272,42 +291,54 @@ yargsInteractive()
           }
         }
         // We are ready to get the html, hopefully of the right story, otherwise we'll tell you.
-        if ((await page.$('button[title="Show HTML"]')) !== null) {
+
+        if (await page.waitForSelector('button[title="Show HTML"]')) {
           // This will reveal the markup container.
           await page.click('button[title="Show HTML"]');
 
-          let eclMarkup = await page.evaluate(
-            el => el.innerHTML,
-            await page.$('code')
-          );
-          // The html we get is enriched by a syntax highlighter.
-          eclMarkup = decode(eclMarkup.replace(/<\/?[^>]+(>|$)/g, ''));
-          eclMarkup = eclMarkup.replace(/^<div>/, '');
-          eclMarkup = eclMarkup.replace(/<\/div>$/, '');
-          // Make the diff against the php rendered files.
-          const diff = htmlDiffer.diffHtml(eclTwigMarkup, eclMarkup);
-          const isEqual = htmlDiffer.isEqual(eclTwigMarkup, eclMarkup);
+          if (await page.waitForSelector('code')) {
+            let eclMarkup = await page.evaluate(
+              el => el.innerHTML,
+              await page.$('code')
+            );
 
-          console.log(
-            `\nComparing ${fileName} with ECL markup from ${eclFinalUrl}:`
-          );
+            // The html we get is enriched by a syntax highlighter.
+            eclMarkup = decode(eclMarkup.replace(/<\/?[^>]+(>|$)/g, ''));
+            eclMarkup = eclMarkup.replace(/^<div>/, '');
+            eclMarkup = eclMarkup.replace(/<\/div>$/, '');
+            // Make the diff against the php rendered files.
+            const diff = htmlDiffer.diffHtml(eclTwigMarkup, eclMarkup);
+            const isEqual = htmlDiffer.isEqual(eclTwigMarkup, eclMarkup);
 
-          let successMsg = false;
-          if (isEqual) {
-            successMsg = '> Perfectly matching!*';
+            console.log(
+              `\nComparing ${fileName} with ECL markup from ${eclFinalUrl}:`
+            );
+
+            let successMsg = false;
+            if (isEqual) {
+              successMsg = '> Perfectly matching!*';
+            } else {
+              logger.logDiffText(diff, { charsAroundDiff: 40 });
+            }
+
+            if (successMsg) {
+              console.log(successMsg);
+            }
+            console.log(
+              `\n* For the diff we use https://www.npmjs.com/package/html-differ, with this conf:`
+            );
+            console.log(diffOptions);
+            // We made it!
+            process.exit(0);
           } else {
-            logger.logDiffText(diff, { charsAroundDiff: 40 });
+            console.error(
+              'Looks like we are not able to retrieve the html for this story...'
+            );
           }
-
-          if (successMsg) {
-            console.log(successMsg);
-          }
-          console.log(
-            `\n* For the diff we use https://www.npmjs.com/package/html-differ, with this conf:`
+        } else {
+          console.error(
+            'Looks like we are not able to retrieve the html for this story...'
           );
-          console.log(diffOptions);
-          // We made it!
-          process.exit(0);
         }
       } catch (error) {
         console.error(error.toString());
