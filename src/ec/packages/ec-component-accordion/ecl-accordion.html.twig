@@ -54,29 +54,18 @@
   {% if _items is not empty %}
     {% for _item in _items %}
       <h{{ _item.level|default(3) }} class="ecl-accordion__title">
-        <button
-          class="ecl-button ecl-button--ghost ecl-accordion__toggle"
-          type="button"
-          aria-controls="{{ _item.id }}"
-          data-ecl-accordion-toggle
-        >
-          <span class="ecl-button__container">
-            {% include '@ecl-twig/ec-component-icon/ecl-icon.html.twig' with {
-              icon: {
-                path: _item.toggle.icon.path,
-                type: "general",
-                name: _item.toggle.icon.name,
-                size: "s"
-              },
-              extra_classes: 'ecl-button__icon ecl-button__icon--before',
-              extra_attributes: [{ name: "data-ecl-icon" }]
-            } only %}
-
-            <span class="ecl-button__label" data-ecl-label="true">
-              {{- _item.toggle.label -}}
-            </span>
-          </span>
-        </button>
+        {% include '@ecl-twig/ec-component-button/ecl-button.html.twig' with {
+          label: _item.toggle.label,
+          variant: 'ghost',
+          type: 'button',
+          icon: _item.toggle.icon,
+          icon_position: 'before',
+          extra_classes: 'ecl-accordion__toggle',
+          extra_attributes: [
+            { name: 'aria-controls', value: _item.id },
+            { name: 'data-ecl-accordion-toggle' },
+          ]
+        } only %}
         
       </h{{ _item.level|default(3) }}>
       <div
