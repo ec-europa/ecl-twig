@@ -13,6 +13,4 @@ const adapter = initialData => {
   return adaptedData;
 };
 
-
-
 export default adapter;
