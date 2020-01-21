@@ -304,8 +304,10 @@ yargsInteractive()
 
             // The html we get is enriched by a syntax highlighter.
             eclMarkup = decode(eclMarkup.replace(/<\/?[^>]+(>|$)/g, ''));
-            eclMarkup = eclMarkup.replace(/^<div>/, '');
-            eclMarkup = eclMarkup.replace(/<\/div>$/, '');
+            eclMarkupMinusDiv = eclMarkup.replace(/^<div>/, '');
+            if (eclMarkupMinusDiv !== eclMarkup) {
+              eclMarkup = eclMarkupMinusDiv.replace(/<\/div>$/, '');
+            }
             // Make the diff against the php rendered files.
             const diff = htmlDiffer.diffHtml(eclTwigMarkup, eclMarkup);
             const isEqual = htmlDiffer.isEqual(eclTwigMarkup, eclMarkup);
