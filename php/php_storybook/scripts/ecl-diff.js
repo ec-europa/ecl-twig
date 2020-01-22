@@ -270,7 +270,6 @@ yargsInteractive()
         if (eclSubSection !== 'none') {
           eclGluePath = `${eclSection}-${eclSubSection}`;
         }
-
         const eclPath = `${domain}/component-library/${version}/playground/ec/?path=/story/${eclGluePath}-`;
         const eclFinalUrl = `${eclPath + eclComponent}--${eclStory}`;
         // Puppeteer will try to reach the requested component variant page.
