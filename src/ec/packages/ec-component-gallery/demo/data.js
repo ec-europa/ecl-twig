@@ -91,4 +91,7 @@ const data = {
   },
 };
 
+data.overlay.download.link.path = '/example';
+data.overlay.share.link.path = '/example';
+
 export default data;
