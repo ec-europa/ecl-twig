@@ -4,14 +4,33 @@
 no-param-reassign, no-restricted-syntax, no-await-in-loop */
 
 const fs = require('fs');
-const htmlDiffer = require('html-differ');
 const logger = require('html-differ/lib/logger');
 const puppeteer = require('puppeteer');
 const decode = require('decode-html');
 const yargsInteractive = require('yargs-interactive');
+const { HtmlDiffer } = require('html-differ');
+const { execSync } = require('child_process');
+
+const eclVersions = execSync('npm view @ecl/ec-component-accordion versions')
+  .toString()
+  .replace(/([\s'[\]|])/g, '')
+  .split(',')
+  .reverse();
+
+const diffOptions = {
+  ignoreAttributes: ['href'],
+  compareAttributesAsJSON: [],
+  ignoreWhitespaces: true,
+  ignoreComments: true,
+  ignoreEndTags: false,
+  ignoreDuplicateAttributes: false,
+};
+
+const htmlDiffer = new HtmlDiffer(diffOptions);
 let packages = require('../../../../src/ec/.storybook/ec-packages.js').list;
 
 const system = 'ec';
+const domain = 'https://ec.europa.eu';
 const rootFolder = process.cwd();
 const distFolder = `${rootFolder}/php`;
 const systemFolder = `${distFolder}/packages/${system}`;
@@ -43,6 +62,13 @@ const options = {
     prompt: 'always',
     choices: ['php', 'js'],
   },
+  eclVersion: {
+    type: 'list',
+    describe: 'The version of the component you want to make a diff against',
+    choices: eclVersions,
+    prompt: 'always',
+    default: eclVersions[0],
+  },
   eclSection: {
     type: 'list',
     describe: 'The group the component is associated with in ECL',
@@ -68,15 +94,6 @@ const options = {
   },
 };
 
-const diffOptions = {
-  ignoreAttributes: ['xlink:href', 'href'],
-  compareAttributesAsJSON: [],
-  ignoreWhitespaces: true,
-  ignoreComments: true,
-  ignoreEndTags: false,
-  ignoreDuplicateAttributes: false,
-};
-
 yargsInteractive()
   .usage('$0 <command> [args]')
   .interactive(options)
@@ -89,6 +106,7 @@ yargsInteractive()
           variant,
           eclSection,
           eclSubSection,
+          eclVersion,
           confirm,
           language,
         } = result;
@@ -97,6 +115,7 @@ yargsInteractive()
           element = element.split('--')[1].replace(extension, '');
           return element;
         };
+
         if (!confirm) {
           console.error('Please run again yarn ecl-diff, then.');
           process.exit(1);
@@ -109,6 +128,8 @@ yargsInteractive()
         } else {
           fileName = component + extension;
         }
+
+        const version = `v${eclVersion}`;
 
         const twigFullPath =
           language === 'php'
@@ -158,13 +179,13 @@ yargsInteractive()
           .replace(
             /xlink:href="\/?icons(-social)?\.svg#/g,
             'xlink:href="{{.*icons.*.svg#}}'
-            // Booleans.
           )
-          .replace(
-            /(data-ecl-)(?!auto-init)([^\n\r =]+)(="(true|false)")?/g,
-            '$1$2="{{true|false}}"'
-            // Logo.
-          )
+          // Booleans.
+          // Inline attributes.
+          .replace(/(data-ecl-)([^ =|]+) /g, '$1$2="{{true|false}}" ')
+          // Standalone attributes.
+          .replace(/(data-ecl-)([^\s|]+)=""/g, '$1$2="{{true|false}}"')
+          // Logo
           .replace(/\/logo--(en|fr).svg/g, '{{(.*?)logo--(en|fr).*.svg}}');
         // Now we process the story in ECL, we try to retrieve all the stories available
         // and see if any of them matches the requested one, if none does we return the
@@ -222,7 +243,8 @@ yargsInteractive()
         if (eclSubSection !== 'none') {
           eclGluePath = `${eclSection}-${eclSubSection}`;
         }
-        const eclPath = `https://ec.europa.eu/component-library/playground/ec/?path=/story/${eclGluePath}-`;
+
+        const eclPath = `${domain}/component-library/${version}/playground/ec/?path=/story/${eclGluePath}-`;
         const eclFinalUrl = `${eclPath + eclComponent}--${eclStory}`;
         // Puppeteer will go to the url and try to click on the link in the left sidebar
         // to reveal the available stories.
@@ -249,7 +271,7 @@ yargsInteractive()
                 story
               );
               // Try to match the urls found with the one built in this script.
-              if (eclFinalUrl === `https://ec.europa.eu${href}`) {
+              if (eclFinalUrl === `${domain}${href}`) {
                 hrefs = false;
                 break;
               }
@@ -269,42 +291,56 @@ yargsInteractive()
           }
         }
         // We are ready to get the html, hopefully of the right story, otherwise we'll tell you.
-        if ((await page.$('button[title="Show HTML"]')) !== null) {
+
+        if (await page.waitForSelector('button[title="Show HTML"]')) {
           // This will reveal the markup container.
           await page.click('button[title="Show HTML"]');
 
-          let eclMarkup = await page.evaluate(
-            el => el.innerHTML,
-            await page.$('code')
-          );
-          // The html we get is enriched by a syntax highlighter.
-          eclMarkup = decode(eclMarkup.replace(/<\/?[^>]+(>|$)/g, ''));
-          eclMarkup = eclMarkup.replace(/^<div>/, '');
-          eclMarkup = eclMarkup.replace(/<\/div>$/, '');
-          // Make the diff against the php rendered files.
-          const diff = htmlDiffer.diffHtml(eclTwigMarkup, eclMarkup);
-          const isEqual = htmlDiffer.isEqual(eclTwigMarkup, eclMarkup);
+          if (await page.waitForSelector('code')) {
+            let eclMarkup = await page.evaluate(
+              el => el.innerHTML,
+              await page.$('code')
+            );
 
-          console.log(
-            `\nComparing ${fileName} with ECL markup from ${eclFinalUrl}:`
-          );
+            // The html we get is enriched by a syntax highlighter.
+            eclMarkup = decode(eclMarkup.replace(/<\/?[^>]+(>|$)/g, ''));
+            const eclMarkupMinusDiv = eclMarkup.replace(/^<div>/, '');
+            if (eclMarkupMinusDiv !== eclMarkup) {
+              eclMarkup = eclMarkupMinusDiv.replace(/<\/div>$/, '');
+            }
+            // Make the diff against the php rendered files.
+            const diff = htmlDiffer.diffHtml(eclTwigMarkup, eclMarkup);
+            const isEqual = htmlDiffer.isEqual(eclTwigMarkup, eclMarkup);
 
-          let successMsg = false;
-          if (isEqual) {
-            successMsg = '> Perfectly matching!*';
+            console.log(
+              `\nComparing ${fileName} with ECL markup from ${eclFinalUrl}:`
+            );
+
+            let successMsg = false;
+            if (isEqual) {
+              successMsg = '> Perfectly matching!*';
+            } else {
+              logger.logDiffText(diff, { charsAroundDiff: 40 });
+            }
+
+            if (successMsg) {
+              console.log(successMsg);
+            }
+            console.log(
+              `\n* For the diff we use https://www.npmjs.com/package/html-differ, with this conf:`
+            );
+            console.log(diffOptions);
+            // We made it!
+            process.exit(0);
           } else {
-            logger.logDiffText(diff, { charsAroundDiff: 40 });
+            console.error(
+              'Looks like we are not able to retrieve the html for this story...'
+            );
           }
-
-          if (successMsg) {
-            console.log(successMsg);
-          }
-          console.log(
-            `\n* For the diff we use https://www.npmjs.com/package/html-differ, with this conf:`
+        } else {
+          console.error(
+            'Looks like we are not able to retrieve the html for this story...'
           );
-          console.log(diffOptions);
-          // We made it!
-          process.exit(0);
         }
       } catch (error) {
         console.error(error.toString());
