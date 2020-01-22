@@ -80,7 +80,15 @@ const options = {
     describe: 'Is the component nested into a sub-section?',
     default: 'none',
     prompt: 'always',
-    choices: ['none', 'forms', 'navigation', 'banners'],
+    choices: [
+      'none',
+      'forms',
+      'navigation',
+      'banners',
+      'page-headers',
+      'site-headers',
+      'footers',
+    ],
   },
   eclStory: {
     type: 'input',
@@ -225,23 +233,23 @@ yargsInteractive()
           } else if (el === 'social-media-share') {
             el = 'socialmediashare';
           } else if (el === 'footer-harmonised') {
-            el = 'footers-harmonised';
+            el = 'harmonised';
           } else if (el === 'footer-core') {
-            el = 'footers-core';
+            el = 'core';
           } else if (el === 'footer-standardised') {
-            el = 'footers-standardised';
+            el = 'standardised';
           } else if (el === 'site-header-standardised') {
-            el = 'site-headers-standardised';
+            el = 'standardised';
           } else if (el === 'site-header-harmonised') {
-            el = 'site-headers-harmonised';
+            el = 'harmonised';
           } else if (el === 'site-header-core') {
-            el = 'site-headers-core';
+            el = 'core';
           } else if (el === 'page-header-core') {
-            el = 'page-headers-core';
+            el = 'core';
           } else if (el === 'page-header-harmonised') {
-            el = 'page-headers-harmonised';
+            el = 'harmonised';
           } else if (el === 'page-header-standardised') {
-            el = 'page-headers-standardised';
+            el = 'standardised';
           } else if (el === 'expandable') {
             el = 'expandables';
           } else if (el === 'inpage-navigation') {
