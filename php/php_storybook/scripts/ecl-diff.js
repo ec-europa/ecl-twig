@@ -243,7 +243,6 @@ yargsInteractive()
         if (eclSubSection !== 'none') {
           eclGluePath = `${eclSection}-${eclSubSection}`;
         }
-
         const eclPath = `${domain}/component-library/${version}/playground/ec/?path=/story/${eclGluePath}-`;
         const eclFinalUrl = `${eclPath + eclComponent}--${eclStory}`;
         // Puppeteer will go to the url and try to click on the link in the left sidebar
@@ -304,8 +303,10 @@ yargsInteractive()
 
             // The html we get is enriched by a syntax highlighter.
             eclMarkup = decode(eclMarkup.replace(/<\/?[^>]+(>|$)/g, ''));
-            eclMarkup = eclMarkup.replace(/^<div>/, '');
-            eclMarkup = eclMarkup.replace(/<\/div>$/, '');
+            const eclMarkupMinusDiv = eclMarkup.replace(/^<div>/, '');
+            if (eclMarkupMinusDiv !== eclMarkup) {
+              eclMarkup = eclMarkupMinusDiv.replace(/<\/div>$/, '');
+            }
             // Make the diff against the php rendered files.
             const diff = htmlDiffer.diffHtml(eclTwigMarkup, eclMarkup);
             const isEqual = htmlDiffer.isEqual(eclTwigMarkup, eclMarkup);

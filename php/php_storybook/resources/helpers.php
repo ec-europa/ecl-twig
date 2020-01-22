@@ -31,10 +31,6 @@
                           </div>
                         </div>';
       }
-      // Not sure the reason why prettier breaks when it finds a closing video tag...
-      if ($component == 'gallery') {
-        $data_html = preg_replace('(<\/video>)', '/>', $data_html);
-      }
 
       return $data_html;
     }
