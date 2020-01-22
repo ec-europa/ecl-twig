@@ -50,7 +50,7 @@
 
 {# Print the result #}
 
-<section class="{{ _css_class }}"{{ _extra_attributes|raw }} data-ecl-gallery>
+<section class="{{ _css_class }}" {{ _extra_attributes|raw }} data-ecl-gallery>
   <ul class="ecl-gallery__list">
     {% for _item in _items %}
       {% include '@ecl-twig/ec-component-gallery/ecl-gallery-item.html.twig' with {
