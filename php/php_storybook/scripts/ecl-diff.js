@@ -250,6 +250,8 @@ yargsInteractive()
             el = 'languagelist';
           } else if (el === 'ordered-list' || el === 'unordered-list') {
             el = 'list';
+          } else if (el === 'page-header') {
+            el = 'pageheader';
           }
 
           return el;
