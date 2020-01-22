@@ -304,7 +304,7 @@ yargsInteractive()
 
             // The html we get is enriched by a syntax highlighter.
             eclMarkup = decode(eclMarkup.replace(/<\/?[^>]+(>|$)/g, ''));
-            eclMarkupMinusDiv = eclMarkup.replace(/^<div>/, '');
+            const eclMarkupMinusDiv = eclMarkup.replace(/^<div>/, '');
             if (eclMarkupMinusDiv !== eclMarkup) {
               eclMarkup = eclMarkupMinusDiv.replace(/<\/div>$/, '');
             }
