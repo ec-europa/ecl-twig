@@ -9,7 +9,7 @@ const adapter = initialData => {
   adaptedData.icon_file_path = '/icons.svg';
   delete adaptedData.label;
   delete adaptedData.items;
-
+  adaptedData.ellipsis_label = 'Click to expand';
   return adaptedData;
 };
 
