@@ -9,7 +9,6 @@ const puppeteer = require('puppeteer');
 const decode = require('decode-html');
 const yargsInteractive = require('yargs-interactive');
 const { HtmlDiffer } = require('html-differ');
-
 const { execSync } = require('child_process');
 
 const eclVersions = execSync('npm view @ecl/ec-component-link versions')
@@ -137,7 +136,6 @@ yargsInteractive()
         }
 
         const version = `v${eclVersion}`;
-
         const twigFullPath =
           language === 'php'
             ? `${systemFolder}/${component}`
@@ -161,6 +159,7 @@ yargsInteractive()
           });
 
           files = files.map(getVariant);
+          // We might have empty items in the array now.
           files = files.filter(item => item);
 
           if (files.length > 0) {
@@ -177,6 +176,10 @@ yargsInteractive()
                 )}`
               );
             }
+          } else {
+            console.error(
+              `Most likely the "${component}" component doesn't have any variant on the twig side and you tried to pass one.`
+            );
           }
 
           process.exit(1);
@@ -245,6 +248,8 @@ yargsInteractive()
             el = 'in-page-navigation';
           } else if (el === 'language-list') {
             el = 'languagelist';
+          } else if (el === 'ordered-list' || el === 'unordered-list') {
+            el = 'list';
           }
 
           return el;
@@ -263,7 +268,7 @@ yargsInteractive()
         const page = await browser.newPage();
         await page.goto(eclFinalUrl, { waitUntil: 'domcontentloaded' });
         // We might be redirected if the url doesn't exist.
-        await page.waitFor(2000);
+        await page.waitFor(5000);
         // If we have been redirected we try to look for the available variants.
         if (page.url() !== eclFinalUrl) {
           // Grouping link.
