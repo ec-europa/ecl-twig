@@ -28,7 +28,7 @@ describe('EC - Select', () => {
 
       return expect(render(optionsWithExtraClasses)).resolves.toMatchSnapshot();
     });
-    
+
     test('renders correctly with extra attributes', () => {
       expect.assertions(1);
 
