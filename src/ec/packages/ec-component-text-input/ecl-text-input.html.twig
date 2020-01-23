@@ -110,7 +110,9 @@
     id="{{ _id }}"
   {% endif %}
     class="{{ _css_class }}"
+  {% if _name is not empty %}
     name="{{ _name }}"
+  {% endif %}
     type="{{ _type }}"
   {% if _disabled %}
     disabled
