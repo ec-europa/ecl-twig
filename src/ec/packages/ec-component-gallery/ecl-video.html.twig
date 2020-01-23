@@ -11,7 +11,7 @@
 {% set _video_sources = _item.video.sources|default({}) %}
 {% set _video_tracks = _item.video.tracks|default({}) %}
 
-<video class="ecl-gallery__image" poster={{ _item.video.poster }}>
+<video class="ecl-gallery__image" poster="{{ _item.video.poster }}">
   {% if _video_sources is defined and _video_sources is not empty and _video_sources is iterable %}
     {% for video in _video_sources %}
       <source src="{{ video.src }}" type="{{ video.type }}">

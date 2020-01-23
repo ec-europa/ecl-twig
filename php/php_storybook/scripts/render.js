@@ -54,10 +54,6 @@ components.forEach(component => {
                 </div>
               </div>`;
     }
-    /* Same problem we have with prettier on the php rendered file */
-    if (componentTemplate === 'gallery') {
-      html = html.replace(/<\/video>/g, '/>');
-    }
 
     fs.writeFile(
       `${systemFolder}/${component}/js/${variant}.js.html`,

@@ -32,7 +32,6 @@ storiesOf('Components/Navigation/Breadcrumbs/Breadcrumb Standardised', module)
       breadcrumb(
         merge(dataLong, {
           icon_file_path: defaultSprite,
-          ellipsis_label: 'Click to expand',
         })
       ),
     {

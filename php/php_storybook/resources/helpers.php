@@ -31,10 +31,6 @@
                           </div>
                         </div>';
       }
-      // Not sure the reason why prettier breaks when it finds a closing video tag...
-      if ($component == 'gallery') {
-        $data_html = preg_replace('(<\/video>)', '/>', $data_html);
-      }
 
       return $data_html;
     }
@@ -58,7 +54,7 @@
       }
 
       if (!empty($component_family)) {
-        $component_group = str_replace('-' . $component_family, 's', $component) . '/';
+        $component_group = str_replace('-' . $component_family, 's', $component);
       }
 
       // Other groups.
@@ -78,7 +74,7 @@
       }
 
       if (!empty($component_group)) {
-        return $component_group;
+        return $component_group . '/';
       }
     }
     // Retrieves the base component from a variant.
