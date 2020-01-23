@@ -9,6 +9,11 @@ exports[`EC - Select Default renders correctly 1`] = `
     for="example-id"
   >
     Select a country
+    <span
+      class="ecl-form-label__required"
+    >
+      *
+    </span>
   </label>
   <div
     class="ecl-help-block"
@@ -21,7 +26,7 @@ exports[`EC - Select Default renders correctly 1`] = `
     <select
       class="ecl-select"
       id="example-id"
-      name="example-name"
+      required=""
     >
       <option
         value="1"
@@ -75,6 +80,11 @@ exports[`EC - Select Disabled renders correctly 1`] = `
     for="example-id"
   >
     Select a country
+    <span
+      class="ecl-form-label__required"
+    >
+      *
+    </span>
   </label>
   <div
     class="ecl-help-block ecl-help-block--disabled"
@@ -88,7 +98,7 @@ exports[`EC - Select Disabled renders correctly 1`] = `
       class="ecl-select"
       disabled=""
       id="example-id"
-      name="example-name"
+      required=""
     >
       <option
         value="1"
@@ -142,6 +152,11 @@ exports[`EC - Select With error renders correctly 1`] = `
     for="example-id"
   >
     Select a country
+    <span
+      class="ecl-form-label__required"
+    >
+      *
+    </span>
   </label>
   <div
     class="ecl-help-block"
@@ -159,7 +174,7 @@ exports[`EC - Select With error renders correctly 1`] = `
     <select
       class="ecl-select ecl-select--invalid"
       id="example-id"
-      name="example-name"
+      required=""
     >
       <option
         value="1"
@@ -213,6 +228,11 @@ exports[`EC - Select With error renders correctly with extra attributes 1`] = `
     for="example-id"
   >
     Select a country
+    <span
+      class="ecl-form-label__required"
+    >
+      *
+    </span>
   </label>
   <div
     class="ecl-help-block"
@@ -232,7 +252,7 @@ exports[`EC - Select With error renders correctly with extra attributes 1`] = `
       data-test="data-test-value"
       data-test-1="data-test-value-1"
       id="example-id"
-      name="example-name"
+      required=""
     >
       <option
         value="1"
@@ -286,6 +306,11 @@ exports[`EC - Select With error renders correctly with extra class names 1`] = `
     for="example-id"
   >
     Select a country
+    <span
+      class="ecl-form-label__required"
+    >
+      *
+    </span>
   </label>
   <div
     class="ecl-help-block"
@@ -303,7 +328,7 @@ exports[`EC - Select With error renders correctly with extra class names 1`] = `
     <select
       class="ecl-select ecl-select--invalid custom-class custom-class--test"
       id="example-id"
-      name="example-name"
+      required=""
     >
       <option
         value="1"

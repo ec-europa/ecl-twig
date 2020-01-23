@@ -9,7 +9,6 @@
   - "disabled" (boolean) (default: false)
   - "invalid" (boolean) (default: false)
   - "required" (boolean) (default: false)
-  - "name" (string) (default: '')
   - "width" (string) (default: '')
   - "icon_path" (string) (default: ''): file containing the svg icons
   - "extra_group_classes" (optional) (string) (default: '') Extra classes (space separated) for the select group
@@ -32,7 +31,6 @@
 {% set _disabled = disabled|default(false) %}
 {% set _invalid = invalid|default(false) %}
 {% set _required = required|default(false) %}
-{% set _name = name|default('') %}
 {% set _icon_path = icon_path|default(false) %}
 {% set _width = width|default('m') %}
 
@@ -112,10 +110,12 @@
     {% if _id %}
       id="{{ _id }}"
     {% endif %}
-      name="{{ _name }}"
       class="{{ _css_class }}"
     {% if _disabled %}
       disabled
+    {% endif %}
+    {% if _required %}
+      required
     {% endif %}
       {{ _extra_attributes|raw }}
     >

@@ -36,11 +36,10 @@ storiesOf('Components/Forms/Select', module)
         optional_text: text('Optional text', '(optional)'),
         width: inputWidthSelect,
         id: 'example-id',
-        name: 'example-name',
         icon_path: defaultSprite,
       });
     },
     {
-      notes: { markdown: notes },
+      notes: { markdown: notes, json: specData },
     }
   );

@@ -15,7 +15,6 @@ npm install --save @ecl-twig/ec-component-select
 - **"disabled"** (boolean) (default: false)
 - **"invalid"** (boolean) (default: false)
 - **"required"** (boolean) (default: false)
-- **"name"** (string) (default: '')
 - **"width"** (string) (default: '') Input width size (s, m or l)
 - **"icon_path"** (string) (default: ''): file containing the svg icons
 - **"extra_group_classes"** (optional) (string) (default: '') Extra classes (space separated) for the select group
@@ -50,7 +49,6 @@ npm install --save @ecl-twig/ec-component-select
   helper_text: 'Help message', 
   disabled: false, 
   id: 'example-id', 
-  name: 'example-name', 
   width: 'm', 
   icon_path: '/static/icons.svg', 
   extra_classes: 'my-extra-class-1 my-extra-class-2', 
