@@ -28,18 +28,26 @@
 {% set _invalid = invalid|default(false) %}
 {% set _checked = checked|default(false) %}
 {% set _helper_id = helper_id|default('') %}
-
 {% set _helper_text = helper_text|default('') %}
 {% set _label = label|default('') %}
-
 {% set _css_class = 'ecl-radio' %}
+{% set _label_css_class = 'ecl-radio__label' %}
+{% set _helper_css_class = 'ecl-help-block ecl-radio__help' %}
+{% set _box_css_class = 'ecl-radio__box' %}
 {% set _extra_attributes = '' %}
 
 {# Internal logic - Process properties #}
 
 {% if _disabled %}
   {% set _css_class = _css_class ~ ' ecl-radio--disabled' %}
+  {% set _label_css_class = _label_css_class ~ ' ecl-radio__label--disabled' %}
+  {% set _helper_css_class = _helper_css_class ~ ' ecl-help-block--disabled' %}
+  {% set _box_css_class = _box_css_class ~ ' ecl-radio__box--disabled' %}
 {% endif %}
+
+{% if _invalid %}
+  {% set _box_css_class = _box_css_class ~ ' ecl-radio__box--invalid' %}
+  {% endif %}
 
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
@@ -57,12 +65,14 @@
 
 {# Print the result #}
 
-<div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+<div class="{{ _css_class }}" {{ _extra_attributes|raw }}>
   <input
   {% if _id %}
      id="{{ _id }}"
    {% endif %}
+  {% if _name is not empty %}
     name="{{ _name }}"
+  {% endif %}
     class="ecl-radio__input"
     type="radio"
     value="{{ _value }}"
@@ -81,20 +91,18 @@
   />
 
   <label
-    class="ecl-radio__label"
+    class="{{ _label_css_class }}"
   {% if _id %}
     for="{{ _id }}"
   {% endif %}
   >
-    <span class="ecl-radio__box
-    {{- _invalid ? " ecl-radio__box--invalid" -}}
-    {{- _disabled ? " ecl-radio__box--disabled" -}}"></span>
+    <span class="{{ _box_css_class }}"></span>
     {%- block label _label|raw -%}
   </label>
 
   {% if _helper_text is not empty %}
     <div
-      class="ecl-help-block ecl-radio__help{{ _disabled ? " ecl-help-block--disabled" }}"
+      class="{{ _helper_css_class }}"
     {% if _helper_id is not empty %}
       id="{{ _helper_id }}"
     {% endif %}

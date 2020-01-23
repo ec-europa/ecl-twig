@@ -5,7 +5,6 @@ import withCode from '@ecl-twig/storybook-addon-code';
 
 import dataDefault from './demo/data--default';
 import dataBinary from './demo/data--binary';
-
 import radioGroup from './ecl-radio-group.html.twig';
 import notes from './README.md';
 
