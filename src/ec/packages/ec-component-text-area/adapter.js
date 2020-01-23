@@ -13,10 +13,14 @@ const adapter = initialData => {
     delete adaptedData.is_disabled;
   }
 
-  adaptedData.helper_text = "This is the input's helper text";
+  adaptedData.helper_text = "This is the input's helper text.";
   adaptedData.optional_text = '(optional)';
-  adaptedData.name = 'example-name';
   adaptedData.label = 'Label';
+  adaptedData.required = true;
+  adaptedData.required_text = '*';
+  adaptedData.optional_text = '(optional)';
+  adaptedData.id = 'example';
+  adaptedData.name = '';
 
   return adaptedData;
 };
