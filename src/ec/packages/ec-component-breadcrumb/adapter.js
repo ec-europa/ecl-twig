@@ -6,7 +6,8 @@ const adapter = initialData => {
   const adaptedData = JSON.parse(JSON.stringify(initialData));
   adaptedData.links = adaptedData.items.map(formatLinkAlt);
   adaptedData.icon_file_path = '/icons.svg';
-  adaptedData.ariaLabel = 'Click to expand';
+  adaptedData.ellipsis_label = 'Click to expand';
+  adaptedData.navigation_text = adaptedData.label;
 
   return adaptedData;
 };

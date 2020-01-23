@@ -65,7 +65,7 @@
 
 {# Print the result #}
 
-<nav class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+<nav class="{{ _css_class }}" {{ _extra_attributes|raw }}>
   <ol class="ecl-breadcrumb__container">
     {% for key, link in links %}
       {% set _breadcrumb_segment_attributes = 'data-ecl-breadcrumb-item="static" aria-hidden="false"' %}
