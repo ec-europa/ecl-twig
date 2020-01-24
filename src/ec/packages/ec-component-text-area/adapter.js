@@ -20,7 +20,6 @@ const adapter = initialData => {
   adaptedData.required_text = '*';
   adaptedData.optional_text = '(optional)';
   adaptedData.id = 'example';
-  adaptedData.name = '';
 
   return adaptedData;
 };
