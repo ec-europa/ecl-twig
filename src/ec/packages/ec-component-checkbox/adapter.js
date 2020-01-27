@@ -23,12 +23,18 @@ const adapter = initialData => {
   adaptedData.helper_text = adaptedData.helperText;
   adaptedData.invalid_text = adaptedData.invalidText;
   adaptedData.legend_id = adaptedData.legendId;
+  adaptedData.label_id = 'checkbox-default-label';
+  adaptedData.label = 'Select your preferred destinations';
+  adaptedData.optional_text = '(optional)';
+  adaptedData.required_text = '*';
   delete adaptedData.helperId;
   delete adaptedData.helperText;
   delete adaptedData.invalidText;
   delete adaptedData.legendId;
 
   adaptedData.items = adaptedData.items.map(formatItem);
+  adaptedData.items[0].checked = true;
+  adaptedData.items[2].disabled = true;
 
   return adaptedData;
 };
