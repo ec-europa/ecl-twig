@@ -22,12 +22,11 @@ storiesOf('Components/Forms/Checkbox', module)
     () =>
       checkboxGroup({
         ...dataDefault,
-        label_id: 'checkbox-default-label',
-        helper_text: text('Help message', dataDefault.helperText),
+        helper_text: text('Help message', dataDefault.helper_text),
         invalid: boolean('Invalid', false),
         invalid_text: text(
           'Error message for the group',
-          dataDefault.invalidText
+          dataDefault.invalid_text
         ),
         label: text('Legend', 'Select your preferred destinations'),
         optional_text: text('Optional text', '(optional)'),

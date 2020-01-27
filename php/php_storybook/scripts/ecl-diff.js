@@ -203,8 +203,9 @@ yargsInteractive()
             'xlink:href="{{.*icons.*.svg#}}'
           )
           // Booleans.
-          // Inline attributes.
           .replace(/(data-ecl[-A-Za-z]+)(?=[\s/>])/g, '$1="{{true|false}}"')
+          // aria-hidden
+          .replace(/(aria-hidden)(=".+")/g, '$1="{{true|false}}"')
           // Logo
           .replace(
             /\/logo--(en|fr|mute).svg/g,
@@ -276,6 +277,7 @@ yargsInteractive()
         const browser = await puppeteer.launch();
         const page = await browser.newPage();
         await page.goto(eclFinalUrl, { waitUntil: 'domcontentloaded' });
+        await page.setViewport({ width: 1900, height: 1600 });
         // We might be redirected if the url doesn't exist.
         await page.waitFor(5000);
         // If we have been redirected we try to look for the available variants.
