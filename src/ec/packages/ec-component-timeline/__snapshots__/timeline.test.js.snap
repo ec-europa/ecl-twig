@@ -2,7 +2,7 @@
 
 exports[`EC - Timeline renders correctly with extra attributes 1`] = `
 <ol
-  class="ecl-timeline2"
+  class="ecl-timeline2 custom-class custom-class--test"
   data-ecl-auto-init="Timeline2"
   data-ecl-timeline=""
   data-test="data-test-value"
@@ -1274,7 +1274,7 @@ exports[`EC - Timeline renders correctly with extra class names 1`] = `
 
 exports[`EC - Timeline renders correctly with hidden items 1`] = `
 <ol
-  class="ecl-timeline2"
+  class="ecl-timeline2 custom-class custom-class--test"
   data-ecl-auto-init="Timeline2"
   data-ecl-timeline=""
 >
@@ -1379,7 +1379,7 @@ exports[`EC - Timeline renders correctly with hidden items 1`] = `
     </div>
   </li>
   <li
-    class="ecl-timeline2__item"
+    class="ecl-timeline2__item ecl-timeline2__item--collapsed"
   >
     <div
       class="ecl-timeline2__label"
@@ -1398,7 +1398,7 @@ exports[`EC - Timeline renders correctly with hidden items 1`] = `
     </div>
   </li>
   <li
-    class="ecl-timeline2__item"
+    class="ecl-timeline2__item ecl-timeline2__item--collapsed"
   >
     <div
       class="ecl-timeline2__label"
@@ -1417,7 +1417,7 @@ exports[`EC - Timeline renders correctly with hidden items 1`] = `
     </div>
   </li>
   <li
-    class="ecl-timeline2__item"
+    class="ecl-timeline2__item ecl-timeline2__item--collapsed"
   >
     <div
       class="ecl-timeline2__label"
@@ -1436,7 +1436,7 @@ exports[`EC - Timeline renders correctly with hidden items 1`] = `
     </div>
   </li>
   <li
-    class="ecl-timeline2__item"
+    class="ecl-timeline2__item ecl-timeline2__item--collapsed"
   >
     <div
       class="ecl-timeline2__label"
@@ -1463,7 +1463,7 @@ exports[`EC - Timeline renders correctly with hidden items 1`] = `
     </div>
   </li>
   <li
-    class="ecl-timeline2__item"
+    class="ecl-timeline2__item ecl-timeline2__item--collapsed"
   >
     <div
       class="ecl-timeline2__label"
@@ -1909,7 +1909,7 @@ exports[`EC - Timeline renders correctly with hidden items 1`] = `
 
 exports[`EC - Timeline renders correctly with hidden items but no items after button 1`] = `
 <ol
-  class="ecl-timeline2"
+  class="ecl-timeline2 custom-class custom-class--test"
   data-ecl-auto-init="Timeline2"
   data-ecl-timeline=""
 >
@@ -2014,7 +2014,7 @@ exports[`EC - Timeline renders correctly with hidden items but no items after bu
     </div>
   </li>
   <li
-    class="ecl-timeline2__item"
+    class="ecl-timeline2__item ecl-timeline2__item--collapsed"
   >
     <div
       class="ecl-timeline2__label"
@@ -2033,7 +2033,7 @@ exports[`EC - Timeline renders correctly with hidden items but no items after bu
     </div>
   </li>
   <li
-    class="ecl-timeline2__item"
+    class="ecl-timeline2__item ecl-timeline2__item--collapsed"
   >
     <div
       class="ecl-timeline2__label"
@@ -2052,7 +2052,7 @@ exports[`EC - Timeline renders correctly with hidden items but no items after bu
     </div>
   </li>
   <li
-    class="ecl-timeline2__item"
+    class="ecl-timeline2__item ecl-timeline2__item--collapsed"
   >
     <div
       class="ecl-timeline2__label"
@@ -2071,7 +2071,7 @@ exports[`EC - Timeline renders correctly with hidden items but no items after bu
     </div>
   </li>
   <li
-    class="ecl-timeline2__item"
+    class="ecl-timeline2__item ecl-timeline2__item--collapsed"
   >
     <div
       class="ecl-timeline2__label"
@@ -2098,7 +2098,7 @@ exports[`EC - Timeline renders correctly with hidden items but no items after bu
     </div>
   </li>
   <li
-    class="ecl-timeline2__item"
+    class="ecl-timeline2__item ecl-timeline2__item--collapsed"
   >
     <div
       class="ecl-timeline2__label"
@@ -2469,7 +2469,39 @@ exports[`EC - Timeline renders correctly with hidden items but no items after bu
     </div>
   </li>
   <li
-    class="ecl-timeline2__item ecl-timeline2__item--collapsed"
+    class="ecl-timeline2__item ecl-timeline2__item--toggle"
+  >
+    <button
+      class="ecl-button ecl-button--secondary ecl-timeline2__toggle"
+      data-ecl-label-collapsed="Show 22 more items"
+      data-ecl-label-expanded="Hide 22 items"
+      data-ecl-timeline-button=""
+      type="button"
+    >
+      <span
+        class="ecl-button__container"
+      >
+        <span
+          class="ecl-button__label"
+          data-ecl-label="true"
+        >
+          Show 22 more items
+        </span>
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-button__icon ecl-button__icon--after"
+          data-ecl-icon=""
+          focusable="false"
+        >
+          <use
+            xlink:href="/icons.svg#ui--corner-arrow"
+          />
+        </svg>
+      </span>
+    </button>
+  </li>
+  <li
+    class="ecl-timeline2__item"
   >
     <div
       class="ecl-timeline2__label"
@@ -2489,7 +2521,7 @@ exports[`EC - Timeline renders correctly with hidden items but no items after bu
     </div>
   </li>
   <li
-    class="ecl-timeline2__item ecl-timeline2__item--collapsed"
+    class="ecl-timeline2__item"
   >
     <div
       class="ecl-timeline2__label"
@@ -2507,44 +2539,12 @@ exports[`EC - Timeline renders correctly with hidden items but no items after bu
       European Council and Euro Summit
     </div>
   </li>
-  <li
-    class="ecl-timeline2__item ecl-timeline2__item--toggle"
-  >
-    <button
-      class="ecl-button ecl-button--secondary ecl-timeline2__toggle"
-      data-ecl-label-collapsed="Show 22 more items"
-      data-ecl-label-expanded="Hide 22 items"
-      data-ecl-timeline-button=""
-      type="button"
-    >
-      <span
-        class="ecl-button__container"
-      >
-        <span
-          class="ecl-button__label"
-          data-ecl-label="true"
-        >
-          Show 22 more items
-        </span>
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-button__icon ecl-button__icon--after"
-          data-ecl-icon=""
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#ui--corner-arrow"
-          />
-        </svg>
-      </span>
-    </button>
-  </li>
 </ol>
 `;
 
 exports[`EC - Timeline renders correctly with positive hide.to 1`] = `
 <ol
-  class="ecl-timeline2"
+  class="ecl-timeline2 custom-class custom-class--test"
   data-ecl-auto-init="Timeline2"
   data-ecl-timeline=""
 >
@@ -2649,7 +2649,7 @@ exports[`EC - Timeline renders correctly with positive hide.to 1`] = `
     </div>
   </li>
   <li
-    class="ecl-timeline2__item"
+    class="ecl-timeline2__item ecl-timeline2__item--collapsed"
   >
     <div
       class="ecl-timeline2__label"
@@ -2668,7 +2668,7 @@ exports[`EC - Timeline renders correctly with positive hide.to 1`] = `
     </div>
   </li>
   <li
-    class="ecl-timeline2__item"
+    class="ecl-timeline2__item ecl-timeline2__item--collapsed"
   >
     <div
       class="ecl-timeline2__label"
@@ -2687,7 +2687,7 @@ exports[`EC - Timeline renders correctly with positive hide.to 1`] = `
     </div>
   </li>
   <li
-    class="ecl-timeline2__item"
+    class="ecl-timeline2__item ecl-timeline2__item--collapsed"
   >
     <div
       class="ecl-timeline2__label"
@@ -2706,7 +2706,7 @@ exports[`EC - Timeline renders correctly with positive hide.to 1`] = `
     </div>
   </li>
   <li
-    class="ecl-timeline2__item"
+    class="ecl-timeline2__item ecl-timeline2__item--collapsed"
   >
     <div
       class="ecl-timeline2__label"
@@ -2733,7 +2733,7 @@ exports[`EC - Timeline renders correctly with positive hide.to 1`] = `
     </div>
   </li>
   <li
-    class="ecl-timeline2__item"
+    class="ecl-timeline2__item ecl-timeline2__item--collapsed"
   >
     <div
       class="ecl-timeline2__label"
@@ -2810,6 +2810,300 @@ exports[`EC - Timeline renders correctly with positive hide.to 1`] = `
     </div>
   </li>
   <li
+    class="ecl-timeline2__item ecl-timeline2__item--collapsed"
+  >
+    <div
+      class="ecl-timeline2__label"
+    >
+      17 May 2018
+    </div>
+    <div
+      class="ecl-timeline2__content"
+    >
+      <a
+        class="ecl-link"
+        href="/example"
+      >
+        EU-Western Balkans Summit
+      </a>
+       (Sofia, Bulgaria)
+    </div>
+  </li>
+  <li
+    class="ecl-timeline2__item ecl-timeline2__item--collapsed"
+  >
+    <div
+      class="ecl-timeline2__label"
+    >
+      23 May 2018
+    </div>
+    <div
+      class="ecl-timeline2__content"
+    >
+      Progress by Member States in meeting the conditions for adopting the euro - 
+      <a
+        class="ecl-link"
+        href="/example"
+      >
+        reports
+      </a>
+       by the European Commission and ECB
+    </div>
+  </li>
+  <li
+    class="ecl-timeline2__item ecl-timeline2__item--collapsed"
+  >
+    <div
+      class="ecl-timeline2__label"
+    >
+      23 May 2018
+    </div>
+    <div
+      class="ecl-timeline2__content"
+    >
+      <a
+        class="ecl-link"
+        href="/example"
+      >
+        European Semester
+      </a>
+      : European Commission publishes economic policy guidance for Member States
+    </div>
+  </li>
+  <li
+    class="ecl-timeline2__item ecl-timeline2__item--collapsed"
+  >
+    <div
+      class="ecl-timeline2__label"
+    >
+      29 May - 14 June 2018
+    </div>
+    <div
+      class="ecl-timeline2__content"
+    >
+      <a
+        class="ecl-link"
+        href="/example"
+      >
+        EU budget for the future
+      </a>
+      : European Commission's legislative proposals for spending programmes
+    </div>
+  </li>
+  <li
+    class="ecl-timeline2__item ecl-timeline2__item--collapsed"
+  >
+    <div
+      class="ecl-timeline2__label"
+    >
+      28-29 June 2018
+    </div>
+    <div
+      class="ecl-timeline2__content"
+    >
+      Commission contribution to the European Council: 
+      <a
+        class="ecl-link"
+        href="/example"
+      >
+        Economic and Monetary Union, migration, EU budget for the future
+      </a>
+    </div>
+  </li>
+  <li
+    class="ecl-timeline2__item ecl-timeline2__item--collapsed"
+  >
+    <div
+      class="ecl-timeline2__label"
+    >
+      10 July 2018
+    </div>
+    <div
+      class="ecl-timeline2__content"
+    >
+      Ways to enhance subsidiarity, proportionality and better regulation in the daily operations of the EU: 
+      <a
+        class="ecl-link"
+        href="/example"
+      >
+        Report
+      </a>
+       by the Task Force chaired by Commission First Vice-President Timmermans
+    </div>
+  </li>
+  <li
+    class="ecl-timeline2__item ecl-timeline2__item--collapsed"
+  >
+    <div
+      class="ecl-timeline2__label"
+    >
+      12 September 2018
+    </div>
+    <div
+      class="ecl-timeline2__content"
+    >
+      <a
+        class="ecl-link"
+        href="/example"
+      >
+        President Juncker's State of the Union speech
+      </a>
+    </div>
+  </li>
+  <li
+    class="ecl-timeline2__item ecl-timeline2__item--collapsed"
+  >
+    <div
+      class="ecl-timeline2__label"
+    >
+      20 September 2018
+    </div>
+    <div
+      class="ecl-timeline2__content"
+    >
+      <a
+        class="ecl-link"
+        href="/example"
+      >
+        Informal European Council/Meeting of EU27 (Salzburg, Austria)
+      </a>
+    </div>
+  </li>
+  <li
+    class="ecl-timeline2__item ecl-timeline2__item--collapsed"
+  >
+    <div
+      class="ecl-timeline2__label"
+    >
+      18 October 2018
+    </div>
+    <div
+      class="ecl-timeline2__content"
+    >
+      <a
+        class="ecl-link"
+        href="/example"
+      >
+        European Council meeting
+      </a>
+      , Brussels
+    </div>
+  </li>
+  <li
+    class="ecl-timeline2__item ecl-timeline2__item--collapsed"
+  >
+    <div
+      class="ecl-timeline2__label"
+    >
+      21 November 2018
+    </div>
+    <div
+      class="ecl-timeline2__content"
+    >
+      <a
+        class="ecl-link"
+        href="/example"
+      >
+        European Semester
+      </a>
+      : setting the economic and social priorities
+    </div>
+  </li>
+  <li
+    class="ecl-timeline2__item ecl-timeline2__item--collapsed"
+  >
+    <div
+      class="ecl-timeline2__label"
+    >
+      28 November 2018
+    </div>
+    <div
+      class="ecl-timeline2__content"
+    >
+      Commission contribution to the European Council on 
+      <a
+        class="ecl-link"
+        href="/example"
+      >
+        Capital Markets Union and Banking Union
+      </a>
+    </div>
+  </li>
+  <li
+    class="ecl-timeline2__item ecl-timeline2__item--collapsed"
+  >
+    <div
+      class="ecl-timeline2__label"
+    >
+      04 December 2018
+    </div>
+    <div
+      class="ecl-timeline2__content"
+    >
+      Commission contribution to the European Council on 
+      <a
+        class="ecl-link"
+        href="/example"
+      >
+        long-term EU budget
+      </a>
+       and 
+      <a
+        class="ecl-link"
+        href="/example"
+      >
+        migration
+      </a>
+    </div>
+  </li>
+  <li
+    class="ecl-timeline2__item ecl-timeline2__item--collapsed"
+  >
+    <div
+      class="ecl-timeline2__label"
+    >
+      05 December 2018
+    </div>
+    <div
+      class="ecl-timeline2__content"
+    >
+      Commission contribution to the European Council on the 
+      <a
+        class="ecl-link"
+        href="/example"
+      >
+        international role of the euro
+      </a>
+       and the 
+      <a
+        class="ecl-link"
+        href="/example"
+      >
+        Action Plan on disinformation
+      </a>
+    </div>
+  </li>
+  <li
+    class="ecl-timeline2__item ecl-timeline2__item--collapsed"
+  >
+    <div
+      class="ecl-timeline2__label"
+    >
+      11 December 2018
+    </div>
+    <div
+      class="ecl-timeline2__content"
+    >
+      Commission contribution to the European Council on the 
+      <a
+        class="ecl-link"
+        href="/example"
+      >
+        Citizens' Dialogues
+      </a>
+    </div>
+  </li>
+  <li
     class="ecl-timeline2__item ecl-timeline2__item--toggle"
   >
     <button
@@ -2840,300 +3134,6 @@ exports[`EC - Timeline renders correctly with positive hide.to 1`] = `
         </svg>
       </span>
     </button>
-  </li>
-  <li
-    class="ecl-timeline2__item"
-  >
-    <div
-      class="ecl-timeline2__label"
-    >
-      17 May 2018
-    </div>
-    <div
-      class="ecl-timeline2__content"
-    >
-      <a
-        class="ecl-link"
-        href="/example"
-      >
-        EU-Western Balkans Summit
-      </a>
-       (Sofia, Bulgaria)
-    </div>
-  </li>
-  <li
-    class="ecl-timeline2__item"
-  >
-    <div
-      class="ecl-timeline2__label"
-    >
-      23 May 2018
-    </div>
-    <div
-      class="ecl-timeline2__content"
-    >
-      Progress by Member States in meeting the conditions for adopting the euro - 
-      <a
-        class="ecl-link"
-        href="/example"
-      >
-        reports
-      </a>
-       by the European Commission and ECB
-    </div>
-  </li>
-  <li
-    class="ecl-timeline2__item"
-  >
-    <div
-      class="ecl-timeline2__label"
-    >
-      23 May 2018
-    </div>
-    <div
-      class="ecl-timeline2__content"
-    >
-      <a
-        class="ecl-link"
-        href="/example"
-      >
-        European Semester
-      </a>
-      : European Commission publishes economic policy guidance for Member States
-    </div>
-  </li>
-  <li
-    class="ecl-timeline2__item"
-  >
-    <div
-      class="ecl-timeline2__label"
-    >
-      29 May - 14 June 2018
-    </div>
-    <div
-      class="ecl-timeline2__content"
-    >
-      <a
-        class="ecl-link"
-        href="/example"
-      >
-        EU budget for the future
-      </a>
-      : European Commission's legislative proposals for spending programmes
-    </div>
-  </li>
-  <li
-    class="ecl-timeline2__item"
-  >
-    <div
-      class="ecl-timeline2__label"
-    >
-      28-29 June 2018
-    </div>
-    <div
-      class="ecl-timeline2__content"
-    >
-      Commission contribution to the European Council: 
-      <a
-        class="ecl-link"
-        href="/example"
-      >
-        Economic and Monetary Union, migration, EU budget for the future
-      </a>
-    </div>
-  </li>
-  <li
-    class="ecl-timeline2__item"
-  >
-    <div
-      class="ecl-timeline2__label"
-    >
-      10 July 2018
-    </div>
-    <div
-      class="ecl-timeline2__content"
-    >
-      Ways to enhance subsidiarity, proportionality and better regulation in the daily operations of the EU: 
-      <a
-        class="ecl-link"
-        href="/example"
-      >
-        Report
-      </a>
-       by the Task Force chaired by Commission First Vice-President Timmermans
-    </div>
-  </li>
-  <li
-    class="ecl-timeline2__item"
-  >
-    <div
-      class="ecl-timeline2__label"
-    >
-      12 September 2018
-    </div>
-    <div
-      class="ecl-timeline2__content"
-    >
-      <a
-        class="ecl-link"
-        href="/example"
-      >
-        President Juncker's State of the Union speech
-      </a>
-    </div>
-  </li>
-  <li
-    class="ecl-timeline2__item"
-  >
-    <div
-      class="ecl-timeline2__label"
-    >
-      20 September 2018
-    </div>
-    <div
-      class="ecl-timeline2__content"
-    >
-      <a
-        class="ecl-link"
-        href="/example"
-      >
-        Informal European Council/Meeting of EU27 (Salzburg, Austria)
-      </a>
-    </div>
-  </li>
-  <li
-    class="ecl-timeline2__item"
-  >
-    <div
-      class="ecl-timeline2__label"
-    >
-      18 October 2018
-    </div>
-    <div
-      class="ecl-timeline2__content"
-    >
-      <a
-        class="ecl-link"
-        href="/example"
-      >
-        European Council meeting
-      </a>
-      , Brussels
-    </div>
-  </li>
-  <li
-    class="ecl-timeline2__item"
-  >
-    <div
-      class="ecl-timeline2__label"
-    >
-      21 November 2018
-    </div>
-    <div
-      class="ecl-timeline2__content"
-    >
-      <a
-        class="ecl-link"
-        href="/example"
-      >
-        European Semester
-      </a>
-      : setting the economic and social priorities
-    </div>
-  </li>
-  <li
-    class="ecl-timeline2__item"
-  >
-    <div
-      class="ecl-timeline2__label"
-    >
-      28 November 2018
-    </div>
-    <div
-      class="ecl-timeline2__content"
-    >
-      Commission contribution to the European Council on 
-      <a
-        class="ecl-link"
-        href="/example"
-      >
-        Capital Markets Union and Banking Union
-      </a>
-    </div>
-  </li>
-  <li
-    class="ecl-timeline2__item"
-  >
-    <div
-      class="ecl-timeline2__label"
-    >
-      04 December 2018
-    </div>
-    <div
-      class="ecl-timeline2__content"
-    >
-      Commission contribution to the European Council on 
-      <a
-        class="ecl-link"
-        href="/example"
-      >
-        long-term EU budget
-      </a>
-       and 
-      <a
-        class="ecl-link"
-        href="/example"
-      >
-        migration
-      </a>
-    </div>
-  </li>
-  <li
-    class="ecl-timeline2__item"
-  >
-    <div
-      class="ecl-timeline2__label"
-    >
-      05 December 2018
-    </div>
-    <div
-      class="ecl-timeline2__content"
-    >
-      Commission contribution to the European Council on the 
-      <a
-        class="ecl-link"
-        href="/example"
-      >
-        international role of the euro
-      </a>
-       and the 
-      <a
-        class="ecl-link"
-        href="/example"
-      >
-        Action Plan on disinformation
-      </a>
-    </div>
-  </li>
-  <li
-    class="ecl-timeline2__item"
-  >
-    <div
-      class="ecl-timeline2__label"
-    >
-      11 December 2018
-    </div>
-    <div
-      class="ecl-timeline2__content"
-    >
-      Commission contribution to the European Council on the 
-      <a
-        class="ecl-link"
-        href="/example"
-      >
-        Citizens' Dialogues
-      </a>
-    </div>
   </li>
   <li
     class="ecl-timeline2__item"
