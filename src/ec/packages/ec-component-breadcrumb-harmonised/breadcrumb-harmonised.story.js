@@ -19,7 +19,6 @@ storiesOf('Components/Navigation/Breadcrumbs/Breadcrumb Harmonised', module)
       breadcrumb(
         merge(dataSimple, {
           icon_file_path: defaultSprite,
-          ellipsis_label: 'Click to expand',
         })
       ),
     {
@@ -32,7 +31,6 @@ storiesOf('Components/Navigation/Breadcrumbs/Breadcrumb Harmonised', module)
       breadcrumb(
         merge(dataLong, {
           icon_file_path: defaultSprite,
-          ellipsis_label: 'Click to expand',
         })
       ),
     {
