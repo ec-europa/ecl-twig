@@ -69,7 +69,7 @@ Parameters:
     {% for _item in _items %}
       {# Decide on per item if it should display. #}
       {% set extra_class = (loop.index > _display_amount and loop.revindex > _bottom_amount) ? ' ecl-timeline2__item--collapsed' : '' %}
-      <li class="ecl-timeline2__item{{ extra_class }}" id="{{ _item.id }}">
+      <li class="ecl-timeline2__item{{ extra_class }}" {% if item.id is not empty %} id="{{ _item.id }}" {% endif %}>
         <div class="ecl-timeline2__label">{{ _item.label }}</div>
         {% if _item.title is not empty %}
         <div class="ecl-timeline2__title">{{ _item.title }}</div>
