@@ -3,9 +3,9 @@ import specs from '@ecl/ec-specs-search-form/demo/data';
 const data = {
   text_input: {
     id: specs.textInputId,
-    name: 'search',
     extra_classes: 'ecl-search-form__text-input',
     label: specs.inputLabel,
+    type: 'search',
   },
   button: {
     variant: 'search',
@@ -13,10 +13,11 @@ const data = {
       type: 'general',
       name: 'search',
       path: '/icons.svg',
-      size: 'fluid',
+      size: 'xs',
     },
     label: specs.buttonLabel,
     extra_classes: 'ecl-search-form__button',
+    extra_attributes: [{ name: 'aria-label', value: 'Search' }],
   },
 };
 
