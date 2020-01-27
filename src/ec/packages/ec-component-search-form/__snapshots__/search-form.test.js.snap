@@ -8,14 +8,20 @@ exports[`EC - Search Form Default renders correctly 1`] = `
   <div
     class="ecl-form-group ecl-form-group--text-input"
   >
+    <label
+      class="ecl-form-label ecl-search-form__label"
+      for="search-input"
+    >
+      Search
+    </label>
     <input
       class="ecl-text-input ecl-text-input--m ecl-search-form__text-input"
-      id="input-email"
-      name="email"
-      type="text"
+      id="search-input"
+      type="search"
     />
   </div>
   <button
+    aria-label="Search"
     class="ecl-button ecl-button--search ecl-search-form__button"
     type="submit"
   >
@@ -30,12 +36,12 @@ exports[`EC - Search Form Default renders correctly 1`] = `
       </span>
       <svg
         aria-hidden="true"
-        class="ecl-icon ecl-icon--fluid ecl-button__icon ecl-button__icon--after"
+        class="ecl-icon ecl-icon--xs ecl-button__icon ecl-button__icon--after"
         data-ecl-icon=""
         focusable="false"
       >
         <use
-          xlink:href="static/icons.svg#general--search"
+          xlink:href="/icons.svg#general--search"
         />
       </svg>
     </span>
@@ -53,14 +59,20 @@ exports[`EC - Search Form Default renders correctly with extra attributes 1`] = 
   <div
     class="ecl-form-group ecl-form-group--text-input"
   >
+    <label
+      class="ecl-form-label ecl-search-form__label"
+      for="search-input"
+    >
+      Search
+    </label>
     <input
       class="ecl-text-input ecl-text-input--m ecl-search-form__text-input"
-      id="input-email"
-      name="email"
-      type="text"
+      id="search-input"
+      type="search"
     />
   </div>
   <button
+    aria-label="Search"
     class="ecl-button ecl-button--search ecl-search-form__button"
     type="submit"
   >
@@ -75,12 +87,12 @@ exports[`EC - Search Form Default renders correctly with extra attributes 1`] = 
       </span>
       <svg
         aria-hidden="true"
-        class="ecl-icon ecl-icon--fluid ecl-button__icon ecl-button__icon--after"
+        class="ecl-icon ecl-icon--xs ecl-button__icon ecl-button__icon--after"
         data-ecl-icon=""
         focusable="false"
       >
         <use
-          xlink:href="static/icons.svg#general--search"
+          xlink:href="/icons.svg#general--search"
         />
       </svg>
     </span>
@@ -96,14 +108,20 @@ exports[`EC - Search Form Default renders correctly with extra class names 1`] =
   <div
     class="ecl-form-group ecl-form-group--text-input"
   >
+    <label
+      class="ecl-form-label ecl-search-form__label"
+      for="search-input"
+    >
+      Search
+    </label>
     <input
       class="ecl-text-input ecl-text-input--m ecl-search-form__text-input"
-      id="input-email"
-      name="email"
-      type="text"
+      id="search-input"
+      type="search"
     />
   </div>
   <button
+    aria-label="Search"
     class="ecl-button ecl-button--search ecl-search-form__button"
     type="submit"
   >
@@ -118,12 +136,12 @@ exports[`EC - Search Form Default renders correctly with extra class names 1`] =
       </span>
       <svg
         aria-hidden="true"
-        class="ecl-icon ecl-icon--fluid ecl-button__icon ecl-button__icon--after"
+        class="ecl-icon ecl-icon--xs ecl-button__icon ecl-button__icon--after"
         data-ecl-icon=""
         focusable="false"
       >
         <use
-          xlink:href="static/icons.svg#general--search"
+          xlink:href="/icons.svg#general--search"
         />
       </svg>
     </span>
@@ -139,14 +157,20 @@ exports[`EC - Search Form Default renders correctly with extra form elements 1`]
   <div
     class="ecl-form-group ecl-form-group--text-input"
   >
+    <label
+      class="ecl-form-label ecl-search-form__label"
+      for="search-input"
+    >
+      Search
+    </label>
     <input
       class="ecl-text-input ecl-text-input--m ecl-search-form__text-input"
-      id="input-email"
-      name="email"
-      type="text"
+      id="search-input"
+      type="search"
     />
   </div>
   <button
+    aria-label="Search"
     class="ecl-button ecl-button--search ecl-search-form__button"
     type="submit"
   >
@@ -161,12 +185,12 @@ exports[`EC - Search Form Default renders correctly with extra form elements 1`]
       </span>
       <svg
         aria-hidden="true"
-        class="ecl-icon ecl-icon--fluid ecl-button__icon ecl-button__icon--after"
+        class="ecl-icon ecl-icon--xs ecl-button__icon ecl-button__icon--after"
         data-ecl-icon=""
         focusable="false"
       >
         <use
-          xlink:href="static/icons.svg#general--search"
+          xlink:href="/icons.svg#general--search"
         />
       </svg>
     </span>

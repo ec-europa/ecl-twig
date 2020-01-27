@@ -34,12 +34,10 @@ storiesOf('Components/Forms/Text field', module)
           required_text: text('Required Text', '*'),
           optional_text: text('Optional text', '(optional)'),
           width: inputWidthSelect,
-          id: 'example-id',
-          name: 'example-name',
         })
       );
     },
     {
-      notes: { markdown: notes },
+      notes: { markdown: notes, json: dataDefault },
     }
   );
