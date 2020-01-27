@@ -1061,6 +1061,11 @@
   resolved "https://registry.yarnpkg.com/@ecl/ec-base/-/ec-base-2.21.0.tgz#457339d6b0f6fcb3d03df7d574f8ba47fcb27643"
   integrity sha512-b+al/zX3TlzfQclb2U+xHF5yrq3+vT5xxXBrPJdGMKGfj+g/YNJO6+KZywwm4VMff7x4EiiA8MCjt0Z9hbu+eQ==
 
+"@ecl/ec-base@^2.22.0":
+  version "2.22.0"
+  resolved "https://registry.yarnpkg.com/@ecl/ec-base/-/ec-base-2.22.0.tgz#8f12d9767564e6b674066452628331e3fc3ab4ba"
+  integrity sha512-1nKkLcbz0q7E1jrcCKDaIW2Xq893WnhstW6SZhocUio9Pwnm+T9JTLeDi9ZaqwFd/fbWJh6Pr4OKHvRPOjOxdg==
+
 "@ecl/ec-component-accordion@2.21.0":
   version "2.21.0"
   resolved "https://registry.yarnpkg.com/@ecl/ec-component-accordion/-/ec-component-accordion-2.21.0.tgz#e5bf88cb3b5b82e85fbd700b34d3c96cb9d0d2a3"
@@ -1219,6 +1224,15 @@
     "@ecl/ec-base" "^2.21.0"
     "@ecl/ec-component-icon" "^2.21.0"
 
+"@ecl/ec-component-form-datepicker@2.22.0":
+  version "2.22.0"
+  resolved "https://registry.yarnpkg.com/@ecl/ec-component-form-datepicker/-/ec-component-form-datepicker-2.22.0.tgz#cf8d906770f415d9db32d0127723aa161e0b7e97"
+  integrity sha512-cThJOk35i7/GYdvbd2u9KztF6K7GFZxPufN+GteQ2qYrqAqD8Hu3I85Be+fYjCU3bhGqvV3FDPzcfIMRnUx5zQ==
+  dependencies:
+    "@ecl/ec-base" "^2.22.0"
+    "@ecl/ec-component-form-text-input" "^2.22.0"
+    pikaday "1.8.0"
+
 "@ecl/ec-component-form-feedback-message@2.21.0":
   version "2.21.0"
   resolved "https://registry.yarnpkg.com/@ecl/ec-component-form-feedback-message/-/ec-component-form-feedback-message-2.21.0.tgz#61a64a394eb5846150c5d55dcaa5d3cde2353e5f"
@@ -1281,6 +1295,13 @@
   integrity sha512-+WB5SZ0Lg/A7DEYl9RaU4ucbXTCjTzDwQwBQq0FYB/Gp+dEtmKkaN13W+LePfZFOJRIH/Iov64jMrjGGwrEPgw==
   dependencies:
     "@ecl/ec-base" "^2.21.0"
+
+"@ecl/ec-component-form-text-input@^2.22.0":
+  version "2.22.0"
+  resolved "https://registry.yarnpkg.com/@ecl/ec-component-form-text-input/-/ec-component-form-text-input-2.22.0.tgz#8ae44fb8b20a39c935fb3fe2919a350e2e47e531"
+  integrity sha512-UimApSvnpY9uXtU0pWHdWsUHX3CPDI7sUHmUpJ3XLcPfBSBS9mDDWnnhfJ4qVBJXd69U0+71NmHACnlnD3RA5g==
+  dependencies:
+    "@ecl/ec-base" "^2.22.0"
 
 "@ecl/ec-component-gallery@2.21.0":
   version "2.21.0"
@@ -1536,6 +1557,11 @@
   resolved "https://registry.yarnpkg.com/@ecl/ec-resources-icons/-/ec-resources-icons-2.21.0.tgz#e9455e5938182e16765c8678642f92be2902be52"
   integrity sha512-/gp6GKfMKkCsRKMKL+Wz4mC1dUdkdeqTYnJDba7ZLLdYgoanCytpjwI4Gt+VopFBMU3v2YkaQs/dBGpevVsxJA==
 
+"@ecl/ec-resources-icons@2.22.0":
+  version "2.22.0"
+  resolved "https://registry.yarnpkg.com/@ecl/ec-resources-icons/-/ec-resources-icons-2.22.0.tgz#a47404fd572a61334a216933d382279418a73d4c"
+  integrity sha512-lw8hnDvaQWuP+9Gnpp+tPf5UVP9NEuTR9D+xeQvZ4OJvgWei3HhZmqFJMC7ZJoAHNBuwb7ssjWobBzm+vefZPw==
+
 "@ecl/ec-resources-logo@2.21.0":
   version "2.21.0"
   resolved "https://registry.yarnpkg.com/@ecl/ec-resources-logo/-/ec-resources-logo-2.21.0.tgz#85e9493fa1965063f1a9f51397f67e17db83dfc2"
@@ -1600,6 +1626,11 @@
   version "2.21.0"
   resolved "https://registry.yarnpkg.com/@ecl/ec-specs-date-block/-/ec-specs-date-block-2.21.0.tgz#ddf238abb785bc85d52c14e4005cea54aeaf026d"
   integrity sha512-4Lbr8Ua4i+azx5BvuQZhbZiZNEfA/3/1psEtSa7BnkhtuWv46rmj2R4mIcOZxH6dh6kLKLD5Ej0ZlrMOb0+OSQ==
+
+"@ecl/ec-specs-datepicker@2.22.0":
+  version "2.22.0"
+  resolved "https://registry.yarnpkg.com/@ecl/ec-specs-datepicker/-/ec-specs-datepicker-2.22.0.tgz#535bbd28c3cffb99c7a82686505deacb3fafc479"
+  integrity sha512-J6nM0x+K4Jnwp+10PRPD9k4Jj/JRF2bB5li4kjJ3L87JjThBLf7UeU9AiSMqhx9ygBVaxAbL8JdybUY6PRmb5g==
 
 "@ecl/ec-specs-description-list@2.21.0":
   version "2.21.0"
@@ -13856,6 +13887,11 @@ pify@^4.0.1:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/pify/-/pify-4.0.1.tgz#4b2cd25c50d598735c50292224fd8c6df41e3231"
   integrity sha512-uB80kBFb/tfd68bVleG9T5GGsGPjJrLAUpR5PZIrhBnIaRTQRjqdJSsIKkOP6OAIFbj7GOrcudc5pNjZ+geV2g==
+
+pikaday@1.8.0:
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/pikaday/-/pikaday-1.8.0.tgz#ce930e257042e852e6aadee1115e01554b2d71c5"
+  integrity sha512-SgGxMYX0NHj9oQnMaSyAipr2gOrbB4Lfs/TJTb6H6hRHs39/5c5VZi73Q8hr53+vWjdn6HzkWcj8Vtl3c9ziaA==
 
 pinkie-promise@^2.0.0:
   version "2.0.1"
