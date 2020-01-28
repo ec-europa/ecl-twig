@@ -1,3 +1,28 @@
+{% spaceless %}
+
+{#
+  Parameters:
+    - "id" (string) (default: '')
+    - "name" (integer) (default: '')
+    - "required" (boolean) (default: false)
+    - "disabled" (boolean) (default: false)
+    - "invalid" (boolean) (default: false)
+    - "required_text" (string) (default: '')
+    - "type" (string) (default: 'text')
+    - "optional_text" (string) (default: '')
+    - "icons_path" (string) (default: '')
+    - "placeholder" (string) (default: 'dd/mm/yyyy')
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (optional) (string)
+        ...
+      ]
+#}
+
+{# Internal properties #}
+
 {% set _css_class = 'ecl-datepicker' %}
 {% set _label_class = 'ecl-form-label' %}
 {% set _helper_class = 'ecl-help-block' %}
@@ -6,13 +31,15 @@
 {% set _id = id|default('') %}
 {% set _name = name|default('') %}
 {% set _type = type|default('text') %}
-{% set _placeholder = placeholder|default('') %}
+{% set _placeholder = placeholder|default('dd/mm/yyyy') %}
 {% set _icons_path = icons_path|default('') %}
 {% set _invalid = invalid|default(false) %}
 {% set _disabled = disabled|default(false) %}
 {% set _required = required|default(false) %}
 {% set _required_text = required_text|default('') %}
 {% set _optional_text = optional_text|default('') %}
+
+{# Internal logic - Process properties #}
 
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
@@ -56,12 +83,12 @@
 {% endif %}
 {% if helper_text is not empty %}
   <div class="{{ _helper_class }}">
-    {{- helper_text -}}
+    {{- helper_text|raw -}}
   </div>
 {% endif %}
 {% if _invalid and _invalid_text is not empty %}
   <div class="ecl-feedback-message">
-    {{- invalid_text -}}
+    {{- invalid_text|raw -}}
   </div>
 {% endif %}
   <div
@@ -88,7 +115,7 @@
       required
     {% endif %}
     {% if _placeholder is not empty %}
-      placeholder="{{ _placeholder }}"
+      placeholder="{{ _placeholder|raw }}"
     {% endif %}
     />
   {% if _icons_path is not empty %}
@@ -104,4 +131,4 @@
   </div>
 </div>
 
-
+{% endspaceless %}

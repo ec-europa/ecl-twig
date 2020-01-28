@@ -19,6 +19,7 @@ npm install --save @ecl-twig/ec-component-datepicker
 - **"type"**: (string) (default: 'text')
 - **"name"** (string) (default: '')
 - **"icons_path"**: (string) (default: '')
+- **"placeholder"**: (string) (default: 'dd/mm/yyyy')
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
@@ -27,7 +28,7 @@ npm install --save @ecl-twig/ec-component-datepicker
 ### Example:
 
 <!-- prettier-ignore -->
-```twig
+```twig 
 {% include '@ecl-twig/ec-component-datepicker/ecl-datepicker.html.twig' with { 
   helper_text: 'an helper text', 
   invalid_text: 'an invalid text', 
@@ -37,5 +38,5 @@ npm install --save @ecl-twig/ec-component-datepicker
   required: true, 
   type: 'text', 
   icons_path: '/icons.svg', 
-} %}
+} %} 
 ```
