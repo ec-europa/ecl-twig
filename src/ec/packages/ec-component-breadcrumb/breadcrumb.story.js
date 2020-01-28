@@ -4,7 +4,7 @@ import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
 
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
-import dataSimple from './demo/data-simple';
+import dataSimple from './demo/data--simple';
 import dataLong from './demo/data';
 
 import breadcrumb from './ecl-breadcrumb.html.twig';
