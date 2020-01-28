@@ -2,9 +2,10 @@ import { storiesOf } from '@storybook/html';
 import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
+import merge from 'deepmerge';
 
-import specData from '@ecl/ec-specs-select/demo/data';
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
+import specData from './demo/data';
 
 import selectBox from './ecl-select.html.twig';
 import notes from './README.md';
@@ -24,20 +25,20 @@ storiesOf('Components/Forms/Select', module)
     () => {
       const inputWidthSelect = select('Width', inputWidthOptions, 'm');
 
-      return selectBox({
-        label: text('Label', specData.label),
-        options: specData.options,
-        invalid: boolean('Invalid', false),
-        invalid_text: text('Invalid text', 'This is the error message'),
-        helper_text: text('Help message', "This is the input's helper text."),
-        disabled: boolean('Disabled', false),
-        required: boolean('Required', false),
-        required_text: text('Required Text', '*'),
-        optional_text: text('Optional text', '(optional)'),
-        width: inputWidthSelect,
-        id: 'example-id',
-        icon_path: defaultSprite,
-      });
+      return selectBox(
+        merge(specData, {
+          label: text('Label', specData.label),
+          invalid: boolean('Invalid', false),
+          invalid_text: text('Invalid text', specData.invalid_text),
+          helper_text: text('Help message', specData.helper_text),
+          disabled: boolean('Disabled', false),
+          required: boolean('Required', specData.required),
+          required_text: text('Required Text', specData.required_text),
+          optional_text: text('Optional text', specData.optional_text),
+          width: inputWidthSelect,
+          icon_path: defaultSprite,
+        })
+      );
     },
     {
       notes: { markdown: notes, json: specData },
