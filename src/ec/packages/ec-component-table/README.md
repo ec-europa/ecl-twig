@@ -47,7 +47,7 @@ npm install --save @ecl-twig/ec-component-table
   rows: [
   [
     extra_classes: 'an-extra-class',
-    extra_attributes: 'an-extra-attribute',
+    extra_attributes: 'an-extra-attribute="with_a_value", another-attribute',
     { label: 'John', 'data-ecl-table-header': 'Name' },
     {
       label: 'September 14, 2013',
