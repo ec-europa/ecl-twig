@@ -8,6 +8,17 @@ describe('EC - Table', () => {
   const template = '@ecl-twig/ec-component-table/ecl-table.html.twig';
   const render = params => renderTwigFileAsNode(template, params);
 
+  describe('Zebra', () => {
+    test('renders correctly', () => {
+      expect.assertions(1);
+      const data = merge(dataDefault, {
+        zebra: true,
+      });
+
+      return expect(render(data)).resolves.toMatchSnapshot();
+    });
+  });
+
   describe('Default', () => {
     test('renders correctly', () => {
       expect.assertions(1);
@@ -37,13 +48,27 @@ describe('EC - Table', () => {
 
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
     });
-  });
 
-  describe('Zebra', () => {
-    test('renders correctly', () => {
+    test('renders correctly with row extra attributes', () => {
       expect.assertions(1);
-      dataDefault.zebra = true;
-      return expect(render(dataDefault)).resolves.toMatchSnapshot();
+
+      const withRowExtraAttributes = dataDefault;
+      withRowExtraAttributes.rows.forEach(row => {
+        row.extra_attributes = 'data-test data-test-another'; // eslint-disable-line no-param-reassign
+      });
+
+      return expect(render(withRowExtraAttributes)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly with row extra classes', () => {
+      expect.assertions(1);
+
+      const withRowExtraClasses = dataDefault;
+      withRowExtraClasses.rows.forEach(row => {
+        row.extra_classes = 'row-extra-class'; // eslint-disable-line no-param-reassign
+      });
+
+      return expect(render(withRowExtraClasses)).resolves.toMatchSnapshot();
     });
   });
 
