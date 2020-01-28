@@ -109,11 +109,16 @@
     {{- ' ecl-select__container--' ~ _width }}"
   >
     <select
+      class="{{ _css_class }}"
     {% if _id %}
       id="{{ _id }}"
     {% endif %}
+    {% if _name is not empty %}
       name="{{ _name }}"
-      class="{{ _css_class }}"
+    {% endif %}
+    {% if _required %}
+      required
+    {% endif %}
     {% if _disabled %}
       disabled
     {% endif %}

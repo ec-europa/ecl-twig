@@ -21,11 +21,16 @@ const adapter = initialData => {
   adaptedData.helper_id = adaptedData.helperId;
   adaptedData.helper_text = adaptedData.helperText;
   adaptedData.invalid_text = adaptedData.invalidText;
-  adaptedData.legend_id = adaptedData.legendId;
+  adaptedData.helper_id = 'helper-id-1';
+  adaptedData.label = adaptedData.legend;
+  adaptedData.optional_text = '(optional)';
+  adaptedData.required_text = '*';
+  adaptedData.name = 'radio-group-1';
+  adaptedData.required = true;
+
   delete adaptedData.helperId;
   delete adaptedData.helperText;
   delete adaptedData.invalidText;
-  delete adaptedData.legendId;
 
   adaptedData.items = adaptedData.items.map(formatItem);
 
