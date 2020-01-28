@@ -73,7 +73,7 @@ const options = {
   eclSection: {
     type: 'list',
     describe: 'The group the component is associated with in ECL',
-    choices: ['components', 'page-structure'],
+    choices: ['components', 'page-structure', 'deprecated'],
   },
   eclSubSection: {
     type: 'list',
@@ -262,9 +262,16 @@ yargsInteractive()
           } else if (el === 'page-header') {
             el = 'pageheader';
           }
+          if (eclVersion > "2.21.0") {
+            if (el === 'footer') {
+              el = 'footer-ecl-2-12-0';
+            }
+          }
 
           return el;
         };
+
+
 
         const eclComponent = eclComponents(component);
         let eclGluePath = eclSection;
