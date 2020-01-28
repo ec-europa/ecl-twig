@@ -17,16 +17,16 @@ storiesOf('Components/Forms/Radio', module)
     () =>
       radioGroup({
         ...dataDefault,
-        label: text('Label', 'Select your country'),
-        helper_text: text('Help message', dataDefault.helperText),
+        label: text('Label', dataDefault.label),
+        helper_text: text('Help message', dataDefault.helper_text),
         invalid: boolean('Invalid', false),
         invalid_text: text(
           'Error message for the group',
           dataDefault.invalid_text
         ),
-        optional_text: text('Optional text', '(optional)'),
-        required: boolean('Required', false),
-        required_text: text('Required text', '*'),
+        optional_text: text('Optional text', dataDefault.optional_text),
+        required: boolean('Required', dataDefault.required),
+        required_text: text('Required text', dataDefault.required_text),
       }),
     {
       notes: { markdown: notes, json: dataDefault },
@@ -37,16 +37,16 @@ storiesOf('Components/Forms/Radio', module)
     () =>
       radioGroup({
         ...dataBinary,
-        label: text('Label', 'Select your country'),
-        helper_text: text('Help message', dataBinary.helperText),
+        label: text('Label', dataDefault.label),
+        helper_text: text('Help message', dataBinary.helper_text),
         invalid: boolean('Invalid', false),
         invalid_text: text(
           'Error message for the group',
           dataDefault.invalid_text
         ),
-        optional_text: text('Optional text', '(optional)'),
-        required: boolean('Required', false),
-        required_text: text('Required text', '*'),
+        optional_text: text('Optional text', dataDefault.optional_text),
+        required: boolean('Required', dataDefault.required),
+        required_text: text('Required text', dataDefault.required_text),
       }),
     {
       notes: { markdown: notes, json: dataBinary },
