@@ -25,8 +25,8 @@ Parameters:
 {% set _extra_attributes = 'data-ecl-auto-init="Timeline2" data-ecl-timeline' %}
 {% set _items = items|default([]) %}
 {% set _icon_path = icon_path|default('') %}
-{% set _toggle_collapsed = toggleCollapsed|default('') %}
-{% set _toggle_expanded = toggleExpanded|default('') %}
+{% set _toggle_collapsed = toggle_collapsed|default('') %}
+{% set _toggle_expanded = toggle_expanded|default('') %}
 {% set _hide_from = hide.from|default(items|length) %}
 {% set _hide_to = hide.to|default(items|length) %}
 
@@ -62,7 +62,6 @@ Parameters:
 {% endif %}
 
 {# Print the result #}
-
 <ol class="{{ _css_class }}"{{ _extra_attributes|raw }}>
   {% if _items is not empty %}
     {% for _item in _items %}
