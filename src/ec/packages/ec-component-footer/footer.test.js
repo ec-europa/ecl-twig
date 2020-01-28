@@ -1,23 +1,22 @@
 import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
-
-import { backToTop, identity, sections, common } from './demo/data';
+import dataCustom from './demo/data--custom';
+import dataCorporate from './demo/data--corporate';
 
 describe('EC - Footer', () => {
   const template = '@ecl-twig/ec-component-footer/ecl-footer.html.twig';
   const render = params => renderTwigFileAsNode(template, params);
 
   describe('Corporate', () => {
-    const options = { back_to_top: backToTop, sections, common };
-
     test('renders correctly', () => {
       expect.assertions(1);
-      return expect(render(options)).resolves.toMatchSnapshot();
+      
+      return expect(render(dataCorporate)).resolves.toMatchSnapshot();
     });
 
     test('renders correctly with extra class names', () => {
       expect.assertions(1);
 
-      const withExtraClasses = merge(options, {
+      const withExtraClasses = merge(dataCorporate, {
         extra_classes: 'custom-class custom-class--test',
       });
 
@@ -27,7 +26,7 @@ describe('EC - Footer', () => {
     test('renders correctly with extra attributes', () => {
       expect.assertions(1);
 
-      const withExtraAttributes = merge(options, {
+      const withExtraAttributes = merge(dataCorporate, {
         extra_attributes: [
           { name: 'data-test', value: 'data-test-value' },
           { name: 'data-test-1', value: 'data-test-value-1' },
@@ -39,17 +38,16 @@ describe('EC - Footer', () => {
   });
 
   describe('Custom', () => {
-    const options = { back_to_top: backToTop, identity, sections, common };
-
     test('renders correctly', () => {
       expect.assertions(1);
-      return expect(render(options)).resolves.toMatchSnapshot();
+
+      return expect(render(dataCustom)).resolves.toMatchSnapshot();
     });
 
     test('renders correctly with extra class names', () => {
       expect.assertions(1);
 
-      const withExtraClasses = merge(options, {
+      const withExtraClasses = merge(dataCustom, {
         extra_classes: 'custom-class custom-class--test',
       });
 
@@ -59,7 +57,7 @@ describe('EC - Footer', () => {
     test('renders correctly with extra attributes', () => {
       expect.assertions(1);
 
-      const withExtraAttributes = merge(options, {
+      const withExtraAttributes = merge(dataCustom, {
         extra_attributes: [
           { name: 'data-test', value: 'data-test-value' },
           { name: 'data-test-1', value: 'data-test-value-1' },
