@@ -22,11 +22,11 @@ Parameters:
 {# Internal properties #}
 
 {% set _css_class = 'ecl-timeline2' %}
-{% set _extra_attributes = 'data-ecl-auto-init="Timeline2"' %}
+{% set _extra_attributes = 'data-ecl-auto-init="Timeline2" data-ecl-timeline' %}
 {% set _items = items|default([]) %}
 {% set _icon_path = icon_path|default('') %}
-{% set _toggle_collapsed = toggleCollapsed|default('') %}
-{% set _toggle_expanded = toggleExpanded|default('') %}
+{% set _toggle_collapsed = toggle_collapsed|default('') %}
+{% set _toggle_expanded = toggle_expanded|default('') %}
 {% set _hide_from = hide.from|default(items|length) %}
 {% set _hide_to = hide.to|default(items|length) %}
 
@@ -62,16 +62,18 @@ Parameters:
 {% endif %}
 
 {# Print the result #}
-
-<ol class="{{ _css_class }}"{{ _extra_attributes|raw }}
-    data-ecl-timeline>
+<ol class="{{ _css_class }}"{{ _extra_attributes|raw }}>
   {% if _items is not empty %}
     {% for _item in _items %}
       {# Decide on per item if it should display. #}
       {% set extra_class = (loop.index > _display_amount and loop.revindex > _bottom_amount) ? ' ecl-timeline2__item--collapsed' : '' %}
-      <li class="ecl-timeline2__item{{ extra_class }}" id="{{ _item.id }}">
+      <li
+      class="ecl-timeline2__item{{ extra_class }}"
+        {% if _item.id is defined and _item.id is not empty %}
+          id="{{ _item.id }}"
+        {% endif %}>
         <div class="ecl-timeline2__label">{{ _item.label }}</div>
-        {% if _item.title is not empty %}
+        {% if _item.title is defined and _item.title is not empty %}
         <div class="ecl-timeline2__title">{{ _item.title }}</div>
         {% endif %}
         <div class="ecl-timeline2__content">{{ _item.content|default('')|raw }}</div>
@@ -80,7 +82,7 @@ Parameters:
       {% if (_hide_amount > 0 and loop.revindex == _bottom_amount + 1) or (_hide_amount > 0 and _hide_to == 0 and loop.revindex == 1) %}
         <li class="ecl-timeline2__item ecl-timeline2__item--toggle">
           {% include '@ecl-twig/ec-component-button/ecl-button.html.twig' with {
-            label: toggle_collapsed,
+            label: _toggle_collapsed,
             variant: 'secondary',
             type: 'button',
             icon: {
@@ -94,8 +96,8 @@ Parameters:
             extra_classes: 'ecl-timeline2__toggle',
             extra_attributes: [
               {name: 'data-ecl-timeline-button'},
-              {name: 'data-ecl-label-collapsed', value: toggle_collapsed},
-              {name: 'data-ecl-label-expanded', value: toggle_expanded},
+              {name: 'data-ecl-label-collapsed', value: _toggle_collapsed},
+              {name: 'data-ecl-label-expanded', value: _toggle_expanded},
             ],
           } only %}
         </li>
