@@ -262,16 +262,17 @@ yargsInteractive()
           } else if (el === 'page-header') {
             el = 'pageheader';
           }
-          if (eclVersion > "2.21.0") {
+          if (eclVersion > '2.21.0') {
             if (el === 'footer') {
               el = 'footer-ecl-2-12-0';
+            }
+            if (el === 'accordion') {
+              el = 'accordion-ecl-2-6-0';
             }
           }
 
           return el;
         };
-
-
 
         const eclComponent = eclComponents(component);
         let eclGluePath = eclSection;
