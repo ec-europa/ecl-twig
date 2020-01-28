@@ -9,7 +9,7 @@ describe('EC - Footer', () => {
   describe('Corporate', () => {
     test('renders correctly', () => {
       expect.assertions(1);
-      
+
       return expect(render(dataCorporate)).resolves.toMatchSnapshot();
     });
 
