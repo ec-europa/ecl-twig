@@ -7,6 +7,7 @@ const adapter = initialData => {
   adaptedData.links = adaptedData.items.map(formatLinkAlt);
   adaptedData.navigation_text = adaptedData.label;
   adaptedData.icon_file_path = '/icons.svg';
+  adaptedData.ellipsis_label = 'Click to expand';
   delete adaptedData.label;
   delete adaptedData.items;
 
