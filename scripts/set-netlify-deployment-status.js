@@ -12,6 +12,7 @@ const run = async () => {
     DRONE_COMMIT_SHA,
     DRONE_COMMIT_BRANCH,
     DRONE_BUILD_LINK,
+    DEPLOY_CONTEXT,
   } = process.env;
 
   if (!GH_TOKEN) {
@@ -31,6 +32,8 @@ const run = async () => {
     return;
   }
 
+  const contextName = !DEPLOY_CONTEXT ? 'drone/netlify' : 'php/netlify';
+
   let payload = {};
 
   try {
@@ -45,14 +48,14 @@ const run = async () => {
         state: 'success',
         target_url: deploymentResult.url,
         description: 'Production deployment completed!',
-        context: 'drone/netlify',
+        context: contextName,
       };
     } else {
       payload = {
         state: 'success',
         target_url: deploymentResult.deploy_url,
         description: 'Preview ready!',
-        context: 'drone/netlify',
+        context: contextName,
       };
     }
   } catch (error) {
@@ -60,7 +63,7 @@ const run = async () => {
       state: 'error',
       target_url: DRONE_BUILD_LINK,
       description: 'Could not get data about Netlify deployment.',
-      context: 'drone/netlify',
+      context: contextName,
     };
   }
 
