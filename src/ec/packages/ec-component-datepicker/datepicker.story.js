@@ -26,7 +26,7 @@ storiesOf('Components/Forms/Datepicker', module)
           optional_text: text('Optional text', data.optional_text),
           placeholder: text('Placeholder', data.placeholder),
           required: boolean('Required', true),
-          required_text: boolean('Required text', data.required_text),
+          required_text: text('Required text', data.required_text),
         })
       );
     },
