@@ -32,7 +32,9 @@ const run = async () => {
     return;
   }
 
-  const contextName = !DEPLOY_CONTEXT ? 'drone/netlify' : 'php/netlify';
+  const contextName = !DEPLOY_CONTEXT
+    ? 'drone/netlify'
+    : 'php-storybook/netlify';
 
   let payload = {};
 

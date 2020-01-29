@@ -26,6 +26,7 @@ pipeline:
       status: [ success, failure ]
 
   deploy-preview:
+    group: previews
     image: node:dubnium
     secrets: [gh_token, netlify_auth_token, netlify_site]
     commands:
@@ -53,6 +54,7 @@ pipeline:
       event: push
 
   php-storybook:
+    group: previews
     image: roelofr/php-node
     secrets: [gh_token, netlify_auth_token, netlify_site]
     commands:
