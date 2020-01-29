@@ -1,6 +1,6 @@
 pipeline:
   deploy-preview:
-    image: awhalen/docker-php-composer-node
+    image: roelofr/php-node
     secrets: [gh_token, netlify_auth_token, netlify_site]
     commands:
       - yarn install --frozen-lockfile
