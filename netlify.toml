@@ -1,6 +1,6 @@
 [build]
-  command = "composer install && yarn dist:php"
-  publish = "php/dist"
+  command = "yarn dist"
+  publish = "build"
 
 [build.environment]
   YARN_VERSION = "1.12.3"
