@@ -29,6 +29,7 @@ pipeline:
     image: misterio92/ci-php-node
     secrets: [gh_token, netlify_auth_token, netlify_site]
     commands:
+      - apt-get install yarn
       - yarn install --frozen-lockfile
       - composer install --no-scripts
       - yarn dist:php
