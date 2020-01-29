@@ -10,8 +10,10 @@
       },
       ...
     ]
-  - "rows" (array) (default: []): format: [
+  - "rows" (array) (default: {}): format: [
       {
+        "extra_attributes": (string) (default: ''),
+        "extra_classes": (string) (default: ''),
         "label" (string or array of string)
         "data-ecl-table-header" (string) (default: ''),
         "group" (bool) (default: false),
@@ -39,6 +41,7 @@
 {% set _cell_css_class = 'ecl-table__cell' %}
 {% set _cell_header_group_class = 'ecl-table__cell--group' %}
 {% set _row_css_class = 'ecl-table__row' %}
+{% set _row_extra_attributes = '' %}
 {% set _headers = headers|default([]) %}
 {% set _rows = rows|default([]) %}
 {% set _zebra = zebra|default(false) %}
@@ -65,7 +68,7 @@
 
 {# Print the result #}
 
-<table class="{{ _css_class }}"{{ _extra_attributes|raw }} >
+<table class="{{ _css_class }}" {{ _extra_attributes|raw }}>
   <thead class="{{ _head_css_class }}">
      {% for header in _headers %}
        <tr class="{{ _row_css_class }}">
@@ -78,7 +81,13 @@
   </thead>
   <tbody class="{{ _body_css_class }}">
     {% for row in _rows %}
-      <tr class="{{ _row_css_class }}">
+      {% if row.extra_classes is defined and row.extra_classes is not empty %}
+        {% set _row_css_class = _row_css_class ~ ' ' ~ row.extra_classes %}
+      {% endif %}
+      {% if row.extra_attributes is defined and row.extra_attributes is not empty %}
+        {% set _row_extra_attributes = row.extra_attributes %}
+      {% endif %}
+      <tr class="{{ _row_css_class }}"{{ _row_extra_attributes }}>
         {% for cell in row %}
           {% set _cell_attribute = cell['data-ecl-table-header'] is not empty ? 'data-ecl-table-header="' ~ cell['data-ecl-table-header'] ~ '"' : '' %}
           {% if cell.group %}

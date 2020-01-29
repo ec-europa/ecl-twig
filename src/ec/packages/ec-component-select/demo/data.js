@@ -1,5 +1,15 @@
 import specs from '@ecl/ec-specs-select/demo/data';
+import merge from 'deepmerge';
 
-specs.icon_path = '/icons.svg';
+const fullSpecs = merge(specs, {
+  icon_path: '/icons.svg',
+  invalid_text: 'This is the error message',
+  helper_text: "This is the input's helper text.",
+  optional_text: '(optional)',
+  width: 'm',
+  required: true,
+  required_text: '*',
+  id: 'select-id',
+});
 
-export default specs;
+export default fullSpecs;
