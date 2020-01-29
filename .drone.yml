@@ -1,6 +1,6 @@
 pipeline:
   deploy-preview:
-    image: thecodingmachine/php:7.4-v3-cli-node12
+    image: thecodingmachine/php:7.4-v3-apache-node10
     secrets: [gh_token, netlify_auth_token, netlify_site]
     commands:
       - yarn install --frozen-lockfile
