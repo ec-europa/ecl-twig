@@ -1,4 +1,9 @@
 pipeline:
+  dependencies:
+    image: node:dubnium
+    commands:
+      - ./scripts/check-lockfile.sh
+
   lint:
     group: tests
     image: node:dubnium
@@ -6,12 +11,37 @@ pipeline:
       - yarn install --frozen-lockfile
       - yarn lint && yarn pretty:check
 
+  jest:
+    group: tests
+    image: node:dubnium
+    commands:
+      - yarn install --frozen-lockfile
+      - yarn jest
+
   check-build:
     image: node:dubnium
     secrets: [gh_token]
     commands: node scripts/failcheck.js
     when:
       status: [ success, failure ]
+
+  branch-deploy:
+    image: roelofr/php-node
+    secrets: [gh_token, netlify_auth_token, netlify_site]
+    commands:
+      - npm cache clean -f && npm install -g n && n stable
+      - yarn install
+      - yarn setupPhp && yarn dist:php
+      - 'npx netlify deploy --site $${NETLIFY_SITE} --message "Drone build: ${CI_BUILD_NUMBER}" --json > netlify_deployment_result.json'
+      - node scripts/set-netlify-deployment-status.js
+    environment:
+      - DEPLOY_CONTEXT=php-storybook
+    when:
+      event: push
+      status: [success, failure]
+      branch:
+        exclude:
+          - master
 
   deploy-preview:
     image: node:dubnium
