@@ -4,7 +4,6 @@ import withCode from '@ecl-twig/storybook-addon-code';
 import iconPath from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 
 import demoData from './demo/data';
-
 import menuLegacy from './ecl-menu-legacy.html.twig';
 import notes from './README.md';
 
