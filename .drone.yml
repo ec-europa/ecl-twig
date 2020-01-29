@@ -1,4 +1,30 @@
 pipeline:
+  dependencies:
+    image: node:dubnium
+    commands:
+      - ./scripts/check-lockfile.sh
+
+  lint:
+    group: tests
+    image: node:dubnium
+    commands:
+      - yarn install --frozen-lockfile
+      - yarn lint && yarn pretty:check
+
+  jest:
+    group: tests
+    image: node:dubnium
+    commands:
+      - yarn install --frozen-lockfile
+      - yarn jest
+
+  check-build:
+    image: node:dubnium
+    secrets: [gh_token]
+    commands: node scripts/failcheck.js
+    when:
+      status: [ success, failure ]
+
   deploy-preview:
     image: roelofr/php-node
     secrets: [gh_token, netlify_auth_token, netlify_site]
