@@ -21,7 +21,7 @@
     "lint:js": "eslint .",
     "lint:bash": "shellcheck **/*.sh",
     "lint": "npm run lint:js",
-    "deployToggle": "scripts/netlifySwitch.js",
+    "deployToggle": "scripts/netlify-switch.js",
     "postinstall": "lerna run postinstall && lerna run prepublish && patch-package",
     "pretty:check": "prettier --check \"src/**/*.{md,mdx,html,json,yml,js}\"",
     "pretty:fix": "prettier --write \"src/**/*.{md,mdx,html,json,yml,js}\"",
