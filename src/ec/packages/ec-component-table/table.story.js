@@ -7,6 +7,11 @@ import dataMulti from '@ecl/ec-specs-table/demo/data--multi';
 import table from './ecl-table.html.twig';
 import notes from './README.md';
 
+const dataWithRowExtraAttributes = dataDefault;
+dataWithRowExtraAttributes.rows.forEach(row => {
+  row.extra_attributes = 'data-test data-test-another'; // eslint-disable-line no-param-reassign
+});
+
 storiesOf('Components/Table', module)
   .addDecorator(withNotes)
   .addDecorator(withCode)
@@ -18,6 +23,15 @@ storiesOf('Components/Table', module)
     },
     {
       notes: { markdown: notes, json: dataDefault },
+    }
+  )
+  .add(
+    'default with row extra attributes',
+    () => {
+      return table(dataWithRowExtraAttributes);
+    },
+    {
+      notes: { markdown: notes, json: dataWithRowExtraAttributes },
     }
   )
   .add(

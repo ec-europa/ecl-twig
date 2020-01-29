@@ -1,6 +1,6 @@
 import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
-import dataSimple from './demo/data-simple';
+import dataSimple from './demo/data--simple';
 import dataLong from './demo/data';
 
 describe('EC - Breadcrumb Core', () => {

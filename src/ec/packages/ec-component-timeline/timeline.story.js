@@ -42,6 +42,6 @@ storiesOf('Components/Timeline', module)
       return timeline(fullDemoData);
     },
     {
-      notes: { markdown: notes },
+      notes: { markdown: notes, json: demoData },
     }
   );

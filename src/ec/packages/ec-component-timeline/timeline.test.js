@@ -17,8 +17,9 @@ describe('EC - Timeline', () => {
     expect.assertions(1);
 
     const optionsWithExtraClasses = merge(demoData, {
+      extra_classes: 'custom-class custom-class--test',
       hide: {
-        from: 10,
+        from: 5,
         to: -2,
       },
     });
@@ -30,9 +31,10 @@ describe('EC - Timeline', () => {
     expect.assertions(1);
 
     const optionsWithExtraClasses = merge(demoData, {
+      extra_classes: 'custom-class custom-class--test',
       hide: {
-        from: 10,
-        to: 13,
+        from: 5,
+        to: -2,
       },
     });
 
@@ -63,9 +65,10 @@ describe('EC - Timeline', () => {
     expect.assertions(1);
 
     const optionsWithExtraClasses = merge(demoData, {
+      extra_classes: 'custom-class custom-class--test',
       hide: {
-        from: 10,
-        to: 0,
+        from: 5,
+        to: -2,
       },
     });
 
@@ -96,6 +99,7 @@ describe('EC - Timeline', () => {
     expect.assertions(1);
 
     const optionsWithExtraClasses = merge(demoData, {
+      extra_classes: 'custom-class custom-class--test',
       extra_attributes: [
         { name: 'data-test', value: 'data-test-value' },
         { name: 'data-test-1', value: 'data-test-value-1' },
