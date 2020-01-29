@@ -1,8 +1,9 @@
 pipeline:
   deploy-preview:
-    image: blomu/php-node-composer
+    image: roelofr/php-node
     secrets: [gh_token, netlify_auth_token, netlify_site]
     commands:
+      - npm cache clean -f && npm install -g n && n stable
       - yarn install
       - composer install --no-scripts
       - yarn dist:php
