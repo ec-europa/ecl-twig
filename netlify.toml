@@ -1,11 +1,7 @@
-[context.deploy-preview]
-  command = "yarn dist"
-  publish = "build"
+[build]
+  command = "composer install && yarn dist:php"
+  publish = "php/dist"
 
 [build.environment]
   YARN_VERSION = "1.12.3"
   YARN_FLAGS = "--frozen-lockfile"
-
-[context.branch-deploy]
-  command = "composer install && yarn dist:php"
-  publish = "php/dist"
