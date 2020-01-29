@@ -1,6 +1,6 @@
 pipeline:
   deploy-preview:
-    image: eddycharly/php-node-ci
+    image: webforgelabs/php-nodejs
     secrets: [gh_token, netlify_auth_token, netlify_site]
     commands:
       - yarn install
