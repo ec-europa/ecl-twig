@@ -1038,31 +1038,6 @@
 "@ecl-twig/data-utils@file:utils/data-utils":
   version "0.0.0-dev-only"
 
-"@ecl-twig/ec-component-menu@2.21.0":
-  version "2.21.0"
-  resolved "https://registry.yarnpkg.com/@ecl-twig/ec-component-menu/-/ec-component-menu-2.21.0.tgz#851e17552690ebeefd2d6d2435a8c69b96aa2b0c"
-  integrity sha512-6obu7LgQmQX3OkZDhIROugj1uv6JqbnFxegPbje3qIMSu9gBLmimUVcN72IPLiuIn63n/cE8Q0ccGrBeduYYFQ==
-  dependencies:
-    "@ecl-twig/ec-component-icon" "2.21.0"
-
-"@ecl-twig/ec-component-site-header-harmonised@2.21.0":
-  version "2.21.0"
-  resolved "https://registry.yarnpkg.com/@ecl-twig/ec-component-site-header-harmonised/-/ec-component-site-header-harmonised-2.21.0.tgz#0c8ade84579361868c89f6b76784db174e276e0d"
-  integrity sha512-1Rj584MJMinU835SuojppX9/9u5Vj9zq4+tRhpa3w09wRJXRM3zhzwJQvoPs3Yg8rsaCmPERa1rm5ljtoOX15A==
-  dependencies:
-    "@ecl-twig/ec-component-icon" "2.21.0"
-    "@ecl-twig/ec-component-language-list" "2.21.0"
-    "@ecl-twig/ec-component-search-form" "2.21.0"
-
-"@ecl-twig/ec-component-site-header-standardised@2.21.0":
-  version "2.21.0"
-  resolved "https://registry.yarnpkg.com/@ecl-twig/ec-component-site-header-standardised/-/ec-component-site-header-standardised-2.21.0.tgz#90527f20203ba81c7ed103a3b2b66a4b49c25f6e"
-  integrity sha512-kpA2fo4VbpfqiLQOsO8/fwXTldMBZVwvdXGjsJA4CqMLXk2nr00gWpkBdsSlj6AeDpNWw1FHJj3Aabzi7luGmg==
-  dependencies:
-    "@ecl-twig/ec-component-icon" "2.21.0"
-    "@ecl-twig/ec-component-language-list" "2.21.0"
-    "@ecl-twig/ec-component-search-form" "2.21.0"
-
 "@ecl-twig/ec-component-breadcrumb-core@2.21.0":
   version "2.21.0"
   resolved "https://registry.yarnpkg.com/@ecl-twig/ec-component-breadcrumb-core/-/ec-component-breadcrumb-core-2.21.0.tgz#09cd9a45781f701a211b99518157313c77465480"
@@ -1098,6 +1073,13 @@
     "@ecl-twig/ec-component-icon" "2.21.0"
     "@ecl-twig/ec-component-link" "2.21.0"
 
+"@ecl-twig/ec-component-menu@2.21.0":
+  version "2.21.0"
+  resolved "https://registry.yarnpkg.com/@ecl-twig/ec-component-menu/-/ec-component-menu-2.21.0.tgz#851e17552690ebeefd2d6d2435a8c69b96aa2b0c"
+  integrity sha512-6obu7LgQmQX3OkZDhIROugj1uv6JqbnFxegPbje3qIMSu9gBLmimUVcN72IPLiuIn63n/cE8Q0ccGrBeduYYFQ==
+  dependencies:
+    "@ecl-twig/ec-component-icon" "2.21.0"
+
 "@ecl-twig/ec-component-page-header@2.21.0":
   version "2.21.0"
   resolved "https://registry.yarnpkg.com/@ecl-twig/ec-component-page-header/-/ec-component-page-header-2.21.0.tgz#17eab7d710d57fed1f9527f7c8ff2311b7df200f"
@@ -1106,6 +1088,23 @@
     "@ecl-twig/ec-component-breadcrumb" "2.21.0"
     "@ecl-twig/ec-component-icon" "2.21.0"
 
+"@ecl-twig/ec-component-site-header-harmonised@2.21.0":
+  version "2.21.0"
+  resolved "https://registry.yarnpkg.com/@ecl-twig/ec-component-site-header-harmonised/-/ec-component-site-header-harmonised-2.21.0.tgz#0c8ade84579361868c89f6b76784db174e276e0d"
+  integrity sha512-1Rj584MJMinU835SuojppX9/9u5Vj9zq4+tRhpa3w09wRJXRM3zhzwJQvoPs3Yg8rsaCmPERa1rm5ljtoOX15A==
+  dependencies:
+    "@ecl-twig/ec-component-icon" "2.21.0"
+    "@ecl-twig/ec-component-language-list" "2.21.0"
+    "@ecl-twig/ec-component-search-form" "2.21.0"
+
+"@ecl-twig/ec-component-site-header-standardised@2.21.0":
+  version "2.21.0"
+  resolved "https://registry.yarnpkg.com/@ecl-twig/ec-component-site-header-standardised/-/ec-component-site-header-standardised-2.21.0.tgz#90527f20203ba81c7ed103a3b2b66a4b49c25f6e"
+  integrity sha512-kpA2fo4VbpfqiLQOsO8/fwXTldMBZVwvdXGjsJA4CqMLXk2nr00gWpkBdsSlj6AeDpNWw1FHJj3Aabzi7luGmg==
+  dependencies:
+    "@ecl-twig/ec-component-icon" "2.21.0"
+    "@ecl-twig/ec-component-language-list" "2.21.0"
+    "@ecl-twig/ec-component-search-form" "2.21.0"
 
 "@ecl-twig/php-storybook@file:php/php_storybook":
   version "0.0.1-alpha"
@@ -15788,11 +15787,6 @@ shell-quote@1.7.2, shell-quote@^1.6.1:
   version "1.7.2"
   resolved "https://registry.yarnpkg.com/shell-quote/-/shell-quote-1.7.2.tgz#67a7d02c76c9da24f99d20808fcaded0e0e04be2"
   integrity sha512-mRz/m/JVscCrkMyPqHc/bczi3OQHkLTqXHEFu0zDhK/qfv3UcOA4SVmRCLmos4bhjr9ekVQubj/R7waKapmiQg==
-
-shellcheck@0.4.1:
-  version "0.4.1"
-  resolved "https://registry.yarnpkg.com/shellcheck/-/shellcheck-0.4.1.tgz#83b431a84c18df6bc24f78624b8275cdeca67bfb"
-  integrity sha512-tUQ/ccl9jYG8K3v/im94pk8hRkwk7AIgg8iXy7bJ4y5DGJRqtJTFYUWKy88HN9X+Ggxl371rvw0FqXfCRfLSSw==
 
 shelljs@^0.8.3:
   version "0.8.3"
