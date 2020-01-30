@@ -1,13 +1,24 @@
 {
-  "version": "2.22.0",
+  "version": "2.22.1",
   "npmClient": "yarn",
   "useWorkspaces": true,
   "loglevel": "success",
   "packages": [
     "src/ec/packages/*",
-    "src/eu/packages/*",
-    "php/packages/ec/*"
+    "src/eu/packages/*"
   ],
+  "changelog": {
+    "repo": "ec-europa/europa-component-library",
+    "labels": {
+      "tag: new feature": ":rocket: New Feature",
+      "tag: breaking change": ":boom: Breaking Change",
+      "tag: bug fix": ":bug: Bug Fix",
+      "tag: enhancement": ":nail_care: Enhancement",
+      "tag: documentation": ":memo: Documentation",
+      "tag: internal": ":house: Internal"
+    },
+    "cacheDir": ".changelog"
+  },
   "command": {
     "create": {
       "license": "EUPL-1.1"
