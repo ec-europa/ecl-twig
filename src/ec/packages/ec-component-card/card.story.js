@@ -24,7 +24,6 @@ const formatInfo = data => {
   return data;
 };
 
-console.log();
 storiesOf('Components/Card', module)
   .addDecorator(withCode)
   .addDecorator(withKnobs)
