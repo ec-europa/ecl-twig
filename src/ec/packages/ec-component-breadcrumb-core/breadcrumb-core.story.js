@@ -4,7 +4,7 @@ import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
 
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
-import dataSimple from './demo/data-simple';
+import dataSimple from './demo/data--simple';
 import dataLong from './demo/data';
 
 import breadcrumb from './ecl-breadcrumb-core.html.twig';
@@ -19,7 +19,6 @@ storiesOf('Components/Navigation/Breadcrumbs/Breadcrumb Core', module)
       breadcrumb(
         merge(dataSimple, {
           icon_file_path: defaultSprite,
-          ellipsis_label: 'Click to expand',
         })
       ),
     {
@@ -32,7 +31,6 @@ storiesOf('Components/Navigation/Breadcrumbs/Breadcrumb Core', module)
       breadcrumb(
         merge(dataLong, {
           icon_file_path: defaultSprite,
-          ellipsis_label: 'Click to expand',
         })
       ),
     {

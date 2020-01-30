@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import { storiesOf } from '@storybook/html';
 import { withKnobs, text } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
@@ -5,51 +6,21 @@ import withCode from '@ecl-twig/storybook-addon-code';
 
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 
-import breadcrumbDataSimple from '@ecl/ec-specs-breadcrumb/demo/data-simple';
-
-import pageHeaderDataTitle from '@ecl/ec-specs-page-header/demo/data-title';
-import pageHeaderDataTitleDescription from '@ecl/ec-specs-page-header/demo/data-title-description';
-import pageHeaderDataMetaTitle from '@ecl/ec-specs-page-header/demo/data-meta-title';
-import pageHeaderDataMetaTitleDescription from '@ecl/ec-specs-page-header/demo/data-meta-title-description';
-import pageHeaderDataEvents from '@ecl/ec-specs-page-header/demo/data-events';
-import pageHeaderDataEventsDescription from '@ecl/ec-specs-page-header/demo/data-events-description';
+import pageHeaderDataTitle from './demo/data--title';
+import pageHeaderDataTitleDescription from './demo/data--title-description';
+import pageHeaderDataMetaTitle from './demo/data--meta-title';
+import pageHeaderDataMetaTitleDescription from './demo/data--meta-title-description';
+import pageHeaderDataEvents from './demo/data--events';
+import pageHeaderDataEventsDescription from './demo/data--events-description';
 
 import pageHeader from './ecl-page-header.html.twig';
 import notes from './README.md';
 
-function formatBreadcrumbLink(l) {
-  const link = {
-    label: l.label,
-    path: l.href,
-  };
-
-  return link;
-}
-
-function formatPageHeaderInfo(i, index) {
-  const iconType = i.icon.split('--');
-  const info = {
-    text: text(`Info ${index} text`, i.text),
-    icon: {
-      type: iconType[0],
-      name: iconType[1],
-      path: defaultSprite,
-    },
-  };
-
-  return info;
-}
-
 function preparePageHeaderData(data) {
   const output = {};
-
-  output.breadcrumb = {
-    links: breadcrumbDataSimple.items.map(formatBreadcrumbLink),
-    navigation_text: breadcrumbDataSimple.label,
-    icon_file_path: defaultSprite,
-  };
-
   output.title = text('Title', data.title);
+  data.breadcrumb.icon_file_path = defaultSprite;
+  output.breadcrumb = data.breadcrumb;
 
   if (data.description) {
     output.description = text('Description', data.description);
@@ -60,7 +31,12 @@ function preparePageHeaderData(data) {
   }
 
   if (data.infos) {
-    output.infos = data.infos.map(formatPageHeaderInfo);
+    output.infos = data.infos;
+
+    output.infos.forEach((item, index) => {
+      item.text = text(`Info ${index} text`, item.text);
+      item.icon.path = defaultSprite;
+    });
   }
 
   return output;

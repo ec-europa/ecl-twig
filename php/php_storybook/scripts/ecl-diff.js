@@ -4,14 +4,34 @@
 no-param-reassign, no-restricted-syntax, no-await-in-loop */
 
 const fs = require('fs');
-const htmlDiffer = require('html-differ');
 const logger = require('html-differ/lib/logger');
 const puppeteer = require('puppeteer');
 const decode = require('decode-html');
 const yargsInteractive = require('yargs-interactive');
+const { HtmlDiffer } = require('html-differ');
+const { execSync } = require('child_process');
+
+const eclVersions = execSync('npm view @ecl/ec-component-link versions')
+  .toString()
+  .replace(/([\s'[\]|])/g, '')
+  .split(',')
+  .reverse()
+  .slice(0, 15);
+
+const diffOptions = {
+  ignoreAttributes: ['href'],
+  compareAttributesAsJSON: [],
+  ignoreWhitespaces: true,
+  ignoreComments: true,
+  ignoreEndTags: false,
+  ignoreDuplicateAttributes: false,
+};
+
+const htmlDiffer = new HtmlDiffer(diffOptions);
 let packages = require('../../../../src/ec/.storybook/ec-packages.js').list;
 
 const system = 'ec';
+const domain = 'https://ec.europa.eu';
 const rootFolder = process.cwd();
 const distFolder = `${rootFolder}/php`;
 const systemFolder = `${distFolder}/packages/${system}`;
@@ -43,17 +63,32 @@ const options = {
     prompt: 'always',
     choices: ['php', 'js'],
   },
+  eclVersion: {
+    type: 'list',
+    describe: 'The version of the component you want to make a diff against',
+    choices: eclVersions,
+    prompt: 'always',
+    default: eclVersions[0],
+  },
   eclSection: {
     type: 'list',
     describe: 'The group the component is associated with in ECL',
-    choices: ['components', 'page-structure'],
+    choices: ['components', 'page-structure', 'deprecated'],
   },
   eclSubSection: {
     type: 'list',
     describe: 'Is the component nested into a sub-section?',
     default: 'none',
     prompt: 'always',
-    choices: ['none', 'forms', 'navigation', 'banners'],
+    choices: [
+      'none',
+      'forms',
+      'navigation',
+      'banners',
+      'page-headers',
+      'site-headers',
+      'footers',
+    ],
   },
   eclStory: {
     type: 'input',
@@ -68,15 +103,6 @@ const options = {
   },
 };
 
-const diffOptions = {
-  ignoreAttributes: ['xlink:href', 'href'],
-  compareAttributesAsJSON: [],
-  ignoreWhitespaces: true,
-  ignoreComments: true,
-  ignoreEndTags: false,
-  ignoreDuplicateAttributes: false,
-};
-
 yargsInteractive()
   .usage('$0 <command> [args]')
   .interactive(options)
@@ -89,14 +115,21 @@ yargsInteractive()
           variant,
           eclSection,
           eclSubSection,
+          eclVersion,
           confirm,
           language,
         } = result;
         const extension = language === 'php' ? '.php.html' : '.js.html';
         const getVariant = element => {
-          element = element.split('--')[1].replace(extension, '');
+          if (element.includes('--')) {
+            element = element.split('--')[1].replace(extension, '');
+          } else {
+            element = '';
+          }
+
           return element;
         };
+
         if (!confirm) {
           console.error('Please run again yarn ecl-diff, then.');
           process.exit(1);
@@ -110,6 +143,7 @@ yargsInteractive()
           fileName = component + extension;
         }
 
+        const version = `v${eclVersion}`;
         const twigFullPath =
           language === 'php'
             ? `${systemFolder}/${component}`
@@ -133,20 +167,29 @@ yargsInteractive()
           });
 
           files = files.map(getVariant);
+          // We might have empty items in the array now.
+          files = files.filter(item => item);
 
-          if (variant !== '') {
-            console.error(
-              `The "${variant}" variant for the "${component}" component has not been found in ecl-twig, but we've found these alternatives: ${files.join(
-                ', '
-              )}`
-            );
+          if (files.length > 0) {
+            if (variant !== '') {
+              console.error(
+                `The "${variant}" variant for the "${component}" component has not been found in ecl-twig, but we've found these alternatives: ${files.join(
+                  ', '
+                )}`
+              );
+            } else {
+              console.error(
+                `You did not select any variant for the "${component}" component, these are the available ones: ${files.join(
+                  ', '
+                )}`
+              );
+            }
           } else {
             console.error(
-              `You did not select any variant for the "${component}" component, these are the available ones: ${files.join(
-                ', '
-              )}`
+              `Most likely the "${component}" component doesn't have any variant on the twig side and you tried to pass one.`
             );
           }
+
           process.exit(1);
         }
         // The markup from the html file rendered via php or javascript.
@@ -158,14 +201,16 @@ yargsInteractive()
           .replace(
             /xlink:href="\/?icons(-social)?\.svg#/g,
             'xlink:href="{{.*icons.*.svg#}}'
-            // Booleans.
           )
+          // Booleans.
+          .replace(/(data-ecl[-A-Za-z]+)(?=[\s/>])/g, '$1="{{true|false}}"')
+          // aria-hidden
+          .replace(/(aria-hidden)(=".+")/g, '$1="{{true|false}}"')
+          // Logo
           .replace(
-            /(data-ecl-)(?!auto-init)([^\n\r =]+)(="(true|false)")?/g,
-            '$1$2="{{true|false}}"'
-            // Logo.
-          )
-          .replace(/\/logo--(en|fr).svg/g, '{{(.*?)logo--(en|fr).*.svg}}');
+            /\/logo--(en|fr|mute).svg/g,
+            '{{(.*?)logo--(en|fr|mute).*.svg}}'
+          );
         // Now we process the story in ECL, we try to retrieve all the stories available
         // and see if any of them matches the requested one, if none does we return the
         // list of stories available for a component, if we found them.
@@ -189,29 +234,41 @@ yargsInteractive()
           } else if (el === 'social-media-share') {
             el = 'socialmediashare';
           } else if (el === 'footer-harmonised') {
-            el = 'footers-harmonised';
+            el = 'harmonised';
           } else if (el === 'footer-core') {
-            el = 'footers-core';
+            el = 'core';
           } else if (el === 'footer-standardised') {
-            el = 'footers-standardised';
+            el = 'standardised';
           } else if (el === 'site-header-standardised') {
-            el = 'site-headers-standardised';
+            el = 'standardised';
           } else if (el === 'site-header-harmonised') {
-            el = 'site-headers-harmonised';
+            el = 'harmonised';
           } else if (el === 'site-header-core') {
-            el = 'site-headers-core';
+            el = 'core';
           } else if (el === 'page-header-core') {
-            el = 'page-headers-core';
+            el = 'core';
           } else if (el === 'page-header-harmonised') {
-            el = 'page-headers-harmonised';
+            el = 'harmonised';
           } else if (el === 'page-header-standardised') {
-            el = 'page-headers-standardised';
+            el = 'standardised';
           } else if (el === 'expandable') {
             el = 'expandables';
           } else if (el === 'inpage-navigation') {
             el = 'in-page-navigation';
           } else if (el === 'language-list') {
             el = 'languagelist';
+          } else if (el === 'ordered-list' || el === 'unordered-list') {
+            el = 'list';
+          } else if (el === 'page-header') {
+            el = 'pageheader';
+          }
+          if (eclVersion > '2.21.0') {
+            if (el === 'footer') {
+              el = 'footer-ecl-2-12-0';
+            }
+            if (el === 'accordion') {
+              el = 'accordion-ecl-2-6-0';
+            }
           }
 
           return el;
@@ -222,89 +279,121 @@ yargsInteractive()
         if (eclSubSection !== 'none') {
           eclGluePath = `${eclSection}-${eclSubSection}`;
         }
-        const eclPath = `https://ec.europa.eu/component-library/playground/ec/?path=/story/${eclGluePath}-`;
+        const eclPath = `${domain}/component-library/${version}/playground/ec/?path=/story/${eclGluePath}-`;
         const eclFinalUrl = `${eclPath + eclComponent}--${eclStory}`;
-        // Puppeteer will go to the url and try to click on the link in the left sidebar
-        // to reveal the available stories.
+        // Puppeteer will try to reach the requested component variant page.
         const browser = await puppeteer.launch();
         const page = await browser.newPage();
-        await page.goto(eclFinalUrl);
-
-        if ((await page.$(`a#explorer${eclGluePath}`)) !== null) {
-          await page.click(`a#explorer${eclGluePath}`);
-        }
-        // Menu link, if it's there click on it..
-        if ((await page.$(`div#${eclGluePath}-${eclComponent}`)) !== null) {
-          await page.click(`div#${eclGluePath}-${eclComponent}`);
-          // All the links to the stories.
-          const stories = await page.$$(
-            `a#explorer${eclGluePath}-${eclComponent} + div a`
-          );
-
-          if (stories) {
-            let hrefs = [];
-            for (const story of stories) {
-              const href = await page.evaluate(
-                el => el.getAttribute('href'),
-                story
-              );
-              // Try to match the urls found with the one built in this script.
-              if (eclFinalUrl === `https://ec.europa.eu${href}`) {
-                hrefs = false;
-                break;
-              }
-
-              const eclVariant = href.split('--')[1];
-              hrefs.push(eclVariant);
+        await page.goto(eclFinalUrl, { waitUntil: 'domcontentloaded' });
+        await page.setViewport({ width: 1900, height: 1600 });
+        // We might be redirected if the url doesn't exist.
+        await page.waitFor(5000);
+        // If we have been redirected we try to look for the available variants.
+        if (page.url() !== eclFinalUrl) {
+          // Grouping link.
+          if (eclSubSection !== 'none') {
+            const groupLink = await page.waitFor(`#explorer${eclGluePath}`, {
+              visible: true,
+            });
+            if (groupLink) {
+              page.$eval(`#explorer${eclGluePath}`, elem => elem.click());
             }
-            // We offer alternatives in case we cannot find the requested one.
-            if (hrefs.length > 0 && page.url() !== eclFinalUrl) {
-              console.error(
-                `We couldn't find the story "${eclStory}" for the "${component}" component in the ECL website, but we've found these alternatives: ${hrefs.join(
-                  ', '
-                )}`
-              );
-              process.exit(1);
+          }
+          // Menu link, if it's there click on it.
+          const menuLink = await page.waitFor(
+            `a#explorer${eclGluePath}-${eclComponent}`,
+            { visible: true }
+          );
+          if (menuLink) {
+            page.$eval(`a#explorer${eclGluePath}-${eclComponent}`, elem =>
+              elem.click()
+            );
+            await page.waitForSelector(
+              `#explorer${eclGluePath}-${eclComponent} + div a`
+            );
+            // All the links to the stories.
+            const stories = await page.$$(
+              `#explorer${eclGluePath}-${eclComponent} + div a`
+            );
+            if (stories) {
+              let hrefs = [];
+              for (const story of stories) {
+                const href = await page.evaluate(
+                  el => el.getAttribute('href'),
+                  story
+                );
+                // Try to match the urls found with the one built in this script.
+                if (eclFinalUrl === `${domain}${href}`) {
+                  hrefs = false;
+                  break;
+                }
+
+                const eclVariant = href.split('--')[1];
+                hrefs.push(eclVariant);
+              }
+              // We offer alternatives in case we cannot find the requested one.
+              if (hrefs.length > 0) {
+                console.error(
+                  `We couldn't find the requested story for the "${component}" component in the ECL website, but we've found these alternatives: ${hrefs.join(
+                    ', '
+                  )}`
+                );
+                process.exit(1);
+              }
             }
           }
         }
+
         // We are ready to get the html, hopefully of the right story, otherwise we'll tell you.
-        if ((await page.$('button[title="Show HTML"]')) !== null) {
+        if (await page.waitForSelector('button[title="Show HTML"]')) {
           // This will reveal the markup container.
           await page.click('button[title="Show HTML"]');
 
-          let eclMarkup = await page.evaluate(
-            el => el.innerHTML,
-            await page.$('code')
-          );
-          // The html we get is enriched by a syntax highlighter.
-          eclMarkup = decode(eclMarkup.replace(/<\/?[^>]+(>|$)/g, ''));
-          eclMarkup = eclMarkup.replace(/^<div>/, '');
-          eclMarkup = eclMarkup.replace(/<\/div>$/, '');
-          // Make the diff against the php rendered files.
-          const diff = htmlDiffer.diffHtml(eclTwigMarkup, eclMarkup);
-          const isEqual = htmlDiffer.isEqual(eclTwigMarkup, eclMarkup);
+          if (await page.waitForSelector('code')) {
+            let eclMarkup = await page.evaluate(
+              el => el.innerHTML,
+              await page.$('code')
+            );
 
-          console.log(
-            `\nComparing ${fileName} with ECL markup from ${eclFinalUrl}:`
-          );
+            // The html we get is enriched by a syntax highlighter.
+            eclMarkup = decode(eclMarkup.replace(/<\/?[^>]+(>|$)/g, ''));
+            const eclMarkupMinusDiv = eclMarkup.replace(/^<div>/, '');
+            if (eclMarkupMinusDiv !== eclMarkup) {
+              eclMarkup = eclMarkupMinusDiv.replace(/<\/div>$/, '');
+            }
+            // Make the diff against the php rendered files.
+            const diff = htmlDiffer.diffHtml(eclTwigMarkup, eclMarkup);
+            const isEqual = htmlDiffer.isEqual(eclTwigMarkup, eclMarkup);
 
-          let successMsg = false;
-          if (isEqual) {
-            successMsg = '> Perfectly matching!*';
+            console.log(
+              `\nComparing ${fileName} with ECL markup from ${eclFinalUrl}:`
+            );
+
+            let successMsg = false;
+            if (isEqual) {
+              successMsg = '> Perfectly matching!*';
+            } else {
+              logger.logDiffText(diff, { charsAroundDiff: 40 });
+            }
+
+            if (successMsg) {
+              console.log(successMsg);
+            }
+            console.log(
+              `\n* For the diff we use https://www.npmjs.com/package/html-differ, with this conf:`
+            );
+            console.log(diffOptions);
+            // We made it!
+            process.exit(0);
           } else {
-            logger.logDiffText(diff, { charsAroundDiff: 40 });
+            console.error(
+              'Looks like we are not able to retrieve the html for this story...'
+            );
           }
-
-          if (successMsg) {
-            console.log(successMsg);
-          }
-          console.log(
-            `\n* For the diff we use https://www.npmjs.com/package/html-differ, with this conf:`
+        } else {
+          console.error(
+            'Looks like we are not able to retrieve the html for this story...'
           );
-          console.log(diffOptions);
-          // We made it!
-          process.exit(0);
         }
       } catch (error) {
         console.error(error.toString());

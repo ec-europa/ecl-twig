@@ -14,10 +14,10 @@ addParameters({
     sidebarAnimations: false,
   },
   viewport: {
-    defaultViewport: 'Responsive',
+    defaultViewport: 'responsive',
     viewports: {
       responsive: {
-        name: 'Responsive',
+        name: 'responsive',
         styles: {
           width: '100%',
           height: '100%',
