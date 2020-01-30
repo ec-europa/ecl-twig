@@ -59,6 +59,7 @@ pipeline:
       - yarn deployToggle
       - yarn setupPhp
       - yarn dist:php
+      - yarn diff
       - 'npx netlify deploy --site $${NETLIFY_SITE} --message "Drone build: ${CI_BUILD_NUMBER}" --json > netlify_deployment_result.json'
       - node scripts/set-netlify-deployment-status.js
     environment:
