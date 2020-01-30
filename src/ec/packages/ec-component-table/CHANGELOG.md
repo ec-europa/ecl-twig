@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.22.0](https://github.com/ec-europa/ecl-twig/compare/v2.19.0...v2.22.0) (2020-01-30)
+
+### Features
+
+- **table:** Extra attributes and extra classes for the table rows - TWIG-203 ([#305](https://github.com/ec-europa/ecl-twig/issues/305)) ([9449791](https://github.com/ec-europa/ecl-twig/commit/9449791c2d4065b5ea0bc102861a3fef5178bf49))
+
 # [2.21.0](https://github.com/ec-europa/ecl-twig/compare/v2.19.0...v2.21.0) (2020-01-16)
 
 **Note:** Version bump only for package @ecl-twig/ec-component-table

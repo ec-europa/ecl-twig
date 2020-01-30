@@ -3,6 +3,56 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.22.0](https://github.com/ec-europa/ecl-twig/compare/v2.19.0...v2.22.0) (2020-01-30)
+
+
+### Bug Fixes
+
+* **breadcrumb:** component review - TWIG-205 ([#294](https://github.com/ec-europa/ecl-twig/issues/294)) ([b01610c](https://github.com/ec-europa/ecl-twig/commit/b01610c1c89ed6f05d6df3d5b19bad1f28cad7f2))
+* **breadcrumb-standardised:** component review - TWIG-224 ([#293](https://github.com/ec-europa/ecl-twig/issues/293)) ([449cbd1](https://github.com/ec-europa/ecl-twig/commit/449cbd12bced6cb0f5b138b4255a69625aef8355))
+* **button:** Setting data-ecl-icon on the icon when used in a button - TWIG-199 ([#291](https://github.com/ec-europa/ecl-twig/issues/291)) ([3e5aa22](https://github.com/ec-europa/ecl-twig/commit/3e5aa2250468cb68b59338ccb5dab725aeea2fb1))
+* **deps:** Updating some deps, using resolutions block to get rid of duplicated version of istanbul-reports ([#276](https://github.com/ec-europa/ecl-twig/issues/276)) ([cf73fad](https://github.com/ec-europa/ecl-twig/commit/cf73fadae024cc40975c3a65a1a8f5ca9802ecd0))
+* **drone:** Attempt to update the status in case of failure in each build step - TWIG-189 ([#277](https://github.com/ec-europa/ecl-twig/issues/277)) ([311f937](https://github.com/ec-europa/ecl-twig/commit/311f937bfdce3c6ffbe859022c82fe62752d8a29))
+* **ec-diff:** accordion2 is named accordion in ECL ([3e75167](https://github.com/ec-europa/ecl-twig/commit/3e75167dd0529e0067192ac13db7a66aa049e5cb))
+* **ecl-assets:** fixing wrong version of the js loaded ([d90b4bf](https://github.com/ec-europa/ecl-twig/commit/d90b4bf6b235f28aadaa862fb42e46fe1ed1d03b))
+* **ecl-diff:** Browsing Ecl website with puppeteer - TWIG-235 ([#295](https://github.com/ec-europa/ecl-twig/issues/295)) ([4ac3cff](https://github.com/ec-europa/ecl-twig/commit/4ac3cff64332af26bc2234214b0a4a0c7232ad10))
+* **ecl-diff:** Improving the removal of the wrapping div ([ad06436](https://github.com/ec-europa/ecl-twig/commit/ad064363a9c9641d92b37b6c2d89cbb7a76424ba))
+* **ecl-diff:** linter issue ([bb14103](https://github.com/ec-europa/ecl-twig/commit/bb14103fc30d2c6fef178653faca331b3c8e7f3a))
+* **ecl-diff:** regex improved, other fixes - TWIG-206 ([#285](https://github.com/ec-europa/ecl-twig/issues/285)) ([23fee8e](https://github.com/ec-europa/ecl-twig/commit/23fee8e703b62d5de5bb78143bf0d4116ecc2d2f))
+* **gallery:** fixing templates, removing fixes in the render scripts - TWIG-231 ([800c500](https://github.com/ec-europa/ecl-twig/commit/800c500d6699b0d06cc63ff5ffd610e3b6ac3733))
+* **gallery:** updating test - TWIG-231 ([b580975](https://github.com/ec-europa/ecl-twig/commit/b5809758b209f2a55ac67799dc84be3dcbf35484))
+* **menu:** href attribute needs quotes - TWIG-187 ([#275](https://github.com/ec-europa/ecl-twig/issues/275)) ([9ff9b16](https://github.com/ec-europa/ecl-twig/commit/9ff9b16d149e2932daf224bbfe7a011ce60d159a))
+* **php-storybook:** fixing grouping issues in the story files - TWIG-221 ([#290](https://github.com/ec-europa/ecl-twig/issues/290)) ([570eace](https://github.com/ec-europa/ecl-twig/commit/570eace6f3108964b3cc0be9ee19cf9eb98e999e))
+* **site-headers:** Icons size reviewed - TWIG_201 ([#282](https://github.com/ec-europa/ecl-twig/issues/282)) ([0f5df24](https://github.com/ec-europa/ecl-twig/commit/0f5df24f9171f1f2d93cc442071f1c08e10f082d))
+* **storybook:** add babel-polyfill to preview-head for IE Edge - TWIG-220 ([#289](https://github.com/ec-europa/ecl-twig/issues/289)) ([97c985e](https://github.com/ec-europa/ecl-twig/commit/97c985e45f294d225c3dc36958e615067483aa32))
+
+
+### Features
+
+* **breadcrumb-core:** Component review - TWIG-222 ([#303](https://github.com/ec-europa/ecl-twig/issues/303)) ([ae75510](https://github.com/ec-europa/ecl-twig/commit/ae7551030fef0ba31047456c98e118426c6e3679))
+* **breadcrumb-harmonised:** component review - TWIG-223 ([#302](https://github.com/ec-europa/ecl-twig/issues/302)) ([c5baaf6](https://github.com/ec-europa/ecl-twig/commit/c5baaf658c31ceea2a290f20953bdff9c01fed18))
+* **checkbox:** Green diff with ECL - TWIG-225 ([#296](https://github.com/ec-europa/ecl-twig/issues/296)) ([889ebd2](https://github.com/ec-europa/ecl-twig/commit/889ebd244c64463157fa68d5b622734eca0971e2))
+* **datepicker:** Adding component - TWIG-247 ([#308](https://github.com/ec-europa/ecl-twig/issues/308)) ([98972b5](https://github.com/ec-europa/ecl-twig/commit/98972b5ff33937573cb329a372f760ee57061e61))
+* **ecl-diff:** Adaptations for ECL 2.22.0 - TWIG-250 ([#311](https://github.com/ec-europa/ecl-twig/issues/311)) ([d8ae7c9](https://github.com/ec-europa/ecl-twig/commit/d8ae7c99b1a12f5207f1361788ff1902ecc8a49c))
+* **ecl-diff:** Adding command to diff a component against the ECL markup - TWIG-180 ([#270](https://github.com/ec-europa/ecl-twig/issues/270)) ([4a358d8](https://github.com/ec-europa/ecl-twig/commit/4a358d8cc53a731af9613d1bd776394b043a9ac5))
+* **ecl-diff:** Adding the possibility of diffing a specific version of the ECL components - TWIG-219 ([#286](https://github.com/ec-europa/ecl-twig/issues/286)) ([bca81cf](https://github.com/ec-europa/ecl-twig/commit/bca81cf513372504bd90c5ea04b71ed4ee8c3251))
+* **footer:** Using both spec files, green ECL diff - TWIG-249 ([#310](https://github.com/ec-europa/ecl-twig/issues/310)) ([bde6c92](https://github.com/ec-europa/ecl-twig/commit/bde6c920f053489e7cfac7581cdaf9f130985813))
+* **footer-harmonised:** Adding group3 - TWIG-202 ([#281](https://github.com/ec-europa/ecl-twig/issues/281)) ([18a4b02](https://github.com/ec-europa/ecl-twig/commit/18a4b020495d6d3d7e05a256f7c5eb3bc3236289))
+* **menu-legacy:** green diff with ECL - TWIG-251 ([#312](https://github.com/ec-europa/ecl-twig/issues/312)) ([1e5cbbb](https://github.com/ec-europa/ecl-twig/commit/1e5cbbb2972f048a36037f21b295ea171c2c47da))
+* **php-storybook:** Configuring static version, creating script for deploying to gh pages - TWIG-158 ([#259](https://github.com/ec-europa/ecl-twig/issues/259)) ([61db1c9](https://github.com/ec-europa/ecl-twig/commit/61db1c977aa8df3ba16edd8c51a707ab39aafcd4))
+* **radio:** Green diff with ECL (default and binary) - TWIG-239 ([#298](https://github.com/ec-europa/ecl-twig/issues/298)) ([e4d32f1](https://github.com/ec-europa/ecl-twig/commit/e4d32f135b9f2086e7f0826160c002c1ed6774a8))
+* **search-form:** (almost) green diff with ECL - TWIG-238 ([#301](https://github.com/ec-europa/ecl-twig/issues/301)) ([9fc9a92](https://github.com/ec-europa/ecl-twig/commit/9fc9a925017711f58db3bc5f718633d761322383))
+* **select:** (almost) green diff with ECL - TWIG-240 ([#297](https://github.com/ec-europa/ecl-twig/issues/297)) ([f620fdb](https://github.com/ec-europa/ecl-twig/commit/f620fdbe9bb96a59b0a3060982a1ec49d09960a4))
+* **site-header-harmonised:** Adding group3 - TWIG-200 ([#284](https://github.com/ec-europa/ecl-twig/issues/284)) ([63b33b8](https://github.com/ec-europa/ecl-twig/commit/63b33b8c0f7298b54134df794cd2a6744b3e87eb))
+* **social-media-share:** Green diff with ECL - TWIG-243 ([#304](https://github.com/ec-europa/ecl-twig/issues/304)) ([40b3ebd](https://github.com/ec-europa/ecl-twig/commit/40b3ebd95fcadb9a343559135e4b2a46c4fb9017))
+* **storybook:** Showing site-header-harmonised, site-header-standardised and menu - TWIG-248 ([#309](https://github.com/ec-europa/ecl-twig/issues/309)) ([105f71a](https://github.com/ec-europa/ecl-twig/commit/105f71a74ceeeed444b5076a6172200c7648e7c8))
+* **table:** Extra attributes and extra classes for the table rows - TWIG-203 ([#305](https://github.com/ec-europa/ecl-twig/issues/305)) ([9449791](https://github.com/ec-europa/ecl-twig/commit/9449791c2d4065b5ea0bc102861a3fef5178bf49))
+* **text-area:** making diff match - TWIG-241 ([#300](https://github.com/ec-europa/ecl-twig/issues/300)) ([2089453](https://github.com/ec-europa/ecl-twig/commit/20894532d708e550916eacc1e21226207e3ec4f3))
+* **text-input:** Green diff with ECL - TWIG-242 ([#299](https://github.com/ec-europa/ecl-twig/issues/299)) ([1c2430f](https://github.com/ec-europa/ecl-twig/commit/1c2430f632cf42e5612b4b860bfa7a7e0e1db6b8))
+* **timeline:** Green diff with ECL - TWIG-244 ([#307](https://github.com/ec-europa/ecl-twig/issues/307)) ([14a8b3f](https://github.com/ec-europa/ecl-twig/commit/14a8b3fe221c665cbc90f429b63a836ab0c6dc10))
+
+
+
 # [2.21.0](https://github.com/ec-europa/ecl-twig/compare/v2.19.0...v2.21.0) (2020-01-16)
 
 
