@@ -2,6 +2,8 @@
 import { storiesOf } from '@storybook/html';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
+import { withKnobs, text } from '@storybook/addon-knobs';
+import merge from 'deepmerge';
 
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import dataCard from './demo/data--card';
@@ -22,41 +24,78 @@ const formatInfo = data => {
   return data;
 };
 
+console.log();
 storiesOf('Components/Card', module)
   .addDecorator(withCode)
+  .addDecorator(withKnobs)
   .addDecorator(withNotes)
   .add(
     'card',
-    () => {
-      return card(formatInfo(dataCard));
-    },
+    () =>
+      card(
+        merge(dataCard, {
+          card: {
+            title: {
+              label: text('Title card', dataCard.card.title.label),
+            },
+            description: text('Description', dataCard.card.description),
+            image: {
+              src: text('Image path', dataCard.card.image.src),
+            },
+          },
+        })
+      ),
     {
       notes: { markdown: notes, json: formatInfo(dataCard) },
     }
   )
   .add(
     'tile',
-    () => {
-      return card(dataTile);
-    },
+    () =>
+      card(
+        merge(dataTile, {
+          card: {
+            title: {
+              label: text('Title card', dataTile.card.title.label),
+            },
+            description: text('Description', dataTile.card.description),
+          },
+        })
+      ),
     {
       notes: { markdown: notes, json: dataTile },
     }
   )
   .add(
     'tag',
-    () => {
-      return card(formatInfo(dataCardTag));
-    },
+    () =>
+      card(
+        merge(dataCardTag, {
+          card: {
+            title: {
+              label: text('Title card', dataCardTag.card.title.label),
+            },
+            description: text('Description', dataCardTag.card.description),
+          },
+        })
+      ),
     {
       notes: { markdown: notes, json: formatInfo(dataCardTag) },
     }
   )
   .add(
     'event',
-    () => {
-      return card(formatInfo(dataCardEvent));
-    },
+    () =>
+      card(
+        merge(dataCardTag, {
+          card: {
+            title: {
+              label: text('Title card', dataCardEvent.card.title.label),
+            },
+            description: text('Description', dataCardEvent.card.description),
+          },
+        })
+      ),
     {
       notes: { markdown: notes, json: formatInfo(dataCardEvent) },
     }

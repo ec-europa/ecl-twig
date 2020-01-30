@@ -29,6 +29,7 @@ const adapter = initialData => {
   if (adaptedData.card.title.href) {
     adaptedData.card.title.path = adaptedData.card.title.href;
     adaptedData.card.title.type = 'standalone';
+    delete adaptedData.card.title.href;
   }
   if (adaptedData.image) {
     adaptedData.card.image = adaptedData.image;
