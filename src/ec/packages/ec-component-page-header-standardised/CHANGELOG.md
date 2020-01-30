@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.22.0](https://github.com/ec-europa/ecl-twig/compare/v2.19.0...v2.22.0) (2020-01-30)
+
+### Bug Fixes
+
+- **breadcrumb-standardised:** component review - TWIG-224 ([#293](https://github.com/ec-europa/ecl-twig/issues/293)) ([449cbd1](https://github.com/ec-europa/ecl-twig/commit/449cbd12bced6cb0f5b138b4255a69625aef8355))
+
 # [2.21.0](https://github.com/ec-europa/ecl-twig/compare/v2.19.0...v2.21.0) (2020-01-16)
 
 **Note:** Version bump only for package @ecl-twig/ec-component-page-header-standardised
