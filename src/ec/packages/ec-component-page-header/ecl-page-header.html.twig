@@ -67,13 +67,15 @@
     {% if infos is defined and infos is not empty and infos is iterable %}
       <ul class="ecl-page-header__info-list">
         {% for info in infos %}
+        {% if info.text != '' %}
           <li class="ecl-page-header__info-item">
             {% include '@ecl-twig/ec-component-icon/ecl-icon.html.twig' with {
-              icon: info.icon|merge({ size: 's' }),
+              icon: info.icon,
               extra_classes: 'ecl-page-header__info-icon'
             } only %}
             {{- info.text -}}
           </li>
+        {% endif %}
         {% endfor %}
       </ul>
     {% endif %}
