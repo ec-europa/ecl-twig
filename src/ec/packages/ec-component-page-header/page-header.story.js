@@ -19,17 +19,17 @@ import notes from './README.md';
 const pageHeaderDataEventsInfo = [];
 const pageHeaderDataEventsDescriptioninfo = [];
 
-for (let i = 0; i < pageHeaderDataEvents.infos.length; i += 1) {
-  pageHeaderDataEventsInfo.push(pageHeaderDataEvents.infos[i].text);
-  pageHeaderDataEvents.infos[i].text = '';
-}
+pageHeaderDataEvents.infos.forEach((item, key) => {
+  pageHeaderDataEventsInfo.push(pageHeaderDataEvents.infos[key].text);
+  pageHeaderDataEvents.infos[key].text = '';
+});
 
-for (let i = 0; i < pageHeaderDataEventsDescription.infos.length; i += 1) {
+pageHeaderDataEventsDescription.infos.forEach((item, key) => {
   pageHeaderDataEventsDescriptioninfo.push(
-    pageHeaderDataEventsDescription.infos[i].text
+    pageHeaderDataEventsDescription.infos[key].text
   );
-  pageHeaderDataEventsDescription.infos[i].text = '';
-}
+  pageHeaderDataEventsDescription.infos[key].text = '';
+});
 
 storiesOf('Components/deprecated/Page Header', module)
   .addDecorator(withKnobs)
@@ -133,7 +133,6 @@ storiesOf('Components/deprecated/Page Header', module)
                 path: defaultSprite,
                 type: pageHeaderDataEvents.infos[0].icon.type,
                 name: pageHeaderDataEvents.infos[0].icon.name,
-                size: 's',
               },
               text: text('Info 0 text', pageHeaderDataEventsInfo[0]),
             },
@@ -142,7 +141,6 @@ storiesOf('Components/deprecated/Page Header', module)
                 path: defaultSprite,
                 type: pageHeaderDataEvents.infos[1].icon.type,
                 name: pageHeaderDataEvents.infos[1].icon.name,
-                size: 's',
               },
               text: text('Info 1 text', pageHeaderDataEventsInfo[1]),
             },
@@ -151,7 +149,6 @@ storiesOf('Components/deprecated/Page Header', module)
                 path: defaultSprite,
                 type: pageHeaderDataEvents.infos[2].icon.type,
                 name: pageHeaderDataEvents.infos[2].icon.name,
-                size: 's',
               },
               text: text('Info 2 text', pageHeaderDataEventsInfo[2]),
             },
@@ -185,7 +182,6 @@ storiesOf('Components/deprecated/Page Header', module)
                 path: defaultSprite,
                 type: pageHeaderDataEventsDescription.infos[0].icon.type,
                 name: pageHeaderDataEventsDescription.infos[0].icon.name,
-                size: 's',
               },
               text: text('Info 0 text', pageHeaderDataEventsDescriptioninfo[0]),
             },
@@ -194,7 +190,6 @@ storiesOf('Components/deprecated/Page Header', module)
                 path: defaultSprite,
                 type: pageHeaderDataEventsDescription.infos[1].icon.type,
                 name: pageHeaderDataEventsDescription.infos[1].icon.name,
-                size: 's',
               },
               text: text('Info 1 text', pageHeaderDataEventsDescriptioninfo[1]),
             },
@@ -203,7 +198,6 @@ storiesOf('Components/deprecated/Page Header', module)
                 path: defaultSprite,
                 type: pageHeaderDataEventsDescription.infos[2].icon.type,
                 name: pageHeaderDataEventsDescription.infos[2].icon.name,
-                size: 's',
               },
               text: text('Info 2 text', pageHeaderDataEventsDescriptioninfo[2]),
             },
