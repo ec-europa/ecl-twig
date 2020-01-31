@@ -13,6 +13,8 @@ npm install --save @ecl-twig/ec-component-table
   - "label" (string or array of string)
   - "colspan" (string) (default: ''),
 - **"rows"** (array) (default: [])
+  - "extra_attributes": (string) (default: '') Extra attributes for the row (space separated)
+  - "extra_classes": (string) (default: '') Extra classes for the table row (space separated)
   - "label" (string or array of string)
   - "data-ecl-table-header" (string) (default: ''),
   - "data-ecl-table-header-group" (string) (default: '')
@@ -44,6 +46,8 @@ npm install --save @ecl-twig/ec-component-table
   ],
   rows: [
   [
+    extra_classes: 'an-extra-class',
+    extra_attributes: 'an-extra-attribute="with_a_value", another-attribute',
     { label: 'John', 'data-ecl-table-header': 'Name' },
     {
       label: 'September 14, 2013',
@@ -67,6 +71,8 @@ npm install --save @ecl-twig/ec-component-table
     },
   ],
   [
+    extra_classes: 'an-extra-class',
+    extra_attributes: 'an-extra-attribute',
     { label: 'Ron', 'data-ecl-table-header': 'Name' },
     {
       label: 'October 23, 2014',

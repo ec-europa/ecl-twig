@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.22.0](https://github.com/ec-europa/ecl-twig/compare/v2.19.0...v2.22.0) (2020-01-30)
+
+### Features
+
+- **text-input:** Green diff with ECL - TWIG-242 ([#299](https://github.com/ec-europa/ecl-twig/issues/299)) ([1c2430f](https://github.com/ec-europa/ecl-twig/commit/1c2430f632cf42e5612b4b860bfa7a7e0e1db6b8))
+
 # [2.21.0](https://github.com/ec-europa/ecl-twig/compare/v2.19.0...v2.21.0) (2020-01-16)
 
 **Note:** Version bump only for package @ecl-twig/ec-component-text-input

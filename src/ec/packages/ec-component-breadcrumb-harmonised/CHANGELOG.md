@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.22.0](https://github.com/ec-europa/ecl-twig/compare/v2.19.0...v2.22.0) (2020-01-30)
+
+### Features
+
+- **breadcrumb-harmonised:** component review - TWIG-223 ([#302](https://github.com/ec-europa/ecl-twig/issues/302)) ([c5baaf6](https://github.com/ec-europa/ecl-twig/commit/c5baaf658c31ceea2a290f20953bdff9c01fed18))
+
 # [2.21.0](https://github.com/ec-europa/ecl-twig/compare/v2.19.0...v2.21.0) (2020-01-16)
 
 **Note:** Version bump only for package @ecl-twig/ec-component-breadcrumb-harmonised

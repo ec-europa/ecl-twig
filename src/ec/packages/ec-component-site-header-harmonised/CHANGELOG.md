@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.22.0](https://github.com/ec-europa/ecl-twig/compare/v2.19.0...v2.22.0) (2020-01-30)
+
+### Bug Fixes
+
+- **button:** Setting data-ecl-icon on the icon when used in a button - TWIG-199 ([#291](https://github.com/ec-europa/ecl-twig/issues/291)) ([3e5aa22](https://github.com/ec-europa/ecl-twig/commit/3e5aa2250468cb68b59338ccb5dab725aeea2fb1))
+
+### Features
+
+- **ecl-diff:** Adding command to diff a component against the ECL markup - TWIG-180 ([#270](https://github.com/ec-europa/ecl-twig/issues/270)) ([4a358d8](https://github.com/ec-europa/ecl-twig/commit/4a358d8cc53a731af9613d1bd776394b043a9ac5))
+- **site-header-harmonised:** Adding group3 - TWIG-200 ([#284](https://github.com/ec-europa/ecl-twig/issues/284)) ([63b33b8](https://github.com/ec-europa/ecl-twig/commit/63b33b8c0f7298b54134df794cd2a6744b3e87eb))
+- **storybook:** Showing site-header-harmonised, site-header-standardised and menu - TWIG-248 ([#309](https://github.com/ec-europa/ecl-twig/issues/309)) ([105f71a](https://github.com/ec-europa/ecl-twig/commit/105f71a74ceeeed444b5076a6172200c7648e7c8))
+
 # [2.21.0](https://github.com/ec-europa/ecl-twig/compare/v2.19.0...v2.21.0) (2020-01-16)
 
 ### Features

@@ -73,7 +73,7 @@ const options = {
   eclSection: {
     type: 'list',
     describe: 'The group the component is associated with in ECL',
-    choices: ['components', 'page-structure'],
+    choices: ['components', 'page-structure', 'deprecated'],
   },
   eclSubSection: {
     type: 'list',
@@ -203,8 +203,9 @@ yargsInteractive()
             'xlink:href="{{.*icons.*.svg#}}'
           )
           // Booleans.
-          // Inline attributes.
           .replace(/(data-ecl[-A-Za-z]+)(?=[\s/>])/g, '$1="{{true|false}}"')
+          // aria-hidden
+          .replace(/(aria-hidden)(=".+")/g, '$1="{{true|false}}"')
           // Logo
           .replace(
             /\/logo--(en|fr|mute).svg/g,
@@ -261,6 +262,14 @@ yargsInteractive()
           } else if (el === 'page-header') {
             el = 'pageheader';
           }
+          if (eclVersion > '2.21.0') {
+            if (el === 'footer') {
+              el = 'footer-ecl-2-12-0';
+            }
+            if (el === 'accordion') {
+              el = 'accordion-ecl-2-6-0';
+            }
+          }
 
           return el;
         };
@@ -276,6 +285,7 @@ yargsInteractive()
         const browser = await puppeteer.launch();
         const page = await browser.newPage();
         await page.goto(eclFinalUrl, { waitUntil: 'domcontentloaded' });
+        await page.setViewport({ width: 1900, height: 1600 });
         // We might be redirected if the url doesn't exist.
         await page.waitFor(5000);
         // If we have been redirected we try to look for the available variants.

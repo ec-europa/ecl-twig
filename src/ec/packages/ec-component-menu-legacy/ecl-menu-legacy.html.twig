@@ -45,7 +45,7 @@
   size: 'xs',
   transform: 'rotate-180',
   color: '',
-  extra_classes: 'ecl-menu-legacy_link-icon'}|merge(icon|default({}))
+  extra_classes: 'ecl-menu-legacy__link-icon'}|merge(icon|default({}))
 %}
 
 {# Internal logic - Process properties #}
@@ -67,7 +67,11 @@
 {# Print the result #}
 <nav class="{{ _css_class }}" {{ _extra_attributes|raw }}>
   <div class="ecl-container">
-    <button class="{{ _prefix_class }}__toggle {{ _prefix_class }}__hamburger ecl-button ecl-button--ghost" type="button" data-ecl-menu-legacy-hamburger-button="true">
+    <button
+      class="{{ _prefix_class }}__toggle ecl-button ecl-button--ghost"
+      type="button"
+      data-ecl-menu-legacy-hamburger-button
+    >
       <div class="{{ _prefix_class }}__toggle-container">
         <div class="{{ _prefix_class }}__hamburger">
           <div class="{{ _prefix_class }}__hamburger--bar1"></div>
@@ -78,49 +82,62 @@
       </div>
     </button>
     <ul class="{{ _prefix_class }}__list" data-{{ _prefix_class }}-list>
-      {%- block navigation %}
-        {% if _links is not empty and _links is iterable %}
-          {% for _link in _links %}
-            {% set _link_class_name = _prefix_class ~ '__item' ~ (_link.is_active ? ' ' ~ _prefix_class ~ '__item--active' : '') ~ (_link.is_current ? ' ' ~ _prefix_class ~ '__item--current' : '') %}
-            {% set _extra_classes = _prefix_class ~ '__link' ~ (_link.is_current ? ' ' ~ _prefix_class ~ '__link--current' : '') %}
-              {% if _link.children is not defined or _link.children is empty %}
-              <li class="{{ _link_class_name }}" data-{{ _prefix_class }}-item="true" data-ecl-has-children="false" >
-                {%- include '@ecl-twig/ec-component-link/ecl-link.html.twig' with { link: { type: 'standalone', 'label': _link.label, 'path': _link.href }, extra_classes: _extra_classes } only -%}
-              {% else %}
-              <li class="{{ _link_class_name }}" data-{{ _prefix_class }}-item="true" data-ecl-has-children="true" >
-                {%- include '@ecl-twig/ec-component-link/ecl-link.html.twig' with {
-                  link: {'type': 'standalone', 'label': _link.label, 'path': _link.href, 'icon_position': 'after'},
-                  icon: _icon,
+      {%- block navigation -%}
+  {% if _links is not empty and _links is iterable %}
+    {% for _link in _links %}
+      {% set _link_class_name = _prefix_class ~ '__item' ~ (_link.is_active ? ' ' ~ _prefix_class ~ '__item--active' : '') ~ (_link.is_current ? ' ' ~ _prefix_class ~ '__item--current' : '') %}
+      {% set _extra_classes = _prefix_class ~ '__link' ~ (_link.is_current ? ' ' ~ _prefix_class ~ '__link--current' : '') %}
+      {% set _list_subelement_custom_class = _prefix_class ~ '__subitem' %}
+      {% if _link.is_current is defined %}
+        {% set _list_subelement_custom_class = _list_subelement_custom_class ~ ' ecl-menu-legacy__subitem--current' %}
+      {% endif %}
+      {% if _link.children is not defined or _link.children is empty %}
+      <li class="{{ _link_class_name }}" data-{{ _prefix_class }}-item data-ecl-has-children="false">
+        {%- include '@ecl-twig/ec-component-link/ecl-link.html.twig' with {
+          link: {
+            type: 'standalone',
+            'label': _link.label,
+            'path': _link.href
+          },
+          extra_classes: _extra_classes,
+          extra_attributes: [{ name: 'data-' ~ _prefix_class ~ '-link' }],
+        } only -%}
+      {% else %}
+      <li class="{{ _link_class_name }}" data-{{ _prefix_class }}-item data-ecl-has-children="true" >
+        {%- include '@ecl-twig/ec-component-link/ecl-link.html.twig' with {
+          link: {'type': 'standalone', 'label': _link.label, 'path': _link.href, 'icon_position': 'after'},
+          icon: _icon,
+          extra_classes: _extra_classes,
+          extra_attributes: [{ name: 'data-' ~ _prefix_class ~ '-link' }],
+        } only -%}
+        {#second level#}
+        <div class="{{ _prefix_class }}__mega" data-{{ _prefix_class }}-mega>
+        {% for _column in _link.children %}
+        {#columns#}
+          <div class="{{ _prefix_class }}__column">
+          {% if _column.title is defined and _column.title is not empty %}
+            <div class="{{ _prefix_class }}__separator">{{ _column.title }}</div>
+          {% endif %}
+            <ul class="{{ _prefix_class }}__sublist" data-{{ _prefix_class }}-sublist>
+            {% for _child_link in _column.items %}
+              {% set _extra_classes = _prefix_class ~ '__sublink' ~ (_child_link.is_current ? ' ' ~ _prefix_class ~ '__sublink--current' : '') %}
+              <li class="{{ _list_subelement_custom_class }}" data-ecl-menu-legacy-subitem>
+               {%- include '@ecl-twig/ec-component-link/ecl-link.html.twig' with {
+                  link: {'type': 'standalone', 'label': _child_link.label, 'path': _child_link.href},
                   extra_classes: _extra_classes,
-                  extra_attributes: [ { name: 'data-' ~ _prefix_class ~ '-link' }],
+                  extra_attributes: [{ name: 'data-ecl-menu-legacy-sublink' }],
                 } only -%}
-                {#second level#}
-                <div class="{{ _prefix_class }}__mega" data-{{ _prefix_class }}-mega="true">
-                  {% for _column in _link.children %}
-                  {#columns#}
-                    <div class="{{ _prefix_class }}__column">
-                      {% if _column.title is defined and _column.title is not empty %}
-                        <div class="{{ _prefix_class }}__separator">{{ _column.title }}</div>
-                      {% endif %}
-                      <ul class="{{ _prefix_class }}__sublist" data-{{ _prefix_class }}-sublist="true">
-                        {% for _child_link in _column.items %}
-                          {% set _extra_classes = _prefix_class ~ '__sublink' ~ (_child_link.is_current ? ' ' ~ _prefix_class ~ '__sublink--current' : '') %}
-                          <li class="{{ _prefix_class }}__subitem" data-ecl-menu-legacy-subitem="true">
-                             {%- include '@ecl-twig/ec-component-link/ecl-link.html.twig' with {
-                                link: {'type': 'standalone', 'label': _child_link.label, 'path': _child_link.href},
-                                extra_classes: _extra_classes
-                              } only -%}
-                          </li>
-                        {% endfor %}
-                      </ul>
-                    </div>
-                  {% endfor %}
-                </div>
-              {% endif %}
-            </li>
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
           {% endfor %}
-        {% endif %}
-      {% endblock %}
+        </div>
+      {% endif %}
+      </li>
+      {% endfor %}
+    {% endif %}
+    {% endblock %}
     </ul>
   </div>
 </nav>

@@ -1,6 +1,6 @@
 import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
-import dataSimple from './demo/data-simple';
+import dataSimple from './demo/data--simple';
 import dataLong from './demo/data';
 
 describe('EC - Breadcrumb', () => {
@@ -8,20 +8,15 @@ describe('EC - Breadcrumb', () => {
   const render = params => renderTwigFileAsNode(template, params);
 
   describe('Simple', () => {
-    const data = merge(dataSimple, {
-      navigation_text: dataSimple.label,
-      ellipsis_label: 'Click to expand',
-    });
-
     test(`renders correctly`, () => {
       expect.assertions(1);
-      return expect(render(data)).resolves.toMatchSnapshot();
+      return expect(render(dataSimple)).resolves.toMatchSnapshot();
     });
 
     test('renders correctly with extra class names', () => {
       expect.assertions(1);
 
-      const optionsWithExtraClasses = merge(data, {
+      const optionsWithExtraClasses = merge(dataSimple, {
         extra_classes: 'custom-class custom-class--test',
       });
 
@@ -31,7 +26,7 @@ describe('EC - Breadcrumb', () => {
     test('renders correctly with extra attributes', () => {
       expect.assertions(1);
 
-      const optionsWithExtraClasses = merge(data, {
+      const optionsWithExtraClasses = merge(dataSimple, {
         extra_attributes: [
           { name: 'data-test', value: 'data-test-value' },
           { name: 'data-test-1', value: 'data-test-value-1' },
@@ -43,20 +38,15 @@ describe('EC - Breadcrumb', () => {
   });
 
   describe('Long', () => {
-    const data = merge(dataLong, {
-      navigation_text: dataLong.label,
-      ellipsis_label: 'Click to expand',
-    });
-
     test(`renders correctly`, () => {
       expect.assertions(1);
-      return expect(render(data)).resolves.toMatchSnapshot();
+      return expect(render(dataLong)).resolves.toMatchSnapshot();
     });
 
     test('renders correctly with extra class names', () => {
       expect.assertions(1);
 
-      const optionsWithExtraClasses = merge(data, {
+      const optionsWithExtraClasses = merge(dataLong, {
         extra_classes: 'custom-class custom-class--test',
       });
 
@@ -66,7 +56,7 @@ describe('EC - Breadcrumb', () => {
     test('renders correctly with extra attributes', () => {
       expect.assertions(1);
 
-      const optionsWithExtraClasses = merge(data, {
+      const optionsWithExtraClasses = merge(dataLong, {
         extra_attributes: [
           { name: 'data-test', value: 'data-test-value' },
           { name: 'data-test-1', value: 'data-test-value-1' },
