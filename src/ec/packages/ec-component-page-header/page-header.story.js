@@ -135,7 +135,7 @@ storiesOf('Components/deprecated/Page Header', module)
                 name: pageHeaderDataEvents.infos[0].icon.name,
                 size: 's',
               },
-              text: text('Info 2 text', pageHeaderDataEventsInfo[0]),
+              text: text('Info 0 text', pageHeaderDataEventsInfo[0]),
             },
             {
               icon: {
@@ -144,7 +144,7 @@ storiesOf('Components/deprecated/Page Header', module)
                 name: pageHeaderDataEvents.infos[1].icon.name,
                 size: 's',
               },
-              text: text('Info 2 text', pageHeaderDataEventsInfo[1]),
+              text: text('Info 1 text', pageHeaderDataEventsInfo[1]),
             },
             {
               icon: {
