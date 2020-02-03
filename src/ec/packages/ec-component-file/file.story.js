@@ -2,6 +2,8 @@
 import { storiesOf } from '@storybook/html';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
+import { withKnobs, text } from '@storybook/addon-knobs';
+import merge from 'deepmerge';
 
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import dataWithTranslation from './demo/data--with-translation';
@@ -30,9 +32,52 @@ dataWithoutTranslation.download.icon.path = defaultSprite;
 storiesOf('Components/File', module)
   .addDecorator(withNotes)
   .addDecorator(withCode)
-  .add('without translation', () => file(dataWithoutTranslation), {
-    notes: { markdown: notes, json: dataWithoutTranslation },
-  })
-  .add('with translation', () => file(dataWithTranslation), {
-    notes: { markdown: notes, json: dataWithTranslation },
-  });
+  .addDecorator(withKnobs)
+  .add(
+    'without translation',
+    () =>
+      file(
+        merge(dataWithoutTranslation, {
+          title: text('File title', dataWithoutTranslation.title),
+          download: {
+            link: {
+              label: text(
+                'Download label',
+                dataWithoutTranslation.download.link.label
+              ),
+            },
+          },
+        })
+      ),
+    {
+      notes: { markdown: notes, json: dataWithoutTranslation },
+    }
+  )
+  .add(
+    'with translation',
+    () =>
+      file(
+        merge(dataWithTranslation, {
+          title: text('File title', dataWithTranslation.title),
+          download: {
+            link: {
+              label: text(
+                'Download label',
+                dataWithTranslation.download.link.label
+              ),
+            },
+          },
+          translation: {
+            toggle: {
+              label: text(
+                'Toggle label',
+                dataWithTranslation.translation.toggle.label
+              ),
+            },
+          },
+        })
+      ),
+    {
+      notes: { markdown: notes, json: dataWithTranslation },
+    }
+  );
