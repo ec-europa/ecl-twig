@@ -32,10 +32,7 @@ const run = async () => {
     return;
   }
 
-  const contextName = !DEPLOY_CONTEXT
-    ? 'drone/netlify'
-    : 'php-storybook/netlify';
-
+  const context = DEPLOY_CONTEXT || 'drone/twig-js';
   let payload = {};
 
   try {
@@ -50,14 +47,14 @@ const run = async () => {
         state: 'success',
         target_url: deploymentResult.url,
         description: 'Production deployment completed!',
-        context: contextName,
+        context,
       };
     } else {
       payload = {
         state: 'success',
         target_url: deploymentResult.deploy_url,
         description: 'Preview ready!',
-        context: contextName,
+        context,
       };
     }
   } catch (error) {
