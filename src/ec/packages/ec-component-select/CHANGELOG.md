@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.22.0](https://github.com/ec-europa/ecl-twig/compare/v2.19.0...v2.22.0) (2020-01-30)
+
+### Features
+
+- **select:** (almost) green diff with ECL - TWIG-240 ([#297](https://github.com/ec-europa/ecl-twig/issues/297)) ([f620fdb](https://github.com/ec-europa/ecl-twig/commit/f620fdbe9bb96a59b0a3060982a1ec49d09960a4))
+
 # [2.21.0](https://github.com/ec-europa/ecl-twig/compare/v2.19.0...v2.21.0) (2020-01-16)
 
 **Note:** Version bump only for package @ecl-twig/ec-component-select

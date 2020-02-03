@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.22.0](https://github.com/ec-europa/ecl-twig/compare/v2.19.0...v2.22.0) (2020-01-30)
+
+### Bug Fixes
+
+- **site-headers:** Icons size reviewed - TWIG_201 ([#282](https://github.com/ec-europa/ecl-twig/issues/282)) ([0f5df24](https://github.com/ec-europa/ecl-twig/commit/0f5df24f9171f1f2d93cc442071f1c08e10f082d))
+
+### Features
+
+- **footer-harmonised:** Adding group3 - TWIG-202 ([#281](https://github.com/ec-europa/ecl-twig/issues/281)) ([18a4b02](https://github.com/ec-europa/ecl-twig/commit/18a4b020495d6d3d7e05a256f7c5eb3bc3236289))
+
 # [2.21.0](https://github.com/ec-europa/ecl-twig/compare/v2.19.0...v2.21.0) (2020-01-16)
 
 ### Bug Fixes
