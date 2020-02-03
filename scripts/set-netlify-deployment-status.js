@@ -62,7 +62,7 @@ const run = async () => {
       state: 'error',
       target_url: DRONE_BUILD_LINK,
       description: 'Could not get data about Netlify deployment.',
-      context: contextName,
+      context,
     };
   }
 

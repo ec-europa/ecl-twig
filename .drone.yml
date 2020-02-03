@@ -54,7 +54,6 @@ pipeline:
     image: roelofr/php-node
     secrets: [gh_token, netlify_auth_token, netlify_site]
     commands:
-      - composer install
       - npm install -g n && n stable
       - yarn install
       - rm -rf netlify.toml
