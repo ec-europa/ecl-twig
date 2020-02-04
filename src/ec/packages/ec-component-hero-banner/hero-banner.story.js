@@ -14,71 +14,112 @@ import dataLeft from './demo/data--align-left';
 import heroBanner from './ecl-hero-banner.html.twig';
 import notes from './README.md';
 
-function formatBanner(b) {
-  const banner = merge(b, {
-    title: text('Title', b.title),
-    description: text('Description', b.description),
-    link: {
-      link: {
-        label: text('Link label', b.link.link.label),
-      },
-      icon: {
-        path: defaultSprite,
-      },
-    },
-  });
-
-  return banner;
-}
-
 storiesOf('Components/Banners/Hero Banner', module)
   .addDecorator(withKnobs)
   .addDecorator(withNotes)
   .addDecorator(withCode)
   .add(
     'default',
-    () => {
-      const data = formatBanner(dataDefault);
-
-      return heroBanner(data);
-    },
+    () =>
+      heroBanner(
+        merge(dataDefault, {
+          title: text('Title', dataDefault.title),
+          description: text('Description', dataDefault.description),
+          link: {
+            link: {
+              label: text('Link label', dataDefault.link.link.label),
+            },
+            icon: {
+              path: defaultSprite,
+            },
+          },
+        })
+      ),
     {
-      notes: { markdown: notes, json: formatBanner(dataDefault) },
+      notes: { markdown: notes, json: dataDefault },
     }
   )
   .add(
     'image',
-    () => {
-      return heroBanner(formatBanner(dataImage));
-    },
+    () =>
+      heroBanner(
+        merge(dataImage, {
+          title: text('Title', dataImage.title),
+          description: text('Description', dataImage.description),
+          link: {
+            link: {
+              label: text('Link label', dataImage.link.link.label),
+            },
+            icon: {
+              path: defaultSprite,
+            },
+          },
+        })
+      ),
     {
-      notes: { markdown: notes, json: formatBanner(dataImage) },
+      notes: { markdown: notes, json: dataImage },
     }
   )
   .add(
     'image-shade',
-    () => {
-      return heroBanner(formatBanner(dataImageShade));
-    },
+    () =>
+      heroBanner(
+        merge(dataImageShade, {
+          title: text('Title', dataImageShade.title),
+          description: text('Description', dataImageShade.description),
+          link: {
+            link: {
+              label: text('Link label', dataImageShade.link.link.label),
+            },
+            icon: {
+              path: defaultSprite,
+            },
+          },
+        })
+      ),
     {
-      notes: { markdown: notes, json: formatBanner(dataImageShade) },
+      notes: { markdown: notes, json: dataImageShade },
     }
   )
   .add(
     'primary',
-    () => {
-      return heroBanner(formatBanner(dataPrimary));
-    },
+    () =>
+      heroBanner(
+        merge(dataPrimary, {
+          title: text('Title', dataPrimary.title),
+          description: text('Description', dataPrimary.description),
+          link: {
+            link: {
+              label: text('Link label', dataPrimary.link.link.label),
+            },
+            icon: {
+              path: defaultSprite,
+            },
+          },
+        })
+      ),
     {
-      notes: { markdown: notes, json: formatBanner(dataPrimary) },
+      notes: { markdown: notes, json: dataPrimary },
     }
   )
   .add(
     'align-left',
-    () => {
-      return heroBanner(formatBanner(dataLeft));
-    },
+    () =>
+      heroBanner(
+        merge(dataLeft, {
+          title: text('Title', dataLeft.title),
+          description: text('Description', dataLeft.description),
+          link: {
+            link: {
+              label: text('Link label', dataLeft.link.link.label),
+            },
+            icon: {
+              path: defaultSprite,
+            },
+          },
+        })
+      ),
     {
-      notes: { markdown: notes, json: formatBanner(dataLeft) },
+      notes: { markdown: notes, json: dataLeft },
     }
   );
