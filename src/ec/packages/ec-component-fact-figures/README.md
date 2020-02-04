@@ -18,6 +18,8 @@ npm install --save @ecl-twig/ec-component-fact-figures
   - "link" (associative array) {
     - "label" (string) (default: ''),
     - "path" (string) (default: '')
+  - "visible" (boolean) (default: true)
+- **"display_icons"** (boolean) (default: true)
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
