@@ -19,14 +19,16 @@ storiesOf('Components/Forms/Datepicker', module)
     () => {
       return datepicker(
         merge(data, {
+          label: text('Label', 'Label'),
           icons_path: defaultSprite,
           helper_text: text('Helper text', data.helper_text),
+          invalid: boolean('Invalid', false),
           invalid_text: text('Invalid text', data.invalid_text),
-          label: text('Label', 'Label'),
-          optional_text: text('Optional text', data.optional_text),
-          placeholder: text('Placeholder', data.placeholder),
+          disabled: boolean('Disabled', false),
           required: boolean('Required', true),
           required_text: text('Required text', data.required_text),
+          optional_text: text('Optional text', data.optional_text),
+          placeholder: text('Placeholder', data.placeholder),
         })
       );
     },

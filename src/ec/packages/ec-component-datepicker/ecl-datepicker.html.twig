@@ -5,6 +5,7 @@
     - "id" (string) (default: '')
     - "name" (string) (default: '')
     - "required" (boolean) (default: false)
+    - "required_text" (string) (default: '')
     - "disabled" (boolean) (default: false)
     - "invalid" (boolean) (default: false)
     - "required_text" (string) (default: '')
@@ -34,6 +35,7 @@
 {% set _placeholder = placeholder|default('dd/mm/yyyy') %}
 {% set _icons_path = icons_path|default('') %}
 {% set _invalid = invalid|default(false) %}
+{% set _invalid_text = invalid_text|default('') %}
 {% set _disabled = disabled|default(false) %}
 {% set _required = required|default(false) %}
 {% set _required_text = required_text|default('') %}
@@ -76,6 +78,7 @@
   {{- _label -}}
   {% if _required and _required_text is not empty %}
     <span class="ecl-form-label__required">{{ required_text }}</span>
+
   {% elseif not _required and _optional_text is not empty %}
     <span class="ecl-form-label__optional">{{ optional_text }}</span>
   {% endif %}
