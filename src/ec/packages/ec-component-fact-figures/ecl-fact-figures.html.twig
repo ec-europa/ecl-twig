@@ -54,7 +54,7 @@
   <div class="ecl-fact-figures__items">
   {% for item in items %}
     <div class="ecl-fact-figures__item">
-    {% if item.icon is defined and item.icon is not empty %}
+    {% if item.icon is defined and item.icon is not empty and display_icons == 1 %}
       {% include '@ecl-twig/ec-component-icon/ecl-icon.html.twig' with {
         icon: item.icon|merge(_icon),
         extra_classes: 'ecl-fact-figures__icon'
@@ -80,7 +80,7 @@
   </div>
 {% endif %}
 
-{% if view_all.link is defined and view_all.link is not empty %}
+{% if view_all.link is defined and view_all.link is not empty and view_all.visible == 1  %}
   <div class="ecl-fact-figures__view-all">
     {% include '@ecl-twig/ec-component-link/ecl-link.html.twig' with view_all|merge({
       link: view_all.link|merge({
@@ -90,6 +90,5 @@
     }) only %}
   </div>
 {% endif %}
-
 </div>
 {% endspaceless %}
