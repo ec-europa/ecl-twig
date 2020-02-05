@@ -1038,6 +1038,11 @@
 "@ecl-twig/data-utils@file:utils/data-utils":
   version "0.0.0-dev-only"
 
+"@ecl-twig/ec-component-file-upload@2.22.0":
+  version "2.22.0"
+  resolved "https://registry.yarnpkg.com/@ecl-twig/ec-component-file-upload/-/ec-component-file-upload-2.22.0.tgz#2c3ca3d8f3b899b592dbf3fa6943d6219b1a599d"
+  integrity sha512-TyXiBAyBiazKQo+kbAN5feogewlf7MDNJJK+SpwbD1Eiy/TSc8FRK2G6cCnNUWzNRgyt5T9Vt4l7EMvR3fLBaw==
+
 "@ecl-twig/php-storybook@file:php/php_storybook":
   version "0.0.1-alpha"
 
@@ -1060,6 +1065,11 @@
   version "2.22.0"
   resolved "https://registry.yarnpkg.com/@ecl/ec-base/-/ec-base-2.22.0.tgz#8f12d9767564e6b674066452628331e3fc3ab4ba"
   integrity sha512-1nKkLcbz0q7E1jrcCKDaIW2Xq893WnhstW6SZhocUio9Pwnm+T9JTLeDi9ZaqwFd/fbWJh6Pr4OKHvRPOjOxdg==
+
+"@ecl/ec-base@^2.22.1":
+  version "2.22.1"
+  resolved "https://registry.yarnpkg.com/@ecl/ec-base/-/ec-base-2.22.1.tgz#487d6854c67e49f8ed2d1b96e85eedae4af46574"
+  integrity sha512-daDk2do6m0ADMwJGx0V3MrKzJqDQFeG6fNWr5KoVCo0N9eskLF78YYCcUfvXaB8/zfRWQPLlWSOnpE+RNFIXSA==
 
 "@ecl/ec-component-accordion@2.22.0":
   version "2.22.0"
@@ -1235,12 +1245,19 @@
   dependencies:
     "@ecl/ec-base" "^2.22.0"
 
-"@ecl/ec-component-form-file-upload@2.22.0":
-  version "2.22.0"
-  resolved "https://registry.yarnpkg.com/@ecl/ec-component-form-file-upload/-/ec-component-form-file-upload-2.22.0.tgz#301c5d878135d036b22b4243bbf9ed85bef57d91"
-  integrity sha512-C/CBCBemIWNqaTWwiyTe14qzDL/fKNA/+MOIJ4DsdGJIGTVKZzkoKFTJ7nvsuLRBKKtEoIABtredeV2ZGcmTNQ==
+"@ecl/ec-component-form-feedback-message@2.22.1":
+  version "2.22.1"
+  resolved "https://registry.yarnpkg.com/@ecl/ec-component-form-feedback-message/-/ec-component-form-feedback-message-2.22.1.tgz#b4d34980cd0af544a44049a287f8fb62cb326090"
+  integrity sha512-d45Tr/2BKT12byYARdjMCQC0WlB64qXPY07H5HKZOus8F5KJJv/dschjjy+zWXzUHXi8uK66MU92F7uOCsSI/w==
   dependencies:
-    "@ecl/ec-base" "^2.22.0"
+    "@ecl/ec-base" "^2.22.1"
+
+"@ecl/ec-component-form-file-upload@2.22.1":
+  version "2.22.1"
+  resolved "https://registry.yarnpkg.com/@ecl/ec-component-form-file-upload/-/ec-component-form-file-upload-2.22.1.tgz#2096bac7b8c44f646cfde1717aced6b1a2f9a941"
+  integrity sha512-akxsGLMyCSCQHj1gZhabxYSUzLvlKa9yNVqJg1jg2VwY4zLoZozL4JNfe9IyZM/yPSjDD8tzxX0lJ/SyHWwijg==
+  dependencies:
+    "@ecl/ec-base" "^2.22.1"
 
 "@ecl/ec-component-form-form-group@2.22.0":
   version "2.22.0"
@@ -1256,12 +1273,26 @@
   dependencies:
     "@ecl/ec-base" "^2.22.0"
 
+"@ecl/ec-component-form-help-block@2.22.1":
+  version "2.22.1"
+  resolved "https://registry.yarnpkg.com/@ecl/ec-component-form-help-block/-/ec-component-form-help-block-2.22.1.tgz#f3721ce5bb822c7000fff8239937976aad8902b9"
+  integrity sha512-Y63BmclmojlZ+aTGsORAWUYP1fSukWdgvakH4MvCbDP2v0EXhuRU/A/Hz6VKtF6q9VqNk/XdZLQYmkhhRMyFKw==
+  dependencies:
+    "@ecl/ec-base" "^2.22.1"
+
 "@ecl/ec-component-form-label@2.22.0":
   version "2.22.0"
   resolved "https://registry.yarnpkg.com/@ecl/ec-component-form-label/-/ec-component-form-label-2.22.0.tgz#156a4356582f272d1ce41bab620a8271d771c2eb"
   integrity sha512-RGeEpulh69BAD+HFSCxzlMtY6QlZ+PCQLxuMzxmGYBuWCpQ87RweFoXCfaf+lVIdHfgplVJ8W+Q+K6bvJX+y1w==
   dependencies:
     "@ecl/ec-base" "^2.22.0"
+
+"@ecl/ec-component-form-label@2.22.1":
+  version "2.22.1"
+  resolved "https://registry.yarnpkg.com/@ecl/ec-component-form-label/-/ec-component-form-label-2.22.1.tgz#060e66a6c421285e6fd87df4a2571428b1561b6c"
+  integrity sha512-W4nPsj9MiE2v/8uH6rt8HuYvY8YbTwx16qNPRcq31+l6kIca7OOKad6bzEJkXWAb5DcTcF5qVND9BpX5OG+yig==
+  dependencies:
+    "@ecl/ec-base" "^2.22.1"
 
 "@ecl/ec-component-form-radio@2.22.0":
   version "2.22.0"
@@ -1635,10 +1666,10 @@
   resolved "https://registry.yarnpkg.com/@ecl/ec-specs-fact-figures/-/ec-specs-fact-figures-2.22.0.tgz#6a9c2293013f182a74a995b95d4b294f554ef8f5"
   integrity sha512-ArDLRhxhApJLMOpj8NToM0BiuJmhHtkXOef0ScfeZ/gaHJ6rk4KeWNcFOZo1jBtX//iajQZjfwSf/r/LwtbtIQ==
 
-"@ecl/ec-specs-file-upload@2.22.0":
-  version "2.22.0"
-  resolved "https://registry.yarnpkg.com/@ecl/ec-specs-file-upload/-/ec-specs-file-upload-2.22.0.tgz#d4d1035445a1250e928bcc104ae08f8771df5ec7"
-  integrity sha512-EYdMnD8PsE0nCJdvh8QhmDTAvcPNexjVj7pubqC6IPfDjGBH62gnQ7HQd8Xs49QW0I/fiRqCaopyjvbe8beIsQ==
+"@ecl/ec-specs-file-upload@2.22.1":
+  version "2.22.1"
+  resolved "https://registry.yarnpkg.com/@ecl/ec-specs-file-upload/-/ec-specs-file-upload-2.22.1.tgz#3ff89590e40d74c671e1f1a5774266c3edbf790a"
+  integrity sha512-T/4Ynv4hNHi3el3vhz2A2JUiAXp2KGq+uPezcaSqYG1lrs6Zo7en1DPrepj8TYM+WgM77YLgydwjnCqUFsds8Q==
 
 "@ecl/ec-specs-file@2.22.0":
   version "2.22.0"
