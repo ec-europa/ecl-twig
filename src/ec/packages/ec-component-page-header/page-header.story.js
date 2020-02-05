@@ -5,7 +5,7 @@ import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
 
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
-
+import merge from 'deepmerge';
 import pageHeaderDataTitle from './demo/data--title';
 import pageHeaderDataTitleDescription from './demo/data--title-description';
 import pageHeaderDataMetaTitle from './demo/data--meta-title';
@@ -16,31 +16,20 @@ import pageHeaderDataEventsDescription from './demo/data--events-description';
 import pageHeader from './ecl-page-header.html.twig';
 import notes from './README.md';
 
-function preparePageHeaderData(data) {
-  const output = {};
-  output.title = text('Title', data.title);
-  data.breadcrumb.icon_file_path = defaultSprite;
-  output.breadcrumb = data.breadcrumb;
+const pageHeaderDataEventsInfo = [];
+const pageHeaderDataEventsDescriptioninfo = [];
 
-  if (data.description) {
-    output.description = text('Description', data.description);
-  }
+pageHeaderDataEvents.infos.forEach((item, key) => {
+  pageHeaderDataEventsInfo.push(pageHeaderDataEvents.infos[key].text);
+  pageHeaderDataEvents.infos[key].text = '';
+});
 
-  if (data.meta) {
-    output.meta = text('Meta', data.meta);
-  }
-
-  if (data.infos) {
-    output.infos = data.infos;
-
-    output.infos.forEach((item, index) => {
-      item.text = text(`Info ${index} text`, item.text);
-      item.icon.path = defaultSprite;
-    });
-  }
-
-  return output;
-}
+pageHeaderDataEventsDescription.infos.forEach((item, key) => {
+  pageHeaderDataEventsDescriptioninfo.push(
+    pageHeaderDataEventsDescription.infos[key].text
+  );
+  pageHeaderDataEventsDescription.infos[key].text = '';
+});
 
 storiesOf('Components/deprecated/Page Header', module)
   .addDecorator(withKnobs)
@@ -48,87 +37,177 @@ storiesOf('Components/deprecated/Page Header', module)
   .addDecorator(withCode)
   .add(
     'ECL < 2.14 title',
-    () => {
-      const sampleData = preparePageHeaderData(pageHeaderDataTitle);
-
-      return pageHeader(sampleData);
-    },
+    () =>
+      pageHeader(
+        merge(pageHeaderDataTitle, {
+          title: text('Title', pageHeaderDataTitle.title),
+          breadcrumb: {
+            icon_file_path: defaultSprite,
+          },
+        })
+      ),
     {
       notes: {
         markdown: notes,
-        json: preparePageHeaderData(pageHeaderDataTitle),
+        json: pageHeaderDataTitle,
       },
     }
   )
   .add(
     'ECL < 2.14 title-description',
-    () => {
-      const sampleData = preparePageHeaderData(pageHeaderDataTitleDescription);
-
-      return pageHeader(sampleData);
-    },
+    () =>
+      pageHeader(
+        merge(pageHeaderDataTitleDescription, {
+          title: text('Title', pageHeaderDataTitleDescription.title),
+          description: text(
+            'Description',
+            pageHeaderDataTitleDescription.description
+          ),
+          breadcrumb: {
+            icon_file_path: defaultSprite,
+          },
+        })
+      ),
     {
       notes: {
         markdown: notes,
-        json: preparePageHeaderData(pageHeaderDataTitleDescription),
+        json: pageHeaderDataTitleDescription,
       },
     }
   )
   .add(
     'ECL < 2.14 meta-title',
-    () => {
-      const sampleData = preparePageHeaderData(pageHeaderDataMetaTitle);
-
-      return pageHeader(sampleData);
-    },
+    () =>
+      pageHeader(
+        merge(pageHeaderDataMetaTitle, {
+          title: text('Title', pageHeaderDataMetaTitle.title),
+          meta: text('Meta', pageHeaderDataMetaTitle.meta),
+          breadcrumb: {
+            icon_file_path: defaultSprite,
+          },
+        })
+      ),
     {
       notes: {
         markdown: notes,
-        json: preparePageHeaderData(pageHeaderDataTitle),
+        json: pageHeaderDataMetaTitle,
       },
     }
   )
   .add(
     'ECL < 2.14 meta-title-description',
-    () => {
-      const sampleData = preparePageHeaderData(
-        pageHeaderDataMetaTitleDescription
-      );
-
-      return pageHeader(sampleData);
-    },
+    () =>
+      pageHeader(
+        merge(pageHeaderDataMetaTitleDescription, {
+          title: text('Title', pageHeaderDataMetaTitleDescription.title),
+          meta: text('Meta', pageHeaderDataMetaTitleDescription.meta),
+          description: text(
+            'Description',
+            pageHeaderDataMetaTitleDescription.description
+          ),
+          breadcrumb: {
+            icon_file_path: defaultSprite,
+          },
+        })
+      ),
     {
       notes: {
         markdown: notes,
-        json: preparePageHeaderData(pageHeaderDataMetaTitleDescription),
+        json: pageHeaderDataMetaTitleDescription,
       },
     }
   )
   .add(
     'ECL < 2.14 events',
-    () => {
-      const sampleData = preparePageHeaderData(pageHeaderDataEvents);
-
-      return pageHeader(sampleData);
-    },
+    () =>
+      pageHeader(
+        merge(pageHeaderDataEvents, {
+          title: text('Title', pageHeaderDataEvents.title),
+          meta: text('Meta', pageHeaderDataEvents.meta),
+          breadcrumb: {
+            icon_file_path: defaultSprite,
+          },
+          infos: [
+            {
+              icon: {
+                path: defaultSprite,
+                type: pageHeaderDataEvents.infos[0].icon.type,
+                name: pageHeaderDataEvents.infos[0].icon.name,
+              },
+              text: text('Info 0 text', pageHeaderDataEventsInfo[0]),
+            },
+            {
+              icon: {
+                path: defaultSprite,
+                type: pageHeaderDataEvents.infos[1].icon.type,
+                name: pageHeaderDataEvents.infos[1].icon.name,
+              },
+              text: text('Info 1 text', pageHeaderDataEventsInfo[1]),
+            },
+            {
+              icon: {
+                path: defaultSprite,
+                type: pageHeaderDataEvents.infos[2].icon.type,
+                name: pageHeaderDataEvents.infos[2].icon.name,
+              },
+              text: text('Info 2 text', pageHeaderDataEventsInfo[2]),
+            },
+          ],
+        })
+      ),
     {
       notes: {
         markdown: notes,
-        json: preparePageHeaderData(pageHeaderDataEvents),
+        json: pageHeaderDataEvents,
       },
     }
   )
   .add(
     'ECL < 2.14 events-description',
-    () => {
-      const sampleData = preparePageHeaderData(pageHeaderDataEventsDescription);
-
-      return pageHeader(sampleData);
-    },
+    () =>
+      pageHeader(
+        merge(pageHeaderDataEventsDescription, {
+          title: text('Title', pageHeaderDataEventsDescription.title),
+          meta: text('Meta', pageHeaderDataEventsDescription.meta),
+          description: text(
+            'Description',
+            pageHeaderDataMetaTitleDescription.description
+          ),
+          breadcrumb: {
+            icon_file_path: defaultSprite,
+          },
+          infos: [
+            {
+              icon: {
+                path: defaultSprite,
+                type: pageHeaderDataEventsDescription.infos[0].icon.type,
+                name: pageHeaderDataEventsDescription.infos[0].icon.name,
+              },
+              text: text('Info 0 text', pageHeaderDataEventsDescriptioninfo[0]),
+            },
+            {
+              icon: {
+                path: defaultSprite,
+                type: pageHeaderDataEventsDescription.infos[1].icon.type,
+                name: pageHeaderDataEventsDescription.infos[1].icon.name,
+              },
+              text: text('Info 1 text', pageHeaderDataEventsDescriptioninfo[1]),
+            },
+            {
+              icon: {
+                path: defaultSprite,
+                type: pageHeaderDataEventsDescription.infos[2].icon.type,
+                name: pageHeaderDataEventsDescription.infos[2].icon.name,
+              },
+              text: text('Info 2 text', pageHeaderDataEventsDescriptioninfo[2]),
+            },
+          ],
+        })
+      ),
     {
       notes: {
         markdown: notes,
-        json: preparePageHeaderData(pageHeaderDataEventsDescription),
+        json: pageHeaderDataEventsDescription,
       },
     }
   );
