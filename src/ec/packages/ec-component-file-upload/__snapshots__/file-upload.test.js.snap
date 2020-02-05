@@ -3,133 +3,11 @@
 exports[`EC - File Upload  Default renders correctly 1`] = `
 <div
   class="ecl-form-group ecl-form-group--file-upload"
+  data-ecl-file-upload-group=""
 >
   <label
     class="ecl-form-label"
-    for="example-input-id-1"
-  >
-    Label    
-  </label>
-  <div
-    class="ecl-help-block"
-  >
-    This is the input's helper text.
-    <div
-      class="ecl-u-mt-xs ecl-u-type-color-grey-75"
-    >
-      Only 
-      <strong>
-        txt doc docx pdf odt rtf
-      </strong>
-       files. Maximum size is 
-      <strong>
-        5 MB
-      </strong>
-      .
-      <br />
-      Encrypted documents and those containing macros are not accepted.
-    </div>
-  </div>
-  <input
-    class="ecl-file-upload"
-    id="example-input-id-1"
-    name="file-upload-name"
-    type="file"
-  />
-</div>
-`;
-
-exports[`EC - File Upload  Default renders correctly when disabled 1`] = `
-<div
-  class="ecl-form-group ecl-form-group--file-upload"
->
-  <label
-    class="ecl-form-label ecl-form-label--disabled"
-    for="example-input-id-1"
-  >
-    Label    
-  </label>
-  <div
-    class="ecl-help-block ecl-help-block--disabled"
-  >
-    This is the input's helper text.
-    <div
-      class="ecl-u-mt-xs ecl-u-type-color-grey-75"
-    >
-      Only 
-      <strong>
-        txt doc docx pdf odt rtf
-      </strong>
-       files. Maximum size is 
-      <strong>
-        5 MB
-      </strong>
-      .
-      <br />
-      Encrypted documents and those containing macros are not accepted.
-    </div>
-  </div>
-  <input
-    class="ecl-file-upload"
-    disabled=""
-    id="example-input-id-1"
-    name="file-upload-name"
-    type="file"
-  />
-</div>
-`;
-
-exports[`EC - File Upload  Default renders correctly when invalid 1`] = `
-<div
-  class="ecl-form-group ecl-form-group--file-upload"
->
-  <label
-    class="ecl-form-label ecl-form-label--invalid"
-    for="example-input-id-1"
-  >
-    Label    
-  </label>
-  <div
-    class="ecl-help-block"
-  >
-    This is the input's helper text.
-    <div
-      class="ecl-u-mt-xs ecl-u-type-color-grey-75"
-    >
-      Only 
-      <strong>
-        txt doc docx pdf odt rtf
-      </strong>
-       files. Maximum size is 
-      <strong>
-        5 MB
-      </strong>
-      .
-      <br />
-      Encrypted documents and those containing macros are not accepted.
-    </div>
-  </div>
-  <div
-    class="ecl-feedback-message"
-  >
-    Invalid text
-  </div>
-  <input
-    class="ecl-file-upload ecl-file-upload--invalid"
-    id="example-input-id-1"
-    name="file-upload-name"
-    type="file"
-  />
-</div>
-`;
-
-exports[`EC - File Upload  Default renders correctly when required 1`] = `
-<div
-  class="ecl-form-group ecl-form-group--file-upload"
->
-  <label
-    class="ecl-form-label"
-    for="example-input-id-1"
+    for="example-file-upload-default"
   >
     Label
     <span
@@ -158,12 +36,233 @@ exports[`EC - File Upload  Default renders correctly when required 1`] = `
       Encrypted documents and those containing macros are not accepted.
     </div>
   </div>
+  <label
+    class="ecl-file-upload__button-container"
+    for="example-file-upload-default"
+  >
+    <span
+      class="ecl-file-upload__button ecl-button ecl-button--primary"
+      data-ecl-file-upload-button=""
+      data-ecl-file-upload-label-choose="Choose file"
+      data-ecl-file-upload-label-replace="Replace file"
+    >
+      Choose file
+    </span>
+  </label>
   <input
     class="ecl-file-upload"
-    id="example-input-id-1"
+    data-ecl-auto-init="FileUpload"
+    data-ecl-file-upload-input=""
+    id="example-file-upload-default"
     name="file-upload-name"
     required=""
     type="file"
+  />
+  <ul
+    class="ecl-file-upload__list"
+    data-ecl-file-upload-list=""
+  />
+</div>
+`;
+
+exports[`EC - File Upload  Default renders correctly when disabled 1`] = `
+<div
+  class="ecl-form-group ecl-form-group--file-upload"
+  data-ecl-file-upload-group=""
+>
+  <label
+    class="ecl-form-label ecl-form-label--disabled"
+    for="example-file-upload-default"
+  >
+    Label
+    <span
+      class="ecl-form-label__required"
+    >
+      *
+    </span>
+  </label>
+  <div
+    class="ecl-help-block ecl-help-block--disabled"
+  >
+    This is the input's helper text.
+    <div
+      class="ecl-u-mt-xs ecl-u-type-color-grey-75"
+    >
+      Only 
+      <strong>
+        txt doc docx pdf odt rtf
+      </strong>
+       files. Maximum size is 
+      <strong>
+        5 MB
+      </strong>
+      .
+      <br />
+      Encrypted documents and those containing macros are not accepted.
+    </div>
+  </div>
+  <label
+    class="ecl-file-upload__button-container"
+    for="example-file-upload-default"
+  >
+    <span
+      class="ecl-file-upload__button ecl-button ecl-button--primary"
+      data-ecl-file-upload-button=""
+      data-ecl-file-upload-label-choose="Choose file"
+      data-ecl-file-upload-label-replace="Replace file"
+      disabled=""
+    >
+      Choose file
+    </span>
+  </label>
+  <input
+    class="ecl-file-upload"
+    data-ecl-auto-init="FileUpload"
+    data-ecl-file-upload-input=""
+    disabled=""
+    id="example-file-upload-default"
+    name="file-upload-name"
+    required=""
+    type="file"
+  />
+  <ul
+    class="ecl-file-upload__list"
+    data-ecl-file-upload-list=""
+  />
+</div>
+`;
+
+exports[`EC - File Upload  Default renders correctly when invalid 1`] = `
+<div
+  class="ecl-form-group ecl-form-group--file-upload"
+  data-ecl-file-upload-group=""
+>
+  <label
+    class="ecl-form-label ecl-form-label--invalid"
+    for="example-file-upload-default"
+  >
+    Label
+    <span
+      class="ecl-form-label__required"
+    >
+      *
+    </span>
+  </label>
+  <div
+    class="ecl-help-block"
+  >
+    This is the input's helper text.
+    <div
+      class="ecl-u-mt-xs ecl-u-type-color-grey-75"
+    >
+      Only 
+      <strong>
+        txt doc docx pdf odt rtf
+      </strong>
+       files. Maximum size is 
+      <strong>
+        5 MB
+      </strong>
+      .
+      <br />
+      Encrypted documents and those containing macros are not accepted.
+    </div>
+  </div>
+  <div
+    class="ecl-feedback-message"
+  >
+    Invalid text
+  </div>
+  <label
+    class="ecl-file-upload__button-container"
+    for="example-file-upload-default"
+  >
+    <span
+      class="ecl-file-upload__button ecl-button ecl-button--primary"
+      data-ecl-file-upload-button=""
+      data-ecl-file-upload-label-choose="Choose file"
+      data-ecl-file-upload-label-replace="Replace file"
+    >
+      Choose file
+    </span>
+  </label>
+  <input
+    class="ecl-file-upload ecl-file-upload--invalid"
+    data-ecl-auto-init="FileUpload"
+    data-ecl-file-upload-input=""
+    id="example-file-upload-default"
+    name="file-upload-name"
+    required=""
+    type="file"
+  />
+  <ul
+    class="ecl-file-upload__list"
+    data-ecl-file-upload-list=""
+  />
+</div>
+`;
+
+exports[`EC - File Upload  Default renders correctly when required 1`] = `
+<div
+  class="ecl-form-group ecl-form-group--file-upload"
+  data-ecl-file-upload-group=""
+>
+  <label
+    class="ecl-form-label"
+    for="example-file-upload-default"
+  >
+    Label
+    <span
+      class="ecl-form-label__required"
+    >
+      *
+    </span>
+  </label>
+  <div
+    class="ecl-help-block"
+  >
+    This is the input's helper text.
+    <div
+      class="ecl-u-mt-xs ecl-u-type-color-grey-75"
+    >
+      Only 
+      <strong>
+        txt doc docx pdf odt rtf
+      </strong>
+       files. Maximum size is 
+      <strong>
+        5 MB
+      </strong>
+      .
+      <br />
+      Encrypted documents and those containing macros are not accepted.
+    </div>
+  </div>
+  <label
+    class="ecl-file-upload__button-container"
+    for="example-file-upload-default"
+  >
+    <span
+      class="ecl-file-upload__button ecl-button ecl-button--primary"
+      data-ecl-file-upload-button=""
+      data-ecl-file-upload-label-choose="Choose file"
+      data-ecl-file-upload-label-replace="Replace file"
+    >
+      Choose file
+    </span>
+  </label>
+  <input
+    class="ecl-file-upload"
+    data-ecl-auto-init="FileUpload"
+    data-ecl-file-upload-input=""
+    id="example-file-upload-default"
+    name="file-upload-name"
+    required=""
+    type="file"
+  />
+  <ul
+    class="ecl-file-upload__list"
+    data-ecl-file-upload-list=""
   />
 </div>
 `;
@@ -171,12 +270,18 @@ exports[`EC - File Upload  Default renders correctly when required 1`] = `
 exports[`EC - File Upload  Default renders correctly with extra attributes 1`] = `
 <div
   class="ecl-form-group ecl-form-group--file-upload"
+  data-ecl-file-upload-group=""
 >
   <label
     class="ecl-form-label"
-    for="example-input-id-1"
+    for="example-file-upload-default"
   >
-    Label    
+    Label
+    <span
+      class="ecl-form-label__required"
+    >
+      *
+    </span>
   </label>
   <div
     class="ecl-help-block"
@@ -198,13 +303,33 @@ exports[`EC - File Upload  Default renders correctly with extra attributes 1`] =
       Encrypted documents and those containing macros are not accepted.
     </div>
   </div>
+  <label
+    class="ecl-file-upload__button-container"
+    for="example-file-upload-default"
+  >
+    <span
+      class="ecl-file-upload__button ecl-button ecl-button--primary"
+      data-ecl-file-upload-button=""
+      data-ecl-file-upload-label-choose="Choose file"
+      data-ecl-file-upload-label-replace="Replace file"
+    >
+      Choose file
+    </span>
+  </label>
   <input
     class="ecl-file-upload"
+    data-ecl-auto-init="FileUpload"
+    data-ecl-file-upload-input=""
     data-test="data-test-value"
     data-test-1="data-test-value-1"
-    id="example-input-id-1"
+    id="example-file-upload-default"
     name="file-upload-name"
+    required=""
     type="file"
+  />
+  <ul
+    class="ecl-file-upload__list"
+    data-ecl-file-upload-list=""
   />
 </div>
 `;
@@ -212,12 +337,18 @@ exports[`EC - File Upload  Default renders correctly with extra attributes 1`] =
 exports[`EC - File Upload  Default renders correctly with extra class names 1`] = `
 <div
   class="ecl-form-group ecl-form-group--file-upload custom-class custom-class--test"
+  data-ecl-file-upload-group=""
 >
   <label
     class="ecl-form-label"
-    for="example-input-id-1"
+    for="example-file-upload-default"
   >
-    Label    
+    Label
+    <span
+      class="ecl-form-label__required"
+    >
+      *
+    </span>
   </label>
   <div
     class="ecl-help-block"
@@ -239,11 +370,31 @@ exports[`EC - File Upload  Default renders correctly with extra class names 1`] 
       Encrypted documents and those containing macros are not accepted.
     </div>
   </div>
+  <label
+    class="ecl-file-upload__button-container"
+    for="example-file-upload-default"
+  >
+    <span
+      class="ecl-file-upload__button ecl-button ecl-button--primary"
+      data-ecl-file-upload-button=""
+      data-ecl-file-upload-label-choose="Choose file"
+      data-ecl-file-upload-label-replace="Replace file"
+    >
+      Choose file
+    </span>
+  </label>
   <input
     class="ecl-file-upload"
-    id="example-input-id-1"
+    data-ecl-auto-init="FileUpload"
+    data-ecl-file-upload-input=""
+    id="example-file-upload-default"
     name="file-upload-name"
+    required=""
     type="file"
+  />
+  <ul
+    class="ecl-file-upload__list"
+    data-ecl-file-upload-list=""
   />
 </div>
 `;
