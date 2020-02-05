@@ -6,9 +6,10 @@
     - "name" (string) (default: '')
     - "required" (boolean) (default: false)
     - "required_text" (string) (default: '')
+    - "helper_text" (string) (default: '')
     - "disabled" (boolean) (default: false)
     - "invalid" (boolean) (default: false)
-    - "required_text" (string) (default: '')
+    - "invalid_text" (string) (default: '')
     - "type" (string) (default: 'text')
     - "optional_text" (string) (default: '')
     - "icons_path" (string) (default: '')
@@ -78,7 +79,6 @@
   {{- _label -}}
   {% if _required and _required_text is not empty %}
     <span class="ecl-form-label__required">{{ required_text }}</span>
-
   {% elseif not _required and _optional_text is not empty %}
     <span class="ecl-form-label__optional">{{ optional_text }}</span>
   {% endif %}
