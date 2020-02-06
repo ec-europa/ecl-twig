@@ -12,7 +12,7 @@
     - "link" (associative array) {
       - "label" (string) (default: ''),
       - "path" (string) (default: '')
-  - "visible" (boolean) (default: true)
+    - "visible" (boolean) (default: true)
   - "display_icons" (boolean) (default: true)
   - "extra_classes" (string) (default: '')
   - "extra_attributes" (array) (default: []): format: [
@@ -31,8 +31,7 @@
 {% set _columns = column|default(3) %}
 {% set _extra_classes = extra_classes|default('') %}
 {% set _icon = { size: 'm' } %}
-{% set _display_icons = display_icons|default(false) %}  
-{% set _view_all_visibility = view_all.visible|default(false) %}
+{% set _display_icons = display_icons|default(false) %}
 
 {# Internal logic - Process properties #}
 
@@ -76,7 +75,7 @@
     {% endif %}
     {% if item.description is defined and item.description is not empty %}
       <div class="ecl-fact-figures__description">
-        {{- item.description -}}
+        {{- item.description|raw -}}
       </div>
     {% endif %}
     </div>
@@ -84,7 +83,7 @@
   </div>
 {% endif %}
 
-{% if view_all.link is defined and view_all.link is not empty and _view_all_visibility  %}
+{% if view_all.visible is defined and view_all.visible is not empty and view_all.link is defined and view_all.link is not empty %}
   <div class="ecl-fact-figures__view-all">
     {% include '@ecl-twig/ec-component-link/ecl-link.html.twig' with view_all|merge({
       link: view_all.link|merge({
@@ -95,4 +94,5 @@
   </div>
 {% endif %}
 </div>
+
 {% endspaceless %}
