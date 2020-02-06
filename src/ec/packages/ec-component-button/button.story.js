@@ -1,5 +1,5 @@
-import { storiesOf } from '@storybook/html';
 import merge from 'deepmerge';
+import { storiesOf } from '@storybook/html';
 import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
@@ -29,11 +29,14 @@ uiIcons.forEach(icon => {
 });
 
 const prepareButton = data => {
-  data.icon = {}; // eslint-disable-line no-param-reassign
-  data.icon.type = 'ui'; // eslint-disable-line no-param-reassign
-  data.icon.path = defaultSprite; // eslint-disable-line no-param-reassign
-  data.icon.size = 'xs'; // eslint-disable-line no-param-reassign
-  return data;
+  const dataWithIcon = data;
+  dataWithIcon.icon = {
+    type: 'ui',
+    path: defaultSprite,
+    size: 'xs',
+  };
+
+  return dataWithIcon;
 };
 
 storiesOf('Components/Button', module)

@@ -13,7 +13,7 @@ npm install --save @ecl-twig/ec-component-button
 - **"type"** (string) (default: 'submit'): can be the same type as HTML button - 'submit', 'reset', 'button'
 - **"disabled"** (bool) (default: false): define if button should be disabled (HTML disabled attribute)
 - **"icon_position"** (string, optional) (default: after): Define icon position, can be 'before' or 'after'
-- **"icon"** (associative array, optional) default: A predefined structure such as in the Icon component. All parameters can be freely set, except for the 'size' parameter, which is set permanently as 'xs'.
+- **"icon"** (associative array, optional) default: A predefined structure such as in the Icon component.
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
@@ -31,6 +31,7 @@ npm install --save @ecl-twig/ec-component-button
     path: '/path-to-the-icon-file', 
     type: 'ui', 
     name: 'corner-arrow', 
+    size: 'xs,' 
   }, 
   extra_classes: 'my-extra-class-1 my-extra-class-2', 
   extra_attributes: [ 
