@@ -1,13 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies, no-param-reassign */
 import specData from '@ecl/ec-specs-file-upload/demo/data--default';
+import adapter from '../adapter';
 
-const adapter = initialData => {
-  // Copy reference specification demo data.
-  const adaptedData = JSON.parse(JSON.stringify(initialData));
-  adaptedData.helper_text = adaptedData.helperText;
-  delete adaptedData.helperText;
-
-  return adaptedData;
-};
+specData.id = 'example-file-upload-default';
 
 export default adapter(specData);
