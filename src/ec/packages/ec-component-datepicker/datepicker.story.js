@@ -3,7 +3,6 @@ import { storiesOf } from '@storybook/html';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import { withKnobs, text, boolean } from '@storybook/addon-knobs';
 import withCode from '@ecl-twig/storybook-addon-code';
-import merge from 'deepmerge';
 
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import data from './demo/data';
@@ -17,18 +16,18 @@ storiesOf('Components/Forms/Datepicker', module)
   .add(
     'default',
     () => {
-      return datepicker(
-        merge(data, {
-          icons_path: defaultSprite,
-          helper_text: text('Helper text', data.helper_text),
-          invalid_text: text('Invalid text', data.invalid_text),
-          label: text('Label', 'Label'),
-          optional_text: text('Optional text', data.optional_text),
-          placeholder: text('Placeholder', data.placeholder),
-          required: boolean('Required', true),
-          required_text: text('Required text', data.required_text),
-        })
-      );
+      return datepicker({
+        label: text('Label', data.label),
+        icons_path: defaultSprite,
+        helper_text: text('Helper text', data.helper_text),
+        invalid: boolean('Invalid', false),
+        invalid_text: text('Invalid text', data.invalid_text),
+        disabled: boolean('Disabled', false),
+        required: boolean('Required', data.required),
+        required_text: text('Required text', data.required_text),
+        optional_text: text('Optional text', data.optional_text),
+        placeholder: text('Placeholder', data.placeholder),
+      });
     },
     {
       notes: { markdown: notes, json: data },
