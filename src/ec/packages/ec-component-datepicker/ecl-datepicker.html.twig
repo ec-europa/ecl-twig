@@ -5,9 +5,11 @@
     - "id" (string) (default: '')
     - "name" (string) (default: '')
     - "required" (boolean) (default: false)
+    - "required_text" (string) (default: '')
+    - "helper_text" (string) (default: '')
     - "disabled" (boolean) (default: false)
     - "invalid" (boolean) (default: false)
-    - "required_text" (string) (default: '')
+    - "invalid_text" (string) (default: '')
     - "type" (string) (default: 'text')
     - "optional_text" (string) (default: '')
     - "icons_path" (string) (default: '')
@@ -34,6 +36,7 @@
 {% set _placeholder = placeholder|default('dd/mm/yyyy') %}
 {% set _icons_path = icons_path|default('') %}
 {% set _invalid = invalid|default(false) %}
+{% set _invalid_text = invalid_text|default('') %}
 {% set _disabled = disabled|default(false) %}
 {% set _required = required|default(false) %}
 {% set _required_text = required_text|default('') %}
