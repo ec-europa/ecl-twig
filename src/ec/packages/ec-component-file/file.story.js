@@ -1,5 +1,7 @@
-// eslint-disable-line no-param-reassign
+/* eslint-disable no-param-reassign */
+import merge from 'deepmerge';
 import { storiesOf } from '@storybook/html';
+import { withKnobs, text } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
 
@@ -13,26 +15,72 @@ import notes from './README.md';
 // Add icon path
 dataWithTranslation.icon.path = defaultSprite;
 dataWithTranslation.download.icon.path = defaultSprite;
-dataWithTranslation.translation.toggle.icon.path = defaultSprite;
-dataWithTranslation.translation.items[0].download.icon = {
-  path: defaultSprite,
-};
-dataWithTranslation.translation.items[1].download.icon = {
-  path: defaultSprite,
-};
-dataWithTranslation.translation.items[2].download.icon = {
-  path: defaultSprite,
-};
-
-dataWithoutTranslation.icon.path = defaultSprite;
 dataWithoutTranslation.download.icon.path = defaultSprite;
+dataWithTranslation.translation.toggle.icon.path = defaultSprite;
+dataWithoutTranslation.icon.path = defaultSprite;
+dataWithTranslation.translation.items.forEach(item => {
+  item.download.icon = {
+    path: defaultSprite,
+  };
+});
 
 storiesOf('Components/File', module)
   .addDecorator(withNotes)
   .addDecorator(withCode)
-  .add('without translation', () => file(dataWithoutTranslation), {
-    notes: { markdown: notes, json: dataWithoutTranslation },
-  })
-  .add('with translation', () => file(dataWithTranslation), {
-    notes: { markdown: notes, json: dataWithTranslation },
-  });
+  .addDecorator(withKnobs)
+  .add(
+    'without translation',
+    () =>
+      file(
+        merge(dataWithoutTranslation, {
+          title: text('File title', dataWithoutTranslation.title),
+          language: text('Language', dataWithoutTranslation.language),
+          meta: text('File meta', dataWithoutTranslation.meta),
+          download: {
+            link: {
+              label: text(
+                'Download label',
+                dataWithoutTranslation.download.link.label
+              ),
+            },
+          },
+        })
+      ),
+    {
+      notes: { markdown: notes, json: dataWithoutTranslation },
+    }
+  )
+  .add(
+    'with translation',
+    () =>
+      file(
+        merge(dataWithTranslation, {
+          title: text('File title', dataWithTranslation.title),
+          language: text('Language', dataWithTranslation.language),
+          meta: text('File meta', dataWithTranslation.meta),
+          download: {
+            link: {
+              label: text(
+                'Download label',
+                dataWithTranslation.download.link.label
+              ),
+            },
+          },
+          translation: {
+            description: text(
+              'Translations info',
+              dataWithTranslation.translation.description
+            ),
+            toggle: {
+              label: text(
+                'Toggle label',
+                dataWithTranslation.translation.toggle.label
+              ),
+            },
+          },
+        })
+      ),
+    {
+      notes: { markdown: notes, json: dataWithTranslation },
+    }
+  );
