@@ -16,8 +16,8 @@ storiesOf('Components/Blockquote', module)
     'default',
     () =>
       blockquote({
-        citation: text('Citation', data.citation),
         author: text('Author name', data.author),
+        citation: text('Citation', data.citation),
       }),
     {
       notes: { markdown: notes, json: data },
