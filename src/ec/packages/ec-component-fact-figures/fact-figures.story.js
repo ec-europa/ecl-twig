@@ -29,9 +29,6 @@ storiesOf('Components/Fact figures', module)
       factFigures(
         merge(formatIcon(data3Col), {
           display_icons: boolean('Display icons', true),
-          view_all: {
-            visible: boolean('View all link', true),
-          },
         })
       ),
     {
@@ -44,9 +41,6 @@ storiesOf('Components/Fact figures', module)
       factFigures(
         merge(formatIcon(data4Col), {
           display_icons: boolean('Display icons', true),
-          view_all: {
-            visible: boolean('View all link', true),
-          },
         })
       ),
     {

@@ -10,7 +10,6 @@ const adapter = initialData => {
   adaptedData.items.forEach(item => {
     item.icon = formatIcon(item.icon);
   });
-  adaptedData.view_all.visible = true;
   adaptedData.display_icons = true;
   return adaptedData;
 };

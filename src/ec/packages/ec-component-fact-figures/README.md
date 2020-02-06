@@ -60,8 +60,7 @@ npm install --save @ecl-twig/ec-component-fact-figures
     link: { 
       label: "View all metrics", 
       path: "/example" 
-    } ,
-    visible: true,
+    },
   } 
 } %} 
 ```
