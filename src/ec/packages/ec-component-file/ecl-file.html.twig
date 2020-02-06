@@ -1,4 +1,5 @@
 {% spaceless %}
+
 {#
   Parameters:
   - "icon" (object) (default: {}): object of type Icon; file type
@@ -29,10 +30,10 @@
 {% set _download = download|default({}) %}
 {% set _translation = translation|default([]) %}
 {% set _css_class = 'ecl-file' %}
-{% set _extra_attributes = 'data-ecl-auto-init="FileDownload"' %}
+{% set _extra_attributes = 'data-ecl-file' %}
 
 {% if _translation is not empty and _translation.items is not empty and _translation.items is iterable %}
-  {% set _extra_attributes = 'data-ecl-auto-init="FileDownload"' %}
+  {% set _extra_attributes = _extra_attributes ~ ' ' ~ 'data-ecl-auto-init="FileDownload"' %}
 {% endif %}
 
 {# Internal logic - Process properties #}
@@ -53,19 +54,25 @@
 
 {# Print the result #}
 
-<div class="{{ _css_class }}"{{ _extra_attributes|raw }} data-ecl-file>
+<div class="{{ _css_class }}" {{ _extra_attributes|raw }}>
   <div class="ecl-file__container">
     {% include '@ecl-twig/ec-component-icon/ecl-icon.html.twig' with {
       icon: _icon,
       extra_classes: 'ecl-file__icon'
     } only %}
-
+  {% if _title is not empty or language is not empty or meta is not empty %}
     <div class="ecl-file__info">
-      <div class="ecl-file__title">{{ title }}</div>
-      <div class="ecl-file__language">{{ language }}</div>
-      <div class="ecl-file__meta">{{ meta }}</div>
+    {% if _title is not empty %}
+      <div class="ecl-file__title">{{ _title }}</div>
+    {% endif %}
+    {% if _language is not empty %}
+      <div class="ecl-file__language">{{ _language }}</div>
+    {% endif %}
+    {% if _meta is not empty %}
+      <div class="ecl-file__meta">{{ _meta }}</div>
+    {% endif %}
     </div>
-
+  {% endif %}
     {% include '@ecl-twig/ec-component-link/ecl-link.html.twig' with _download|merge({
       link: _download.link|default({})|merge({
         type: 'standalone',
@@ -82,7 +89,10 @@
   </div>
 
   {% if _translation is not empty and _translation.items is not empty and _translation.items is iterable %}
-    <div class="ecl-file__translation-container" data-ecl-file-translation-container>
+    <div
+      class="ecl-file__translation-container"
+      data-ecl-file-translation-container
+    >
       {% include '@ecl-twig/ec-component-button/ecl-button.html.twig' with _translation.toggle|merge({
         variant: 'ghost',
         type: 'button',
@@ -102,11 +112,17 @@
             <div class="ecl-file__translation-info">
               <div
                 class="ecl-file__translation-title"
-                {{ _item.lang ? "lang=" ~ _item.lang }}
+              {% if _item.lang is defined and _item.lang is not empty %}
+                lang="{{ _item.lang }}"
+              {% endif %}
               >
                 {{- _item.title -}}
               </div>
-              <div class="ecl-file__translation-meta">{{ _item.meta }}</div>
+            {% if _item.meta is defined and _item.meta is not empty %}
+              <div class="ecl-file__translation-meta">
+                {{- _item.meta -}}
+              </div>
+            {% endif %}
             </div>
             {% include '@ecl-twig/ec-component-link/ecl-link.html.twig' with _download|merge({
               link: _item.download.link|default(_download.link|default({}))|merge({
@@ -127,10 +143,11 @@
           </li>
         {% endfor %}
         <li class="ecl-file__translation-item ecl-file__translation-description">
-          {{- _translation.description -}}
+          {{- _translation.description|raw -}}
         </li>
       </ul>
     </div>
   {% endif %}
 </div>
+
 {% endspaceless %}

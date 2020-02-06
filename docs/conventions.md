@@ -1,5 +1,9 @@
 # Conventions
 
+## Git conventions
+
+Please follow these [git conventions](https://github.com/ec-europa/europa-component-library/blob/v2-dev/docs/conventions/git.md) for branches and commits.
+
 ## Whitespaces
 
 [More information](./decisions/001-strip-whitespaces.md)
