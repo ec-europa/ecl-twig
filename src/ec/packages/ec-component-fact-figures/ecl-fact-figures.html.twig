@@ -31,7 +31,7 @@
 {% set _columns = column|default(3) %}
 {% set _extra_classes = extra_classes|default('') %}
 {% set _icon = { size: 'm' } %}
-{% set _display_icons = display_icons|default(false) %}
+{% set _display_icons = display_icons ?? true %}
 
 {# Internal logic - Process properties #}
 
