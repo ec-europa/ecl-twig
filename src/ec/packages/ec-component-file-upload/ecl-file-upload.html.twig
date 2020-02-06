@@ -10,10 +10,13 @@
   - "name" (string) (default: '')
   - "invalid" (boolean) (default: false)
   - "invalid_text" (string) (default: '')
+  - "multiple" (boolean) (default: false)
   - "disabled" (boolean) (default: false)
   - "required" (boolean) (default: false)
   - "required_text" (string) (default: '*')
   - "optional_text" (string) (default: '')
+  - "button_choose_label" (string) (default: '')
+  - "button_replace_label" (string) (default: '')
   - "extra_classes" (string) (default: '')
   - "extra_attributes" (array) (default: []): format: [
         {
@@ -26,11 +29,14 @@
 
 {# Parameters #}
 
+{% set _button_choose_label = button_choose_label|default('') %}
+{% set _button_replace_label = button_replace_label|default('') %}
 {% set _id = id|default('') %}
 {% set _name = name|default('') %}
 {% set _invalid = invalid|default(false) %}
 {% set _invalid_text = invalid_text|default('') %}
 {% set _disabled = disabled|default(false) %}
+{% set _multiple = multiple|default(false) %}
 {% set _required = required|default(false) %}
 {% set _required_text = required_text|default('*') %}
 {% set _optional_text = optional_text|default('') %}
@@ -43,7 +49,7 @@
 {# Internal properties #}
 
 {% set _component_class = 'ecl-file-upload' %}
-{% set _main_attributes = '' %}
+{% set _main_attributes = 'data-ecl-file-upload-input data-ecl-auto-init="FileUpload"' %}
 {% set _disabled_variant = '--disabled' %}
 {% set _invalid_variant = '--invalid' %}
 {% set _label_base_class = 'ecl-form-label' %}
@@ -55,7 +61,7 @@
 {# Internal logic - Process properties #}
 
 {% if _id is not empty %}
-  {% set _main_attributes = 'id="' ~ _id ~ '"' %}
+  {% set _main_attributes = _main_attributes ~ ' ' ~ 'id="' ~ _id ~ '"' %}
 {% endif %}
 
 {% if _name is not empty %}
@@ -77,6 +83,10 @@
   {% set _main_attributes = _main_attributes ~ ' ' ~ 'disabled' %}
 {% endif %}
 
+{% if _multiple %}
+  {% set _main_attributes = _main_attributes ~ ' ' ~ 'multiple' %}
+{% endif %}
+
 {% if _extra_classes is not empty %}
   {% set _group_css_classes = _group_css_classes ~ ' ' ~ _extra_classes %}
 {% endif %}
@@ -93,37 +103,63 @@
 
 {# Print the result #}
 
-<div class="{{ _group_css_classes }}">
-  {% if _label is not empty %}
-    <label class="{{ _label_classes }}"
-    {% if _id is not empty %}
-      for="{{ _id }}"
+<div
+  class="{{ _group_css_classes }}"
+  data-ecl-file-upload-group
+>
+{% if _label is not empty %}
+  <label class="{{ _label_classes }}"
+  {% if _id is not empty %}
+    for="{{ _id }}"
+  {% endif %}
+  >
+    {%- block label _label|raw -%}
+    {%- if _required and _required_text is not empty -%}
+      <span class="{{ _label_base_class }}__required">
+        {{- _required_text -}}
+      </span>
+    {%- elseif not _required and _optional_text is not empty -%}
+      <span class="{{ _label_base_class }}__optional">
+        {{ _optional_text -}}
+      </span>
+    {% endif %}
+  </label>
+{% endif %}
+
+{% if _helper_text is not empty %}
+  <div class="{{ _help_classes }}">
+    {%- block helper_text _helper_text|raw -%}
+  </div>
+{% endif %}
+
+{% if _invalid and _invalid_text is not empty %}
+  <div class="ecl-feedback-message">
+    {%- block invalid_text _invalid_text|raw -%}
+  </div>
+{% endif %}
+
+  <label
+    class="ecl-file-upload__button-container"
+  {% if _id is not empty %}
+    for="{{ _id }}"
+  {% endif %}
+  >
+    <span
+      class="ecl-file-upload__button ecl-button ecl-button--primary"
+      data-ecl-file-upload-button
+    {% if _button_choose_label is not empty %}
+      data-ecl-file-upload-label-choose="{{ _button_choose_label }}"
+    {% endif %}
+       {% if _button_replace_label is not empty %}
+      data-ecl-file-upload-label-replace="{{ _button_replace_label }}"
+    {% endif %}
+    {% if _disabled %}
+      disabled
     {% endif %}
     >
-      {%- block label _label|raw -%}
-      {%- if _required and _required_text is not empty -%}
-        <span class="{{ _label_base_class }}__required">
-          {{- _required_text -}}
-        </span>
-      {%- elseif not _required and _optional_text is not empty -%}
-        <span class="{{ _label_base_class }}__optional">
-          {{ _optional_text -}}
-        </span>
-      {% endif %}
-    </label>
-  {% endif %}
-
-  {% if _helper_text is not empty %}
-    <div class="{{ _help_classes }}">
-      {%- block helper_text _helper_text|raw -%}
-    </div>
-  {% endif %}
-
-  {% if _invalid and _invalid_text is not empty %}
-    <div class="ecl-feedback-message">
-      {%- block invalid_text _invalid_text|raw -%}
-    </div>
-  {% endif %}
+      {{- _button_choose_label -}}
+    </span>
+  </label>
 
   <input
     type="file"
@@ -133,6 +169,12 @@
     {{- _extra_attributes|raw -}}
   {% endif %}
   />
+
+  <ul
+    class="ecl-file-upload__list"
+    data-ecl-file-upload-list
+  >
+  </ul>
 </div>
 
 {% endspaceless %}
