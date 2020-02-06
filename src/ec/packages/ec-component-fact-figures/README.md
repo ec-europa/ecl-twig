@@ -29,8 +29,9 @@ npm install --save @ecl-twig/ec-component-fact-figures
 
 <!-- prettier-ignore -->
 ```twig
-{% include '@ecl-twig/ec-component-file-upload/ecl-fiact-figures.html.twig' with { 
+{% include '@ecl-twig/ec-component-fact-figures/ecl-fact-figures.html.twig' with { 
   column: 3, 
+  display_icons, true, 
   items: [ 
     { 
       icon: { 
@@ -59,7 +60,8 @@ npm install --save @ecl-twig/ec-component-fact-figures
     link: { 
       label: "View all metrics", 
       path: "/example" 
-    } 
+    } ,
+    visible: true,
   } 
 } %} 
 ```
