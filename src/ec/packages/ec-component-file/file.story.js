@@ -67,7 +67,10 @@ storiesOf('Components/File', module)
             },
           },
           translation: {
-            description: text('Translations info', dataWithTranslation.translation.description),
+            description: text(
+              'Translations info',
+              dataWithTranslation.translation.description
+            ),
             toggle: {
               label: text(
                 'Toggle label',
