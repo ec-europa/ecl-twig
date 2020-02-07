@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.23.0](https://github.com/ec-europa/ecl-twig/compare/v2.22.1...v2.23.0) (2020-02-07)
+
+
+#### :nail_care: Enhancement
+
+* [#325](https://github.com/ec-europa/ecl-twig/pull/325) feat(knobs): Button - FRONT-459 ([@Joosthe](https://github.com/Joosthe))
+* [#322](https://github.com/ec-europa/ecl-twig/pull/322) feat(knobs): update fact-figures component - FRONT-450 ([@Joosthe](https://github.com/Joosthe))
+* [#326](https://github.com/ec-europa/ecl-twig/pull/326) feat(knobs): Update knobs datepicker - FRONT-461 ([@Joosthe](https://github.com/Joosthe))
+* [#321](https://github.com/ec-europa/ecl-twig/pull/321) feat(knobs): update file component - TWIG-342 ([@Joosthe](https://github.com/Joosthe))
+* [#323](https://github.com/ec-europa/ecl-twig/pull/323) feat(knobs): update banner hero/page component - FRONT-457 ([@Joosthe](https://github.com/Joosthe))
+
+#### :house: Internal
+
+* [#317](https://github.com/ec-europa/ecl-twig/pull/317) internal: changelog - Applying ECL schema - TWIG-255 ([@planctus](https://github.com/planctus))
+* [#313](https://github.com/ec-europa/ecl-twig/pull/313) feat(php-storybook): Integration with the CI environment ([@planctus](https://github.com/planctus))
+
+#### Committers: 2
+
+- [@Joosthe](https://github.com/Joosthe)
+- [@planctus](https://github.com/planctus)
+
+
 ## [2.22.1](https://github.com/ec-europa/ecl-twig/compare/v2.22.0...v2.22.1) (2020-02-05)
 
 

@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.23.0](https://github.com/ec-europa/ecl-twig/compare/v2.22.1...v2.23.0) (2020-02-07)
+
+### Features
+
+- **knobs:** update file component - TWIG-342 ([#321](https://github.com/ec-europa/ecl-twig/issues/321)) ([23c698a](https://github.com/ec-europa/ecl-twig/commit/23c698ab257c8de140c2b63ba010afc8f4c249c8))
+
 ## [2.22.1](https://github.com/ec-europa/ecl-twig/compare/v2.22.0...v2.22.1) (2020-02-05)
 
 **Note:** Version bump only for package @ecl-twig/ec-component-file

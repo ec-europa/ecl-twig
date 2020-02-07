@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.23.0](https://github.com/ec-europa/ecl-twig/compare/v2.22.1...v2.23.0) (2020-02-07)
+
+### Features
+
+- **knobs:** Update knobs datepicker - FRONT-461 ([#326](https://github.com/ec-europa/ecl-twig/issues/326)) ([3e4f0f1](https://github.com/ec-europa/ecl-twig/commit/3e4f0f1388f00c6fbc969fa320f24b5e2885b485))
+
 ## [2.22.1](https://github.com/ec-europa/ecl-twig/compare/v2.22.0...v2.22.1) (2020-02-05)
 
 **Note:** Version bump only for package @ecl-twig/ec-component-datepicker
