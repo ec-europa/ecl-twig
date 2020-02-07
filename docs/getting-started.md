@@ -218,3 +218,13 @@ yarn deploy:php
 ```
 
 It uses the npm package https://www.npmjs.com/package/gh-pages to quickly deploy the php/dist folder on github.
+
+
+## Libraries update
+
+The task of upgrading the dependencies is executed via the command:
+
+```bash
+yarn upgrade-interactive --latest --exact
+```
+which will retrieve all the possible upgrades marking them in green, yellow or red depending on the changes included in these packages.

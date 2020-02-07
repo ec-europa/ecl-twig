@@ -1,17 +1,21 @@
 #!/usr/bin/env node
 
 /* eslint-disable import/no-extraneous-dependencies, no-console */
-
-const path = require('path');
 const fetch = require('node-fetch');
 
 const run = async () => {
+  const NETLIFY_API = 'https://api.netlify.com/api/v1';
+
   const {
     GH_TOKEN,
     DRONE_REPO,
     DRONE_COMMIT_SHA,
     DRONE_COMMIT_BRANCH,
     DRONE_BUILD_LINK,
+    DRONE_BUILD_NUMBER,
+    DEPLOY_CONTEXT,
+    NETLIFY_SITE_ID,
+    NETLIFY_AUTH_TOKEN,
   } = process.env;
 
   if (!GH_TOKEN) {
@@ -31,28 +35,57 @@ const run = async () => {
     return;
   }
 
+  const context = DEPLOY_CONTEXT || 'preview/twig-js';
   let payload = {};
 
   try {
-    // eslint-disable-next-line global-require, import/no-dynamic-require
-    const deploymentResult = require(path.resolve(
-      __dirname,
-      '../netlify_deployment_result.json'
-    ));
+    const deploymentsResponse = await fetch(
+      `${NETLIFY_API}/sites/${NETLIFY_SITE_ID}/deploys`,
+      {
+        method: 'GET',
+        headers: {
+          Accept: 'application/json',
+          'Accept-Charset': 'utf-8',
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${NETLIFY_AUTH_TOKEN}`,
+        },
+      }
+    );
+
+    const deployments = await deploymentsResponse.json();
+
+    const currentDeployment = deployments.find(
+      deployment => deployment.title === `Drone build: ${DRONE_BUILD_NUMBER}`
+    );
+
+    const siteDeploymentResponse = await fetch(
+      `${NETLIFY_API}/sites/${NETLIFY_SITE_ID}/deploys/${currentDeployment.id}`,
+      {
+        method: 'GET',
+        headers: {
+          Accept: 'application/json',
+          'Accept-Charset': 'utf-8',
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${NETLIFY_AUTH_TOKEN}`,
+        },
+      }
+    );
+
+    const siteDeployment = await siteDeploymentResponse.json();
 
     if (DRONE_COMMIT_BRANCH && DRONE_COMMIT_BRANCH === 'master') {
       payload = {
         state: 'success',
-        target_url: deploymentResult.url,
+        target_url: siteDeployment.deploy_ssl_url,
         description: 'Production deployment completed!',
-        context: 'drone/netlify',
+        context,
       };
     } else {
       payload = {
         state: 'success',
-        target_url: deploymentResult.deploy_url,
+        target_url: siteDeployment.deploy_ssl_url,
         description: 'Preview ready!',
-        context: 'drone/netlify',
+        context,
       };
     }
   } catch (error) {
@@ -60,7 +93,7 @@ const run = async () => {
       state: 'error',
       target_url: DRONE_BUILD_LINK,
       description: 'Could not get data about Netlify deployment.',
-      context: 'drone/netlify',
+      context,
     };
   }
 
@@ -78,6 +111,8 @@ const run = async () => {
       body: JSON.stringify(payload),
     }
   );
+
+  console.log('Status on pull request successfully updated!');
 };
 
 try {
