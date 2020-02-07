@@ -10,7 +10,7 @@ const adapter = initialData => {
   adaptedData.items.forEach(item => {
     item.icon = formatIcon(item.icon);
   });
-
+  adaptedData.display_icons = true;
   return adaptedData;
 };
 
