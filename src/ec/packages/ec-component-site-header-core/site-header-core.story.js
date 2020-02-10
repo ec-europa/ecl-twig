@@ -15,11 +15,7 @@ import notes from './README.md';
 
 // Toggler function.
 const toggler = element => {
-  if (element.hidden) {
-    element.hidden = false;
-  } else {
-    element.hidden = true;
-  }
+  element.hidden = !element.hidden;
 };
 // Show/hide buttons for the login block.
 const btnLoginLabel = 'Hide/Show the login block';
