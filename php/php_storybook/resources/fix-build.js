@@ -16,7 +16,7 @@ const options = {
   to: [
     'icons.svg',
     'icons-social.svg',
-    'logo-en.svg',
+    'logo--en.svg',
     'logo--fr.svg',
     'logo--mute.svg',
   ],
