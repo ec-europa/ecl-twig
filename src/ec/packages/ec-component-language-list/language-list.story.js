@@ -1,6 +1,6 @@
 import merge from 'deepmerge';
 import { storiesOf } from '@storybook/html';
-import { withKnobs } from '@storybook/addon-knobs';
+import { withKnobs, text } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
 
@@ -23,7 +23,7 @@ storiesOf('Components/Language list', module)
     () =>
       languageListSplash(
         merge(dataSplash, {
-          icon_path: iconPath,
+          icon_path: text('Icon path', iconPath),
           logo: {
             path: logoPath,
           },
@@ -38,7 +38,9 @@ storiesOf('Components/Language list', module)
     () =>
       languageListOverlay(
         merge(dataOverlay, {
-          icon_path: iconPath,
+          title: text('Title', dataOverlay.title),
+          close_label: text('Close label', dataOverlay.close_label),
+          icon_path: text('Icon path', iconPath),
         })
       ),
     {

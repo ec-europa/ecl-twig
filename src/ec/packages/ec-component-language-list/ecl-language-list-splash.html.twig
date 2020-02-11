@@ -52,7 +52,8 @@
   <div class="ecl-language-list__container ecl-container">
     {% include '@ecl-twig/ec-component-language-list/ecl-language-list.html.twig' with {
       items: _items,
-      icon_path: _icon_path
+      overlay: false,
+      icon_path: _icon_path,
     } only %}
   </div>
 </div>
