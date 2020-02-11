@@ -14,17 +14,6 @@ import dataCardEvent from './demo/data--card-event';
 import card from './ecl-card.html.twig';
 import notes from './README.md';
 
-function prepareMerge(oldArrayName, newArrayName, label) {
-  oldArrayName.forEach((a, key) => {
-    if (label === 'label') {
-      newArrayName.push(oldArrayName[key].label);
-    } else {
-      newArrayName.push(oldArrayName[key]);
-    }
-  });
-  oldArrayName.splice(0, oldArrayName.length);
-}
-
 const dataCardInfos = [];
 const dataCardMeta = [];
 const dataCardTags = [];
@@ -32,6 +21,17 @@ const dataTileLinks = [];
 const dataCardTagMeta = [];
 const dataCardTagTag = [];
 const dataCardEventInfos = [];
+
+function prepareMerge(oldArray, newArray, label) {
+  oldArray.forEach((a, key) => {
+    if (label === 'label') {
+      newArray.push(oldArray[key].label);
+    } else {
+      newArray.push(oldArray[key]);
+    }
+  });
+  oldArray.splice(0, oldArray.length);
+}
 
 prepareMerge(dataCard.card.infos, dataCardInfos, 'label');
 prepareMerge(dataCard.card.meta, dataCardMeta);
@@ -64,7 +64,6 @@ storiesOf('Components/Card', module)
             infos: [
               {
                 icon: {
-                  size: 'xs',
                   path: defaultSprite,
                   name: 'general--calendar',
                 },
@@ -72,7 +71,6 @@ storiesOf('Components/Card', module)
               },
               {
                 icon: {
-                  size: 'xs',
                   path: defaultSprite,
                   name: 'general--location',
                 },
@@ -182,7 +180,6 @@ storiesOf('Components/Card', module)
             infos: [
               {
                 icon: {
-                  size: 'xs',
                   path: defaultSprite,
                   name: 'general--calendar',
                 },
@@ -190,7 +187,6 @@ storiesOf('Components/Card', module)
               },
               {
                 icon: {
-                  size: 'xs',
                   path: defaultSprite,
                   name: 'general--location',
                 },

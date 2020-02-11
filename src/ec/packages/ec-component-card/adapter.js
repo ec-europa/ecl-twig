@@ -16,6 +16,7 @@ const adapter = initialData => {
     const { meta } = adaptedData;
     adaptedData.card.meta = [];
     adaptedData.card.meta.push(meta);
+    adaptedData.card.meta = adaptedData.meta.split('|');
     delete adaptedData.meta;
   }
   if (adaptedData.tags) {
