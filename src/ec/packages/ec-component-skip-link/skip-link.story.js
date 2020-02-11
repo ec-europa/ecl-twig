@@ -3,6 +3,7 @@ import { withKnobs, text, button } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
 
+import specs from '@ecl/ec-specs-skip-link/demo/data';
 import skipLink from './ecl-skip-link.html.twig';
 import notes from './README.md';
 
@@ -27,14 +28,13 @@ storiesOf('Components/Navigation/Skip Link', module)
     'default',
     () => {
       button(btnTabLabel, btnTabHandler);
-      const demo = skipLink({
+
+      return skipLink({
         label: text('Label', 'Skip to main content'),
         href: text('Href', '#top'),
       });
-
-      return demo;
     },
     {
-      notes: { markdown: notes },
+      notes: { markdown: notes, json: specs },
     }
   );
