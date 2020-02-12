@@ -105,8 +105,13 @@ storiesOf('Components/Card', module)
           'Image',
           dataCardTag.card.image.src
         )),
+        (dataCardTag.card.meta = array(
+          'Meta tags',
+          dataCardTag.card.meta,
+          '|'
+        )),
         (dataCardTag.card.title.label = text(
-          'Title Label',
+          'Title',
           dataCardTag.card.title.label
         )),
         (dataCardTag.card.description = text(
@@ -140,8 +145,13 @@ storiesOf('Components/Card', module)
           'Image',
           dataCardEvent.card.image.src
         )),
+        (dataCardEvent.card.meta = array(
+          'Meta tags',
+          dataCardEvent.card.meta,
+          '|'
+        )),
         (dataCardEvent.card.title.label = text(
-          'Title Label',
+          'Title',
           dataCardEvent.card.title.label
         )),
         (dataCardEvent.card.description = text(
