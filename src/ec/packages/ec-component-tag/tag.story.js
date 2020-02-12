@@ -27,9 +27,9 @@ storiesOf('Components/Tag', module)
       tag(
         merge(dataLink, {
           tag: {
-            label: text('Label', 'Link tag'),
-            path: text('Url', '/example'),
-            type: select('Variable', variants, 'link'),
+            label: text('Label', dataLink.tag.label),
+            path: text('Url', dataLink.tag.path),
+            type: select('Variant', variants, dataLink.tag.type),
           },
           default_icon_path: defaultSprite,
         })
@@ -44,8 +44,8 @@ storiesOf('Components/Tag', module)
       tag(
         merge(dataButton, {
           tag: {
-            label: text('Label', 'Button tag'),
-            type: select('Variable', variants, 'button'),
+            label: text('Label', dataButton.tag.label),
+            type: select('Variant', variants, dataButton.tag.type),
           },
         })
       ),
@@ -59,9 +59,9 @@ storiesOf('Components/Tag', module)
       tag(
         merge(dataRemovable, {
           tag: {
-            label: text('Label', 'Removable tag'),
-            type: select('Variable', variants, 'removable'),
-            aria_label: text('Aria label', 'Dismiss'),
+            label: text('Label', dataRemovable.tag.label),
+            type: select('Variant', variants, dataRemovable.tag.type),
+            aria_label: text('Aria label', dataRemovable.tag.aria_label),
           },
           default_icon_path: defaultSprite,
         })
