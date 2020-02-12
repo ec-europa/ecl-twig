@@ -320,7 +320,7 @@
   }) only %}
 {% endif %}
 {% if _has_overlay is defined %}
-  {% include '@ecl-twig/ec-component-language-list/ecl-language-list-overlay.html.twig' with {
+  {% include '@ecl-twig/ec-component-language-list/ecl-language-list-main.html.twig' with {
     items: _language_selector.overlay.items,
     close_label: _language_selector.overlay.close_label,
     title: _language_selector.overlay.title,
