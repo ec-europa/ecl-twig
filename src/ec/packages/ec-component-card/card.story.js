@@ -33,6 +33,27 @@ function prepareMerge(oldArray, newArray, label) {
   oldArray.splice(0, oldArray.length);
 }
 
+const formatCards = data => {
+  if (data.card.infos) {
+    data.card.infos.forEach(item => {
+      item.icon.path = defaultSprite;
+    });
+  }
+
+  if (data.card.tags) {
+    data.card.tags.forEach(item => {
+      item.path = '/example';
+    });
+  }
+
+  if (data.card.links) {
+    data.card.links.forEach(item => {
+      item.path = '/example';
+    });
+  }
+  return data;
+};
+
 prepareMerge(dataCard.card.infos, dataCardInfos, 'label');
 prepareMerge(dataCard.card.meta, dataCardMeta);
 prepareMerge(dataCard.card.tags, dataCardTags, 'label');
@@ -51,152 +72,151 @@ storiesOf('Components/Card', module)
     'card',
     () =>
       card(
-        merge(dataCard, {
-          card: {
-            title: {
-              label: text('Title card', dataCard.card.title.label),
-            },
-            description: text('Description', dataCard.card.description),
-            image: {
-              src: text('Image path', dataCard.card.image.src),
-            },
-            meta: array('Metatags', dataCardMeta, '|'),
-            infos: [
-              {
-                icon: {
-                  path: defaultSprite,
-                  name: 'general--calendar',
+        merge(
+          dataCard,
+          formatCards({
+            card: {
+              title: {
+                label: text('Title card', dataCard.card.title.label),
+              },
+              description: text('Description', dataCard.card.description),
+              image: {
+                src: text('Image path', dataCard.card.image.src),
+              },
+              meta: array('Metatags', dataCardMeta, '|'),
+              infos: [
+                {
+                  icon: {
+                    name: 'general--calendar',
+                  },
+                  label: text('Info 0 text', dataCardInfos[0]),
                 },
-                label: text('Info 0 text', dataCardInfos[0]),
-              },
-              {
-                icon: {
-                  path: defaultSprite,
-                  name: 'general--location',
+                {
+                  icon: {
+                    name: 'general--location',
+                  },
+                  label: text('Info 1 text', dataCardInfos[1]),
                 },
-                label: text('Info 1 text', dataCardInfos[1]),
-              },
-            ],
-            tags: [
-              {
-                label: text('Tag 0', dataCardTags[0]),
-                path: '/example',
-              },
-              {
-                label: text('Tag 1', dataCardTags[1]),
-                path: '/example',
-              },
-              {
-                label: text('Tag 2', dataCardTags[2]),
-                path: '/example',
-              },
-            ],
-          },
-        })
+              ],
+              tags: [
+                {
+                  label: text('Tag 0', dataCardTags[0]),
+                },
+                {
+                  label: text('Tag 1', dataCardTags[1]),
+                },
+                {
+                  label: text('Tag 2', dataCardTags[2]),
+                },
+              ],
+            },
+          })
+        )
       ),
     {
-      notes: { markdown: notes, json: dataCard },
+      notes: { markdown: notes, json: formatCards(dataCard) },
     }
   )
   .add(
     'tile',
     () =>
       card(
-        merge(dataTile, {
-          card: {
-            title: {
-              label: text('Title card', dataTile.card.title.label),
+        merge(
+          dataTile,
+          formatCards({
+            card: {
+              title: {
+                label: text('Title card', dataTile.card.title.label),
+              },
+              description: text('Description', dataTile.card.description),
+              links: [
+                {
+                  label: text('link 1', dataTileLinks[0]),
+                },
+                {
+                  label: text('link 2', dataTileLinks[1]),
+                },
+                {
+                  label: text('link 3', dataTileLinks[2]),
+                },
+              ],
             },
-            description: text('Description', dataTile.card.description),
-            links: [
-              {
-                label: text('link 1', dataTileLinks[0]),
-                path: '/example',
-              },
-              {
-                label: text('link 2', dataTileLinks[1]),
-                path: '/example',
-              },
-              {
-                label: text('link 3', dataTileLinks[2]),
-                path: '/example',
-              },
-            ],
-          },
-        })
+          })
+        )
       ),
     {
-      notes: { markdown: notes, json: dataTile },
+      notes: { markdown: notes, json: formatCards(dataTile) },
     }
   )
   .add(
     'tag',
     () =>
       card(
-        merge(dataCardTag, {
-          card: {
-            title: {
-              label: text('Title card', dataCardTag.card.title.label),
+        merge(
+          dataCardTag,
+          formatCards({
+            card: {
+              title: {
+                label: text('Title card', dataCardTag.card.title.label),
+              },
+              description: text('Description', dataCardTag.card.description),
+              image: {
+                src: text('Img url', dataCardTag.card.image.src),
+              },
+              meta: array('Metatags', dataCardTagMeta, '|'),
+              tags: [
+                {
+                  label: text('Tag 0', dataCardTagTag[0]),
+                },
+                {
+                  label: text('Tag 1', dataCardTagTag[1]),
+                },
+                {
+                  label: text('Tag 2', dataCardTagTag[2]),
+                },
+              ],
             },
-            description: text('Description', dataCardTag.card.description),
-            image: {
-              src: text('Img url', dataCardTag.card.image.src),
-            },
-            meta: array('Metatags', dataCardTagMeta, '|'),
-            tags: [
-              {
-                label: text('Tag 0', dataCardTagTag[0]),
-                path: '/example',
-              },
-              {
-                label: text('Tag 1', dataCardTagTag[1]),
-                path: '/example',
-              },
-              {
-                label: text('Tag 2', dataCardTagTag[2]),
-                path: '/example',
-              },
-            ],
-          },
-        })
+          })
+        )
       ),
     {
-      notes: { markdown: notes, json: dataCardTag },
+      notes: { markdown: notes, json: formatCards(dataCardTag) },
     }
   )
   .add(
     'event',
     () =>
       card(
-        merge(dataCardEvent, {
-          card: {
-            title: {
-              label: text('Title card', dataCardEvent.card.title.label),
-            },
-            description: text('Description', dataCardEvent.card.description),
-            image: {
-              src: text('Img url', dataCardEvent.card.image.src),
-            },
-            infos: [
-              {
-                icon: {
-                  path: defaultSprite,
-                  name: 'general--calendar',
-                },
-                label: text('Info 0 text', dataCardEventInfos[0]),
+        merge(
+          dataCardEvent,
+          formatCards({
+            card: {
+              title: {
+                label: text('Title card', dataCardEvent.card.title.label),
               },
-              {
-                icon: {
-                  path: defaultSprite,
-                  name: 'general--location',
-                },
-                label: text('Info 1 text', dataCardEventInfos[1]),
+              description: text('Description', dataCardEvent.card.description),
+              image: {
+                src: text('Img url', dataCardEvent.card.image.src),
               },
-            ],
-          },
-        })
+              infos: [
+                {
+                  icon: {
+                    name: 'general--calendar',
+                  },
+                  label: text('Info 0 text', dataCardEventInfos[0]),
+                },
+                {
+                  icon: {
+                    name: 'general--location',
+                  },
+                  label: text('Info 1 text', dataCardEventInfos[1]),
+                },
+              ],
+            },
+          })
+        )
       ),
     {
-      notes: { markdown: notes, json: dataCardEvent },
+      notes: { markdown: notes, json: formatCards(dataCardEvent) },
     }
   );
