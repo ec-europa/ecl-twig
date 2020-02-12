@@ -1,6 +1,6 @@
 import merge from 'deepmerge';
 import { storiesOf } from '@storybook/html';
-import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
+import { withKnobs, text, select } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
 
@@ -12,17 +12,26 @@ import dataStandalone from './demo/data--standalone';
 import link from './ecl-link.html.twig';
 import notes from './README.md';
 
-const iconPositionSettings = {
-  before: 'before',
-  after: 'after',
-};
-
 const iconsList = {};
 iconsList.none = null;
 
 uiIcons.forEach(icon => {
   iconsList[icon] = icon;
 });
+
+const transforms = {
+  None: '',
+  'Rotate 90': 'rotate-90',
+  'Rotate 180': 'rotate-180',
+  'Rotate 270': 'rotate-270',
+  'Flip horizontal': 'flip-horizontal',
+  'Flip vertical': 'flip-vertical',
+};
+const iconPositionSettings = {
+  before: 'before',
+  after: 'after',
+};
+const defaultTransform = '';
 
 storiesOf('Components/Navigation/Link', module)
   .addDecorator(withKnobs)
@@ -31,13 +40,13 @@ storiesOf('Components/Navigation/Link', module)
   .add(
     'default',
     () => {
+      const iconsListSelect = select('Icon (sample)', iconsList, null);
       const iconPosition = select(
         'Icon position',
         iconPositionSettings,
         'after'
       );
-
-      const iconsListSelect = select('Icon (sample)', iconsList, null);
+      const transform = select('Transform', transforms, defaultTransform);
 
       const linkData = merge(dataDefault, {
         link: {
@@ -49,6 +58,7 @@ storiesOf('Components/Navigation/Link', module)
           name: iconsListSelect,
           path: defaultSprite,
           size: 'fluid',
+          transform,
         },
       });
 
@@ -68,13 +78,13 @@ storiesOf('Components/Navigation/Link', module)
   .add(
     'standalone',
     () => {
+      const iconsListSelect = select('Icon (sample)', iconsList, null);
       const iconPosition = select(
         'Icon position',
         iconPositionSettings,
         'after'
       );
-
-      const iconsListSelect = select('Icon (sample)', iconsList, null);
+      const transform = select('Transform', transforms, defaultTransform);
 
       return link(
         merge(dataStandalone, {
@@ -87,6 +97,7 @@ storiesOf('Components/Navigation/Link', module)
             name: iconsListSelect,
             path: defaultSprite,
             size: 'fluid',
+            transform,
           },
         })
       );
@@ -98,7 +109,8 @@ storiesOf('Components/Navigation/Link', module)
   .add(
     'cta',
     () => {
-      const iconsListSelect = boolean('Icon (optional)', false);
+      const iconsListSelect = select('Icon (sample)', iconsList, null);
+      const transform = select('Transform', transforms, defaultTransform);
 
       return link(
         merge(dataCta, {
@@ -107,8 +119,11 @@ storiesOf('Components/Navigation/Link', module)
             icon_position: 'after',
           },
           icon: {
-            name: iconsListSelect ? 'corner-arrow' : '',
+            name: iconsListSelect,
             path: defaultSprite,
+            type: 'ui',
+            transform,
+            size: 'fluid',
           },
         })
       );
