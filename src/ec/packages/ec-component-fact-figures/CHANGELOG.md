@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.23.0](https://github.com/ec-europa/ecl-twig/compare/v2.22.1...v2.23.0) (2020-02-07)
+
+### Features
+
+- **knobs:** update fact-figures component - FRONT-450 ([#322](https://github.com/ec-europa/ecl-twig/issues/322)) ([6438d93](https://github.com/ec-europa/ecl-twig/commit/6438d9322cd814e143884c470652efc909f4d0a7))
+
+## [2.22.1](https://github.com/ec-europa/ecl-twig/compare/v2.22.0...v2.22.1) (2020-02-05)
+
+**Note:** Version bump only for package @ecl-twig/ec-component-fact-figures
+
 # [2.22.0](https://github.com/ec-europa/ecl-twig/compare/v2.19.0...v2.22.0) (2020-01-30)
 
 **Note:** Version bump only for package @ecl-twig/ec-component-fact-figures

@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.23.0](https://github.com/ec-europa/ecl-twig/compare/v2.22.1...v2.23.0) (2020-02-07)
+
+**Note:** Version bump only for package @ecl-twig/ec-component-file-upload
+
+## [2.22.1](https://github.com/ec-europa/ecl-twig/compare/v2.22.0...v2.22.1) (2020-02-05)
+
+### Bug Fixes
+
+- **file-input:** Updating component to 2.22.1 - FRONT-465 ([#327](https://github.com/ec-europa/ecl-twig/issues/327)) ([32b92e2](https://github.com/ec-europa/ecl-twig/commit/32b92e2b83668a2ed16eb8a18de35417a98e3460))
+
 # [2.22.0](https://github.com/ec-europa/ecl-twig/compare/v2.19.0...v2.22.0) (2020-01-30)
 
 **Note:** Version bump only for package @ecl-twig/ec-component-file-upload
