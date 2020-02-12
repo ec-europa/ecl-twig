@@ -2,6 +2,9 @@
 
 {#
   Parameters:
+  - "overlay" (boolean) (default:false)
+  - "close_label (string) (default: ''): label of close button
+  - "title" (string) (default: ''): title of the page
   - "items" (array) (default: [])
     - "lang" (string) (default: '')
     - "label" (string) (default: '')
@@ -26,14 +29,13 @@
 {% set _close_label = close_label|default('') %}
 {% set _title = title|default('') %}
 
-
 {% if _overlay is defined and _overlay == true %}
   {% set _css_class = 'ecl-language-list ecl-language-list--overlay' %}
   {% set data_lang_overlay = 'data-ecl-language-list-overlay' %}
+
 {% else %}
   {% set _css_class = 'ecl-language-list ecl-language-list--splash' %}
 {% endif %}
-
 
 {% set _extra_attributes = '' %}
 
@@ -47,7 +49,8 @@
   {% for attr in extra_attributes %}
     {% if attr.value is defined %}
       {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value|e ~ '"' %}
-    {% else %}
+    
+      {% else %}
       {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name %}
     {% endif %}
   {% endfor %}
@@ -95,8 +98,8 @@
         overlay: true,
         icon_path: _icon_path
       } only %}
+      
     {% else %}
-
       {% include '@ecl-twig/ec-component-language-list/ecl-language-list.html.twig' with {
         items: _items,
         overlay: false,
