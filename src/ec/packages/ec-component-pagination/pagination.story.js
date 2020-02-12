@@ -1,5 +1,6 @@
+import merge from 'deepmerge';
 import { storiesOf } from '@storybook/html';
-import { withKnobs } from '@storybook/addon-knobs';
+import { withKnobs, text } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
 
@@ -20,6 +21,15 @@ storiesOf('Components/Navigation/Pagination', module)
   .addDecorator(withKnobs)
   .addDecorator(withNotes)
   .addDecorator(withCode)
-  .add('default', () => pagination(data), {
-    notes: { markdown: notes, json: data },
-  });
+  .add(
+    'default',
+    () =>
+      pagination(
+        merge(data, {
+          label: text('Aria-Label', data.label),
+        })
+      ),
+    {
+      notes: { markdown: notes, json: data },
+    }
+  );
