@@ -128,6 +128,7 @@
           src="{{ _logo.src }}"
         />
       </a>
+    {% if _language_selector is not empty %}
       <div class="ecl-site-header__selector">
         <a
           class="ecl-link ecl-link--standalone ecl-site-header__selector-link"
@@ -159,6 +160,7 @@
         } %}
       </div>
     </div>
+  {% endif %}
     {% include '@ecl-twig/ec-component-search-form/ecl-search-form.html.twig' with _search_form only %}
   </div>
 </header>
