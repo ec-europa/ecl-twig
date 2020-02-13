@@ -23,7 +23,7 @@ storiesOf('Components/Language list', module)
     () =>
       languageListMain(
         merge(dataSplash, {
-          icon_path: text('Icon path', iconPath),
+          icon_path: iconPath,
           overlay: boolean('Overlay', false),
           title: text('Title', dataOverlay.title),
           close_label: text('Close label', dataOverlay.close_label),
@@ -43,7 +43,7 @@ storiesOf('Components/Language list', module)
         merge(dataOverlay, {
           title: text('Title', dataOverlay.title),
           close_label: text('Close label', dataOverlay.close_label),
-          icon_path: text('Icon path', iconPath),
+          icon_path: iconPath,
         })
       ),
     {
