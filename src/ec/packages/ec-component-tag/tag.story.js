@@ -1,6 +1,6 @@
 import merge from 'deepmerge';
 import { storiesOf } from '@storybook/html';
-import { withKnobs, text, select } from '@storybook/addon-knobs';
+import { withKnobs, text } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
 
@@ -10,12 +10,6 @@ import dataButton from './demo/data--button';
 import dataRemovable from './demo/data--removable';
 import tag from './ecl-tag.html.twig';
 import notes from './README.md';
-
-const variants = {
-  'As a link': 'link',
-  'As a Button': 'button',
-  Removable: 'removable',
-};
 
 storiesOf('Components/Tag', module)
   .addDecorator(withKnobs)
@@ -29,7 +23,6 @@ storiesOf('Components/Tag', module)
           tag: {
             label: text('Label', dataLink.tag.label),
             path: text('Url', dataLink.tag.path),
-            type: select('Variant', variants, dataLink.tag.type),
           },
           default_icon_path: defaultSprite,
         })
@@ -45,7 +38,6 @@ storiesOf('Components/Tag', module)
         merge(dataButton, {
           tag: {
             label: text('Label', dataButton.tag.label),
-            type: select('Variant', variants, dataButton.tag.type),
           },
         })
       ),
@@ -60,7 +52,6 @@ storiesOf('Components/Tag', module)
         merge(dataRemovable, {
           tag: {
             label: text('Label', dataRemovable.tag.label),
-            type: select('Variant', variants, dataRemovable.tag.type),
             aria_label: text('Aria label', dataRemovable.tag.aria_label),
           },
           default_icon_path: defaultSprite,
