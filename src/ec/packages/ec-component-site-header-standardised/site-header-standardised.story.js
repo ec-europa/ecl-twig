@@ -20,35 +20,39 @@ frenchData.logo.src = frenchBanner;
 englishData.icon_file_path = defaultSprite;
 englishData.logo.src = englishBanner;
 
-// Toggler function.
-const toggler = element => {
-  element.hidden = !element.hidden;
-};
-// Show/hide buttons for the language switcher.
-const btnLabel = 'Hide/Show the language switcher';
-const btnHandler = () => {
-  const btnElement = document.querySelector(
-    '.ecl-site-header-standardised__language-selector'
-  );
-  if (!btnElement.parentNode.classList.contains('helperdDiv')) {
-    const wrapper = document.createElement('div');
-    wrapper.classList.add('helperdDiv');
-    btnElement.parentNode.insertBefore(wrapper, btnElement);
-    wrapper.appendChild(btnElement);
+const enData = { ...englishData };
+const frData = { ...frenchData };
+// Show/hide buttons for the login box.
+const btnLoginLabel = 'With or without the login box';
+const enBtnLoginHandler = () => {
+  if (enData.login_box) {
+    delete enData.login_box;
+  } else {
+    enData.login_box = englishData.login_box;
   }
-  toggler(btnElement.parentNode);
-  // Prevent the story to be reloaded.
-  return false;
 };
-// Show/hide buttons for the login block.
-const btnLoginLabel = 'Hide/Show the login block';
-const btnLoginHandler = () => {
-  const btnElement = document.querySelector(
-    '.ecl-site-header-standardised__login-container'
-  );
-  toggler(btnElement);
-  // Prevent the story to be reloaded.
-  return false;
+const frBtnLoginHandler = () => {
+  if (frData.login_box) {
+    delete frData.login_box;
+  } else {
+    frData.login_box = frenchData.login_box;
+  }
+};
+// Show/hide button for the language switcher
+const btnLangLabel = 'With or without the language switcher';
+const enBtnLangHandler = () => {
+  if (enData.language_selector) {
+    delete enData.language_selector;
+  } else {
+    enData.language_selector = englishData.language_selector;
+  }
+};
+const frBtnLangHandler = () => {
+  if (frData.language_selector) {
+    delete frData.language_selector;
+  } else {
+    frData.language_selector = frenchData.language_selector;
+  }
 };
 
 storiesOf('Components/Site Headers/Standardised', module)
@@ -59,52 +63,51 @@ storiesOf('Components/Site Headers/Standardised', module)
     'default',
     () =>
       siteHeaderStandardised(
-        merge(englishData, {
+        merge(enData, {
           logo: {
             src: frenchBanner,
           },
           icon_file_path: defaultSprite,
           logged: false,
         }),
-        button(btnLabel, btnHandler),
-        button(btnLoginLabel, btnLoginHandler)
+        button(btnLangLabel, enBtnLangHandler),
+        button(btnLoginLabel, enBtnLoginHandler)
       ),
     {
-      notes: { markdown: notes, json: englishData },
+      notes: { markdown: notes, json: enData },
     }
   )
   .add(
     'logged in',
     () =>
       siteHeaderStandardised(
-        merge(englishData, {
+        merge(enData, {
           logo: {
             src: englishBanner,
           },
           icon_file_path: defaultSprite,
           logged: true,
         }),
-        button(btnLabel, btnHandler),
-        button(btnLoginLabel, btnLoginHandler)
+        button(btnLangLabel, enBtnLangHandler)
       ),
     {
-      notes: { markdown: notes, json: englishData },
+      notes: { markdown: notes, json: enData },
     }
   )
   .add(
     'translated',
     () =>
       siteHeaderStandardised(
-        merge(frenchData, {
+        merge(frData, {
           logo: {
             src: frenchBanner,
           },
           icon_file_path: defaultSprite,
         }),
-        button(btnLabel, btnHandler),
-        button(btnLoginLabel, btnLoginHandler)
+        button(btnLangLabel, frBtnLangHandler),
+        button(btnLoginLabel, frBtnLoginHandler)
       ),
     {
-      notes: { markdown: notes, json: frenchData },
+      notes: { markdown: notes, json: frData },
     }
   );

@@ -13,19 +13,23 @@ import englishData from './demo/data--en';
 import frenchData from './demo/data--fr';
 import notes from './README.md';
 
-// Toggler function.
-const toggler = element => {
-  element.hidden = !element.hidden;
+const enData = { ...englishData };
+const frData = { ...frenchData };
+// Show/hide buttons for the language switcher.
+const btnLabel = 'With or without the login box';
+const enBtnHandler = () => {
+  if (enData.login_box) {
+    delete enData.login_box;
+  } else {
+    enData.login_box = englishData.login_box;
+  }
 };
-// Show/hide buttons for the login block.
-const btnLoginLabel = 'Hide/Show the login block';
-const btnLoginHandler = () => {
-  const btnElement = document.querySelector(
-    '.ecl-site-header-core__login-container'
-  );
-  toggler(btnElement);
-  // Prevent the story to be reloaded.
-  return false;
+const frBtnHandler = () => {
+  if (frData.login_box) {
+    delete frData.login_box;
+  } else {
+    frData.login_box = frenchData.login_box;
+  }
 };
 
 storiesOf('Components/Site Headers/Core', module)
@@ -36,17 +40,17 @@ storiesOf('Components/Site Headers/Core', module)
     'default',
     () =>
       siteHeaderCore(
-        merge(englishData, {
+        merge(enData, {
           logo: {
             src: frenchBanner,
           },
           icon_file_path: defaultSprite,
           logged: false,
         }),
-        button(btnLoginLabel, btnLoginHandler)
+        button(btnLabel, enBtnHandler)
       ),
     {
-      notes: { markdown: notes, json: englishData },
+      notes: { markdown: notes, json: enData },
     }
   )
   .add(
@@ -59,8 +63,7 @@ storiesOf('Components/Site Headers/Core', module)
           },
           icon_file_path: defaultSprite,
           logged: true,
-        }),
-        button(btnLoginLabel, btnLoginHandler)
+        })
       ),
     {
       notes: { markdown: notes, json: englishData },
@@ -70,15 +73,15 @@ storiesOf('Components/Site Headers/Core', module)
     'translated',
     () =>
       siteHeaderCore(
-        merge(frenchData, {
+        merge(frData, {
           logo: {
             src: frenchBanner,
           },
           icon_file_path: defaultSprite,
         }),
-        button(btnLoginLabel, btnLoginHandler)
+        button(btnLabel, frBtnHandler)
       ),
     {
-      notes: { markdown: notes, json: frenchData },
+      notes: { markdown: notes, json: frData },
     }
   );
