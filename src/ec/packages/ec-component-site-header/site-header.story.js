@@ -15,23 +15,23 @@ import frenchData from './demo/data--fr';
 import siteHeader from './ecl-site-header.html.twig';
 import notes from './README.md';
 
-// Toggler function.
-const toggler = element => {
-  element.hidden = !element.hidden;
-};
+const enData = { ...englishData };
+const frData = { ...frenchData };
 // Show/hide buttons for the language switcher.
 const btnLabel = 'Hide/Show the language switcher';
-const btnHandler = () => {
-  const btnElement = document.querySelector('.ecl-site-header__selector');
-  if (!btnElement.parentNode.classList.contains('helperdDiv')) {
-    const wrapper = document.createElement('div');
-    wrapper.classList.add('helperdDiv');
-    btnElement.parentNode.insertBefore(wrapper, btnElement);
-    wrapper.appendChild(btnElement);
+const EnBtnHandler = () => {
+  if (enData.language_selector) {
+    delete enData.language_selector;
+  } else {
+    enData.language_selector = englishData.language_selector;
   }
-  toggler(btnElement.parentNode);
-  // Prevent the story to be reloaded.
-  return false;
+};
+const frBtnHandler = () => {
+  if (frData.language_selector) {
+    delete frData.language_selector;
+  } else {
+    frData.language_selector = frenchData.language_selector;
+  }
 };
 
 storiesOf('Components/deprecated/Site Header', module)
@@ -42,31 +42,31 @@ storiesOf('Components/deprecated/Site Header', module)
     'ECL < 2.12 - default',
     () =>
       siteHeader(
-        merge(englishData, {
+        merge(enData, {
           logo: {
             src: englishBanner,
           },
           icon_file_path: defaultSprite,
         }),
-        button(btnLabel, btnHandler)
+        button(btnLabel, EnBtnHandler)
       ),
     {
-      notes: { markdown: notes, json: englishData },
+      notes: { markdown: notes, json: enData },
     }
   )
   .add(
     'ECL < 2.12 - translated',
     () =>
       siteHeader(
-        merge(frenchData, {
+        merge(frData, {
           logo: {
             src: frenchBanner,
           },
           icon_file_path: defaultSprite,
         }),
-        button(btnLabel, btnHandler)
+        button(btnLabel, frBtnHandler)
       ),
     {
-      notes: { markdown: notes, json: frenchData },
+      notes: { markdown: notes, json: frData },
     }
   );
