@@ -13,9 +13,8 @@ const adapter = initialData => {
     delete adaptedData.type;
   }
   if (adaptedData.meta) {
-    const { meta } = adaptedData;
     adaptedData.card.meta = [];
-    adaptedData.card.meta.push(meta);
+    adaptedData.card.meta = adaptedData.meta.split(' | ');
     delete adaptedData.meta;
   }
   if (adaptedData.tags) {
@@ -29,6 +28,7 @@ const adapter = initialData => {
   if (adaptedData.card.title.href) {
     adaptedData.card.title.path = adaptedData.card.title.href;
     adaptedData.card.title.type = 'standalone';
+    delete adaptedData.card.title.href;
   }
   if (adaptedData.image) {
     adaptedData.card.image = adaptedData.image;
