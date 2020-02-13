@@ -9,9 +9,22 @@ exports[`EC - Skip Link Default renders correctly 1`] = `
 </a>
 `;
 
-exports[`EC - Skip Link renders correctly 1`] = `
+exports[`EC - Skip Link Default renders correctly with extra attributes 1`] = `
 <a
   class="ecl-skip-link"
-  href=""
-/>
+  data-test="data-test-value"
+  data-test-1="data-test-value-1"
+  href="#top"
+>
+  Skip to main content
+</a>
+`;
+
+exports[`EC - Skip Link Default renders correctly with extra class names 1`] = `
+<a
+  class="ecl-skip-link custom-class custom-class--test"
+  href="#top"
+>
+  Skip to main content
+</a>
 `;
