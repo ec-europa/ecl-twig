@@ -1,6 +1,6 @@
 import merge from 'deepmerge';
 import { storiesOf } from '@storybook/html';
-import { withKnobs } from '@storybook/addon-knobs';
+import { withKnobs, text, boolean } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
 
@@ -10,8 +10,8 @@ import iconPath from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import dataSplash from './demo/data--splash';
 import dataOverlay from './demo/data--overlay';
 
-import languageListSplash from './ecl-language-list-splash.html.twig';
-import languageListOverlay from './ecl-language-list-overlay.html.twig';
+import languageListMain from './ecl-language-list-main.html.twig';
+
 import notes from './README.md';
 
 storiesOf('Components/Language list', module)
@@ -21,9 +21,12 @@ storiesOf('Components/Language list', module)
   .add(
     'splash',
     () =>
-      languageListSplash(
+      languageListMain(
         merge(dataSplash, {
           icon_path: iconPath,
+          overlay: boolean('Overlay', false),
+          title: text('Title', dataOverlay.title),
+          close_label: text('Close label', dataOverlay.close_label),
           logo: {
             path: logoPath,
           },
@@ -36,8 +39,10 @@ storiesOf('Components/Language list', module)
   .add(
     'overlay',
     () =>
-      languageListOverlay(
+      languageListMain(
         merge(dataOverlay, {
+          title: text('Title', dataOverlay.title),
+          close_label: text('Close label', dataOverlay.close_label),
           icon_path: iconPath,
         })
       ),
