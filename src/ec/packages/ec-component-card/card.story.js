@@ -1,7 +1,7 @@
 /* eslint-disable no-param-reassign */
 import { storiesOf } from '@storybook/html';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
-import { withKnobs, text, array } from '@storybook/addon-knobs';
+import { withKnobs, text, array, button } from '@storybook/addon-knobs';
 import withCode from '@ecl-twig/storybook-addon-code';
 
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
@@ -13,9 +13,50 @@ import dataTile from './demo/data--tile';
 import card from './ecl-card.html.twig';
 import notes from './README.md';
 
+const requiredGroupId = 'Mandatory elements';
+const optionalGroupId = 'Optional elements';
+const useCasesGroup = 'Use cases';
+const defaultData = { ...dataCard.card };
+
+// Show/hide buttons for optional elements.
+const descBtnHandler = () => {
+  if (defaultData.description) {
+    delete defaultData.description;
+  } else {
+    defaultData.description = dataCard.card.description;
+  }
+};
+const metaBtnHandler = () => {
+  if (defaultData.meta) {
+    delete defaultData.meta;
+  } else {
+    defaultData.meta = dataCard.card.meta;
+  }
+};
+const infosBtnHandler = () => {
+  if (defaultData.infos) {
+    delete defaultData.infos;
+  } else {
+    defaultData.infos = dataCard.card.infos;
+  }
+};
+const tagsBtnHandler = () => {
+  if (defaultData.tags) {
+    delete defaultData.tags;
+  } else {
+    defaultData.tags = dataCard.card.tags;
+  }
+};
+const imgBtnHandler = () => {
+  if (defaultData.image) {
+    delete defaultData.image;
+  } else {
+    defaultData.image = dataCard.card.image;
+  }
+};
 const formatInfo = data => {
-  if (data.card.infos) {
-    data.card.infos.forEach(item => {
+  if (data.infos) {
+    data.infos.forEach(item => {
       item.icon.path = defaultSprite;
     });
   }
@@ -30,28 +71,77 @@ storiesOf('Components/Card', module)
   .add(
     'card',
     () => {
-      dataCard.card.image.src = text('Image', dataCard.card.image.src);
-      dataCard.card.meta = array('Meta tags', dataCard.card.meta, '|');
-      dataCard.card.title.label = text('Title', dataCard.card.title.label);
-      dataCard.card.description = text(
-        'Description',
-        dataCard.card.description
-      );
-      dataCard.card.infos[0].label = text(
-        'Info 0',
-        dataCard.card.infos[0].label
-      );
-      dataCard.card.infos[1].label = text(
-        'Info 1',
-        dataCard.card.infos[1].label
-      );
-      dataCard.card.tags[0].label = text('Tag 0', dataCard.card.tags[0].label);
-      dataCard.card.tags[1].label = text('Tag 1', dataCard.card.tags[1].label);
-      dataCard.card.tags[2].label = text('Tag 2', dataCard.card.tags[2].label);
-      return card(formatInfo(dataCard));
+      // Description.
+      const description = defaultData.description
+        ? text('Card.description', defaultData.description, optionalGroupId)
+        : false;
+      // Meta.
+      const meta = defaultData.meta
+        ? array('Card.meta (tags)', defaultData.meta, '|', optionalGroupId)
+        : [];
+      // Tags.
+      const formatTag = (tag, index) => {
+        tag.label = text(
+          `Card.tags.label (Tag ${index})`,
+          tag.label,
+          optionalGroupId
+        );
+        return tag;
+      };
+      const tags = defaultData.tags ? defaultData.tags.map(formatTag) : [];
+      // Infos.
+      const formatInfos = (info, index) => {
+        info.label = text(
+          `Card.infos.label (Info ${index})`,
+          info.label,
+          optionalGroupId
+        );
+        info.icon.path = defaultSprite;
+        return info;
+      };
+      const infos = defaultData.infos ? defaultData.infos.map(formatInfos) : [];
+      // Image.
+      const image = defaultData.image
+        ? {
+            alt: text('Card.image.alt', defaultData.image.alt, optionalGroupId),
+            src: text('Card.image.src', defaultData.image.src, optionalGroupId),
+          }
+        : '';
+
+      const data = {
+        card: {
+          title: {
+            type: text(
+              'Card.title.type',
+              defaultData.title.type,
+              optionalGroupId
+            ),
+            label: text(
+              'Card.title.label',
+              defaultData.title.label,
+              requiredGroupId
+            ),
+            path: defaultData.title.path,
+            level: defaultData.title.level,
+          },
+          description,
+          meta,
+          tags,
+          infos,
+          image,
+        },
+      };
+
+      button('With or without image', imgBtnHandler, useCasesGroup);
+      button('With or without tags', tagsBtnHandler, useCasesGroup);
+      button('With or without infos', infosBtnHandler, useCasesGroup);
+      button('With or without meta', metaBtnHandler, useCasesGroup);
+      button('With or without description', descBtnHandler, useCasesGroup);
+
+      return card(data);
     },
     {
-      notes: { markdown: notes, json: formatInfo(dataCard) },
+      notes: { markdown: notes, json: defaultData },
     }
   )
   .add(
