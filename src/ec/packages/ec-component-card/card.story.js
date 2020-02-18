@@ -8,60 +8,167 @@ import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import dataCard from './demo/data--card';
 import dataCardEvent from './demo/data--card-event';
 import dataCardTag from './demo/data--card-tag';
-import dataTile from './demo/data--tile';
+import dataCardTile from './demo/data--tile';
 
 import card from './ecl-card.html.twig';
 import notes from './README.md';
-
+// Preserve the adapted specs.
+let defaultData = { ...dataCard.card };
+let eventData = { ...dataCardEvent.card };
+let tagData = { ...dataCardTag.card };
+let tileData = { ...dataCardTile.card };
+// Labels for the buttons.
 const requiredGroupId = 'Mandatory elements';
 const optionalGroupId = 'Optional elements';
 const useCasesGroup = 'Use cases';
-const defaultData = { ...dataCard.card };
-
 // Show/hide buttons for optional elements.
-const descBtnHandler = () => {
-  if (defaultData.description) {
-    delete defaultData.description;
-  } else {
-    defaultData.description = dataCard.card.description;
-  }
+const descBtnToggler = () => {
+  defaultData.description = defaultData.description
+    ? false
+    : dataCard.card.description;
 };
-const metaBtnHandler = () => {
-  if (defaultData.meta) {
-    delete defaultData.meta;
-  } else {
-    defaultData.meta = dataCard.card.meta;
-  }
+const descEventBtnToggler = () => {
+  eventData.description = eventData.description
+    ? false
+    : dataCardEvent.card.description;
 };
-const infosBtnHandler = () => {
-  if (defaultData.infos) {
-    delete defaultData.infos;
-  } else {
-    defaultData.infos = dataCard.card.infos;
-  }
+const descTileBtnToggler = () => {
+  tileData.description = tileData.description
+    ? false
+    : dataCardTile.card.description;
 };
-const tagsBtnHandler = () => {
-  if (defaultData.tags) {
-    delete defaultData.tags;
-  } else {
-    defaultData.tags = dataCard.card.tags;
-  }
+const descTagBtnToggler = () => {
+  tagData.description = tagData.description
+    ? false
+    : dataCardTag.card.description;
 };
-const imgBtnHandler = () => {
-  if (defaultData.image) {
-    delete defaultData.image;
-  } else {
-    defaultData.image = dataCard.card.image;
-  }
+const metaBtnToggler = () => {
+  defaultData.meta = defaultData.meta ? false : dataCard.card.meta;
 };
-const formatInfo = data => {
-  if (data.infos) {
-    data.infos.forEach(item => {
-      item.icon.path = defaultSprite;
-    });
-  }
+const metaTagBtnToggler = () => {
+  tagData.meta = tagData.meta ? false : dataCardTag.card.meta;
+};
+const infosBtnToggler = () => {
+  defaultData.infos = defaultData.infos ? false : dataCard.card.infos;
+};
+const infosEventBtnToggler = () => {
+  eventData.infos = eventData.infos ? false : dataCardEvent.card.infos;
+};
+const tagsBtnToggler = () => {
+  defaultData.tags = defaultData.tags ? false : dataCard.card.tags;
+};
+const tagsTagBtnToggler = () => {
+  tagData.tags = tagData.tags ? false : dataCardTag.card.tags;
+};
+const imgBtnToggler = () => {
+  defaultData.image = defaultData.image ? false : dataCard.card.image;
+};
+const imgEventBtnToggler = () => {
+  eventData.image = eventData.image ? false : dataCardEvent.card.image;
+};
+const imgTagBtnToggler = () => {
+  tagData.image = tagData.image ? false : dataCardTag.card.image;
+};
+const linksBtnToggler = () => {
+  tileData.links = tileData.links ? false : dataCardTile.card.links;
+};
+// Reset buttons.
+const resetBtnToggler = () => {
+  defaultData = { ...dataCard.card };
+};
+const resetTileBtnToggler = () => {
+  tileData = { ...dataCardTile.card };
+};
+const resetEventBtnToggler = () => {
+  eventData = { ...dataCardEvent.card };
+};
+const resetTagBtnToggler = () => {
+  tagData = { ...dataCardTag.card };
+};
+// Prepare the rendering with knobs.
+const formatCard = data => {
+  // Title
+  const title = data.title.type
+    ? {
+        ...data.title,
+        type: text('card.title.type', data.title.type, optionalGroupId),
+        label: text(
+          'card.title.label',
+          data.title.label,
+          requiredGroupId
+        ),
+      }
+    : {
+        ...data.title,
+        label: text(
+          'card.title.label',
+          data.title.label,
+          requiredGroupId
+        ),
+      };
+  // Description.
+  const description = data.description
+    ? text('card.description', data.description, optionalGroupId)
+    : false;
+  // Meta.
+  const meta = data.meta
+    ? array('card.meta (tags)', data.meta, '|', optionalGroupId)
+    : false;
 
-  return data;
+  const formatTag = (tag, index) => {
+    tag.label = text(
+      `card.tags.label (Tag ${index})`,
+      tag.label,
+      optionalGroupId
+    );
+    // Tags.
+    return tag;
+  };
+  const tags = data.tags ? data.tags.map(formatTag) : false;
+
+  const formatInfos = (info, index) => {
+    info.label = text(
+      `card.infos.label (Info ${index})`,
+      info.label,
+      optionalGroupId
+    );
+    info.icon.path = defaultSprite;
+    // Infos.
+    return info;
+  };
+  const infos = data.infos ? data.infos.map(formatInfos) : [];
+
+  const formatLinks = (link, index) => {
+    link.label = text(
+      `card.links.label (Link ${index})`,
+      link.label,
+      optionalGroupId
+    );
+    // Links.
+    return link;
+  };
+  const links = data.links ? data.links.map(formatLinks) : [];
+  // Image.
+  const image = data.image
+    ? {
+        alt: text('card.image.alt', data.image.alt, optionalGroupId),
+        src: text('card.image.src', data.image.src, optionalGroupId),
+      }
+    : {};
+
+  const newCard = {
+    card: {
+      title,
+      description,
+      meta,
+      tags,
+      infos,
+      image,
+      links,
+    },
+  };
+  // Return the full object.
+  return newCard;
 };
 
 storiesOf('Components/Card', module)
@@ -71,153 +178,74 @@ storiesOf('Components/Card', module)
   .add(
     'card',
     () => {
-      // Description.
-      const description = defaultData.description
-        ? text('Card.description', defaultData.description, optionalGroupId)
-        : false;
-      // Meta.
-      const meta = defaultData.meta
-        ? array('Card.meta (tags)', defaultData.meta, '|', optionalGroupId)
-        : [];
-      // Tags.
-      const formatTag = (tag, index) => {
-        tag.label = text(
-          `Card.tags.label (Tag ${index})`,
-          tag.label,
-          optionalGroupId
-        );
-        return tag;
-      };
-      const tags = defaultData.tags ? defaultData.tags.map(formatTag) : [];
-      // Infos.
-      const formatInfos = (info, index) => {
-        info.label = text(
-          `Card.infos.label (Info ${index})`,
-          info.label,
-          optionalGroupId
-        );
-        info.icon.path = defaultSprite;
-        return info;
-      };
-      const infos = defaultData.infos ? defaultData.infos.map(formatInfos) : [];
-      // Image.
-      const image = defaultData.image
-        ? {
-            alt: text('Card.image.alt', defaultData.image.alt, optionalGroupId),
-            src: text('Card.image.src', defaultData.image.src, optionalGroupId),
-          }
-        : '';
+      button('With or without card.image', imgBtnToggler, useCasesGroup);
+      button('With or without card.tags', tagsBtnToggler, useCasesGroup);
+      button('With or without card.infos', infosBtnToggler, useCasesGroup);
+      button('With or without card.meta', metaBtnToggler, useCasesGroup);
+      button('With or without card.description', descBtnToggler, useCasesGroup);
+      button('Reset the layout', resetBtnToggler, useCasesGroup);
 
-      const data = {
-        card: {
-          title: {
-            type: text(
-              'Card.title.type',
-              defaultData.title.type,
-              optionalGroupId
-            ),
-            label: text(
-              'Card.title.label',
-              defaultData.title.label,
-              requiredGroupId
-            ),
-            path: defaultData.title.path,
-            level: defaultData.title.level,
-          },
-          description,
-          meta,
-          tags,
-          infos,
-          image,
-        },
-      };
-
-      button('With or without image', imgBtnHandler, useCasesGroup);
-      button('With or without tags', tagsBtnHandler, useCasesGroup);
-      button('With or without infos', infosBtnHandler, useCasesGroup);
-      button('With or without meta', metaBtnHandler, useCasesGroup);
-      button('With or without description', descBtnHandler, useCasesGroup);
-
-      return card(data);
+      return card(formatCard(defaultData));
     },
     {
-      notes: { markdown: notes, json: defaultData },
+      notes: { markdown: notes, json: { card: defaultData } },
     }
   )
   .add(
     'tile',
     () => {
-      dataTile.card.title.label = text('Title', dataTile.card.title.label);
-      dataTile.card.description = text(
-        'Description',
-        dataTile.card.description
+      button(
+        'With or without card.description',
+        descTileBtnToggler,
+        useCasesGroup
       );
-      dataTile.card.link[0].label = text('Link 0', dataTile.card.link[0].label);
-      dataTile.card.link[1].label = text('Link 1', dataTile.card.link[1].label);
-      dataTile.card.link[2].label = text('Link 2', dataTile.card.link[2].label);
-      return card(dataTile);
+      button('With or without card.links', linksBtnToggler, useCasesGroup);
+      button('Reset the layout', resetTileBtnToggler, useCasesGroup);
+
+      return card(formatCard(tileData));
     },
     {
-      notes: { markdown: notes, json: dataTile },
+      notes: { markdown: notes, json: { card: tileData } },
     }
   )
   .add(
     'tag',
     () => {
-      dataCardTag.card.image.src = text('Image', dataCardTag.card.image.src);
-      dataCardTag.card.meta = array('Meta tags', dataCardTag.card.meta, '|');
-      dataCardTag.card.title.label = text(
-        'Title',
-        dataCardTag.card.title.label
+      button(
+        'With or without card.description',
+        descTagBtnToggler,
+        useCasesGroup
       );
-      dataCardTag.card.description = text(
-        'Description',
-        dataCardTag.card.description
-      );
-      dataCardTag.card.tags[0].label = text(
-        'Tag 0',
-        dataCardTag.card.tags[0].label
-      );
-      dataCardTag.card.tags[1].label = text(
-        'Tag 1',
-        dataCardTag.card.tags[1].label
-      );
-      dataCardTag.card.tags[2].label = text(
-        'Tag 2',
-        dataCardTag.card.tags[2].label
-      );
-      return card(formatInfo(dataCardTag));
+      button('With or without card.tags', tagsTagBtnToggler, useCasesGroup);
+      button('With or without card.meta', metaTagBtnToggler, useCasesGroup);
+      button('With or without card.image', imgTagBtnToggler, useCasesGroup);
+      button('Reset the layout', resetTagBtnToggler, useCasesGroup);
+
+      return card(formatCard(tagData));
     },
     {
-      notes: { markdown: notes, json: formatInfo(dataCardTag) },
+      notes: { markdown: notes, json: { card: dataCardTag } },
     }
   )
   .add(
     'event',
     () => {
-      dataCardEvent.card.image.src = text(
-        'Image',
-        dataCardEvent.card.image.src
+      button('With or without card.image', imgEventBtnToggler, useCasesGroup);
+      button(
+        'With or without cad.description"',
+        descEventBtnToggler,
+        useCasesGroup
       );
-      dataCardEvent.card.title.label = text(
-        'Title',
-        dataCardEvent.card.title.label
+      button(
+        'With or without card.infos"',
+        infosEventBtnToggler,
+        useCasesGroup
       );
-      dataCardEvent.card.description = text(
-        'Description',
-        dataCardEvent.card.description
-      );
-      dataCardEvent.card.infos[0].label = text(
-        'Info 0',
-        dataCardEvent.card.infos[0].label
-      );
-      dataCardEvent.card.infos[1].label = text(
-        'Info 1',
-        dataCardEvent.card.infos[1].label
-      );
-      return card(formatInfo(dataCardEvent));
+      button('Reset the layout', resetEventBtnToggler, useCasesGroup);
+
+      return card(formatCard(eventData));
     },
     {
-      notes: { markdown: notes, json: formatInfo(dataCardEvent) },
+      notes: { markdown: notes, json: { card: eventData } },
     }
   );
