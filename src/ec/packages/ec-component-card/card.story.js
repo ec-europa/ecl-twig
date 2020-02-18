@@ -92,19 +92,11 @@ const formatCard = data => {
     ? {
         ...data.title,
         type: text('card.title.type', data.title.type, optionalGroupId),
-        label: text(
-          'card.title.label',
-          data.title.label,
-          requiredGroupId
-        ),
+        label: text('card.title.label', data.title.label, requiredGroupId),
       }
     : {
         ...data.title,
-        label: text(
-          'card.title.label',
-          data.title.label,
-          requiredGroupId
-        ),
+        label: text('card.title.label', data.title.label, requiredGroupId),
       };
   // Description.
   const description = data.description
