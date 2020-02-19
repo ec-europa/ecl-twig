@@ -1,3 +1,5 @@
+// The reason why we don't import the specs from ECL is that it contains an svg import
+// that breaks our tests.
 const specs = {
   sections: [
     {
