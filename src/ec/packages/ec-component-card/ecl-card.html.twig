@@ -96,13 +96,16 @@
       {%- endif -%}
     </h1>
   </header>
+
+  {% if  _card.description is not empty or _card.links is not empty %}
   <div class="ecl-card__body">
+  {% endif %}
   {% if _card.description is not empty %}
     <div class="ecl-card__description">{{ _card.description|raw }}</div>
   {% endif %}
   {% if _card.links is defined and _card.links is not empty and _card.links is iterable %}
     <ul class="ecl-card__link-container">
-      {% for link in _card.links %}
+      {% for link in _card.links %} 
         <li class="ecl-card__link-item">
           {% include '@ecl-twig/ec-component-link/ecl-link.html.twig' with {
             link: link|merge({ type: 'standalone' }),
@@ -112,8 +115,13 @@
       {% endfor %}
     </ul>
   {% endif %}
+  {% if  _card.description is not empty or _card.links is not empty %}
   </div>
+  {% endif %}
+
+  {% if _card.infos is not empty or _card.tags is not empty %}
   <footer class="ecl-card__footer">
+  {% endif %}
     {% if _card.infos is defined and _card.infos is not empty and _card.infos is iterable %}
       <ul class="ecl-card__info-container">
         {% for info in _card.infos %}
@@ -138,7 +146,9 @@
         {% endfor %}
       </ul>
     {% endif %}
+  {% if _card.infos is not empty or _card.tags is not empty %}
   </footer>
+  {% endif %}
 </article>
 
 {% endspaceless %}
