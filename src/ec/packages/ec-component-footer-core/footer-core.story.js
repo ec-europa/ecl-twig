@@ -1,11 +1,10 @@
+/* eslint-disable no-param-reassign, no-shadow */
 import { storiesOf } from '@storybook/html';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
 import { withKnobs, text } from '@storybook/addon-knobs';
 
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
-/* eslint-disable no-param-reassign, no-shadow */
-
 import specs from './demo/data';
 import footer from './ecl-footer-core.html.twig';
 import notes from './README.md';
