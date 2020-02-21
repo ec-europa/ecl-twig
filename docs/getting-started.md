@@ -119,20 +119,20 @@ yarn jest-update
 Check the rendering of a single component in php and js and diff the resulting templates:
 
 ```bash
-yarn check:component "componentName"
+yarn check:component "system(ec/eu)" "componentName"
 ```
 
 Diff the existing templates in php-storybook
 
 ```bash
-yarn diff
+yarn diff "ec or eu"
 ```
 
 Diff a component rendered via php with the ECL markup
 (interactive script that fetches the html from the ECl storybook and matches that with the right variant rendered via php)
 
 ```bash
-yarn ecl-diff
+yarn ecl-diff "ec or eu"
 ```
 
 ## Dist
@@ -190,7 +190,7 @@ yarn render:js
 All these commands can be executed at once passing the generated files through prettier:
 
 ```bash
-yarn render-php-js
+yarn render-php-js "ec or eu"
 ```
 
 The whole process of installing the dependencies, generating the needed files, then linting them and finally launching a storybook instance on port 9002 is done by:
@@ -201,6 +201,11 @@ yarn start:php-ec
 
 All output files are stored in `./php/packages/ec` folder.
 
+```bash
+yarn start:php-eu
+```
+
+All output files are stored in `./php/packages/eu` folder.
 
 ## Deployment of the PHP Twig Storybook
 
@@ -219,7 +224,6 @@ yarn deploy:php
 
 It uses the npm package https://www.npmjs.com/package/gh-pages to quickly deploy the php/dist folder on github.
 
-
 ## Libraries update
 
 The task of upgrading the dependencies is executed via the command:
@@ -227,4 +231,5 @@ The task of upgrading the dependencies is executed via the command:
 ```bash
 yarn upgrade-interactive --latest --exact
 ```
+
 which will retrieve all the possible upgrades marking them in green, yellow or red depending on the changes included in these packages.
