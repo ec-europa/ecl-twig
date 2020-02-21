@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /* eslint-disable import/no-extraneous-dependencies, import/no-unresolved, no-console,
-no-param-reassign, no-restricted-syntax, no-await-in-loop */
+no-param-reassign, no-restricted-syntax, no-await-in-loop, import/no-dynamic-require */
 
 const fs = require('fs');
 const logger = require('html-differ/lib/logger');
@@ -11,7 +11,10 @@ const yargsInteractive = require('yargs-interactive');
 const { HtmlDiffer } = require('html-differ');
 const { execSync } = require('child_process');
 
-const eclVersions = execSync('npm view @ecl/ec-component-link versions')
+const args = process.argv.slice(2);
+const system = args[1] ? args[1] : 'ec';
+
+const eclVersions = execSync(`npm view @ecl/${system}-component-link versions`)
   .toString()
   .replace(/([\s'[\]|])/g, '')
   .split(',')
@@ -28,15 +31,15 @@ const diffOptions = {
 };
 
 const htmlDiffer = new HtmlDiffer(diffOptions);
-let packages = require('../../../../src/ec/.storybook/ec-packages.js').list;
+let packages = require(`../../../../src/${system}/.storybook/${system}-packages.js`)
+  .list;
 
-const system = 'ec';
 const domain = 'https://ec.europa.eu';
 const rootFolder = process.cwd();
 const distFolder = `${rootFolder}/php`;
 const systemFolder = `${distFolder}/packages/${system}`;
 const getBase = element => {
-  [, element] = element.split('ec-component-');
+  [, element] = element.split(`${system}-component-`);
   return element;
 };
 // We build a list of components by their root name.
@@ -151,7 +154,7 @@ yargsInteractive()
 
         if (!fs.existsSync(twigFullPath)) {
           console.error(
-            `It seems that "${component}" has not been rendered yet, please run yarn check:component ${component}`
+            `It seems that "${component}" has not been rendered yet, please run yarn check:component ${component} ${system}`
           );
           process.exit(1);
         } else if (!fs.existsSync(`${twigFullPath}/${fileName}`)) {
@@ -279,7 +282,7 @@ yargsInteractive()
         if (eclSubSection !== 'none') {
           eclGluePath = `${eclSection}-${eclSubSection}`;
         }
-        const eclPath = `${domain}/component-library/${version}/playground/ec/?path=/story/${eclGluePath}-`;
+        const eclPath = `${domain}/component-library/${version}/playground/${system}/?path=/story/${eclGluePath}-`;
         const eclFinalUrl = `${eclPath + eclComponent}--${eclStory}`;
         // Puppeteer will try to reach the requested component variant page.
         const browser = await puppeteer.launch();
@@ -366,7 +369,7 @@ yargsInteractive()
             const isEqual = htmlDiffer.isEqual(eclTwigMarkup, eclMarkup);
 
             console.log(
-              `\nComparing ${fileName} with ECL markup from ${eclFinalUrl}:`
+              `\nComparing ${fileName} from the ${system} system with ECL markup from ${eclFinalUrl}:`
             );
 
             let successMsg = false;
