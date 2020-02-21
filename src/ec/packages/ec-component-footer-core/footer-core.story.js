@@ -27,7 +27,11 @@ const formatFooter = data => {
       data[0].title.link.path,
       requiredGroupId
     ),
-    placeholder: text('optional elements', 'none', optionalGroupId),
+    placeholder: text(
+      'optional elements',
+      'no optional elements defined in this story.',
+      optionalGroupId
+    ),
   };
   // Class navigation.
   data[1].links.forEach((link, index) => {
