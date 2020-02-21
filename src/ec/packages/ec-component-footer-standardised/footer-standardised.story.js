@@ -171,7 +171,6 @@ const formatFooter = data => {
       optionalGroupId
     );
     data[5].links.forEach((link, index) => {
-      console.log(link);
       data[5].links[index].link.label = text(
         `sections[5].links[${index}].link.label`,
         data[5].links[index].link.label,
@@ -234,24 +233,24 @@ storiesOf('Components/Footers/Standardised', module)
   .add(
     'default',
     () => {
-      button('With our without class names', classBtnToggler, useCasesGroup);
+      button('With or without class names', classBtnToggler, useCasesGroup);
       button(
-        'With our without DG-related service navigation (contact us)',
+        'With or without DG-related service navigation (contact us)',
         serviceBtnToggler,
         useCasesGroup
       );
       button(
-        'With our without DG-related service navigation (Follow us)',
+        'With or without DG-related service navigation (Follow us)',
         socialBtnToggler,
         useCasesGroup
       );
       button(
-        'With our without DG-related navigation (About us)',
+        'With or without DG-related navigation (About us)',
         aboutBtnToggler,
         useCasesGroup
       );
       button(
-        'With our without DG-related navigation (Related sites)',
+        'With or without DG-related navigation (Related sites)',
         relatedBtnToggler,
         useCasesGroup
       );
