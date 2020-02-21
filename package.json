@@ -4,7 +4,7 @@
     "build:ec": "build-storybook -c ./src/ec/.storybook -o build/ec",
     "build:eu": "echo \"Nothing to do...\"",
     "build-storybook:ec": "build-storybook -c php/ec/.storybook -o php/dist/ec && yarn copy:php && yarn fix-php-dist",
-    "build-storybook:eu": "build-storybook -c php/eu/.storybook -o php/dist/eu && yarn copy:php && yarn fix-php-dist",
+    "build-storybook:eu": "echo \"Nothing to do...\"",
     "changelog": "lerna-changelog",
     "check:release": "scripts/check-packages.sh",
     "check:component": "run-s clean:php \"render:* {1} {2}\" pretty:php \"diff {1} {2}\" --",
