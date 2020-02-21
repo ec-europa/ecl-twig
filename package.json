@@ -37,7 +37,7 @@
     "start:ec": "start-storybook -p 9001 -c src/ec/.storybook",
     "start:eu": "echo \"Nothing to do...\"",
     "start:php-ec": "npm-run-all setupPhp clean:php render-php-js storybook:php-ec",
-    "start:php-eu": "run-s setupPhp clean:php \"render-php-js eu\" storybook:php-eu",
+    "start:php-eu": "echo \"Nothing to do...\"",
     "storybook:php-ec": "start-storybook -s ./static/images -p 9002 -c php/ec/.storybook",
     "storybook:php-eu": "start-storybook -s ./static/images -p 9002 -c php/eu/.storybook",
     "update-version": "lerna version --conventional-commits --no-push --no-git-tag-version",
