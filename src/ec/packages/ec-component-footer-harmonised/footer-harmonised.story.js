@@ -26,8 +26,16 @@ const useCasesGroup = 'Use cases';
 // Buttons callbacks for optional elements.
 // Group 3
 const partnershipLogoBtnToggler = () => {
-  dataG3[0].logos[0] = dataG3[0].logos[0] ? false : logo0;
-  dataG3[0].logos[1] = dataG3[0].logos[1] ? false : logo1;
+  if (dataG3[0].logos[0]) {
+    delete dataG3[0].logos[0];
+  } else {
+    dataG3[0].logos[0] = logo0;
+  }
+  if (dataG3[0].logos[1]) {
+    delete dataG3[0].logos[1];
+  } else {
+    dataG3[0].logos[1] = logo1;
+  }
 };
 const resetG3BtnToggler = () => {
   dataG3[0].logos[0] = logo0;

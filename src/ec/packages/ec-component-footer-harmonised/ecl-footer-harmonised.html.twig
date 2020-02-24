@@ -82,19 +82,19 @@
           {% set _section_logos_class_names = _section_logos_class_names ~ ' ' ~ section.list_class_name %}
         {% endif %}
         <ul class="{{ _section_logos_class_names }}">
-          {% for logo in section.logos %}
-            {% if logo.class_name is defined and logo.class_name is not empty %}
-              {% set _logo_class = _logo_class ~ ' ' ~ logo.class_name %}
-            {% endif %}
-            <li class="ecl-footer-harmonised__logo-item">
-              <img
-                src="{{ logo.src }}"
-                alt="{{ logo.alt }}"
-                title="{{ logo.title }}"
-                class="{{ _logo_class }}"
-              />
-            </li>
-          {% endfor %}
+        {% for logo in section.logos %}
+        {% if logo.class_name is defined and logo.class_name is not empty %}
+          {% set _logo_class = _logo_class ~ ' ' ~ logo.class_name %}
+        {% endif %}
+        <li class="ecl-footer-harmonised__logo-item">
+            <img
+              src="{{ logo.src }}"
+              alt="{{ logo.alt }}"
+              title="{{ logo.title }}"
+              class="{{ _logo_class }}"
+            />
+          </li>
+        {% endfor %}
         </ul>
       {% endif %}
 
