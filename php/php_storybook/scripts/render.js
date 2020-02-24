@@ -11,16 +11,22 @@ const extension = 'html.twig';
 const rootFolder = process.cwd();
 const distFolder = `${rootFolder}/php`;
 const systemFolder = `${distFolder}/packages/${system}`;
+
 const components = fs.readdirSync(systemFolder);
-// Loop in each component found.
+
 components.forEach(component => {
+  let componentTemplate = '';
   const pkg = `${system}-component-${component}`;
-  let componentTemplate = component;
-  // Two known exceptions..
+  /* Three known exceptions.. */
   if (component === 'checkbox' || component === 'radio') {
     componentTemplate = `${component}-group`;
+  } else {
+    componentTemplate = component;
   }
-  // This is the template we are going to render.
+  if (component === 'language-list') {
+    componentTemplate = `${component}-splash`;
+  }
+  /* This is the template we are going to render */
   const template = `@ecl-twig/${pkg}/ecl-${componentTemplate}.${extension}`;
   const dataFiles = fs.readdirSync(`${systemFolder}/${component}/specs`);
 
@@ -32,7 +38,7 @@ components.forEach(component => {
 
     const data = require(`${systemFolder}/${component}/specs/${dataFile}`);
 
-    // Render with twing.
+    /* Render with twing */
     let html = twing.render(template, data);
 
     if (component === 'inpage-navigation') {
