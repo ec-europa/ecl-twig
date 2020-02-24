@@ -41,12 +41,45 @@ groups.forEach(g => {
 storiesOf('Components/Footers/Harmonised', module)
   .addDecorator(withCode)
   .addDecorator(withNotes)
-  .add('group 1', () => footerHarmonised(dataGroup1), {
-    notes: { markdown: notes, json: dataGroup1 },
-  })
-  .add('group 2', () => footerHarmonised(dataGroup2), {
-    notes: { markdown: notes, json: dataGroup2 },
-  })
-  .add('group 3', () => footerHarmonised(dataGroup3), {
-    notes: { markdown: notes, json: dataGroup3 },
-  });
+  .add(
+    'group 1',
+    () =>
+      footerHarmonised({
+        sections: dataGroup1.sections,
+        group: dataGroup1.group,
+      }),
+    {
+      notes: {
+        markdown: notes,
+        json: { sections: dataGroup1.sections, group: dataGroup1.group },
+      },
+    }
+  )
+  .add(
+    'group 2',
+    () =>
+      footerHarmonised({
+        sections: dataGroup2.sections,
+        group: dataGroup2.group,
+      }),
+    {
+      notes: {
+        markdown: notes,
+        json: { sections: dataGroup2.sections, group: dataGroup2.group },
+      },
+    }
+  )
+  .add(
+    'group 3',
+    () =>
+      footerHarmonised({
+        sections: dataGroup3.sections,
+        group: dataGroup3.group,
+      }),
+    {
+      notes: {
+        markdown: notes,
+        json: { sections: dataGroup3.sections, group: dataGroup3.group },
+      },
+    }
+  );

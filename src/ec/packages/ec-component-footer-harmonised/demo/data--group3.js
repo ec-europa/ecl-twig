@@ -1,8 +1,9 @@
 const specs = {
   sections: [
     {
-      key: 'section 1',
       title: 'Joint partnership',
+    },
+    {
       logos: [
         {
           title: 'Partnership 1',

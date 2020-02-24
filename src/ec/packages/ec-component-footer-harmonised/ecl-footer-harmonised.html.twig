@@ -53,7 +53,7 @@
   <div class="ecl-container ecl-footer-harmonised__container">
     {% for section in _sections %}
       {# Section #}
-      <div class="ecl-footer-harmonised__section {{ 'ecl-footer-harmonised__section' ~ loop.index }}">
+      <section class="ecl-footer-harmonised__section {{ 'ecl-footer-harmonised__section' ~ loop.index }}">
         {# content before #}
         {% if section.content_before is defined and section.content_before is not empty %}
           <div class="ecl-footer-harmonised__content">{{ section.content_before|raw }}</div>
@@ -119,7 +119,7 @@
           {% endfor %}
         </ul>
       {% endif %}
-    </div>
+    </section>
     {% endfor %}
   </div>
 </footer>
