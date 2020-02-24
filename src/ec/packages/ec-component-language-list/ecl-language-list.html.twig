@@ -56,13 +56,13 @@
 {# Print the result #}
 
 <div class="{{ _css_class }}" {{ _extra_attributes|raw }} {{ data_lang_overlay }}>
-{% if _overlay is not defined or _overlay == false %}
+{% if not _overlay %}
   <header class="ecl-language-list__header">
     <img class="ecl-language-list__logo" src="{{ _logo.path }}" alt="{{ _logo.alt }}" />
   </header>
 {% endif %}
   <div class="ecl-language-list__container ecl-container">
-  {% if _overlay is defined and _overlay == true %}
+  {% if _overlay %}
     <div class="ecl-row">
       <div class="ecl-language-list__close ecl-col-12 ecl-col-lg-8 ecl-offset-lg-2">
         {% include '@ecl-twig/ec-component-button/ecl-button.html.twig' with {
@@ -86,19 +86,12 @@
         {{- _title -}}
       </div>
     </div>
-
-    {% include '@ecl-twig/ec-component-language-list/ecl-language-list-list.html.twig' with {
-      items: _items,
-      overlay: true,
-      icon_path: _icon_path
-    } only %}
-  {% else %}
-    {% include '@ecl-twig/ec-component-language-list/ecl-language-list-list.html.twig' with {
-      items: _items,
-      overlay: false,
-      icon_path: _icon_path,
-    } only %}
   {% endif %}
+  {% include '@ecl-twig/ec-component-language-list/ecl-language-list-grid.html.twig' with {
+      items: _items,
+      overlay: _overlay,
+      icon_path: _icon_path,
+  } only %}
   </div>
 </div>
 
