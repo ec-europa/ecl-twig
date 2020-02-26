@@ -30,7 +30,7 @@
 {% set _title = title|default('') %}
 {% set _extra_attributes = '' %}
 
-{% if _overlay == true %}
+{% if _overlay %}
   {% set _css_class = 'ecl-language-list ecl-language-list--overlay' %}
   {% set data_lang_overlay = 'data-ecl-language-list-overlay' %}
 {% else %}
@@ -55,13 +55,8 @@
 
 {# Print the result #}
 
-<div class="{{ _css_class }}" {{ _extra_attributes|raw }} {{ data_lang_overlay }}
-{% if _overlay == false %}
-  <header class="ecl-language-list__header">
-    <img class="ecl-language-list__logo" src="{{ _logo.path }}" alt="{{ _logo.alt }}" />
-  </header>
-  <div class="ecl-language-list__container ecl-container">
-{% else %}
+<div class="{{ _css_class }}" {{ _extra_attributes|raw }} {{ data_lang_overlay }}>
+{% if _overlay %}
   <div class="ecl-language-list__container ecl-container">
     <div class="ecl-row">
       <div class="ecl-language-list__close ecl-col-12 ecl-col-lg-8 ecl-offset-lg-2">
@@ -86,6 +81,11 @@
         {{- _title -}}
       </div>
     </div>
+{% else %}
+  <header class="ecl-language-list__header">
+    <img class="ecl-language-list__logo" src="{{ _logo.path }}" alt="{{ _logo.alt }}" />
+  </header>
+  <div class="ecl-language-list__container ecl-container">
   {% endif %}
   {% include '@ecl-twig/ec-component-language-list/ecl-language-list-grid.html.twig' with {
       items: _items,
