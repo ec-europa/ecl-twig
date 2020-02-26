@@ -30,9 +30,7 @@ foreach ($components as $component) {
   if ($component == 'checkbox' || $component == 'radio') {
     $template = $template . '-group';
   }
-  if ($component === 'language-list') {
-    $template = $template . '-splash';
-  }
+
   // Deprecated components.
   $deprecated_component = $helpers->deprecatedComponents($component);
   // Grouping components in families and variants.
