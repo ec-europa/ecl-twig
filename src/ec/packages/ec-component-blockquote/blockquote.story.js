@@ -17,19 +17,13 @@ const useCasesGroup = 'Use cases';
 // Preserve the adapted specs.
 const defaultData = { ...data };
 
+// declare your toggled data
 const authorBtnToggler = () => {
   defaultData.author = defaultData.author ? false : data.author;
 };
-// const citationBtnToggler = () => {
-//   defaultData.citation = defaultData.citation ? false : data.citation;
-// };
-
-// Reset buttons.
-// const resetBtnToggler = () => {
-//   defaultData = { ...data };
-// };
 
 const formatQuote = passeddata => {
+  // declare your knobs when you format your data
   const citation = passeddata.citation
     ? text('Citation', passeddata.citation, requiredGroupId)
     : false;
@@ -54,9 +48,9 @@ storiesOf('Components/Blockquote', module)
   .add(
     'default',
     () => {
-      button('With or without author', authorBtnToggler, useCasesGroup);
+      button('show/ hide author', authorBtnToggler, useCasesGroup);
 
-      return blockquote(formatQuote(data));
+      return blockquote(formatQuote(defaultData));
     },
     {
       notes: { markdown: notes, json: data },
