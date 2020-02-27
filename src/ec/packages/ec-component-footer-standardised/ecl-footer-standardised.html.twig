@@ -3,6 +3,7 @@
 {#
   Parameters:
   - "sections" (array of objects) (default: [])
+    - "section_id" (integer) (default: '') The id will be used to form the class name
     - "title" (optional) (string) OR (object with Link component in property)
     - "title_class_name" (optional) (string) (default: '')
     - "description" (optional) (string) (default: '')
@@ -20,6 +21,7 @@
 {% set _sections = sections|default([]) %}
 {% set _css_class = 'ecl-footer-standardised' %}
 {% set _extra_attributes = '' %}
+{% set _internal_wrapper = false %}
 
 {# Internal logic - Process properties #}
 
@@ -41,54 +43,79 @@
 <footer class="{{ _css_class }}"{{ _extra_attributes|raw }}>
   {# Main container #}
   <div class="ecl-container ecl-footer-standardised__container">
-    {% for section in _sections %}
-      {# Section #}
-      <div class="ecl-footer-standardised__section {{ 'ecl-footer-standardised__section' ~ loop.index }}">
-        {# content before #}
-        {% if section.content_before is defined and section.content_before is not empty %}
-          <div class="ecl-footer-standardised__content">{{ section.content_before|raw }}</div>
-        {% endif %}
-        {# title #}
-        {% if section.title is defined and section.title is not empty %}
-          {% set _title_class_name = 'ecl-footer-standardised__title' %}
-          {% if section.title_class_name is defined and section.title_class_name is not empty %}
-            {% set _title_class_name = _title_class_name ~ ' ' ~ section.title_class_name %}
-          {% endif %}
-          {% if section.title.link is defined and section.title.link is not empty %}
-            {% include '@ecl-twig/ec-component-link/ecl-link.html.twig' with section|merge({
-              link: section.title.link|merge({ type: 'standalone'}),
-              extra_classes: _title_class_name,
-              icon: section.title.icon|default({}),
-            }) only %}
-          {% else %}
-            <div class="{{ _title_class_name }}">
-              {{- section.title -}}
-            </div>
-        {% endif %}
+  {% for _full_section in _sections %}
+    {# Section #}
+  {% set _internal_wrapper = false %}
+  {# sections can contain sub-sections #}
+  {% if _full_section[1] is defined and _full_section[1] is not empty %}
+    {% set _grouped_section = _full_section %}
+    {% set _internal_wrapper = true %}
+    {# The wrapper of a section containing sub-sections is a div #}
+    <div class="{{ 'ecl-footer-standardised__section' ~ _full_section[0].section_id }}">
+  {% else %}
+    {# The wrapper of a section without sub-section is a section #}
+    <section class="ecl-footer-standardised__section {{ 'ecl-footer-standardised__section' ~ _full_section.section_id }}">
+    {% set _grouped_section = [_full_section] %}
+  {% endif %}
+  {# Starts looping #}
+  {% for section in _grouped_section %}
+    {# Sub-section wrapper #}
+    {% if _internal_wrapper and section.title is defined %}
+      <section class="ecl-footer-standardised__section">
+    {% endif %}
+    {# content before #}
+    {% if section.content_before is defined and section.content_before is not empty %}
+      <div class="ecl-footer-standardised__content">{{ section.content_before|raw }}</div>
+    {% endif %}
+    {# title #}
+    {% if section.title is defined and section.title is not empty %}
+      {% set _title_class_name = 'ecl-footer-standardised__title' %}
+      {% if section.title_class_name is defined and section.title_class_name is not empty %}
+        {% set _title_class_name = _title_class_name ~ ' ' ~ section.title_class_name %}
       {% endif %}
-      {# description #}
-      {% if section.description is defined and section.description is not empty %}
-        <div class="ecl-footer-standardised__description">{{ section.description|raw }}</div>
+      {% if section.title.link is defined and section.title.link is not empty %}
+        {% include '@ecl-twig/ec-component-link/ecl-link.html.twig' with section|merge({
+          link: section.title.link|merge({ type: 'standalone'}),
+          extra_classes: _title_class_name,
+          icon: section.title.icon|default({}),
+        }) only %}
+      {% else %}
+        <div class="{{ _title_class_name }}">
+          {{- section.title -}}
+        </div>
       {% endif %}
-      {# list #}
-      {% if section.links is defined and section.links is not empty and section.links is iterable %}
-        {% set _list_class_name = 'ecl-footer-standardised__list' %}
-        {% if section.list_class_name is defined and section.list_class_name is not empty %}
-          {% set _list_class_name = _list_class_name ~ ' ' ~ section.list_class_name %}
-        {% endif %}
-        <ul class="{{ _list_class_name }}">
-          {% for item in section.links %}
-            <li class="ecl-footer-standardised__list-item">
-               {% include '@ecl-twig/ec-component-link/ecl-link.html.twig' with item|merge({
-                  link: item.link|default({})|merge({ type: 'standalone' }),
-                  extra_classes: 'ecl-footer-standardised__link',
-                }) only %}
-            </li>
-          {% endfor %}
-        </ul>
+    {% endif %}
+    {# description #}
+    {% if section.description is defined and section.description is not empty %}
+      <div class="ecl-footer-standardised__description">{{ section.description|raw }}</div>
+    {% endif %}
+    {# list #}
+    {% if section.links is defined and section.links is not empty and section.links is iterable %}
+      {% set _list_class_name = 'ecl-footer-standardised__list' %}
+      {% if section.list_class_name is defined and section.list_class_name is not empty %}
+        {% set _list_class_name = _list_class_name ~ ' ' ~ section.list_class_name %}
       {% endif %}
+      <ul class="{{ _list_class_name }}">
+        {% for item in section.links %}
+          <li class="ecl-footer-standardised__list-item">
+             {% include '@ecl-twig/ec-component-link/ecl-link.html.twig' with item|merge({
+                link: item.link|default({})|merge({ type: 'standalone' }),
+                extra_classes: 'ecl-footer-standardised__link',
+              }) only %}
+          </li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+    {% if _internal_wrapper %}
+      </section>
+    {% endif %}
+  {% endfor %}
+  {% if _internal_wrapper %}
     </div>
-    {% endfor %}
+  {% else %}
+    </section>
+  {% endif %}
+{% endfor %}
   </div>
 </footer>
 

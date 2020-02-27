@@ -12,14 +12,6 @@ import dataGroup3 from './demo/data--group3';
 import footerHarmonised from './ecl-footer-harmonised.html.twig';
 import notes from './README.md';
 
-// Preserve the original data.
-const logo0 = JSON.parse(JSON.stringify(dataGroup3.sections[1].logos[0]));
-const logo1 = JSON.parse(JSON.stringify(dataGroup3.sections[1].logos[1]));
-const contactUs = JSON.parse(JSON.stringify(dataGroup1.sections[1][0]));
-const followUs = JSON.parse(JSON.stringify(dataGroup1.sections[1][1]));
-const aboutUs = JSON.parse(JSON.stringify(dataGroup1.sections[2][0]));
-const related = JSON.parse(JSON.stringify(dataGroup1.sections[2][1]));
-
 // Icons.
 const groups = [dataGroup1, dataGroup2];
 groups.forEach(g => {
@@ -41,6 +33,14 @@ groups.forEach(g => {
     });
   });
 });
+
+// Preserve the original data.
+const logo0 = JSON.parse(JSON.stringify(dataGroup3.sections[1].logos[0]));
+const logo1 = JSON.parse(JSON.stringify(dataGroup3.sections[1].logos[1]));
+const contactUs = JSON.parse(JSON.stringify(dataGroup1.sections[1][0]));
+const followUs = JSON.parse(JSON.stringify(dataGroup1.sections[1][1]));
+const aboutUs = JSON.parse(JSON.stringify(dataGroup1.sections[2][0]));
+const related = JSON.parse(JSON.stringify(dataGroup1.sections[2][1]));
 
 let dataG1 = [...dataGroup1.sections];
 const dataG2 = [...dataGroup2.sections];
