@@ -1,4 +1,4 @@
-import merge from 'deepmerge';
+/* eslint-disable no-param-reassign */
 import { storiesOf } from '@storybook/html';
 import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
@@ -28,15 +28,53 @@ uiIcons.forEach(icon => {
   iconsList[icon] = icon;
 });
 
-const prepareButton = data => {
-  const dataWithIcon = data;
-  dataWithIcon.icon = {
-    type: 'ui',
-    path: defaultSprite,
-    size: 'xs',
+// Labels for the groups.
+const requiredGroupId = 'Mandatory elements';
+const optionalGroupId = 'Optional elements';
+
+// Preserve the adapted specs.
+const primaryData = { ...dataPrimary };
+const secondaryData = { ...dataSecondary };
+const callData = { ...dataCall };
+const ghostData = { ...dataGhost };
+const searchData = { ...dataSearch };
+
+const prepareButton = prepareData => {
+  // Set default values
+  prepareData.icon = {};
+  prepareData.icon_position = 'after';
+
+  // Set extra defaultdata for knobs
+  const label = prepareData.label
+    ? text('Label', prepareData.label, requiredGroupId)
+    : false;
+
+  const { variant } = prepareData.variant;
+
+  const icon = prepareData.icon
+    ? {
+        type: 'ui',
+        path: defaultSprite,
+        name: select('Icon (sample)', iconsList, null, optionalGroupId),
+        size: 'xs',
+      }
+    : {};
+
+  const iconPosition = prepareData.icon_position
+    ? select('Icon position', iconPositionSettings, 'after', optionalGroupId)
+    : false;
+
+  const disabled = boolean('Disabled', prepareData.disabled, optionalGroupId);
+
+  const newButton = {
+    label,
+    variant,
+    icon,
+    iconPosition,
+    disabled,
   };
 
-  return dataWithIcon;
+  return newButton;
 };
 
 storiesOf('Components/Button', module)
@@ -45,86 +83,114 @@ storiesOf('Components/Button', module)
   .addDecorator(withNotes)
   .add(
     'primary',
-    () =>
-      button(
-        merge(prepareButton(dataPrimary), {
-          icon: {
-            name: select('Icon (sample)', iconsList, null),
-          },
-          label: text('label', dataPrimary.label),
-          icon_position: select('Icon position', iconPositionSettings, 'after'),
-          disabled: boolean('Disabled', false),
-        })
-      ),
+    () => {
+      return button(prepareButton(primaryData));
+    },
     {
-      notes: { markdown: notes, json: prepareButton(dataPrimary) },
+      notes: { markdown: notes, json: { button: primaryData } },
     }
   )
   .add(
     'secondary',
-    () =>
-      button(
-        merge(dataSecondary, {
-          icon: {
-            name: select('Icon (sample)', iconsList, null),
-          },
-          label: text('label', dataSecondary.label),
-          icon_position: select('Icon position', iconPositionSettings, 'after'),
-          disabled: boolean('Disabled', false),
-        })
-      ),
+    () => {
+      return button(prepareButton(secondaryData));
+    },
     {
-      notes: { markdown: notes, json: prepareButton(dataSecondary) },
+      notes: { markdown: notes, json: { button: secondaryData } },
     }
   )
   .add(
     'call to action',
-    () =>
-      button(
-        merge(prepareButton(dataCall), {
-          icon: {
-            name: select('Icon (sample)', iconsList, null),
-          },
-          label: text('label', dataCall.label),
-          icon_position: select('Icon position', iconPositionSettings, 'after'),
-          disabled: boolean('Disabled', false),
-        })
-      ),
+    () => {
+      return button(prepareButton(callData));
+    },
     {
-      notes: { markdown: notes, json: prepareButton(dataCall) },
+      notes: { markdown: notes, json: { button: callData } },
     }
   )
   .add(
     'text',
-    () =>
-      button(
-        merge(prepareButton(dataGhost), {
-          icon: {
-            name: select('Icon (sample)', iconsList, null),
-          },
-          label: text('label', dataGhost.label),
-          icon_position: select('Icon position', iconPositionSettings, 'after'),
-          disabled: boolean('Disabled', false),
-        })
-      ),
+    () => {
+      return button(prepareButton(ghostData));
+    },
     {
-      notes: { markdown: notes, json: prepareButton(dataGhost) },
+      notes: { markdown: notes, json: { button: ghostData } },
     }
   )
   .add(
     'search',
-    () =>
-      button(
-        merge(prepareButton(dataSearch), {
-          icon: {
-            name: select('Icon (sample)', iconsList, null),
-          },
-          label: text('label', dataSearch.label),
-          icon_position: select('Icon position', iconPositionSettings, 'after'),
-          disabled: boolean('Disabled', false),
-        })
-      ),
+    () => {
+      return button(prepareButton(searchData));
+    },
     {
-      notes: { markdown: notes, json: prepareButton(dataSearch) },
+      notes: { markdown: notes, json: { button: searchData } },
     }
   );
+// .add(
+//   'secondary',
+//   () =>
+//     button(
+//       merge(dataSecondary, {
+//         icon: {
+//           name: select('Icon (sample)', iconsList, null),
+//         },
+//         label: text('label', dataSecondary.label),
+//         icon_position: select('Icon position', iconPositionSettings, 'after'),
+//         disabled: boolean('Disabled', false),
+//       })
+//     ),
+//   {
+//     notes: { markdown: notes, json: prepareButton(secondaryData) },
+//   }
+// )
+// .add(
+//   'call to action',
+//   () =>
+//     button(
+//       merge(prepareButton(callData), {
+//         icon: {
+//           name: select('Icon (sample)', iconsList, null),
+//         },
+//         label: text('label', dataCall.label),
+//         icon_position: select('Icon position', iconPositionSettings, 'after'),
+//         disabled: boolean('Disabled', false),
+//       })
+//     ),
+//   {
+//     notes: { markdown: notes, json: prepareButton(callData) },
+//   }
+// )
+// .add(
+//   'text',
+//   () =>
+//     button(
+//       merge(prepareButton(ghostData), {
+//         icon: {
+//           name: select('Icon (sample)', iconsList, null),
+//         },
+//         label: text('label', dataGhost.label),
+//         icon_position: select('Icon position', iconPositionSettings, 'after'),
+//         disabled: boolean('Disabled', false),
+//       })
+//     ),
+//   {
+//     notes: { markdown: notes, json: prepareButton(ghostData) },
+//   }
+// )
+// .add(
+//   'search',
+//   () =>
+//     button(
+//       merge(prepareButton(dataSearch), {
+//         icon: {
+//           name: select('Icon (sample)', iconsList, null),
+//         },
+//         label: text('label', dataSearch.label),
+//         icon_position: select('Icon position', iconPositionSettings, 'after'),
+//         disabled: boolean('Disabled', false),
+//       })
+//     ),
+//   {
+//     notes: { markdown: notes, json: prepareButton(searchData) },
+//   }
+// );
