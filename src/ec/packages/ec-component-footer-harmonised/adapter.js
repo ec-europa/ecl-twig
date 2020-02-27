@@ -1,13 +1,54 @@
-/* eslint-disable import/no-extraneous-dependencies, no-param-reassign */
+/* eslint-disable import/no-extraneous-dependencies, no-param-reassign, default-case */
 import { formatLink } from '@ecl-twig/data-utils';
 
-const formatSection = section => {
+const formatSection = (section, name) => {
   const sections = [];
   if (!Array.isArray(section)) {
     section = [section];
   }
 
-  section.forEach(s => {
+  section.forEach((s, i) => {
+    switch (name) {
+      case 'siteName':
+        s.section_id = '1';
+        break;
+      case 'dgServices':
+        s.section_id = '2';
+        s.demo_id = 'contact_us';
+        if (i === 1) {
+          s.demo_id = 'follow_us';
+        }
+        break;
+      case 'dgNavigations':
+        s.section_id = '3';
+        s.demo_id = 'about_us';
+        if (i === 1) {
+          s.demo_id = 'related';
+        }
+        break;
+      case 'classes':
+        s.section_id = '6';
+        break;
+      case 'corporateName':
+        s.section_id = '7';
+        break;
+      case 'serviceNavigation':
+        s.section_id = '8';
+        break;
+      case 'legalNavigation':
+        s.section_id = '9';
+        break;
+      case 'partnershipLogos':
+        s.section_id = '2';
+        break;
+      case 'ecLogo':
+        s.section_id = '2';
+        break;
+      case 'partnershipLabel':
+        s.section_id = '1';
+        break;
+    }
+
     if (s.listClassName) {
       s.list_class_name = s.listClassName;
       delete s.listClassName;
@@ -50,40 +91,72 @@ const adapter = initialData => {
   Object.keys(initialData.sections).forEach(section => {
     if (section === 'siteName') {
       adaptedData.sections.push(
-        ...formatSection(initialData.sections.siteName)
+        ...formatSection(initialData.sections.siteName, section)
       );
     }
     if (section === 'dgServices') {
       adaptedData.sections.push(
-        ...formatSection(initialData.sections.dgServices)
+        formatSection(initialData.sections.dgServices, section)
       );
     }
     if (section === 'dgNavigations') {
       adaptedData.sections.push(
-        ...formatSection(initialData.sections.dgNavigations)
+        formatSection(initialData.sections.dgNavigations, section)
       );
     }
     if (section === 'classes') {
-      adaptedData.sections.push(...formatSection(initialData.sections.classes));
+      adaptedData.sections.push(
+        ...formatSection(initialData.sections.classes, section)
+      );
     }
     if (section === 'corporateName') {
       adaptedData.sections.push(
-        ...formatSection(initialData.sections.corporateName)
+        ...formatSection(initialData.sections.corporateName, section)
       );
     }
     if (section === 'serviceNavigation') {
       adaptedData.sections.push(
-        ...formatSection(initialData.sections.serviceNavigation)
+        ...formatSection(initialData.sections.serviceNavigation, section)
       );
     }
     if (section === 'legalNavigation') {
       adaptedData.sections.push(
-        ...formatSection(initialData.sections.legalNavigation)
+        ...formatSection(initialData.sections.legalNavigation, section)
+      );
+    }
+    if (section === 'partnershipLabel') {
+      adaptedData.sections.push(
+        ...formatSection(initialData.sections.partnershipLabel, section)
+      );
+    }
+    if (section === 'partnershipLogos') {
+      adaptedData.sections.push(
+        ...formatSection(initialData.sections.partnershipLogos, section)
+      );
+    }
+    if (section === 'ecLogo') {
+      adaptedData.sections.push(
+        ...formatSection(initialData.sections.ecLogo, section)
       );
     }
   });
 
   adaptedData.group = initialData.group;
+
+  if (adaptedData.group === 'group3') {
+    // Group3 adaptations.
+    const section0 = adaptedData.sections.shift();
+    const dataGroup3 = { sections: [] };
+    dataGroup3.sections.push(section0);
+    dataGroup3.sections.push({ logos: adaptedData.sections, section_id: 2 });
+    dataGroup3.group = adaptedData.group;
+    return dataGroup3;
+  }
+  // Group2 adaptations.
+  if (adaptedData.group === 'group2') {
+    adaptedData.sections[0].section_id = 1;
+    adaptedData.sections[1].section_id = 2;
+  }
 
   return adaptedData;
 };
