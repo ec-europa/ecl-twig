@@ -10,7 +10,7 @@ import iconPath from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import dataSplash from './demo/data--splash';
 import dataOverlay from './demo/data--overlay';
 
-import languageListMain from './ecl-language-list-main.html.twig';
+import languageList from './ecl-language-list.html.twig';
 
 import notes from './README.md';
 
@@ -21,12 +21,12 @@ storiesOf('Components/Language list', module)
   .add(
     'splash',
     () =>
-      languageListMain(
+      languageList(
         merge(dataSplash, {
           icon_path: iconPath,
           overlay: boolean('Overlay', false),
-          title: text('Title', dataOverlay.title),
-          close_label: text('Close label', dataOverlay.close_label),
+          title: dataOverlay.title,
+          close_label: dataOverlay.close_label,
           logo: {
             path: logoPath,
           },
@@ -39,7 +39,7 @@ storiesOf('Components/Language list', module)
   .add(
     'overlay',
     () =>
-      languageListMain(
+      languageList(
         merge(dataOverlay, {
           title: text('Title', dataOverlay.title),
           close_label: text('Close label', dataOverlay.close_label),
