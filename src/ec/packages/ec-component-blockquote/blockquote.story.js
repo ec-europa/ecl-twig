@@ -10,7 +10,7 @@ import blockquote from './ecl-blockquote.html.twig';
 import notes from './README.md';
 
 // Labels for the group ids
-const optionalGroupId = 'Optional elements';
+// const optionalGroupId = 'Optional elements';
 const requiredGroupId = 'Mandatory elements';
 const useCasesGroup = 'Use cases';
 
@@ -18,9 +18,7 @@ const useCasesGroup = 'Use cases';
 const defaultData = { ...data };
 
 // declare your toggled data
-const authorBtnToggler = () => {
-  defaultData.author = defaultData.author ? false : data.author;
-};
+const authorBtnToggler = () => {};
 
 const formatQuote = passeddata => {
   // declare your knobs when you format your data
@@ -29,7 +27,7 @@ const formatQuote = passeddata => {
     : false;
 
   const author = passeddata.author
-    ? text('Author', passeddata.author, optionalGroupId)
+    ? text('Author', passeddata.author, requiredGroupId)
     : false;
 
   const newQuote = {
@@ -48,7 +46,7 @@ storiesOf('Components/Blockquote', module)
   .add(
     'default',
     () => {
-      button('show/ hide author', authorBtnToggler, useCasesGroup);
+      button('fake button to enforce groups', authorBtnToggler, useCasesGroup);
 
       return blockquote(formatQuote(defaultData));
     },
