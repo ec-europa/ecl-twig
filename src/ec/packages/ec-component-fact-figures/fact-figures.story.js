@@ -1,4 +1,4 @@
-/* eslint-disable no-param-reassign, prefer-destructuring  */
+/* eslint-disable no-param-reassign, camelcase */
 import { storiesOf } from '@storybook/html';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import { withKnobs, boolean, text, button } from '@storybook/addon-knobs';
@@ -10,67 +10,70 @@ import data4Col from './demo/data--4-col';
 
 import factFigures from './ecl-fact-figures.html.twig';
 import notes from './README.md';
-
 // Labels for the groupids.
 const requiredGroupId = 'Mandatory elements';
 const optionalGroupId = 'Optional elements';
 const useCasesGroup = 'Use cases';
-
-const Col3data = { ...data3Col };
-const Col4data = { ...data4Col };
-
-const viewAllToggler = () => {
-  Col3data.view_all.link.label = Col3data.view_all.link.label
-    ? false
-    : data3Col.view_all.link.label;
+// Preserve original data.
+const data3 = { ...data3Col };
+const data4 = { ...data4Col };
+// Button callback.
+// 3 Columns.
+const viewAll3Toggler = () => {
+  data3.view_all = data3.view_all ? false : data3Col.view_all;
 };
-
-const prepareFactFigures = prepareData => {
-  const column = prepareData.column;
-
-  const formatItems = (item, index) => {
-    item.value = text(`Item ${index} statistic`, item.value, optionalGroupId);
-    item.title = text(`Item ${index} label`, item.title, requiredGroupId);
-    item.description = text(
-      `Item ${index} description`,
-      item.description,
+// 4 Columns.
+const viewAll4Toggler = () => {
+  data4.view_all = data4.view_all ? false : data4Col.view_all;
+};
+// Knobs for the items.
+const formatItem = (item, index) => {
+  item.value = text(
+    `data.items[${index}].statistic`,
+    item.value,
+    requiredGroupId
+  );
+  item.title = text(`data.items[${index}].title`, item.title, requiredGroupId);
+  item.description = text(
+    `data.items[${index}].description`,
+    item.description,
+    optionalGroupId
+  );
+  if (item.icon) {
+    item.icon.path = text(
+      `data.items[${index}].icon.path`,
+      defaultSprite,
       optionalGroupId
     );
-    item.icon.path = defaultSprite;
-    return item;
-  };
+  }
 
-  const displayIcons = prepareData.display_icons
-    ? boolean('Display icons', true, useCasesGroup)
+  return item;
+};
+// prepare the knobs for the stories.
+const prepareFactFigures = p => {
+  const column = text('data.column', p.column, requiredGroupId);
+  const display_icons = p.display_icons
+    ? boolean('data.display_icons', true, optionalGroupId)
     : false;
-
-  const viewAll = prepareData.view_all.link.label
+  const view_all = p.view_all.link
     ? {
         link: {
           label: text(
-            'card.title.type',
-            prepareData.view_all.link.label,
+            'data.view_all.link.label',
+            p.view_all.link.label,
             optionalGroupId
           ),
-          path: '/exmaple',
+          path: text(
+            'data.view_all.link.path',
+            p.view_all.link.path,
+            optionalGroupId
+          ),
         },
       }
-    : {
-        link: {
-          path: '/exmaple',
-        },
-      };
+    : false;
+  const items = p.items.map(formatItem);
 
-  const items = prepareData.items ? prepareData.items.map(formatItems) : false;
-
-  const newFactsFigures = {
-    column,
-    items,
-    displayIcons,
-    viewAll,
-  };
-
-  return newFactsFigures;
+  return { column, items, display_icons, view_all };
 };
 
 storiesOf('Components/Fact figures', module)
@@ -80,20 +83,22 @@ storiesOf('Components/Fact figures', module)
   .add(
     '3 Columns',
     () => {
-      button('With or without view_links', viewAllToggler, useCasesGroup);
+      button('With or without view_links', viewAll3Toggler, useCasesGroup);
 
-      return factFigures(prepareFactFigures(Col3data));
+      return factFigures(prepareFactFigures(data3));
     },
     {
-      notes: { markdown: notes, json: prepareFactFigures(Col3data) },
+      notes: { markdown: notes, json: data3 },
     }
   )
   .add(
     '4 Columns',
     () => {
-      return factFigures(prepareFactFigures(Col4data));
+      button('With or without view_links', viewAll4Toggler, useCasesGroup);
+
+      return factFigures(prepareFactFigures(data4));
     },
     {
-      notes: { markdown: notes, json: prepareFactFigures(Col4data) },
+      notes: { markdown: notes, json: data4 },
     }
   );
