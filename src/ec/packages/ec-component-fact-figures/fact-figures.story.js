@@ -15,6 +15,8 @@ const requiredGroupId = 'Mandatory elements';
 const optionalGroupId = 'Optional elements';
 const useCasesGroup = 'Use cases';
 // Preserve original data.
+const items3 = JSON.parse(JSON.stringify(data3Col.items));
+const items4 = JSON.parse(JSON.stringify(data4Col.items));
 const data3 = { ...data3Col };
 const data4 = { ...data4Col };
 // Button callback.
@@ -26,6 +28,26 @@ const viewAll3Toggler = () => {
 const viewAll4Toggler = () => {
   data4.view_all = data4.view_all ? false : data4Col.view_all;
 };
+// 3 Columns.
+const desc3Toggler = () => {
+  data3.items.forEach((item, i) => {
+    if (item.description) {
+      item.description = '';
+    } else {
+      item.description = items3[i].description;
+    }
+  });
+};
+// 4 Columns.
+const desc4Toggler = () => {
+  data4.items.forEach((item, i) => {
+    if (item.description) {
+      item.description = '';
+    } else {
+      item.description = items4[i].description;
+    }
+  });
+};
 // Knobs for the items.
 const formatItem = (item, index) => {
   item.value = text(
@@ -34,11 +56,13 @@ const formatItem = (item, index) => {
     requiredGroupId
   );
   item.title = text(`data.items[${index}].title`, item.title, requiredGroupId);
-  item.description = text(
-    `data.items[${index}].description`,
-    item.description,
-    optionalGroupId
-  );
+  if (item.description) {
+    item.description = text(
+      `data.items[${index}].description`,
+      item.description,
+      optionalGroupId
+    );
+  }
   if (item.icon) {
     item.icon.path = text(
       `data.items[${index}].icon.path`,
@@ -84,6 +108,7 @@ storiesOf('Components/Fact figures', module)
     '3 Columns',
     () => {
       button('With or without view_links', viewAll3Toggler, useCasesGroup);
+      button('With or without description', desc3Toggler, useCasesGroup);
 
       return factFigures(prepareFactFigures(data3));
     },
@@ -95,6 +120,7 @@ storiesOf('Components/Fact figures', module)
     '4 Columns',
     () => {
       button('With or without view_links', viewAll4Toggler, useCasesGroup);
+      button('With or without description', desc4Toggler, useCasesGroup);
 
       return factFigures(prepareFactFigures(data4));
     },
