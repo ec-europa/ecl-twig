@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.24.0](https://github.com/ec-europa/ecl-twig/compare/v2.23.0...v2.24.0) (2020-03-02)
+
+### Bug Fixes
+
+- **link:** Fixing cta story knobs - FRONT-487 ([#333](https://github.com/ec-europa/ecl-twig/issues/333)) ([ae9432c](https://github.com/ec-europa/ecl-twig/commit/ae9432c90f2df7948555d2525185858f5c933a50))
+
 # [2.23.0](https://github.com/ec-europa/ecl-twig/compare/v2.22.1...v2.23.0) (2020-02-07)
 
 **Note:** Version bump only for package @ecl-twig/ec-component-link

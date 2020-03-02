@@ -38,15 +38,6 @@ const formatSection = (section, name) => {
       case 'legalNavigation':
         s.section_id = '9';
         break;
-      case 'partnershipLogos':
-        s.section_id = '2';
-        break;
-      case 'ecLogo':
-        s.section_id = '2';
-        break;
-      case 'partnershipLabel':
-        s.section_id = '1';
-        break;
     }
 
     if (s.listClassName) {
@@ -124,39 +115,7 @@ const adapter = initialData => {
         ...formatSection(initialData.sections.legalNavigation, section)
       );
     }
-    if (section === 'partnershipLabel') {
-      adaptedData.sections.push(
-        ...formatSection(initialData.sections.partnershipLabel, section)
-      );
-    }
-    if (section === 'partnershipLogos') {
-      adaptedData.sections.push(
-        ...formatSection(initialData.sections.partnershipLogos, section)
-      );
-    }
-    if (section === 'ecLogo') {
-      adaptedData.sections.push(
-        ...formatSection(initialData.sections.ecLogo, section)
-      );
-    }
   });
-
-  adaptedData.group = initialData.group;
-
-  if (adaptedData.group === 'group3') {
-    // Group3 adaptations.
-    const section0 = adaptedData.sections.shift();
-    const dataGroup3 = { sections: [] };
-    dataGroup3.sections.push(section0);
-    dataGroup3.sections.push({ logos: adaptedData.sections, section_id: 2 });
-    dataGroup3.group = adaptedData.group;
-    return dataGroup3;
-  }
-  // Group2 adaptations.
-  if (adaptedData.group === 'group2') {
-    adaptedData.sections[0].section_id = 1;
-    adaptedData.sections[1].section_id = 2;
-  }
 
   return adaptedData;
 };
