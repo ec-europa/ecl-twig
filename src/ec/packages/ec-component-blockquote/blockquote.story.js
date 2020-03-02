@@ -20,14 +20,14 @@ const defaultData = { ...data };
 // declare your toggled data
 const authorBtnToggler = () => {};
 
-const formatQuote = passeddata => {
+const prepareQuote = prepareData => {
   // declare your knobs when you format your data
-  const citation = passeddata.citation
-    ? text('Citation', passeddata.citation, requiredGroupId)
+  const citation = prepareData.citation
+    ? text('Citation', prepareData.citation, requiredGroupId)
     : false;
 
-  const author = passeddata.author
-    ? text('Author', passeddata.author, requiredGroupId)
+  const author = prepareData.author
+    ? text('Author', prepareData.author, requiredGroupId)
     : false;
 
   const newQuote = {
@@ -48,7 +48,7 @@ storiesOf('Components/Blockquote', module)
     () => {
       button('fake button to enforce groups', authorBtnToggler, useCasesGroup);
 
-      return blockquote(formatQuote(defaultData));
+      return blockquote(prepareQuote(defaultData));
     },
     {
       notes: { markdown: notes, json: data },
