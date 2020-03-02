@@ -50,22 +50,18 @@ const desc4Toggler = () => {
 };
 // Knobs for the items.
 const formatItem = (item, index) => {
-  item.value = text(
-    `data.items[${index}].statistic`,
-    item.value,
-    requiredGroupId
-  );
-  item.title = text(`data.items[${index}].title`, item.title, requiredGroupId);
+  item.value = text(`items[${index}].statistic`, item.value, requiredGroupId);
+  item.title = text(`items[${index}].title`, item.title, requiredGroupId);
   if (item.description) {
     item.description = text(
-      `data.items[${index}].description`,
+      `items[${index}].description`,
       item.description,
       optionalGroupId
     );
   }
   if (item.icon) {
     item.icon.path = text(
-      `data.items[${index}].icon.path`,
+      `items[${index}].icon.path`,
       defaultSprite,
       optionalGroupId
     );
@@ -75,20 +71,20 @@ const formatItem = (item, index) => {
 };
 // prepare the knobs for the stories.
 const prepareFactFigures = p => {
-  const column = text('data.column', p.column, requiredGroupId);
+  const column = text('column', p.column, requiredGroupId);
   const display_icons = p.display_icons
-    ? boolean('data.display_icons', true, optionalGroupId)
+    ? boolean('display_icons', true, optionalGroupId)
     : false;
   const view_all = p.view_all.link
     ? {
         link: {
           label: text(
-            'data.view_all.link.label',
+            'view_all.link.label',
             p.view_all.link.label,
             optionalGroupId
           ),
           path: text(
-            'data.view_all.link.path',
+            'view_all.link.path',
             p.view_all.link.path,
             optionalGroupId
           ),
