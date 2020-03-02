@@ -23,9 +23,7 @@ components.forEach(component => {
   } else {
     componentTemplate = component;
   }
-  if (component === 'language-list') {
-    componentTemplate = `${component}-splash`;
-  }
+
   /* This is the template we are going to render */
   const template = `@ecl-twig/${pkg}/ecl-${componentTemplate}.${extension}`;
   const dataFiles = fs.readdirSync(`${systemFolder}/${component}/specs`);
