@@ -1,42 +1,23 @@
-/* eslint-disable no-param-reassign */
+/* eslint-disable no-param-reassign, no-shadow */
 import { storiesOf } from '@storybook/html';
-import { withKnobs, text, button } from '@storybook/addon-knobs';
+import { withKnobs, text } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
-
 import data from '@ecl/ec-specs-blockquote/demo/data';
-
 import blockquote from './ecl-blockquote.html.twig';
 import notes from './README.md';
-
 // Labels for the group ids
-// const optionalGroupId = 'Optional elements';
+const optionalGroupId = 'Optional elements';
 const requiredGroupId = 'Mandatory elements';
-const useCasesGroup = 'Use cases';
 
-// Preserve the adapted specs.
-const defaultData = { ...data };
-
-// declare your toggled data
-const authorBtnToggler = () => {};
-
-const prepareQuote = prepareData => {
-  // declare your knobs when you format your data
-  const citation = prepareData.citation
-    ? text('Citation', prepareData.citation, requiredGroupId)
-    : false;
-
-  const author = prepareData.author
-    ? text('Author', prepareData.author, requiredGroupId)
-    : false;
-
-  const newQuote = {
-    author,
-    citation,
-  };
-
-  // Return the full object.
-  return newQuote;
+const prepareQuote = preperaData => {
+  preperaData.citation = text(
+    'citation',
+    preperaData.citation,
+    requiredGroupId
+  );
+  preperaData.author = text('author', preperaData.author, requiredGroupId);
+  return data;
 };
 
 storiesOf('Components/Blockquote', module)
@@ -46,11 +27,15 @@ storiesOf('Components/Blockquote', module)
   .add(
     'default',
     () => {
-      button('fake button to enforce groups', authorBtnToggler, useCasesGroup);
-
-      return blockquote(prepareQuote(defaultData));
+      const storyData = prepareQuote(data);
+      storyData.demo = text(
+        'optional elements',
+        'No optional element in this story',
+        optionalGroupId
+      );
+      return blockquote(storyData);
     },
     {
-      notes: { markdown: notes, json: defaultData },
+      notes: { markdown: notes, json: data },
     }
   );
