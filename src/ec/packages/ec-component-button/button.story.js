@@ -87,7 +87,7 @@ storiesOf('Components/Button', module)
       return button(prepareButton(primaryData));
     },
     {
-      notes: { markdown: notes, json: { button: primaryData } },
+      notes: { markdown: notes, json: prepareButton(primaryData) },
     }
   )
   .add(
@@ -96,7 +96,7 @@ storiesOf('Components/Button', module)
       return button(prepareButton(secondaryData));
     },
     {
-      notes: { markdown: notes, json: { button: secondaryData } },
+      notes: { markdown: notes, json: prepareButton(secondaryData) },
     }
   )
   .add(
@@ -105,7 +105,7 @@ storiesOf('Components/Button', module)
       return button(prepareButton(callData));
     },
     {
-      notes: { markdown: notes, json: { button: callData } },
+      notes: { markdown: notes, json: prepareButton(callData) },
     }
   )
   .add(
@@ -114,7 +114,7 @@ storiesOf('Components/Button', module)
       return button(prepareButton(ghostData));
     },
     {
-      notes: { markdown: notes, json: { button: ghostData } },
+      notes: { markdown: notes, json: prepareButton(ghostData) },
     }
   )
   .add(
@@ -123,74 +123,6 @@ storiesOf('Components/Button', module)
       return button(prepareButton(searchData));
     },
     {
-      notes: { markdown: notes, json: { button: searchData } },
+      notes: { markdown: notes, json: prepareButton(ghostData) },
     }
   );
-// .add(
-//   'secondary',
-//   () =>
-//     button(
-//       merge(dataSecondary, {
-//         icon: {
-//           name: select('Icon (sample)', iconsList, null),
-//         },
-//         label: text('label', dataSecondary.label),
-//         icon_position: select('Icon position', iconPositionSettings, 'after'),
-//         disabled: boolean('Disabled', false),
-//       })
-//     ),
-//   {
-//     notes: { markdown: notes, json: prepareButton(secondaryData) },
-//   }
-// )
-// .add(
-//   'call to action',
-//   () =>
-//     button(
-//       merge(prepareButton(callData), {
-//         icon: {
-//           name: select('Icon (sample)', iconsList, null),
-//         },
-//         label: text('label', dataCall.label),
-//         icon_position: select('Icon position', iconPositionSettings, 'after'),
-//         disabled: boolean('Disabled', false),
-//       })
-//     ),
-//   {
-//     notes: { markdown: notes, json: prepareButton(callData) },
-//   }
-// )
-// .add(
-//   'text',
-//   () =>
-//     button(
-//       merge(prepareButton(ghostData), {
-//         icon: {
-//           name: select('Icon (sample)', iconsList, null),
-//         },
-//         label: text('label', dataGhost.label),
-//         icon_position: select('Icon position', iconPositionSettings, 'after'),
-//         disabled: boolean('Disabled', false),
-//       })
-//     ),
-//   {
-//     notes: { markdown: notes, json: prepareButton(ghostData) },
-//   }
-// )
-// .add(
-//   'search',
-//   () =>
-//     button(
-//       merge(prepareButton(dataSearch), {
-//         icon: {
-//           name: select('Icon (sample)', iconsList, null),
-//         },
-//         label: text('label', dataSearch.label),
-//         icon_position: select('Icon position', iconPositionSettings, 'after'),
-//         disabled: boolean('Disabled', false),
-//       })
-//     ),
-//   {
-//     notes: { markdown: notes, json: prepareButton(searchData) },
-//   }
-// );
