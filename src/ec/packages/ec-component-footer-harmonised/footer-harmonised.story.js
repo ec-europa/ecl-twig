@@ -188,17 +188,17 @@ const formatFooterG3 = dataG3 => {
     }
     if (logo) {
       dataG3[1].logos[index].logo.title = text(
-        `dataG3[1].logos[${index}].logo.title`,
+        `sections[1].logos[${index}].logo.title`,
         dataG3[1].logos[index].logo.title,
         label
       );
       dataG3[1].logos[index].logo.alt = text(
-        `dataG3[1].logos[${index}].logo.alt`,
+        `sections[1].logos[${index}].logo.alt`,
         dataG3[1].logos[index].logo.alt,
         label
       );
       dataG3[1].logos[index].logo.src = text(
-        `dataG3[1].logos[${index}].logo.src`,
+        `sections[1].logos[${index}].logo.src`,
         logoSrc,
         label
       );
