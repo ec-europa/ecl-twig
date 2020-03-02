@@ -33,6 +33,11 @@ const formatFooter = data => {
       optionalGroupId
     ),
   };
+  data[0].description = text(
+    'sections[0].description',
+    data[0].description,
+    requiredGroupId
+  );
   // Class navigation.
   data[1].links.forEach((link, index) => {
     data[1].links[index].link.label = text(
