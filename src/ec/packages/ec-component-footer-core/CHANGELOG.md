@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.24.0](https://github.com/ec-europa/ecl-twig/compare/v2.23.0...v2.24.0) (2020-03-02)
+
+### Features
+
+- **footers:** Aligning with 2.24.0 FRONT-835 ([#348](https://github.com/ec-europa/ecl-twig/issues/348)) ([cecc5e4](https://github.com/ec-europa/ecl-twig/commit/cecc5e457ef28f90fcf85758fb098b93acbc09e8))
+
 # [2.23.0](https://github.com/ec-europa/ecl-twig/compare/v2.22.1...v2.23.0) (2020-02-07)
 
 **Note:** Version bump only for package @ecl-twig/ec-component-footer-core

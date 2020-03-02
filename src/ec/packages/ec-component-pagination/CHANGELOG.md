@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.24.0](https://github.com/ec-europa/ecl-twig/compare/v2.23.0...v2.24.0) (2020-03-02)
+
+### Features
+
+- **Pagination:** added knob Aria label - FRONT-488 ([#336](https://github.com/ec-europa/ecl-twig/issues/336)) ([4e93f0e](https://github.com/ec-europa/ecl-twig/commit/4e93f0e1e17a71ea851a771e1d0157c3349c7d97))
+
 # [2.23.0](https://github.com/ec-europa/ecl-twig/compare/v2.22.1...v2.23.0) (2020-02-07)
 
 **Note:** Version bump only for package @ecl-twig/ec-component-pagination
