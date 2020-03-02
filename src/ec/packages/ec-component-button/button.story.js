@@ -33,48 +33,30 @@ const requiredGroupId = 'Mandatory elements';
 const optionalGroupId = 'Optional elements';
 
 // Preserve the adapted specs.
-const primaryData = { ...dataPrimary };
-const secondaryData = { ...dataSecondary };
-const callData = { ...dataCall };
-const ghostData = { ...dataGhost };
-const searchData = { ...dataSearch };
-
 const prepareButton = prepareData => {
-  // Set default values
-  prepareData.icon = {};
-  prepareData.icon_position = 'after';
+  prepareData.label = text('Label', prepareData.label, requiredGroupId);
 
-  // Set extra defaultdata for knobs
-  const label = prepareData.label
-    ? text('Label', prepareData.label, requiredGroupId)
-    : false;
-
-  const { variant } = prepareData.variant;
-
-  const icon = prepareData.icon
-    ? {
-        type: 'ui',
-        path: defaultSprite,
-        name: select('Icon (sample)', iconsList, null, optionalGroupId),
-        size: 'xs',
-      }
-    : {};
-
-  const iconPosition = prepareData.icon_position
-    ? select('Icon position', iconPositionSettings, 'after', optionalGroupId)
-    : false;
-
-  const disabled = boolean('Disabled', prepareData.disabled, optionalGroupId);
-
-  const newButton = {
-    label,
-    variant,
-    icon,
-    iconPosition,
-    disabled,
+  prepareData.icon = {
+    type: 'ui',
+    path: defaultSprite,
+    name: select('Icon (sample)', iconsList, 'null', optionalGroupId),
+    size: 'xs',
   };
 
-  return newButton;
+  prepareData.icon_position = select(
+    'Icon position',
+    iconPositionSettings,
+    'after',
+    optionalGroupId
+  );
+
+  prepareData.disabled = boolean(
+    'Disabled',
+    prepareData.disabled,
+    optionalGroupId
+  );
+
+  return prepareData;
 };
 
 storiesOf('Components/Button', module)
@@ -84,45 +66,45 @@ storiesOf('Components/Button', module)
   .add(
     'primary',
     () => {
-      return button(prepareButton(primaryData));
+      return button(prepareButton(dataPrimary));
     },
     {
-      notes: { markdown: notes, json: prepareButton(primaryData) },
+      notes: { markdown: notes, json: prepareButton(dataPrimary) },
     }
   )
   .add(
     'secondary',
     () => {
-      return button(prepareButton(secondaryData));
+      return button(prepareButton(dataSecondary));
     },
     {
-      notes: { markdown: notes, json: prepareButton(secondaryData) },
+      notes: { markdown: notes, json: prepareButton(dataSecondary) },
     }
   )
   .add(
     'call to action',
     () => {
-      return button(prepareButton(callData));
+      return button(prepareButton(dataCall));
     },
     {
-      notes: { markdown: notes, json: prepareButton(callData) },
+      notes: { markdown: notes, json: prepareButton(dataCall) },
     }
   )
   .add(
     'text',
     () => {
-      return button(prepareButton(ghostData));
+      return button(prepareButton(dataGhost));
     },
     {
-      notes: { markdown: notes, json: prepareButton(ghostData) },
+      notes: { markdown: notes, json: prepareButton(dataGhost) },
     }
   )
   .add(
     'search',
     () => {
-      return button(prepareButton(searchData));
+      return button(prepareButton(dataSearch));
     },
     {
-      notes: { markdown: notes, json: prepareButton(ghostData) },
+      notes: { markdown: notes, json: prepareButton(dataSearch) },
     }
   );
