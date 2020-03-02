@@ -17,7 +17,7 @@ const prepareQuote = preperaData => {
     requiredGroupId
   );
   preperaData.author = text('author', preperaData.author, requiredGroupId);
-  return data;
+  return preperaData;
 };
 
 storiesOf('Components/Blockquote', module)
