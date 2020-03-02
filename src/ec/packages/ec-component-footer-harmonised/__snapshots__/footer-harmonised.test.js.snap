@@ -7,7 +7,7 @@ exports[`EC - Footer Harmonised Group 1 renders correctly 1`] = `
   <div
     class="ecl-container ecl-footer-harmonised__container"
   >
-    <div
+    <section
       class="ecl-footer-harmonised__section ecl-footer-harmonised__section1"
     >
       <a
@@ -21,202 +21,210 @@ exports[`EC - Footer Harmonised Group 1 renders correctly 1`] = `
       >
         This site is managed by the Directorate-General for "DG identification"
       </div>
-    </div>
+    </section>
     <div
-      class="ecl-footer-harmonised__section ecl-footer-harmonised__section2"
+      class="ecl-footer-harmonised__section2"
     >
-      <div
-        class="ecl-footer-harmonised__title ecl-footer-harmonised__title--separator"
+      <section
+        class="ecl-footer-harmonised__section"
       >
-        Contact us
-      </div>
-      <ul
-        class="ecl-footer-harmonised__list"
-      >
-        <li
-          class="ecl-footer-harmonised__list-item"
+        <div
+          class="ecl-footer-harmonised__title ecl-footer-harmonised__title--separator"
         >
-          <a
-            class="ecl-link ecl-link--standalone ecl-footer-harmonised__link"
-            href="/example"
+          Contact us
+        </div>
+        <ul
+          class="ecl-footer-harmonised__list"
+        >
+          <li
+            class="ecl-footer-harmonised__list-item"
           >
-            Contact information of the DG
-          </a>
-        </li>
-      </ul>
+            <a
+              class="ecl-link ecl-link--standalone ecl-footer-harmonised__link"
+              href="/example"
+            >
+              Contact information of the DG
+            </a>
+          </li>
+        </ul>
+      </section>
+      <section
+        class="ecl-footer-harmonised__section"
+      >
+        <div
+          class="ecl-footer-harmonised__title ecl-footer-harmonised__title--separator"
+        >
+          Follow us on
+        </div>
+        <ul
+          class="ecl-footer-harmonised__list ecl-footer-harmonised__list--inline"
+        >
+          <li
+            class="ecl-footer-harmonised__list-item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-before ecl-footer-harmonised__link"
+              href="/example"
+            >
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--xs ecl-link__icon"
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#branded--facebook"
+                />
+              </svg>
+               
+              <span
+                class="ecl-link__label"
+              >
+                Facebook
+              </span>
+            </a>
+          </li>
+          <li
+            class="ecl-footer-harmonised__list-item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-before ecl-footer-harmonised__link"
+              href="/example"
+            >
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--xs ecl-link__icon"
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#branded--twitter"
+                />
+              </svg>
+               
+              <span
+                class="ecl-link__label"
+              >
+                Twitter
+              </span>
+            </a>
+          </li>
+          <li
+            class="ecl-footer-harmonised__list-item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-before ecl-footer-harmonised__link"
+              href="/example"
+            >
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--xs ecl-link__icon"
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#branded--linkedin"
+                />
+              </svg>
+               
+              <span
+                class="ecl-link__label"
+              >
+                Linkedin
+              </span>
+            </a>
+          </li>
+        </ul>
+      </section>
     </div>
     <div
-      class="ecl-footer-harmonised__section ecl-footer-harmonised__section3"
+      class="ecl-footer-harmonised__section3"
     >
-      <div
-        class="ecl-footer-harmonised__title ecl-footer-harmonised__title--separator"
+      <section
+        class="ecl-footer-harmonised__section"
       >
-        About us
-      </div>
-      <ul
-        class="ecl-footer-harmonised__list"
-      >
-        <li
-          class="ecl-footer-harmonised__list-item"
+        <div
+          class="ecl-footer-harmonised__title ecl-footer-harmonised__title--separator"
         >
-          <a
-            class="ecl-link ecl-link--standalone ecl-footer-harmonised__link"
-            href="/example"
+          About us
+        </div>
+        <ul
+          class="ecl-footer-harmonised__list"
+        >
+          <li
+            class="ecl-footer-harmonised__list-item"
           >
-            Information about the DG
-          </a>
-        </li>
-      </ul>
+            <a
+              class="ecl-link ecl-link--standalone ecl-footer-harmonised__link"
+              href="/example"
+            >
+              Information about the DG
+            </a>
+          </li>
+        </ul>
+      </section>
+      <section
+        class="ecl-footer-harmonised__section"
+      >
+        <div
+          class="ecl-footer-harmonised__title ecl-footer-harmonised__title--separator"
+        >
+          Related sites
+        </div>
+        <ul
+          class="ecl-footer-harmonised__list"
+        >
+          <li
+            class="ecl-footer-harmonised__list-item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-footer-harmonised__link"
+              href="/example"
+            >
+              Related link 1
+            </a>
+          </li>
+          <li
+            class="ecl-footer-harmonised__list-item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-footer-harmonised__link"
+              href="/example"
+            >
+              Related link 2
+            </a>
+          </li>
+          <li
+            class="ecl-footer-harmonised__list-item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-footer-harmonised__link"
+              href="/example"
+            >
+              Related link 3
+            </a>
+          </li>
+          <li
+            class="ecl-footer-harmonised__list-item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-footer-harmonised__link"
+              href="/example"
+            >
+              Related link 4
+            </a>
+          </li>
+          <li
+            class="ecl-footer-harmonised__list-item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-footer-harmonised__link"
+              href="/example"
+            >
+              Related link 5
+            </a>
+          </li>
+        </ul>
+      </section>
     </div>
-    <div
-      class="ecl-footer-harmonised__section ecl-footer-harmonised__section4"
-    >
-      <div
-        class="ecl-footer-harmonised__title ecl-footer-harmonised__title--separator"
-      >
-        Follow us on
-      </div>
-      <ul
-        class="ecl-footer-harmonised__list ecl-footer-harmonised__list--inline"
-      >
-        <li
-          class="ecl-footer-harmonised__list-item"
-        >
-          <a
-            class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-before ecl-footer-harmonised__link"
-            href="/example"
-          >
-            <svg
-              aria-hidden="true"
-              class="ecl-icon ecl-icon--xs ecl-link__icon"
-              focusable="false"
-            >
-              <use
-                xlink:href="/icons.svg#branded--facebook"
-              />
-            </svg>
-             
-            <span
-              class="ecl-link__label"
-            >
-              Facebook
-            </span>
-          </a>
-        </li>
-        <li
-          class="ecl-footer-harmonised__list-item"
-        >
-          <a
-            class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-before ecl-footer-harmonised__link"
-            href="/example"
-          >
-            <svg
-              aria-hidden="true"
-              class="ecl-icon ecl-icon--xs ecl-link__icon"
-              focusable="false"
-            >
-              <use
-                xlink:href="/icons.svg#branded--twitter"
-              />
-            </svg>
-             
-            <span
-              class="ecl-link__label"
-            >
-              Twitter
-            </span>
-          </a>
-        </li>
-        <li
-          class="ecl-footer-harmonised__list-item"
-        >
-          <a
-            class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-before ecl-footer-harmonised__link"
-            href="/example"
-          >
-            <svg
-              aria-hidden="true"
-              class="ecl-icon ecl-icon--xs ecl-link__icon"
-              focusable="false"
-            >
-              <use
-                xlink:href="/icons.svg#branded--linkedin"
-              />
-            </svg>
-             
-            <span
-              class="ecl-link__label"
-            >
-              Linkedin
-            </span>
-          </a>
-        </li>
-      </ul>
-    </div>
-    <div
-      class="ecl-footer-harmonised__section ecl-footer-harmonised__section5"
-    >
-      <div
-        class="ecl-footer-harmonised__title ecl-footer-harmonised__title--separator"
-      >
-        Related sites
-      </div>
-      <ul
-        class="ecl-footer-harmonised__list"
-      >
-        <li
-          class="ecl-footer-harmonised__list-item"
-        >
-          <a
-            class="ecl-link ecl-link--standalone ecl-footer-harmonised__link"
-            href="/example"
-          >
-            Related link 1
-          </a>
-        </li>
-        <li
-          class="ecl-footer-harmonised__list-item"
-        >
-          <a
-            class="ecl-link ecl-link--standalone ecl-footer-harmonised__link"
-            href="/example"
-          >
-            Related link 2
-          </a>
-        </li>
-        <li
-          class="ecl-footer-harmonised__list-item"
-        >
-          <a
-            class="ecl-link ecl-link--standalone ecl-footer-harmonised__link"
-            href="/example"
-          >
-            Related link 3
-          </a>
-        </li>
-        <li
-          class="ecl-footer-harmonised__list-item"
-        >
-          <a
-            class="ecl-link ecl-link--standalone ecl-footer-harmonised__link"
-            href="/example"
-          >
-            Related link 4
-          </a>
-        </li>
-        <li
-          class="ecl-footer-harmonised__list-item"
-        >
-          <a
-            class="ecl-link ecl-link--standalone ecl-footer-harmonised__link"
-            href="/example"
-          >
-            Related link 5
-          </a>
-        </li>
-      </ul>
-    </div>
-    <div
+    <section
       class="ecl-footer-harmonised__section ecl-footer-harmonised__section6"
     >
       <div
@@ -248,8 +256,8 @@ exports[`EC - Footer Harmonised Group 1 renders correctly 1`] = `
           </a>
         </li>
       </ul>
-    </div>
-    <div
+    </section>
+    <section
       class="ecl-footer-harmonised__section ecl-footer-harmonised__section7"
     >
       <a
@@ -258,8 +266,8 @@ exports[`EC - Footer Harmonised Group 1 renders correctly 1`] = `
       >
         European Commission
       </a>
-    </div>
-    <div
+    </section>
+    <section
       class="ecl-footer-harmonised__section ecl-footer-harmonised__section8"
     >
       <ul
@@ -310,8 +318,8 @@ exports[`EC - Footer Harmonised Group 1 renders correctly 1`] = `
           </a>
         </li>
       </ul>
-    </div>
-    <div
+    </section>
+    <section
       class="ecl-footer-harmonised__section ecl-footer-harmonised__section9"
     >
       <ul
@@ -368,7 +376,7 @@ exports[`EC - Footer Harmonised Group 1 renders correctly 1`] = `
           </a>
         </li>
       </ul>
-    </div>
+    </section>
   </div>
 </footer>
 `;
@@ -382,7 +390,7 @@ exports[`EC - Footer Harmonised Group 1 renders correctly with extra attributes 
   <div
     class="ecl-container ecl-footer-harmonised__container"
   >
-    <div
+    <section
       class="ecl-footer-harmonised__section ecl-footer-harmonised__section1"
     >
       <a
@@ -396,202 +404,210 @@ exports[`EC - Footer Harmonised Group 1 renders correctly with extra attributes 
       >
         This site is managed by the Directorate-General for "DG identification"
       </div>
-    </div>
+    </section>
     <div
-      class="ecl-footer-harmonised__section ecl-footer-harmonised__section2"
+      class="ecl-footer-harmonised__section2"
     >
-      <div
-        class="ecl-footer-harmonised__title ecl-footer-harmonised__title--separator"
+      <section
+        class="ecl-footer-harmonised__section"
       >
-        Contact us
-      </div>
-      <ul
-        class="ecl-footer-harmonised__list"
-      >
-        <li
-          class="ecl-footer-harmonised__list-item"
+        <div
+          class="ecl-footer-harmonised__title ecl-footer-harmonised__title--separator"
         >
-          <a
-            class="ecl-link ecl-link--standalone ecl-footer-harmonised__link"
-            href="/example"
+          Contact us
+        </div>
+        <ul
+          class="ecl-footer-harmonised__list"
+        >
+          <li
+            class="ecl-footer-harmonised__list-item"
           >
-            Contact information of the DG
-          </a>
-        </li>
-      </ul>
+            <a
+              class="ecl-link ecl-link--standalone ecl-footer-harmonised__link"
+              href="/example"
+            >
+              Contact information of the DG
+            </a>
+          </li>
+        </ul>
+      </section>
+      <section
+        class="ecl-footer-harmonised__section"
+      >
+        <div
+          class="ecl-footer-harmonised__title ecl-footer-harmonised__title--separator"
+        >
+          Follow us on
+        </div>
+        <ul
+          class="ecl-footer-harmonised__list ecl-footer-harmonised__list--inline"
+        >
+          <li
+            class="ecl-footer-harmonised__list-item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-before ecl-footer-harmonised__link"
+              href="/example"
+            >
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--xs ecl-link__icon"
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#branded--facebook"
+                />
+              </svg>
+               
+              <span
+                class="ecl-link__label"
+              >
+                Facebook
+              </span>
+            </a>
+          </li>
+          <li
+            class="ecl-footer-harmonised__list-item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-before ecl-footer-harmonised__link"
+              href="/example"
+            >
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--xs ecl-link__icon"
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#branded--twitter"
+                />
+              </svg>
+               
+              <span
+                class="ecl-link__label"
+              >
+                Twitter
+              </span>
+            </a>
+          </li>
+          <li
+            class="ecl-footer-harmonised__list-item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-before ecl-footer-harmonised__link"
+              href="/example"
+            >
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--xs ecl-link__icon"
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#branded--linkedin"
+                />
+              </svg>
+               
+              <span
+                class="ecl-link__label"
+              >
+                Linkedin
+              </span>
+            </a>
+          </li>
+        </ul>
+      </section>
     </div>
     <div
-      class="ecl-footer-harmonised__section ecl-footer-harmonised__section3"
+      class="ecl-footer-harmonised__section3"
     >
-      <div
-        class="ecl-footer-harmonised__title ecl-footer-harmonised__title--separator"
+      <section
+        class="ecl-footer-harmonised__section"
       >
-        About us
-      </div>
-      <ul
-        class="ecl-footer-harmonised__list"
-      >
-        <li
-          class="ecl-footer-harmonised__list-item"
+        <div
+          class="ecl-footer-harmonised__title ecl-footer-harmonised__title--separator"
         >
-          <a
-            class="ecl-link ecl-link--standalone ecl-footer-harmonised__link"
-            href="/example"
+          About us
+        </div>
+        <ul
+          class="ecl-footer-harmonised__list"
+        >
+          <li
+            class="ecl-footer-harmonised__list-item"
           >
-            Information about the DG
-          </a>
-        </li>
-      </ul>
+            <a
+              class="ecl-link ecl-link--standalone ecl-footer-harmonised__link"
+              href="/example"
+            >
+              Information about the DG
+            </a>
+          </li>
+        </ul>
+      </section>
+      <section
+        class="ecl-footer-harmonised__section"
+      >
+        <div
+          class="ecl-footer-harmonised__title ecl-footer-harmonised__title--separator"
+        >
+          Related sites
+        </div>
+        <ul
+          class="ecl-footer-harmonised__list"
+        >
+          <li
+            class="ecl-footer-harmonised__list-item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-footer-harmonised__link"
+              href="/example"
+            >
+              Related link 1
+            </a>
+          </li>
+          <li
+            class="ecl-footer-harmonised__list-item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-footer-harmonised__link"
+              href="/example"
+            >
+              Related link 2
+            </a>
+          </li>
+          <li
+            class="ecl-footer-harmonised__list-item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-footer-harmonised__link"
+              href="/example"
+            >
+              Related link 3
+            </a>
+          </li>
+          <li
+            class="ecl-footer-harmonised__list-item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-footer-harmonised__link"
+              href="/example"
+            >
+              Related link 4
+            </a>
+          </li>
+          <li
+            class="ecl-footer-harmonised__list-item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-footer-harmonised__link"
+              href="/example"
+            >
+              Related link 5
+            </a>
+          </li>
+        </ul>
+      </section>
     </div>
-    <div
-      class="ecl-footer-harmonised__section ecl-footer-harmonised__section4"
-    >
-      <div
-        class="ecl-footer-harmonised__title ecl-footer-harmonised__title--separator"
-      >
-        Follow us on
-      </div>
-      <ul
-        class="ecl-footer-harmonised__list ecl-footer-harmonised__list--inline"
-      >
-        <li
-          class="ecl-footer-harmonised__list-item"
-        >
-          <a
-            class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-before ecl-footer-harmonised__link"
-            href="/example"
-          >
-            <svg
-              aria-hidden="true"
-              class="ecl-icon ecl-icon--xs ecl-link__icon"
-              focusable="false"
-            >
-              <use
-                xlink:href="/icons.svg#branded--facebook"
-              />
-            </svg>
-             
-            <span
-              class="ecl-link__label"
-            >
-              Facebook
-            </span>
-          </a>
-        </li>
-        <li
-          class="ecl-footer-harmonised__list-item"
-        >
-          <a
-            class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-before ecl-footer-harmonised__link"
-            href="/example"
-          >
-            <svg
-              aria-hidden="true"
-              class="ecl-icon ecl-icon--xs ecl-link__icon"
-              focusable="false"
-            >
-              <use
-                xlink:href="/icons.svg#branded--twitter"
-              />
-            </svg>
-             
-            <span
-              class="ecl-link__label"
-            >
-              Twitter
-            </span>
-          </a>
-        </li>
-        <li
-          class="ecl-footer-harmonised__list-item"
-        >
-          <a
-            class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-before ecl-footer-harmonised__link"
-            href="/example"
-          >
-            <svg
-              aria-hidden="true"
-              class="ecl-icon ecl-icon--xs ecl-link__icon"
-              focusable="false"
-            >
-              <use
-                xlink:href="/icons.svg#branded--linkedin"
-              />
-            </svg>
-             
-            <span
-              class="ecl-link__label"
-            >
-              Linkedin
-            </span>
-          </a>
-        </li>
-      </ul>
-    </div>
-    <div
-      class="ecl-footer-harmonised__section ecl-footer-harmonised__section5"
-    >
-      <div
-        class="ecl-footer-harmonised__title ecl-footer-harmonised__title--separator"
-      >
-        Related sites
-      </div>
-      <ul
-        class="ecl-footer-harmonised__list"
-      >
-        <li
-          class="ecl-footer-harmonised__list-item"
-        >
-          <a
-            class="ecl-link ecl-link--standalone ecl-footer-harmonised__link"
-            href="/example"
-          >
-            Related link 1
-          </a>
-        </li>
-        <li
-          class="ecl-footer-harmonised__list-item"
-        >
-          <a
-            class="ecl-link ecl-link--standalone ecl-footer-harmonised__link"
-            href="/example"
-          >
-            Related link 2
-          </a>
-        </li>
-        <li
-          class="ecl-footer-harmonised__list-item"
-        >
-          <a
-            class="ecl-link ecl-link--standalone ecl-footer-harmonised__link"
-            href="/example"
-          >
-            Related link 3
-          </a>
-        </li>
-        <li
-          class="ecl-footer-harmonised__list-item"
-        >
-          <a
-            class="ecl-link ecl-link--standalone ecl-footer-harmonised__link"
-            href="/example"
-          >
-            Related link 4
-          </a>
-        </li>
-        <li
-          class="ecl-footer-harmonised__list-item"
-        >
-          <a
-            class="ecl-link ecl-link--standalone ecl-footer-harmonised__link"
-            href="/example"
-          >
-            Related link 5
-          </a>
-        </li>
-      </ul>
-    </div>
-    <div
+    <section
       class="ecl-footer-harmonised__section ecl-footer-harmonised__section6"
     >
       <div
@@ -623,8 +639,8 @@ exports[`EC - Footer Harmonised Group 1 renders correctly with extra attributes 
           </a>
         </li>
       </ul>
-    </div>
-    <div
+    </section>
+    <section
       class="ecl-footer-harmonised__section ecl-footer-harmonised__section7"
     >
       <a
@@ -633,8 +649,8 @@ exports[`EC - Footer Harmonised Group 1 renders correctly with extra attributes 
       >
         European Commission
       </a>
-    </div>
-    <div
+    </section>
+    <section
       class="ecl-footer-harmonised__section ecl-footer-harmonised__section8"
     >
       <ul
@@ -685,8 +701,8 @@ exports[`EC - Footer Harmonised Group 1 renders correctly with extra attributes 
           </a>
         </li>
       </ul>
-    </div>
-    <div
+    </section>
+    <section
       class="ecl-footer-harmonised__section ecl-footer-harmonised__section9"
     >
       <ul
@@ -743,7 +759,7 @@ exports[`EC - Footer Harmonised Group 1 renders correctly with extra attributes 
           </a>
         </li>
       </ul>
-    </div>
+    </section>
   </div>
 </footer>
 `;
@@ -755,7 +771,7 @@ exports[`EC - Footer Harmonised Group 1 renders correctly with extra class names
   <div
     class="ecl-container ecl-footer-harmonised__container"
   >
-    <div
+    <section
       class="ecl-footer-harmonised__section ecl-footer-harmonised__section1"
     >
       <a
@@ -769,202 +785,210 @@ exports[`EC - Footer Harmonised Group 1 renders correctly with extra class names
       >
         This site is managed by the Directorate-General for "DG identification"
       </div>
-    </div>
+    </section>
     <div
-      class="ecl-footer-harmonised__section ecl-footer-harmonised__section2"
+      class="ecl-footer-harmonised__section2"
     >
-      <div
-        class="ecl-footer-harmonised__title ecl-footer-harmonised__title--separator"
+      <section
+        class="ecl-footer-harmonised__section"
       >
-        Contact us
-      </div>
-      <ul
-        class="ecl-footer-harmonised__list"
-      >
-        <li
-          class="ecl-footer-harmonised__list-item"
+        <div
+          class="ecl-footer-harmonised__title ecl-footer-harmonised__title--separator"
         >
-          <a
-            class="ecl-link ecl-link--standalone ecl-footer-harmonised__link"
-            href="/example"
+          Contact us
+        </div>
+        <ul
+          class="ecl-footer-harmonised__list"
+        >
+          <li
+            class="ecl-footer-harmonised__list-item"
           >
-            Contact information of the DG
-          </a>
-        </li>
-      </ul>
+            <a
+              class="ecl-link ecl-link--standalone ecl-footer-harmonised__link"
+              href="/example"
+            >
+              Contact information of the DG
+            </a>
+          </li>
+        </ul>
+      </section>
+      <section
+        class="ecl-footer-harmonised__section"
+      >
+        <div
+          class="ecl-footer-harmonised__title ecl-footer-harmonised__title--separator"
+        >
+          Follow us on
+        </div>
+        <ul
+          class="ecl-footer-harmonised__list ecl-footer-harmonised__list--inline"
+        >
+          <li
+            class="ecl-footer-harmonised__list-item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-before ecl-footer-harmonised__link"
+              href="/example"
+            >
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--xs ecl-link__icon"
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#branded--facebook"
+                />
+              </svg>
+               
+              <span
+                class="ecl-link__label"
+              >
+                Facebook
+              </span>
+            </a>
+          </li>
+          <li
+            class="ecl-footer-harmonised__list-item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-before ecl-footer-harmonised__link"
+              href="/example"
+            >
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--xs ecl-link__icon"
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#branded--twitter"
+                />
+              </svg>
+               
+              <span
+                class="ecl-link__label"
+              >
+                Twitter
+              </span>
+            </a>
+          </li>
+          <li
+            class="ecl-footer-harmonised__list-item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-before ecl-footer-harmonised__link"
+              href="/example"
+            >
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--xs ecl-link__icon"
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#branded--linkedin"
+                />
+              </svg>
+               
+              <span
+                class="ecl-link__label"
+              >
+                Linkedin
+              </span>
+            </a>
+          </li>
+        </ul>
+      </section>
     </div>
     <div
-      class="ecl-footer-harmonised__section ecl-footer-harmonised__section3"
+      class="ecl-footer-harmonised__section3"
     >
-      <div
-        class="ecl-footer-harmonised__title ecl-footer-harmonised__title--separator"
+      <section
+        class="ecl-footer-harmonised__section"
       >
-        About us
-      </div>
-      <ul
-        class="ecl-footer-harmonised__list"
-      >
-        <li
-          class="ecl-footer-harmonised__list-item"
+        <div
+          class="ecl-footer-harmonised__title ecl-footer-harmonised__title--separator"
         >
-          <a
-            class="ecl-link ecl-link--standalone ecl-footer-harmonised__link"
-            href="/example"
+          About us
+        </div>
+        <ul
+          class="ecl-footer-harmonised__list"
+        >
+          <li
+            class="ecl-footer-harmonised__list-item"
           >
-            Information about the DG
-          </a>
-        </li>
-      </ul>
+            <a
+              class="ecl-link ecl-link--standalone ecl-footer-harmonised__link"
+              href="/example"
+            >
+              Information about the DG
+            </a>
+          </li>
+        </ul>
+      </section>
+      <section
+        class="ecl-footer-harmonised__section"
+      >
+        <div
+          class="ecl-footer-harmonised__title ecl-footer-harmonised__title--separator"
+        >
+          Related sites
+        </div>
+        <ul
+          class="ecl-footer-harmonised__list"
+        >
+          <li
+            class="ecl-footer-harmonised__list-item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-footer-harmonised__link"
+              href="/example"
+            >
+              Related link 1
+            </a>
+          </li>
+          <li
+            class="ecl-footer-harmonised__list-item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-footer-harmonised__link"
+              href="/example"
+            >
+              Related link 2
+            </a>
+          </li>
+          <li
+            class="ecl-footer-harmonised__list-item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-footer-harmonised__link"
+              href="/example"
+            >
+              Related link 3
+            </a>
+          </li>
+          <li
+            class="ecl-footer-harmonised__list-item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-footer-harmonised__link"
+              href="/example"
+            >
+              Related link 4
+            </a>
+          </li>
+          <li
+            class="ecl-footer-harmonised__list-item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-footer-harmonised__link"
+              href="/example"
+            >
+              Related link 5
+            </a>
+          </li>
+        </ul>
+      </section>
     </div>
-    <div
-      class="ecl-footer-harmonised__section ecl-footer-harmonised__section4"
-    >
-      <div
-        class="ecl-footer-harmonised__title ecl-footer-harmonised__title--separator"
-      >
-        Follow us on
-      </div>
-      <ul
-        class="ecl-footer-harmonised__list ecl-footer-harmonised__list--inline"
-      >
-        <li
-          class="ecl-footer-harmonised__list-item"
-        >
-          <a
-            class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-before ecl-footer-harmonised__link"
-            href="/example"
-          >
-            <svg
-              aria-hidden="true"
-              class="ecl-icon ecl-icon--xs ecl-link__icon"
-              focusable="false"
-            >
-              <use
-                xlink:href="/icons.svg#branded--facebook"
-              />
-            </svg>
-             
-            <span
-              class="ecl-link__label"
-            >
-              Facebook
-            </span>
-          </a>
-        </li>
-        <li
-          class="ecl-footer-harmonised__list-item"
-        >
-          <a
-            class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-before ecl-footer-harmonised__link"
-            href="/example"
-          >
-            <svg
-              aria-hidden="true"
-              class="ecl-icon ecl-icon--xs ecl-link__icon"
-              focusable="false"
-            >
-              <use
-                xlink:href="/icons.svg#branded--twitter"
-              />
-            </svg>
-             
-            <span
-              class="ecl-link__label"
-            >
-              Twitter
-            </span>
-          </a>
-        </li>
-        <li
-          class="ecl-footer-harmonised__list-item"
-        >
-          <a
-            class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-before ecl-footer-harmonised__link"
-            href="/example"
-          >
-            <svg
-              aria-hidden="true"
-              class="ecl-icon ecl-icon--xs ecl-link__icon"
-              focusable="false"
-            >
-              <use
-                xlink:href="/icons.svg#branded--linkedin"
-              />
-            </svg>
-             
-            <span
-              class="ecl-link__label"
-            >
-              Linkedin
-            </span>
-          </a>
-        </li>
-      </ul>
-    </div>
-    <div
-      class="ecl-footer-harmonised__section ecl-footer-harmonised__section5"
-    >
-      <div
-        class="ecl-footer-harmonised__title ecl-footer-harmonised__title--separator"
-      >
-        Related sites
-      </div>
-      <ul
-        class="ecl-footer-harmonised__list"
-      >
-        <li
-          class="ecl-footer-harmonised__list-item"
-        >
-          <a
-            class="ecl-link ecl-link--standalone ecl-footer-harmonised__link"
-            href="/example"
-          >
-            Related link 1
-          </a>
-        </li>
-        <li
-          class="ecl-footer-harmonised__list-item"
-        >
-          <a
-            class="ecl-link ecl-link--standalone ecl-footer-harmonised__link"
-            href="/example"
-          >
-            Related link 2
-          </a>
-        </li>
-        <li
-          class="ecl-footer-harmonised__list-item"
-        >
-          <a
-            class="ecl-link ecl-link--standalone ecl-footer-harmonised__link"
-            href="/example"
-          >
-            Related link 3
-          </a>
-        </li>
-        <li
-          class="ecl-footer-harmonised__list-item"
-        >
-          <a
-            class="ecl-link ecl-link--standalone ecl-footer-harmonised__link"
-            href="/example"
-          >
-            Related link 4
-          </a>
-        </li>
-        <li
-          class="ecl-footer-harmonised__list-item"
-        >
-          <a
-            class="ecl-link ecl-link--standalone ecl-footer-harmonised__link"
-            href="/example"
-          >
-            Related link 5
-          </a>
-        </li>
-      </ul>
-    </div>
-    <div
+    <section
       class="ecl-footer-harmonised__section ecl-footer-harmonised__section6"
     >
       <div
@@ -996,8 +1020,8 @@ exports[`EC - Footer Harmonised Group 1 renders correctly with extra class names
           </a>
         </li>
       </ul>
-    </div>
-    <div
+    </section>
+    <section
       class="ecl-footer-harmonised__section ecl-footer-harmonised__section7"
     >
       <a
@@ -1006,8 +1030,8 @@ exports[`EC - Footer Harmonised Group 1 renders correctly with extra class names
       >
         European Commission
       </a>
-    </div>
-    <div
+    </section>
+    <section
       class="ecl-footer-harmonised__section ecl-footer-harmonised__section8"
     >
       <ul
@@ -1058,8 +1082,8 @@ exports[`EC - Footer Harmonised Group 1 renders correctly with extra class names
           </a>
         </li>
       </ul>
-    </div>
-    <div
+    </section>
+    <section
       class="ecl-footer-harmonised__section ecl-footer-harmonised__section9"
     >
       <ul
@@ -1116,7 +1140,7 @@ exports[`EC - Footer Harmonised Group 1 renders correctly with extra class names
           </a>
         </li>
       </ul>
-    </div>
+    </section>
   </div>
 </footer>
 `;
@@ -1128,7 +1152,7 @@ exports[`EC - Footer Harmonised Group 2 renders correctly 1`] = `
   <div
     class="ecl-container ecl-footer-harmonised__container"
   >
-    <div
+    <section
       class="ecl-footer-harmonised__section ecl-footer-harmonised__section1"
     >
       <a
@@ -1137,8 +1161,8 @@ exports[`EC - Footer Harmonised Group 2 renders correctly 1`] = `
       >
         European Commission
       </a>
-    </div>
-    <div
+    </section>
+    <section
       class="ecl-footer-harmonised__section ecl-footer-harmonised__section2"
     >
       <ul
@@ -1189,9 +1213,9 @@ exports[`EC - Footer Harmonised Group 2 renders correctly 1`] = `
           </a>
         </li>
       </ul>
-    </div>
-    <div
-      class="ecl-footer-harmonised__section ecl-footer-harmonised__section3"
+    </section>
+    <section
+      class="ecl-footer-harmonised__section ecl-footer-harmonised__section9"
     >
       <ul
         class="ecl-footer-harmonised__list"
@@ -1247,7 +1271,7 @@ exports[`EC - Footer Harmonised Group 2 renders correctly 1`] = `
           </a>
         </li>
       </ul>
-    </div>
+    </section>
   </div>
 </footer>
 `;
@@ -1261,7 +1285,7 @@ exports[`EC - Footer Harmonised Group 2 renders correctly with extra attributes 
   <div
     class="ecl-container ecl-footer-harmonised__container"
   >
-    <div
+    <section
       class="ecl-footer-harmonised__section ecl-footer-harmonised__section1"
     >
       <a
@@ -1270,8 +1294,8 @@ exports[`EC - Footer Harmonised Group 2 renders correctly with extra attributes 
       >
         European Commission
       </a>
-    </div>
-    <div
+    </section>
+    <section
       class="ecl-footer-harmonised__section ecl-footer-harmonised__section2"
     >
       <ul
@@ -1322,9 +1346,9 @@ exports[`EC - Footer Harmonised Group 2 renders correctly with extra attributes 
           </a>
         </li>
       </ul>
-    </div>
-    <div
-      class="ecl-footer-harmonised__section ecl-footer-harmonised__section3"
+    </section>
+    <section
+      class="ecl-footer-harmonised__section ecl-footer-harmonised__section9"
     >
       <ul
         class="ecl-footer-harmonised__list"
@@ -1380,7 +1404,7 @@ exports[`EC - Footer Harmonised Group 2 renders correctly with extra attributes 
           </a>
         </li>
       </ul>
-    </div>
+    </section>
   </div>
 </footer>
 `;
@@ -1392,7 +1416,7 @@ exports[`EC - Footer Harmonised Group 2 renders correctly with extra class names
   <div
     class="ecl-container ecl-footer-harmonised__container"
   >
-    <div
+    <section
       class="ecl-footer-harmonised__section ecl-footer-harmonised__section1"
     >
       <a
@@ -1401,8 +1425,8 @@ exports[`EC - Footer Harmonised Group 2 renders correctly with extra class names
       >
         European Commission
       </a>
-    </div>
-    <div
+    </section>
+    <section
       class="ecl-footer-harmonised__section ecl-footer-harmonised__section2"
     >
       <ul
@@ -1453,9 +1477,9 @@ exports[`EC - Footer Harmonised Group 2 renders correctly with extra class names
           </a>
         </li>
       </ul>
-    </div>
-    <div
-      class="ecl-footer-harmonised__section ecl-footer-harmonised__section3"
+    </section>
+    <section
+      class="ecl-footer-harmonised__section ecl-footer-harmonised__section9"
     >
       <ul
         class="ecl-footer-harmonised__list"
@@ -1511,7 +1535,7 @@ exports[`EC - Footer Harmonised Group 2 renders correctly with extra class names
           </a>
         </li>
       </ul>
-    </div>
+    </section>
   </div>
 </footer>
 `;
@@ -1523,7 +1547,7 @@ exports[`EC - Footer Harmonised Group 3 renders correctly 1`] = `
   <div
     class="ecl-container ecl-footer-harmonised__container"
   >
-    <div
+    <section
       class="ecl-footer-harmonised__section ecl-footer-harmonised__section1"
     >
       <div
@@ -1531,6 +1555,10 @@ exports[`EC - Footer Harmonised Group 3 renders correctly 1`] = `
       >
         Joint partnership
       </div>
+    </section>
+    <section
+      class="ecl-footer-harmonised__section ecl-footer-harmonised__section2"
+    >
       <ul
         class="ecl-footer-harmonised__logo-list"
       >
@@ -1565,7 +1593,7 @@ exports[`EC - Footer Harmonised Group 3 renders correctly 1`] = `
           />
         </li>
       </ul>
-    </div>
+    </section>
   </div>
 </footer>
 `;
@@ -1579,7 +1607,7 @@ exports[`EC - Footer Harmonised Group 3 renders correctly with extra attributes 
   <div
     class="ecl-container ecl-footer-harmonised__container"
   >
-    <div
+    <section
       class="ecl-footer-harmonised__section ecl-footer-harmonised__section1"
     >
       <div
@@ -1587,6 +1615,10 @@ exports[`EC - Footer Harmonised Group 3 renders correctly with extra attributes 
       >
         Joint partnership
       </div>
+    </section>
+    <section
+      class="ecl-footer-harmonised__section ecl-footer-harmonised__section2"
+    >
       <ul
         class="ecl-footer-harmonised__logo-list"
       >
@@ -1621,7 +1653,7 @@ exports[`EC - Footer Harmonised Group 3 renders correctly with extra attributes 
           />
         </li>
       </ul>
-    </div>
+    </section>
   </div>
 </footer>
 `;
@@ -1633,7 +1665,7 @@ exports[`EC - Footer Harmonised Group 3 renders correctly with extra class names
   <div
     class="ecl-container ecl-footer-harmonised__container"
   >
-    <div
+    <section
       class="ecl-footer-harmonised__section ecl-footer-harmonised__section1"
     >
       <div
@@ -1641,6 +1673,10 @@ exports[`EC - Footer Harmonised Group 3 renders correctly with extra class names
       >
         Joint partnership
       </div>
+    </section>
+    <section
+      class="ecl-footer-harmonised__section ecl-footer-harmonised__section2"
+    >
       <ul
         class="ecl-footer-harmonised__logo-list"
       >
@@ -1675,7 +1711,7 @@ exports[`EC - Footer Harmonised Group 3 renders correctly with extra class names
           />
         </li>
       </ul>
-    </div>
+    </section>
   </div>
 </footer>
 `;
