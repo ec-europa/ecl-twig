@@ -51,6 +51,6 @@ storiesOf('Components/Blockquote', module)
       return blockquote(prepareQuote(defaultData));
     },
     {
-      notes: { markdown: notes, json: data },
+      notes: { markdown: notes, json: defaultData },
     }
   );
