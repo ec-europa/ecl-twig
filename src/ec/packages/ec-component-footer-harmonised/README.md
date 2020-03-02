@@ -10,6 +10,7 @@ npm install --save @ecl-twig/ec-component-footer-harmonised
 
 - **"group"** (string) (default: 'group1'): 'group1' or 'group2'
 - **"sections"** (array of objects) (default: [])
+  - "section_id" (integer) (default: '') The id will be used to form the class name
   - "title" (optional) (string) OR (object with Link component in property)
   - "title_class_name" (optional) (string) (default: '')
   - "description" (optional) (string) (default: '')
@@ -33,6 +34,7 @@ npm install --save @ecl-twig/ec-component-footer-harmonised
   group: 'group1', 
   sections: [ 
     { 
+      section_id: 1,
       title: { 
         link: { 
           label: "Site name", 
@@ -43,6 +45,7 @@ npm install --save @ecl-twig/ec-component-footer-harmonised
         'This site is managed by the Directorate-General for "DG identification"', 
       }, 
       { 
+        section_id: 2, 
         title: 'Contact us', 
         title_class_name: 'ecl-footer-standardised__title--separator', 
         links: [ 
@@ -55,6 +58,7 @@ npm install --save @ecl-twig/ec-component-footer-harmonised
         ], 
       }, 
       { 
+        section_id: 2, 
         title: 'Follow us on', 
         title_class_name: 'ecl-footer-standardised__title--separator', 
         links: [ 
@@ -76,6 +80,7 @@ npm install --save @ecl-twig/ec-component-footer-harmonised
         list_class_name: 'ecl-footer-standardised__list--inline', 
       }, 
       { 
+        section_id: 3,
         content_before: 'More information on:', 
         links: [ 
           { 
