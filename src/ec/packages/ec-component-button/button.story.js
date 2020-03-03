@@ -39,7 +39,7 @@ const prepareButton = prepareData => {
   prepareData.icon = {
     type: 'ui',
     path: defaultSprite,
-    name: select('Icon (sample)', iconsList, 'null', optionalGroupId),
+    name: select('Icon (sample)', iconsList, null, optionalGroupId),
     size: 'xs',
   };
 
