@@ -69,7 +69,7 @@ storiesOf('Components/Button', module)
       return button(prepareButton(dataPrimary));
     },
     {
-      notes: { markdown: notes, json: prepareButton(dataPrimary) },
+      notes: { markdown: notes, json: dataPrimary },
     }
   )
   .add(
@@ -78,7 +78,7 @@ storiesOf('Components/Button', module)
       return button(prepareButton(dataSecondary));
     },
     {
-      notes: { markdown: notes, json: prepareButton(dataSecondary) },
+      notes: { markdown: notes, json: dataSecondary },
     }
   )
   .add(
@@ -87,7 +87,7 @@ storiesOf('Components/Button', module)
       return button(prepareButton(dataCall));
     },
     {
-      notes: { markdown: notes, json: prepareButton(dataCall) },
+      notes: { markdown: notes, json: dataCall },
     }
   )
   .add(
@@ -96,7 +96,7 @@ storiesOf('Components/Button', module)
       return button(prepareButton(dataGhost));
     },
     {
-      notes: { markdown: notes, json: prepareButton(dataGhost) },
+      notes: { markdown: notes, json: dataGhost },
     }
   )
   .add(
@@ -105,6 +105,6 @@ storiesOf('Components/Button', module)
       return button(prepareButton(dataSearch));
     },
     {
-      notes: { markdown: notes, json: prepareButton(dataSearch) },
+      notes: { markdown: notes, json: dataSearch },
     }
   );
