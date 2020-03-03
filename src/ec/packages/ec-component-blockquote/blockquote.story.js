@@ -10,14 +10,14 @@ import notes from './README.md';
 const optionalGroupId = 'Optional elements';
 const requiredGroupId = 'Mandatory elements';
 
-const prepareQuote = preperaData => {
-  preperaData.citation = text(
+const prepareQuote = prepareData => {
+  prepareData.citation = text(
     'citation',
-    preperaData.citation,
+    prepareData.citation,
     requiredGroupId
   );
-  preperaData.author = text('author', preperaData.author, requiredGroupId);
-  return preperaData;
+  prepareData.author = text('author', prepareData.author, requiredGroupId);
+  return prepareData;
 };
 
 storiesOf('Components/Blockquote', module)
