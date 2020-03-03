@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.24.0](https://github.com/ec-europa/ecl-twig/compare/v2.23.0...v2.24.0) (2020-03-02)
+
+### Bug Fixes
+
+- **language-list:** Renaming main template, fixing php-storybook, fixing template syntax - FRONT-823 ([#343](https://github.com/ec-europa/ecl-twig/issues/343)) ([3fc7450](https://github.com/ec-europa/ecl-twig/commit/3fc7450cafcdfe7657bfe65f0074bad24ae29382))
+
+### Features
+
+- **card:** Improve knobs on component- TWIG-254 ([#318](https://github.com/ec-europa/ecl-twig/issues/318)) ([b6656fb](https://github.com/ec-europa/ecl-twig/commit/b6656fb3f5f7ed81a28e2c20db9fe22cd9f3ac83))
+- **knobs:** Poc for a panel with three sub-panels, buttons for show/hiding - FRONT-813 ([#339](https://github.com/ec-europa/ecl-twig/issues/339)) ([c6666e5](https://github.com/ec-europa/ecl-twig/commit/c6666e5d47886342f40571c81d0761ba808e7fd5))
+
 # [2.23.0](https://github.com/ec-europa/ecl-twig/compare/v2.22.1...v2.23.0) (2020-02-07)
 
 **Note:** Version bump only for package @ecl-twig/ec-component-card
