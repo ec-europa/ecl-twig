@@ -423,7 +423,7 @@ storiesOf('Components/Footers/Harmonised', module)
     {
       notes: {
         markdown: notes,
-        json: { group: 'group3', sections: formatFooterG3(dataG3) },
+        json: { group: 'group3', sections: dataG3 },
       },
     }
   );
