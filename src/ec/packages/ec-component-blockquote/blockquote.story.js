@@ -27,7 +27,8 @@ storiesOf('Components/Blockquote', module)
   .add(
     'default',
     () => {
-      const storyData = prepareQuote(data);
+      const preparedData = { ...data };
+      const storyData = prepareQuote(preparedData);
       storyData.demo = text(
         'optional elements',
         'No optional element in this story',
