@@ -75,7 +75,7 @@ export const withNotes = makeDecorator({
 
     channel.emit(
       'ecl/notes/add_notes',
-      renderMarkdown(markdown, markdownOptions, json)
+      text || renderMarkdown(markdown, markdownOptions, json)
     );
 
     return story;
