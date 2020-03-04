@@ -36,20 +36,6 @@ const optionalGroupId = 'Optional elements';
 const prepareButton = prepareData => {
   prepareData.label = text('Label', prepareData.label, requiredGroupId);
 
-  prepareData.icon = {
-    type: 'ui',
-    path: defaultSprite,
-    name: select('Icon (sample)', iconsList, null, optionalGroupId),
-    size: 'xs',
-  };
-
-  prepareData.icon_position = select(
-    'Icon position',
-    iconPositionSettings,
-    'after',
-    optionalGroupId
-  );
-
   prepareData.disabled = boolean(
     'Disabled',
     prepareData.disabled,
@@ -66,7 +52,27 @@ storiesOf('Components/Button', module)
   .add(
     'primary',
     () => {
-      return button(prepareButton(dataPrimary));
+      const name = select('Icon (sample)', iconsList, null, optionalGroupId);
+      const iconPosition = select(
+        'icon_position',
+        iconPositionSettings,
+        'after',
+        optionalGroupId
+      );
+
+      const data = prepareButton(dataPrimary);
+      if (name) {
+        data.icon = {
+          type: 'ui',
+          path: defaultSprite,
+          name,
+          size: 'xs',
+        };
+
+        data.icon_position = iconPosition;
+      }
+
+      return button(data);
     },
     {
       notes: { markdown: notes, json: dataPrimary },
@@ -75,7 +81,27 @@ storiesOf('Components/Button', module)
   .add(
     'secondary',
     () => {
-      return button(prepareButton(dataSecondary));
+      const name = select('Icon (sample)', iconsList, null, optionalGroupId);
+      const iconPosition = select(
+        'icon_position',
+        iconPositionSettings,
+        'after',
+        optionalGroupId
+      );
+
+      const data = prepareButton(dataSecondary);
+      if (name) {
+        data.icon = {
+          type: 'ui',
+          path: defaultSprite,
+          name,
+          size: 'xs',
+        };
+
+        data.icon_position = iconPosition;
+      }
+
+      return button(prepareButton(data));
     },
     {
       notes: { markdown: notes, json: dataSecondary },
@@ -84,7 +110,27 @@ storiesOf('Components/Button', module)
   .add(
     'call to action',
     () => {
-      return button(prepareButton(dataCall));
+      const name = select('Icon (sample)', iconsList, null, optionalGroupId);
+      const iconPosition = select(
+        'icon_position',
+        iconPositionSettings,
+        'after',
+        optionalGroupId
+      );
+
+      const data = prepareButton(dataCall);
+      if (name) {
+        data.icon = {
+          type: 'ui',
+          path: defaultSprite,
+          name,
+          size: 'xs',
+        };
+
+        data.icon_position = iconPosition;
+      }
+
+      return button(data);
     },
     {
       notes: { markdown: notes, json: dataCall },
@@ -93,7 +139,27 @@ storiesOf('Components/Button', module)
   .add(
     'text',
     () => {
-      return button(prepareButton(dataGhost));
+      const name = select('Icon (sample)', iconsList, null, optionalGroupId);
+      const iconPosition = select(
+        'icon_position',
+        iconPositionSettings,
+        'after',
+        optionalGroupId
+      );
+
+      const data = prepareButton(dataGhost);
+      if (name) {
+        data.icon = {
+          type: 'ui',
+          path: defaultSprite,
+          name,
+          size: 'xs',
+        };
+
+        data.icon_position = iconPosition;
+      }
+
+      return button(data);
     },
     {
       notes: { markdown: notes, json: dataGhost },
@@ -102,7 +168,27 @@ storiesOf('Components/Button', module)
   .add(
     'search',
     () => {
-      return button(prepareButton(dataSearch));
+      const name = select('Icon (sample)', iconsList, null, optionalGroupId);
+      const iconPosition = select(
+        'icon_position',
+        iconPositionSettings,
+        'after',
+        optionalGroupId
+      );
+
+      const data = prepareButton(dataSearch);
+      if (name) {
+        data.icon = {
+          type: 'ui',
+          path: defaultSprite,
+          name,
+          size: 'xs',
+        };
+
+        data.icon_position = iconPosition;
+      }
+
+      return button(data);
     },
     {
       notes: { markdown: notes, json: dataSearch },
