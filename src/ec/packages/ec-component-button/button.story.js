@@ -1,4 +1,4 @@
-import merge from 'deepmerge';
+/* eslint-disable no-param-reassign */
 import { storiesOf } from '@storybook/html';
 import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
@@ -28,15 +28,35 @@ uiIcons.forEach(icon => {
   iconsList[icon] = icon;
 });
 
-const prepareButton = data => {
-  const dataWithIcon = data;
-  dataWithIcon.icon = {
+// Labels for the groups.
+const requiredGroupId = 'Mandatory elements';
+const optionalGroupId = 'Optional elements';
+
+// Preserve the adapted specs.
+const prepareButton = prepareData => {
+  prepareData.label = text('Label', prepareData.label, requiredGroupId);
+
+  prepareData.icon = {
     type: 'ui',
     path: defaultSprite,
+    name: select('Icon (sample)', iconsList, null, optionalGroupId),
     size: 'xs',
   };
 
-  return dataWithIcon;
+  prepareData.icon_position = select(
+    'Icon position',
+    iconPositionSettings,
+    'after',
+    optionalGroupId
+  );
+
+  prepareData.disabled = boolean(
+    'Disabled',
+    prepareData.disabled,
+    optionalGroupId
+  );
+
+  return prepareData;
 };
 
 storiesOf('Components/Button', module)
@@ -45,86 +65,46 @@ storiesOf('Components/Button', module)
   .addDecorator(withNotes)
   .add(
     'primary',
-    () =>
-      button(
-        merge(prepareButton(dataPrimary), {
-          icon: {
-            name: select('Icon (sample)', iconsList, null),
-          },
-          label: text('label', dataPrimary.label),
-          icon_position: select('Icon position', iconPositionSettings, 'after'),
-          disabled: boolean('Disabled', false),
-        })
-      ),
+    () => {
+      return button(prepareButton(dataPrimary));
+    },
     {
-      notes: { markdown: notes, json: prepareButton(dataPrimary) },
+      notes: { markdown: notes, json: dataPrimary },
     }
   )
   .add(
     'secondary',
-    () =>
-      button(
-        merge(dataSecondary, {
-          icon: {
-            name: select('Icon (sample)', iconsList, null),
-          },
-          label: text('label', dataSecondary.label),
-          icon_position: select('Icon position', iconPositionSettings, 'after'),
-          disabled: boolean('Disabled', false),
-        })
-      ),
+    () => {
+      return button(prepareButton(dataSecondary));
+    },
     {
-      notes: { markdown: notes, json: prepareButton(dataSecondary) },
+      notes: { markdown: notes, json: dataSecondary },
     }
   )
   .add(
     'call to action',
-    () =>
-      button(
-        merge(prepareButton(dataCall), {
-          icon: {
-            name: select('Icon (sample)', iconsList, null),
-          },
-          label: text('label', dataCall.label),
-          icon_position: select('Icon position', iconPositionSettings, 'after'),
-          disabled: boolean('Disabled', false),
-        })
-      ),
+    () => {
+      return button(prepareButton(dataCall));
+    },
     {
-      notes: { markdown: notes, json: prepareButton(dataCall) },
+      notes: { markdown: notes, json: dataCall },
     }
   )
   .add(
     'text',
-    () =>
-      button(
-        merge(prepareButton(dataGhost), {
-          icon: {
-            name: select('Icon (sample)', iconsList, null),
-          },
-          label: text('label', dataGhost.label),
-          icon_position: select('Icon position', iconPositionSettings, 'after'),
-          disabled: boolean('Disabled', false),
-        })
-      ),
+    () => {
+      return button(prepareButton(dataGhost));
+    },
     {
-      notes: { markdown: notes, json: prepareButton(dataGhost) },
+      notes: { markdown: notes, json: dataGhost },
     }
   )
   .add(
     'search',
-    () =>
-      button(
-        merge(prepareButton(dataSearch), {
-          icon: {
-            name: select('Icon (sample)', iconsList, null),
-          },
-          label: text('label', dataSearch.label),
-          icon_position: select('Icon position', iconPositionSettings, 'after'),
-          disabled: boolean('Disabled', false),
-        })
-      ),
+    () => {
+      return button(prepareButton(dataSearch));
+    },
     {
-      notes: { markdown: notes, json: prepareButton(dataSearch) },
+      notes: { markdown: notes, json: dataSearch },
     }
   );
