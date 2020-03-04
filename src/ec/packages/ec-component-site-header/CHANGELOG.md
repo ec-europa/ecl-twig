@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.24.0](https://github.com/ec-europa/ecl-twig/compare/v2.23.0...v2.24.0) (2020-03-02)
+
+### Bug Fixes
+
+- **language-list:** Renaming main template, fixing php-storybook, fixing template syntax - FRONT-823 ([#343](https://github.com/ec-europa/ecl-twig/issues/343)) ([3fc7450](https://github.com/ec-europa/ecl-twig/commit/3fc7450cafcdfe7657bfe65f0074bad24ae29382))
+
+### Features
+
+- **language-list:** make the overlay knob work in 1 template - FRONT-491 ([#335](https://github.com/ec-europa/ecl-twig/issues/335)) ([cbc8cfc](https://github.com/ec-europa/ecl-twig/commit/cbc8cfced3d8828d5f1be24d36b7597b444c2f49))
+- **site-headers:** Adding buttons to show/hide login and language switcher where needed - FRONT-485 ([#329](https://github.com/ec-europa/ecl-twig/issues/329)) ([69135d8](https://github.com/ec-europa/ecl-twig/commit/69135d8e9fd899fbde4189b7cc4108d1e2e3dc5f))
+
 # [2.23.0](https://github.com/ec-europa/ecl-twig/compare/v2.22.1...v2.23.0) (2020-02-07)
 
 **Note:** Version bump only for package @ecl-twig/ec-component-site-header

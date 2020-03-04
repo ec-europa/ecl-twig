@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.24.0](https://github.com/ec-europa/ecl-twig/compare/v2.23.0...v2.24.0) (2020-03-02)
+
+### Features
+
+- **tag:** Improve knobs on component - FRONT-492 ([#334](https://github.com/ec-europa/ecl-twig/issues/334)) ([7493eb8](https://github.com/ec-europa/ecl-twig/commit/7493eb8944866959bc6437c7886358a82b7aee57))
+
 # [2.23.0](https://github.com/ec-europa/ecl-twig/compare/v2.22.1...v2.23.0) (2020-02-07)
 
 **Note:** Version bump only for package @ecl-twig/ec-component-tag
