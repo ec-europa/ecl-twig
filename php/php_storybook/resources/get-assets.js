@@ -13,3 +13,10 @@ ncp('static/images/', 'php/dist/', options, err => {
   }
   return console.log('Assets copied in the php/dist folder');
 });
+
+ncp('static/index.html', 'php/dist/index.html', {}, err => {
+  if (err) {
+    return console.error(err);
+  }
+  return console.log('Index.html copied in the php/dist folder');
+});
