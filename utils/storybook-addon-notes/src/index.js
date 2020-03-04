@@ -60,6 +60,7 @@ export const withNotes = makeDecorator({
   allowDeprecatedUsage: true,
   wrapper: (getStory, context, { options, parameters }) => {
     const channel = addons.getChannel();
+    const story = getStory(context);
     const { json } = parameters;
     const storyOptions = parameters || options;
 
@@ -74,10 +75,10 @@ export const withNotes = makeDecorator({
 
     channel.emit(
       'ecl/notes/add_notes',
-      text || renderMarkdown(markdown, markdownOptions, json)
+      renderMarkdown(markdown, markdownOptions, json)
     );
 
-    return getStory(context);
+    return story;
   },
 });
 
