@@ -28,21 +28,51 @@ uiIcons.forEach(icon => {
   iconsList[icon] = icon;
 });
 
-// Labels for the groups.
+// labels for the groups.
 const requiredGroupId = 'Mandatory elements';
 const optionalGroupId = 'Optional elements';
 
 // Preserve the adapted specs.
 const prepareButton = prepareData => {
-  prepareData.label = text('Label', prepareData.label, requiredGroupId);
+  prepareData.label = text('label', prepareData.label, requiredGroupId);
+
+  prepareData.variant = select(
+    'variant (default value: primary)',
+    [prepareData.variant],
+    prepareData.variant,
+    optionalGroupId
+  );
 
   prepareData.disabled = boolean(
-    'Disabled',
+    'disabled',
     prepareData.disabled,
     optionalGroupId
   );
 
   return prepareData;
+};
+
+const prepareIcon = (name, data) => {
+  const icon = {};
+  icon.name = name;
+  icon.type = select('icon.type', ['ui'], 'ui', optionalGroupId);
+  icon.path = select(
+    'icon.path',
+    [defaultSprite],
+    defaultSprite,
+    optionalGroupId
+  );
+  icon.size = select('icon.size', ['xs'], 'xs', optionalGroupId);
+
+  if (icon) {
+    data.icon = icon;
+    data.icon_position = select(
+      'icon_position',
+      iconPositionSettings,
+      'after',
+      optionalGroupId
+    );
+  }
 };
 
 storiesOf('Components/Button', module)
@@ -52,24 +82,10 @@ storiesOf('Components/Button', module)
   .add(
     'primary',
     () => {
-      const name = select('Icon (sample)', iconsList, null, optionalGroupId);
-      const iconPosition = select(
-        'icon_position',
-        iconPositionSettings,
-        'after',
-        optionalGroupId
-      );
-
       const data = prepareButton(dataPrimary);
-      if (name) {
-        data.icon = {
-          type: 'ui',
-          path: defaultSprite,
-          name,
-          size: 'xs',
-        };
-
-        data.icon_position = iconPosition;
+      const name = select('icon.name', iconsList, null, optionalGroupId);
+      if (name !== null) {
+        prepareIcon(name, data);
       }
 
       return button(data);
@@ -81,27 +97,13 @@ storiesOf('Components/Button', module)
   .add(
     'secondary',
     () => {
-      const name = select('Icon (sample)', iconsList, null, optionalGroupId);
-      const iconPosition = select(
-        'icon_position',
-        iconPositionSettings,
-        'after',
-        optionalGroupId
-      );
-
       const data = prepareButton(dataSecondary);
-      if (name) {
-        data.icon = {
-          type: 'ui',
-          path: defaultSprite,
-          name,
-          size: 'xs',
-        };
-
-        data.icon_position = iconPosition;
+      const name = select('icon.name', iconsList, null, optionalGroupId);
+      if (name !== null) {
+        prepareIcon(name, data);
       }
 
-      return button(prepareButton(data));
+      return button(data);
     },
     {
       notes: { markdown: notes, json: dataSecondary },
@@ -110,24 +112,10 @@ storiesOf('Components/Button', module)
   .add(
     'call to action',
     () => {
-      const name = select('Icon (sample)', iconsList, null, optionalGroupId);
-      const iconPosition = select(
-        'icon_position',
-        iconPositionSettings,
-        'after',
-        optionalGroupId
-      );
-
       const data = prepareButton(dataCall);
-      if (name) {
-        data.icon = {
-          type: 'ui',
-          path: defaultSprite,
-          name,
-          size: 'xs',
-        };
-
-        data.icon_position = iconPosition;
+      const name = select('icon.name', iconsList, null, optionalGroupId);
+      if (name !== null) {
+        prepareIcon(name, data);
       }
 
       return button(data);
@@ -139,24 +127,10 @@ storiesOf('Components/Button', module)
   .add(
     'text',
     () => {
-      const name = select('Icon (sample)', iconsList, null, optionalGroupId);
-      const iconPosition = select(
-        'icon_position',
-        iconPositionSettings,
-        'after',
-        optionalGroupId
-      );
-
       const data = prepareButton(dataGhost);
-      if (name) {
-        data.icon = {
-          type: 'ui',
-          path: defaultSprite,
-          name,
-          size: 'xs',
-        };
-
-        data.icon_position = iconPosition;
+      const name = select('icon.name', iconsList, null, optionalGroupId);
+      if (name !== null) {
+        prepareIcon(name, data);
       }
 
       return button(data);
@@ -168,24 +142,10 @@ storiesOf('Components/Button', module)
   .add(
     'search',
     () => {
-      const name = select('Icon (sample)', iconsList, null, optionalGroupId);
-      const iconPosition = select(
-        'icon_position',
-        iconPositionSettings,
-        'after',
-        optionalGroupId
-      );
-
       const data = prepareButton(dataSearch);
-      if (name) {
-        data.icon = {
-          type: 'ui',
-          path: defaultSprite,
-          name,
-          size: 'xs',
-        };
-
-        data.icon_position = iconPosition;
+      const name = select('icon.name', iconsList, null, optionalGroupId);
+      if (name !== null) {
+        prepareIcon(name, data);
       }
 
       return button(data);
