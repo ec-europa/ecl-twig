@@ -1,4 +1,6 @@
+/* eslint-disable no-param-reassign */
 import { storiesOf } from '@storybook/html';
+import { withKnobs, text, select, object } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
 
@@ -10,17 +12,41 @@ import demoMetaTitleDescriptionContent from './demo/data--meta-title-description
 import pageHeaderHarmonised from './ecl-page-header-harmonised.html.twig';
 import notes from './README.md';
 
-demoTitleContent.breadcrumb.icon_file_path = defaultSprite;
-demoMetaTitleContent.breadcrumb.icon_file_path = defaultSprite;
-demoMetaTitleDescriptionContent.breadcrumb.icon_file_path = defaultSprite;
+// Labels for the groups.
+const requiredGroupId = 'Mandatory elements';
+const optionalGroupId = 'Optional elements';
+
+const preparePageHeaderHarmonised = data => {
+  data.breadcrumb.icon_file_path = defaultSprite;
+  data.title = text('title', data.title, requiredGroupId);
+  data.breadcrumb = object('breadcrumb', data.breadcrumb, requiredGroupId);
+
+  if (data.meta) {
+    data.meta = text('meta', data.meta, optionalGroupId);
+  }
+  if (data.description) {
+    data.description = text('description', data.description, optionalGroupId);
+  }
+
+  return data;
+};
 
 storiesOf('Components/Page Headers/Page Header Harmonised', module)
   .addDecorator(withNotes)
   .addDecorator(withCode)
+  .addDecorator(withKnobs)
   .add(
     'title',
     () => {
-      return pageHeaderHarmonised(demoTitleContent);
+      select(
+        'optional elements',
+        ['no optional element is present in this story'],
+        'no optional element is present in this story',
+        optionalGroupId
+      );
+      const data = preparePageHeaderHarmonised(demoTitleContent);
+
+      return pageHeaderHarmonised(data);
     },
     {
       notes: { markdown: notes, json: demoTitleContent },
@@ -29,7 +55,9 @@ storiesOf('Components/Page Headers/Page Header Harmonised', module)
   .add(
     'meta-title',
     () => {
-      return pageHeaderHarmonised(demoMetaTitleContent);
+      const data = preparePageHeaderHarmonised(demoMetaTitleContent);
+
+      return pageHeaderHarmonised(data);
     },
     {
       notes: { markdown: notes, json: demoMetaTitleContent },
@@ -38,7 +66,9 @@ storiesOf('Components/Page Headers/Page Header Harmonised', module)
   .add(
     'meta-title-description',
     () => {
-      return pageHeaderHarmonised(demoMetaTitleDescriptionContent);
+      const data = preparePageHeaderHarmonised(demoMetaTitleDescriptionContent);
+
+      return pageHeaderHarmonised(data);
     },
     {
       notes: {
