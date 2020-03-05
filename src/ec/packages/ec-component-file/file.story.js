@@ -1,7 +1,6 @@
 /* eslint-disable no-param-reassign */
-import merge from 'deepmerge';
 import { storiesOf } from '@storybook/html';
-import { withKnobs, text } from '@storybook/addon-knobs';
+import { withKnobs, text, select } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
 
@@ -12,17 +11,61 @@ import dataWithoutTranslation from './demo/data--without-translation';
 import file from './ecl-file.html.twig';
 import notes from './README.md';
 
-// Add icon path
-dataWithTranslation.icon.path = defaultSprite;
-dataWithTranslation.download.icon.path = defaultSprite;
-dataWithoutTranslation.download.icon.path = defaultSprite;
-dataWithTranslation.translation.toggle.icon.path = defaultSprite;
-dataWithoutTranslation.icon.path = defaultSprite;
-dataWithTranslation.translation.items.forEach(item => {
-  item.download.icon = {
-    path: defaultSprite,
-  };
-});
+// Labels for the groups.
+const requiredGroupId = 'Mandatory elements';
+const optionalGroupId = 'Optional elements';
+
+const prepareFile = data => {
+  data.title = text('title', data.title, requiredGroupId);
+  data.language = text('language', data.language, requiredGroupId);
+  data.meta = text('meta', data.meta, requiredGroupId);
+  data.icon.path = select(
+    'icon.path',
+    [defaultSprite],
+    defaultSprite,
+    requiredGroupId
+  );
+  data.download.link.label = text(
+    'download.link.label',
+    data.download.link.label,
+    requiredGroupId
+  );
+  data.download.icon.path = select(
+    'download.icon.path',
+    [defaultSprite],
+    defaultSprite,
+    requiredGroupId
+  );
+
+  if (data.translation) {
+    data.translation.description = text(
+      'translation.description',
+      data.translation.description,
+      optionalGroupId
+    );
+    data.translation.toggle.label = text(
+      'translation.toggle.label',
+      data.translation.toggle.label,
+      requiredGroupId
+    );
+    data.translation.toggle.icon.path = select(
+      'translation.toggle.icon.path',
+      [defaultSprite],
+      defaultSprite,
+      requiredGroupId
+    );
+    data.translation.items.forEach((item, i) => {
+      data.translation.items[i].download.icon.path = select(
+        `data.translation.items[${i}].download.icon.path`,
+        [defaultSprite],
+        defaultSprite,
+        requiredGroupId
+      );
+    });
+  }
+
+  return data;
+};
 
 storiesOf('Components/File', module)
   .addDecorator(withNotes)
@@ -30,56 +73,28 @@ storiesOf('Components/File', module)
   .addDecorator(withKnobs)
   .add(
     'without translation',
-    () =>
-      file(
-        merge(dataWithoutTranslation, {
-          title: text('File title', dataWithoutTranslation.title),
-          language: text('Language', dataWithoutTranslation.language),
-          meta: text('File meta', dataWithoutTranslation.meta),
-          download: {
-            link: {
-              label: text(
-                'Download label',
-                dataWithoutTranslation.download.link.label
-              ),
-            },
-          },
-        })
-      ),
+    () => {
+      select(
+        'optional elements',
+        ['no optional element is present in this story'],
+        'no optional element is present in this story',
+        optionalGroupId
+      );
+      const data = prepareFile(dataWithoutTranslation);
+
+      return file(data);
+    },
     {
       notes: { markdown: notes, json: dataWithoutTranslation },
     }
   )
   .add(
     'with translation',
-    () =>
-      file(
-        merge(dataWithTranslation, {
-          title: text('File title', dataWithTranslation.title),
-          language: text('Language', dataWithTranslation.language),
-          meta: text('File meta', dataWithTranslation.meta),
-          download: {
-            link: {
-              label: text(
-                'Download label',
-                dataWithTranslation.download.link.label
-              ),
-            },
-          },
-          translation: {
-            description: text(
-              'Translations info',
-              dataWithTranslation.translation.description
-            ),
-            toggle: {
-              label: text(
-                'Toggle label',
-                dataWithTranslation.translation.toggle.label
-              ),
-            },
-          },
-        })
-      ),
+    () => {
+      const data = prepareFile(dataWithTranslation);
+
+      return file(data);
+    },
     {
       notes: { markdown: notes, json: dataWithTranslation },
     }
