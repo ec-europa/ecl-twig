@@ -1,4 +1,6 @@
+/* eslint-disable no-param-reassign */
 import { storiesOf } from '@storybook/html';
+import { withKnobs, text, object } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
 
@@ -9,17 +11,46 @@ import demoMetaTitleDescriptionContent from './demo/data--meta-title-description
 import pageHeaderStandardised from './ecl-page-header-standardised.html.twig';
 import notes from './README.md';
 
-demoTitleContent.breadcrumb.icon_file_path = defaultSprite;
-demoMetaTitleContent.breadcrumb.icon_file_path = defaultSprite;
-demoMetaTitleDescriptionContent.breadcrumb.icon_file_path = defaultSprite;
+// Labels for the groups.
+const requiredGroupId = 'Mandatory elements';
+const optionalGroupId = 'Optional elements';
+
+const preparePageHeaderStandardised = data => {
+  data.breadcrumb.icon_file_path = defaultSprite;
+  data.title = text('title', data.title, requiredGroupId);
+  data.breadcrumb = object('breadcrumb', data.breadcrumb, requiredGroupId);
+
+  if (data.meta) {
+    data.meta = text('meta', data.meta, optionalGroupId);
+  }
+  if (data.description) {
+    data.description = text('description', data.description, optionalGroupId);
+  }
+
+  data.extra_classes = text(
+    'extra_classes (comma separated)',
+    '',
+    optionalGroupId
+  );
+  data.extra_attributes = object(
+    'extra_attributes',
+    { name: '', value: '' },
+    optionalGroupId
+  );
+
+  return data;
+};
 
 storiesOf('Components/Page Headers/Page Header Standardised', module)
   .addDecorator(withNotes)
   .addDecorator(withCode)
+  .addDecorator(withKnobs)
   .add(
     'title',
     () => {
-      return pageHeaderStandardised(demoTitleContent);
+      const data = preparePageHeaderStandardised(demoTitleContent);
+
+      return pageHeaderStandardised(data);
     },
     {
       notes: { markdown: notes, json: demoTitleContent },
@@ -28,19 +59,22 @@ storiesOf('Components/Page Headers/Page Header Standardised', module)
   .add(
     'meta-title',
     () => {
-      return pageHeaderStandardised(demoMetaTitleContent);
+      const data = preparePageHeaderStandardised(demoMetaTitleContent);
+
+      return pageHeaderStandardised(data);
     },
     {
-      notes: {
-        markdown: notes,
-        json: demoMetaTitleContent,
-      },
+      notes: { markdown: notes, json: demoMetaTitleContent },
     }
   )
   .add(
     'meta-title-description',
     () => {
-      return pageHeaderStandardised(demoMetaTitleDescriptionContent);
+      const data = preparePageHeaderStandardised(
+        demoMetaTitleDescriptionContent
+      );
+
+      return pageHeaderStandardised(data);
     },
     {
       notes: {
