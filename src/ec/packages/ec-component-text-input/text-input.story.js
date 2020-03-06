@@ -26,36 +26,47 @@ const inputWidthOptions = {
 };
 
 const prepareTextInput = data => {
-  data.label = text('label', data.label, requiredGroupId);
-  data.helper_text = text(
-    'helper_text',
-    "This is the input's helper text.",
-    optionalGroupId
-  );
   data.invalid = boolean('invalid', false, statesGroupId);
   data.disabled = boolean('disabled', false, statesGroupId);
   data.required = boolean('required', false, statesGroupId);
+  data.label = text('label', data.label, requiredGroupId);
   if (data.invalid) {
     data.invalid_text = text(
       'invalid_text',
-      'This is the error message',
+      data.invalid_text,
       requiredGroupId
     );
   } else {
     data.invalid_text = text(
       'invalid_text',
-      'This is the error message',
+      data.invalid_text,
       optionalGroupId
     );
   }
   if (data.required) {
-    data.required_text = text('required_text', '*', requiredGroupId);
-    data.optional_text = text('optional text', '(optional)', optionalGroupId);
+    data.required_text = text(
+      'required_text',
+      data.required_text,
+      requiredGroupId
+    );
+    data.optional_text = text(
+      'optional text',
+      data.optional_text,
+      optionalGroupId
+    );
   } else {
-    data.required_text = text('required_text', '*', optionalGroupId);
-    data.optional_text = text('optional text', '(optional)', requiredGroupId);
+    data.required_text = text(
+      'required_text',
+      data.required_text,
+      optionalGroupId
+    );
+    data.optional_text = text(
+      'optional text',
+      data.optional_text,
+      requiredGroupId
+    );
   }
-
+  data.helper_text = text('helper_text', data.helper_text, optionalGroupId);
   data.width = select('width', inputWidthOptions, 'm', optionalGroupId);
   data.extra_classes = text(
     'extra_classes (comma separated)',
