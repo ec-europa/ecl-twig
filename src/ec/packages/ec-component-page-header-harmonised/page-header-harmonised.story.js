@@ -1,6 +1,6 @@
 /* eslint-disable no-param-reassign */
 import { storiesOf } from '@storybook/html';
-import { withKnobs, text, select, object } from '@storybook/addon-knobs';
+import { withKnobs, text, object } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
 
@@ -28,6 +28,17 @@ const preparePageHeaderHarmonised = data => {
     data.description = text('description', data.description, optionalGroupId);
   }
 
+  data.extra_classes = text(
+    'extra_classes (comma separated)',
+    '',
+    optionalGroupId
+  );
+  data.extra_attributes = object(
+    'extra_attributes',
+    { name: '', value: '' },
+    optionalGroupId
+  );
+
   return data;
 };
 
@@ -38,12 +49,6 @@ storiesOf('Components/Page Headers/Page Header Harmonised', module)
   .add(
     'title',
     () => {
-      select(
-        'optional elements',
-        ['no optional element is present in this story'],
-        'no optional element is present in this story',
-        optionalGroupId
-      );
       const data = preparePageHeaderHarmonised(demoTitleContent);
 
       return pageHeaderHarmonised(data);
