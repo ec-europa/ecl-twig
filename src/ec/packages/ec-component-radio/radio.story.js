@@ -18,26 +18,48 @@ import notes from './README.md';
 // Labels for the groups.
 const requiredGroupId = 'Mandatory elements';
 const optionalGroupId = 'Optional elements';
+const statesGroupId = 'States';
 
 const prepareRadio = data => {
+  data.invalid = boolean('invalid', false, statesGroupId);
+  data.required = boolean('required', data.required, statesGroupId);
   data.label = text('label', data.label, requiredGroupId);
-  data.invalid = boolean('invalid', false, optionalGroupId);
-  data.required = boolean('required', data.required, optionalGroupId);
-  data.invalid_text = text(
-    'invalid_text',
-    dataDefault.invalid_text,
-    requiredGroupId
-  );
-  data.required_text = text(
-    'required_text',
-    data.required_text,
-    requiredGroupId
-  );
-  data.optional_text = text(
-    'optional_text',
-    data.optional_text,
-    optionalGroupId
-  );
+  if (data.invalid) {
+    data.invalid_text = text(
+      'invalid_text',
+      data.invalid_text,
+      requiredGroupId
+    );
+  } else {
+    data.invalid_text = text(
+      'invalid_text',
+      data.invalid_text,
+      optionalGroupId
+    );
+  }
+  if (data.required) {
+    data.required_text = text(
+      'required_text',
+      data.required_text,
+      requiredGroupId
+    );
+    data.optional_text = text(
+      'optional text',
+      data.optional_text,
+      optionalGroupId
+    );
+  } else {
+    data.required_text = text(
+      'required_text',
+      data.required_text,
+      optionalGroupId
+    );
+    data.optional_text = text(
+      'optional_text',
+      data.optional_text,
+      requiredGroupId
+    );
+  }
   data.helper_text = text('helper_text', data.helper_text, optionalGroupId);
 
   data.items.forEach((item, i) => {
