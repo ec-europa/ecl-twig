@@ -1,6 +1,12 @@
 /* eslint-disable no-param-reassign */
 import { storiesOf } from '@storybook/html';
-import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
+import {
+  withKnobs,
+  text,
+  select,
+  boolean,
+  object,
+} from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
 
@@ -33,23 +39,30 @@ const requiredGroupId = 'Mandatory elements';
 const optionalGroupId = 'Optional elements';
 
 // Preserve the adapted specs.
-const prepareButton = prepareData => {
-  prepareData.label = text('label', prepareData.label, requiredGroupId);
+const prepareButton = data => {
+  data.label = text('label', data.label, requiredGroupId);
 
-  prepareData.variant = select(
+  data.variant = select(
     'variant (default value: primary)',
-    [prepareData.variant],
-    prepareData.variant,
+    [data.variant],
+    data.variant,
     optionalGroupId
   );
 
-  prepareData.disabled = boolean(
-    'disabled',
-    prepareData.disabled,
+  data.disabled = boolean('disabled', data.disabled, optionalGroupId);
+
+  data.extra_classes = text(
+    'extra_classes (comma separated)',
+    '',
+    optionalGroupId
+  );
+  data.extra_attributes = object(
+    'extra_attributes',
+    { name: '', value: '' },
     optionalGroupId
   );
 
-  return prepareData;
+  return data;
 };
 
 const prepareIcon = (name, data) => {
