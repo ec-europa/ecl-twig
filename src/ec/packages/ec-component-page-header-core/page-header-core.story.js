@@ -1,6 +1,6 @@
 /* eslint-disable no-param-reassign */
 import { storiesOf } from '@storybook/html';
-import { withKnobs, text, select, object } from '@storybook/addon-knobs';
+import { withKnobs, text, object } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
 
@@ -49,12 +49,6 @@ storiesOf('Components/Page Headers/Page Header Core', module)
   .add(
     'title',
     () => {
-      select(
-        'optional elements',
-        ['no optional element is present in this story'],
-        'no optional element is present in this story',
-        optionalGroupId
-      );
       const data = preparePageHeaderCore(demoTitleContent);
 
       return pageHeaderCore(data);
