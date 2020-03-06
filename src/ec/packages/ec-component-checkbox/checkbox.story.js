@@ -19,33 +19,53 @@ import notes from './README.md';
 // Labels for the groups.
 const requiredGroupId = 'Mandatory elements';
 const optionalGroupId = 'Optional elements';
+const statesGroupId = 'States';
 
 const prepareCheckbox = data => {
+  data.invalid = boolean('invalid', false, statesGroupId);
+  data.required = boolean('required', false, statesGroupId);
   data.label = text(
     'label',
     'Select your preferred destinations',
     requiredGroupId
   );
-  data.invalid_text = text(
-    'invalid_text',
-    dataDefault.invalid_text,
-    requiredGroupId
-  );
-  data.invalid = boolean('invalid', false, optionalGroupId);
-  data.required = boolean('required', false, optionalGroupId);
-  data.helper_text = text(
-    'helper_text',
-    dataDefault.helper_text,
-    optionalGroupId
-  );
-  data.optional_text = text('optional_text', '(optional)', optionalGroupId);
-  data.required_text = text('required_text', '*', optionalGroupId);
-  data.extra_classes = text('extra_classes', '', optionalGroupId);
-  data.extra_attributes = object(
-    'extra_attributes',
-    { name: '', value: '' },
-    optionalGroupId
-  );
+  data.helper_text = text('helper_text', data.helper_text, optionalGroupId);
+  if (data.invalid) {
+    data.invalid_text = text(
+      'invalid_text',
+      data.invalid_text,
+      requiredGroupId
+    );
+  } else {
+    data.invalid_text = text(
+      'invalid_text',
+      data.invalid_text,
+      optionalGroupId
+    );
+  }
+  if (data.required) {
+    data.required_text = text(
+      'required_text',
+      data.required_text,
+      requiredGroupId
+    );
+    data.optional_text = text(
+      'optional text',
+      data.optional_text,
+      optionalGroupId
+    );
+  } else {
+    data.required_text = text(
+      'required_text',
+      data.required_text,
+      optionalGroupId
+    );
+    data.optional_text = text(
+      'optional_text',
+      data.optional_text,
+      requiredGroupId
+    );
+  }
 
   data.items.forEach((item, i) => {
     item.id = select(`items[${i}].id`, [item.id], item.id, requiredGroupId);
@@ -62,6 +82,13 @@ const prepareCheckbox = data => {
       requiredGroupId
     );
   });
+
+  data.extra_classes = text('extra_classes', '', optionalGroupId);
+  data.extra_attributes = object(
+    'extra_attributes',
+    { name: '', value: '' },
+    optionalGroupId
+  );
 
   return data;
 };
