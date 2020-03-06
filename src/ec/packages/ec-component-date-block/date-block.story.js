@@ -1,6 +1,6 @@
 /* eslint-disable no-param-reassign, no-shadow */
 import { storiesOf } from '@storybook/html';
-import { withKnobs, text, select } from '@storybook/addon-knobs';
+import { withKnobs, text, select, object } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
 
@@ -27,6 +27,16 @@ const prepareDateBlock = data => {
   data.month = text('month', data.month, requiredGroupId);
   data.month_full = text('month_full', data.month_full, requiredGroupId);
   data.date_time = text('date_time', data.date_time, optionalGroupId);
+  data.extra_classes = text(
+    'extra_classes (comma separated)',
+    '',
+    optionalGroupId
+  );
+  data.extra_attributes = object(
+    'extra_attributes',
+    { name: '', value: '' },
+    optionalGroupId
+  );
 
   return data;
 };
