@@ -1,5 +1,12 @@
+/* eslint-disable no-param-reassign */
 import { storiesOf } from '@storybook/html';
-import { withKnobs, text, boolean } from '@storybook/addon-knobs';
+import {
+  withKnobs,
+  text,
+  boolean,
+  object,
+  select,
+} from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
 
@@ -8,46 +15,90 @@ import dataBinary from './demo/data--binary';
 import radioGroup from './ecl-radio-group.html.twig';
 import notes from './README.md';
 
+// Labels for the groups.
+const requiredGroupId = 'Mandatory elements';
+const optionalGroupId = 'Optional elements';
+
+const prepareRadio = data => {
+  data.label = text('label', data.label, requiredGroupId);
+  data.invalid = boolean('invalid', false, optionalGroupId);
+  data.required = boolean('required', data.required, optionalGroupId);
+  data.invalid_text = text(
+    'invalid_text',
+    dataDefault.invalid_text,
+    requiredGroupId
+  );
+  data.required_text = text(
+    'required_text',
+    data.required_text,
+    requiredGroupId
+  );
+  data.optional_text = text(
+    'optional_text',
+    data.optional_text,
+    optionalGroupId
+  );
+  data.helper_text = text('helper_text', data.helper_text, optionalGroupId);
+
+  data.items.forEach((item, i) => {
+    item.label = text(`items[${i}].label`, item.label, requiredGroupId);
+    item.id = select(`items[${i}].id`, [item.id], item.id, requiredGroupId);
+    item.value = select(
+      `items[${i}].value`,
+      [item.value],
+      item.value,
+      requiredGroupId
+    );
+    item.helper_id = select(
+      `items[${i}].value`,
+      [item.helper_id],
+      item.helper_id,
+      optionalGroupId
+    );
+    item.helper_text = text(
+      `items[${i}].helper_text`,
+      item.helper_text,
+      optionalGroupId
+    );
+  });
+
+  data.extra_classes = text(
+    'extra_classes (comma separated)',
+    '',
+    optionalGroupId
+  );
+  data.extra_attributes = object(
+    'extra_attributes',
+    { name: '', value: '' },
+    optionalGroupId
+  );
+
+  return data;
+};
+
 storiesOf('Components/Forms/Radio', module)
   .addDecorator(withKnobs)
   .addDecorator(withNotes)
   .addDecorator(withCode)
   .add(
     'default',
-    () =>
-      radioGroup({
-        ...dataDefault,
-        label: text('Label', dataDefault.label),
-        helper_text: text('Help message', dataDefault.helper_text),
-        invalid: boolean('Invalid', false),
-        invalid_text: text(
-          'Error message for the group',
-          dataDefault.invalid_text
-        ),
-        optional_text: text('Optional text', dataDefault.optional_text),
-        required: boolean('Required', dataDefault.required),
-        required_text: text('Required text', dataDefault.required_text),
-      }),
+    () => {
+      const data = prepareRadio(dataDefault);
+
+      return radioGroup(data);
+    },
     {
       notes: { markdown: notes, json: dataDefault },
     }
   )
   .add(
     'binary',
-    () =>
-      radioGroup({
-        ...dataBinary,
-        label: text('Label', dataDefault.label),
-        helper_text: text('Help message', dataBinary.helper_text),
-        invalid: boolean('Invalid', false),
-        invalid_text: text(
-          'Error message for the group',
-          dataDefault.invalid_text
-        ),
-        optional_text: text('Optional text', dataDefault.optional_text),
-        required: boolean('Required', dataDefault.required),
-        required_text: text('Required text', dataDefault.required_text),
-      }),
+    () => {
+      boolean('binary', true, optionalGroupId);
+      const data = prepareRadio(dataBinary);
+
+      return radioGroup(data);
+    },
     {
       notes: { markdown: notes, json: dataBinary },
     }
