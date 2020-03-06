@@ -1,6 +1,6 @@
 /* eslint-disable no-param-reassign */
 import { storiesOf } from '@storybook/html';
-import { withKnobs, text, select } from '@storybook/addon-knobs';
+import { withKnobs, text, select, object } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
 
@@ -36,7 +36,16 @@ const prepareFile = data => {
     defaultSprite,
     requiredGroupId
   );
-
+  data.extra_classes = text(
+    'extra_classes (comma separated)',
+    '',
+    optionalGroupId
+  );
+  data.extra_attributes = object(
+    'extra_attributes',
+    { name: '', value: '' },
+    optionalGroupId
+  );
   if (data.translation) {
     data.translation.description = text(
       'translation.description',
@@ -54,6 +63,7 @@ const prepareFile = data => {
       defaultSprite,
       requiredGroupId
     );
+
     data.translation.items.forEach((item, i) => {
       data.translation.items[i].download.icon.path = select(
         `data.translation.items[${i}].download.icon.path`,
@@ -74,12 +84,6 @@ storiesOf('Components/File', module)
   .add(
     'without translation',
     () => {
-      select(
-        'optional elements',
-        ['no optional element is present in this story'],
-        'no optional element is present in this story',
-        optionalGroupId
-      );
       const data = prepareFile(dataWithoutTranslation);
 
       return file(data);
