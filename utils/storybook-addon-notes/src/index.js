@@ -38,6 +38,12 @@ renderer.code = function customCode(code, infostring, escaped) {
 
 function renderMarkdown(text, options, json) {
   if (json) {
+    if (json.extra_classes === '') {
+      delete json.extra_classes;
+    }
+    if (json.extra_attributes && json.extra_attributes.name === '') {
+      delete json.extra_attributes;
+    }
     // Ehm, this is the best format we could get.
     let specs = JSON.stringify(json, null, '\n..');
     // We only replace the existing example.s
