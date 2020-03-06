@@ -28,6 +28,17 @@ const preparePageHeaderCore = data => {
     data.description = text('description', data.description, optionalGroupId);
   }
 
+  data.extra_classes = text(
+    'extra_classes (comma separated)',
+    '',
+    optionalGroupId
+  );
+  data.extra_attributes = object(
+    'extra_attributes',
+    { name: '', value: '' },
+    optionalGroupId
+  );
+
   return data;
 };
 
