@@ -1,6 +1,12 @@
 /* eslint-disable no-param-reassign */
 import { storiesOf } from '@storybook/html';
-import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
+import {
+  withKnobs,
+  text,
+  select,
+  boolean,
+  object,
+} from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
 
@@ -28,35 +34,58 @@ uiIcons.forEach(icon => {
   iconsList[icon] = icon;
 });
 
-// Labels for the groups.
+// labels for the groups.
 const requiredGroupId = 'Mandatory elements';
 const optionalGroupId = 'Optional elements';
 
 // Preserve the adapted specs.
-const prepareButton = prepareData => {
-  prepareData.label = text('Label', prepareData.label, requiredGroupId);
+const prepareButton = data => {
+  data.label = text('label', data.label, requiredGroupId);
 
-  prepareData.icon = {
-    type: 'ui',
-    path: defaultSprite,
-    name: select('Icon (sample)', iconsList, null, optionalGroupId),
-    size: 'xs',
-  };
-
-  prepareData.icon_position = select(
-    'Icon position',
-    iconPositionSettings,
-    'after',
+  data.variant = select(
+    'variant (default value: primary)',
+    [data.variant],
+    data.variant,
     optionalGroupId
   );
 
-  prepareData.disabled = boolean(
-    'Disabled',
-    prepareData.disabled,
+  data.disabled = boolean('disabled', data.disabled, optionalGroupId);
+
+  data.extra_classes = text(
+    'extra_classes (comma separated)',
+    '',
+    optionalGroupId
+  );
+  data.extra_attributes = object(
+    'extra_attributes',
+    { name: '', value: '' },
     optionalGroupId
   );
 
-  return prepareData;
+  return data;
+};
+
+const prepareIcon = (name, data) => {
+  const icon = {};
+  icon.name = name;
+  icon.type = select('icon.type', ['ui'], 'ui', optionalGroupId);
+  icon.path = select(
+    'icon.path',
+    [defaultSprite],
+    defaultSprite,
+    optionalGroupId
+  );
+  icon.size = select('icon.size', ['xs'], 'xs', optionalGroupId);
+
+  if (icon) {
+    data.icon = icon;
+    data.icon_position = select(
+      'icon_position',
+      iconPositionSettings,
+      'after',
+      optionalGroupId
+    );
+  }
 };
 
 storiesOf('Components/Button', module)
@@ -66,7 +95,13 @@ storiesOf('Components/Button', module)
   .add(
     'primary',
     () => {
-      return button(prepareButton(dataPrimary));
+      const data = prepareButton(dataPrimary);
+      const name = select('icon.name', iconsList, null, optionalGroupId);
+      if (name !== null) {
+        prepareIcon(name, data);
+      }
+
+      return button(data);
     },
     {
       notes: { markdown: notes, json: dataPrimary },
@@ -75,7 +110,13 @@ storiesOf('Components/Button', module)
   .add(
     'secondary',
     () => {
-      return button(prepareButton(dataSecondary));
+      const data = prepareButton(dataSecondary);
+      const name = select('icon.name', iconsList, null, optionalGroupId);
+      if (name !== null) {
+        prepareIcon(name, data);
+      }
+
+      return button(data);
     },
     {
       notes: { markdown: notes, json: dataSecondary },
@@ -84,7 +125,13 @@ storiesOf('Components/Button', module)
   .add(
     'call to action',
     () => {
-      return button(prepareButton(dataCall));
+      const data = prepareButton(dataCall);
+      const name = select('icon.name', iconsList, null, optionalGroupId);
+      if (name !== null) {
+        prepareIcon(name, data);
+      }
+
+      return button(data);
     },
     {
       notes: { markdown: notes, json: dataCall },
@@ -93,7 +140,13 @@ storiesOf('Components/Button', module)
   .add(
     'text',
     () => {
-      return button(prepareButton(dataGhost));
+      const data = prepareButton(dataGhost);
+      const name = select('icon.name', iconsList, null, optionalGroupId);
+      if (name !== null) {
+        prepareIcon(name, data);
+      }
+
+      return button(data);
     },
     {
       notes: { markdown: notes, json: dataGhost },
@@ -102,7 +155,13 @@ storiesOf('Components/Button', module)
   .add(
     'search',
     () => {
-      return button(prepareButton(dataSearch));
+      const data = prepareButton(dataSearch);
+      const name = select('icon.name', iconsList, null, optionalGroupId);
+      if (name !== null) {
+        prepareIcon(name, data);
+      }
+
+      return button(data);
     },
     {
       notes: { markdown: notes, json: dataSearch },
