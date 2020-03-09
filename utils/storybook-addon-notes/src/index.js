@@ -38,6 +38,12 @@ renderer.code = function customCode(code, infostring, escaped) {
 
 function renderMarkdown(text, options, json) {
   if (json) {
+    if (json.extra_classes === '') {
+      delete json.extra_classes;
+    }
+    if (json.extra_attributes && json.extra_attributes.name === '') {
+      delete json.extra_attributes;
+    }
     // Ehm, this is the best format we could get.
     let specs = JSON.stringify(json, null, '\n..');
     // We only replace the existing example.s
@@ -60,6 +66,7 @@ export const withNotes = makeDecorator({
   allowDeprecatedUsage: true,
   wrapper: (getStory, context, { options, parameters }) => {
     const channel = addons.getChannel();
+    const story = getStory(context);
     const { json } = parameters;
     const storyOptions = parameters || options;
 
@@ -77,7 +84,7 @@ export const withNotes = makeDecorator({
       text || renderMarkdown(markdown, markdownOptions, json)
     );
 
-    return getStory(context);
+    return story;
   },
 });
 
