@@ -1,6 +1,6 @@
 /* eslint-disable no-param-reassign, no-shadow */
 import { storiesOf } from '@storybook/html';
-import { withKnobs, text, select, object } from '@storybook/addon-knobs';
+import { withKnobs, text, select } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
 
@@ -27,16 +27,44 @@ const prepareDateBlock = data => {
   data.month = text('month', data.month, requiredGroupId);
   data.month_full = text('month_full', data.month_full, requiredGroupId);
   data.date_time = text('date_time', data.date_time, optionalGroupId);
-  data.extra_classes = text(
-    'extra_classes (comma separated)',
-    '',
-    optionalGroupId
-  );
-  data.extra_attributes = object(
-    'extra_attributes',
-    { name: '', value: '' },
-    optionalGroupId
-  );
+  data.extra_classes = text('extra_classes', '', optionalGroupId);
+  const attribute1Name = text('extra_attributes[0].name', '', optionalGroupId);
+  // First attribute.
+  if (attribute1Name !== '') {
+    data.extra_attributes = [];
+    let attribute = {};
+    const attribute1Value = text(
+      'extra_attributes[0].value',
+      '',
+      optionalGroupId
+    );
+    const attribute2Name = text(
+      'extra_attributes[1].name',
+      '',
+      optionalGroupId
+    );
+    attribute.name = attribute1Name;
+    if (attribute1Value !== '') {
+      attribute.value = attribute1Value;
+    }
+    data.extra_attributes.push(attribute);
+    // Second attribute.
+    if (attribute2Name !== '') {
+      const attribute2Value = text(
+        'extra_attributes[1].value',
+        '',
+        optionalGroupId
+      );
+      attribute = {};
+      attribute.name = attribute2Name;
+      if (attribute2Value !== '') {
+        attribute.value = attribute2Value;
+      }
+      data.extra_attributes.push(attribute);
+    }
+  } else {
+    delete data.extra_attributes;
+  }
 
   return data;
 };
