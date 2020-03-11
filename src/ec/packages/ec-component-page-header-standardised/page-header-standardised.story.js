@@ -29,9 +29,9 @@ const preparePageHeaderStandardised = data => {
 
   data.extra_classes = text('extra_classes', '', optionalGroupId);
 
-  data.extra_attributes = [];
   const attribute1Name = text('extra_attributes[0].name', '', optionalGroupId);
   if (attribute1Name !== '') {
+    data.extra_attributes = [];
     let attribute = {};
     const attribute1Value = text(
       'extra_attributes[0].value',
@@ -62,6 +62,8 @@ const preparePageHeaderStandardised = data => {
       }
       data.extra_attributes.push(attribute);
     }
+  } else {
+    delete data.extra_attributes;
   }
 
   return data;
