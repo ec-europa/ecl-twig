@@ -20,12 +20,15 @@ npm install --save @ecl-twig/ec-component-media-container
   - "label" (string) (default: ''),
   - "description" (string) (default: ''),
 - **"alt"** (string) (default: '') The alternate text foher the image,
-- **"embedded_media"** (optional) (string) (default: '') A block where to set an embed code,
 - **"ratio"** (string) (default: 16-9) The ratio of the embedded media, if any,
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'.
+
+### Blocks:
+
+- **"embedded_media"** (optional) (string) (default: '') A block where to set an embed code
 
 ### Example for media container image:
 
