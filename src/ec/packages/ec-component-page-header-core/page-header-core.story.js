@@ -28,16 +28,45 @@ const preparePageHeaderCore = data => {
     data.description = text('description', data.description, optionalGroupId);
   }
 
-  data.extra_classes = text(
-    'extra_classes (comma separated)',
-    '',
-    optionalGroupId
-  );
-  data.extra_attributes = object(
-    'extra_attributes',
-    { name: '', value: '' },
-    optionalGroupId
-  );
+  data.extra_classes = text('extra_classes', '', optionalGroupId);
+
+  const attribute1Name = text('extra_attributes[0].name', '', optionalGroupId);
+
+  if (attribute1Name !== '') {
+    data.extra_attributes = [];
+    let attribute = {};
+    const attribute1Value = text(
+      'extra_attributes[0].value',
+      '',
+      optionalGroupId
+    );
+    const attribute2Name = text(
+      'extra_attributes[1].name',
+      '',
+      optionalGroupId
+    );
+    attribute.name = attribute1Name;
+    if (attribute1Value !== '') {
+      attribute.value = attribute1Value;
+    }
+    data.extra_attributes.push(attribute);
+
+    if (attribute2Name !== '') {
+      const attribute2Value = text(
+        'extra_attributes[1].value',
+        '',
+        optionalGroupId
+      );
+      attribute = {};
+      attribute.name = attribute2Name;
+      if (attribute2Value !== '') {
+        attribute.value = attribute2Value;
+      }
+      data.extra_attributes.push(attribute);
+    }
+  } else {
+    delete data.extra_attributes;
+  }
 
   return data;
 };
