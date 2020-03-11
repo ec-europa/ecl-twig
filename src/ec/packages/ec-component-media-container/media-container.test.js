@@ -42,10 +42,20 @@ describe('EC Media Container', () => {
   });
 
   describe('EC - Media container video', () => {
-    test('Media container video renders correctly', () => {
+    test('renders correctly', () => {
       const options = merge(defaultDataStructure, {
         tracks: demoContentVideo.tracks,
         sources: demoContentVideo.sources,
+      });
+
+      expect.assertions(1);
+      return expect(render(options)).resolves.toMatchSnapshot();
+    });
+
+    test('with embedded media renders correctly', () => {
+      const options = merge(defaultDataStructure, {
+        embedded_media:
+          '<iframe title="New digital strategy" width="350" height="197" src="https://www.youtube.com/embed/fgi-GSCB6ho" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>',
       });
 
       expect.assertions(1);

@@ -28,6 +28,10 @@
       },
       ...
     ]
+  - "ratio" (string) (default: 16-9)
+
+  Blocks:
+    - "embedded_media"
 #}
 
 {# Internal properties #}
@@ -37,6 +41,8 @@
 {% set _description = description|default('') %}
 {% set _alt = alt|default('') %}
 {% set _extra_attributes = '' %}
+{% set _embedded_media = embedded_media|default('') %}
+{% set _ratio = ratio|default('16-9') %}
 {% set _sources = sources|default({}) %}
 {% set _tracks = tracks|default({}) %}
 
@@ -59,7 +65,11 @@
 {# Print the result #}
 
 <figure class="{{ _css_class }}"{{ _extra_attributes|raw }}>
-  {% if _sources is not empty and sources is iterable %}
+  {% if _embedded_media is not empty %}
+    <div class="ecl-media-container__media ecl-media-container__media--ratio-{{ _ratio }}">
+      {%- block embedded_media _embedded_media|raw -%}
+    </div>
+  {% elseif _sources is not empty and sources is iterable %}
     <video
       class="ecl-media-container__media"
       controls

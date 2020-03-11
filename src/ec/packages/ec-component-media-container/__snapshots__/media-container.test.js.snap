@@ -17,7 +17,7 @@ exports[`EC Media Container EC - Media container image Media container image ren
 </figure>
 `;
 
-exports[`EC Media Container EC - Media container video Media container video renders correctly 1`] = `
+exports[`EC Media Container EC - Media container video renders correctly 1`] = `
 <figure
   class="ecl-media-container"
 >
@@ -47,6 +47,31 @@ exports[`EC Media Container EC - Media container video Media container video ren
       srclang="fr"
     />
   </video>
+  <figcaption
+    class="ecl-media-container__caption"
+  >
+    The European Commission has put forward ambitious yet realistic proposals for a modern EU budget. It is time for an EU budget that reflects rapid developments in innovation, the economy, the environment and geopolitics, amongst others.
+  </figcaption>
+</figure>
+`;
+
+exports[`EC Media Container EC - Media container video with embedded media renders correctly 1`] = `
+<figure
+  class="ecl-media-container"
+>
+  <div
+    class="ecl-media-container__media ecl-media-container__media--ratio-16-9"
+  >
+    <iframe
+      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen=""
+      frameborder="0"
+      height="197"
+      src="https://www.youtube.com/embed/fgi-GSCB6ho"
+      title="New digital strategy"
+      width="350"
+    />
+  </div>
   <figcaption
     class="ecl-media-container__caption"
   >
