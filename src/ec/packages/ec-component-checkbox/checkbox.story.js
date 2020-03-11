@@ -1,12 +1,6 @@
 /* eslint-disable no-param-reassign */
 import { storiesOf } from '@storybook/html';
-import {
-  withKnobs,
-  text,
-  boolean,
-  select,
-  object,
-} from '@storybook/addon-knobs';
+import { withKnobs, text, boolean, select } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
 
@@ -84,11 +78,43 @@ const prepareCheckbox = data => {
   });
 
   data.extra_classes = text('extra_classes', '', optionalGroupId);
-  data.extra_attributes = object(
-    'extra_attributes',
-    { name: '', value: '' },
-    optionalGroupId
-  );
+  const attribute1Name = text('extra_attributes[0].name', '', optionalGroupId);
+  // First attribute.
+  if (attribute1Name !== '') {
+    data.extra_attributes = [];
+    let attribute = {};
+    const attribute1Value = text(
+      'extra_attributes[0].value',
+      '',
+      optionalGroupId
+    );
+    const attribute2Name = text(
+      'extra_attributes[1].name',
+      '',
+      optionalGroupId
+    );
+    attribute.name = attribute1Name;
+    if (attribute1Value !== '') {
+      attribute.value = attribute1Value;
+    }
+    data.extra_attributes.push(attribute);
+    // Second attribute.
+    if (attribute2Name !== '') {
+      const attribute2Value = text(
+        'extra_attributes[1].value',
+        '',
+        optionalGroupId
+      );
+      attribute = {};
+      attribute.name = attribute2Name;
+      if (attribute2Value !== '') {
+        attribute.value = attribute2Value;
+      }
+      data.extra_attributes.push(attribute);
+    }
+  } else {
+    delete data.extra_attributes;
+  }
 
   return data;
 };
