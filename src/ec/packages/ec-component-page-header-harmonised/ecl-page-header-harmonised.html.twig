@@ -47,7 +47,9 @@
   {% endif %}
   {% if _meta is not empty %}
     <div class="ecl-page-header-harmonised__meta">
-      {{- _meta|raw -}}
+      <span class="ecl-u-type-uppercase">
+        {{- _meta -}}
+      </span>
     </div>
   {% endif %}
     <h1 class="ecl-page-header-harmonised__title">{{ _title }}</h1>
