@@ -1,7 +1,8 @@
 import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
-import demoContentImg from '@ecl/ec-specs-media-container/demo/data--image';
-import demoContentVideo from './demo/data';
+import demoContentImg from './demo/data--image';
+import demoContentVideo from './demo/data--video';
+import demoContentEmbed from './demo/data--embed';
 
 describe('EC Media Container', () => {
   const template =
@@ -53,13 +54,8 @@ describe('EC Media Container', () => {
     });
 
     test('with embedded media renders correctly', () => {
-      const options = merge(defaultDataStructure, {
-        embedded_media:
-          '<iframe title="New digital strategy" width="350" height="197" src="https://www.youtube.com/embed/fgi-GSCB6ho" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>',
-      });
-
       expect.assertions(1);
-      return expect(render(options)).resolves.toMatchSnapshot();
+      return expect(render(demoContentEmbed)).resolves.toMatchSnapshot();
     });
   });
 });
