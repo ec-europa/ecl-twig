@@ -1,7 +1,8 @@
 import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
-import demoContentImg from '@ecl/ec-specs-media-container/demo/data--image';
-import demoContentVideo from './demo/data';
+import demoContentImg from './demo/data--image';
+import demoContentVideo from './demo/data--video';
+import demoContentEmbed from './demo/data--embed';
 
 describe('EC Media Container', () => {
   const template =
@@ -42,7 +43,7 @@ describe('EC Media Container', () => {
   });
 
   describe('EC - Media container video', () => {
-    test('Media container video renders correctly', () => {
+    test('renders correctly', () => {
       const options = merge(defaultDataStructure, {
         tracks: demoContentVideo.tracks,
         sources: demoContentVideo.sources,
@@ -50,6 +51,11 @@ describe('EC Media Container', () => {
 
       expect.assertions(1);
       return expect(render(options)).resolves.toMatchSnapshot();
+    });
+
+    test('with embedded media renders correctly', () => {
+      expect.assertions(1);
+      return expect(render(demoContentEmbed)).resolves.toMatchSnapshot();
     });
   });
 });
