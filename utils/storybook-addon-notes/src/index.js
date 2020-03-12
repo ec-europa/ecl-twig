@@ -2,6 +2,7 @@
 import addons, { makeDecorator } from '@storybook/addons';
 import marked from 'marked';
 import Prism from 'prismjs';
+import he from 'he';
 
 // Manually import extra languages
 import 'prismjs/components/prism-bash';
@@ -41,9 +42,12 @@ function renderMarkdown(text, options, json) {
     if (json.extra_classes === '') {
       delete json.extra_classes;
     }
-    if (json.extra_attributes && json.extra_attributes.name === '') {
-      delete json.extra_attributes;
-    }
+    // Fixing the econding of ', mainly
+    Object.keys(json).forEach(e => {
+      if (typeof json[e] === 'string') {
+        json[e] = he.decode(json[e]);
+      }
+    });
     // Ehm, this is the best format we could get.
     let specs = JSON.stringify(json, null, '\n..');
     // We only replace the existing example.s
