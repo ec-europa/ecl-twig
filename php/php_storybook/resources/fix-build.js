@@ -5,7 +5,7 @@
 const replace = require('replace-in-file');
 
 const options = {
-  files: 'php/dist/*',
+  files: 'php/dist/**/*',
   from: [
     /\/icons.svg/g,
     /\/icons-social.svg/g,
