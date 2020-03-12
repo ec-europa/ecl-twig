@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.25.0](https://github.com/ec-europa/ecl-twig/compare/v2.24.0...v2.25.0) (2020-03-12)
+
+### Features
+
+- **knobs:** Blockquote panel with three sub-panels, buttons for show/hiding - FRONT-803 ([#346](https://github.com/ec-europa/ecl-twig/issues/346)) ([cf33709](https://github.com/ec-europa/ecl-twig/commit/cf33709903fa521ffe26c864d9930cc78dde0b8d))
+
 # [2.24.0](https://github.com/ec-europa/ecl-twig/compare/v2.23.0...v2.24.0) (2020-03-02)
 
 **Note:** Version bump only for package @ecl-twig/ec-component-blockquote

@@ -3,6 +3,37 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.25.0](https://github.com/ec-europa/ecl-twig/compare/v2.24.0...v2.25.0) (2020-03-12)
+
+#### :rocket: New Feature
+
+- [#360](https://github.com/ec-europa/ecl-twig/pull/360) feat(media-container): Adding support for embedded media - FRONT-941 ([@planctus](https://github.com/planctus))
+- [#345](https://github.com/ec-europa/ecl-twig/pull/345) feat(php-storybook): Support for the EU system - FRONT-509 ([@planctus](https://github.com/planctus))
+
+#### :bug: Bug Fix
+
+- [#350](https://github.com/ec-europa/ecl-twig/pull/350) fix(notes): The template inclusion example in the notes panel is now matching the status of the component - FRONT-891 ([@planctus](https://github.com/planctus))
+
+#### :nail_care: Enhancement
+
+- [#353](https://github.com/ec-europa/ecl-twig/pull/353) refactor(demo): Page header core, optional/mandatory groups - FRONT-877 ([@planctus](https://github.com/planctus))
+- [#354](https://github.com/ec-europa/ecl-twig/pull/354) refactor(demo): Page Header Harmonised, grouping knobs - FRONT-878 ([@planctus](https://github.com/planctus))
+- [#355](https://github.com/ec-europa/ecl-twig/pull/355) refactor(demo): Page Header Standardised, grouping knobs - FRONT-898 ([@planctus](https://github.com/planctus))
+- [#356](https://github.com/ec-europa/ecl-twig/pull/356) refactor(demo): Date block, mandatory/optional knobs, added stories for statuses - FRONT-900 ([@planctus](https://github.com/planctus))
+- [#357](https://github.com/ec-europa/ecl-twig/pull/357) refactor(demo): Checkbox, optional/mandatory knobs - FRONT-901 ([@planctus](https://github.com/planctus))
+- [#352](https://github.com/ec-europa/ecl-twig/pull/352) refactor(demo): File, mandatory/optional knobs - FRONT-875 ([@planctus](https://github.com/planctus))
+- [#358](https://github.com/ec-europa/ecl-twig/pull/358) refactor(demo): Radio, grouping knobs - FRONT-902 ([@planctus](https://github.com/planctus))
+- [#359](https://github.com/ec-europa/ecl-twig/pull/359) refactor(demo): Text input, grouping knobs, adding states - FRONT-903 ([@planctus](https://github.com/planctus))
+- [#351](https://github.com/ec-europa/ecl-twig/pull/351) fix(button): fixing the example in the notes tab, improving knobs - FRONT-893 ([@planctus](https://github.com/planctus))
+- [#347](https://github.com/ec-europa/ecl-twig/pull/347) feat(knobs): Button show/hiding elements and grouping knobs - FRONT-865 ([@Joosthe](https://github.com/Joosthe))
+- [#346](https://github.com/ec-europa/ecl-twig/pull/346) feat(knobs): Blockquote panel with three sub-panels, buttons for show/hiding - FRONT-803 ([@Joosthe](https://github.com/Joosthe))
+- [#349](https://github.com/ec-europa/ecl-twig/pull/349) feat(knobs): fact and figures show/hiding elements and grouping knobs - FRONT-866 ([@Joosthe](https://github.com/Joosthe))
+
+#### Committers: 2
+
+- [@Joosthe](https://github.com/Joosthe)
+- [@planctus](https://github.com/planctus)
+
 # [2.24.0](https://github.com/ec-europa/ecl-twig/compare/v2.23.0...v2.24.0) (2020-03-02)
 
 #### :rocket: New Feature

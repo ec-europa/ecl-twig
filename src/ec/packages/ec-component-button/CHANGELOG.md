@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.25.0](https://github.com/ec-europa/ecl-twig/compare/v2.24.0...v2.25.0) (2020-03-12)
+
+### Bug Fixes
+
+- **button:** fixing the example in the notes tab, improving knobs - FRONT-893 ([#351](https://github.com/ec-europa/ecl-twig/issues/351)) ([7f4f863](https://github.com/ec-europa/ecl-twig/commit/7f4f8630d603c4a1699b749163b189663964409f))
+
+### Features
+
+- **knobs:** Button show/hiding elements and grouping knobs - FRONT-865 ([#347](https://github.com/ec-europa/ecl-twig/issues/347)) ([ccd65d6](https://github.com/ec-europa/ecl-twig/commit/ccd65d651684169ee87149e66ac9c04edaacb18b))
+
 # [2.24.0](https://github.com/ec-europa/ecl-twig/compare/v2.23.0...v2.24.0) (2020-03-02)
 
 **Note:** Version bump only for package @ecl-twig/ec-component-button

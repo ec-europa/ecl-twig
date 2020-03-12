@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.25.0](https://github.com/ec-europa/ecl-twig/compare/v2.24.0...v2.25.0) (2020-03-12)
+
+### Features
+
+- **media-container:** Adding support for embedded media - FRONT-941 ([#360](https://github.com/ec-europa/ecl-twig/issues/360)) ([e3197ac](https://github.com/ec-europa/ecl-twig/commit/e3197ac0264cc3e9cc450c3452b17407189b115e))
+
 # [2.24.0](https://github.com/ec-europa/ecl-twig/compare/v2.23.0...v2.24.0) (2020-03-02)
 
 **Note:** Version bump only for package @ecl-twig/ec-component-media-container
