@@ -1,48 +1,89 @@
+/* eslint-disable no-param-reassign */
 import decode from 'decode-html';
 import { storiesOf } from '@storybook/html';
 import { withKnobs, text, select, object } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
 
-import imgProps from '@ecl/ec-specs-media-container/demo/data--image';
-import demoVideo from './demo/data';
-import demoImg from '../../../../static/images/example-image.jpg';
+import demoImg from './demo/data--image';
+import demoVideo from './demo/data--video';
+import demoEmbed from './demo/data--embed';
+import exampleImg from '../../../../static/images/example-image.jpg';
 
 import mediaContainer from './ecl-media-container.html.twig';
 import notes from './README.md';
 
-const embeddedMedia =
-  '<iframe title="New digital strategy" width="350" height="197" src="https://www.youtube.com/embed/fgi-GSCB6ho" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>';
 // Labels for the groups.
 const requiredGroupId = 'Mandatory elements';
 const optionalGroupId = 'Optional elements';
 
-const prepareMediaContainer = media => {
-  let data = {};
+const prepareMediaContainer = (data, media) => {
   if (media === 'video') {
-    data = {
-      description: text('description', demoVideo.description, optionalGroupId),
-      alt: text('alt', demoVideo.alt, requiredGroupId),
-      sources: object('sources', demoVideo.sources, requiredGroupId),
-      tracks: object('tracks', demoVideo.tracks, requiredGroupId),
-    };
-  } else if (media === 'embed') {
-    const options = ['16-9', '4-3', '3-2', '1-1'];
-    data = {
-      embedded_media: decode(
-        text('embedded_media', embeddedMedia, requiredGroupId)
-      ),
-      description: text('description', demoVideo.description, optionalGroupId),
-      ratio: select('ratio', options, '16-9', requiredGroupId),
-    };
+    data.description = text(
+      'description',
+      demoVideo.description,
+      optionalGroupId
+    );
+    data.alt = text('alt', demoVideo.alt, requiredGroupId);
+    data.sources = object('sources', demoVideo.sources, requiredGroupId);
+    data.tracks = object('tracks', demoVideo.tracks, requiredGroupId);
+  } else if (media === 'image') {
+    data.description = text(
+      'description',
+      demoImg.description,
+      optionalGroupId
+    );
+    data.alt = text('alt', demoImg.alt, requiredGroupId);
+    data.image = text('image', exampleImg, requiredGroupId);
   } else {
-    data = {
-      description: text('description', imgProps.description, optionalGroupId),
-      alt: text('alt', imgProps.alt, requiredGroupId),
-      image: text('image', demoImg, requiredGroupId),
-    };
+    const options = ['16-9', '4-3', '3-2', '1-1'];
+    data.embedded_media = decode(
+      text('embedded_media', data.embedded_media, requiredGroupId)
+    );
+    data.description = text(
+      'description',
+      demoVideo.description,
+      optionalGroupId
+    );
+    data.ratio = select('ratio', options, data.ratio, requiredGroupId);
   }
+  data.extra_classes = text('extra_classes', '', optionalGroupId);
+  const attribute1Name = text('extra_attributes[0].name', '', optionalGroupId);
+  if (attribute1Name !== '') {
+    data.extra_attributes = [];
+    let attribute = {};
+    const attribute1Value = text(
+      'extra_attributes[0].value',
+      '',
+      optionalGroupId
+    );
+    const attribute2Name = text(
+      'extra_attributes[1].name',
+      '',
+      optionalGroupId
+    );
+    attribute.name = attribute1Name;
+    if (attribute1Value !== '') {
+      attribute.value = attribute1Value;
+    }
+    data.extra_attributes.push(attribute);
 
+    if (attribute2Name !== '') {
+      const attribute2Value = text(
+        'extra_attributes[1].value',
+        '',
+        optionalGroupId
+      );
+      attribute = {};
+      attribute.name = attribute2Name;
+      if (attribute2Value !== '') {
+        attribute.value = attribute2Value;
+      }
+      data.extra_attributes.push(attribute);
+    }
+  } else {
+    delete data.extra_attributes;
+  }
   return data;
 };
 
@@ -50,18 +91,33 @@ storiesOf('Components/Media container', module)
   .addDecorator(withKnobs)
   .addDecorator(withNotes)
   .addDecorator(withCode)
-  .add('image', () => mediaContainer(prepareMediaContainer('image')), {
-    notes: { markdown: notes, json: prepareMediaContainer('image') },
-  })
-  .add('video', () => mediaContainer(prepareMediaContainer('video')), {
-    notes: { markdown: notes, json: prepareMediaContainer('video') },
-  })
+  .add(
+    'image',
+    () => {
+      const dataStory = prepareMediaContainer(demoImg, 'image');
+      return mediaContainer(dataStory);
+    },
+    {
+      notes: { markdown: notes, json: demoImg },
+    }
+  )
+  .add(
+    'video',
+    () => {
+      const dataStory = prepareMediaContainer(demoVideo, 'video');
+      return mediaContainer(dataStory);
+    },
+    {
+      notes: { markdown: notes, json: demoVideo },
+    }
+  )
   .add(
     'embedded video',
     () => {
-      return mediaContainer(prepareMediaContainer('embed'));
+      const dataStory = prepareMediaContainer(demoEmbed, 'embed');
+      return mediaContainer(dataStory);
     },
     {
-      notes: { markdown: notes, json: prepareMediaContainer('embed') },
+      notes: { markdown: notes, json: demoEmbed },
     }
   );
