@@ -62,7 +62,12 @@ const prepareSelect = data => {
       requiredGroupId
     );
   }
-  data.icon_path = defaultSprite;
+  data.icon_path = select(
+    'icon_path',
+    [defaultSprite],
+    defaultSprite,
+    requiredGroupId
+  );
   data.helper_text = text('helper_text', data.helper_text, optionalGroupId);
   data.width = select('width', inputWidthOptions, 'm', optionalGroupId);
   data.extra_classes = text('extra_classes', '', optionalGroupId);
@@ -103,6 +108,10 @@ const prepareSelect = data => {
   } else {
     delete data.extra_attributes;
   }
+  data.options.forEach((option, i) => {
+    option.label = text(`options[${i}].label`, option.label, requiredGroupId);
+    option.value = text(`options[${i}].value`, option.value, requiredGroupId);
+  });
 
   return data;
 };
