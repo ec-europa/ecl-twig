@@ -2,7 +2,7 @@ import { storiesOf } from '@storybook/html';
 import { withKnobs, text, boolean } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
-import decode from 'decode-html';
+import he from 'he';
 
 // Import data for tests
 import dataDefault from './demo/data';
@@ -25,7 +25,7 @@ storiesOf('Components/Forms/File Upload', module)
         id: text('Input id', dataDefault.id),
         name: text('Name', dataDefault.name),
         label: text('Label', dataDefault.label),
-        helper_text: decode(text('Help message', dataDefault.helper_text)),
+        helper_text: he.decode(text('Help message', dataDefault.helper_text)),
         invalid_text: text('Invalid text', dataDefault.invalid_text),
         required_text: text('Required text', dataDefault.required_text),
         optional_text: text('Optional Text', dataDefault.optional_text),
@@ -52,7 +52,7 @@ storiesOf('Components/Forms/File Upload', module)
         id: text('Input id', dataMulti.id),
         name: text('Name', dataMulti.name),
         label: text('Label', dataMulti.label),
-        helper_text: decode(text('Help message', dataMulti.helper_text)),
+        helper_text: he.decode(text('Help message', dataMulti.helper_text)),
         invalid_text: text('Invalid text', dataMulti.invalid_text),
         multiple: boolean('Multiple', dataMulti.multiple),
         required_text: text('Required text', dataMulti.required_text),
