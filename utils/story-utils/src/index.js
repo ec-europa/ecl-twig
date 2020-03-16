@@ -1,5 +1,5 @@
 /* eslint-disable no-param-reassign */
-import { text, select } from '@storybook/addon-knobs';
+import { text, select, boolean } from '@storybook/addon-knobs';
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 
 export const buttonLabels = {
@@ -129,6 +129,63 @@ export const getIconKnobs = (data, name, size, color, transform) => {
       buttonLabels.optional
     );
   }
+
+  return data;
+};
+
+export const getFormKnobs = data => {
+  const inputWidthOptions = {
+    small: 's',
+    medium: 'm',
+    large: 'l',
+  };
+  data.invalid = boolean('invalid', false, buttonLabels.states);
+  data.disabled = boolean('disabled', false, buttonLabels.states);
+  data.required = boolean('required', false, buttonLabels.states);
+  data.label = text('label', data.label, buttonLabels.required);
+  if (data.invalid) {
+    data.invalid_text = text(
+      'invalid_text',
+      data.invalid_text,
+      buttonLabels.required
+    );
+  } else {
+    data.invalid_text = text(
+      'invalid_text',
+      data.invalid_text,
+      buttonLabels.optional
+    );
+  }
+  if (data.required) {
+    data.required_text = text(
+      'required_text',
+      data.required_text,
+      buttonLabels.required
+    );
+    data.optional_text = text(
+      'optional text',
+      data.optional_text,
+      buttonLabels.optional
+    );
+  } else {
+    data.required_text = text(
+      'required_text',
+      data.required_text,
+      buttonLabels.optional
+    );
+    data.optional_text = text(
+      'optional text',
+      data.optional_text,
+      buttonLabels.required
+    );
+  }
+
+  data.helper_text = text(
+    'helper_text',
+    data.helper_text,
+    buttonLabels.optional
+  );
+  data.width = select('width', inputWidthOptions, 'm', buttonLabels.optional);
 
   return data;
 };
