@@ -1,5 +1,5 @@
 /* eslint-disable no-param-reassign */
-import decode from 'decode-html';
+import he from 'he';
 import { storiesOf } from '@storybook/html';
 import { withKnobs, text, select, object } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
@@ -37,7 +37,7 @@ const prepareMediaContainer = (data, media) => {
     data.image = text('image', exampleImg, requiredGroupId);
   } else {
     const options = ['16-9', '4-3', '3-2', '1-1'];
-    data.embedded_media = decode(
+    data.embedded_media = he.decode(
       text('embedded_media', data.embedded_media, requiredGroupId)
     );
     data.description = text(
