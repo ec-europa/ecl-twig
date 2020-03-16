@@ -17,6 +17,8 @@
 {# Internal properties #}
 
 {% set _css_class = 'ecl-skip-link' %}
+{% set _href = href|default('') %}
+{% set _label = label|default('') %}
 {% set _extra_attributes = '' %}
 
 {# Internal logic - Process properties #}
@@ -38,8 +40,8 @@
 
 {# Print the result #}
 
-<a href="{{ href }}" class="{{ _css_class }}" {{ _extra_attributes|raw }}>
-  {{- label -}}
+<a href="{{ _href }}" class="{{ _css_class }}" {{ _extra_attributes|raw }}>
+  {{- _label -}}
 </a>
 
 {% endspaceless %}
