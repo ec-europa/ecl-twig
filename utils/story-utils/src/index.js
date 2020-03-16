@@ -57,21 +57,21 @@ export const getExtraKnobs = data => {
 
 export const getIconKnobs = (data, name, size, color, transform) => {
   const sizes = {
-    XS: 'xs',
-    S: 's',
-    M: 'm',
-    L: 'l',
-    XL: 'xl',
-    '2XL': '2xl',
+    xs: 'xs',
+    s: 's',
+    m: 'm',
+    l: 'l',
+    xl: 'xl',
+    '2xl': '2xl',
   };
 
   const defaultSize = size || 'm';
   const defaultSizes = size ? [size] : sizes;
 
   const colors = {
-    Default: '',
-    Inverted: 'inverted',
-    Primary: 'primary',
+    default: '',
+    inverted: 'inverted',
+    primary: 'primary',
   };
 
   const defaultColor = color ? [color] : '';
@@ -79,11 +79,11 @@ export const getIconKnobs = (data, name, size, color, transform) => {
 
   const transforms = {
     None: '',
-    'Rotate 90': 'rotate-90',
-    'Rotate 180': 'rotate-180',
-    'Rotate 270': 'rotate-270',
-    'Flip horizontal': 'flip-horizontal',
-    'Flip vertical': 'flip-vertical',
+    'rotate-90': 'rotate-90',
+    'rotate-180': 'rotate-180',
+    'rotate-270': 'rotate-270',
+    'flip-horizontal': 'flip-horizontal',
+    'flip-vertical': 'flip-vertical',
   };
 
   const defaultTransform = transform || '';
