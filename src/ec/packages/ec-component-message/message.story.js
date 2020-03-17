@@ -1,11 +1,17 @@
 /* eslint-disable no-param-reassign */
-import merge from 'deepmerge';
 import { storiesOf } from '@storybook/html';
-import { withKnobs, text } from '@storybook/addon-knobs';
+import { withKnobs, text, select } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
 
+import {
+  getExtraKnobs,
+  buttonLabels,
+  getIconKnobs,
+} from '@ecl-twig/story-utils';
+
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
+import uiIcons from '@ecl/ec-resources-icons/dist/lists/ui.json';
 
 import dataInfo from './demo/data--info';
 import dataSuccess from './demo/data--success';
@@ -14,6 +20,30 @@ import dataWarning from './demo/data--warning';
 
 import message from './ecl-message.html.twig';
 import notes from './README.md';
+
+const iconsList = {};
+iconsList.none = null;
+
+uiIcons.forEach(icon => {
+  iconsList[icon] = icon;
+});
+
+const PrepareMessage = data => {
+  getExtraKnobs(data);
+  if (data.title) {
+    data.title = text('Title', data.title, buttonLabels.required);
+  }
+
+  if (data.description) {
+    data.description = text(
+      'Description',
+      data.description,
+      buttonLabels.required
+    );
+  }
+
+  return data;
+};
 
 const formatIcon = data => {
   data.icon.path = defaultSprite;
@@ -27,64 +57,56 @@ storiesOf('Components/Messages', module)
   .addDecorator(withNotes)
   .add(
     'Info',
-    () =>
-      message(
-        merge(formatIcon(dataInfo), {
-          title: text('Title', 'Information message'),
-          description: text(
-            'Description',
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam accumsan semper lorem, ac mollis lacus tincidunt eu. Duis scelerisque diam eu tempus fringilla.'
-          ),
-        })
-      ),
+    () => {
+      const data = PrepareMessage(dataInfo);
+      const name = select('icon.name', iconsList, null, buttonLabels.required);
+      if (name !== null) {
+        getIconKnobs(data, name, 'l');
+      }
+      return message(data);
+    },
     {
       notes: { markdown: notes, json: formatIcon(dataInfo) },
     }
   )
   .add(
     'Success',
-    () =>
-      message(
-        merge(formatIcon(dataSuccess), {
-          title: text('Title', 'Information message'),
-          description: text(
-            'Description',
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam accumsan semper lorem, ac mollis lacus tincidunt eu. Duis scelerisque diam eu tempus fringilla.'
-          ),
-        })
-      ),
+    () => {
+      const data = PrepareMessage(dataSuccess);
+      const name = select('icon.name', iconsList, null, buttonLabels.required);
+      if (name !== null) {
+        getIconKnobs(data, name, 'l');
+      }
+      return message(data);
+    },
     {
       notes: { markdown: notes, json: formatIcon(dataSuccess) },
     }
   )
   .add(
     'Error',
-    () =>
-      message(
-        merge(formatIcon(dataError), {
-          title: text('Title', 'Information message'),
-          description: text(
-            'Description',
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam accumsan semper lorem, ac mollis lacus tincidunt eu. Duis scelerisque diam eu tempus fringilla.'
-          ),
-        })
-      ),
+    () => {
+      const data = PrepareMessage(dataError);
+      const name = select('icon.name', iconsList, null, buttonLabels.required);
+      if (name !== null) {
+        getIconKnobs(data, name, 'l');
+      }
+      return message(data);
+    },
     {
       notes: { markdown: notes, json: formatIcon(dataError) },
     }
   )
   .add(
     'Warning',
-    () =>
-      message(
-        merge(formatIcon(dataWarning), {
-          title: text('Title', 'Information message'),
-          description: text(
-            'Description',
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam accumsan semper lorem, ac mollis lacus tincidunt eu. Duis scelerisque diam eu tempus fringilla.'
-          ),
-        })
-      ),
+    () => {
+      const data = PrepareMessage(dataWarning);
+      const name = select('icon.name', iconsList, null, buttonLabels.required);
+      if (name !== null) {
+        getIconKnobs(data, name, 'l');
+      }
+      return message(data);
+    },
     {
       notes: { markdown: notes, json: formatIcon(dataWarning) },
     }
