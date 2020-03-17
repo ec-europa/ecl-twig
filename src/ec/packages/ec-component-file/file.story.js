@@ -2,6 +2,7 @@
 import { storiesOf } from '@storybook/html';
 import { withKnobs, text, select } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
+import { getExtraKnobs, buttonLabels } from '@ecl-twig/story-utils';
 import withCode from '@ecl-twig/storybook-addon-code';
 
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
@@ -11,96 +12,82 @@ import dataWithoutTranslation from './demo/data--without-translation';
 import file from './ecl-file.html.twig';
 import notes from './README.md';
 
-// Labels for the groups.
-const requiredGroupId = 'Mandatory elements';
-const optionalGroupId = 'Optional elements';
-
 const prepareFile = data => {
-  data.title = text('title', data.title, requiredGroupId);
-  data.language = text('language', data.language, requiredGroupId);
-  data.meta = text('meta', data.meta, requiredGroupId);
+  data.title = text('title', data.title, buttonLabels.required);
+  data.language = text('language', data.language, buttonLabels.required);
+  data.meta = text('meta', data.meta, buttonLabels.required);
   data.icon.path = select(
     'icon.path',
     [defaultSprite],
     defaultSprite,
-    requiredGroupId
+    buttonLabels.required
   );
   data.download.link.label = text(
     'download.link.label',
     data.download.link.label,
-    requiredGroupId
+    buttonLabels.required
   );
   data.download.icon.path = select(
     'download.icon.path',
     [defaultSprite],
     defaultSprite,
-    requiredGroupId
+    buttonLabels.required
   );
-  data.extra_classes = text('extra_classes', '', optionalGroupId);
-  const attribute1Name = text('extra_attributes[0].name', '', optionalGroupId);
-  // First attribute.
-  if (attribute1Name !== '') {
-    data.extra_attributes = [];
-    let attribute = {};
-    const attribute1Value = text(
-      'extra_attributes[0].value',
-      '',
-      optionalGroupId
-    );
-    const attribute2Name = text(
-      'extra_attributes[1].name',
-      '',
-      optionalGroupId
-    );
-    attribute.name = attribute1Name;
-    if (attribute1Value !== '') {
-      attribute.value = attribute1Value;
-    }
-    data.extra_attributes.push(attribute);
-    // Second attribute.
-    if (attribute2Name !== '') {
-      const attribute2Value = text(
-        'extra_attributes[1].value',
-        '',
-        optionalGroupId
-      );
-      attribute = {};
-      attribute.name = attribute2Name;
-      if (attribute2Value !== '') {
-        attribute.value = attribute2Value;
-      }
-      data.extra_attributes.push(attribute);
-    }
-  } else {
-    delete data.extra_attributes;
-  }
+
   if (data.translation) {
     data.translation.description = text(
       'translation.description',
       data.translation.description,
-      optionalGroupId
+      buttonLabels.optional
     );
     data.translation.toggle.label = text(
       'translation.toggle.label',
       data.translation.toggle.label,
-      requiredGroupId
+      buttonLabels.required
     );
     data.translation.toggle.icon.path = select(
       'translation.toggle.icon.path',
       [defaultSprite],
       defaultSprite,
-      requiredGroupId
+      buttonLabels.required
     );
 
     data.translation.items.forEach((item, i) => {
+      data.translation.items[i].title = text(
+        `data.translation.items[${i}].title`,
+        data.translation.items[i].title,
+        buttonLabels.required
+      );
+      data.translation.items[i].meta = text(
+        `data.translation.items[${i}].meta`,
+        data.translation.items[i].meta,
+        buttonLabels.required
+      );
+      data.translation.items[i].lang = text(
+        `data.translation.items[${i}].lang`,
+        data.translation.items[i].lang,
+        buttonLabels.required
+      );
+      data.translation.items[i].download.link.label = text(
+        `data.translation.items[${i}].download.link.label`,
+        data.translation.items[i].download.link.label,
+        buttonLabels.required
+      );
+      data.translation.items[i].download.link.path = text(
+        `data.translation.items[${i}].download.link.path`,
+        data.translation.items[i].download.link.path,
+        buttonLabels.required
+      );
       data.translation.items[i].download.icon.path = select(
         `data.translation.items[${i}].download.icon.path`,
         [defaultSprite],
         defaultSprite,
-        requiredGroupId
+        buttonLabels.required
       );
     });
   }
+
+  getExtraKnobs(data);
 
   return data;
 };
