@@ -189,3 +189,34 @@ export const getFormKnobs = data => {
 
   return data;
 };
+
+export const getFormItemKnobs = data => {
+  data.items.forEach((item, i) => {
+    item.label = text(`items[${i}].label`, item.label, buttonLabels.required);
+    item.id = select(
+      `items[${i}].id`,
+      [item.id],
+      item.id,
+      buttonLabels.required
+    );
+    item.value = select(
+      `items[${i}].value`,
+      [item.value],
+      item.value,
+      buttonLabels.required
+    );
+    item.helper_id = select(
+      `items[${i}].value`,
+      [item.helper_id],
+      item.helper_id,
+      buttonLabels.optional
+    );
+    item.helper_text = text(
+      `items[${i}].helper_text`,
+      item.helper_text,
+      buttonLabels.optional
+    );
+  });
+
+  return data;
+};
