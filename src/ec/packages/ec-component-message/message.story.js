@@ -57,9 +57,14 @@ storiesOf('Components/Messages', module)
     'Info',
     () => {
       const data = PrepareMessage(dataInfo);
-      const name = select('icon.name', iconsList, null, buttonLabels.required);
+      const name = select(
+        'icon.name',
+        iconsList,
+        dataInfo.icon.name,
+        buttonLabels.required
+      );
       if (name !== null) {
-        getIconKnobs(data, name, 'l', 'notifications');
+        getIconKnobs(data, name, 'notifications', 'l');
       }
       return message(data);
     },
@@ -71,9 +76,14 @@ storiesOf('Components/Messages', module)
     'Success',
     () => {
       const data = PrepareMessage(dataSuccess);
-      const name = select('icon.name', iconsList, null, buttonLabels.required);
+      const name = select(
+        'icon.name',
+        iconsList,
+        dataInfo.icon.name,
+        buttonLabels.required
+      );
       if (name !== null) {
-        getIconKnobs(data, name, 'l', 'notifications');
+        getIconKnobs(data, name, 'notifications', 'l');
       }
       return message(data);
     },
@@ -85,9 +95,14 @@ storiesOf('Components/Messages', module)
     'Error',
     () => {
       const data = PrepareMessage(dataError);
-      const name = select('icon.name', iconsList, null, buttonLabels.required);
+      const name = select(
+        'icon.name',
+        iconsList,
+        dataInfo.icon.name,
+        buttonLabels.required
+      );
       if (name !== null) {
-        getIconKnobs(data, name, 'l', 'notifications');
+        getIconKnobs(data, name, 'notifications', 'l');
       }
       return message(data);
     },
@@ -99,9 +114,14 @@ storiesOf('Components/Messages', module)
     'Warning',
     () => {
       const data = PrepareMessage(dataWarning);
-      const name = select('icon.name', iconsList, null, buttonLabels.required);
+      const name = select(
+        'icon.name',
+        iconsList,
+        dataInfo.icon.name,
+        buttonLabels.required
+      );
       if (name !== null) {
-        getIconKnobs(data, name, 'l', 'notifications');
+        getIconKnobs(data, name, 'notifications', 'l');
       }
       return message(data);
     },
