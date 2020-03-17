@@ -1,9 +1,9 @@
-import merge from 'deepmerge';
+/* eslint-disable no-param-reassign */
 import { storiesOf } from '@storybook/html';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import { withKnobs, text, boolean } from '@storybook/addon-knobs';
 import withCode from '@ecl-twig/storybook-addon-code';
-
+import { getExtraKnobs, buttonLabels } from '@ecl-twig/story-utils';
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 
 import bannerDataDefault from './demo/data--default';
@@ -15,11 +15,39 @@ import bannerDataAlignLeft from './demo/data--align-left';
 import pageBanner from './ecl-page-banner.html.twig';
 import notes from './README.md';
 
-const setIconPath = b => {
-  if (b.link.icon) {
-    b.link.icon.path = defaultSprite; // eslint-disable-line no-param-reassign
+const preparePageBanner = data => {
+  getExtraKnobs(data);
+  if (data.link.link.label) {
+    data.link.link.label = text(
+      'Link label',
+      data.link.link.label,
+      buttonLabels.required
+    );
   }
-  return b;
+
+  if (data.title) {
+    data.title = text('Title', data.title, buttonLabels.required);
+  }
+
+  if (data.title) {
+    data.title = text('Title', data.title, buttonLabels.required);
+  }
+
+  if (data.baseline) {
+    data.baseline = text('Description', data.baseline, buttonLabels.required);
+  }
+
+  if (data.centered) {
+    data.centered = boolean('Centered', data.centered, buttonLabels.optianal);
+  }
+
+  if (data.image) {
+    data.image = text('Image', data.image, buttonLabels.optianal);
+  }
+  if (data.link.icon) {
+    data.link.icon.path = defaultSprite; // eslint-disable-line no-param-reassign
+  }
+  return data;
 };
 
 storiesOf('Components/Banners/Page Banner', module)
@@ -28,109 +56,68 @@ storiesOf('Components/Banners/Page Banner', module)
   .addDecorator(withKnobs)
   .add(
     'image',
-    () =>
-      pageBanner(
-        merge(setIconPath(bannerDataImage), {
-          link: {
-            link: {
-              label: text('Link label', bannerDataImage.link.link.label),
-            },
-          },
-          title: text('Title', bannerDataImage.title),
-          baseline: text('baseline', bannerDataImage.baseline),
-          centered: boolean('Centered', bannerDataImage.centered),
-          image: text('Image', bannerDataImage.image),
-        })
-      ),
+    () => {
+      const pageBannerImage = preparePageBanner(bannerDataImage);
+
+      return pageBanner(pageBannerImage);
+    },
     {
-      notes: { markdown: notes, json: setIconPath(bannerDataImage) },
+      notes: { markdown: notes, json: preparePageBanner(bannerDataImage) },
     }
   )
   .add(
     'image-shade',
-    () =>
-      pageBanner(
-        merge(setIconPath(bannerDataImageShade), {
-          link: {
-            link: {
-              label: text('Link label', bannerDataImageShade.link.link.label),
-            },
-          },
-          title: text('Title', bannerDataImageShade.title),
-          baseline: text('baseline', bannerDataImageShade.baseline),
-          centered: boolean('Centered', bannerDataImageShade.centered),
-          image: text('Image', bannerDataImageShade.image),
-        })
-      ),
+    () => {
+      const pageBannerImageShade = preparePageBanner(bannerDataImageShade);
+
+      return pageBanner(pageBannerImageShade);
+    },
     {
       notes: {
         markdown: notes,
-        json: setIconPath(bannerDataImageShade),
+        json: preparePageBanner(bannerDataImageShade),
       },
     }
   )
   .add(
     'primary',
-    () =>
-      pageBanner(
-        merge(setIconPath(bannerDataPrimary), {
-          link: {
-            link: {
-              label: text('Link label', bannerDataPrimary.link.link.label),
-            },
-          },
-          title: text('Title', bannerDataPrimary.title),
-          baseline: text('baseline', bannerDataPrimary.baseline),
-          centered: boolean('Centered', bannerDataPrimary.centered),
-        })
-      ),
+    () => {
+      const pageBannerPrimary = preparePageBanner(bannerDataPrimary);
+
+      return pageBanner(pageBannerPrimary);
+    },
     {
       notes: {
         markdown: notes,
-        json: setIconPath(bannerDataPrimary),
+        json: preparePageBanner(bannerDataPrimary),
       },
     }
   )
   .add(
     'default',
-    () =>
-      pageBanner(
-        merge(setIconPath(bannerDataDefault), {
-          link: {
-            link: {
-              label: text('Link label', bannerDataDefault.link.link.label),
-            },
-          },
-          title: text('Title', bannerDataDefault.title),
-          baseline: text('baseline', bannerDataDefault.baseline),
-          centered: boolean('Centered', bannerDataDefault.centered),
-        })
-      ),
+    () => {
+      const pageBannerDefault = preparePageBanner(bannerDataDefault);
+
+      return pageBanner(pageBannerDefault);
+    },
     {
       notes: {
         markdown: notes,
-        json: setIconPath(bannerDataDefault),
+        json: preparePageBanner(bannerDataDefault),
       },
     }
   )
   .add(
     'align-left',
-    () =>
-      pageBanner(
-        merge(setIconPath(bannerDataAlignLeft), {
-          link: {
-            link: {
-              label: text('Link label', bannerDataAlignLeft.link.link.label),
-            },
-          },
-          title: text('Title', bannerDataAlignLeft.title),
-          baseline: text('baseline', bannerDataAlignLeft.baseline),
-        })
-      ),
+    () => {
+      const pageBannerLeft = preparePageBanner(bannerDataAlignLeft);
+
+      return pageBanner(pageBannerLeft);
+    },
     {
       notes: {
         markdown: notes,
-        json: setIconPath(bannerDataAlignLeft),
+        json: preparePageBanner(bannerDataAlignLeft),
       },
     }
   );
