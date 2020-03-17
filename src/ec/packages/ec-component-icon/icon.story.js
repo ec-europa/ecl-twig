@@ -14,7 +14,8 @@ import notificationsIcons from '@ecl/ec-resources-icons/dist/lists/notifications
 import uiIcons from '@ecl/ec-resources-icons/dist/lists/ui.json';
 import dataBranded from './demo/data--facebook';
 import dataNotifications from './demo/data--success';
-import dataUi from './demo/data--audio';
+import dataGeneral from './demo/data--audio';
+import dataUi from './demo/data--ui';
 
 import icon from './ecl-icon.html.twig';
 import notes from './README.md';
@@ -56,12 +57,12 @@ storiesOf('Components/Icon', module)
         generalIcons[0],
         buttonLabels.required
       );
-      const dataStory = prepareIcon(dataUi, iconName);
+      const dataStory = prepareIcon(dataGeneral, iconName);
 
       return icon(dataStory);
     },
     {
-      notes: { markdown: notes, json: dataUi },
+      notes: { markdown: notes, json: dataGeneral },
     }
   )
   .add(
@@ -90,9 +91,9 @@ storiesOf('Components/Icon', module)
         uiIcons[0],
         buttonLabels.required
       );
-      const data = prepareIcon(dataUi, iconName);
+      const dataStory = prepareIcon(dataUi, iconName);
 
-      return icon(data);
+      return icon(dataStory);
     },
     {
       notes: { markdown: notes, json: dataUi },
