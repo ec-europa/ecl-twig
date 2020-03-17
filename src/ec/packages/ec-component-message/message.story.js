@@ -3,16 +3,14 @@ import { storiesOf } from '@storybook/html';
 import { withKnobs, text, select } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
-
 import {
   getExtraKnobs,
   buttonLabels,
   getIconKnobs,
 } from '@ecl-twig/story-utils';
-
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import notifIcons from '@ecl/ec-resources-icons/dist/lists/notifications.json';
-
+// Import data for demos
 import dataInfo from './demo/data--info';
 import dataSuccess from './demo/data--success';
 import dataError from './demo/data--error';
