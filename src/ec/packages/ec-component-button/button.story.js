@@ -53,7 +53,7 @@ storiesOf('Components/Button', module)
       const data = prepareButton(dataPrimary);
       const name = select('icon.name', iconsList, null, buttonLabels.optional);
       if (name !== null) {
-        getIconKnobs(data, name, 'xs');
+        getIconKnobs(data, name, 'xs', 'ui');
       }
 
       return button(data);
@@ -68,7 +68,7 @@ storiesOf('Components/Button', module)
       const data = prepareButton(dataSecondary);
       const name = select('icon.name', iconsList, null, buttonLabels.optional);
       if (name !== null) {
-        getIconKnobs(data, name, 'xs');
+        getIconKnobs(data, name, 'xs', 'ui');
       }
 
       return button(data);
@@ -83,7 +83,7 @@ storiesOf('Components/Button', module)
       const data = prepareButton(dataCall);
       const name = select('icon.name', iconsList, null, buttonLabels.optional);
       if (name !== null) {
-        getIconKnobs(data, name, 'xs');
+        getIconKnobs(data, name, 'xs', 'ui');
       }
 
       return button(data);
@@ -98,7 +98,7 @@ storiesOf('Components/Button', module)
       const data = prepareButton(dataGhost);
       const name = select('icon.name', iconsList, null, buttonLabels.optional);
       if (name !== null) {
-        getIconKnobs(data, name, 'xs');
+        getIconKnobs(data, name, 'xs', 'ui');
       }
 
       return button(data);
@@ -113,7 +113,7 @@ storiesOf('Components/Button', module)
       const data = prepareButton(dataSearch);
       const name = select('icon.name', iconsList, null, buttonLabels.optional);
       if (name !== null) {
-        getIconKnobs(data, name, 'xs');
+        getIconKnobs(data, name, 'xs', 'ui');
       }
 
       return button(data);

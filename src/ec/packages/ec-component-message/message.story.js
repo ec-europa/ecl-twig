@@ -11,7 +11,7 @@ import {
 } from '@ecl-twig/story-utils';
 
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
-import uiIcons from '@ecl/ec-resources-icons/dist/lists/ui.json';
+import notifIcons from '@ecl/ec-resources-icons/dist/lists/notifications.json';
 
 import dataInfo from './demo/data--info';
 import dataSuccess from './demo/data--success';
@@ -24,7 +24,7 @@ import notes from './README.md';
 const iconsList = {};
 iconsList.none = null;
 
-uiIcons.forEach(icon => {
+notifIcons.forEach(icon => {
   iconsList[icon] = icon;
 });
 
@@ -61,7 +61,7 @@ storiesOf('Components/Messages', module)
       const data = PrepareMessage(dataInfo);
       const name = select('icon.name', iconsList, null, buttonLabels.required);
       if (name !== null) {
-        getIconKnobs(data, name, 'l');
+        getIconKnobs(data, name, 'l', 'notifications');
       }
       return message(data);
     },
@@ -75,7 +75,7 @@ storiesOf('Components/Messages', module)
       const data = PrepareMessage(dataSuccess);
       const name = select('icon.name', iconsList, null, buttonLabels.required);
       if (name !== null) {
-        getIconKnobs(data, name, 'l');
+        getIconKnobs(data, name, 'l', 'notifications');
       }
       return message(data);
     },
@@ -89,7 +89,7 @@ storiesOf('Components/Messages', module)
       const data = PrepareMessage(dataError);
       const name = select('icon.name', iconsList, null, buttonLabels.required);
       if (name !== null) {
-        getIconKnobs(data, name, 'l');
+        getIconKnobs(data, name, 'l', 'notifications');
       }
       return message(data);
     },
@@ -103,7 +103,7 @@ storiesOf('Components/Messages', module)
       const data = PrepareMessage(dataWarning);
       const name = select('icon.name', iconsList, null, buttonLabels.required);
       if (name !== null) {
-        getIconKnobs(data, name, 'l');
+        getIconKnobs(data, name, 'l', 'notifications');
       }
       return message(data);
     },
