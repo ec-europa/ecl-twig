@@ -1,14 +1,17 @@
-import merge from 'deepmerge';
 import { storiesOf } from '@storybook/html';
 import { withKnobs, select } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
+import {
+  getExtraKnobs,
+  getIconKnobs,
+  buttonLabels,
+} from '@ecl-twig/story-utils';
 import withCode from '@ecl-twig/storybook-addon-code';
 
 import brandedIcons from '@ecl/ec-resources-icons/dist/lists/branded.json';
 import generalIcons from '@ecl/ec-resources-icons/dist/lists/general.json';
 import notificationsIcons from '@ecl/ec-resources-icons/dist/lists/notifications.json';
 import uiIcons from '@ecl/ec-resources-icons/dist/lists/ui.json';
-import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import dataBranded from './demo/data--facebook';
 import dataNotifications from './demo/data--success';
 import dataUi from './demo/data--audio';
@@ -16,37 +19,12 @@ import dataUi from './demo/data--audio';
 import icon from './ecl-icon.html.twig';
 import notes from './README.md';
 
-const sizes = {
-  XS: 'xs',
-  S: 's',
-  M: 'm',
-  L: 'l',
-  XL: 'xl',
-  '2XL': '2xl',
+const prepareIcon = (data, name) => {
+  getIconKnobs(data, name, data.icon.type);
+  getExtraKnobs(data);
+
+  return data;
 };
-
-const defaultSize = 'm';
-
-const colors = {
-  Default: '',
-  Inverted: 'inverted',
-  Primary: 'primary',
-};
-
-const defaultColor = '';
-
-const transforms = {
-  None: '',
-  'Rotate 90': 'rotate-90',
-  'Rotate 180': 'rotate-180',
-  'Rotate 270': 'rotate-270',
-  'Flip horizontal': 'flip-horizontal',
-  'Flip vertical': 'flip-vertical',
-};
-
-const defaultTransform = '';
-
-const defaultIconPath = defaultSprite;
 
 storiesOf('Components/Icon', module)
   .addDecorator(withKnobs)
@@ -55,95 +33,68 @@ storiesOf('Components/Icon', module)
   .add(
     'branded',
     () => {
-      const shape = select('Icon', brandedIcons, brandedIcons[0]);
-      const size = select('Size', sizes, defaultSize);
-      const color = select('Color', colors, defaultColor);
-      const transform = select('Transform', transforms, defaultTransform);
-
-      return icon(
-        merge(dataBranded, {
-          icon: {
-            name: shape,
-            size,
-            transform,
-            color,
-            path: defaultIconPath,
-          },
-        })
+      const iconName = select(
+        'icon.name',
+        brandedIcons,
+        brandedIcons[0],
+        buttonLabels.required
       );
+      const dataStory = prepareIcon(dataBranded, iconName);
+
+      return icon(dataStory);
     },
     {
-      notes: { markdown: notes },
+      notes: { markdown: notes, json: dataBranded },
     }
   )
   .add(
     'general',
     () => {
-      const shape = select('Icon', generalIcons, generalIcons[0]);
-      const size = select('Size', sizes, defaultSize);
-      const color = select('Color', colors, defaultColor);
-      const transform = select('Transform', transforms, defaultTransform);
+      const iconName = select(
+        'icon.name',
+        generalIcons,
+        generalIcons[0],
+        buttonLabels.required
+      );
+      const dataStory = prepareIcon(dataUi, iconName);
 
-      return icon({
-        icon: {
-          type: 'general',
-          name: shape,
-          size,
-          transform,
-          color,
-          path: defaultIconPath,
-        },
-      });
+      return icon(dataStory);
     },
     {
-      notes: { markdown: notes },
+      notes: { markdown: notes, json: dataUi },
     }
   )
   .add(
     'notifications',
     () => {
-      const shape = select('Icon', notificationsIcons, notificationsIcons[0]);
-      const size = select('Size', sizes, defaultSize);
-      const color = select('Color', colors, defaultColor);
-      const transform = select('Transform', transforms, defaultTransform);
-
-      return icon(
-        merge(dataNotifications, {
-          icon: {
-            name: shape,
-            size,
-            transform,
-            color,
-            path: defaultIconPath,
-          },
-        })
+      const iconName = select(
+        'icon.name',
+        notificationsIcons,
+        notificationsIcons[0],
+        buttonLabels.required
       );
+      const dataStory = prepareIcon(dataNotifications, iconName);
+
+      return icon(dataStory);
     },
     {
-      notes: { markdown: notes },
+      notes: { markdown: notes, json: dataNotifications },
     }
   )
   .add(
     'ui',
     () => {
-      const shape = select('Icon', uiIcons, uiIcons[0]);
-      const size = select('Size', sizes, defaultSize);
-      const color = select('Color', colors, defaultColor);
-      const transform = select('Transform', transforms, defaultTransform);
-
-      return icon(
-        merge(dataUi, {
-          icon: {
-            name: shape,
-            size,
-            transform,
-            color,
-            path: defaultIconPath,
-          },
-        })
+      const iconName = select(
+        'icon.name',
+        uiIcons,
+        uiIcons[0],
+        buttonLabels.required
       );
+      const data = prepareIcon(dataUi, iconName);
+
+      return icon(data);
     },
     {
-      notes: { markdown: notes },
+      notes: { markdown: notes, json: dataUi },
     }
   );
