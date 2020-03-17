@@ -46,7 +46,7 @@ const PrepareBanner = data => {
   }
 
   if (data.image) {
-    data.image = text('Image', dataImage.image, buttonLabels.optianal);
+    data.image = text('Image', data.image, buttonLabels.optianal);
   }
   data.link.icon.path = defaultSprite; // eslint-disable-line no-param-reassign
   return data;
