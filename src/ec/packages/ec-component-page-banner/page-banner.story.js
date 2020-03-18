@@ -16,7 +16,6 @@ import pageBanner from './ecl-page-banner.html.twig';
 import notes from './README.md';
 
 const preparePageBanner = data => {
-  getExtraKnobs(data);
   if (data.link.link.label) {
     data.link.link.label = text(
       'Link label',
@@ -26,27 +25,24 @@ const preparePageBanner = data => {
   }
 
   if (data.title) {
-    data.title = text('Title', data.title, buttonLabels.required);
-  }
-
-  if (data.title) {
-    data.title = text('Title', data.title, buttonLabels.required);
+    data.title = text('title', data.title, buttonLabels.required);
   }
 
   if (data.baseline) {
-    data.baseline = text('Description', data.baseline, buttonLabels.required);
+    data.baseline = text('baseline', data.baseline, buttonLabels.required);
   }
 
   if (data.centered) {
-    data.centered = boolean('Centered', data.centered, buttonLabels.optianal);
+    data.centered = boolean('centered', data.centered, buttonLabels.optional);
   }
 
   if (data.image) {
-    data.image = text('Image', data.image, buttonLabels.optianal);
+    data.image = text('image', data.image, buttonLabels.optional);
   }
   if (data.link.icon) {
     data.link.icon.path = defaultSprite; // eslint-disable-line no-param-reassign
   }
+  getExtraKnobs(data);
   return data;
 };
 
