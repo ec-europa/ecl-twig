@@ -19,14 +19,6 @@ storiesOf('Components/Forms/Text area', module)
   .addDecorator(withKnobs)
   .addDecorator(withNotes)
   .addDecorator(withCode)
-  .add(
-    'default',
-    () => {
-      const data = prepareTextArea(specData);
-
-      return textArea(data);
-    },
-    {
-      notes: { markdown: notes, json: specData },
-    }
-  );
+  .add('default', () => textArea(prepareTextArea(specData)), {
+    notes: { markdown: notes, json: specData },
+  });
