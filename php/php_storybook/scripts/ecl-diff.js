@@ -6,7 +6,7 @@ no-param-reassign, no-restricted-syntax, no-await-in-loop, import/no-dynamic-req
 const fs = require('fs');
 const logger = require('html-differ/lib/logger');
 const puppeteer = require('puppeteer');
-const decode = require('decode-html');
+const he = require('he');
 const yargsInteractive = require('yargs-interactive');
 const { HtmlDiffer } = require('html-differ');
 const { execSync } = require('child_process');
@@ -206,7 +206,7 @@ yargsInteractive()
             'xlink:href="{{.*icons.*.svg#}}'
           )
           // Booleans.
-          .replace(/(data-ecl[A-Za-z-]+)(?=[\s/>])/g, '$1="{{true|false}}"')
+          .replace(/(data-ecl[-A-Za-z]+)(?=[\s/>])/g, '$1="{{true|false}}"') // eslint-disable-line unicorn/regex-shorthand
           // aria-hidden
           .replace(/(aria-hidden)(=".+")/g, '$1="{{true|false}}"')
           // Logo
@@ -359,7 +359,7 @@ yargsInteractive()
             );
 
             // The html we get is enriched by a syntax highlighter.
-            eclMarkup = decode(eclMarkup.replace(/<\/?[^>]+(>|$)/g, ''));
+            eclMarkup = he.decode(eclMarkup.replace(/<\/?[^>]+(>|$)/g, ''));
             const eclMarkupMinusDiv = eclMarkup.replace(/^<div>/, '');
             if (eclMarkupMinusDiv !== eclMarkup) {
               eclMarkup = eclMarkupMinusDiv.replace(/<\/div>$/, '');
