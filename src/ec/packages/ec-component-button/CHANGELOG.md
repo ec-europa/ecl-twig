@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.25.1](https://github.com/ec-europa/ecl-twig/compare/v2.25.0...v2.25.1) (2020-03-18)
+
+### Bug Fixes
+
+- **button:** Fixing extra_attributes knobs, adding states group - FRONT-947 ([#362](https://github.com/ec-europa/ecl-twig/issues/362)) ([3179cea](https://github.com/ec-europa/ecl-twig/commit/3179ceaa2524b36920a89ea26efcecb1a77042f1))
+
 # [2.25.0](https://github.com/ec-europa/ecl-twig/compare/v2.24.0...v2.25.0) (2020-03-12)
 
 ### Bug Fixes
