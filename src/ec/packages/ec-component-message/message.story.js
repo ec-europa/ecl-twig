@@ -27,7 +27,6 @@ notifIcons.forEach(icon => {
 });
 
 const PrepareMessage = data => {
-  getExtraKnobs(data);
   if (data.title) {
     data.title = text('Title', data.title, buttonLabels.required);
   }
@@ -39,6 +38,7 @@ const PrepareMessage = data => {
       buttonLabels.required
     );
   }
+  getExtraKnobs(data);
 
   return data;
 };
