@@ -55,7 +55,7 @@ export const getExtraKnobs = data => {
   return data;
 };
 
-export const getIconKnobs = (data, name, size, color, transform) => {
+export const getIconKnobs = (data, name, type, size, color, transform) => {
   const sizes = {
     xs: 'xs',
     s: 's',
@@ -64,6 +64,16 @@ export const getIconKnobs = (data, name, size, color, transform) => {
     xl: 'xl',
     '2xl': '2xl',
   };
+
+  const types = {
+    general: 'general',
+    branded: 'branded',
+    notifications: 'notifications',
+    ui: 'ui',
+  };
+
+  const defaultType = type || 'ui';
+  const defaultTypes = type ? [type] : [types];
 
   const defaultSize = size || 'm';
   const defaultSizes = size ? [size] : sizes;
@@ -74,7 +84,7 @@ export const getIconKnobs = (data, name, size, color, transform) => {
     primary: 'primary',
   };
 
-  const defaultColor = color ? [color] : '';
+  const defaultColor = color || '';
   const defaultColors = color ? [color] : colors;
 
   const transforms = {
@@ -93,14 +103,20 @@ export const getIconKnobs = (data, name, size, color, transform) => {
     before: 'before',
     after: 'after',
   };
+
   const icon = {};
   icon.name = name;
-  icon.type = select('icon.type', ['ui'], 'ui', buttonLabels.optional);
+  icon.type = select(
+    'icon.type',
+    defaultTypes,
+    defaultType,
+    buttonLabels.required
+  );
   icon.path = select(
     'icon.path',
     [defaultSprite],
     defaultSprite,
-    buttonLabels.optional
+    buttonLabels.required
   );
   icon.size = select(
     'icon.size',
@@ -122,12 +138,14 @@ export const getIconKnobs = (data, name, size, color, transform) => {
   );
   if (icon) {
     data.icon = icon;
-    data.icon_position = select(
-      'icon_position',
-      iconPositionSettings,
-      'after',
-      buttonLabels.optional
-    );
+    if (data.link) {
+      data.icon_position = select(
+        'icon_position',
+        iconPositionSettings,
+        'after',
+        buttonLabels.optional
+      );
+    }
   }
 
   return data;
@@ -186,6 +204,37 @@ export const getFormKnobs = data => {
     buttonLabels.optional
   );
   data.width = select('width', inputWidthOptions, 'm', buttonLabels.optional);
+
+  return data;
+};
+
+export const getFormItemKnobs = data => {
+  data.items.forEach((item, i) => {
+    item.label = text(`items[${i}].label`, item.label, buttonLabels.required);
+    item.id = select(
+      `items[${i}].id`,
+      [item.id],
+      item.id,
+      buttonLabels.required
+    );
+    item.value = select(
+      `items[${i}].value`,
+      [item.value],
+      item.value,
+      buttonLabels.required
+    );
+    item.helper_id = select(
+      `items[${i}].value`,
+      [item.helper_id],
+      item.helper_id,
+      buttonLabels.optional
+    );
+    item.helper_text = text(
+      `items[${i}].helper_text`,
+      item.helper_text,
+      buttonLabels.optional
+    );
+  });
 
   return data;
 };
