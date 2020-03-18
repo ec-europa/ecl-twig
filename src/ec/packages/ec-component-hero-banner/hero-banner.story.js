@@ -15,7 +15,7 @@ import dataLeft from './demo/data--align-left';
 import heroBanner from './ecl-hero-banner.html.twig';
 import notes from './README.md';
 
-const PrepareBanner = data => {
+const prepareBanner = data => {
   if (data.title) {
     data.title = text('title', data.title, buttonLabels.required);
   }
@@ -54,55 +54,55 @@ storiesOf('Components/Banners/Hero Banner', module)
   .add(
     'image',
     () => {
-      const bannerImage = PrepareBanner(dataImage);
+      const bannerImage = prepareBanner(dataImage);
 
       return heroBanner(bannerImage);
     },
     {
-      notes: { markdown: notes, json: PrepareBanner(dataImage) },
+      notes: { markdown: notes, json: prepareBanner(dataImage) },
     }
   )
   .add(
     'image-shade',
     () => {
-      const bannerImageShade = PrepareBanner(dataImageShade);
+      const bannerImageShade = prepareBanner(dataImageShade);
 
       return heroBanner(bannerImageShade);
     },
     {
-      notes: { markdown: notes, json: PrepareBanner(dataImageShade) },
+      notes: { markdown: notes, json: prepareBanner(dataImageShade) },
     }
   )
   .add(
     'primary',
     () => {
-      const bannerPrimary = PrepareBanner(dataPrimary);
+      const bannerPrimary = prepareBanner(dataPrimary);
 
       return heroBanner(bannerPrimary);
     },
     {
-      notes: { markdown: notes, json: PrepareBanner(dataPrimary) },
+      notes: { markdown: notes, json: prepareBanner(dataPrimary) },
     }
   )
   .add(
     'default',
     () => {
-      const bannerDefault = PrepareBanner(dataDefault);
+      const bannerDefault = prepareBanner(dataDefault);
 
       return heroBanner(bannerDefault);
     },
     {
-      notes: { markdown: notes, json: PrepareBanner(dataDefault) },
+      notes: { markdown: notes, json: prepareBanner(dataDefault) },
     }
   )
   .add(
     'align-left',
     () => {
-      const bannerLeft = PrepareBanner(dataLeft);
+      const bannerLeft = prepareBanner(dataLeft);
 
       return heroBanner(bannerLeft);
     },
     {
-      notes: { markdown: notes, json: PrepareBanner(dataLeft) },
+      notes: { markdown: notes, json: prepareBanner(dataLeft) },
     }
   );
