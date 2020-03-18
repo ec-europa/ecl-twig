@@ -3,16 +3,14 @@ import { storiesOf } from '@storybook/html';
 import { withKnobs, text, select } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
-
 import {
   getExtraKnobs,
   buttonLabels,
   getIconKnobs,
 } from '@ecl-twig/story-utils';
-
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
-import uiIcons from '@ecl/ec-resources-icons/dist/lists/ui.json';
-
+import notifIcons from '@ecl/ec-resources-icons/dist/lists/notifications.json';
+// Import data for demos
 import dataInfo from './demo/data--info';
 import dataSuccess from './demo/data--success';
 import dataError from './demo/data--error';
@@ -24,7 +22,7 @@ import notes from './README.md';
 const iconsList = {};
 iconsList.none = null;
 
-uiIcons.forEach(icon => {
+notifIcons.forEach(icon => {
   iconsList[icon] = icon;
 });
 
@@ -59,9 +57,14 @@ storiesOf('Components/Messages', module)
     'Info',
     () => {
       const data = PrepareMessage(dataInfo);
-      const name = select('icon.name', iconsList, null, buttonLabels.required);
+      const name = select(
+        'icon.name',
+        iconsList,
+        dataInfo.icon.name,
+        buttonLabels.required
+      );
       if (name !== null) {
-        getIconKnobs(data, name, 'l');
+        getIconKnobs(data, name, 'notifications', 'l');
       }
       return message(data);
     },
@@ -73,9 +76,14 @@ storiesOf('Components/Messages', module)
     'Success',
     () => {
       const data = PrepareMessage(dataSuccess);
-      const name = select('icon.name', iconsList, null, buttonLabels.required);
+      const name = select(
+        'icon.name',
+        iconsList,
+        dataInfo.icon.name,
+        buttonLabels.required
+      );
       if (name !== null) {
-        getIconKnobs(data, name, 'l');
+        getIconKnobs(data, name, 'notifications', 'l');
       }
       return message(data);
     },
@@ -87,9 +95,14 @@ storiesOf('Components/Messages', module)
     'Error',
     () => {
       const data = PrepareMessage(dataError);
-      const name = select('icon.name', iconsList, null, buttonLabels.required);
+      const name = select(
+        'icon.name',
+        iconsList,
+        dataInfo.icon.name,
+        buttonLabels.required
+      );
       if (name !== null) {
-        getIconKnobs(data, name, 'l');
+        getIconKnobs(data, name, 'notifications', 'l');
       }
       return message(data);
     },
@@ -101,9 +114,14 @@ storiesOf('Components/Messages', module)
     'Warning',
     () => {
       const data = PrepareMessage(dataWarning);
-      const name = select('icon.name', iconsList, null, buttonLabels.required);
+      const name = select(
+        'icon.name',
+        iconsList,
+        dataInfo.icon.name,
+        buttonLabels.required
+      );
       if (name !== null) {
-        getIconKnobs(data, name, 'l');
+        getIconKnobs(data, name, 'notifications', 'l');
       }
       return message(data);
     },
