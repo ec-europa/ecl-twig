@@ -121,7 +121,7 @@
 {% endif %}
 
 {% if search_form.text_input is defined and search_form.text_input is not empty %}
-  {% set _search_form = _search_form|merge({id: search_form.id, text_input: _search_form.text_input|merge(search_form.text_input) }) %}
+  {% set _search_form = _search_form|merge({text_input: _search_form.text_input|merge(search_form.text_input) }) %}
 {% endif %}
 
 {% if search_form.button is defined and search_form.button is not empty %}
