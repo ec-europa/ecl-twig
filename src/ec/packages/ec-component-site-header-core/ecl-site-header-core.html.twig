@@ -71,7 +71,6 @@
 {% set _search_form = {
   text_input: {
     id: 'input-search',
-    name: 'search',
     label: 'search',
     extra_classes: 'ecl-search-form__text-input'
   },
@@ -86,7 +85,10 @@
     label: 'Search',
     extra_classes: 'ecl-search-form__button'
   },
-  extra_attributes: [{ name: 'data-ecl-search-form' }],
+  extra_attributes: [
+    { name: 'data-ecl-search-form' },
+    { name: 'id', value: 'search-form-id' }
+  ],
   extra_classes: 'ecl-site-header-core__search'
 }
 %}
@@ -119,7 +121,7 @@
 {% endif %}
 
 {% if search_form.text_input is defined and search_form.text_input is not empty %}
-  {% set _search_form = _search_form|merge({ text_input: _search_form.text_input|merge(search_form.text_input) }) %}
+  {% set _search_form = _search_form|merge({id: search_form.id, text_input: _search_form.text_input|merge(search_form.text_input) }) %}
 {% endif %}
 
 {% if search_form.button is defined and search_form.button is not empty %}
@@ -279,14 +281,14 @@
   </div>
 {% if _has_overlay is defined %}
   {% include '@ecl-twig/ec-component-language-list/ecl-language-list.html.twig' with {
+    overlay: true,
     items: _language_selector.overlay.items,
     close_label: _language_selector.overlay.close_label,
     title: _language_selector.overlay.title,
     icon_path: _icon_file_path,
     extra_attributes: [
-      { name: 'aria-labelledby', value: 'ecl-language-list__title' },
-      { name: 'role', value: 'dialog' },
-      { name: 'hidden' }
+      { name: 'hidden' },
+      { name: 'id',value: 'language-list-overlay' }
     ]
   } only %}
 {% endif %}
