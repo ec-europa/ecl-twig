@@ -17,7 +17,7 @@ import notes from './README.md';
 
 const enData = { ...englishData };
 const frData = { ...frenchData };
-console.log(enData);
+
 // Show/hide buttons for the language switcher.
 const btnLabel = 'With or without the language switcher';
 const EnBtnHandler = () => {
