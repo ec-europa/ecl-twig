@@ -58,43 +58,15 @@ storiesOf('Components/Messages', module)
   .addDecorator(withKnobs)
   .addDecorator(withCode)
   .addDecorator(withNotes)
-  .add(
-    'Info',
-    () => {
-      const data = PrepareMessage(dataInfo);
-      return message(data);
-    },
-    {
-      notes: { markdown: notes, json: formatIcon(dataInfo) },
-    }
-  )
-  .add(
-    'Success',
-    () => {
-      const data = PrepareMessage(dataSuccess);
-      return message(data);
-    },
-    {
-      notes: { markdown: notes, json: formatIcon(dataSuccess) },
-    }
-  )
-  .add(
-    'Error',
-    () => {
-      const data = PrepareMessage(dataError);
-      return message(data);
-    },
-    {
-      notes: { markdown: notes, json: formatIcon(dataError) },
-    }
-  )
-  .add(
-    'Warning',
-    () => {
-      const data = PrepareMessage(dataWarning);
-      return message(data);
-    },
-    {
-      notes: { markdown: notes, json: formatIcon(dataWarning) },
-    }
-  );
+  .add('Info', () => message(PrepareMessage(dataInfo)), {
+    notes: { markdown: notes, json: formatIcon(dataInfo) },
+  })
+  .add('Success', () => message(PrepareMessage(dataSuccess)), {
+    notes: { markdown: notes, json: formatIcon(dataSuccess) },
+  })
+  .add('Error', () => message(PrepareMessage(dataError)), {
+    notes: { markdown: notes, json: formatIcon(dataError) },
+  })
+  .add('Warning', () => message(PrepareMessage(dataWarning)), {
+    notes: { markdown: notes, json: formatIcon(dataWarning) },
+  });
