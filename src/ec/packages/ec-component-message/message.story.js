@@ -27,7 +27,12 @@ notifIcons.forEach(icon => {
 });
 
 const PrepareMessage = data => {
-  const name = select('icon.name', iconsList, null, buttonLabels.required);
+  const name = select(
+    'icon.name',
+    iconsList,
+    data.icon.name,
+    buttonLabels.required
+  );
   if (name !== null) {
     getIconKnobs(data, name, 'notifications', 'l');
   }
