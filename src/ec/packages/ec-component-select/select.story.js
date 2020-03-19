@@ -1,8 +1,13 @@
+/* eslint-disable no-param-reassign */
 import { storiesOf } from '@storybook/html';
-import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
+import { withKnobs, text, select } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
-import merge from 'deepmerge';
+import {
+  getExtraKnobs,
+  getFormKnobs,
+  buttonLabels,
+} from '@ecl-twig/story-utils';
 
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import specData from './demo/data';
@@ -10,10 +15,31 @@ import specData from './demo/data';
 import selectBox from './ecl-select.html.twig';
 import notes from './README.md';
 
-const inputWidthOptions = {
-  small: 's',
-  medium: 'm',
-  large: 'l',
+const prepareSelect = data => {
+  getFormKnobs(data);
+  getExtraKnobs(data);
+
+  data.icon_path = select(
+    'icon_path',
+    [defaultSprite],
+    defaultSprite,
+    buttonLabels.required
+  );
+
+  data.options.forEach((option, i) => {
+    option.label = text(
+      `options[${i}].label`,
+      option.label,
+      buttonLabels.required
+    );
+    option.value = text(
+      `options[${i}].value`,
+      option.value,
+      buttonLabels.required
+    );
+  });
+
+  return data;
 };
 
 storiesOf('Components/Forms/Select', module)
@@ -23,22 +49,9 @@ storiesOf('Components/Forms/Select', module)
   .add(
     'default',
     () => {
-      const inputWidthSelect = select('Width', inputWidthOptions, 'm');
+      const dataStory = prepareSelect(specData);
 
-      return selectBox(
-        merge(specData, {
-          label: text('Label', specData.label),
-          invalid: boolean('Invalid', false),
-          invalid_text: text('Invalid text', specData.invalid_text),
-          helper_text: text('Help message', specData.helper_text),
-          disabled: boolean('Disabled', false),
-          required: boolean('Required', specData.required),
-          required_text: text('Required Text', specData.required_text),
-          optional_text: text('Optional text', specData.optional_text),
-          width: inputWidthSelect,
-          icon_path: defaultSprite,
-        })
-      );
+      return selectBox(dataStory);
     },
     {
       notes: { markdown: notes, json: specData },
