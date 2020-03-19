@@ -97,7 +97,6 @@ storiesOf('Components/Navigation/Inpage navigation', module)
   .add(
     'default',
     () => {
-
       let pageFillerHtml = '';
       demoData.links.forEach(content => {
         pageFillerHtml += content.item;
