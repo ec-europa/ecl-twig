@@ -8,8 +8,6 @@ import {
   buttonLabels,
   getIconKnobs,
 } from '@ecl-twig/story-utils';
-import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
-import notifIcons from '@ecl/ec-resources-icons/dist/lists/notifications.json';
 // Import data for demos
 import dataInfo from './demo/data--info';
 import dataSuccess from './demo/data--success';
@@ -19,43 +17,36 @@ import dataWarning from './demo/data--warning';
 import message from './ecl-message.html.twig';
 import notes from './README.md';
 
-const iconsList = {};
-iconsList.none = null;
+const prepareMessage = data => {
+  const variantList = {};
+  variantList[data.variant] = data.variant;
+  data.variant = select(
+    'Variant',
+    variantList,
+    data.variant,
+    buttonLabels.required
+  );
 
-notifIcons.forEach(icon => {
-  iconsList[icon] = icon;
-});
-
-const PrepareMessage = data => {
+  const iconsList = {};
+  iconsList[data.icon.name] = data.icon.name;
   const name = select(
     'icon.name',
     iconsList,
     data.icon.name,
     buttonLabels.required
   );
-  if (name !== null) {
-    getIconKnobs(data, name, 'notifications', 'l');
-  }
+  getIconKnobs(data, name, 'notifications', 'l', 'primary', 'none');
 
-  if (data.title) {
-    data.title = text('Title', data.title, buttonLabels.required);
-  }
+  data.title = text('title', data.title, buttonLabels.required);
 
-  if (data.description) {
-    data.description = text(
-      'Description',
-      data.description,
-      buttonLabels.required
-    );
-  }
+  data.description = text(
+    'description',
+    data.description,
+    buttonLabels.required
+  );
+
   getExtraKnobs(data);
 
-  return data;
-};
-
-const formatIcon = data => {
-  data.icon.path = defaultSprite;
-  data.close.icon.path = defaultSprite;
   return data;
 };
 
@@ -63,15 +54,15 @@ storiesOf('Components/Messages', module)
   .addDecorator(withKnobs)
   .addDecorator(withCode)
   .addDecorator(withNotes)
-  .add('Info', () => message(PrepareMessage(dataInfo)), {
-    notes: { markdown: notes, json: formatIcon(dataInfo) },
+  .add('Info', () => message(prepareMessage(dataInfo)), {
+    notes: { markdown: notes, json: dataInfo },
   })
-  .add('Success', () => message(PrepareMessage(dataSuccess)), {
-    notes: { markdown: notes, json: formatIcon(dataSuccess) },
+  .add('Success', () => message(prepareMessage(dataSuccess)), {
+    notes: { markdown: notes, json: dataSuccess },
   })
-  .add('Error', () => message(PrepareMessage(dataError)), {
-    notes: { markdown: notes, json: formatIcon(dataError) },
+  .add('Error', () => message(prepareMessage(dataError)), {
+    notes: { markdown: notes, json: dataError },
   })
-  .add('Warning', () => message(PrepareMessage(dataWarning)), {
-    notes: { markdown: notes, json: formatIcon(dataWarning) },
+  .add('Warning', () => message(prepareMessage(dataWarning)), {
+    notes: { markdown: notes, json: dataWarning },
   });
