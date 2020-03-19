@@ -1,8 +1,10 @@
+/* eslint-disable no-param-reassign */
 import { storiesOf } from '@storybook/html';
-import { withKnobs, button } from '@storybook/addon-knobs';
+import { withKnobs, button, text, object } from '@storybook/addon-knobs';
 import { loremIpsum } from 'lorem-ipsum';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
+import { getExtraKnobs, buttonLabels } from '@ecl-twig/story-utils';
 import iconPath from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 
 import demoData from './demo/data';
@@ -72,6 +74,22 @@ const btnIdHandler = () => {
   return false;
 };
 
+// Preserve the adapted specs.
+const prepareNavigation = data => {
+  // Buttons for the demo.
+  button(btnLeftLabel, btnLeftHandler, buttonLabels.cases);
+  button(btnMainLabel, btnMainHandler, buttonLabels.cases);
+  button(btnIdLabel, btnIdHandler, buttonLabels.cases);
+  button(btnIdRemoveLabel, btnIdRemoveHandler, buttonLabels.cases);
+
+  data.title = text('Title', data.title, buttonLabels.required);
+  data.links = object('Links', data.links, buttonLabels.required);
+
+  getExtraKnobs(data);
+
+  return data;
+};
+
 storiesOf('Components/Navigation/Inpage navigation', module)
   .addDecorator(withNotes)
   .addDecorator(withKnobs)
@@ -79,11 +97,6 @@ storiesOf('Components/Navigation/Inpage navigation', module)
   .add(
     'default',
     () => {
-      // Buttons for the demo.
-      button(btnLeftLabel, btnLeftHandler);
-      button(btnMainLabel, btnMainHandler);
-      button(btnIdLabel, btnIdHandler);
-      button(btnIdRemoveLabel, btnIdRemoveHandler);
 
       let pageFillerHtml = '';
       demoData.links.forEach(content => {
@@ -91,7 +104,8 @@ storiesOf('Components/Navigation/Inpage navigation', module)
       });
 
       const fullDemoData = { ...demoData, icon_path: iconPath };
-      const html = inpageNavigation(fullDemoData);
+      const preparedData = prepareNavigation(fullDemoData);
+      const html = inpageNavigation(preparedData);
       const demo = document.createDocumentFragment();
       const htmlElement = document.createElement('div');
       htmlElement.innerHTML = `<div class="ecl-container">
