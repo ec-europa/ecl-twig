@@ -107,8 +107,8 @@ storiesOf('Components/Site Headers/Core', module)
   .add(
     'default',
     () => {
-      const dataStory = prepareSiteHeaderCore(enData, 'en');
       button(btnLabel, enBtnHandler, buttonLabels.cases);
+      const dataStory = prepareSiteHeaderCore(enData, 'en');
 
       return siteHeaderCore(dataStory);
     },
@@ -120,8 +120,8 @@ storiesOf('Components/Site Headers/Core', module)
     'logged in',
     () => {
       enData.logged = true;
-      const dataStory = prepareSiteHeaderCore(enData, 'en');
       button(btnLabel, enBtnHandler, buttonLabels.cases);
+      const dataStory = prepareSiteHeaderCore(enData, 'en');
 
       return siteHeaderCore(dataStory);
     },
@@ -132,8 +132,8 @@ storiesOf('Components/Site Headers/Core', module)
   .add(
     'translated',
     () => {
-      const dataStory = prepareSiteHeaderCore(frData, 'en');
       button(btnLabel, frBtnHandler, buttonLabels.cases);
+      const dataStory = prepareSiteHeaderCore(frData, 'en');
 
       return siteHeaderCore(dataStory);
     },
