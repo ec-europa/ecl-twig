@@ -13,6 +13,14 @@ import notes from './README.md';
 
 // Preserve the adapted specs.
 const prepareTag = data => {
+  const typeList = {};
+  typeList[data.tag.type] = data.tag.type;
+  data.variant = select(
+    'tag.type',
+    typeList,
+    data.tag.type,
+    buttonLabels.required
+  );
   data.tag.label = text('tag.label', data.tag.label, buttonLabels.required);
   if (data.tag.path) {
     data.tag.path = text('tag.path', data.tag.path, buttonLabels.required);
