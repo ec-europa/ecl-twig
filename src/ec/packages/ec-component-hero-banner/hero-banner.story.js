@@ -16,6 +16,9 @@ import heroBanner from './ecl-hero-banner.html.twig';
 import notes from './README.md';
 
 const prepareBanner = data => {
+  console.log('-----1------');
+
+  console.log('---------1------');
   if (data.title) {
     data.title = text('title', data.title, buttonLabels.required);
   }
@@ -40,7 +43,7 @@ const prepareBanner = data => {
   }
 
   if (data.image) {
-    data.image = text('image', data.image, buttonLabels.optional);
+    data.image = text('image', data.image, buttonLabels.required);
   }
 
   if (data.link.icon.path) {
@@ -64,8 +67,13 @@ storiesOf('Components/Banners/Hero Banner', module)
   .add(
     'image',
     () => {
+      dataImage.type = select(
+        'type',
+        [dataImage.type],
+        dataImage.type,
+        buttonLabels.optional
+      );
       const bannerImage = prepareBanner(dataImage);
-
       return heroBanner(bannerImage);
     },
     {
@@ -75,8 +83,13 @@ storiesOf('Components/Banners/Hero Banner', module)
   .add(
     'image-shade',
     () => {
+      dataImageShade.type = select(
+        'type',
+        [dataImageShade.type],
+        dataImageShade.type,
+        buttonLabels.optional
+      );
       const bannerImageShade = prepareBanner(dataImageShade);
-
       return heroBanner(bannerImageShade);
     },
     {
@@ -86,8 +99,13 @@ storiesOf('Components/Banners/Hero Banner', module)
   .add(
     'primary',
     () => {
+      dataPrimary.type = select(
+        'type',
+        [dataPrimary.type],
+        dataPrimary.type,
+        buttonLabels.optional
+      );
       const bannerPrimary = prepareBanner(dataPrimary);
-
       return heroBanner(bannerPrimary);
     },
     {
@@ -97,8 +115,13 @@ storiesOf('Components/Banners/Hero Banner', module)
   .add(
     'default',
     () => {
+      dataDefault.type = select(
+        'type',
+        [dataDefault.type],
+        dataDefault.type,
+        buttonLabels.optional
+      );
       const bannerDefault = prepareBanner(dataDefault);
-
       return heroBanner(bannerDefault);
     },
     {
@@ -108,8 +131,13 @@ storiesOf('Components/Banners/Hero Banner', module)
   .add(
     'align-left',
     () => {
+      dataLeft.type = select(
+        'type',
+        [dataLeft.type],
+        dataLeft.type,
+        buttonLabels.optional
+      );
       const bannerLeft = prepareBanner(dataLeft);
-
       return heroBanner(bannerLeft);
     },
     {
