@@ -2,8 +2,10 @@
 
 exports[`EC - Language List Overlay renders correctly 1`] = `
 <div
+  aria-labelledby="ecl-language-list__title"
   class="ecl-language-list ecl-language-list--overlay"
   data-ecl-language-list-overlay=""
+  role="dialog"
 >
   <div
     class="ecl-language-list__container ecl-container"
@@ -400,10 +402,12 @@ exports[`EC - Language List Overlay renders correctly 1`] = `
 
 exports[`EC - Language List Overlay renders correctly with extra attributes 1`] = `
 <div
+  aria-labelledby="ecl-language-list__title"
   class="ecl-language-list ecl-language-list--overlay"
   data-ecl-language-list-overlay=""
   data-test="data-test-value"
   data-test-1="data-test-value-1"
+  role="dialog"
 >
   <div
     class="ecl-language-list__container ecl-container"
@@ -800,8 +804,10 @@ exports[`EC - Language List Overlay renders correctly with extra attributes 1`] 
 
 exports[`EC - Language List Overlay renders correctly with extra class names 1`] = `
 <div
+  aria-labelledby="ecl-language-list__title"
   class="ecl-language-list ecl-language-list--overlay custom-class custom-class--test"
   data-ecl-language-list-overlay=""
+  role="dialog"
 >
   <div
     class="ecl-language-list__container ecl-container"

@@ -321,14 +321,14 @@
 {% endif %}
 {% if _has_overlay is defined %}
   {% include '@ecl-twig/ec-component-language-list/ecl-language-list.html.twig' with {
+    overlay: true,
     items: _language_selector.overlay.items,
     close_label: _language_selector.overlay.close_label,
     title: _language_selector.overlay.title,
     icon_path: _icon_file_path,
     extra_attributes: [
-      { name: 'aria-labelledby', value: 'ecl-language-list__title' },
-      { name: 'role', value: 'dialog' },
-      { name: 'hidden' }
+      { name: 'hidden' },
+      { name: 'id', value: 'language-list-overlay' }
     ]
   } only %}
 {% endif %}

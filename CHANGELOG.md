@@ -3,6 +3,31 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.25.1](https://github.com/ec-europa/ecl-twig/compare/v2.25.0...v2.25.1) (2020-03-18)
+
+#### :bug: Bug Fix
+
+- [#380](https://github.com/ec-europa/ecl-twig/pull/380) fix(site-header): Setting overlay to true for the language list - FRONT-959 ([@planctus](https://github.com/planctus))
+- [#377](https://github.com/ec-europa/ecl-twig/pull/377) fix(ecl-diff): Replacing decode-html with he - FRONT-958 ([@planctus](https://github.com/planctus))
+- [#365](https://github.com/ec-europa/ecl-twig/pull/365) fix(php-storybook): Fixing icons and images in the distributed php-storybook - FRONT-946 ([@planctus](https://github.com/planctus))
+- [#363](https://github.com/ec-europa/ecl-twig/pull/363) fix(text-field): Fixing extra_attributes knobs - FRONT-948 ([@planctus](https://github.com/planctus))
+- [#361](https://github.com/ec-europa/ecl-twig/pull/361) fix(notes): Replacing decode-html with he, updating plugin to use it on all the strings - FRONT-945 ([@planctus](https://github.com/planctus))
+
+#### :nail_care: Enhancement
+
+- [#364](https://github.com/ec-europa/ecl-twig/pull/364) refactor(demo): Text Area, States, optional/mandatory knobs - FRONT-904 ([@planctus](https://github.com/planctus))
+- [#376](https://github.com/ec-europa/ecl-twig/pull/376) refactor(demo): Icon, optional/mandatory elements - FRONT-914 ([@planctus](https://github.com/planctus))
+- [#372](https://github.com/ec-europa/ecl-twig/pull/372) refactor(demo): Form components alignment - FRONT-953 ([@planctus](https://github.com/planctus))
+- [#366](https://github.com/ec-europa/ecl-twig/pull/366) refactor(demo): Select, grouping knobs - FRONT-906 ([@planctus](https://github.com/planctus))
+- [#362](https://github.com/ec-europa/ecl-twig/pull/362) fix(button): Fixing extra_attributes knobs, adding states group - FRONT-947 ([@planctus](https://github.com/planctus))
+- [#367](https://github.com/ec-europa/ecl-twig/pull/367) refactor(demo): Search form, grouping knobs - FRONT-907 ([@planctus](https://github.com/planctus))
+- [#368](https://github.com/ec-europa/ecl-twig/pull/368) refactor(demo): Skip Link, Grouping knobs - FRONT-911 ([@planctus](https://github.com/planctus))
+- [#369](https://github.com/ec-europa/ecl-twig/pull/369) refactor(demo): Link, grouping knobs FRONT-908 ([@planctus](https://github.com/planctus))
+
+#### Committers: 1
+
+- [@planctus](https://github.com/planctus)
+
 # [2.25.0](https://github.com/ec-europa/ecl-twig/compare/v2.24.0...v2.25.0) (2020-03-12)
 
 #### :rocket: New Feature

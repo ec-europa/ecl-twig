@@ -32,7 +32,7 @@
 
 {% if _overlay %}
   {% set _css_class = 'ecl-language-list ecl-language-list--overlay' %}
-  {% set data_lang_overlay = 'data-ecl-language-list-overlay' %}
+  {% set _extra_attributes = 'data-ecl-language-list-overlay aria-labelledby="ecl-language-list__title" role="dialog"' %}
 {% else %}
   {% set _css_class = 'ecl-language-list ecl-language-list--splash' %}
 {% endif %}
