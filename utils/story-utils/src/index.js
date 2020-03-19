@@ -113,7 +113,7 @@ export const getIconKnobs = (
 
   const icon = {};
   let pref = null;
-  if (data.link.link) {
+  if (data.link && data.link.link) {
     pref = 'link.';
   }
   icon.name = name;
@@ -148,7 +148,7 @@ export const getIconKnobs = (
     buttonLabels.optional
   );
   if (icon) {
-    if (data.link.link) {
+    if (data.link && data.link.link) {
       data.link.icon = icon;
     } else {
       data.icon = icon;
