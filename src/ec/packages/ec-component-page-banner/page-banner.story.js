@@ -1,7 +1,7 @@
 /* eslint-disable no-param-reassign */
 import { storiesOf } from '@storybook/html';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
-import { withKnobs, text, boolean } from '@storybook/addon-knobs';
+import { withKnobs, text, boolean, select } from '@storybook/addon-knobs';
 import withCode from '@ecl-twig/storybook-addon-code';
 import { getExtraKnobs, buttonLabels } from '@ecl-twig/story-utils';
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
@@ -40,7 +40,12 @@ const preparePageBanner = data => {
     data.image = text('image', data.image, buttonLabels.optional);
   }
   if (data.link.icon) {
-    data.link.icon.path = defaultSprite; // eslint-disable-line no-param-reassign
+    data.link.icon.path = select(
+      'link.icon.path',
+      [defaultSprite],
+      defaultSprite,
+      buttonLabels.required
+    ); // eslint-disable-line no-param-reassign
   }
   getExtraKnobs(data);
   return data;
@@ -53,8 +58,13 @@ storiesOf('Components/Banners/Page Banner', module)
   .add(
     'image',
     () => {
+      bannerDataImage.type = select(
+        'type',
+        [bannerDataImage.type],
+        bannerDataImage.type,
+        buttonLabels.optional
+      );
       const pageBannerImage = preparePageBanner(bannerDataImage);
-
       return pageBanner(pageBannerImage);
     },
     {
@@ -64,8 +74,13 @@ storiesOf('Components/Banners/Page Banner', module)
   .add(
     'image-shade',
     () => {
+      bannerDataImageShade.type = select(
+        'type',
+        [bannerDataImageShade.type],
+        bannerDataImageShade.type,
+        buttonLabels.optional
+      );
       const pageBannerImageShade = preparePageBanner(bannerDataImageShade);
-
       return pageBanner(pageBannerImageShade);
     },
     {
@@ -78,8 +93,13 @@ storiesOf('Components/Banners/Page Banner', module)
   .add(
     'primary',
     () => {
+      bannerDataPrimary.type = select(
+        'type',
+        [bannerDataPrimary.type],
+        bannerDataPrimary.type,
+        buttonLabels.optional
+      );
       const pageBannerPrimary = preparePageBanner(bannerDataPrimary);
-
       return pageBanner(pageBannerPrimary);
     },
     {
@@ -92,8 +112,13 @@ storiesOf('Components/Banners/Page Banner', module)
   .add(
     'default',
     () => {
+      bannerDataDefault.type = select(
+        'type',
+        [bannerDataDefault.type],
+        bannerDataDefault.type,
+        buttonLabels.optional
+      );
       const pageBannerDefault = preparePageBanner(bannerDataDefault);
-
       return pageBanner(pageBannerDefault);
     },
     {
@@ -106,8 +131,13 @@ storiesOf('Components/Banners/Page Banner', module)
   .add(
     'align-left',
     () => {
+      bannerDataAlignLeft.type = select(
+        'type',
+        [bannerDataAlignLeft.type],
+        bannerDataAlignLeft.type,
+        buttonLabels.optional
+      );
       const pageBannerLeft = preparePageBanner(bannerDataAlignLeft);
-
       return pageBanner(pageBannerLeft);
     },
     {
