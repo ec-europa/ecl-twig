@@ -2,10 +2,14 @@
 import { storiesOf } from '@storybook/html';
 import { withKnobs, text, boolean, select } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
+import {
+  getExtraKnobs,
+  getIconKnobs,
+  buttonLabels,
+} from '@ecl-twig/story-utils';
 import withCode from '@ecl-twig/storybook-addon-code';
-import { getExtraKnobs, buttonLabels } from '@ecl-twig/story-utils';
 
-import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
+import uiIcons from '@ecl/ec-resources-icons/dist/lists/ui.json';
 import dataDefault from './demo/data--default';
 import dataImage from './demo/data--image';
 import dataImageShade from './demo/data--image-shade';
@@ -15,44 +19,50 @@ import dataLeft from './demo/data--align-left';
 import heroBanner from './ecl-hero-banner.html.twig';
 import notes from './README.md';
 
+uiIcons.unshift('null');
 const prepareBanner = data => {
-  console.log('-----1------');
-
-  console.log('---------1------');
-  if (data.title) {
-    data.title = text('title', data.title, buttonLabels.required);
-  }
-
-  if (data.link.link.label) {
-    data.link.link.label = text(
-      'link.Link.label',
-      data.link.link.label,
-      buttonLabels.required
-    );
-  }
-  if (data.description) {
-    data.description = text(
-      'description',
-      data.description,
-      buttonLabels.required
-    );
-  }
-
   if (data.centered) {
-    data.centered = boolean('centered', data.centered, buttonLabels.optional);
+    data.centered = boolean('centered', data.centered, buttonLabels.states);
   }
+  data.type = select('type', [data.type], data.type, buttonLabels.required);
+  data.title = text('title', data.title, buttonLabels.required);
+  data.description = text(
+    'description',
+    data.description,
+    buttonLabels.required
+  );
 
   if (data.image) {
     data.image = text('image', data.image, buttonLabels.required);
   }
-
-  if (data.link.icon.path) {
-    data.link.icon.path = select(
-      'link icon path',
-      [defaultSprite],
-      defaultSprite,
-      buttonLabels.required
+  data.link.link.label = text(
+    'link.link.label',
+    data.link.link.label,
+    buttonLabels.required
+  );
+  data.link.link.path = text(
+    'link.link.path',
+    data.link.link.path,
+    buttonLabels.required
+  );
+  data.link.icon.name = select(
+    'link.icon.name',
+    uiIcons,
+    data.link.icon.name,
+    buttonLabels.optional
+  );
+  if (data.link.icon.name !== 'null') {
+    getIconKnobs(
+      data,
+      data.link.icon.name,
+      'ui',
+      'xs',
+      'default',
+      'rotate-90',
+      true
     );
+  } else {
+    delete data.link.icon;
   }
 
   getExtraKnobs(data);
@@ -64,83 +74,18 @@ storiesOf('Components/Banners/Hero Banner', module)
   .addDecorator(withKnobs)
   .addDecorator(withNotes)
   .addDecorator(withCode)
-  .add(
-    'image',
-    () => {
-      dataImage.type = select(
-        'type',
-        [dataImage.type],
-        dataImage.type,
-        buttonLabels.optional
-      );
-      const bannerImage = prepareBanner(dataImage);
-      return heroBanner(bannerImage);
-    },
-    {
-      notes: { markdown: notes, json: prepareBanner(dataImage) },
-    }
-  )
-  .add(
-    'image-shade',
-    () => {
-      dataImageShade.type = select(
-        'type',
-        [dataImageShade.type],
-        dataImageShade.type,
-        buttonLabels.optional
-      );
-      const bannerImageShade = prepareBanner(dataImageShade);
-      return heroBanner(bannerImageShade);
-    },
-    {
-      notes: { markdown: notes, json: prepareBanner(dataImageShade) },
-    }
-  )
-  .add(
-    'primary',
-    () => {
-      dataPrimary.type = select(
-        'type',
-        [dataPrimary.type],
-        dataPrimary.type,
-        buttonLabels.optional
-      );
-      const bannerPrimary = prepareBanner(dataPrimary);
-      return heroBanner(bannerPrimary);
-    },
-    {
-      notes: { markdown: notes, json: prepareBanner(dataPrimary) },
-    }
-  )
-  .add(
-    'default',
-    () => {
-      dataDefault.type = select(
-        'type',
-        [dataDefault.type],
-        dataDefault.type,
-        buttonLabels.optional
-      );
-      const bannerDefault = prepareBanner(dataDefault);
-      return heroBanner(bannerDefault);
-    },
-    {
-      notes: { markdown: notes, json: prepareBanner(dataDefault) },
-    }
-  )
-  .add(
-    'align-left',
-    () => {
-      dataLeft.type = select(
-        'type',
-        [dataLeft.type],
-        dataLeft.type,
-        buttonLabels.optional
-      );
-      const bannerLeft = prepareBanner(dataLeft);
-      return heroBanner(bannerLeft);
-    },
-    {
-      notes: { markdown: notes, json: prepareBanner(dataLeft) },
-    }
-  );
+  .add('image', () => heroBanner(prepareBanner(dataImage)), {
+    notes: { markdown: notes, json: dataImage },
+  })
+  .add('image-shade', () => heroBanner(prepareBanner(dataImageShade)), {
+    notes: { markdown: notes, json: dataImageShade },
+  })
+  .add('primary', () => heroBanner(prepareBanner(dataPrimary)), {
+    notes: { markdown: notes, json: dataPrimary },
+  })
+  .add('default', () => heroBanner(prepareBanner(dataDefault)), {
+    notes: { markdown: notes, json: dataDefault },
+  })
+  .add('align-left', () => heroBanner(prepareBanner(dataLeft)), {
+    notes: { markdown: notes, json: dataLeft },
+  });
