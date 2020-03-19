@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.25.1](https://github.com/ec-europa/ecl-twig/compare/v2.25.0...v2.25.1) (2020-03-18)
+
+### Bug Fixes
+
+- **site-header:** Setting overlay to true for the language list - FRONT-959 ([#380](https://github.com/ec-europa/ecl-twig/issues/380)) ([a731a8f](https://github.com/ec-europa/ecl-twig/commit/a731a8f65d90fdf69ca424a855c45ff6ab5258a1))
+
 # [2.25.0](https://github.com/ec-europa/ecl-twig/compare/v2.24.0...v2.25.0) (2020-03-12)
 
 **Note:** Version bump only for package @ecl-twig/ec-component-site-header-harmonised
