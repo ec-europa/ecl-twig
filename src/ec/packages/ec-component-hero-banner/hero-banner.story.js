@@ -16,9 +16,6 @@ import heroBanner from './ecl-hero-banner.html.twig';
 import notes from './README.md';
 
 const prepareBanner = data => {
-  console.log('-----1------');
-
-  console.log('---------1------');
   if (data.title) {
     data.title = text('title', data.title, buttonLabels.required);
   }
