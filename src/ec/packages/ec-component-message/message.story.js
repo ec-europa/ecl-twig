@@ -21,7 +21,7 @@ const prepareMessage = data => {
   const variantList = {};
   variantList[data.variant] = data.variant;
   data.variant = select(
-    'Variant',
+    'variant',
     variantList,
     data.variant,
     buttonLabels.required
