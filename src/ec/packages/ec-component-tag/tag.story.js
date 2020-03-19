@@ -1,6 +1,6 @@
 /* eslint-disable no-param-reassign */
 import { storiesOf } from '@storybook/html';
-import { withKnobs, text } from '@storybook/addon-knobs';
+import { withKnobs, text, select } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
 import { getExtraKnobs, buttonLabels } from '@ecl-twig/story-utils';
@@ -13,15 +13,24 @@ import notes from './README.md';
 
 // Preserve the adapted specs.
 const prepareTag = data => {
-  data.default_icon_path = defaultSprite;
-  data.tag.label = text('label', data.tag.label, buttonLabels.required);
+  data.tag.label = text('tag.label', data.tag.label, buttonLabels.required);
   if (data.tag.path) {
-    data.tag.path = text('Url', data.tag.path, buttonLabels.required);
+    data.tag.path = text('tag.path', data.tag.path, buttonLabels.required);
   }
   if (data.tag.aria_label) {
     data.tag.aria_label = text(
-      'Aria label',
+      'tag.aria_label',
       data.tag.aria_label,
+      buttonLabels.required
+    );
+  }
+  if (data.default_icon_path) {
+    const iconPathList = {};
+    iconPathList[data.default_icon_path] = defaultSprite;
+    data.default_icon_path = select(
+      'default_icon_path',
+      iconPathList,
+      defaultSprite,
       buttonLabels.required
     );
   }
