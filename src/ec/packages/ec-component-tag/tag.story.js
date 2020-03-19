@@ -19,7 +19,11 @@ const prepareTag = data => {
     data.tag.path = text('Url', data.tag.path, buttonLabels.required);
   }
   if (data.tag.aria_label) {
-    data.tag.aria_label = text('Aria label', data.tag.aria_label, buttonLabels.required);
+    data.tag.aria_label = text(
+      'Aria label',
+      data.tag.aria_label,
+      buttonLabels.required
+    );
   }
   getExtraKnobs(data);
 
