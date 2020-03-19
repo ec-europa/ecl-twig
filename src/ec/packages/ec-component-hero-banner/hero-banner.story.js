@@ -22,11 +22,29 @@ const prepareBanner = data => {
 
   if (data.link.link.label) {
     data.link.link.label = text(
-      'link.Link.label',
+      'link.link.label',
       data.link.link.label,
       buttonLabels.required
     );
   }
+
+  if (data.link.link.icon_position) {
+    data.link.link.icon_position = select(
+      'link.link.icon_position',
+      [data.link.link.icon_position],
+      data.link.link.icon_position,
+      buttonLabels.required
+    );
+  }
+
+  if (data.link.link.path) {
+    data.link.link.path = text(
+      'link.link.path',
+      data.link.link.path,
+      buttonLabels.required
+    );
+  }
+
   if (data.description) {
     data.description = text(
       'description',
