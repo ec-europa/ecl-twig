@@ -1,6 +1,6 @@
 /* eslint-disable no-param-reassign */
 import { storiesOf } from '@storybook/html';
-import { withKnobs, text, boolean } from '@storybook/addon-knobs';
+import { withKnobs, text, boolean, select } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
 import { getExtraKnobs, buttonLabels } from '@ecl-twig/story-utils';
@@ -42,8 +42,18 @@ const prepareBanner = data => {
   if (data.image) {
     data.image = text('image', data.image, buttonLabels.optional);
   }
-  data.link.icon.path = defaultSprite; // eslint-disable-line no-param-reassign
+
+  if (data.link.icon.path) {
+    data.link.icon.path = select(
+      'link icon path',
+      [defaultSprite],
+      defaultSprite,
+      buttonLabels.required
+    );
+  }
+
   getExtraKnobs(data);
+
   return data;
 };
 
