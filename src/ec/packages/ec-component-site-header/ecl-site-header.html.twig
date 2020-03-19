@@ -51,8 +51,7 @@
 {% set _search_form = {
   text_input: {
     id: 'input-search',
-    name: 'search',
-    label: 'search',
+    label: search_form.text_input.label|default('Search'),
     extra_classes: 'ecl-search-form__text-input'
   },
   button: {
@@ -63,7 +62,7 @@
       path: _icon_file_path,
       size: 'fluid',
     },
-    label: 'Search',
+    label: search_form.button.label|default('Search'),
     extra_classes: 'ecl-search-form__button'
   },
   extra_classes: 'ecl-site-header__search'
@@ -148,6 +147,7 @@
           </span>
         </a>
         {% include '@ecl-twig/ec-component-language-list/ecl-language-list.html.twig' with {
+          overlay: true,
           items: _language_selector.overlay.items,
           close_label: _language_selector.overlay.close_label,
           title: _language_selector.overlay.title,

@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.25.1](https://github.com/ec-europa/ecl-twig/compare/v2.25.0...v2.25.1) (2020-03-18)
+
+### Bug Fixes
+
+- **notes:** Replacing decode-html with he, updating plugin to use it on all the strings - FRONT-945 ([#361](https://github.com/ec-europa/ecl-twig/issues/361)) ([db2091d](https://github.com/ec-europa/ecl-twig/commit/db2091de4fdbfc9922b35b8cc673ce7c82c752b5))
+
 # [2.25.0](https://github.com/ec-europa/ecl-twig/compare/v2.24.0...v2.25.0) (2020-03-12)
 
 **Note:** Version bump only for package @ecl-twig/ec-component-file-upload
