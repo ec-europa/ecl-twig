@@ -27,40 +27,29 @@ const preparePageBanner = data => {
   }
 
   data.type = select('type', [data.type], data.type, buttonLabels.required);
-
-  if (data.title) {
-    data.title = text('title', data.title, buttonLabels.required);
-  }
-
+  data.title = text('title', data.title, buttonLabels.required);
   if (data.baseline) {
     data.baseline = text('baseline', data.baseline, buttonLabels.required);
   }
-
   if (data.image) {
-    data.image = text('image', data.image, buttonLabels.optional);
+    data.image = text('image', data.image, buttonLabels.required);
   }
-
-  if (data.link.link.label) {
-    data.link.link.label = text(
-      'Link label',
-      data.link.link.label,
-      buttonLabels.required
-    );
-  }
-
+  data.link.link.label = text(
+    'Link label',
+    data.link.link.label,
+    buttonLabels.required
+  );
   data.link.link.path = text(
     'link.link.path',
     data.link.link.path,
     buttonLabels.required
   );
-
   data.link.icon.name = select(
     'link.icon.name',
     uiIcons,
     data.link.icon.name,
     buttonLabels.optional
   );
-
   if (data.link.icon.name !== 'null') {
     getIconKnobs(
       data,
@@ -76,6 +65,7 @@ const preparePageBanner = data => {
   }
 
   getExtraKnobs(data);
+
   return data;
 };
 
@@ -83,22 +73,22 @@ storiesOf('Components/Banners/Page Banner', module)
   .addDecorator(withNotes)
   .addDecorator(withCode)
   .addDecorator(withKnobs)
-  .add('image', () => preparePageBanner(pageBanner(bannerDataImage)), {
+  .add('image', () => pageBanner(preparePageBanner(bannerDataImage)), {
     notes: { markdown: notes, json: bannerDataImage },
   })
   .add(
     'image-shade',
-    () => preparePageBanner(pageBanner(bannerDataImageShade)),
+    () => pageBanner(preparePageBanner(bannerDataImageShade)),
     {
       notes: { markdown: notes, json: bannerDataImageShade },
     }
   )
-  .add('primary', () => preparePageBanner(pageBanner(bannerDataPrimary)), {
+  .add('primary', () => pageBanner(preparePageBanner(bannerDataPrimary)), {
     notes: { markdown: notes, json: bannerDataPrimary },
   })
-  .add('default', () => preparePageBanner(pageBanner(bannerDataDefault)), {
+  .add('default', () => pageBanner(preparePageBanner(bannerDataDefault)), {
     notes: { markdown: notes, json: bannerDataDefault },
   })
-  .add('align-left', () => preparePageBanner(pageBanner(bannerDataAlignLeft)), {
+  .add('align-left', () => pageBanner(preparePageBanner(bannerDataAlignLeft)), {
     notes: { markdown: notes, json: bannerDataAlignLeft },
   });
