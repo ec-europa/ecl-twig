@@ -55,7 +55,15 @@ export const getExtraKnobs = data => {
   return data;
 };
 
-export const getIconKnobs = (data, name, size, color, transform) => {
+export const getIconKnobs = (
+  data,
+  name,
+  type,
+  size,
+  color,
+  transform,
+  nolimit
+) => {
   const sizes = {
     xs: 'xs',
     s: 's',
@@ -65,8 +73,17 @@ export const getIconKnobs = (data, name, size, color, transform) => {
     '2xl': '2xl',
   };
 
+  const types = {
+    general: 'general',
+    branded: 'branded',
+    notifications: 'notifications',
+    ui: 'ui',
+  };
+
+  const defaultType = type || 'ui';
+  const defaultTypes = type ? [type] : types;
   const defaultSize = size || 'm';
-  const defaultSizes = size ? [size] : sizes;
+  const defaultSizes = size && !nolimit ? [size] : sizes;
 
   const colors = {
     default: '',
@@ -74,8 +91,8 @@ export const getIconKnobs = (data, name, size, color, transform) => {
     primary: 'primary',
   };
 
-  const defaultColor = color ? [color] : '';
-  const defaultColors = color ? [color] : colors;
+  const defaultColor = color || '';
+  const defaultColors = color && !nolimit ? [color] : colors;
 
   const transforms = {
     None: '',
@@ -87,47 +104,63 @@ export const getIconKnobs = (data, name, size, color, transform) => {
   };
 
   const defaultTransform = transform || '';
-  const defaultTransforms = transform ? [transform] : transforms;
+  const defaultTransforms = transform && !nolimit ? [transform] : transforms;
 
   const iconPositionSettings = {
     before: 'before',
     after: 'after',
   };
+
   const icon = {};
+  let pref = null;
+  if (data.link && data.link.link) {
+    pref = 'link.';
+  }
   icon.name = name;
-  icon.type = select('icon.type', ['ui'], 'ui', buttonLabels.optional);
+  icon.type = select(
+    `${pref}icon.type`,
+    defaultTypes,
+    defaultType,
+    buttonLabels.required
+  );
   icon.path = select(
-    'icon.path',
+    `${pref}icon.path`,
     [defaultSprite],
     defaultSprite,
-    buttonLabels.optional
+    buttonLabels.required
   );
   icon.size = select(
-    'icon.size',
+    `${pref}icon.size`,
     defaultSizes,
     defaultSize,
     buttonLabels.optional
   );
   icon.color = select(
-    'icon.color',
+    `${pref}icon.color`,
     defaultColors,
     defaultColor,
     buttonLabels.optional
   );
   icon.transform = select(
-    'icon.transform',
+    `${pref}icon.transform`,
     defaultTransforms,
     defaultTransform,
     buttonLabels.optional
   );
   if (icon) {
-    data.icon = icon;
-    data.icon_position = select(
-      'icon_position',
-      iconPositionSettings,
-      'after',
-      buttonLabels.optional
-    );
+    if (data.link && data.link.link) {
+      data.link.icon = icon;
+    } else {
+      data.icon = icon;
+      if (data.link) {
+        data.icon_position = select(
+          'icon_position',
+          iconPositionSettings,
+          'after',
+          buttonLabels.optional
+        );
+      }
+    }
   }
 
   return data;
