@@ -13,11 +13,9 @@ import notes from './README.md';
 
 // Preserve the adapted specs.
 const prepareTag = data => {
-  const typeList = {};
-  typeList[data.tag.type] = data.tag.type;
-  data.variant = select(
+  data.tag.type = select(
     'tag.type',
-    typeList,
+    [data.tag.type],
     data.tag.type,
     buttonLabels.required
   );
@@ -33,11 +31,9 @@ const prepareTag = data => {
     );
   }
   if (data.default_icon_path) {
-    const iconPathList = {};
-    iconPathList[data.default_icon_path] = defaultSprite;
     data.default_icon_path = select(
       'default_icon_path',
-      iconPathList,
+      [defaultSprite],
       defaultSprite,
       buttonLabels.required
     );
