@@ -26,7 +26,7 @@ const prepareAccordion2 = data => {
       `item ${index} toggle.iconShape`,
       [toggle.iconShape],
       toggle.iconShape,
-      buttonLabels.optional
+      buttonLabels.required
     );
 
     item.content = text(
