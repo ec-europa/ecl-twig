@@ -8,6 +8,7 @@ import {
   buttonLabels,
   getIconKnobs,
 } from '@ecl-twig/story-utils';
+import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 // Import data for demos
 import dataInfo from './demo/data--info';
 import dataSuccess from './demo/data--success';
@@ -18,20 +19,16 @@ import message from './ecl-message.html.twig';
 import notes from './README.md';
 
 const prepareMessage = data => {
-  const variantList = {};
-  variantList[data.variant] = data.variant;
   data.variant = select(
     'variant',
-    variantList,
+    [data.variant],
     data.variant,
     buttonLabels.required
   );
 
-  const iconsList = {};
-  iconsList[data.icon.name] = data.icon.name;
   const name = select(
     'icon.name',
-    iconsList,
+    [data.icon.name],
     data.icon.name,
     buttonLabels.required
   );
@@ -42,6 +39,13 @@ const prepareMessage = data => {
   data.description = text(
     'description',
     data.description,
+    buttonLabels.required
+  );
+
+  data.close.icon.path = select(
+    'close.icon.path',
+    [defaultSprite],
+    defaultSprite,
     buttonLabels.required
   );
 
