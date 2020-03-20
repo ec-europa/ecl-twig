@@ -10,7 +10,7 @@ import demoData from './demo/data';
 import accordion2 from './ecl-accordion2.html.twig';
 import notes from './README.md';
 
-const PrepareAccordion2 = data => {
+const prepareAccordion2 = data => {
   data.items.forEach((item, index) => {
     const { content, toggle } = item;
 
@@ -34,7 +34,7 @@ storiesOf('Components/Accordion2', module)
   .add(
     'default',
     () => {
-      const accordion2DemoData = PrepareAccordion2(demoData);
+      const accordion2DemoData = prepareAccordion2(demoData);
       return accordion2(accordion2DemoData);
     },
     {
