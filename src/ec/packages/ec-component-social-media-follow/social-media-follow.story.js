@@ -1,8 +1,8 @@
 import { storiesOf } from '@storybook/html';
-import { withKnobs, text } from '@storybook/addon-knobs';
+import { withKnobs, text, select } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
-
+import { extraKnobs, buttonLabels } from '@ecl-twig/story-utils';
 import defaultSprite from '@ecl/ec-resources-social-icons/dist/sprites/icons-social.svg';
 import demoData from './demo/data';
 
@@ -16,6 +16,24 @@ demoData.links.forEach(link => {
     });
   }
 });
+
+const prepareSocialMediaFollow = data => {
+  data.description = text(
+    'description',
+    data.description,
+    buttonLabels.required
+  );
+  data.variant = select(
+    'variant',
+    [data.variant],
+    data.variant,
+    buttonLabels.optional
+  );
+
+  extraKnobs(data);
+
+  return data;
+};
 
 storiesOf('Components/Social Media Follow', module)
   .addDecorator(withKnobs)
