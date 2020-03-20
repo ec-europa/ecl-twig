@@ -1,8 +1,22 @@
 /* eslint-disable no-param-reassign */
-import merge from 'deepmerge';
 import { storiesOf } from '@storybook/html';
-import { withKnobs, button } from '@storybook/addon-knobs';
+import {
+  withKnobs,
+  button,
+  select,
+  text,
+  boolean,
+  object,
+} from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
+import {
+  getExtraKnobs,
+  buttonLabels,
+  getLogoKnobs,
+  getLoginKnobs,
+  getLanguageSelectorKnobs,
+  getSearchFormKnobs,
+} from '@ecl-twig/story-utils';
 import withCode from '@ecl-twig/storybook-addon-code';
 
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
@@ -32,55 +46,97 @@ const frBtnHandler = () => {
   }
 };
 
+const prepareSiteHeaderCore = (data, lang) => {
+  data.logged = boolean('logged', data.logged, buttonLabels.states);
+  data.icon_file_path = select(
+    'icon_file_path',
+    [defaultSprite],
+    defaultSprite,
+    buttonLabels.required
+  );
+  if (lang === 'en') {
+    data.logo.src = select(
+      'logo.src',
+      [englishBanner],
+      englishBanner,
+      buttonLabels.required
+    );
+  } else {
+    data.logo.src = select(
+      'logo.src',
+      [frenchBanner],
+      frenchBanner,
+      buttonLabels.required
+    );
+  }
+  // Logo knobs
+  getLogoKnobs(data);
+  // Login box and login toggle knobs.
+  getLoginKnobs(data);
+  // Language selector knobs.
+  getLanguageSelectorKnobs(data);
+  // Search toggle.
+  data.search_toggle.label = text(
+    'search_toggle.label',
+    data.search_toggle.label,
+    buttonLabels.required
+  );
+  data.search_toggle.href = text(
+    'search_toggle.href',
+    data.search_toggle.href,
+    buttonLabels.required
+  );
+  // Search form.
+  getSearchFormKnobs(data);
+  // Language selector overlay.
+  data.language_selector.overlay = object(
+    'language_selector.overlay',
+    data.language_selector.overlay,
+    buttonLabels.required
+  );
+  // Extra classes and extra attributes.
+  getExtraKnobs(data);
+
+  return data;
+};
+
 storiesOf('Components/Site Headers/Core', module)
   .addDecorator(withKnobs)
   .addDecorator(withNotes)
   .addDecorator(withCode)
   .add(
     'default',
-    () =>
-      siteHeaderCore(
-        merge(enData, {
-          logo: {
-            src: frenchBanner,
-          },
-          icon_file_path: defaultSprite,
-          logged: false,
-        }),
-        button(btnLabel, enBtnHandler)
-      ),
+    () => {
+      button(btnLabel, enBtnHandler, buttonLabels.cases);
+      const dataStory = prepareSiteHeaderCore(enData, 'en');
+
+      return siteHeaderCore(dataStory);
+    },
     {
       notes: { markdown: notes, json: enData },
     }
   )
   .add(
     'logged in',
-    () =>
-      siteHeaderCore(
-        merge(englishData, {
-          logo: {
-            src: englishBanner,
-          },
-          icon_file_path: defaultSprite,
-          logged: true,
-        })
-      ),
+    () => {
+      enData.logged = true;
+      button(btnLabel, enBtnHandler, buttonLabels.cases);
+      const dataStory = prepareSiteHeaderCore(enData, 'en');
+
+      return siteHeaderCore(dataStory);
+    },
     {
       notes: { markdown: notes, json: englishData },
     }
   )
   .add(
     'translated',
-    () =>
-      siteHeaderCore(
-        merge(frData, {
-          logo: {
-            src: frenchBanner,
-          },
-          icon_file_path: defaultSprite,
-        }),
-        button(btnLabel, frBtnHandler)
-      ),
+    () => {
+      button(btnLabel, frBtnHandler, buttonLabels.cases);
+      const dataStory = prepareSiteHeaderCore(frData, 'en');
+
+      return siteHeaderCore(dataStory);
+    },
     {
       notes: { markdown: notes, json: frData },
     }

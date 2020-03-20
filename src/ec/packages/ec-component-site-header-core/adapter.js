@@ -48,7 +48,6 @@ const adapter = initialData => {
   adaptedData.search_form = {
     text_input: {
       id: adaptedData.searchForm.textInputId,
-      name: adaptedData.searchForm.inputLabel,
       label: adaptedData.searchForm.inputLabel,
     },
     button: {
