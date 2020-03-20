@@ -1,6 +1,6 @@
 /* eslint-disable no-param-reassign */
 import { storiesOf } from '@storybook/html';
-import { withKnobs, text } from '@storybook/addon-knobs';
+import { withKnobs, text, select } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
 import { buttonLabels, getExtraKnobs } from '@ecl-twig/story-utils';
@@ -12,15 +12,28 @@ import notes from './README.md';
 
 const prepareAccordion2 = data => {
   data.items.forEach((item, index) => {
-    const { content, toggle } = item;
+    const { content, toggle, id } = item;
+
+    item.id = select(`item ${index} id`, [id], id, buttonLabels.required);
 
     item.toggle.label = text(
-      `toggle.label ${index}`,
+      `item ${index} toggle.label`,
       toggle.label,
       buttonLabels.required
     );
 
-    item.content = text(`content ${index}`, content, buttonLabels.required);
+    item.toggle.iconShape = select(
+      `item ${index} toggle.iconShape`,
+      [toggle.iconShape],
+      toggle.iconShape,
+      buttonLabels.optional
+    );
+
+    item.content = text(
+      `item ${index} content`,
+      content,
+      buttonLabels.required
+    );
     item.toggle.icon.path = defaultSprite;
   });
   getExtraKnobs(data);
@@ -31,13 +44,6 @@ storiesOf('Components/Accordion2', module)
   .addDecorator(withKnobs)
   .addDecorator(withCode)
   .addDecorator(withNotes)
-  .add(
-    'default',
-    () => {
-      const accordion2DemoData = prepareAccordion2(demoData);
-      return accordion2(accordion2DemoData);
-    },
-    {
-      notes: { markdown: notes, json: demoData },
-    }
-  );
+  .add('default', () => accordion2(prepareAccordion2(demoData)), {
+    notes: { markdown: notes, json: demoData },
+  });
