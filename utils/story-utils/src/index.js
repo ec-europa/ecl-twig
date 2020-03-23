@@ -114,7 +114,7 @@ export const getIconKnobs = (
   };
 
   const icon = {};
-  let pref = null;
+  let pref = '';
   if (data.link && data.link.link) {
     pref = 'link.';
   }
