@@ -1,6 +1,6 @@
 /* eslint-disable no-param-reassign */
 import { storiesOf } from '@storybook/html';
-import { withKnobs, button, text, object } from '@storybook/addon-knobs';
+import { withKnobs, button, text, select } from '@storybook/addon-knobs';
 import { loremIpsum } from 'lorem-ipsum';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
@@ -82,8 +82,17 @@ const prepareNavigation = data => {
   button(btnIdLabel, btnIdHandler, buttonLabels.cases);
   button(btnIdRemoveLabel, btnIdRemoveHandler, buttonLabels.cases);
 
-  data.title = text('Title', data.title, buttonLabels.required);
-  data.links = object('Links', data.links, buttonLabels.required);
+  data.title = text('title', data.title, buttonLabels.required);
+  data.links.forEach((link, i) => {
+    link.href = text(`links[${i}].href`, link.href, buttonLabels.required);
+    link.label = text(`links[${i}].label`, link.label, buttonLabels.required);
+  });
+  data.icon_path = select(
+    'icon_path',
+    [iconPath],
+    iconPath,
+    buttonLabels.required
+  );
 
   getExtraKnobs(data);
 
@@ -97,7 +106,6 @@ storiesOf('Components/Navigation/Inpage navigation', module)
   .add(
     'default',
     () => {
-
       let pageFillerHtml = '';
       demoData.links.forEach(content => {
         pageFillerHtml += content.item;
@@ -125,6 +133,6 @@ storiesOf('Components/Navigation/Inpage navigation', module)
       return demo;
     },
     {
-      notes: { markdown: notes },
+      notes: { markdown: notes, json: demoData },
     }
   );
