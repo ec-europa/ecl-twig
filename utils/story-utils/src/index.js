@@ -1,4 +1,5 @@
 /* eslint-disable no-param-reassign */
+import he from 'he';
 import { text, select, boolean } from '@storybook/addon-knobs';
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 
@@ -6,6 +7,7 @@ export const buttonLabels = {
   required: 'Mandatory elements',
   optional: 'Optional elements',
   states: 'States',
+  cases: 'Use cases',
 };
 
 export const getExtraKnobs = data => {
@@ -112,7 +114,7 @@ export const getIconKnobs = (
   };
 
   const icon = {};
-  let pref = null;
+  let pref = '';
   if (data.link && data.link.link) {
     pref = 'link.';
   }
@@ -250,6 +252,109 @@ export const getFormItemKnobs = data => {
       buttonLabels.optional
     );
   });
+
+  return data;
+};
+
+export const getLogoKnobs = data => {
+  data.logo.title = text('logo.title', data.logo.title, buttonLabels.required);
+  data.logo.alt = text('logo.alt', data.logo.alt, buttonLabels.required);
+  data.logo.href = text('logo.href', data.logo.href, buttonLabels.required);
+  data.logo.language = select(
+    'logo.language',
+    [data.logo.language],
+    data.logo.language,
+    buttonLabels.required
+  );
+
+  return data;
+};
+
+export const getLoginKnobs = data => {
+  if (data.login_toggle && data.login_box) {
+    data.login_toggle.label_not_logged = text(
+      'login_toggle.label_not_logged',
+      data.login_toggle.label_not_logged,
+      buttonLabels.required
+    );
+    data.login_toggle.href_not_logged = text(
+      'login_toggle.href_not_logged',
+      data.login_toggle.href_not_logged,
+      buttonLabels.required
+    );
+    data.login_toggle.label_logged = text(
+      'login_toggle.label_logged',
+      data.login_toggle.label_logged,
+      buttonLabels.required
+    );
+    data.login_toggle.href_logged = text(
+      'login_toggle.href_logged',
+      data.login_toggle.href_logged,
+      buttonLabels.required
+    );
+    data.login_box.id = text(
+      'login_box.id',
+      data.login_box.id,
+      buttonLabels.required
+    );
+    data.login_box.description = he.decode(
+      text(
+        'login_box.description',
+        data.login_box.description,
+        buttonLabels.required
+      )
+    );
+    data.login_box.label = text(
+      'login_box.label',
+      data.login_box.label,
+      buttonLabels.required
+    );
+    data.login_box.href = text(
+      'login_box.href',
+      data.login_box.href,
+      buttonLabels.required
+    );
+  }
+
+  return data;
+};
+
+export const getLanguageSelectorKnobs = data => {
+  data.language_selector.href = text(
+    'language_selector.href',
+    data.language_selector.href,
+    buttonLabels.required
+  );
+  data.language_selector.label = text(
+    'language_selector.label',
+    data.language_selector.label,
+    buttonLabels.required
+  );
+  data.language_selector.code = text(
+    'language_selector.code',
+    data.language_selector.code,
+    buttonLabels.required
+  );
+
+  return data;
+};
+
+export const getSearchFormKnobs = data => {
+  data.search_form.text_input.id = text(
+    'search_form.text_input.id',
+    data.search_form.text_input.id,
+    buttonLabels.required
+  );
+  data.search_form.text_input.label = text(
+    'search_form.text_input.label',
+    data.search_form.text_input.label,
+    buttonLabels.required
+  );
+  data.search_form.button.label = text(
+    'search_form.button.label',
+    data.search_form.button.label,
+    buttonLabels.required
+  );
 
   return data;
 };
