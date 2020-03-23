@@ -19,13 +19,18 @@ import message from './ecl-message.html.twig';
 import notes from './README.md';
 
 const prepareMessage = data => {
+  data.title = text('title', data.title, buttonLabels.required);
+  data.description = text(
+    'description',
+    data.description,
+    buttonLabels.required
+  );
   data.variant = select(
     'variant',
     [data.variant],
     data.variant,
     buttonLabels.required
   );
-
   const name = select(
     'icon.name',
     [data.icon.name],
@@ -33,22 +38,12 @@ const prepareMessage = data => {
     buttonLabels.required
   );
   getIconKnobs(data, name, 'notifications', 'l', 'primary', 'none');
-
-  data.title = text('title', data.title, buttonLabels.required);
-
-  data.description = text(
-    'description',
-    data.description,
-    buttonLabels.required
-  );
-
   data.close.icon.path = select(
     'close.icon.path',
     [defaultSprite],
     defaultSprite,
     buttonLabels.required
   );
-
   getExtraKnobs(data);
 
   return data;
