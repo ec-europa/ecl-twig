@@ -1,10 +1,15 @@
-import merge from 'deepmerge';
+/* eslint-disable no-param-reassign */
 import { storiesOf } from '@storybook/html';
-import { withKnobs, text, boolean } from '@storybook/addon-knobs';
+import { withKnobs, text, boolean, select } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
+import {
+  getExtraKnobs,
+  getIconKnobs,
+  buttonLabels,
+} from '@ecl-twig/story-utils';
 import withCode from '@ecl-twig/storybook-addon-code';
 
-import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
+import uiIcons from '@ecl/ec-resources-icons/dist/lists/ui.json';
 import dataDefault from './demo/data--default';
 import dataImage from './demo/data--image';
 import dataImageShade from './demo/data--image-shade';
@@ -14,107 +19,73 @@ import dataLeft from './demo/data--align-left';
 import heroBanner from './ecl-hero-banner.html.twig';
 import notes from './README.md';
 
-const PrepareBanner = data => {
-  data.link.icon.path = defaultSprite; // eslint-disable-line no-param-reassign
+uiIcons.unshift('null');
+const prepareBanner = data => {
+  if (data.centered) {
+    data.centered = boolean('centered', data.centered, buttonLabels.states);
+  }
+  data.type = select('type', [data.type], data.type, buttonLabels.required);
+  data.title = text('title', data.title, buttonLabels.required);
+  data.description = text(
+    'description',
+    data.description,
+    buttonLabels.required
+  );
+
+  if (data.image) {
+    data.image = text('image', data.image, buttonLabels.required);
+  }
+  data.link.link.label = text(
+    'link.link.label',
+    data.link.link.label,
+    buttonLabels.required
+  );
+  data.link.link.path = text(
+    'link.link.path',
+    data.link.link.path,
+    buttonLabels.required
+  );
+  data.link.icon.name = select(
+    'link.icon.name',
+    uiIcons,
+    data.link.icon.name,
+    buttonLabels.optional
+  );
+  if (data.link.icon.name !== 'null') {
+    getIconKnobs(
+      data,
+      data.link.icon.name,
+      'ui',
+      'xs',
+      'default',
+      'rotate-90',
+      true
+    );
+  } else {
+    delete data.link.icon;
+  }
+
+  getExtraKnobs(data);
+
   return data;
 };
+
 storiesOf('Components/Banners/Hero Banner', module)
   .addDecorator(withKnobs)
   .addDecorator(withNotes)
   .addDecorator(withCode)
-  .add(
-    'image',
-    () =>
-      heroBanner(
-        merge(PrepareBanner(dataImage), {
-          link: {
-            link: {
-              label: text('Link label', dataImage.link.link.label),
-            },
-          },
-          title: text('Title', dataImage.title),
-          description: text('Description', dataImage.description),
-          centered: boolean('Centered', dataImage.centered),
-          image: text('Image', dataImage.image),
-        })
-      ),
-    {
-      notes: { markdown: notes, json: PrepareBanner(dataImage) },
-    }
-  )
-  .add(
-    'image-shade',
-    () =>
-      heroBanner(
-        merge(PrepareBanner(dataImageShade), {
-          link: {
-            link: {
-              label: text('Link label', dataImageShade.link.link.label),
-            },
-          },
-          title: text('Title', dataImageShade.title),
-          description: text('Description', dataImageShade.description),
-          centered: boolean('Centered', dataImageShade.centered),
-          image: text('Image', dataImageShade.image),
-        })
-      ),
-    {
-      notes: { markdown: notes, json: PrepareBanner(dataImageShade) },
-    }
-  )
-  .add(
-    'primary',
-    () =>
-      heroBanner(
-        merge(PrepareBanner(dataPrimary), {
-          link: {
-            link: {
-              label: text('Link label', dataPrimary.link.link.label),
-            },
-          },
-          title: text('Title', dataPrimary.title),
-          description: text('Description', dataPrimary.description),
-          centered: boolean('Centered', dataPrimary.centered),
-        })
-      ),
-    {
-      notes: { markdown: notes, json: PrepareBanner(dataPrimary) },
-    }
-  )
-  .add(
-    'default',
-    () =>
-      heroBanner(
-        merge(PrepareBanner(dataDefault), {
-          link: {
-            link: {
-              label: text('Link label', dataDefault.link.link.label),
-            },
-          },
-          title: text('Title', dataDefault.title),
-          description: text('Description', dataDefault.description),
-          centered: boolean('Centered', dataDefault.centered),
-        })
-      ),
-    {
-      notes: { markdown: notes, json: PrepareBanner(dataDefault) },
-    }
-  )
-  .add(
-    'align-left',
-    () =>
-      heroBanner(
-        merge(PrepareBanner(dataLeft), {
-          link: {
-            link: {
-              label: text('Link label', dataLeft.link.link.label),
-            },
-          },
-          title: text('Title', dataLeft.title),
-          description: text('Description', dataLeft.description),
-        })
-      ),
-    {
-      notes: { markdown: notes, json: PrepareBanner(dataLeft) },
-    }
-  );
+  .add('image', () => heroBanner(prepareBanner(dataImage)), {
+    notes: { markdown: notes, json: dataImage },
+  })
+  .add('image-shade', () => heroBanner(prepareBanner(dataImageShade)), {
+    notes: { markdown: notes, json: dataImageShade },
+  })
+  .add('primary', () => heroBanner(prepareBanner(dataPrimary)), {
+    notes: { markdown: notes, json: dataPrimary },
+  })
+  .add('default', () => heroBanner(prepareBanner(dataDefault)), {
+    notes: { markdown: notes, json: dataDefault },
+  })
+  .add('align-left', () => heroBanner(prepareBanner(dataLeft)), {
+    notes: { markdown: notes, json: dataLeft },
+  });
