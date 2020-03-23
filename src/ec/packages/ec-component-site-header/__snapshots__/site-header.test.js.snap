@@ -54,22 +54,54 @@ exports[`EC - Site Header Default renders correctly 1`] = `
         </a>
         <div
           aria-labelledby="ecl-language-list__title"
-          class="ecl-language-list ecl-language-list--splash"
+          class="ecl-language-list ecl-language-list--overlay"
+          data-ecl-language-list-overlay=""
           hidden=""
           role="dialog"
         >
-          <header
-            class="ecl-language-list__header"
-          >
-            <img
-              alt="European Commission logo"
-              class="ecl-language-list__logo"
-              src=""
-            />
-          </header>
           <div
             class="ecl-language-list__container ecl-container"
           >
+            <div
+              class="ecl-row"
+            >
+              <div
+                class="ecl-language-list__close ecl-col-12 ecl-col-lg-8 ecl-offset-lg-2"
+              >
+                <button
+                  class="ecl-button ecl-button--ghost ecl-language-list__close-button"
+                  data-ecl-language-list-close=""
+                  type="submit"
+                >
+                  <span
+                    class="ecl-button__container"
+                  >
+                    <span
+                      class="ecl-button__label"
+                      data-ecl-label="true"
+                    >
+                      Close
+                    </span>
+                    <svg
+                      aria-hidden="true"
+                      class="ecl-icon ecl-icon--s ecl-button__icon ecl-button__icon--after"
+                      data-ecl-icon=""
+                      focusable="false"
+                    >
+                      <use
+                        xlink:href="/icons.svg#ui--close"
+                      />
+                    </svg>
+                  </span>
+                </button>
+              </div>
+              <div
+                class="ecl-language-list__title ecl-col-12 ecl-col-lg-8 ecl-offset-lg-2"
+                id="ecl-language-list__title"
+              >
+                Select your language
+              </div>
+            </div>
             <div
               class="ecl-row"
             >
@@ -87,6 +119,7 @@ exports[`EC - Site Header Default renders correctly 1`] = `
                       href="/example#language_bg"
                       hreflang="bg"
                       lang="bg"
+                      rel="alternate"
                     >
                       български
                     </a>
@@ -99,6 +132,7 @@ exports[`EC - Site Header Default renders correctly 1`] = `
                       href="/example#language_es"
                       hreflang="es"
                       lang="es"
+                      rel="alternate"
                     >
                       español
                     </a>
@@ -111,6 +145,7 @@ exports[`EC - Site Header Default renders correctly 1`] = `
                       href="/example#language_cs"
                       hreflang="cs"
                       lang="cs"
+                      rel="alternate"
                     >
                       čeština
                     </a>
@@ -123,6 +158,7 @@ exports[`EC - Site Header Default renders correctly 1`] = `
                       href="/example#language_da"
                       hreflang="da"
                       lang="da"
+                      rel="alternate"
                     >
                       dansk
                     </a>
@@ -135,6 +171,7 @@ exports[`EC - Site Header Default renders correctly 1`] = `
                       href="/example#language_de"
                       hreflang="de"
                       lang="de"
+                      rel="alternate"
                     >
                       Deutsch
                     </a>
@@ -147,6 +184,7 @@ exports[`EC - Site Header Default renders correctly 1`] = `
                       href="/example#language_et"
                       hreflang="et"
                       lang="et"
+                      rel="alternate"
                     >
                       eesti
                     </a>
@@ -159,6 +197,7 @@ exports[`EC - Site Header Default renders correctly 1`] = `
                       href="/example#language_el"
                       hreflang="el"
                       lang="el"
+                      rel="alternate"
                     >
                       ελληνικά
                     </a>
@@ -171,6 +210,7 @@ exports[`EC - Site Header Default renders correctly 1`] = `
                       href="/example#language_en"
                       hreflang="en"
                       lang="en"
+                      rel="alternate"
                     >
                       <span
                         class="ecl-link__label"
@@ -197,6 +237,7 @@ exports[`EC - Site Header Default renders correctly 1`] = `
                       href="/example#language_fr"
                       hreflang="fr"
                       lang="fr"
+                      rel="alternate"
                     >
                       français
                     </a>
@@ -209,6 +250,7 @@ exports[`EC - Site Header Default renders correctly 1`] = `
                       href="/example#language_ga"
                       hreflang="ga"
                       lang="ga"
+                      rel="alternate"
                     >
                       Gaeilge
                     </a>
@@ -221,6 +263,7 @@ exports[`EC - Site Header Default renders correctly 1`] = `
                       href="/example#language_hr"
                       hreflang="hr"
                       lang="hr"
+                      rel="alternate"
                     >
                       hrvatski
                     </a>
@@ -233,6 +276,7 @@ exports[`EC - Site Header Default renders correctly 1`] = `
                       href="/example#language_it"
                       hreflang="it"
                       lang="it"
+                      rel="alternate"
                     >
                       italiano
                     </a>
@@ -253,6 +297,7 @@ exports[`EC - Site Header Default renders correctly 1`] = `
                       href="/example#language_lv"
                       hreflang="lv"
                       lang="lv"
+                      rel="alternate"
                     >
                       latviešu
                     </a>
@@ -265,6 +310,7 @@ exports[`EC - Site Header Default renders correctly 1`] = `
                       href="/example#language_lt"
                       hreflang="lt"
                       lang="lt"
+                      rel="alternate"
                     >
                       lietuvių
                     </a>
@@ -277,6 +323,7 @@ exports[`EC - Site Header Default renders correctly 1`] = `
                       href="/example#language_hu"
                       hreflang="hu"
                       lang="hu"
+                      rel="alternate"
                     >
                       magyar
                     </a>
@@ -289,6 +336,7 @@ exports[`EC - Site Header Default renders correctly 1`] = `
                       href="/example#language_mt"
                       hreflang="mt"
                       lang="mt"
+                      rel="alternate"
                     >
                       Malti
                     </a>
@@ -301,6 +349,7 @@ exports[`EC - Site Header Default renders correctly 1`] = `
                       href="/example#language_nl"
                       hreflang="nl"
                       lang="nl"
+                      rel="alternate"
                     >
                       Nederlands
                     </a>
@@ -313,6 +362,7 @@ exports[`EC - Site Header Default renders correctly 1`] = `
                       href="/example#language_pl"
                       hreflang="pl"
                       lang="pl"
+                      rel="alternate"
                     >
                       polski
                     </a>
@@ -325,6 +375,7 @@ exports[`EC - Site Header Default renders correctly 1`] = `
                       href="/example#language_pt"
                       hreflang="pt"
                       lang="pt"
+                      rel="alternate"
                     >
                       português
                     </a>
@@ -337,6 +388,7 @@ exports[`EC - Site Header Default renders correctly 1`] = `
                       href="/example#language_ro"
                       hreflang="ro"
                       lang="ro"
+                      rel="alternate"
                     >
                       română
                     </a>
@@ -349,6 +401,7 @@ exports[`EC - Site Header Default renders correctly 1`] = `
                       href="/example#language_sk"
                       hreflang="sk"
                       lang="sk"
+                      rel="alternate"
                     >
                       slovenčina
                     </a>
@@ -361,6 +414,7 @@ exports[`EC - Site Header Default renders correctly 1`] = `
                       href="/example#language_sl"
                       hreflang="sl"
                       lang="sl"
+                      rel="alternate"
                     >
                       slovenščina
                     </a>
@@ -373,6 +427,7 @@ exports[`EC - Site Header Default renders correctly 1`] = `
                       href="/example#language_fi"
                       hreflang="fi"
                       lang="fi"
+                      rel="alternate"
                     >
                       suomi
                     </a>
@@ -385,6 +440,7 @@ exports[`EC - Site Header Default renders correctly 1`] = `
                       href="/example#language_sv"
                       hreflang="sv"
                       lang="sv"
+                      rel="alternate"
                     >
                       svenska
                     </a>
@@ -412,7 +468,6 @@ exports[`EC - Site Header Default renders correctly 1`] = `
         <input
           class="ecl-text-input ecl-text-input--m ecl-search-form__text-input"
           id="search-form"
-          name="Search"
           type="search"
         />
       </div>
@@ -503,22 +558,54 @@ exports[`EC - Site Header Default renders correctly with extra attributes 1`] = 
         </a>
         <div
           aria-labelledby="ecl-language-list__title"
-          class="ecl-language-list ecl-language-list--splash"
+          class="ecl-language-list ecl-language-list--overlay"
+          data-ecl-language-list-overlay=""
           hidden=""
           role="dialog"
         >
-          <header
-            class="ecl-language-list__header"
-          >
-            <img
-              alt="European Commission logo"
-              class="ecl-language-list__logo"
-              src=""
-            />
-          </header>
           <div
             class="ecl-language-list__container ecl-container"
           >
+            <div
+              class="ecl-row"
+            >
+              <div
+                class="ecl-language-list__close ecl-col-12 ecl-col-lg-8 ecl-offset-lg-2"
+              >
+                <button
+                  class="ecl-button ecl-button--ghost ecl-language-list__close-button"
+                  data-ecl-language-list-close=""
+                  type="submit"
+                >
+                  <span
+                    class="ecl-button__container"
+                  >
+                    <span
+                      class="ecl-button__label"
+                      data-ecl-label="true"
+                    >
+                      Close
+                    </span>
+                    <svg
+                      aria-hidden="true"
+                      class="ecl-icon ecl-icon--s ecl-button__icon ecl-button__icon--after"
+                      data-ecl-icon=""
+                      focusable="false"
+                    >
+                      <use
+                        xlink:href="/icons.svg#ui--close"
+                      />
+                    </svg>
+                  </span>
+                </button>
+              </div>
+              <div
+                class="ecl-language-list__title ecl-col-12 ecl-col-lg-8 ecl-offset-lg-2"
+                id="ecl-language-list__title"
+              >
+                Select your language
+              </div>
+            </div>
             <div
               class="ecl-row"
             >
@@ -536,6 +623,7 @@ exports[`EC - Site Header Default renders correctly with extra attributes 1`] = 
                       href="/example#language_bg"
                       hreflang="bg"
                       lang="bg"
+                      rel="alternate"
                     >
                       български
                     </a>
@@ -548,6 +636,7 @@ exports[`EC - Site Header Default renders correctly with extra attributes 1`] = 
                       href="/example#language_es"
                       hreflang="es"
                       lang="es"
+                      rel="alternate"
                     >
                       español
                     </a>
@@ -560,6 +649,7 @@ exports[`EC - Site Header Default renders correctly with extra attributes 1`] = 
                       href="/example#language_cs"
                       hreflang="cs"
                       lang="cs"
+                      rel="alternate"
                     >
                       čeština
                     </a>
@@ -572,6 +662,7 @@ exports[`EC - Site Header Default renders correctly with extra attributes 1`] = 
                       href="/example#language_da"
                       hreflang="da"
                       lang="da"
+                      rel="alternate"
                     >
                       dansk
                     </a>
@@ -584,6 +675,7 @@ exports[`EC - Site Header Default renders correctly with extra attributes 1`] = 
                       href="/example#language_de"
                       hreflang="de"
                       lang="de"
+                      rel="alternate"
                     >
                       Deutsch
                     </a>
@@ -596,6 +688,7 @@ exports[`EC - Site Header Default renders correctly with extra attributes 1`] = 
                       href="/example#language_et"
                       hreflang="et"
                       lang="et"
+                      rel="alternate"
                     >
                       eesti
                     </a>
@@ -608,6 +701,7 @@ exports[`EC - Site Header Default renders correctly with extra attributes 1`] = 
                       href="/example#language_el"
                       hreflang="el"
                       lang="el"
+                      rel="alternate"
                     >
                       ελληνικά
                     </a>
@@ -620,6 +714,7 @@ exports[`EC - Site Header Default renders correctly with extra attributes 1`] = 
                       href="/example#language_en"
                       hreflang="en"
                       lang="en"
+                      rel="alternate"
                     >
                       <span
                         class="ecl-link__label"
@@ -646,6 +741,7 @@ exports[`EC - Site Header Default renders correctly with extra attributes 1`] = 
                       href="/example#language_fr"
                       hreflang="fr"
                       lang="fr"
+                      rel="alternate"
                     >
                       français
                     </a>
@@ -658,6 +754,7 @@ exports[`EC - Site Header Default renders correctly with extra attributes 1`] = 
                       href="/example#language_ga"
                       hreflang="ga"
                       lang="ga"
+                      rel="alternate"
                     >
                       Gaeilge
                     </a>
@@ -670,6 +767,7 @@ exports[`EC - Site Header Default renders correctly with extra attributes 1`] = 
                       href="/example#language_hr"
                       hreflang="hr"
                       lang="hr"
+                      rel="alternate"
                     >
                       hrvatski
                     </a>
@@ -682,6 +780,7 @@ exports[`EC - Site Header Default renders correctly with extra attributes 1`] = 
                       href="/example#language_it"
                       hreflang="it"
                       lang="it"
+                      rel="alternate"
                     >
                       italiano
                     </a>
@@ -702,6 +801,7 @@ exports[`EC - Site Header Default renders correctly with extra attributes 1`] = 
                       href="/example#language_lv"
                       hreflang="lv"
                       lang="lv"
+                      rel="alternate"
                     >
                       latviešu
                     </a>
@@ -714,6 +814,7 @@ exports[`EC - Site Header Default renders correctly with extra attributes 1`] = 
                       href="/example#language_lt"
                       hreflang="lt"
                       lang="lt"
+                      rel="alternate"
                     >
                       lietuvių
                     </a>
@@ -726,6 +827,7 @@ exports[`EC - Site Header Default renders correctly with extra attributes 1`] = 
                       href="/example#language_hu"
                       hreflang="hu"
                       lang="hu"
+                      rel="alternate"
                     >
                       magyar
                     </a>
@@ -738,6 +840,7 @@ exports[`EC - Site Header Default renders correctly with extra attributes 1`] = 
                       href="/example#language_mt"
                       hreflang="mt"
                       lang="mt"
+                      rel="alternate"
                     >
                       Malti
                     </a>
@@ -750,6 +853,7 @@ exports[`EC - Site Header Default renders correctly with extra attributes 1`] = 
                       href="/example#language_nl"
                       hreflang="nl"
                       lang="nl"
+                      rel="alternate"
                     >
                       Nederlands
                     </a>
@@ -762,6 +866,7 @@ exports[`EC - Site Header Default renders correctly with extra attributes 1`] = 
                       href="/example#language_pl"
                       hreflang="pl"
                       lang="pl"
+                      rel="alternate"
                     >
                       polski
                     </a>
@@ -774,6 +879,7 @@ exports[`EC - Site Header Default renders correctly with extra attributes 1`] = 
                       href="/example#language_pt"
                       hreflang="pt"
                       lang="pt"
+                      rel="alternate"
                     >
                       português
                     </a>
@@ -786,6 +892,7 @@ exports[`EC - Site Header Default renders correctly with extra attributes 1`] = 
                       href="/example#language_ro"
                       hreflang="ro"
                       lang="ro"
+                      rel="alternate"
                     >
                       română
                     </a>
@@ -798,6 +905,7 @@ exports[`EC - Site Header Default renders correctly with extra attributes 1`] = 
                       href="/example#language_sk"
                       hreflang="sk"
                       lang="sk"
+                      rel="alternate"
                     >
                       slovenčina
                     </a>
@@ -810,6 +918,7 @@ exports[`EC - Site Header Default renders correctly with extra attributes 1`] = 
                       href="/example#language_sl"
                       hreflang="sl"
                       lang="sl"
+                      rel="alternate"
                     >
                       slovenščina
                     </a>
@@ -822,6 +931,7 @@ exports[`EC - Site Header Default renders correctly with extra attributes 1`] = 
                       href="/example#language_fi"
                       hreflang="fi"
                       lang="fi"
+                      rel="alternate"
                     >
                       suomi
                     </a>
@@ -834,6 +944,7 @@ exports[`EC - Site Header Default renders correctly with extra attributes 1`] = 
                       href="/example#language_sv"
                       hreflang="sv"
                       lang="sv"
+                      rel="alternate"
                     >
                       svenska
                     </a>
@@ -861,7 +972,6 @@ exports[`EC - Site Header Default renders correctly with extra attributes 1`] = 
         <input
           class="ecl-text-input ecl-text-input--m ecl-search-form__text-input"
           id="search-form"
-          name="Search"
           type="search"
         />
       </div>
@@ -950,22 +1060,54 @@ exports[`EC - Site Header Default renders correctly with extra class names 1`] =
         </a>
         <div
           aria-labelledby="ecl-language-list__title"
-          class="ecl-language-list ecl-language-list--splash custom-class custom-class--test"
+          class="ecl-language-list ecl-language-list--overlay custom-class custom-class--test"
+          data-ecl-language-list-overlay=""
           hidden=""
           role="dialog"
         >
-          <header
-            class="ecl-language-list__header"
-          >
-            <img
-              alt="European Commission logo"
-              class="ecl-language-list__logo"
-              src=""
-            />
-          </header>
           <div
             class="ecl-language-list__container ecl-container"
           >
+            <div
+              class="ecl-row"
+            >
+              <div
+                class="ecl-language-list__close ecl-col-12 ecl-col-lg-8 ecl-offset-lg-2"
+              >
+                <button
+                  class="ecl-button ecl-button--ghost ecl-language-list__close-button"
+                  data-ecl-language-list-close=""
+                  type="submit"
+                >
+                  <span
+                    class="ecl-button__container"
+                  >
+                    <span
+                      class="ecl-button__label"
+                      data-ecl-label="true"
+                    >
+                      Close
+                    </span>
+                    <svg
+                      aria-hidden="true"
+                      class="ecl-icon ecl-icon--s ecl-button__icon ecl-button__icon--after"
+                      data-ecl-icon=""
+                      focusable="false"
+                    >
+                      <use
+                        xlink:href="/icons.svg#ui--close"
+                      />
+                    </svg>
+                  </span>
+                </button>
+              </div>
+              <div
+                class="ecl-language-list__title ecl-col-12 ecl-col-lg-8 ecl-offset-lg-2"
+                id="ecl-language-list__title"
+              >
+                Select your language
+              </div>
+            </div>
             <div
               class="ecl-row"
             >
@@ -983,6 +1125,7 @@ exports[`EC - Site Header Default renders correctly with extra class names 1`] =
                       href="/example#language_bg"
                       hreflang="bg"
                       lang="bg"
+                      rel="alternate"
                     >
                       български
                     </a>
@@ -995,6 +1138,7 @@ exports[`EC - Site Header Default renders correctly with extra class names 1`] =
                       href="/example#language_es"
                       hreflang="es"
                       lang="es"
+                      rel="alternate"
                     >
                       español
                     </a>
@@ -1007,6 +1151,7 @@ exports[`EC - Site Header Default renders correctly with extra class names 1`] =
                       href="/example#language_cs"
                       hreflang="cs"
                       lang="cs"
+                      rel="alternate"
                     >
                       čeština
                     </a>
@@ -1019,6 +1164,7 @@ exports[`EC - Site Header Default renders correctly with extra class names 1`] =
                       href="/example#language_da"
                       hreflang="da"
                       lang="da"
+                      rel="alternate"
                     >
                       dansk
                     </a>
@@ -1031,6 +1177,7 @@ exports[`EC - Site Header Default renders correctly with extra class names 1`] =
                       href="/example#language_de"
                       hreflang="de"
                       lang="de"
+                      rel="alternate"
                     >
                       Deutsch
                     </a>
@@ -1043,6 +1190,7 @@ exports[`EC - Site Header Default renders correctly with extra class names 1`] =
                       href="/example#language_et"
                       hreflang="et"
                       lang="et"
+                      rel="alternate"
                     >
                       eesti
                     </a>
@@ -1055,6 +1203,7 @@ exports[`EC - Site Header Default renders correctly with extra class names 1`] =
                       href="/example#language_el"
                       hreflang="el"
                       lang="el"
+                      rel="alternate"
                     >
                       ελληνικά
                     </a>
@@ -1067,6 +1216,7 @@ exports[`EC - Site Header Default renders correctly with extra class names 1`] =
                       href="/example#language_en"
                       hreflang="en"
                       lang="en"
+                      rel="alternate"
                     >
                       <span
                         class="ecl-link__label"
@@ -1093,6 +1243,7 @@ exports[`EC - Site Header Default renders correctly with extra class names 1`] =
                       href="/example#language_fr"
                       hreflang="fr"
                       lang="fr"
+                      rel="alternate"
                     >
                       français
                     </a>
@@ -1105,6 +1256,7 @@ exports[`EC - Site Header Default renders correctly with extra class names 1`] =
                       href="/example#language_ga"
                       hreflang="ga"
                       lang="ga"
+                      rel="alternate"
                     >
                       Gaeilge
                     </a>
@@ -1117,6 +1269,7 @@ exports[`EC - Site Header Default renders correctly with extra class names 1`] =
                       href="/example#language_hr"
                       hreflang="hr"
                       lang="hr"
+                      rel="alternate"
                     >
                       hrvatski
                     </a>
@@ -1129,6 +1282,7 @@ exports[`EC - Site Header Default renders correctly with extra class names 1`] =
                       href="/example#language_it"
                       hreflang="it"
                       lang="it"
+                      rel="alternate"
                     >
                       italiano
                     </a>
@@ -1149,6 +1303,7 @@ exports[`EC - Site Header Default renders correctly with extra class names 1`] =
                       href="/example#language_lv"
                       hreflang="lv"
                       lang="lv"
+                      rel="alternate"
                     >
                       latviešu
                     </a>
@@ -1161,6 +1316,7 @@ exports[`EC - Site Header Default renders correctly with extra class names 1`] =
                       href="/example#language_lt"
                       hreflang="lt"
                       lang="lt"
+                      rel="alternate"
                     >
                       lietuvių
                     </a>
@@ -1173,6 +1329,7 @@ exports[`EC - Site Header Default renders correctly with extra class names 1`] =
                       href="/example#language_hu"
                       hreflang="hu"
                       lang="hu"
+                      rel="alternate"
                     >
                       magyar
                     </a>
@@ -1185,6 +1342,7 @@ exports[`EC - Site Header Default renders correctly with extra class names 1`] =
                       href="/example#language_mt"
                       hreflang="mt"
                       lang="mt"
+                      rel="alternate"
                     >
                       Malti
                     </a>
@@ -1197,6 +1355,7 @@ exports[`EC - Site Header Default renders correctly with extra class names 1`] =
                       href="/example#language_nl"
                       hreflang="nl"
                       lang="nl"
+                      rel="alternate"
                     >
                       Nederlands
                     </a>
@@ -1209,6 +1368,7 @@ exports[`EC - Site Header Default renders correctly with extra class names 1`] =
                       href="/example#language_pl"
                       hreflang="pl"
                       lang="pl"
+                      rel="alternate"
                     >
                       polski
                     </a>
@@ -1221,6 +1381,7 @@ exports[`EC - Site Header Default renders correctly with extra class names 1`] =
                       href="/example#language_pt"
                       hreflang="pt"
                       lang="pt"
+                      rel="alternate"
                     >
                       português
                     </a>
@@ -1233,6 +1394,7 @@ exports[`EC - Site Header Default renders correctly with extra class names 1`] =
                       href="/example#language_ro"
                       hreflang="ro"
                       lang="ro"
+                      rel="alternate"
                     >
                       română
                     </a>
@@ -1245,6 +1407,7 @@ exports[`EC - Site Header Default renders correctly with extra class names 1`] =
                       href="/example#language_sk"
                       hreflang="sk"
                       lang="sk"
+                      rel="alternate"
                     >
                       slovenčina
                     </a>
@@ -1257,6 +1420,7 @@ exports[`EC - Site Header Default renders correctly with extra class names 1`] =
                       href="/example#language_sl"
                       hreflang="sl"
                       lang="sl"
+                      rel="alternate"
                     >
                       slovenščina
                     </a>
@@ -1269,6 +1433,7 @@ exports[`EC - Site Header Default renders correctly with extra class names 1`] =
                       href="/example#language_fi"
                       hreflang="fi"
                       lang="fi"
+                      rel="alternate"
                     >
                       suomi
                     </a>
@@ -1281,6 +1446,7 @@ exports[`EC - Site Header Default renders correctly with extra class names 1`] =
                       href="/example#language_sv"
                       hreflang="sv"
                       lang="sv"
+                      rel="alternate"
                     >
                       svenska
                     </a>
@@ -1308,7 +1474,6 @@ exports[`EC - Site Header Default renders correctly with extra class names 1`] =
         <input
           class="ecl-text-input ecl-text-input--m ecl-search-form__text-input"
           id="search-form"
-          name="Search"
           type="search"
         />
       </div>
@@ -1397,22 +1562,54 @@ exports[`EC - Site Header Translated renders correctly 1`] = `
         </a>
         <div
           aria-labelledby="ecl-language-list__title"
-          class="ecl-language-list ecl-language-list--splash"
+          class="ecl-language-list ecl-language-list--overlay"
+          data-ecl-language-list-overlay=""
           hidden=""
           role="dialog"
         >
-          <header
-            class="ecl-language-list__header"
-          >
-            <img
-              alt="Logo Commmission Européenne"
-              class="ecl-language-list__logo"
-              src=""
-            />
-          </header>
           <div
             class="ecl-language-list__container ecl-container"
           >
+            <div
+              class="ecl-row"
+            >
+              <div
+                class="ecl-language-list__close ecl-col-12 ecl-col-lg-8 ecl-offset-lg-2"
+              >
+                <button
+                  class="ecl-button ecl-button--ghost ecl-language-list__close-button"
+                  data-ecl-language-list-close=""
+                  type="submit"
+                >
+                  <span
+                    class="ecl-button__container"
+                  >
+                    <span
+                      class="ecl-button__label"
+                      data-ecl-label="true"
+                    >
+                      Fermer
+                    </span>
+                    <svg
+                      aria-hidden="true"
+                      class="ecl-icon ecl-icon--s ecl-button__icon ecl-button__icon--after"
+                      data-ecl-icon=""
+                      focusable="false"
+                    >
+                      <use
+                        xlink:href="/icons.svg#ui--close"
+                      />
+                    </svg>
+                  </span>
+                </button>
+              </div>
+              <div
+                class="ecl-language-list__title ecl-col-12 ecl-col-lg-8 ecl-offset-lg-2"
+                id="ecl-language-list__title"
+              >
+                Choisissez votre langue
+              </div>
+            </div>
             <div
               class="ecl-row"
             >
@@ -1430,6 +1627,7 @@ exports[`EC - Site Header Translated renders correctly 1`] = `
                       href="/example#language_bg"
                       hreflang="bg"
                       lang="bg"
+                      rel="alternate"
                     >
                       български
                     </a>
@@ -1442,6 +1640,7 @@ exports[`EC - Site Header Translated renders correctly 1`] = `
                       href="/example#language_es"
                       hreflang="es"
                       lang="es"
+                      rel="alternate"
                     >
                       español
                     </a>
@@ -1454,6 +1653,7 @@ exports[`EC - Site Header Translated renders correctly 1`] = `
                       href="/example#language_cs"
                       hreflang="cs"
                       lang="cs"
+                      rel="alternate"
                     >
                       čeština
                     </a>
@@ -1466,6 +1666,7 @@ exports[`EC - Site Header Translated renders correctly 1`] = `
                       href="/example#language_da"
                       hreflang="da"
                       lang="da"
+                      rel="alternate"
                     >
                       dansk
                     </a>
@@ -1478,6 +1679,7 @@ exports[`EC - Site Header Translated renders correctly 1`] = `
                       href="/example#language_de"
                       hreflang="de"
                       lang="de"
+                      rel="alternate"
                     >
                       Deutsch
                     </a>
@@ -1490,6 +1692,7 @@ exports[`EC - Site Header Translated renders correctly 1`] = `
                       href="/example#language_et"
                       hreflang="et"
                       lang="et"
+                      rel="alternate"
                     >
                       eesti
                     </a>
@@ -1502,6 +1705,7 @@ exports[`EC - Site Header Translated renders correctly 1`] = `
                       href="/example#language_el"
                       hreflang="el"
                       lang="el"
+                      rel="alternate"
                     >
                       ελληνικά
                     </a>
@@ -1514,6 +1718,7 @@ exports[`EC - Site Header Translated renders correctly 1`] = `
                       href="/example#language_en"
                       hreflang="en"
                       lang="en"
+                      rel="alternate"
                     >
                       English
                     </a>
@@ -1526,6 +1731,7 @@ exports[`EC - Site Header Translated renders correctly 1`] = `
                       href="/example#language_fr"
                       hreflang="fr"
                       lang="fr"
+                      rel="alternate"
                     >
                       <span
                         class="ecl-link__label"
@@ -1552,6 +1758,7 @@ exports[`EC - Site Header Translated renders correctly 1`] = `
                       href="/example#language_ga"
                       hreflang="ga"
                       lang="ga"
+                      rel="alternate"
                     >
                       Gaeilge
                     </a>
@@ -1564,6 +1771,7 @@ exports[`EC - Site Header Translated renders correctly 1`] = `
                       href="/example#language_hr"
                       hreflang="hr"
                       lang="hr"
+                      rel="alternate"
                     >
                       hrvatski
                     </a>
@@ -1576,6 +1784,7 @@ exports[`EC - Site Header Translated renders correctly 1`] = `
                       href="/example#language_it"
                       hreflang="it"
                       lang="it"
+                      rel="alternate"
                     >
                       italiano
                     </a>
@@ -1596,6 +1805,7 @@ exports[`EC - Site Header Translated renders correctly 1`] = `
                       href="/example#language_lv"
                       hreflang="lv"
                       lang="lv"
+                      rel="alternate"
                     >
                       latviešu
                     </a>
@@ -1608,6 +1818,7 @@ exports[`EC - Site Header Translated renders correctly 1`] = `
                       href="/example#language_lt"
                       hreflang="lt"
                       lang="lt"
+                      rel="alternate"
                     >
                       lietuvių
                     </a>
@@ -1620,6 +1831,7 @@ exports[`EC - Site Header Translated renders correctly 1`] = `
                       href="/example#language_hu"
                       hreflang="hu"
                       lang="hu"
+                      rel="alternate"
                     >
                       magyar
                     </a>
@@ -1632,6 +1844,7 @@ exports[`EC - Site Header Translated renders correctly 1`] = `
                       href="/example#language_mt"
                       hreflang="mt"
                       lang="mt"
+                      rel="alternate"
                     >
                       Malti
                     </a>
@@ -1644,6 +1857,7 @@ exports[`EC - Site Header Translated renders correctly 1`] = `
                       href="/example#language_nl"
                       hreflang="nl"
                       lang="nl"
+                      rel="alternate"
                     >
                       Nederlands
                     </a>
@@ -1656,6 +1870,7 @@ exports[`EC - Site Header Translated renders correctly 1`] = `
                       href="/example#language_pl"
                       hreflang="pl"
                       lang="pl"
+                      rel="alternate"
                     >
                       polski
                     </a>
@@ -1668,6 +1883,7 @@ exports[`EC - Site Header Translated renders correctly 1`] = `
                       href="/example#language_pt"
                       hreflang="pt"
                       lang="pt"
+                      rel="alternate"
                     >
                       português
                     </a>
@@ -1680,6 +1896,7 @@ exports[`EC - Site Header Translated renders correctly 1`] = `
                       href="/example#language_ro"
                       hreflang="ro"
                       lang="ro"
+                      rel="alternate"
                     >
                       română
                     </a>
@@ -1692,6 +1909,7 @@ exports[`EC - Site Header Translated renders correctly 1`] = `
                       href="/example#language_sk"
                       hreflang="sk"
                       lang="sk"
+                      rel="alternate"
                     >
                       slovenčina
                     </a>
@@ -1704,6 +1922,7 @@ exports[`EC - Site Header Translated renders correctly 1`] = `
                       href="/example#language_sl"
                       hreflang="sl"
                       lang="sl"
+                      rel="alternate"
                     >
                       slovenščina
                     </a>
@@ -1716,6 +1935,7 @@ exports[`EC - Site Header Translated renders correctly 1`] = `
                       href="/example#language_fi"
                       hreflang="fi"
                       lang="fi"
+                      rel="alternate"
                     >
                       suomi
                     </a>
@@ -1728,6 +1948,7 @@ exports[`EC - Site Header Translated renders correctly 1`] = `
                       href="/example#language_sv"
                       hreflang="sv"
                       lang="sv"
+                      rel="alternate"
                     >
                       svenska
                     </a>
@@ -1755,7 +1976,6 @@ exports[`EC - Site Header Translated renders correctly 1`] = `
         <input
           class="ecl-text-input ecl-text-input--m ecl-search-form__text-input"
           id="search-form"
-          name="Recherche"
           type="search"
         />
       </div>
@@ -1846,22 +2066,54 @@ exports[`EC - Site Header Translated renders correctly with extra attributes 1`]
         </a>
         <div
           aria-labelledby="ecl-language-list__title"
-          class="ecl-language-list ecl-language-list--splash"
+          class="ecl-language-list ecl-language-list--overlay"
+          data-ecl-language-list-overlay=""
           hidden=""
           role="dialog"
         >
-          <header
-            class="ecl-language-list__header"
-          >
-            <img
-              alt="Logo Commmission Européenne"
-              class="ecl-language-list__logo"
-              src=""
-            />
-          </header>
           <div
             class="ecl-language-list__container ecl-container"
           >
+            <div
+              class="ecl-row"
+            >
+              <div
+                class="ecl-language-list__close ecl-col-12 ecl-col-lg-8 ecl-offset-lg-2"
+              >
+                <button
+                  class="ecl-button ecl-button--ghost ecl-language-list__close-button"
+                  data-ecl-language-list-close=""
+                  type="submit"
+                >
+                  <span
+                    class="ecl-button__container"
+                  >
+                    <span
+                      class="ecl-button__label"
+                      data-ecl-label="true"
+                    >
+                      Fermer
+                    </span>
+                    <svg
+                      aria-hidden="true"
+                      class="ecl-icon ecl-icon--s ecl-button__icon ecl-button__icon--after"
+                      data-ecl-icon=""
+                      focusable="false"
+                    >
+                      <use
+                        xlink:href="/icons.svg#ui--close"
+                      />
+                    </svg>
+                  </span>
+                </button>
+              </div>
+              <div
+                class="ecl-language-list__title ecl-col-12 ecl-col-lg-8 ecl-offset-lg-2"
+                id="ecl-language-list__title"
+              >
+                Choisissez votre langue
+              </div>
+            </div>
             <div
               class="ecl-row"
             >
@@ -1879,6 +2131,7 @@ exports[`EC - Site Header Translated renders correctly with extra attributes 1`]
                       href="/example#language_bg"
                       hreflang="bg"
                       lang="bg"
+                      rel="alternate"
                     >
                       български
                     </a>
@@ -1891,6 +2144,7 @@ exports[`EC - Site Header Translated renders correctly with extra attributes 1`]
                       href="/example#language_es"
                       hreflang="es"
                       lang="es"
+                      rel="alternate"
                     >
                       español
                     </a>
@@ -1903,6 +2157,7 @@ exports[`EC - Site Header Translated renders correctly with extra attributes 1`]
                       href="/example#language_cs"
                       hreflang="cs"
                       lang="cs"
+                      rel="alternate"
                     >
                       čeština
                     </a>
@@ -1915,6 +2170,7 @@ exports[`EC - Site Header Translated renders correctly with extra attributes 1`]
                       href="/example#language_da"
                       hreflang="da"
                       lang="da"
+                      rel="alternate"
                     >
                       dansk
                     </a>
@@ -1927,6 +2183,7 @@ exports[`EC - Site Header Translated renders correctly with extra attributes 1`]
                       href="/example#language_de"
                       hreflang="de"
                       lang="de"
+                      rel="alternate"
                     >
                       Deutsch
                     </a>
@@ -1939,6 +2196,7 @@ exports[`EC - Site Header Translated renders correctly with extra attributes 1`]
                       href="/example#language_et"
                       hreflang="et"
                       lang="et"
+                      rel="alternate"
                     >
                       eesti
                     </a>
@@ -1951,6 +2209,7 @@ exports[`EC - Site Header Translated renders correctly with extra attributes 1`]
                       href="/example#language_el"
                       hreflang="el"
                       lang="el"
+                      rel="alternate"
                     >
                       ελληνικά
                     </a>
@@ -1963,6 +2222,7 @@ exports[`EC - Site Header Translated renders correctly with extra attributes 1`]
                       href="/example#language_en"
                       hreflang="en"
                       lang="en"
+                      rel="alternate"
                     >
                       English
                     </a>
@@ -1975,6 +2235,7 @@ exports[`EC - Site Header Translated renders correctly with extra attributes 1`]
                       href="/example#language_fr"
                       hreflang="fr"
                       lang="fr"
+                      rel="alternate"
                     >
                       <span
                         class="ecl-link__label"
@@ -2001,6 +2262,7 @@ exports[`EC - Site Header Translated renders correctly with extra attributes 1`]
                       href="/example#language_ga"
                       hreflang="ga"
                       lang="ga"
+                      rel="alternate"
                     >
                       Gaeilge
                     </a>
@@ -2013,6 +2275,7 @@ exports[`EC - Site Header Translated renders correctly with extra attributes 1`]
                       href="/example#language_hr"
                       hreflang="hr"
                       lang="hr"
+                      rel="alternate"
                     >
                       hrvatski
                     </a>
@@ -2025,6 +2288,7 @@ exports[`EC - Site Header Translated renders correctly with extra attributes 1`]
                       href="/example#language_it"
                       hreflang="it"
                       lang="it"
+                      rel="alternate"
                     >
                       italiano
                     </a>
@@ -2045,6 +2309,7 @@ exports[`EC - Site Header Translated renders correctly with extra attributes 1`]
                       href="/example#language_lv"
                       hreflang="lv"
                       lang="lv"
+                      rel="alternate"
                     >
                       latviešu
                     </a>
@@ -2057,6 +2322,7 @@ exports[`EC - Site Header Translated renders correctly with extra attributes 1`]
                       href="/example#language_lt"
                       hreflang="lt"
                       lang="lt"
+                      rel="alternate"
                     >
                       lietuvių
                     </a>
@@ -2069,6 +2335,7 @@ exports[`EC - Site Header Translated renders correctly with extra attributes 1`]
                       href="/example#language_hu"
                       hreflang="hu"
                       lang="hu"
+                      rel="alternate"
                     >
                       magyar
                     </a>
@@ -2081,6 +2348,7 @@ exports[`EC - Site Header Translated renders correctly with extra attributes 1`]
                       href="/example#language_mt"
                       hreflang="mt"
                       lang="mt"
+                      rel="alternate"
                     >
                       Malti
                     </a>
@@ -2093,6 +2361,7 @@ exports[`EC - Site Header Translated renders correctly with extra attributes 1`]
                       href="/example#language_nl"
                       hreflang="nl"
                       lang="nl"
+                      rel="alternate"
                     >
                       Nederlands
                     </a>
@@ -2105,6 +2374,7 @@ exports[`EC - Site Header Translated renders correctly with extra attributes 1`]
                       href="/example#language_pl"
                       hreflang="pl"
                       lang="pl"
+                      rel="alternate"
                     >
                       polski
                     </a>
@@ -2117,6 +2387,7 @@ exports[`EC - Site Header Translated renders correctly with extra attributes 1`]
                       href="/example#language_pt"
                       hreflang="pt"
                       lang="pt"
+                      rel="alternate"
                     >
                       português
                     </a>
@@ -2129,6 +2400,7 @@ exports[`EC - Site Header Translated renders correctly with extra attributes 1`]
                       href="/example#language_ro"
                       hreflang="ro"
                       lang="ro"
+                      rel="alternate"
                     >
                       română
                     </a>
@@ -2141,6 +2413,7 @@ exports[`EC - Site Header Translated renders correctly with extra attributes 1`]
                       href="/example#language_sk"
                       hreflang="sk"
                       lang="sk"
+                      rel="alternate"
                     >
                       slovenčina
                     </a>
@@ -2153,6 +2426,7 @@ exports[`EC - Site Header Translated renders correctly with extra attributes 1`]
                       href="/example#language_sl"
                       hreflang="sl"
                       lang="sl"
+                      rel="alternate"
                     >
                       slovenščina
                     </a>
@@ -2165,6 +2439,7 @@ exports[`EC - Site Header Translated renders correctly with extra attributes 1`]
                       href="/example#language_fi"
                       hreflang="fi"
                       lang="fi"
+                      rel="alternate"
                     >
                       suomi
                     </a>
@@ -2177,6 +2452,7 @@ exports[`EC - Site Header Translated renders correctly with extra attributes 1`]
                       href="/example#language_sv"
                       hreflang="sv"
                       lang="sv"
+                      rel="alternate"
                     >
                       svenska
                     </a>
@@ -2204,7 +2480,6 @@ exports[`EC - Site Header Translated renders correctly with extra attributes 1`]
         <input
           class="ecl-text-input ecl-text-input--m ecl-search-form__text-input"
           id="search-form"
-          name="Recherche"
           type="search"
         />
       </div>
@@ -2293,22 +2568,54 @@ exports[`EC - Site Header Translated renders correctly with extra class names 1`
         </a>
         <div
           aria-labelledby="ecl-language-list__title"
-          class="ecl-language-list ecl-language-list--splash custom-class custom-class--test"
+          class="ecl-language-list ecl-language-list--overlay custom-class custom-class--test"
+          data-ecl-language-list-overlay=""
           hidden=""
           role="dialog"
         >
-          <header
-            class="ecl-language-list__header"
-          >
-            <img
-              alt="Logo Commmission Européenne"
-              class="ecl-language-list__logo"
-              src=""
-            />
-          </header>
           <div
             class="ecl-language-list__container ecl-container"
           >
+            <div
+              class="ecl-row"
+            >
+              <div
+                class="ecl-language-list__close ecl-col-12 ecl-col-lg-8 ecl-offset-lg-2"
+              >
+                <button
+                  class="ecl-button ecl-button--ghost ecl-language-list__close-button"
+                  data-ecl-language-list-close=""
+                  type="submit"
+                >
+                  <span
+                    class="ecl-button__container"
+                  >
+                    <span
+                      class="ecl-button__label"
+                      data-ecl-label="true"
+                    >
+                      Fermer
+                    </span>
+                    <svg
+                      aria-hidden="true"
+                      class="ecl-icon ecl-icon--s ecl-button__icon ecl-button__icon--after"
+                      data-ecl-icon=""
+                      focusable="false"
+                    >
+                      <use
+                        xlink:href="/icons.svg#ui--close"
+                      />
+                    </svg>
+                  </span>
+                </button>
+              </div>
+              <div
+                class="ecl-language-list__title ecl-col-12 ecl-col-lg-8 ecl-offset-lg-2"
+                id="ecl-language-list__title"
+              >
+                Choisissez votre langue
+              </div>
+            </div>
             <div
               class="ecl-row"
             >
@@ -2326,6 +2633,7 @@ exports[`EC - Site Header Translated renders correctly with extra class names 1`
                       href="/example#language_bg"
                       hreflang="bg"
                       lang="bg"
+                      rel="alternate"
                     >
                       български
                     </a>
@@ -2338,6 +2646,7 @@ exports[`EC - Site Header Translated renders correctly with extra class names 1`
                       href="/example#language_es"
                       hreflang="es"
                       lang="es"
+                      rel="alternate"
                     >
                       español
                     </a>
@@ -2350,6 +2659,7 @@ exports[`EC - Site Header Translated renders correctly with extra class names 1`
                       href="/example#language_cs"
                       hreflang="cs"
                       lang="cs"
+                      rel="alternate"
                     >
                       čeština
                     </a>
@@ -2362,6 +2672,7 @@ exports[`EC - Site Header Translated renders correctly with extra class names 1`
                       href="/example#language_da"
                       hreflang="da"
                       lang="da"
+                      rel="alternate"
                     >
                       dansk
                     </a>
@@ -2374,6 +2685,7 @@ exports[`EC - Site Header Translated renders correctly with extra class names 1`
                       href="/example#language_de"
                       hreflang="de"
                       lang="de"
+                      rel="alternate"
                     >
                       Deutsch
                     </a>
@@ -2386,6 +2698,7 @@ exports[`EC - Site Header Translated renders correctly with extra class names 1`
                       href="/example#language_et"
                       hreflang="et"
                       lang="et"
+                      rel="alternate"
                     >
                       eesti
                     </a>
@@ -2398,6 +2711,7 @@ exports[`EC - Site Header Translated renders correctly with extra class names 1`
                       href="/example#language_el"
                       hreflang="el"
                       lang="el"
+                      rel="alternate"
                     >
                       ελληνικά
                     </a>
@@ -2410,6 +2724,7 @@ exports[`EC - Site Header Translated renders correctly with extra class names 1`
                       href="/example#language_en"
                       hreflang="en"
                       lang="en"
+                      rel="alternate"
                     >
                       English
                     </a>
@@ -2422,6 +2737,7 @@ exports[`EC - Site Header Translated renders correctly with extra class names 1`
                       href="/example#language_fr"
                       hreflang="fr"
                       lang="fr"
+                      rel="alternate"
                     >
                       <span
                         class="ecl-link__label"
@@ -2448,6 +2764,7 @@ exports[`EC - Site Header Translated renders correctly with extra class names 1`
                       href="/example#language_ga"
                       hreflang="ga"
                       lang="ga"
+                      rel="alternate"
                     >
                       Gaeilge
                     </a>
@@ -2460,6 +2777,7 @@ exports[`EC - Site Header Translated renders correctly with extra class names 1`
                       href="/example#language_hr"
                       hreflang="hr"
                       lang="hr"
+                      rel="alternate"
                     >
                       hrvatski
                     </a>
@@ -2472,6 +2790,7 @@ exports[`EC - Site Header Translated renders correctly with extra class names 1`
                       href="/example#language_it"
                       hreflang="it"
                       lang="it"
+                      rel="alternate"
                     >
                       italiano
                     </a>
@@ -2492,6 +2811,7 @@ exports[`EC - Site Header Translated renders correctly with extra class names 1`
                       href="/example#language_lv"
                       hreflang="lv"
                       lang="lv"
+                      rel="alternate"
                     >
                       latviešu
                     </a>
@@ -2504,6 +2824,7 @@ exports[`EC - Site Header Translated renders correctly with extra class names 1`
                       href="/example#language_lt"
                       hreflang="lt"
                       lang="lt"
+                      rel="alternate"
                     >
                       lietuvių
                     </a>
@@ -2516,6 +2837,7 @@ exports[`EC - Site Header Translated renders correctly with extra class names 1`
                       href="/example#language_hu"
                       hreflang="hu"
                       lang="hu"
+                      rel="alternate"
                     >
                       magyar
                     </a>
@@ -2528,6 +2850,7 @@ exports[`EC - Site Header Translated renders correctly with extra class names 1`
                       href="/example#language_mt"
                       hreflang="mt"
                       lang="mt"
+                      rel="alternate"
                     >
                       Malti
                     </a>
@@ -2540,6 +2863,7 @@ exports[`EC - Site Header Translated renders correctly with extra class names 1`
                       href="/example#language_nl"
                       hreflang="nl"
                       lang="nl"
+                      rel="alternate"
                     >
                       Nederlands
                     </a>
@@ -2552,6 +2876,7 @@ exports[`EC - Site Header Translated renders correctly with extra class names 1`
                       href="/example#language_pl"
                       hreflang="pl"
                       lang="pl"
+                      rel="alternate"
                     >
                       polski
                     </a>
@@ -2564,6 +2889,7 @@ exports[`EC - Site Header Translated renders correctly with extra class names 1`
                       href="/example#language_pt"
                       hreflang="pt"
                       lang="pt"
+                      rel="alternate"
                     >
                       português
                     </a>
@@ -2576,6 +2902,7 @@ exports[`EC - Site Header Translated renders correctly with extra class names 1`
                       href="/example#language_ro"
                       hreflang="ro"
                       lang="ro"
+                      rel="alternate"
                     >
                       română
                     </a>
@@ -2588,6 +2915,7 @@ exports[`EC - Site Header Translated renders correctly with extra class names 1`
                       href="/example#language_sk"
                       hreflang="sk"
                       lang="sk"
+                      rel="alternate"
                     >
                       slovenčina
                     </a>
@@ -2600,6 +2928,7 @@ exports[`EC - Site Header Translated renders correctly with extra class names 1`
                       href="/example#language_sl"
                       hreflang="sl"
                       lang="sl"
+                      rel="alternate"
                     >
                       slovenščina
                     </a>
@@ -2612,6 +2941,7 @@ exports[`EC - Site Header Translated renders correctly with extra class names 1`
                       href="/example#language_fi"
                       hreflang="fi"
                       lang="fi"
+                      rel="alternate"
                     >
                       suomi
                     </a>
@@ -2624,6 +2954,7 @@ exports[`EC - Site Header Translated renders correctly with extra class names 1`
                       href="/example#language_sv"
                       hreflang="sv"
                       lang="sv"
+                      rel="alternate"
                     >
                       svenska
                     </a>
@@ -2651,7 +2982,6 @@ exports[`EC - Site Header Translated renders correctly with extra class names 1`
         <input
           class="ecl-text-input ecl-text-input--m ecl-search-form__text-input"
           id="search-form"
-          name="Recherche"
           type="search"
         />
       </div>
