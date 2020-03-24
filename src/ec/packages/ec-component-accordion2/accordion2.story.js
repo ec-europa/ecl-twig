@@ -14,22 +14,21 @@ const prepareAccordion2 = data => {
   data.items.forEach((item, index) => {
     const levels = [1, 2, 3, 4, 5, 6];
     const { id, level, toggle, content } = item;
-
-    item.id = select(`items[${index}].id`, [id], id, buttonLabels.required);
     item.level = select(
       `items[${index}].level`,
       levels,
       level,
       buttonLabels.required
     );
-    item.toggle.label = text(
-      `items[${index}].toggle.label`,
-      toggle.label,
-      buttonLabels.required
-    );
+    item.id = select(`items[${index}].id`, [id], id, buttonLabels.required);
     item.content = text(
       `items[${index}].content`,
       content,
+      buttonLabels.required
+    );
+    item.toggle.label = text(
+      `items[${index}].toggle.label`,
+      toggle.label,
       buttonLabels.required
     );
     item.toggle.icon.path = select(
