@@ -39,6 +39,7 @@ const preprareAccordion = data => {
     );
     getExtraKnobs(data);
   });
+
   return data;
 };
 
