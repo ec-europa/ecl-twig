@@ -81,9 +81,14 @@ storiesOf('Components/Button', module)
     'call to action',
     () => {
       const data = prepareButton(dataCall);
-      const name = select('icon.name', iconsList, null, buttonLabels.optional);
+      const name = select(
+        'icon.name',
+        iconsList,
+        'corner-arrow',
+        buttonLabels.optional
+      );
       if (name !== null) {
-        getIconKnobs(data, name, 'ui', 'xs');
+        getIconKnobs(data, name, 'ui', 'xs', 'default', 'rotate-90');
       }
 
       return button(data);
