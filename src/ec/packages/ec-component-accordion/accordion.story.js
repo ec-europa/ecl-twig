@@ -13,46 +13,40 @@ import notes from './README.md';
 const preprareAccordion = data => {
   data.items.forEach((item, index) => {
     const { id, level, toggle, content } = item;
+    const levels = [1, 2, 3, 4, 5, 6];
     item.id = select(`item[${index}].id`, [id], id, buttonLabels.required);
     item.level = select(
       `item[${index}].level`,
-      [level],
+      levels,
       level,
       buttonLabels.required
     );
     item.toggle.label = text(
-      `item[${index}].toggle.label`,
+      `items[${index}].toggle.label`,
       toggle.label,
       buttonLabels.required
     );
-    item.toggle.icon.path = select(
-      `item[${index}].toggle.icon.path`,
-      [defaultSprite],
-      defaultSprite,
+    item.content = text(
+      `items[${index}].content`,
+      content,
       buttonLabels.required
     );
-    item.content = text(
-      `item[${index}].content`,
-      content,
+
+    item.toggle.icon.path = select(
+      `items[${index}].toggle.icon.path`,
+      [defaultSprite],
+      defaultSprite,
       buttonLabels.required
     );
     getExtraKnobs(data);
   });
   return data;
 };
+
 storiesOf('Components/deprecated/Accordion', module)
   .addDecorator(withKnobs)
   .addDecorator(withCode)
   .addDecorator(withNotes)
-  .add(
-    'ECL < 2.6.0 - default',
-    () => {
-      // This needs to be in the scope of this function.
-      // Called on knob's change of value.
-
-      return accordion(preprareAccordion(demoData));
-    },
-    {
-      notes: { markdown: notes, json: preprareAccordion(demoData) },
-    }
-  );
+  .add('ECL < 2.6.0 - default', () => accordion(preprareAccordion(demoData)), {
+    notes: { markdown: notes, json: preprareAccordion(demoData) },
+  });
