@@ -1,10 +1,10 @@
 /* eslint-disable no-param-reassign */
 import { storiesOf } from '@storybook/html';
-import { withKnobs, button, text, select } from '@storybook/addon-knobs';
+import { withKnobs, button } from '@storybook/addon-knobs';
 import { loremIpsum } from 'lorem-ipsum';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
-import { getExtraKnobs, buttonLabels } from '@ecl-twig/story-utils';
+import { buttonLabels } from '@ecl-twig/story-utils';
 import iconPath from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 
 import demoData from './demo/data';
@@ -74,41 +74,6 @@ const btnIdHandler = () => {
   return false;
 };
 
-// Preserve the adapted specs.
-const prepareNavigation = data => {
-  // Buttons for the demo.
-  button(btnLeftLabel, btnLeftHandler, buttonLabels.cases);
-  button(btnMainLabel, btnMainHandler, buttonLabels.cases);
-  button(btnIdLabel, btnIdHandler, buttonLabels.cases);
-  button(btnIdRemoveLabel, btnIdRemoveHandler, buttonLabels.cases);
-
-  data.title = text('title', data.title, buttonLabels.required);
-  data.links.forEach((link, i) => {
-    link.href = select(
-      `links[${i}].href`,
-      [link.href],
-      link.href,
-      buttonLabels.required
-    );
-    link.label = select(
-      `links[${i}].label`,
-      [link.label],
-      link.label,
-      buttonLabels.required
-    );
-  });
-  data.icon_path = select(
-    'icon_path',
-    [iconPath],
-    iconPath,
-    buttonLabels.required
-  );
-
-  getExtraKnobs(data);
-
-  return data;
-};
-
 storiesOf('Components/Navigation/Inpage navigation', module)
   .addDecorator(withNotes)
   .addDecorator(withKnobs)
@@ -116,14 +81,19 @@ storiesOf('Components/Navigation/Inpage navigation', module)
   .add(
     'default',
     () => {
+      // Buttons for the demo.
+      button(btnLeftLabel, btnLeftHandler, buttonLabels.cases);
+      button(btnMainLabel, btnMainHandler, buttonLabels.cases);
+      button(btnIdLabel, btnIdHandler, buttonLabels.cases);
+      button(btnIdRemoveLabel, btnIdRemoveHandler, buttonLabels.cases);
+
       let pageFillerHtml = '';
       demoData.links.forEach(content => {
         pageFillerHtml += content.item;
       });
 
       const fullDemoData = { ...demoData, icon_path: iconPath };
-      const preparedData = prepareNavigation(fullDemoData);
-      const html = inpageNavigation(preparedData);
+      const html = inpageNavigation(fullDemoData);
       const demo = document.createDocumentFragment();
       const htmlElement = document.createElement('div');
       htmlElement.innerHTML = `<div class="ecl-container">
@@ -143,6 +113,6 @@ storiesOf('Components/Navigation/Inpage navigation', module)
       return demo;
     },
     {
-      notes: { markdown: notes, json: demoData },
+      notes: { markdown: notes },
     }
   );
