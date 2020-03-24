@@ -42,12 +42,12 @@ const prepareTimeline = data => {
   data.hide.to = number('hide.to', data.hide.to, {}, buttonLabels.required);
   data.items.forEach((item, index) => {
     const { id, label, title, content } = item;
-    item.id = text(`item[${index}].id`, id, buttonLabels.required);
-    item.label = text(`item[${index}].label`, label, buttonLabels.required);
-    item.title = text(`item[${index}].title`, title, buttonLabels.required);
+    item.id = text(`items[${index}].id`, id, buttonLabels.required);
+    item.label = text(`items[${index}].label`, label, buttonLabels.required);
+    item.title = text(`items[${index}].title`, title, buttonLabels.required);
     // this needs to be looked at
     item.content = text(
-      `item[${index}].content`,
+      `items[${index}].content`,
       content,
       buttonLabels.required
     );
