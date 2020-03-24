@@ -3,8 +3,7 @@
 {#
   Parameters:
     - "icon_file_path" (string) (default: ''): URL to icons file
-    - "banner_top" (string): Class name
-    - "banner" (string): Site name
+    - "banner_top" (object): Object of the link (link : { label, path })
     - "logged" (boolean): Whether the user is logged in or not
     - "menu" (boolean): Whether the component includes a menu
     - "menu_label" (string) Menu toggler label
@@ -37,7 +36,7 @@
     - "search_toggle" (associate array) (default: {}) format:
       {
         "label": (string) Label of the element
-        "href": (string) Link of the element
+        "path": (string) Link of the element
       }
     - "login_box" (associate array) (default: {}) format:
         {

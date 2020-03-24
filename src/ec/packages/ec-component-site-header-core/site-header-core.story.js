@@ -74,7 +74,7 @@ const prepareSiteHeaderCore = (data, lang) => {
   // Login box and login toggle knobs.
   getLoginKnobs(data);
   // Language selector knobs.
-  getLanguageSelectorKnobs(data);
+  getLanguageSelectorKnobs(data, true);
   // Search toggle.
   data.search_toggle.label = text(
     'search_toggle.label',
