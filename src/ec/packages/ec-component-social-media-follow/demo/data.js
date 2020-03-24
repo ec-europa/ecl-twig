@@ -9,11 +9,13 @@ const adapter = initialData => {
     // Corrections on links.
     link.path = link.href;
     link.icon_position = link.iconPosition;
-
+    delete link.href;
+    delete link.iconPosition;
     // Corrections on the icons inside the link.
     if (link.icon) {
       link.icon.forEach(icon => {
         icon.name = icon.shape;
+        delete icon.shape;
         icon.path = '/icons-social.svg';
         icon.extra_classes = icon.name.includes('hover')
           ? 'ecl-social-media-follow__icon-hover'
