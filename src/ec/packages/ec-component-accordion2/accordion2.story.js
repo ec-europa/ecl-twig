@@ -2,8 +2,8 @@
 import { storiesOf } from '@storybook/html';
 import { withKnobs, text, select } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
-import withCode from '@ecl-twig/storybook-addon-code';
 import { buttonLabels, getExtraKnobs } from '@ecl-twig/story-utils';
+import withCode from '@ecl-twig/storybook-addon-code';
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import demoData from './demo/data';
 
@@ -12,29 +12,31 @@ import notes from './README.md';
 
 const prepareAccordion2 = data => {
   data.items.forEach((item, index) => {
-    const { content, toggle, id } = item;
+    const { id, level, toggle, content } = item;
 
-    item.id = select(`item ${index} id`, [id], id, buttonLabels.required);
-
+    item.id = select(`item[${index}].id`, [id], id, buttonLabels.required);
+    item.level = select(
+      `item[${index}].level`,
+      [level],
+      level,
+      buttonLabels.required
+    );
     item.toggle.label = text(
-      `item ${index} toggle.label`,
+      `item[${index}].toggle.label`,
       toggle.label,
       buttonLabels.required
     );
-
-    item.toggle.iconShape = select(
-      `item ${index} toggle.iconShape`,
-      [toggle.iconShape],
-      toggle.iconShape,
+    item.toggle.icon.path = select(
+      `item[${index}].toggle.icon.path`,
+      [defaultSprite],
+      defaultSprite,
       buttonLabels.required
     );
-
     item.content = text(
-      `item ${index} content`,
+      `item[${index}].content`,
       content,
       buttonLabels.required
     );
-    item.toggle.icon.path = defaultSprite;
   });
   getExtraKnobs(data);
   return data;
