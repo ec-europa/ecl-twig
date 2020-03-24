@@ -1,9 +1,9 @@
-import merge from 'deepmerge';
+/* eslint-disable no-param-reassign */
 import { storiesOf } from '@storybook/html';
-import { withKnobs, text } from '@storybook/addon-knobs';
+import { withKnobs, text, select } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
-
+import { getExtraKnobs, buttonLabels } from '@ecl-twig/story-utils';
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import dataLink from './demo/data--link';
 import dataButton from './demo/data--button';
@@ -11,53 +11,48 @@ import dataRemovable from './demo/data--removable';
 import tag from './ecl-tag.html.twig';
 import notes from './README.md';
 
+// Preserve the adapted specs.
+const prepareTag = data => {
+  data.tag.type = select(
+    'tag.type',
+    [data.tag.type],
+    data.tag.type,
+    buttonLabels.required
+  );
+  data.tag.label = text('tag.label', data.tag.label, buttonLabels.required);
+  if (data.tag.path) {
+    data.tag.path = text('tag.path', data.tag.path, buttonLabels.required);
+  }
+  if (data.tag.aria_label) {
+    data.tag.aria_label = text(
+      'tag.aria_label',
+      data.tag.aria_label,
+      buttonLabels.required
+    );
+  }
+  if (data.default_icon_path) {
+    data.default_icon_path = select(
+      'default_icon_path',
+      [defaultSprite],
+      defaultSprite,
+      buttonLabels.required
+    );
+  }
+  getExtraKnobs(data);
+
+  return data;
+};
+
 storiesOf('Components/Tag', module)
   .addDecorator(withKnobs)
   .addDecorator(withNotes)
   .addDecorator(withCode)
-  .add(
-    'as a link',
-    () =>
-      tag(
-        merge(dataLink, {
-          tag: {
-            label: text('Label', dataLink.tag.label),
-            path: text('Url', dataLink.tag.path),
-          },
-          default_icon_path: defaultSprite,
-        })
-      ),
-    {
-      notes: { markdown: notes, json: dataLink },
-    }
-  )
-  .add(
-    'as a button',
-    () =>
-      tag(
-        merge(dataButton, {
-          tag: {
-            label: text('Label', dataButton.tag.label),
-          },
-        })
-      ),
-    {
-      notes: { markdown: notes, json: dataButton },
-    }
-  )
-  .add(
-    'removable',
-    () =>
-      tag(
-        merge(dataRemovable, {
-          tag: {
-            label: text('Label', dataRemovable.tag.label),
-            aria_label: text('Aria label', dataRemovable.tag.aria_label),
-          },
-          default_icon_path: defaultSprite,
-        })
-      ),
-    {
-      notes: { markdown: notes, json: dataRemovable },
-    }
-  );
+  .add('as a link', () => tag(prepareTag(dataLink)), {
+    notes: { markdown: notes, json: dataLink },
+  })
+  .add('as a button', () => tag(prepareTag(dataButton)), {
+    notes: { markdown: notes, json: dataButton },
+  })
+  .add('removable', () => tag(prepareTag(dataRemovable)), {
+    notes: { markdown: notes, json: dataRemovable },
+  });
