@@ -57,9 +57,11 @@
     {% include '@ecl-twig/ec-component-button/ecl-button.html.twig' with _close|merge({
       type: 'button',
       variant: 'ghost',
-      icon: {
+      icon: _close.icon|merge({
         size: 's',
-      },
+        name: 'close',
+        type: 'ui',
+      }),
       extra_classes: 'ecl-message__close',
       extra_attributes: [{
         name: 'data-ecl-message-close',
