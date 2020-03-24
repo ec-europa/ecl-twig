@@ -41,6 +41,7 @@ const prepareAccordion2 = data => {
   });
 
   getExtraKnobs(data);
+
   return data;
 };
 
