@@ -5,6 +5,7 @@ import { withKnobs, number, text, select } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import { getExtraKnobs, buttonLabels } from '@ecl-twig/story-utils';
 import withCode from '@ecl-twig/storybook-addon-code';
+import he from 'he';
 
 import demoData from './demo/data';
 
@@ -14,8 +15,8 @@ import notes from './README.md';
 const prepareTimeline = data => {
   const from = data.hide.from;
   const to = data.hide.to;
-
   let hiddenCount = 0;
+
   if (to > 0) {
     hiddenCount = to - from;
   } else {
@@ -46,10 +47,8 @@ const prepareTimeline = data => {
     item.label = text(`items[${index}].label`, label, buttonLabels.required);
     item.title = text(`items[${index}].title`, title, buttonLabels.required);
     // this needs to be looked at
-    item.content = text(
-      `items[${index}].content`,
-      content,
-      buttonLabels.required
+    item.content = he.decode(
+      text(`items[${index}].content`, content, buttonLabels.required)
     );
   });
   data.icon_path = select(
@@ -59,6 +58,7 @@ const prepareTimeline = data => {
     buttonLabels.required
   );
   getExtraKnobs(data);
+
   return data;
 };
 
