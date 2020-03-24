@@ -12,32 +12,34 @@ import notes from './README.md';
 
 const prepareAccordion2 = data => {
   data.items.forEach((item, index) => {
+    const levels = [1, 2, 3, 4, 5, 6];
     const { id, level, toggle, content } = item;
 
-    item.id = select(`item[${index}].id`, [id], id, buttonLabels.required);
+    item.id = select(`items[${index}].id`, [id], id, buttonLabels.required);
     item.level = select(
-      `item[${index}].level`,
-      [level],
+      `items[${index}].level`,
+      levels,
       level,
       buttonLabels.required
     );
     item.toggle.label = text(
-      `item[${index}].toggle.label`,
+      `items[${index}].toggle.label`,
       toggle.label,
       buttonLabels.required
     );
     item.content = text(
-      `item[${index}].content`,
+      `items[${index}].content`,
       content,
       buttonLabels.required
     );
     item.toggle.icon.path = select(
-      `item[${index}].toggle.icon.path`,
+      `items[${index}].toggle.icon.path`,
       [defaultSprite],
       defaultSprite,
       buttonLabels.required
     );
   });
+
   getExtraKnobs(data);
   return data;
 };
