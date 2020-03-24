@@ -14,9 +14,9 @@ const preprareAccordion = data => {
   data.items.forEach((item, index) => {
     const { id, level, toggle, content } = item;
     const levels = [1, 2, 3, 4, 5, 6];
-    item.id = select(`item[${index}].id`, [id], id, buttonLabels.required);
+    item.id = select(`items[${index}].id`, [id], id, buttonLabels.required);
     item.level = select(
-      `item[${index}].level`,
+      `items[${index}].level`,
       levels,
       level,
       buttonLabels.required
@@ -31,7 +31,6 @@ const preprareAccordion = data => {
       content,
       buttonLabels.required
     );
-
     item.toggle.icon.path = select(
       `items[${index}].toggle.icon.path`,
       [defaultSprite],
@@ -48,5 +47,5 @@ storiesOf('Components/deprecated/Accordion', module)
   .addDecorator(withCode)
   .addDecorator(withNotes)
   .add('ECL < 2.6.0 - default', () => accordion(preprareAccordion(demoData)), {
-    notes: { markdown: notes, json: preprareAccordion(demoData) },
+    notes: { markdown: notes, json: demoData },
   });
