@@ -40,7 +40,6 @@ const preprareAccordion = data => {
   });
   return data;
 };
-
 storiesOf('Components/deprecated/Accordion', module)
   .addDecorator(withKnobs)
   .addDecorator(withCode)
@@ -54,6 +53,6 @@ storiesOf('Components/deprecated/Accordion', module)
       return accordion(preprareAccordion(demoData));
     },
     {
-      notes: { markdown: notes, json: demoData },
+      notes: { markdown: notes, json: preprareAccordion(demoData) },
     }
   );
