@@ -84,8 +84,18 @@ const prepareNavigation = data => {
 
   data.title = text('title', data.title, buttonLabels.required);
   data.links.forEach((link, i) => {
-    link.href = text(`links[${i}].href`, link.href, buttonLabels.required);
-    link.label = text(`links[${i}].label`, link.label, buttonLabels.required);
+    link.href = select(
+      `links[${i}].href`,
+      [link.href],
+      link.href,
+      buttonLabels.required
+    );
+    link.label = select(
+      `links[${i}].label`,
+      [link.label],
+      link.label,
+      buttonLabels.required
+    );
   });
   data.icon_path = select(
     'icon_path',
