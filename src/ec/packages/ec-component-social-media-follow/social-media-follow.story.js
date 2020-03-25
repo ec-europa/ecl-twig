@@ -43,6 +43,12 @@ const prepareSocialMediaFollow = (data, vertical) => {
         label
       );
       link.path = text(`links[${i}].path`, link.path, label);
+      link.icon_position = select(
+        `links[${i}].icon_position`,
+        [link.icon_position],
+        link.icon_position,
+        label
+      );
       link.icon.forEach((icon, idx) => {
         let options = getBrandedIconsOptions(false);
         if (idx === 1) {
@@ -94,6 +100,12 @@ const prepareSocialMediaFollow = (data, vertical) => {
       }
       // Icons.
       if (data.links[i].icon && data.links[i].icon[0]) {
+        link.icon_position = select(
+          `links[${i}].icon_position`,
+          [link.icon_position],
+          link.icon_position,
+          label
+        );
         link.icon.forEach((icon, idx) => {
           let iconOptions = getBrandedIconsOptions(false, true);
           if (idx === 1) {
