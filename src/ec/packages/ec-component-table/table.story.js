@@ -42,30 +42,45 @@ const prepareTable = data => {
 
   return data;
 };
-const dataRowExtraAttributes = dataDefault;
+
 storiesOf('Components/Table', module)
   .addDecorator(withNotes)
   .addDecorator(withCode)
   .addDecorator(withKnobs)
-  .add('default', () => table(prepareTable(dataDefault)), {
-    notes: { markdown: notes, json: dataDefault },
-  })
+  .add(
+    'default',
+    () => {
+      dataDefault.rows.forEach(row => {
+        delete row.extra_attributes;
+      });
+      return table(prepareTable(dataDefault));
+    },
+    {
+      notes: { markdown: notes, json: dataDefault },
+    }
+  )
   .add(
     'default with row extra attributes',
     () => {
-      dataRowExtraAttributes.rows.forEach(row => {
-        row.extra_attributes = 'data-test data-test-another'; // eslint-disable-line no-param-reassign
+      dataDefault.rows.forEach((row, index) => {
+        row.extra_attributes = text(
+          `rows[${index}].extra_attributes`,
+          'data-test data-test-another',
+          buttonLabels.optional
+        ); // eslint-disable-line no-param-reassign
       });
-      return table(prepareTable(dataRowExtraAttributes));
+      return table(prepareTable(dataDefault));
     },
     {
-      notes: { markdown: notes, json: dataRowExtraAttributes },
+      notes: { markdown: notes, json: prepareTable(dataDefault) },
     }
   )
   .add(
     'Zebra',
     () => {
-      dataDefault.zebra = true;
+      dataDefault.rows.forEach(row => {
+        delete row.extra_attributes;
+      });
       return table(dataDefault);
     },
     {
@@ -75,6 +90,9 @@ storiesOf('Components/Table', module)
   .add(
     'Multi',
     () => {
+      dataDefault.rows.forEach(row => {
+        delete row.extra_attributes;
+      });
       return table(dataMulti);
     },
     {
