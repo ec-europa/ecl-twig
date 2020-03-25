@@ -22,13 +22,13 @@ const prepareTimeline = data => {
     hiddenCount = data.items.length + to - from;
   }
   data.toggle_collapsed = select(
-    `data.toggle_collapsed`,
+    'data.toggle_collapsed',
     [`Show ${hiddenCount} more items`],
     `Show ${hiddenCount} more items`,
     buttonLabels.required
   );
   data.toggle_expanded = select(
-    `data.toggle_expanded`,
+    'data.toggle_expanded',
     [`Hide ${hiddenCount} items`],
     `Hide ${hiddenCount} items`,
     buttonLabels.required
@@ -50,7 +50,7 @@ const prepareTimeline = data => {
     );
   });
   data.icon_path = select(
-    `icon_path`,
+    'icon_path',
     [iconPath],
     iconPath,
     buttonLabels.required
