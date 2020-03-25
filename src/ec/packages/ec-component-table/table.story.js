@@ -53,6 +53,7 @@ storiesOf('Components/Table', module)
       dataDefault.rows.forEach(row => {
         delete row.extra_attributes;
       });
+
       return table(prepareTable(dataDefault));
     },
     {
@@ -69,6 +70,7 @@ storiesOf('Components/Table', module)
           buttonLabels.optional
         ); // eslint-disable-line no-param-reassign
       });
+
       return table(prepareTable(dataDefault));
     },
     {
@@ -81,6 +83,7 @@ storiesOf('Components/Table', module)
       dataDefault.rows.forEach(row => {
         delete row.extra_attributes;
       });
+
       return table(dataDefault);
     },
     {
@@ -90,7 +93,7 @@ storiesOf('Components/Table', module)
   .add(
     'Multi',
     () => {
-      dataDefault.rows.forEach(row => {
+      dataMulti.rows.forEach(row => {
         delete row.extra_attributes;
       });
       return table(dataMulti);
