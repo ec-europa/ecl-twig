@@ -66,6 +66,7 @@
 {% if _links is not empty %}
   <ul class="ecl-social-media-follow__list">
   {% for link in _links %}
+  {% if link.label is defined and link.label is not empty %}
     {% set _link_extra_classes = 'ecl-social-media-follow__link' %}
     {% if link.extra_classes is not empty %}
       {% set _link_extra_classes = _link_extra_classes ~ ' ' ~ link.extra_classes %}
@@ -78,7 +79,8 @@
         extra_classes: _link_extra_classes,
       }) only %}
     </li>
-    {% endfor %}
+  {% endif %}
+  {% endfor %}
   </ul>
 {% endif %}
 </div>

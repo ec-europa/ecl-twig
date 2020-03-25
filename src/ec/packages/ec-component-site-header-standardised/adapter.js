@@ -49,8 +49,6 @@ const adapter = initialData => {
   });
   // Search toggle.
   adaptedData.search_toggle = adaptedData.searchToggle;
-  adaptedData.search_toggle.path = adaptedData.search_toggle.href;
-  delete adaptedData.search_toggle.href;
   delete adaptedData.searchToggle;
 
   // Search form.
