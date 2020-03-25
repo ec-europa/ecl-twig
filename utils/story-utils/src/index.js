@@ -320,21 +320,25 @@ export const getLoginKnobs = data => {
   return data;
 };
 
-export const getLanguageSelectorKnobs = data => {
+export const getLanguageSelectorKnobs = (data, required) => {
+  let label = buttonLabels.optional;
+  if (required) {
+    label = buttonLabels.required;
+  }
   data.language_selector.href = text(
     'language_selector.href',
     data.language_selector.href,
-    buttonLabels.required
+    label
   );
   data.language_selector.label = text(
     'language_selector.label',
     data.language_selector.label,
-    buttonLabels.required
+    label
   );
   data.language_selector.code = text(
     'language_selector.code',
     data.language_selector.code,
-    buttonLabels.required
+    label
   );
 
   return data;
