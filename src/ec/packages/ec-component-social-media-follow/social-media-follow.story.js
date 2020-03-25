@@ -37,37 +37,37 @@ const prepareSocialMediaFollow = (data, vertical) => {
     if (i === 0) {
       label = buttonLabels.required;
       link.label = select(
-        `links[${i}].link.label`,
+        `links[${i}].label`,
         getBrandedIconsOptions(true),
         link.label,
         label
       );
-      link.path = text(`links[${i}].link.path`, link.path, label);
+      link.path = text(`links[${i}].path`, link.path, label);
       link.icon.forEach((icon, idx) => {
         let options = getBrandedIconsOptions(false);
         if (idx === 1) {
           options = getBrandedIconsOptions(false, false, true);
         }
         icon.name = select(
-          `links[${i}].link.icon[${idx}].name`,
+          `links[${i}].icon[${idx}].name`,
           options,
           icon.name,
           label
         );
         icon.path = select(
-          `links[${i}].link.icon[${idx}].path`,
+          `links[${i}].icon[${idx}].path`,
           [defaultSprite],
           defaultSprite,
           label
         );
         icon.size = select(
-          `links[${i}].link.icon[${idx}].size`,
+          `links[${i}].icon[${idx}].size`,
           ['xl'],
           'xl',
           label
         );
         icon.extra_classes = text(
-          `links[${i}].link.icon[${idx}].extra_classes`,
+          `links[${i}].icon[${idx}].extra_classes`,
           icon.extra_classes,
           label
         );
@@ -80,12 +80,12 @@ const prepareSocialMediaFollow = (data, vertical) => {
           linkOptions = getBrandedIconsOptions(true, true);
         }
         link.label = select(
-          `links[${i}].link.label`,
+          `links[${i}].label`,
           linkOptions,
           link.label,
           label
         );
-        link.path = text(`links[${i}].link.path`, link.path, label);
+        link.path = text(`links[${i}].path`, link.path, label);
       }
       // If the option none has been selected we remove the item safely
       // since we know it can only be: Other social media
@@ -100,25 +100,25 @@ const prepareSocialMediaFollow = (data, vertical) => {
             iconOptions = getBrandedIconsOptions(false, true, true);
           }
           icon.name = select(
-            `links[${i}].link.icon[${idx}].name`,
+            `links[${i}].icon[${idx}].name`,
             iconOptions,
             icon.name,
             label
           );
           icon.path = select(
-            `links[${i}].link.icon[${idx}].path`,
+            `links[${i}].icon[${idx}].path`,
             [defaultSprite],
             defaultSprite,
             label
           );
           icon.size = select(
-            `links[${i}].link.icon[${idx}].size`,
+            `links[${i}].icon[${idx}].size`,
             ['xl'],
             'xl',
             label
           );
           icon.extra_classes = text(
-            `links[${i}].link.icon[${idx}].extra_classes`,
+            `links[${i}].icon[${idx}].extra_classes`,
             icon.extra_classes,
             label
           );
