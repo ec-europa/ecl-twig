@@ -1,8 +1,10 @@
+/* eslint-disable no-param-reassign */
 import { storiesOf } from '@storybook/html';
 import { withKnobs, button } from '@storybook/addon-knobs';
 import { loremIpsum } from 'lorem-ipsum';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
+import { buttonLabels } from '@ecl-twig/story-utils';
 import iconPath from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 
 import demoData from './demo/data';
@@ -80,10 +82,10 @@ storiesOf('Components/Navigation/Inpage navigation', module)
     'default',
     () => {
       // Buttons for the demo.
-      button(btnLeftLabel, btnLeftHandler);
-      button(btnMainLabel, btnMainHandler);
-      button(btnIdLabel, btnIdHandler);
-      button(btnIdRemoveLabel, btnIdRemoveHandler);
+      button(btnLeftLabel, btnLeftHandler, buttonLabels.cases);
+      button(btnMainLabel, btnMainHandler, buttonLabels.cases);
+      button(btnIdLabel, btnIdHandler, buttonLabels.cases);
+      button(btnIdRemoveLabel, btnIdRemoveHandler, buttonLabels.cases);
 
       let pageFillerHtml = '';
       demoData.links.forEach(content => {
