@@ -31,7 +31,7 @@ const dataG1 = { ...dataGroup1 };
 const dataG2 = { ...dataGroup2 };
 // Show/hide buttons for the language switcher.
 const btnLangLabel = 'With or without the language switcher';
-const btnLangHandler = () => {
+const btnLangG1Handler = () => {
   if (dataG1.language_selector) {
     delete dataG1.language_selector;
   } else {
@@ -45,6 +45,50 @@ const btnLangG2Handler = () => {
     dataG2.language_selector = dataGroup2.language_selector;
   }
 };
+// Show/hide buttons for the menu.
+const btnMenuLabel = 'With or without the menu';
+const btnMenuG1Handler = () => {
+  if (dataG1.menu) {
+    delete dataG1.menu;
+  } else {
+    dataG1.menu = dataGroup1.menu;
+  }
+};
+const btnMenuG2Handler = () => {
+  if (dataG2.menu) {
+    delete dataG2.menu;
+  } else {
+    dataG2.menu = dataGroup2.menu;
+  }
+};
+// Show/hide buttons for the class.
+const btnClassHandler = () => {
+  if (dataG1.banner_top) {
+    delete dataG1.banner_top;
+  } else {
+    dataG1.banner_top = dataGroup1.banner_top;
+  }
+};
+// Show/hide buttons for the search form.
+const btnSearchLabel = 'With or without the search form';
+const btnSearchG1Handler = () => {
+  if (dataG1.search_form) {
+    delete dataG1.search_form;
+    delete dataG1.search_toggle;
+  } else {
+    dataG1.search_form = dataGroup1.search_form;
+    dataG1.search_toggle = dataGroup1.search_toggle;
+  }
+};
+const btnSearchG2Handler = () => {
+  if (dataG2.search_form) {
+    delete dataG2.search_form;
+    delete dataG2.search_toggle;
+  } else {
+    dataG1.search_form = dataGroup2.search_form;
+    dataG1.search_toggle = dataGroup2.search_toggle;
+  }
+};
 // Show/hide buttons for the login box.
 const btnLoginLabel = 'With or without the login box';
 const btnLoginHandler = () => {
@@ -56,18 +100,8 @@ const btnLoginHandler = () => {
 };
 
 const prepareSiteHeaderHarmonised = data => {
-  data.group = select('group', [data.group], data.group, buttonLabels.required);
-  if (data.banner_top && data.banner_top.link) {
-    data.banner_top.link.label = text(
-      'banner_top.link.label',
-      data.banner_top.link.label,
-      buttonLabels.required
-    );
-    data.banner_top.link.path = text(
-      'banner_top.link.path',
-      data.banner_top.link.path,
-      buttonLabels.required
-    );
+  if (data.login_box) {
+    data.logged = boolean('logged', data.logged, buttonLabels.states);
   }
   data.icon_file_path = select(
     'icon_file_path',
@@ -75,6 +109,29 @@ const prepareSiteHeaderHarmonised = data => {
     defaultSprite,
     buttonLabels.required
   );
+  data.site_name = text('site_name', data.site_name, buttonLabels.required);
+  if (data.group) {
+    data.group = select(
+      'group',
+      [data.group],
+      data.group,
+      buttonLabels.required
+    );
+  } else {
+    data.group = select('group', ['group1'], 'group1', buttonLabels.optional);
+  }
+  if (data.banner_top && data.banner_top.link) {
+    data.banner_top.link.label = text(
+      'banner_top.link.label',
+      data.banner_top.link.label,
+      buttonLabels.optional
+    );
+    data.banner_top.link.path = text(
+      'banner_top.link.path',
+      data.banner_top.link.path,
+      buttonLabels.optional
+    );
+  }
   let logoDefault = logo;
   if (data.logo.src !== '/logo--en.svg') {
     logoDefault = data.logo.src;
@@ -90,24 +147,24 @@ const prepareSiteHeaderHarmonised = data => {
   // Login box and login toggle knobs.
   if (data.login_box) {
     data.logged = boolean('logged', data.logged, buttonLabels.states);
-    getLoginKnobs(data);
+    getLoginKnobs(data, false);
   }
   // Search toggle.
   if (data.search_toggle && data.search_toggle.label) {
     data.search_toggle.label = text(
       'search_toggle.label',
       data.search_toggle.label,
-      buttonLabels.required
+      buttonLabels.optional
     );
     data.search_toggle.href = text(
       'search_toggle.href',
       data.search_toggle.href,
-      buttonLabels.required
+      buttonLabels.optional
     );
   }
   // Search form.
   if (data.search_form) {
-    getSearchFormKnobs(data);
+    getSearchFormKnobs(data, false);
   }
   // Language selector knobs.
   if (data.language_selector) {
@@ -116,11 +173,12 @@ const prepareSiteHeaderHarmonised = data => {
     data.language_selector.overlay = object(
       'language_selector.overlay',
       data.language_selector.overlay,
-      buttonLabels.required
+      buttonLabels.optional
     );
   }
   // Extra classes and extra attributes.
   getExtraKnobs(data);
+
   if (data.menu) {
     // Menu label.
     data.menu_label = text(
@@ -140,8 +198,15 @@ storiesOf('Components/Site Headers/Harmonised', module)
   .add(
     'group 1',
     () => {
-      button(btnLangLabel, btnLangHandler, buttonLabels.cases);
+      button(btnLangLabel, btnLangG1Handler, buttonLabels.cases);
       button(btnLoginLabel, btnLoginHandler, buttonLabels.cases);
+      button(btnMenuLabel, btnMenuG1Handler, buttonLabels.cases);
+      button(btnSearchLabel, btnSearchG1Handler, buttonLabels.cases);
+      button(
+        'With or without the Class name',
+        btnClassHandler,
+        buttonLabels.cases
+      );
       dataG1.logged = true;
       const dataStory = prepareSiteHeaderHarmonised(dataG1);
 
@@ -155,6 +220,8 @@ storiesOf('Components/Site Headers/Harmonised', module)
     'group 2',
     () => {
       button(btnLangLabel, btnLangG2Handler, buttonLabels.cases);
+      button(btnSearchLabel, btnSearchG2Handler, buttonLabels.cases);
+      button(btnMenuLabel, btnMenuG2Handler, buttonLabels.cases);
       const dataStory = prepareSiteHeaderHarmonised(dataG2);
 
       return siteHeaderHarmonised(dataStory);
