@@ -2,6 +2,7 @@
 import he from 'he';
 import { text, select, boolean } from '@storybook/addon-knobs';
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
+import brandedIcons from '@ecl/ec-resources-icons/dist/lists/branded.json';
 
 export const buttonLabels = {
   required: 'Mandatory elements',
@@ -361,4 +362,26 @@ export const getSearchFormKnobs = data => {
   );
 
   return data;
+};
+
+export const getBrandedIconsOptions = (labels, none, hover) => {
+  const options = [];
+  if (none) {
+    options.push('none');
+  }
+  if (labels) {
+    options.push('Other social networks');
+  }
+
+  brandedIcons.forEach(icon => {
+    if (labels) {
+      icon = icon.charAt(0).toUpperCase() + icon.slice(1);
+    } else if (hover) {
+      icon = `${icon}_hover`;
+    }
+
+    options.push(icon);
+  });
+
+  return options;
 };
