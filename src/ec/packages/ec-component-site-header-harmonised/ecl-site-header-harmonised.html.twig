@@ -165,6 +165,7 @@
 <header class="{{ _css_class }}" {{ _extra_attributes|raw }}>
   <div class="ecl-site-header-harmonised__container ecl-container">
     <div class="ecl-site-header-harmonised__top">
+    {% if _logo is not empty %}
       <a
         class="ecl-link ecl-link--standalone ecl-site-header-harmonised__logo-link"
         href="{{ _logo.href }}"
@@ -177,6 +178,7 @@
           src="{{ _logo.src }}"
         />
       </a>
+    {% endif %}
     {% if site_name is defined and site_name is not empty and _group == 'group3' %}
       <div class="ecl-site-header-harmonised__site-name">{{ site_name }}</div>
     {% endif %}

@@ -29,6 +29,17 @@ import notes from './README.md';
 // Preserve original data.
 const dataG1 = { ...dataGroup1 };
 const dataG2 = { ...dataGroup2 };
+const dataG3 = { ...dataGroup3 };
+
+// Show/hide Partnership logo.
+const btnLogoLabel = 'With or without the patnership logo';
+const btnLogoHandler = () => {
+  if (dataG3.logo) {
+    delete dataG3.logo;
+  } else {
+    dataG3.logo = dataGroup3.logo;
+  }
+};
 // Show/hide buttons for the language switcher.
 const btnLangLabel = 'With or without the language switcher';
 const btnLangG1Handler = () => {
@@ -103,12 +114,14 @@ const prepareSiteHeaderHarmonised = data => {
   if (data.login_box) {
     data.logged = boolean('logged', data.logged, buttonLabels.states);
   }
-  data.icon_file_path = select(
-    'icon_file_path',
-    [defaultSprite],
-    defaultSprite,
-    buttonLabels.required
-  );
+  if (data.group !== 'group3') {
+    data.icon_file_path = select(
+      'icon_file_path',
+      [defaultSprite],
+      defaultSprite,
+      buttonLabels.required
+    );
+  }
   data.site_name = text('site_name', data.site_name, buttonLabels.required);
   if (data.group) {
     data.group = select(
@@ -132,18 +145,20 @@ const prepareSiteHeaderHarmonised = data => {
       buttonLabels.optional
     );
   }
-  let logoDefault = logo;
-  if (data.logo.src !== '/logo--en.svg') {
-    logoDefault = data.logo.src;
+  // Logo knobs.
+  if (data.logo) {
+    let label = buttonLabels.required;
+    let logoDefault = logo;
+    let required = true;
+    if (data.group === 'group3') {
+      label = buttonLabels.optional;
+      logoDefault = data.logo.src;
+      required = false;
+    }
+    data.logo.src = select('logo.src', [logoDefault], logoDefault, label);
+
+    getLogoKnobs(data, required);
   }
-  data.logo.src = select(
-    'logo.src',
-    [logoDefault],
-    logoDefault,
-    buttonLabels.required
-  );
-  // Logo knobs
-  getLogoKnobs(data);
   // Login box and login toggle knobs.
   if (data.login_box) {
     data.logged = boolean('logged', data.logged, buttonLabels.states);
@@ -232,7 +247,12 @@ storiesOf('Components/Site Headers/Harmonised', module)
   )
   .add(
     'group 3',
-    () => siteHeaderHarmonised(prepareSiteHeaderHarmonised(dataGroup3)),
+    () => {
+      button(btnLogoLabel, btnLogoHandler, buttonLabels.cases);
+      const dataStory = prepareSiteHeaderHarmonised(dataG3);
+
+      return siteHeaderHarmonised(dataStory);
+    },
     {
       notes: { markdown: notes, json: dataGroup3 },
     }

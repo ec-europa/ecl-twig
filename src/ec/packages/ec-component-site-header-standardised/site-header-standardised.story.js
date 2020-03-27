@@ -103,7 +103,7 @@ const prepareSiteHeaderStandardised = (data, lang) => {
     );
   }
   // Logo knobs
-  getLogoKnobs(data);
+  getLogoKnobs(data, true);
   // Login box and login toggle knobs.
   getLoginKnobs(data, true);
   // Search toggle.
