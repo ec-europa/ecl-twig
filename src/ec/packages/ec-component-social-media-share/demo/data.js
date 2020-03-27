@@ -7,7 +7,7 @@ const adapter = initialData => {
   adaptedData.links.forEach(link => {
     // Corrections on links.
     link.path = link.href;
-
+    delete link.href;
     if (link.iconPosition) {
       link.icon_position = link.iconPosition;
       delete link.iconPosition;
