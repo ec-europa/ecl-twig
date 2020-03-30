@@ -103,9 +103,9 @@ const prepareSiteHeaderStandardised = (data, lang) => {
     );
   }
   // Logo knobs
-  getLogoKnobs(data);
+  getLogoKnobs(data, true);
   // Login box and login toggle knobs.
-  getLoginKnobs(data);
+  getLoginKnobs(data, true);
   // Search toggle.
   data.search_toggle.label = text(
     'search_toggle.label',
@@ -118,7 +118,7 @@ const prepareSiteHeaderStandardised = (data, lang) => {
     buttonLabels.required
   );
   // Search form.
-  getSearchFormKnobs(data);
+  getSearchFormKnobs(data, true);
   // Language selector knobs.
   if (data.language_selector) {
     getLanguageSelectorKnobs(data, false);
