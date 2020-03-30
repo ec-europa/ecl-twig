@@ -70,9 +70,9 @@ const prepareSiteHeaderCore = (data, lang) => {
     );
   }
   // Logo knobs
-  getLogoKnobs(data);
+  getLogoKnobs(data, true);
   // Login box and login toggle knobs.
-  getLoginKnobs(data);
+  getLoginKnobs(data, true);
   // Language selector knobs.
   getLanguageSelectorKnobs(data, true);
   // Search toggle.
@@ -87,7 +87,7 @@ const prepareSiteHeaderCore = (data, lang) => {
     buttonLabels.required
   );
   // Search form.
-  getSearchFormKnobs(data);
+  getSearchFormKnobs(data, true);
   // Language selector overlay.
   data.language_selector.overlay = object(
     'language_selector.overlay',
