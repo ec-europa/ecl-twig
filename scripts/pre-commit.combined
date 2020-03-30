@@ -1,0 +1,7 @@
+#!/bin/sh
+# husky & Grump-php
+
+export GRUMPHP_GIT_WORKING_DIR=$(git rev-parse --show-toplevel)
+if 'exec' 'vendor/phpro/grumphp/bin/grumphp' 'git:pre-commit'; then
+  . "$(dirname "$0")/husky.sh"
+fi

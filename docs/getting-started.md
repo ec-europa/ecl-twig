@@ -64,7 +64,7 @@ yarn lint
 The libraries we use for sniffing and linting the twig templates all are php ones, therefore in order to be able to use the functionality in ECl-twig you would need a working installation of php (7.x) and composer to be installed.
 
 ```bash
-composer install --no-scripts && composer grump-en
+composer install --no-scripts
 ```
 
 We install the libraries with the no-scripts flag in order to avoid the override of the git hooks created by husky.
@@ -73,13 +73,13 @@ To circumvent the issue we added a script and we suggest you to run it together 
 the grump-php pre-commit hook by running:
 
 ```bash
-composer grump-en
+yarn grump-en
 ```
 
 To disable the pre-commit execution of the grump-php sniff you run:
 
 ```bash
-composer grump-dis
+yarn grump-dis
 ```
 
 You can also run the sniffer manually on the code in different ways using the command line:
