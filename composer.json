@@ -10,13 +10,9 @@
     "storybook"
   ],
   "scripts": {
-    "grump-en": [
-      "echo \"php ./vendor/bin/grumphp git:pre-commit\" >> .git/hooks/pre-commit"
-    ],
     "twig-cs": "./vendor/bin/twigcs \"./src/*/packages\"",
-    "cs": "./vendor/bin/twigcs",
-    "grump-cs": "php ./vendor/bin/grumphp run",
-    "grump-dis": "./scripts/grump-dis.sh"
+    "cs": "./vendor/bin/twigcs --severity error",
+    "grump-cs": "php ./vendor/bin/grumphp run"
   },
   "require-dev": {
     "friendsoftwig/twigcs": "^3.2.2",
