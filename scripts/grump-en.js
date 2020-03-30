@@ -3,7 +3,6 @@
 /* eslint-disable import/no-extraneous-dependencies, no-console */
 
 const { ncp } = require('ncp');
-const fs = require('fs');
 
 const options = {};
 options.dereference = true;
