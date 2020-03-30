@@ -1,7 +1,12 @@
 #!/bin/sh
-# husky & Grump-php
+# husky & grump-php
 
 export GRUMPHP_GIT_WORKING_DIR=$(git rev-parse --show-toplevel)
-if 'exec' 'vendor/phpro/grumphp/bin/grumphp' 'git:pre-commit'; then
+report='grump-report.txt'
+test='exec' 'composer' 'grump-cs' > $report;
+cat $report
+if grep -q "ERROR" $report; then
+  exit 1
+else
   . "$(dirname "$0")/husky.sh"
 fi
