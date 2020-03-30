@@ -15,7 +15,7 @@ npm install --save @ecl-twig/ec-component-site-header-harmonised
 - **"banner"** (string): The site name
 - **"banner_top"** (string) OR (object with Link component in property): Class name
 - **"icon_file_path"** (string) (default: ''): file containing the svg icons
-- **"site_name"** (string) (default: ''): Site name (only used in group3)
+- **"site_name"** (string) (default: ''): Site name (used in group3 and group1 without menu)
 - **"logo"** (associative array) (default: predefined structure): Logo image settings. format:
   - "title" (string) (default: ''): Logo title attribute.
   - "alt" (string) (default: ''): Logo alt attribute.
