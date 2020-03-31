@@ -984,6 +984,13 @@
 "@ecl-twig/data-utils@file:utils/data-utils":
   version "0.0.0-dev-only"
 
+"@ecl-twig/ec-component-menu@2.25.1":
+  version "2.25.1"
+  resolved "https://registry.yarnpkg.com/@ecl-twig/ec-component-menu/-/ec-component-menu-2.25.1.tgz#b973938d4a44b7b5b8ef916bcb3f27c82f84bfd3"
+  integrity sha512-qoTEcLKgd2/Eyjih1QV96KE9wwksc/xv6/40RAo39wFpGQm31Y9rzBrlmM8xArtpbCsIR5YsSe5STG3mLPQ9tw==
+  dependencies:
+    "@ecl-twig/ec-component-icon" "2.25.1"
+
 "@ecl-twig/php-storybook@file:php/php_storybook":
   version "0.0.1-alpha"
 
@@ -1009,6 +1016,11 @@
   version "2.25.0"
   resolved "https://registry.yarnpkg.com/@ecl/ec-base/-/ec-base-2.25.0.tgz#b379efb6d3fff0214458880ca42e248017183fa5"
   integrity sha512-Y5h//IUyq6yvQsy33daLq0PjzzSUcl0YhuipIzCwSIzHXIxvapbe6UHxJ1khczdQ+6onXdsRE4HEmipO4xfRHQ==
+
+"@ecl/ec-base@^2.26.0":
+  version "2.26.0"
+  resolved "https://registry.yarnpkg.com/@ecl/ec-base/-/ec-base-2.26.0.tgz#f39e8ae8ba762bea09e1707d30781d52970d9411"
+  integrity sha512-dHSlRWEovovEWCXOZqZs/WjOXBZlmBlNvLLdlUqZppJ+B/4U9PrKDqQF2XktckGVATBfS9G7MPFQ5ueQ5pzCoQ==
 
 "@ecl/ec-component-accordion@2.25.0":
   version "2.25.0"
@@ -1061,6 +1073,14 @@
   dependencies:
     "@ecl/ec-base" "^2.25.0"
     "@ecl/ec-component-icon" "^2.25.0"
+
+"@ecl/ec-component-button@^2.26.0":
+  version "2.26.0"
+  resolved "https://registry.yarnpkg.com/@ecl/ec-component-button/-/ec-component-button-2.26.0.tgz#0960b4f69f2bde1d9d792c7230d4d0f26c464820"
+  integrity sha512-XPZ+JvfEpTenMgQV+IGGEHb/XgT2dp6VafVofhCc39yWhQvuj1aQUS2qB+MTykQ0/BwszWpejj5pysJ07rsiJA==
+  dependencies:
+    "@ecl/ec-base" "^2.26.0"
+    "@ecl/ec-component-icon" "^2.26.0"
 
 "@ecl/ec-component-card@2.25.0":
   version "2.25.0"
@@ -1265,6 +1285,13 @@
   dependencies:
     "@ecl/ec-base" "^2.25.0"
 
+"@ecl/ec-component-icon@^2.26.0":
+  version "2.26.0"
+  resolved "https://registry.yarnpkg.com/@ecl/ec-component-icon/-/ec-component-icon-2.26.0.tgz#0e0b7b7ca3a615ea0220006eba7edeb7bd31c716"
+  integrity sha512-harQI7rQM/wUwVxSFrMEffRgt6WBQtadGMVNQN3SZLJAM/JKsEtwtBkJQvS3upP8gUAx6sByOuqB1DPQSo/prA==
+  dependencies:
+    "@ecl/ec-base" "^2.26.0"
+
 "@ecl/ec-component-inpage-navigation@2.25.0":
   version "2.25.0"
   resolved "https://registry.yarnpkg.com/@ecl/ec-component-inpage-navigation/-/ec-component-inpage-navigation-2.25.0.tgz#4971688eb00f515324509cf5a9a8a2f565c421db"
@@ -1294,6 +1321,14 @@
     "@ecl/ec-base" "^2.25.0"
     "@ecl/ec-component-icon" "^2.25.0"
 
+"@ecl/ec-component-link@^2.26.0":
+  version "2.26.0"
+  resolved "https://registry.yarnpkg.com/@ecl/ec-component-link/-/ec-component-link-2.26.0.tgz#2f2a0895ab0c61c7c2e86f64b4fbcead7008aa0d"
+  integrity sha512-SgIuF8G5aPzmVPqZO4129rPM9ZW0Jbc9balexG6roIhReu17IEcnsJZCmHd6IBPwu78bp0ypFzddm+xMMhyfdA==
+  dependencies:
+    "@ecl/ec-base" "^2.26.0"
+    "@ecl/ec-component-icon" "^2.26.0"
+
 "@ecl/ec-component-list@2.25.0":
   version "2.25.0"
   resolved "https://registry.yarnpkg.com/@ecl/ec-component-list/-/ec-component-list-2.25.0.tgz#d39dd3425aadd721836b7c6a41649f1d9c3a395b"
@@ -1317,14 +1352,17 @@
     "@ecl/ec-component-button" "^2.25.0"
     "@ecl/ec-component-link" "^2.25.0"
 
-"@ecl/ec-component-menu@2.25.0":
-  version "2.25.0"
-  resolved "https://registry.yarnpkg.com/@ecl/ec-component-menu/-/ec-component-menu-2.25.0.tgz#0184b579a2cda314edb6a152d5c3e203430f2adf"
-  integrity sha512-bq0ZRRvXY0GCuh6GCmABCDa8UY2ljQffc4tWxMjbO/jY/rS0taojMNVEy/5EDWacAfEIp1wRC+VAJXjoPrj6Ng==
+"@ecl/ec-component-menu@2.26.0":
+  version "2.26.0"
+  resolved "https://registry.yarnpkg.com/@ecl/ec-component-menu/-/ec-component-menu-2.26.0.tgz#a4d79ea7c8c9551cacacaea800b968babbeebe16"
+  integrity sha512-b3PsI3cuTPoj+MXxLv02fvy8r7bPZep0e+S+UnrkbvSsbNW5QdNZkwwRqBkLCsmyt24nVAjar7Cu3QBh9OBsaA==
   dependencies:
-    "@ecl/ec-base" "^2.25.0"
-    "@ecl/ec-component-button" "^2.25.0"
-    "@ecl/ec-component-link" "^2.25.0"
+    "@ecl/ec-base" "^2.26.0"
+    "@ecl/ec-component-button" "^2.26.0"
+    "@ecl/ec-component-link" "^2.26.0"
+    mobile-device-detect "0.3.3"
+    stickyfilljs "2.1.0"
+    swipe-listener "1.1.0"
 
 "@ecl/ec-component-message@2.25.0":
   version "2.25.0"
@@ -1494,6 +1532,11 @@
   resolved "https://registry.yarnpkg.com/@ecl/ec-resources-icons/-/ec-resources-icons-2.25.0.tgz#47b1ab869029050f40839ccaaf34278a7840edb5"
   integrity sha512-emLWjsPFEMqyZPZJeM3scfarfjcNf/P32kzyEHNs2AopIUyS1GFZXtGBGk5Jrnc6NE4bUO32nyHamk72BV+GyA==
 
+"@ecl/ec-resources-icons@2.26.0":
+  version "2.26.0"
+  resolved "https://registry.yarnpkg.com/@ecl/ec-resources-icons/-/ec-resources-icons-2.26.0.tgz#9f98c52fe2e8379b8e573c93a3dbf60a13e0e65c"
+  integrity sha512-q8UAtjw/BC7QgRKMULXk8U19Hfpn9D23r3JdR/mLn1BIizSGs1i83UOFelFskSpMW2laTiS6Cu2Hb/gRxxpBow==
+
 "@ecl/ec-resources-logo@2.25.0":
   version "2.25.0"
   resolved "https://registry.yarnpkg.com/@ecl/ec-resources-logo/-/ec-resources-logo-2.25.0.tgz#b70bc793101bf024ba850554c587ab552ea3c211"
@@ -1659,10 +1702,10 @@
   resolved "https://registry.yarnpkg.com/@ecl/ec-specs-menu-legacy/-/ec-specs-menu-legacy-2.25.0.tgz#7262549281c6522a3644253f8b474156f0629841"
   integrity sha512-JLSkQc2GVUnEQ+8f2iJoHmHeez/3VqkxJqMeiqC+sIwwXgiwhjcGs1c2XaIJ3RBtaVtBKhVr157tpLMiK94Ihg==
 
-"@ecl/ec-specs-menu@2.25.0":
-  version "2.25.0"
-  resolved "https://registry.yarnpkg.com/@ecl/ec-specs-menu/-/ec-specs-menu-2.25.0.tgz#efe96b96ab4a7e34316d6bd320a788b11e28c3e9"
-  integrity sha512-bAzNQRtfEnSKa4U6G2YMiL1OA4gW0kfO8RsPWzF4tcL3aHWbuZIWkYbJoJewuQ0DYH6fat97NOhD/XDDm7PKOg==
+"@ecl/ec-specs-menu@2.26.0":
+  version "2.26.0"
+  resolved "https://registry.yarnpkg.com/@ecl/ec-specs-menu/-/ec-specs-menu-2.26.0.tgz#8538291979b96e17d486a6269903ea0655c7f80e"
+  integrity sha512-o0dcs25TgWJx2S2VN+B32B7/IHQL5OoGV/ocvKj6rg3XC1vKHRPxsV17ENYGXuSVUt9Ze0ynUOq0+O4ZW0D0pg==
 
 "@ecl/ec-specs-message@2.25.0":
   version "2.25.0"
@@ -12765,6 +12808,11 @@ mkdirp@^0.5.0, mkdirp@^0.5.1, mkdirp@~0.5.1:
   dependencies:
     minimist "^1.2.5"
 
+mobile-device-detect@0.3.3:
+  version "0.3.3"
+  resolved "https://registry.yarnpkg.com/mobile-device-detect/-/mobile-device-detect-0.3.3.tgz#6880f54c2e838d8dccbfc0d962d01a348db5faad"
+  integrity sha512-JOrQ2mwcBnEz/6hyvP/aXI8R03DnlwlQey7cukE6kCy9RLQbzchN5yMocEXuOw4NXdCsU6k7mEAolHwLxgPYwQ==
+
 modify-values@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/modify-values/-/modify-values-1.0.1.tgz#b3939fa605546474e3e3e3c63d64bd43b4ee6022"
@@ -16758,6 +16806,11 @@ supports-hyperlinks@^1.0.1:
   dependencies:
     has-flag "^2.0.0"
     supports-color "^5.0.0"
+
+swipe-listener@1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/swipe-listener/-/swipe-listener-1.1.0.tgz#f56bbe1efad3a4d91a1f5df3d03747201fca9a03"
+  integrity sha512-89mLHgoTejI2I1/oK6x8OGov6fwK6ujcSb8is8yWHo9txBOpm4a6k06MUUr7WNFvMMHYgY50IPRMxSk7ce43TQ==
 
 symbol-observable@^1.0.3, symbol-observable@^1.1.0:
   version "1.2.0"

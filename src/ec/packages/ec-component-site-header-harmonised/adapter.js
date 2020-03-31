@@ -68,6 +68,7 @@ const adapter = initialData => {
   adaptedData.icon_file_path = defaultSprite;
   adaptedData.menu_label = 'Menu';
   adaptedData.site_name = 'Site name';
+
   return adaptedData;
 };
 
