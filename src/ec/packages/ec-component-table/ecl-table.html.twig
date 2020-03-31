@@ -38,7 +38,6 @@
 {% set _head_css_class = 'ecl-table__head' %}
 {% set _header_css_class = 'ecl-table__header' %}
 {% set _body_css_class = 'ecl-table__body' %}
-{% set _cell_css_class = 'ecl-table__cell' %}
 {% set _cell_header_group_class = 'ecl-table__cell--group' %}
 {% set _row_css_class = 'ecl-table__row' %}
 {% set _row_extra_attributes = '' %}
@@ -89,6 +88,7 @@
       {% endif %}
       <tr class="{{ _row_css_class }}"{{ _row_extra_attributes }}>
         {% for cell in row %}
+          {% set _cell_css_class = 'ecl-table__cell' %}
           {% set _cell_attribute = cell['data-ecl-table-header'] is not empty ? 'data-ecl-table-header="' ~ cell['data-ecl-table-header'] ~ '"' : '' %}
           {% if cell.group and cell['data-ecl-table-header-group'] is defined and cell['data-ecl-table-header-group'] is not empty %}
             {% set _cell_attribute = _cell_attribute ~ ' data-ecl-table-header-group="' ~ cell['data-ecl-table-header-group'] ~ '"' %}
