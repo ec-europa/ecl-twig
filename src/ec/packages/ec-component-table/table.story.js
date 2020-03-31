@@ -11,19 +11,13 @@ import table from './ecl-table.html.twig';
 import notes from './README.md';
 
 // Preserve original data
-const defaultData = { ...dataDefault };
 const dataZebra = { ...dataDefault, zebra: true };
 
-defaultData.rows.forEach(rows => {
-  rows.forEach(row => {
-    row.extra_attributes = [
-      { name: 'data-test' },
-      { name: 'data-test-another' },
-    ];
-  });
-});
-
-const prepareTable = data => {
+const prepareTable = (data, attr) => {
+  let defaultAttr = '';
+  if (attr) {
+    defaultAttr = 'data-test data-test-another';
+  }
   data.zebra = boolean('zebra', data.zebra, buttonLabels.cases);
   data.headers.forEach((headers, i) => {
     headers.forEach((header, ind) => {
@@ -40,62 +34,38 @@ const prepareTable = data => {
     });
   });
 
-  data.rows.forEach((rows, i) => {
-    rows.forEach((row, ind) => {
-      row.label = text(
+  data.rows.forEach((row, i) => {
+    row.extra_classes = text(
+      `rows[${i}].extra_classes`,
+      row.extra_classes,
+      buttonLabels.optional
+    );
+    row.extra_attributes = text(
+      `rows[${i}].extra_attributes`,
+      defaultAttr,
+      buttonLabels.optional
+    );
+    row.forEach((cell, ind) => {
+      cell.label = text(
         `rows[${i}][${ind}].label`,
-        row.label,
+        cell.label,
         buttonLabels.required
       );
-      row['data-ecl-table-header'] = text(
+      cell['data-ecl-table-header'] = text(
         `rows[${i}][${ind}]['data-ecl-table-header']`,
-        row['data-ecl-table-header'],
+        cell['data-ecl-table-header'],
         buttonLabels.required
       );
-      row.extra_classes = text(
-        `rows[${i}][${ind}].extra_classes`,
-        row.extra_classes,
-        buttonLabels.optional
-      );
-      if (!row.extra_attributes) {
-        row.extra_attributes = [];
-        row.extra_attributes[0] = {};
-        row.extra_attributes[1] = {};
-      }
-      row.extra_attributes[0].name = text(
-        `rows[${i}][${ind}].extra_attributes[0].name`,
-        row.extra_attributes[0].name,
-        buttonLabels.optional
-      );
-      row.extra_attributes[0].value = text(
-        `rows[${i}][${ind}].extra_attributes[0].value`,
-        row.extra_attributes[0].value,
-        buttonLabels.optional
-      );
-      if (row.extra_attributes[1].name) {
-        row.extra_attributes[1].name = text(
-          `rows[${i}][${ind}].extra_attributes[1].name`,
-          row.extra_attributes[1].name,
-          buttonLabels.optional
-        );
-        row.extra_attributes[1].value = text(
-          `rows[${i}][${ind}].extra_attributes[1].value`,
-          row.extra_attributes[1].value,
-          buttonLabels.optional
-        );
-      }
-      row.group = boolean(
+      cell.group = boolean(
         `rows[${i}][${ind}].group`,
-        row.group,
+        cell.group,
         buttonLabels.optional
       );
-      if (data.rows[i][ind].group) {
-        row['data-ecl-table-header-group'] = text(
-          `rows[${i}][${ind}]['data-ecl-table-header-group']`,
-          row['data-ecl-table-header-group'],
-          buttonLabels.optional
-        );
-      }
+      cell['data-ecl-table-header-group'] = text(
+        `rows[${i}][${ind}]['data-ecl-table-header-group']`,
+        cell['data-ecl-table-header-group'],
+        buttonLabels.optional
+      );
     });
   });
 
@@ -113,9 +83,9 @@ storiesOf('Components/Table', module)
   })
   .add(
     'default with row extra attributes',
-    () => table(prepareTable(defaultData)),
+    () => table(prepareTable(dataDefault, true)),
     {
-      notes: { markdown: notes, json: defaultData },
+      notes: { markdown: notes, json: dataDefault },
     }
   )
   .add('Zebra', () => table(prepareTable(dataZebra)), {

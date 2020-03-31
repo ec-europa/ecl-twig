@@ -271,50 +271,38 @@ export const getLogoKnobs = data => {
   return data;
 };
 
-export const getLoginKnobs = data => {
+export const getLoginKnobs = (data, required) => {
+  let label = buttonLabels.optional;
+  if (required) {
+    label = buttonLabels.required;
+  }
   if (data.login_toggle && data.login_box) {
     data.login_toggle.label_not_logged = text(
       'login_toggle.label_not_logged',
       data.login_toggle.label_not_logged,
-      buttonLabels.required
+      label
     );
     data.login_toggle.href_not_logged = text(
       'login_toggle.href_not_logged',
       data.login_toggle.href_not_logged,
-      buttonLabels.required
+      label
     );
     data.login_toggle.label_logged = text(
       'login_toggle.label_logged',
       data.login_toggle.label_logged,
-      buttonLabels.required
+      label
     );
     data.login_toggle.href_logged = text(
       'login_toggle.href_logged',
       data.login_toggle.href_logged,
-      buttonLabels.required
+      label
     );
-    data.login_box.id = text(
-      'login_box.id',
-      data.login_box.id,
-      buttonLabels.required
-    );
+    data.login_box.id = text('login_box.id', data.login_box.id, label);
     data.login_box.description = he.decode(
-      text(
-        'login_box.description',
-        data.login_box.description,
-        buttonLabels.required
-      )
+      text('login_box.description', data.login_box.description, label)
     );
-    data.login_box.label = text(
-      'login_box.label',
-      data.login_box.label,
-      buttonLabels.required
-    );
-    data.login_box.href = text(
-      'login_box.href',
-      data.login_box.href,
-      buttonLabels.required
-    );
+    data.login_box.label = text('login_box.label', data.login_box.label, label);
+    data.login_box.href = text('login_box.href', data.login_box.href, label);
   }
 
   return data;
@@ -344,21 +332,25 @@ export const getLanguageSelectorKnobs = (data, required) => {
   return data;
 };
 
-export const getSearchFormKnobs = data => {
+export const getSearchFormKnobs = (data, required) => {
+  let label = buttonLabels.optional;
+  if (required) {
+    label = buttonLabels.required;
+  }
   data.search_form.text_input.id = text(
     'search_form.text_input.id',
     data.search_form.text_input.id,
-    buttonLabels.required
+    label
   );
   data.search_form.text_input.label = text(
     'search_form.text_input.label',
     data.search_form.text_input.label,
-    buttonLabels.required
+    label
   );
   data.search_form.button.label = text(
     'search_form.button.label',
     data.search_form.button.label,
-    buttonLabels.required
+    label
   );
 
   return data;

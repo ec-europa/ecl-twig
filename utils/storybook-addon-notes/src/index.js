@@ -39,17 +39,43 @@ renderer.code = function customCode(code, infostring, escaped) {
 
 function renderMarkdown(text, options, json) {
   if (json) {
-    if (json.extra_classes === '') {
-      delete json.extra_classes;
+    const example = { ...json };
+    if (example.extra_classes === '') {
+      delete example.extra_classes;
+    }
+    if (example.extra_attributes === null) {
+      delete json.extra_attributes;
+    }
+    if (json.items) {
+      example.items = [...json.items];
+      example.items.forEach((item, i) => {
+        if (item.label === '' && item.path === '') {
+          example.items[i] = {};
+        }
+      });
+      example.items = example.items.filter(
+        value => Object.keys(value).length !== 0
+      );
+    }
+    if (json.links) {
+      example.links = [...json.links];
+      example.links.forEach((link, i) => {
+        if (link.label === '' && link.path === '') {
+          example.links[i] = {};
+        }
+      });
+      example.links = example.links.filter(
+        value => Object.keys(value).length !== 0
+      );
     }
     // Fixing the econding of ', mainly
-    Object.keys(json).forEach(e => {
-      if (typeof json[e] === 'string') {
-        json[e] = he.decode(json[e]);
+    Object.keys(example).forEach(e => {
+      if (typeof example[e] === 'string') {
+        example[e] = he.decode(example[e]);
       }
     });
     // Ehm, this is the best format we could get.
-    let specs = JSON.stringify(json, null, '\n..');
+    let specs = JSON.stringify(example, null, '\n..');
     // We only replace the existing example.s
     specs = specs.replace(/"([^"()]+)":/g, '$1:');
     const n = specs.lastIndexOf('}');
