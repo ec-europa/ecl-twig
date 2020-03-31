@@ -16,13 +16,9 @@ npm install --save @ecl-twig/ec-component-table
   [
   - "extra_attributes": (string) (default: '') Extra attributes for the row (space separated)
   - "extra_classes": (string) (default: '') Extra classes for the table row (space separated)
-    {
-      - "label" (string or array of string)
-      - "data-ecl-table-header" (string) (default: ''),
-      - "data-ecl-table-header-group" (string) (default: '')
-      - "group" (bool) (default: false),
+    { - "label" (string or array of string) - "data-ecl-table-header" (string) (default: ''), - "data-ecl-table-header-group" (string) (default: '') - "group" (bool) (default: false),
     }
-  ],
+    ],
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
