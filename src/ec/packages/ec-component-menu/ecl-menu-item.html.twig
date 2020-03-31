@@ -11,9 +11,7 @@
 {% endif %}
 
 {% if item.children is defined and item.children is not empty %}
-  {% set _menu_list_item_attributes = _menu_list_item_attributes ~ ' data-ecl-has-children=true' %}
-{% else %}
-  {% set _menu_list_item_attributes = _menu_list_item_attributes ~ ' data-ecl-has-children=false' %}
+  {% set _menu_list_item_attributes = _menu_list_item_attributes ~ ' data-ecl-has-children' %}
 {% endif %}
 
 <li class="{{ _menu_list_item_class }}" {{ _menu_list_item_attributes }}>
@@ -26,7 +24,7 @@
           type: 'ui',
           name: 'corner-arrow',
           size: 'xs',
-          transform: 'rotate-180'
+          transform: 'rotate-90'
         },
         extra_classes: 'ecl-menu__link-icon',
       } %}
@@ -39,10 +37,19 @@
   >
     <ul class="ecl-menu__sublist">
     {% for child in item.children %}
-      {% set _subitem_class = 'ecl-menu__subitem' ~ (child.is_current is defined ? ' ecl-menu__subitem--current' : '') %}
-      <li class="{{ _subitem_class }}">
+      {% set _subitem_class = 'ecl-menu__subitem' %}
+      {% if child.is_current is defined %}
+        {% set _subitem_class = _subitem_class ~ ' ecl-menu__subitem--current' %}
+      {% endif %}
+      <li
+        class="{{ _subitem_class }}"
+        data-ecl-menu-subitem
+      >
         {% set _sublink_class = 'ecl-menu__sublink' ~ (child.is_current is defined ? ' ecl-menu__sublink--current' : '') %}
-        <a href="{{ child.path }}" class="{{ _sublink_class }}">
+        <a
+          href="{{ child.path }}"
+          class="{{ _sublink_class }}"
+        >
           {{- child.label -}}
         </a>
       </li>
