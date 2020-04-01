@@ -53,8 +53,12 @@
 <section class="{{ _css_class }}" {{ _extra_attributes|raw }} data-ecl-gallery>
   <ul class="ecl-gallery__list">
     {% for _item in _items %}
+      {% set _item_class = _item.extra_classes ? _item.extra_classes : '' %}
+      {% set _item_attrs = _item.extra_attributes ? _item.extra_attributes : '' %}
       {% include '@ecl-twig/ec-component-gallery/ecl-gallery-item.html.twig' with {
         item: _item,
+        extra_attributes: _item_attrs,
+        extra_classes: _item_class
       } only %}
     {% endfor %}
   </ul>
@@ -63,8 +67,12 @@
   {% if _items[_selected_item_id] is not empty %}
     {% set _selected_item = _items[_selected_item_id] %}
   {% endif %}
+  {% set _overlay_class = overlay.extra_classes ? overlay.extra_classes : '' %}
+  {% set _overlay_attrs = overlay.extra_attributes ? overlay.extra_attributes : '' %}
   {% include '@ecl-twig/ec-component-gallery/ecl-gallery-overlay.html.twig' with {
     overlay: _overlay,
+    extra_attributes: _overlay_attrs,
+    extra_classes: _overlay_class,
     item: _selected_item
   } only %}
 </section>

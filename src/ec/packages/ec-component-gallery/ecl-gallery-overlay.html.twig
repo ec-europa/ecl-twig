@@ -22,6 +22,7 @@
 {% set _css_media_class = 'ecl-gallery__slider-media-container' %}
 {% set _extra_attributes = '' %}
 {% set _button_type = 'button' %}
+{% set _button_variant = 'ghost' %}
 {% set _overlay = overlay|default({}) %}
 {% set _item = item|default({}) %}
 
@@ -47,6 +48,7 @@
   <header class="ecl-gallery__close" data-ecl-gallery-overlay-header>
     {% include '@ecl-twig/ec-component-button/ecl-button.html.twig' with _overlay.close|merge({
       extra_classes: 'ecl-gallery__close-button',
+      variant: _button_variant,
       type: _button_type,
       extra_attributes: [
         { name: 'data-ecl-gallery-close' },
@@ -60,6 +62,14 @@
     {% include '@ecl-twig/ec-component-button/ecl-button.html.twig' with _overlay.previous|merge({
       extra_classes: 'ecl-gallery__slider-previous',
       type: _button_type,
+      variant: _button_variant,
+      icon_position: 'before',
+      icon: _overlay.previous.icon|merge({
+        type: 'ui',
+        size: 'l',
+        transform: 'rotate-270',
+        name: 'corner-arrow',
+      }),
       extra_attributes: [
         { name: 'data-ecl-gallery-overlay-previous' },
       ],
@@ -68,6 +78,13 @@
     {% include '@ecl-twig/ec-component-button/ecl-button.html.twig' with _overlay.next|merge({
       extra_classes: 'ecl-gallery__slider-next',
       type: _button_type,
+      variant: _button_variant,
+      icon: _overlay.next.icon|merge({
+        type: 'ui',
+        size: 'l',
+        transform: 'rotate-90',
+        name: 'corner-arrow',
+      }),
       extra_attributes: [
         { name: 'data-ecl-gallery-overlay-next' },
       ],
@@ -85,6 +102,11 @@
         link: {
           icon_position: 'after',
         }|merge(_overlay.download.link),
+        icon: _overlay.download.icon|merge({
+          name: 'download',
+          size: 'fluid',
+          type: 'ui',
+        }),
         extra_classes: 'ecl-gallery__download',
         extra_attributes: [
           { name: 'data-ecl-gallery-overlay-download' },
@@ -95,6 +117,11 @@
         link: {
           icon_position: 'after',
         }|merge(_overlay.share.link),
+        icon: _overlay.share.icon|merge({
+          name: 'share',
+          size: 'fluid',
+          type: 'general',
+        }),
         extra_classes: 'ecl-gallery__share',
         extra_attributes: [
           { name: 'data-ecl-gallery-overlay-share' },
