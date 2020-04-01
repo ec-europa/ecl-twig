@@ -3,6 +3,51 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.26.0](https://github.com/ec-europa/ecl-twig/compare/v2.25.1...v2.26.0) (2020-04-01)
+
+#### :rocket: New Feature
+
+- [#394](https://github.com/ec-europa/ecl-twig/pull/394) feat(menuV2): Implementation, green diff with ECL - FRONT-991 ([@planctus](https://github.com/planctus))
+
+#### :boom: Breaking Change
+
+- [#394](https://github.com/ec-europa/ecl-twig/pull/394) feat(menuV2): Implementation, green diff with ECL - FRONT-991 ([@planctus](https://github.com/planctus))
+
+#### :bug: Bug Fix
+
+- [#391](https://github.com/ec-europa/ecl-twig/pull/391) fix(demo): Timeline, adding ids, reorganisation of some knobs - FRONT-972 ([@planctus](https://github.com/planctus))
+
+#### :nail_care: Enhancement
+
+- [#392](https://github.com/ec-europa/ecl-twig/pull/392) refactor(knobs): Gallery optional/mandatory knobs -FRONT-926 ([@Joosthe](https://github.com/Joosthe))
+- [#388](https://github.com/ec-europa/ecl-twig/pull/388) refactor(knobs): table optional/mandatory knobs - FRONT-924 ([@Joosthe](https://github.com/Joosthe))
+- [#393](https://github.com/ec-europa/ecl-twig/pull/393) refactor(demo): Language list, optional/mandatory knobs, fixing the notes plugin - FRONT-925 ([@planctus](https://github.com/planctus))
+- [#389](https://github.com/ec-europa/ecl-twig/pull/389) refactor(demo): Site header harmonised - Mandatory/optional knobs - FRONT-918 ([@planctus](https://github.com/planctus))
+- [#390](https://github.com/ec-europa/ecl-twig/pull/390) refactor(knobs): Datepicker - Mandatory/optional knobs - FRONT-905 ([@Joosthe](https://github.com/Joosthe))
+- [#387](https://github.com/ec-europa/ecl-twig/pull/387) refactor(demo): Social media share, optional/mandatory knobs - FRONT-921 ([@planctus](https://github.com/planctus))
+- [#386](https://github.com/ec-europa/ecl-twig/pull/386) refactor(knobs): timeline knobs and labels - FRONT-923 ([@Joosthe](https://github.com/Joosthe))
+- [#382](https://github.com/ec-europa/ecl-twig/pull/382) refactor(demo): Inpage navigation, optional/mandatory knobs - FRONT-927 ([@papegaill](https://github.com/papegaill))
+- [#385](https://github.com/ec-europa/ecl-twig/pull/385) refactor(demo): Accordion knobs and labels added - FRONT 909 ([@Joosthe](https://github.com/Joosthe))
+- [#381](https://github.com/ec-europa/ecl-twig/pull/381) refactor(demo): Accordion(2) knobs and labels added - FRONT-910 ([@Joosthe](https://github.com/Joosthe))
+- [#384](https://github.com/ec-europa/ecl-twig/pull/384) refactor(demo): Site Header Standardised, mandatory/optional knobs - FRONT-919 ([@planctus](https://github.com/planctus))
+- [#383](https://github.com/ec-europa/ecl-twig/pull/383) refactor(demo): Social media follow, mandatory/optional knobs - FRONT-920 ([@planctus](https://github.com/planctus))
+- [#375](https://github.com/ec-europa/ecl-twig/pull/375) refactor(demo): Messages, optional/mandatory knobs - FRONT-916 ([@papegaill](https://github.com/papegaill))
+- [#378](https://github.com/ec-europa/ecl-twig/pull/378) refactor(demo): Tags, optional/mandatory knobs - FRONT-922 ([@papegaill](https://github.com/papegaill))
+- [#374](https://github.com/ec-europa/ecl-twig/pull/374) refactor(demo): Pagebanner optional/mandatory knobs - FRONT-913 ([@Joosthe](https://github.com/Joosthe))
+- [#379](https://github.com/ec-europa/ecl-twig/pull/379) refactor(demo): Site Header Core, optional/mandatory knobs - FRONT-917 ([@planctus](https://github.com/planctus))
+- [#373](https://github.com/ec-europa/ecl-twig/pull/373) refactor(demo): hero-banner optional/mandatory knobs - FRONT-912 ([@Joosthe](https://github.com/Joosthe))
+
+#### :house: Internal
+
+- [#396](https://github.com/ec-europa/ecl-twig/pull/396) refactor(utils): tabLabels instead of buttonLabels - FRONT-962 ([@planctus](https://github.com/planctus))
+- [#395](https://github.com/ec-europa/ecl-twig/pull/395) fix(pre-commit): Different approach for combining husky and grump-php - FRONT-960 ([@planctus](https://github.com/planctus))
+
+#### Committers: 3
+
+- Alexis Gaillard ([@papegaill](https://github.com/papegaill))
+- [@Joosthe](https://github.com/Joosthe)
+- [@planctus](https://github.com/planctus)
+
 ## [2.25.1](https://github.com/ec-europa/ecl-twig/compare/v2.25.0...v2.25.1) (2020-03-18)
 
 #### :bug: Bug Fix

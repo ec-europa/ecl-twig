@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.26.0](https://github.com/ec-europa/ecl-twig/compare/v2.25.1...v2.26.0) (2020-04-01)
+
+### Features
+
+- **menuV2:** Implementation, green diff with ECL - FRONT-991 ([#394](https://github.com/ec-europa/ecl-twig/issues/394)) ([c86c116](https://github.com/ec-europa/ecl-twig/commit/c86c116dc57d4b80499c1b760a638b90462aed46))
+
 ## [2.25.1](https://github.com/ec-europa/ecl-twig/compare/v2.25.0...v2.25.1) (2020-03-18)
 
 ### Bug Fixes
