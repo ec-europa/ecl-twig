@@ -4,7 +4,7 @@ import { text, select, boolean } from '@storybook/addon-knobs';
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import brandedIcons from '@ecl/ec-resources-icons/dist/lists/branded.json';
 
-export const buttonLabels = {
+export const tabLabels = {
   required: 'Mandatory elements',
   optional: 'Optional elements',
   states: 'States',
@@ -12,11 +12,11 @@ export const buttonLabels = {
 };
 
 export const getExtraKnobs = data => {
-  data.extra_classes = text('extra_classes', '', buttonLabels.optional);
+  data.extra_classes = text('extra_classes', '', tabLabels.optional);
   const attribute1Name = text(
     'extra_attributes[0].name',
     '',
-    buttonLabels.optional
+    tabLabels.optional
   );
   // First attribute.
   if (attribute1Name !== '') {
@@ -25,12 +25,12 @@ export const getExtraKnobs = data => {
     const attribute1Value = text(
       'extra_attributes[0].value',
       '',
-      buttonLabels.optional
+      tabLabels.optional
     );
     const attribute2Name = text(
       'extra_attributes[1].name',
       '',
-      buttonLabels.optional
+      tabLabels.optional
     );
     attribute.name = attribute1Name;
     if (attribute1Value !== '') {
@@ -42,7 +42,7 @@ export const getExtraKnobs = data => {
       const attribute2Value = text(
         'extra_attributes[1].value',
         '',
-        buttonLabels.optional
+        tabLabels.optional
       );
       attribute = {};
       attribute.name = attribute2Name;
@@ -124,31 +124,31 @@ export const getIconKnobs = (
     `${pref}icon.type`,
     defaultTypes,
     defaultType,
-    buttonLabels.required
+    tabLabels.required
   );
   icon.path = select(
     `${pref}icon.path`,
     [defaultSprite],
     defaultSprite,
-    buttonLabels.required
+    tabLabels.required
   );
   icon.size = select(
     `${pref}icon.size`,
     defaultSizes,
     defaultSize,
-    buttonLabels.optional
+    tabLabels.optional
   );
   icon.color = select(
     `${pref}icon.color`,
     defaultColors,
     defaultColor,
-    buttonLabels.optional
+    tabLabels.optional
   );
   icon.transform = select(
     `${pref}icon.transform`,
     defaultTransforms,
     defaultTransform,
-    buttonLabels.optional
+    tabLabels.optional
   );
   if (icon) {
     if (data.link && data.link.link) {
@@ -160,7 +160,7 @@ export const getIconKnobs = (
           'icon_position',
           iconPositionSettings,
           'after',
-          buttonLabels.optional
+          tabLabels.optional
         );
       }
     }
@@ -175,82 +175,73 @@ export const getFormKnobs = data => {
     medium: 'm',
     large: 'l',
   };
-  data.invalid = boolean('invalid', false, buttonLabels.states);
-  data.disabled = boolean('disabled', false, buttonLabels.states);
-  data.required = boolean('required', false, buttonLabels.states);
-  data.label = text('label', data.label, buttonLabels.required);
+  data.invalid = boolean('invalid', false, tabLabels.states);
+  data.disabled = boolean('disabled', false, tabLabels.states);
+  data.required = boolean('required', false, tabLabels.states);
+  data.label = text('label', data.label, tabLabels.required);
   if (data.invalid) {
     data.invalid_text = text(
       'invalid_text',
       data.invalid_text,
-      buttonLabels.required
+      tabLabels.required
     );
   } else {
     data.invalid_text = text(
       'invalid_text',
       data.invalid_text,
-      buttonLabels.optional
+      tabLabels.optional
     );
   }
   if (data.required) {
     data.required_text = text(
       'required_text',
       data.required_text,
-      buttonLabels.required
+      tabLabels.required
     );
     data.optional_text = text(
       'optional text',
       data.optional_text,
-      buttonLabels.optional
+      tabLabels.optional
     );
   } else {
     data.required_text = text(
       'required_text',
       data.required_text,
-      buttonLabels.optional
+      tabLabels.optional
     );
     data.optional_text = text(
       'optional text',
       data.optional_text,
-      buttonLabels.required
+      tabLabels.required
     );
   }
 
-  data.helper_text = text(
-    'helper_text',
-    data.helper_text,
-    buttonLabels.optional
-  );
-  data.width = select('width', inputWidthOptions, 'm', buttonLabels.optional);
+  data.helper_text = text('helper_text', data.helper_text, tabLabels.optional);
+  data.width = select('width', inputWidthOptions, 'm', tabLabels.optional);
 
   return data;
 };
 
 export const getFormItemKnobs = data => {
   data.items.forEach((item, i) => {
-    item.label = text(`items[${i}].label`, item.label, buttonLabels.required);
-    item.id = select(
-      `items[${i}].id`,
-      [item.id],
-      item.id,
-      buttonLabels.required
-    );
+    item.label = text(`items[${i}].label`, item.label, tabLabels.required);
+    item.id = select(`items[${i}].id`, [item.id], item.id, tabLabels.required);
     item.value = select(
       `items[${i}].value`,
       [item.value],
       item.value,
-      buttonLabels.required
+      tabLabels.required
     );
     item.helper_id = select(
       `items[${i}].value`,
       [item.helper_id],
       item.helper_id,
-      buttonLabels.optional
+      tabLabels.optional
     );
     item.helper_text = text(
       `items[${i}].helper_text`,
       item.helper_text,
-      buttonLabels.optional
+      tabLabels.optional
     );
   });
 
@@ -258,23 +249,23 @@ export const getFormItemKnobs = data => {
 };
 
 export const getLogoKnobs = data => {
-  data.logo.title = text('logo.title', data.logo.title, buttonLabels.required);
-  data.logo.alt = text('logo.alt', data.logo.alt, buttonLabels.required);
-  data.logo.href = text('logo.href', data.logo.href, buttonLabels.required);
+  data.logo.title = text('logo.title', data.logo.title, tabLabels.required);
+  data.logo.alt = text('logo.alt', data.logo.alt, tabLabels.required);
+  data.logo.href = text('logo.href', data.logo.href, tabLabels.required);
   data.logo.language = select(
     'logo.language',
     [data.logo.language],
     data.logo.language,
-    buttonLabels.required
+    tabLabels.required
   );
 
   return data;
 };
 
 export const getLoginKnobs = (data, required) => {
-  let label = buttonLabels.optional;
+  let label = tabLabels.optional;
   if (required) {
-    label = buttonLabels.required;
+    label = tabLabels.required;
   }
   if (data.login_toggle && data.login_box) {
     data.login_toggle.label_not_logged = text(
@@ -309,9 +300,9 @@ export const getLoginKnobs = (data, required) => {
 };
 
 export const getLanguageSelectorKnobs = (data, required) => {
-  let label = buttonLabels.optional;
+  let label = tabLabels.optional;
   if (required) {
-    label = buttonLabels.required;
+    label = tabLabels.required;
   }
   data.language_selector.href = text(
     'language_selector.href',
@@ -333,9 +324,9 @@ export const getLanguageSelectorKnobs = (data, required) => {
 };
 
 export const getSearchFormKnobs = (data, required) => {
-  let label = buttonLabels.optional;
+  let label = tabLabels.optional;
   if (required) {
-    label = buttonLabels.required;
+    label = tabLabels.required;
   }
   data.search_form.text_input.id = text(
     'search_form.text_input.id',

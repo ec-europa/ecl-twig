@@ -11,7 +11,7 @@ import {
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import {
   getExtraKnobs,
-  buttonLabels,
+  tabLabels,
   getLogoKnobs,
   getLoginKnobs,
   getLanguageSelectorKnobs,
@@ -47,26 +47,26 @@ const frBtnHandler = () => {
 };
 
 const prepareSiteHeaderCore = (data, lang) => {
-  data.logged = boolean('logged', data.logged, buttonLabels.states);
+  data.logged = boolean('logged', data.logged, tabLabels.states);
   data.icon_file_path = select(
     'icon_file_path',
     [defaultSprite],
     defaultSprite,
-    buttonLabels.required
+    tabLabels.required
   );
   if (lang === 'en') {
     data.logo.src = select(
       'logo.src',
       [englishBanner],
       englishBanner,
-      buttonLabels.required
+      tabLabels.required
     );
   } else {
     data.logo.src = select(
       'logo.src',
       [frenchBanner],
       frenchBanner,
-      buttonLabels.required
+      tabLabels.required
     );
   }
   // Logo knobs
@@ -79,12 +79,12 @@ const prepareSiteHeaderCore = (data, lang) => {
   data.search_toggle.label = text(
     'search_toggle.label',
     data.search_toggle.label,
-    buttonLabels.required
+    tabLabels.required
   );
   data.search_toggle.href = text(
     'search_toggle.href',
     data.search_toggle.href,
-    buttonLabels.required
+    tabLabels.required
   );
   // Search form.
   getSearchFormKnobs(data, true);
@@ -92,7 +92,7 @@ const prepareSiteHeaderCore = (data, lang) => {
   data.language_selector.overlay = object(
     'language_selector.overlay',
     data.language_selector.overlay,
-    buttonLabels.required
+    tabLabels.required
   );
   // Extra classes and extra attributes.
   getExtraKnobs(data);
@@ -107,7 +107,7 @@ storiesOf('Components/Site Headers/Core', module)
   .add(
     'default',
     () => {
-      button(btnLabel, enBtnHandler, buttonLabels.cases);
+      button(btnLabel, enBtnHandler, tabLabels.cases);
       const dataStory = prepareSiteHeaderCore(enData, 'en');
 
       return siteHeaderCore(dataStory);
@@ -120,7 +120,7 @@ storiesOf('Components/Site Headers/Core', module)
     'logged in',
     () => {
       enData.logged = true;
-      button(btnLabel, enBtnHandler, buttonLabels.cases);
+      button(btnLabel, enBtnHandler, tabLabels.cases);
       const dataStory = prepareSiteHeaderCore(enData, 'en');
 
       return siteHeaderCore(dataStory);
@@ -132,7 +132,7 @@ storiesOf('Components/Site Headers/Core', module)
   .add(
     'translated',
     () => {
-      button(btnLabel, frBtnHandler, buttonLabels.cases);
+      button(btnLabel, frBtnHandler, tabLabels.cases);
       const dataStory = prepareSiteHeaderCore(frData, 'en');
 
       return siteHeaderCore(dataStory);

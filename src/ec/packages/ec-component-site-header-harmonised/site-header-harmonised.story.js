@@ -10,7 +10,7 @@ import {
 } from '@storybook/addon-knobs';
 import {
   getExtraKnobs,
-  buttonLabels,
+  tabLabels,
   getLogoKnobs,
   getLoginKnobs,
   getLanguageSelectorKnobs,
@@ -112,46 +112,41 @@ const btnLoginHandler = () => {
 
 const prepareSiteHeaderHarmonised = data => {
   if (data.login_box) {
-    data.logged = boolean('logged', data.logged, buttonLabels.states);
+    data.logged = boolean('logged', data.logged, tabLabels.states);
   }
   if (data.group !== 'group3') {
     data.icon_file_path = select(
       'icon_file_path',
       [defaultSprite],
       defaultSprite,
-      buttonLabels.required
+      tabLabels.required
     );
   }
-  data.site_name = text('site_name', data.site_name, buttonLabels.required);
+  data.site_name = text('site_name', data.site_name, tabLabels.required);
   if (data.group) {
-    data.group = select(
-      'group',
-      [data.group],
-      data.group,
-      buttonLabels.required
-    );
+    data.group = select('group', [data.group], data.group, tabLabels.required);
   } else {
-    data.group = select('group', ['group1'], 'group1', buttonLabels.optional);
+    data.group = select('group', ['group1'], 'group1', tabLabels.optional);
   }
   if (data.banner_top && data.banner_top.link) {
     data.banner_top.link.label = text(
       'banner_top.link.label',
       data.banner_top.link.label,
-      buttonLabels.optional
+      tabLabels.optional
     );
     data.banner_top.link.path = text(
       'banner_top.link.path',
       data.banner_top.link.path,
-      buttonLabels.optional
+      tabLabels.optional
     );
   }
   // Logo knobs.
   if (data.logo) {
-    let label = buttonLabels.required;
+    let label = tabLabels.required;
     let logoDefault = logo;
     let required = true;
     if (data.group === 'group3') {
-      label = buttonLabels.optional;
+      label = tabLabels.optional;
       logoDefault = data.logo.src;
       required = false;
     }
@@ -161,7 +156,7 @@ const prepareSiteHeaderHarmonised = data => {
   }
   // Login box and login toggle knobs.
   if (data.login_box) {
-    data.logged = boolean('logged', data.logged, buttonLabels.states);
+    data.logged = boolean('logged', data.logged, tabLabels.states);
     getLoginKnobs(data, false);
   }
   // Search toggle.
@@ -169,12 +164,12 @@ const prepareSiteHeaderHarmonised = data => {
     data.search_toggle.label = text(
       'search_toggle.label',
       data.search_toggle.label,
-      buttonLabels.optional
+      tabLabels.optional
     );
     data.search_toggle.href = text(
       'search_toggle.href',
       data.search_toggle.href,
-      buttonLabels.optional
+      tabLabels.optional
     );
   }
   // Search form.
@@ -188,7 +183,7 @@ const prepareSiteHeaderHarmonised = data => {
     data.language_selector.overlay = object(
       'language_selector.overlay',
       data.language_selector.overlay,
-      buttonLabels.optional
+      tabLabels.optional
     );
   }
   // Extra classes and extra attributes.
@@ -199,9 +194,9 @@ const prepareSiteHeaderHarmonised = data => {
     data.menu_label = text(
       'data.menu_label',
       data.menu_label,
-      buttonLabels.optional
+      tabLabels.optional
     );
-    data.menu = object('data.menu', data.menu, buttonLabels.optional);
+    data.menu = object('data.menu', data.menu, tabLabels.optional);
   }
 
   return data;
@@ -213,14 +208,14 @@ storiesOf('Components/Site Headers/Harmonised', module)
   .add(
     'group 1',
     () => {
-      button(btnLangLabel, btnLangG1Handler, buttonLabels.cases);
-      button(btnLoginLabel, btnLoginHandler, buttonLabels.cases);
-      button(btnMenuLabel, btnMenuG1Handler, buttonLabels.cases);
-      button(btnSearchLabel, btnSearchG1Handler, buttonLabels.cases);
+      button(btnLangLabel, btnLangG1Handler, tabLabels.cases);
+      button(btnLoginLabel, btnLoginHandler, tabLabels.cases);
+      button(btnMenuLabel, btnMenuG1Handler, tabLabels.cases);
+      button(btnSearchLabel, btnSearchG1Handler, tabLabels.cases);
       button(
         'With or without the Class name',
         btnClassHandler,
-        buttonLabels.cases
+        tabLabels.cases
       );
       dataG1.logged = true;
       const dataStory = prepareSiteHeaderHarmonised(dataG1);
@@ -234,9 +229,9 @@ storiesOf('Components/Site Headers/Harmonised', module)
   .add(
     'group 2',
     () => {
-      button(btnLangLabel, btnLangG2Handler, buttonLabels.cases);
-      button(btnSearchLabel, btnSearchG2Handler, buttonLabels.cases);
-      button(btnMenuLabel, btnMenuG2Handler, buttonLabels.cases);
+      button(btnLangLabel, btnLangG2Handler, tabLabels.cases);
+      button(btnSearchLabel, btnSearchG2Handler, tabLabels.cases);
+      button(btnMenuLabel, btnMenuG2Handler, tabLabels.cases);
       const dataStory = prepareSiteHeaderHarmonised(dataG2);
 
       return siteHeaderHarmonised(dataStory);
@@ -248,7 +243,7 @@ storiesOf('Components/Site Headers/Harmonised', module)
   .add(
     'group 3',
     () => {
-      button(btnLogoLabel, btnLogoHandler, buttonLabels.cases);
+      button(btnLogoLabel, btnLogoHandler, tabLabels.cases);
       const dataStory = prepareSiteHeaderHarmonised(dataG3);
 
       return siteHeaderHarmonised(dataStory);

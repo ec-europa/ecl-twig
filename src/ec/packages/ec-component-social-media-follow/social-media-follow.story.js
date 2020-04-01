@@ -4,7 +4,7 @@ import { withKnobs, text, select } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import {
   getExtraKnobs,
-  buttonLabels,
+  tabLabels,
   getBrandedIconsOptions,
 } from '@ecl-twig/story-utils';
 import withCode from '@ecl-twig/storybook-addon-code';
@@ -15,27 +15,23 @@ import SocialMediaFollow from './ecl-social-media-follow.html.twig';
 import notes from './README.md';
 
 const prepareSocialMediaFollow = (data, vertical) => {
-  data.description = text(
-    'description',
-    data.description,
-    buttonLabels.required
-  );
+  data.description = text('description', data.description, tabLabels.required);
   if (vertical) {
     data.variant = select(
       'variant',
       [vertical],
       'vertical',
-      buttonLabels.required
+      tabLabels.required
     );
   } else {
     delete data.variant;
   }
 
   data.links.forEach((link, i) => {
-    let label = buttonLabels.optional;
+    let label = tabLabels.optional;
     // Firt item we make it mandatory and not removable.
     if (i === 0) {
-      label = buttonLabels.required;
+      label = tabLabels.required;
       link.label = select(
         `links[${i}].label`,
         getBrandedIconsOptions(true),

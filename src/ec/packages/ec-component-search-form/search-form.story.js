@@ -2,7 +2,7 @@
 import { storiesOf } from '@storybook/html';
 import { withKnobs, text, select } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
-import { getExtraKnobs, buttonLabels } from '@ecl-twig/story-utils';
+import { getExtraKnobs, tabLabels } from '@ecl-twig/story-utils';
 import withCode from '@ecl-twig/storybook-addon-code';
 
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
@@ -14,13 +14,13 @@ const prepareSearchForm = data => {
   data.button.label = text(
     'button.label',
     data.button.label,
-    buttonLabels.required
+    tabLabels.required
   );
   data.button.icon.path = select(
     'button.icon.path',
     [defaultSprite],
     defaultSprite,
-    buttonLabels.required
+    tabLabels.required
   );
 
   getExtraKnobs(data);

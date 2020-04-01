@@ -3,11 +3,7 @@ import { storiesOf } from '@storybook/html';
 import { withKnobs, text, select } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
-import {
-  getExtraKnobs,
-  getFormKnobs,
-  buttonLabels,
-} from '@ecl-twig/story-utils';
+import { getExtraKnobs, getFormKnobs, tabLabels } from '@ecl-twig/story-utils';
 
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import specData from './demo/data';
@@ -23,19 +19,19 @@ const prepareSelect = data => {
     'icon_path',
     [defaultSprite],
     defaultSprite,
-    buttonLabels.required
+    tabLabels.required
   );
 
   data.options.forEach((option, i) => {
     option.label = text(
       `options[${i}].label`,
       option.label,
-      buttonLabels.required
+      tabLabels.required
     );
     option.value = text(
       `options[${i}].value`,
       option.value,
-      buttonLabels.required
+      tabLabels.required
     );
   });
 

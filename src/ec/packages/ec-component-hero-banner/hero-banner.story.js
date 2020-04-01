@@ -2,11 +2,7 @@
 import { storiesOf } from '@storybook/html';
 import { withKnobs, text, boolean, select } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
-import {
-  getExtraKnobs,
-  getIconKnobs,
-  buttonLabels,
-} from '@ecl-twig/story-utils';
+import { getExtraKnobs, getIconKnobs, tabLabels } from '@ecl-twig/story-utils';
 import withCode from '@ecl-twig/storybook-addon-code';
 
 import uiIcons from '@ecl/ec-resources-icons/dist/lists/ui.json';
@@ -22,34 +18,30 @@ import notes from './README.md';
 uiIcons.unshift('null');
 const prepareBanner = data => {
   if (data.centered) {
-    data.centered = boolean('centered', data.centered, buttonLabels.states);
+    data.centered = boolean('centered', data.centered, tabLabels.states);
   }
-  data.type = select('type', [data.type], data.type, buttonLabels.required);
-  data.title = text('title', data.title, buttonLabels.required);
-  data.description = text(
-    'description',
-    data.description,
-    buttonLabels.required
-  );
+  data.type = select('type', [data.type], data.type, tabLabels.required);
+  data.title = text('title', data.title, tabLabels.required);
+  data.description = text('description', data.description, tabLabels.required);
 
   if (data.image) {
-    data.image = text('image', data.image, buttonLabels.required);
+    data.image = text('image', data.image, tabLabels.required);
   }
   data.link.link.label = text(
     'link.link.label',
     data.link.link.label,
-    buttonLabels.required
+    tabLabels.required
   );
   data.link.link.path = text(
     'link.link.path',
     data.link.link.path,
-    buttonLabels.required
+    tabLabels.required
   );
   data.link.icon.name = select(
     'link.icon.name',
     uiIcons,
     data.link.icon.name,
-    buttonLabels.optional
+    tabLabels.optional
   );
   if (data.link.icon.name !== 'null') {
     getIconKnobs(

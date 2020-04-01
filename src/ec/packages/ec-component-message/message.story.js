@@ -3,11 +3,7 @@ import { storiesOf } from '@storybook/html';
 import { withKnobs, text, select } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
-import {
-  getExtraKnobs,
-  buttonLabels,
-  getIconKnobs,
-} from '@ecl-twig/story-utils';
+import { getExtraKnobs, tabLabels, getIconKnobs } from '@ecl-twig/story-utils';
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 // Import data for demos
 import dataInfo from './demo/data--info';
@@ -19,30 +15,26 @@ import message from './ecl-message.html.twig';
 import notes from './README.md';
 
 const prepareMessage = data => {
-  data.title = text('title', data.title, buttonLabels.required);
-  data.description = text(
-    'description',
-    data.description,
-    buttonLabels.required
-  );
+  data.title = text('title', data.title, tabLabels.required);
+  data.description = text('description', data.description, tabLabels.required);
   data.variant = select(
     'variant',
     [data.variant],
     data.variant,
-    buttonLabels.required
+    tabLabels.required
   );
   const name = select(
     'icon.name',
     [data.icon.name],
     data.icon.name,
-    buttonLabels.required
+    tabLabels.required
   );
   getIconKnobs(data, name, 'notifications', 'l', 'primary', 'none');
   data.close.icon.path = select(
     'close.icon.path',
     [defaultSprite],
     defaultSprite,
-    buttonLabels.required
+    tabLabels.required
   );
   getExtraKnobs(data);
 
