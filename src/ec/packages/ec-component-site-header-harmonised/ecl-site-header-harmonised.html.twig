@@ -80,27 +80,27 @@
 {% set _css_class = 'ecl-site-header-harmonised ecl-site-header-harmonised--' ~ _group %}
 
 {% if search_form is defined and search_form is not empty %}
-  {% set _search_form = {
-    text_input: {
+{% set _search_form = {
+  text_input: {
+    name: 'search',
+    extra_classes: 'ecl-search-form__text-input'
+  },
+  button: {
+    variant: 'search',
+    icon: {
+      type: 'general',
       name: 'search',
-      extra_classes: 'ecl-search-form__text-input'
+      path: _icon_file_path,
+      size: 'fluid',
     },
-    button: {
-      variant: 'search',
-      icon: {
-        type: 'general',
-        name: 'search',
-        path: _icon_file_path,
-        size: 'fluid',
-      },
-      extra_classes: 'ecl-search-form__button'
-    },
-    extra_attributes: [
-    { name: 'data-ecl-search-form' }
-    ]|merge(search_form.extra_attributes|default({})),
-    extra_classes: 'ecl-site-header-harmonised__search'
-  }
-  %}
+    extra_classes: 'ecl-search-form__button'
+  },
+  extra_attributes: [
+  { name: 'data-ecl-search-form' }
+  ]|merge(search_form.extra_attributes|default({})),
+  extra_classes: 'ecl-site-header-harmonised__search'
+}
+%}
 {% endif %}
 
 {# Merge options #}
