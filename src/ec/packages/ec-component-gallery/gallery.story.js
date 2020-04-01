@@ -67,10 +67,9 @@ const prepareGallery = data => {
       );
     }
   });
-
-  data.selected_item_id = text(
-    'selected_item_id',
-    data.selected_item_id,
+  data.items.selected_item_id = text(
+    'items.selected_item_id',
+    data.items.selected_item_id,
     buttonLabels.optional
   );
   // Overlay knobs.
