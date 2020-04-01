@@ -2,6 +2,9 @@
 
 {#
   Parameters:
+  - title: (string) (default: ''): Title
+  - close: (string) (default: ''): Close button label
+  - back: (string): (default: ''): Back button label
   - "group": (string) (default: 'group1'): 'group1' or 'group2'
   - "icon_path": (string) (default: ''): Path to the icon sprite
   - "items": (associative array) (default: {}): The menu items - format: [
@@ -27,9 +30,7 @@
     },
   }],
   - "site_name": (string) (default: ''): Name of the website
-  - "toggle_label_close": (string) (default: ''): Label of the toggler
-  - "toggle_label_open": (string) (default: ''): Label of the toggler
-  - "toggle_path": (string) (default: ''): Href attribute of the toggler
+  - "menu_link": (string) (default: ''): Href attribute of the menu toggler
   - "extra_classes" (optional) (string) (default: '') Extra classes (space separated) for the nav element
   - "extra_attributes" (optional) (array) (default: []) Extra attributes for the nav element
     - "name" (string) Attribute name, eg. 'data-test'
@@ -38,6 +39,10 @@
 
 {# Internal properties #}
 
+{% set _title = title|default('') %}
+{% set _back = back|default('') %}
+{% set _close = close|default('') %}
+{% set _menu_link = menu_link|default('') %}
 {% set _group = group|default('group1') %}
 {% set _css_class = 'ecl-menu' %}
 {% set _css_class = _css_class ~ ' ' ~ _css_class ~ '--' ~ _group %}
@@ -63,53 +68,88 @@
   aria-expanded="false"
   {{ _extra_attributes|raw }}
 >
-  <div class="ecl-container">
+  <div class="ecl-menu__overlay" data-ecl-menu-overlay></div>
+  <div class="ecl-container ecl-menu__container">
     <a
-      class="ecl-link ecl-link--standalone ecl-menu__toggle"
-      href="{{ toggle_path }}"
-      data-ecl-menu-toggle
+      class="ecl-link ecl-link--standalone ecl-menu__open"
+      href="{{ _menu_link }}"
+      data-ecl-menu-open
     >
-      <div class="ecl-menu__toggle-open">
-        {% include '@ecl-twig/ec-component-icon/ecl-icon.html.twig' with {
-          icon: {
-            size: 's',
-            type: 'general',
-            name: 'hamburger',
-            path: icon_path
-          }
-        } only %}
-        {{- toggle_label_open -}}
-      </div>
-      <div class="ecl-menu__toggle-close">
-        {% include '@ecl-twig/ec-component-icon/ecl-icon.html.twig' with {
-          icon: {
-            size: 's',
-            type: 'ui',
-            name: 'close-filled',
-            path: icon_path
-          }
-        } only %}
-        {{- toggle_label_close -}}
-      </div>
+      {% include '@ecl-twig/ec-component-icon/ecl-icon.html.twig' with {
+        icon: {
+          size: 's',
+          type: 'general',
+          name: 'hamburger',
+          path: icon_path
+        }
+      } only %}
+      {{- title -}}
     </a>
-  {% if _group == 'group1' %}
     <div class="ecl-menu__site-name">{{ site_name }}</div>
-  {% endif %}
-    <ul
-      class="ecl-menu__list"
-      data-ecl-menu-list
-    >
-  {% if items is defined and items is not empty and items is iterable %}
-    {% for item in items %}
-      {% if item is defined and item is not empty %}
-        {% include '@ecl-twig/ec-component-menu/ecl-menu-item.html.twig' with {
-          item: item,
-          icon_path: icon_path,
-        } only %}
+    <section class="ecl-menu__inner" data-ecl-menu-inner>
+      <header class="ecl-menu__inner-header">
+        <button
+          class="ecl-menu__close ecl-button ecl-button--text"
+          type="submit"
+          data-ecl-menu-close
+        ><span class="ecl-menu__close-container ecl-button__container">
+            {% include '@ecl-twig/ec-component-icon/ecl-icon.html.twig' with {
+              icon: {
+                path: icon_path,
+                name: 'close-filled',
+                type: 'ui',
+                size: 's',
+              },
+              extra_classes: 'ecl-button__icon ecl-button__icon--before',
+              extra_attributes: [{ name: 'data-ecl-icon' }]
+            } only %}
+            <span
+              class="ecl-button__label"
+              data-ecl-label="true">
+                {{- _close -}}
+            </span>
+          </span>
+        </button>
+        <div class="ecl-menu__title">{{- _title -}}</div>
+        <button
+          data-ecl-menu-back
+          type="submit"
+          class="ecl-menu__back ecl-button ecl-button--text"
+        >
+          <span class="ecl-button__container">
+            {% include '@ecl-twig/ec-component-icon/ecl-icon.html.twig' with {
+              icon: {
+                path: icon_path,
+                name: 'corner-arrow',
+                type: 'ui',
+                size: 's',
+                transform: 'rotate-270',
+              },
+              extra_classes: 'ecl-button__icon ecl-button__icon--before',
+              extra_attributes: [{ name: 'data-ecl-icon' }]
+            } only %}
+            <span
+              class="ecl-button__label"
+              data-ecl-label
+            >
+              {{- _back -}}
+            </span>
+          </span>
+        </button>
+      </header>
+      <ul class="ecl-menu__list">
+      {% if items is defined and items is not empty and items is iterable %}
+        {% for item in items %}
+        {% if item is defined and item is not empty %}
+          {% include '@ecl-twig/ec-component-menu/ecl-menu-item.html.twig' with {
+            item: item,
+            icon_path: icon_path,
+          } only %}
+        {% endif %}
+        {% endfor %}
       {% endif %}
-    {% endfor %}
-  {% endif %}
-    </ul>
+      </ul>
+    </section>
   </div>
 </nav>
 
