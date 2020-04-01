@@ -11,14 +11,17 @@
       ...
     ]
   - "rows" (array) (default: {}): format: [
+    [
+      "extra_attributes": (string) (default: ''),
+      "extra_classes": (string) (default: ''),
       {
-        "extra_attributes": (string) (default: ''),
-        "extra_classes": (string) (default: ''),
         "label" (string or array of string)
         "data-ecl-table-header" (string) (default: ''),
         "group" (bool) (default: false),
       },
       ...
+    ],
+    ...
     ]
   - "extra_classes" (string) (default: '')
   - "extra_attributes" (array) (default: []): format: [
@@ -38,7 +41,6 @@
 {% set _head_css_class = 'ecl-table__head' %}
 {% set _header_css_class = 'ecl-table__header' %}
 {% set _body_css_class = 'ecl-table__body' %}
-{% set _cell_css_class = 'ecl-table__cell' %}
 {% set _cell_header_group_class = 'ecl-table__cell--group' %}
 {% set _row_css_class = 'ecl-table__row' %}
 {% set _row_extra_attributes = '' %}
@@ -89,9 +91,10 @@
       {% endif %}
       <tr class="{{ _row_css_class }}"{{ _row_extra_attributes }}>
         {% for cell in row %}
+          {% set _cell_css_class = 'ecl-table__cell' %}
           {% set _cell_attribute = cell['data-ecl-table-header'] is not empty ? 'data-ecl-table-header="' ~ cell['data-ecl-table-header'] ~ '"' : '' %}
-          {% if cell.group %}
-            {% set _cell_attribute = _cell_attribute ~ (cell['data-ecl-table-header-group'] is not empty ? ' data-ecl-table-header-group="' ~ cell['data-ecl-table-header-group'] ~ '"' : '') %}
+          {% if cell.group and cell['data-ecl-table-header-group'] is defined and cell['data-ecl-table-header-group'] is not empty %}
+            {% set _cell_attribute = _cell_attribute ~ ' data-ecl-table-header-group="' ~ cell['data-ecl-table-header-group'] ~ '"' %}
             {% set _cell_css_class = _cell_css_class ~ ' ' ~ _cell_header_group_class %}
           {% endif %}
           <td {{ _cell_attribute|raw }} class="{{ _cell_css_class }}" >{{ cell.label|raw }}</td>
