@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/html';
 import { withKnobs, select, text, object } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
-import { getExtraKnobs, buttonLabels } from '@ecl-twig/story-utils';
+import { getExtraKnobs, tabLabels } from '@ecl-twig/story-utils';
 
 import iconPath from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import enData from './demo/data--en';
@@ -12,19 +12,19 @@ import menu from './ecl-menu.html.twig';
 import notes from './README.md';
 
 const prepareMenu = data => {
-  data.title = text('title', data.title, buttonLabels.required);
-  data.close = text('close', data.close, buttonLabels.required);
-  data.back = text('back', data.back, buttonLabels.required);
+  data.title = text('title', data.title, tabLabels.required);
+  data.close = text('close', data.close, tabLabels.required);
+  data.back = text('back', data.back, tabLabels.required);
   data.icon_path = select(
     'icon_path',
     [iconPath],
     iconPath,
-    buttonLabels.required
+    tabLabels.required
   );
 
   getExtraKnobs(data);
 
-  data.items = object('items', data.items, buttonLabels.optional);
+  data.items = object('items', data.items, tabLabels.optional);
 
   return data;
 };

@@ -2,7 +2,7 @@
 import { storiesOf } from '@storybook/html';
 import { withKnobs, text, select } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
-import { getExtraKnobs, buttonLabels } from '@ecl-twig/story-utils';
+import { getExtraKnobs, tabLabels } from '@ecl-twig/story-utils';
 import withCode from '@ecl-twig/storybook-addon-code';
 
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
@@ -13,76 +13,76 @@ import file from './ecl-file.html.twig';
 import notes from './README.md';
 
 const prepareFile = data => {
-  data.title = text('title', data.title, buttonLabels.required);
-  data.language = text('language', data.language, buttonLabels.required);
-  data.meta = text('meta', data.meta, buttonLabels.required);
+  data.title = text('title', data.title, tabLabels.required);
+  data.language = text('language', data.language, tabLabels.required);
+  data.meta = text('meta', data.meta, tabLabels.required);
   data.icon.path = select(
     'icon.path',
     [defaultSprite],
     defaultSprite,
-    buttonLabels.required
+    tabLabels.required
   );
   data.download.link.label = text(
     'download.link.label',
     data.download.link.label,
-    buttonLabels.required
+    tabLabels.required
   );
   data.download.icon.path = select(
     'download.icon.path',
     [defaultSprite],
     defaultSprite,
-    buttonLabels.required
+    tabLabels.required
   );
 
   if (data.translation) {
     data.translation.description = text(
       'translation.description',
       data.translation.description,
-      buttonLabels.optional
+      tabLabels.optional
     );
     data.translation.toggle.label = text(
       'translation.toggle.label',
       data.translation.toggle.label,
-      buttonLabels.required
+      tabLabels.required
     );
     data.translation.toggle.icon.path = select(
       'translation.toggle.icon.path',
       [defaultSprite],
       defaultSprite,
-      buttonLabels.required
+      tabLabels.required
     );
 
     data.translation.items.forEach((item, i) => {
       data.translation.items[i].title = text(
         `data.translation.items[${i}].title`,
         data.translation.items[i].title,
-        buttonLabels.required
+        tabLabels.required
       );
       data.translation.items[i].meta = text(
         `data.translation.items[${i}].meta`,
         data.translation.items[i].meta,
-        buttonLabels.required
+        tabLabels.required
       );
       data.translation.items[i].lang = text(
         `data.translation.items[${i}].lang`,
         data.translation.items[i].lang,
-        buttonLabels.required
+        tabLabels.required
       );
       data.translation.items[i].download.link.label = text(
         `data.translation.items[${i}].download.link.label`,
         data.translation.items[i].download.link.label,
-        buttonLabels.required
+        tabLabels.required
       );
       data.translation.items[i].download.link.path = text(
         `data.translation.items[${i}].download.link.path`,
         data.translation.items[i].download.link.path,
-        buttonLabels.required
+        tabLabels.required
       );
       data.translation.items[i].download.icon.path = select(
         `data.translation.items[${i}].download.icon.path`,
         [defaultSprite],
         defaultSprite,
-        buttonLabels.required
+        tabLabels.required
       );
     });
   }

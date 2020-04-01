@@ -2,7 +2,7 @@
 import { storiesOf } from '@storybook/html';
 import { withKnobs, text, select } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
-import { getExtraKnobs, buttonLabels } from '@ecl-twig/story-utils';
+import { getExtraKnobs, tabLabels } from '@ecl-twig/story-utils';
 import withCode from '@ecl-twig/storybook-addon-code';
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import demoData from './demo/data';
@@ -18,24 +18,20 @@ const prepareAccordion2 = data => {
       `items[${index}].level`,
       levels,
       level,
-      buttonLabels.required
+      tabLabels.required
     );
-    item.id = select(`items[${index}].id`, [id], id, buttonLabels.required);
-    item.content = text(
-      `items[${index}].content`,
-      content,
-      buttonLabels.required
-    );
+    item.id = select(`items[${index}].id`, [id], id, tabLabels.required);
+    item.content = text(`items[${index}].content`, content, tabLabels.required);
     item.toggle.label = text(
       `items[${index}].toggle.label`,
       toggle.label,
-      buttonLabels.required
+      tabLabels.required
     );
     item.toggle.icon.path = select(
       `items[${index}].toggle.icon.path`,
       [defaultSprite],
       defaultSprite,
-      buttonLabels.required
+      tabLabels.required
     );
   });
 

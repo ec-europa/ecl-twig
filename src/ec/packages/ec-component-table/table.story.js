@@ -1,7 +1,7 @@
 /* eslint-disable no-param-reassign */
 import { storiesOf } from '@storybook/html';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
-import { getExtraKnobs, buttonLabels } from '@ecl-twig/story-utils';
+import { getExtraKnobs, tabLabels } from '@ecl-twig/story-utils';
 import withCode from '@ecl-twig/storybook-addon-code';
 import { withKnobs, text, boolean } from '@storybook/addon-knobs';
 
@@ -18,18 +18,18 @@ const prepareTable = (data, attr) => {
   if (attr) {
     defaultAttr = 'data-test data-test-another';
   }
-  data.zebra = boolean('zebra', data.zebra, buttonLabels.cases);
+  data.zebra = boolean('zebra', data.zebra, tabLabels.cases);
   data.headers.forEach((headers, i) => {
     headers.forEach((header, ind) => {
       header.label = text(
         `headers[${i}][${ind}].label`,
         header.label,
-        buttonLabels.required
+        tabLabels.required
       );
       header.colspan = text(
         `headers[${i}][${ind}].colspan`,
         header.colspan,
-        buttonLabels.optional
+        tabLabels.optional
       );
     });
   });
@@ -38,33 +38,33 @@ const prepareTable = (data, attr) => {
     row.extra_classes = text(
       `rows[${i}].extra_classes`,
       row.extra_classes,
-      buttonLabels.optional
+      tabLabels.optional
     );
     row.extra_attributes = text(
       `rows[${i}].extra_attributes`,
       defaultAttr,
-      buttonLabels.optional
+      tabLabels.optional
     );
     row.forEach((cell, ind) => {
       cell.label = text(
         `rows[${i}][${ind}].label`,
         cell.label,
-        buttonLabels.required
+        tabLabels.required
       );
       cell['data-ecl-table-header'] = text(
         `rows[${i}][${ind}]['data-ecl-table-header']`,
         cell['data-ecl-table-header'],
-        buttonLabels.required
+        tabLabels.required
       );
       cell.group = boolean(
         `rows[${i}][${ind}].group`,
         cell.group,
-        buttonLabels.optional
+        tabLabels.optional
       );
       cell['data-ecl-table-header-group'] = text(
         `rows[${i}][${ind}]['data-ecl-table-header-group']`,
         cell['data-ecl-table-header-group'],
-        buttonLabels.optional
+        tabLabels.optional
       );
     });
   });

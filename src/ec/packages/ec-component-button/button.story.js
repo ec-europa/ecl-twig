@@ -3,11 +3,7 @@ import { storiesOf } from '@storybook/html';
 import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
-import {
-  getExtraKnobs,
-  buttonLabels,
-  getIconKnobs,
-} from '@ecl-twig/story-utils';
+import { getExtraKnobs, tabLabels, getIconKnobs } from '@ecl-twig/story-utils';
 // Import data for demos
 import dataPrimary from '@ecl/ec-specs-button/demo/data--primary';
 import dataSecondary from '@ecl/ec-specs-button/demo/data--secondary';
@@ -28,14 +24,14 @@ uiIcons.forEach(icon => {
 
 // Preserve the adapted specs.
 const prepareButton = data => {
-  data.disabled = boolean('disabled', data.disabled, buttonLabels.states);
-  data.label = text('label', data.label, buttonLabels.required);
+  data.disabled = boolean('disabled', data.disabled, tabLabels.states);
+  data.label = text('label', data.label, tabLabels.required);
 
   data.variant = select(
     'variant',
     [data.variant],
     data.variant,
-    buttonLabels.required
+    tabLabels.required
   );
 
   getExtraKnobs(data);
@@ -51,7 +47,7 @@ storiesOf('Components/Button', module)
     'primary',
     () => {
       const data = prepareButton(dataPrimary);
-      const name = select('icon.name', iconsList, null, buttonLabels.optional);
+      const name = select('icon.name', iconsList, null, tabLabels.optional);
       if (name !== null) {
         getIconKnobs(data, name, 'ui', 'xs');
       }
@@ -66,7 +62,7 @@ storiesOf('Components/Button', module)
     'secondary',
     () => {
       const data = prepareButton(dataSecondary);
-      const name = select('icon.name', iconsList, null, buttonLabels.optional);
+      const name = select('icon.name', iconsList, null, tabLabels.optional);
       if (name !== null) {
         getIconKnobs(data, name, 'ui', 'xs');
       }
@@ -85,7 +81,7 @@ storiesOf('Components/Button', module)
         'icon.name',
         iconsList,
         'corner-arrow',
-        buttonLabels.optional
+        tabLabels.optional
       );
       if (name !== null) {
         getIconKnobs(data, name, 'ui', 'xs', 'default', 'rotate-90');
@@ -101,7 +97,7 @@ storiesOf('Components/Button', module)
     'text',
     () => {
       const data = prepareButton(dataGhost);
-      const name = select('icon.name', iconsList, null, buttonLabels.optional);
+      const name = select('icon.name', iconsList, null, tabLabels.optional);
       if (name !== null) {
         getIconKnobs(data, name, 'ui', 'xs');
       }
@@ -116,7 +112,7 @@ storiesOf('Components/Button', module)
     'search',
     () => {
       const data = prepareButton(dataSearch);
-      const name = select('icon.name', iconsList, null, buttonLabels.optional);
+      const name = select('icon.name', iconsList, null, tabLabels.optional);
       if (name !== null) {
         getIconKnobs(data, name, 'ui', 'xs');
       }

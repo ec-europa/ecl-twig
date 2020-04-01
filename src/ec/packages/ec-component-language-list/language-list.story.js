@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/html';
 import { withKnobs, text, select } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
-import { getExtraKnobs, buttonLabels } from '@ecl-twig/story-utils';
+import { getExtraKnobs, tabLabels } from '@ecl-twig/story-utils';
 
 import logoPath from '@ecl/ec-resources-logo/logo--mute.svg';
 import iconPath from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
@@ -17,20 +17,20 @@ const prepareLanguageList = data => {
     'icon_path',
     [iconPath],
     iconPath,
-    buttonLabels.required
+    tabLabels.required
   );
   if (data.logo) {
     data.logo.path = select(
       'logo.path',
       [logoPath],
       logoPath,
-      buttonLabels.required
+      tabLabels.required
     );
     data.logo.alt = select(
       'logo.alt',
       [data.logo.alt],
       data.logo.alt,
-      buttonLabels.required
+      tabLabels.required
     );
   }
   if (data.overlay) {
@@ -38,18 +38,18 @@ const prepareLanguageList = data => {
       'overlay',
       [data.overlay],
       data.overlay,
-      buttonLabels.required
+      tabLabels.required
     );
   }
   if (data.close_label) {
     data.close_label = text(
       'close_label',
       data.close_label,
-      buttonLabels.required
+      tabLabels.required
     );
   }
   if (data.title) {
-    data.title = text('title', data.title, buttonLabels.required);
+    data.title = text('title', data.title, tabLabels.required);
   }
 
   data.items.forEach((item, i) => {
@@ -58,14 +58,14 @@ const prepareLanguageList = data => {
         `items[${i}].label`,
         ['none', item.label],
         item.label,
-        buttonLabels.required
+        tabLabels.required
       );
-      item.path = text(`items[${i}].path`, item.path, buttonLabels.required);
+      item.path = text(`items[${i}].path`, item.path, tabLabels.required);
       item.lang = select(
         `items[${i}].lang`,
         [item.lang],
         item.lang,
-        buttonLabels.required
+        tabLabels.required
       );
     }
 

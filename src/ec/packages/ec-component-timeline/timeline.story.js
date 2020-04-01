@@ -2,7 +2,7 @@
 import { storiesOf } from '@storybook/html';
 import { withKnobs, number, text, select } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
-import { getExtraKnobs, buttonLabels } from '@ecl-twig/story-utils';
+import { getExtraKnobs, tabLabels } from '@ecl-twig/story-utils';
 import he from 'he';
 import withCode from '@ecl-twig/storybook-addon-code';
 
@@ -20,39 +20,34 @@ const prepareTimeline = data => {
   } else {
     hiddenCount = data.items.length + to - from;
   }
-  data.hide.from = number(
-    'hide.from',
-    data.hide.from,
-    {},
-    buttonLabels.required
-  );
-  data.hide.to = number('hide.to', data.hide.to, {}, buttonLabels.required);
+  data.hide.from = number('hide.from', data.hide.from, {}, tabLabels.required);
+  data.hide.to = number('hide.to', data.hide.to, {}, tabLabels.required);
   data.toggle_collapsed = select(
     'toggle_collapsed',
     [`Show ${hiddenCount} more items`],
     `Show ${hiddenCount} more items`,
-    buttonLabels.required
+    tabLabels.required
   );
   data.toggle_expanded = select(
     'toggle_expanded',
     [`Hide ${hiddenCount} items`],
     `Hide ${hiddenCount} items`,
-    buttonLabels.required
+    tabLabels.required
   );
   data.icon_path = select(
     'icon_path',
     [iconPath],
     iconPath,
-    buttonLabels.required
+    tabLabels.required
   );
 
   data.items.forEach((item, index) => {
     const { id, label, title, content } = item;
-    item.id = text(`items[${index}].id`, id, buttonLabels.optional);
-    item.label = text(`items[${index}].label`, label, buttonLabels.required);
-    item.title = text(`items[${index}].title`, title, buttonLabels.optional);
+    item.id = text(`items[${index}].id`, id, tabLabels.optional);
+    item.label = text(`items[${index}].label`, label, tabLabels.required);
+    item.title = text(`items[${index}].title`, title, tabLabels.optional);
     item.content = he.decode(
-      text(`items[${index}].content`, content, buttonLabels.required)
+      text(`items[${index}].content`, content, tabLabels.required)
     );
   });
 

@@ -1,11 +1,7 @@
 import { storiesOf } from '@storybook/html';
 import { withKnobs, select } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
-import {
-  getExtraKnobs,
-  getIconKnobs,
-  buttonLabels,
-} from '@ecl-twig/story-utils';
+import { getExtraKnobs, getIconKnobs, tabLabels } from '@ecl-twig/story-utils';
 import withCode from '@ecl-twig/storybook-addon-code';
 
 import brandedIcons from '@ecl/ec-resources-icons/dist/lists/branded.json';
@@ -38,7 +34,7 @@ storiesOf('Components/Icon', module)
         'icon.name',
         brandedIcons,
         brandedIcons[0],
-        buttonLabels.required
+        tabLabels.required
       );
       const dataStory = prepareIcon(dataBranded, iconName);
 
@@ -55,7 +51,7 @@ storiesOf('Components/Icon', module)
         'icon.name',
         generalIcons,
         generalIcons[0],
-        buttonLabels.required
+        tabLabels.required
       );
       const dataStory = prepareIcon(dataGeneral, iconName);
 
@@ -72,7 +68,7 @@ storiesOf('Components/Icon', module)
         'icon.name',
         notificationsIcons,
         notificationsIcons[0],
-        buttonLabels.required
+        tabLabels.required
       );
       const dataStory = prepareIcon(dataNotifications, iconName);
 
@@ -89,7 +85,7 @@ storiesOf('Components/Icon', module)
         'icon.name',
         uiIcons,
         uiIcons[0],
-        buttonLabels.required
+        tabLabels.required
       );
       const dataStory = prepareIcon(dataUi, iconName);
 

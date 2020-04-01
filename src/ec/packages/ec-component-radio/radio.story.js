@@ -5,7 +5,7 @@ import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import {
   getExtraKnobs,
   getFormKnobs,
-  buttonLabels,
+  tabLabels,
   getFormItemKnobs,
 } from '@ecl-twig/story-utils';
 import withCode from '@ecl-twig/storybook-addon-code';
@@ -41,7 +41,7 @@ storiesOf('Components/Forms/Radio', module)
   .add(
     'binary',
     () => {
-      boolean('binary', true, buttonLabels.states);
+      boolean('binary', true, tabLabels.states);
       const data = prepareRadio(dataBinary);
 
       return radioGroup(data);

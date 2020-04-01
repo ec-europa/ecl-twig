@@ -4,7 +4,7 @@ import { withKnobs, button } from '@storybook/addon-knobs';
 import { loremIpsum } from 'lorem-ipsum';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
-import { buttonLabels } from '@ecl-twig/story-utils';
+import { tabLabels } from '@ecl-twig/story-utils';
 import iconPath from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 
 import demoData from './demo/data';
@@ -82,10 +82,10 @@ storiesOf('Components/Navigation/Inpage navigation', module)
     'default',
     () => {
       // Buttons for the demo.
-      button(btnLeftLabel, btnLeftHandler, buttonLabels.cases);
-      button(btnMainLabel, btnMainHandler, buttonLabels.cases);
-      button(btnIdLabel, btnIdHandler, buttonLabels.cases);
-      button(btnIdRemoveLabel, btnIdRemoveHandler, buttonLabels.cases);
+      button(btnLeftLabel, btnLeftHandler, tabLabels.cases);
+      button(btnMainLabel, btnMainHandler, tabLabels.cases);
+      button(btnIdLabel, btnIdHandler, tabLabels.cases);
+      button(btnIdRemoveLabel, btnIdRemoveHandler, tabLabels.cases);
 
       let pageFillerHtml = '';
       demoData.links.forEach(content => {

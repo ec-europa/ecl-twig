@@ -11,7 +11,7 @@ import {
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import {
   getExtraKnobs,
-  buttonLabels,
+  tabLabels,
   getLogoKnobs,
   getLoginKnobs,
   getLanguageSelectorKnobs,
@@ -70,36 +70,36 @@ const frBtnLangHandler = () => {
 };
 
 const prepareSiteHeaderStandardised = (data, lang) => {
-  data.logged = boolean('logged', data.logged, buttonLabels.states);
+  data.logged = boolean('logged', data.logged, tabLabels.states);
   data.banner_top.link.label = text(
     'banner_top.link.label',
     data.banner_top.link.label,
-    buttonLabels.required
+    tabLabels.required
   );
   data.banner_top.link.path = text(
     'banner_top.link.path',
     data.banner_top.link.path,
-    buttonLabels.required
+    tabLabels.required
   );
   data.icon_file_path = select(
     'icon_file_path',
     [defaultSprite],
     defaultSprite,
-    buttonLabels.required
+    tabLabels.required
   );
   if (lang === 'en') {
     data.logo.src = select(
       'logo.src',
       [englishBanner],
       englishBanner,
-      buttonLabels.required
+      tabLabels.required
     );
   } else {
     data.logo.src = select(
       'logo.src',
       [frenchBanner],
       frenchBanner,
-      buttonLabels.required
+      tabLabels.required
     );
   }
   // Logo knobs
@@ -110,12 +110,12 @@ const prepareSiteHeaderStandardised = (data, lang) => {
   data.search_toggle.label = text(
     'search_toggle.label',
     data.search_toggle.label,
-    buttonLabels.required
+    tabLabels.required
   );
   data.search_toggle.href = text(
     'search_toggle.href',
     data.search_toggle.href,
-    buttonLabels.required
+    tabLabels.required
   );
   // Search form.
   getSearchFormKnobs(data, true);
@@ -126,19 +126,19 @@ const prepareSiteHeaderStandardised = (data, lang) => {
     data.language_selector.overlay = object(
       'language_selector.overlay',
       data.language_selector.overlay,
-      buttonLabels.required
+      tabLabels.required
     );
   }
   // Menu label.
   data.menu_label = text(
     'data.menu_label',
     data.menu_label,
-    buttonLabels.optional
+    tabLabels.optional
   );
   // Extra classes and extra attributes.
   getExtraKnobs(data);
   // Menu.
-  data.menu = object('data.menu', data.menu, buttonLabels.optional);
+  data.menu = object('data.menu', data.menu, tabLabels.optional);
 
   return data;
 };
@@ -150,8 +150,8 @@ storiesOf('Components/Site Headers/Standardised', module)
   .add(
     'default',
     () => {
-      button(btnLangLabel, enBtnLangHandler, buttonLabels.cases);
-      button(btnLoginLabel, enBtnLoginHandler, buttonLabels.cases);
+      button(btnLangLabel, enBtnLangHandler, tabLabels.cases);
+      button(btnLoginLabel, enBtnLoginHandler, tabLabels.cases);
       const dataStory = prepareSiteHeaderStandardised(enData);
 
       return siteHeaderStandardised(dataStory);
@@ -163,7 +163,7 @@ storiesOf('Components/Site Headers/Standardised', module)
   .add(
     'logged in',
     () => {
-      button(btnLangLabel, enBtnLangHandler, buttonLabels.cases);
+      button(btnLangLabel, enBtnLangHandler, tabLabels.cases);
       enData.logged = true;
       const dataStory = prepareSiteHeaderStandardised(enData);
 
@@ -176,8 +176,8 @@ storiesOf('Components/Site Headers/Standardised', module)
   .add(
     'translated',
     () => {
-      button(btnLangLabel, frBtnLangHandler, buttonLabels.cases);
-      button(btnLoginLabel, frBtnLoginHandler, buttonLabels.cases);
+      button(btnLangLabel, frBtnLangHandler, tabLabels.cases);
+      button(btnLoginLabel, frBtnLoginHandler, tabLabels.cases);
       const dataStory = prepareSiteHeaderStandardised(frData);
 
       return siteHeaderStandardised(dataStory);

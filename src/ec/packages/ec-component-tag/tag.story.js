@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/html';
 import { withKnobs, text, select } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
-import { getExtraKnobs, buttonLabels } from '@ecl-twig/story-utils';
+import { getExtraKnobs, tabLabels } from '@ecl-twig/story-utils';
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import dataLink from './demo/data--link';
 import dataButton from './demo/data--button';
@@ -17,17 +17,17 @@ const prepareTag = data => {
     'tag.type',
     [data.tag.type],
     data.tag.type,
-    buttonLabels.required
+    tabLabels.required
   );
-  data.tag.label = text('tag.label', data.tag.label, buttonLabels.required);
+  data.tag.label = text('tag.label', data.tag.label, tabLabels.required);
   if (data.tag.path) {
-    data.tag.path = text('tag.path', data.tag.path, buttonLabels.required);
+    data.tag.path = text('tag.path', data.tag.path, tabLabels.required);
   }
   if (data.tag.aria_label) {
     data.tag.aria_label = text(
       'tag.aria_label',
       data.tag.aria_label,
-      buttonLabels.required
+      tabLabels.required
     );
   }
   if (data.default_icon_path) {
@@ -35,7 +35,7 @@ const prepareTag = data => {
       'default_icon_path',
       [defaultSprite],
       defaultSprite,
-      buttonLabels.required
+      tabLabels.required
     );
   }
   getExtraKnobs(data);
