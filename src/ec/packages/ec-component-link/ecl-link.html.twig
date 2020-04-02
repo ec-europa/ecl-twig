@@ -58,14 +58,22 @@
   {% set _link = _link|merge(link) %}
 {% endif %}
 
-{% set _css_class = ['ecl-link', 'ecl-link--' ~ _link.type]|join(' ') %}
-{% set _extra_attributes = '' %}
-
 {% if icon.name is defined and icon.name is not empty %}
   {% set _icons = [icon] %}
 {% elseif icon[1] is defined and icon[1] is not empty %}
   {% set _icons = icon %}
 {% endif %}
+
+{# compliance #}
+{% if _compliance_ %}
+  {% set _complains = false %}
+  {% if _link.path is empty and _link.label is empty and _icons[0].name is empty %}
+    {% set _complains = true %}
+  {% endif %}
+{% endif %}
+
+{% set _css_class = ['ecl-link', 'ecl-link--' ~ _link.type]|join(' ') %}
+{% set _extra_attributes = '' %}
 
 {% if _icons is defined and _link.icon_position is not empty %}
   {% set _css_class = _css_class ~ ' ecl-link--icon ecl-link--icon-' ~ _link.icon_position %}
@@ -133,3 +141,7 @@
 </a>
 
 {% endspaceless %}
+
+{% if _compliance_ and _complains %}
+  <hr class="not-ecl2-compliant" style="border: 1px solid red;" />
+{% endif %}

@@ -155,14 +155,14 @@ export const getIconKnobs = (
       data.link.icon = icon;
     } else {
       data.icon = icon;
-      if (data.link) {
-        data.icon_position = select(
-          'icon_position',
-          iconPositionSettings,
-          'after',
-          tabLabels.optional
-        );
-      }
+    }
+    if (data.link) {
+      data.link.icon_position = select(
+        'icon_position',
+        iconPositionSettings,
+        'after',
+        tabLabels.optional
+      );
     }
   }
 
