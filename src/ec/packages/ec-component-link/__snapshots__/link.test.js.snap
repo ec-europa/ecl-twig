@@ -248,3 +248,15 @@ exports[`EC - Link With two icons before renders correctly with extra class name
   </span>
 </a>
 `;
+
+exports[`EC - Link with validation enabled and missing input returns the right warning message 1`] = `
+<div
+  class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-red ecl-u-border-style-solid"
+>
+  <p
+    class="ecl-u-type-color-grey ecl-u-ml-xl ecl-u-type-s"
+  >
+        link.label or icon.name cannot be both empty, an unusable link tag would be generated otherwise.  
+  </p>
+</div>
+`;

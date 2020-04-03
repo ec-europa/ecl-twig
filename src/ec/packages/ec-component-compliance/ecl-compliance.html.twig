@@ -11,14 +11,11 @@
 
 {# Rendering #}
 
-<!-- #####################################################################################
-    ecl2-compliance -->
-
 {% if _complaints|length > 10 %}
   <div
     class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-red ecl-u-border-style-solid"
   >
-    <p class="ecl-u-type-color-grey ecl-u-ml-xl ecl-u-type-s">{{ _complaints }}</p>
+    <p class="ecl-u-type-color-grey ecl-u-ml-xl ecl-u-type-s">{{- _complaints -}}</p>
   </div>
 {% else %}
   <hr class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid" />

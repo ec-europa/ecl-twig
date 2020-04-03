@@ -2,6 +2,7 @@ import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 import dataDefault from './demo/data--default';
 import dataCta from './demo/data--cta';
 import dataStandalone from './demo/data--standalone';
+import dataCompliance from './demo/data--compliance';
 
 describe('EC - Link', () => {
   const template = '@ecl-twig/ec-component-link/ecl-link.html.twig';
@@ -204,7 +205,16 @@ describe('EC - Link', () => {
 
     test('renders correctly', () => {
       expect.assertions(1);
+
       return expect(render(options)).resolves.toMatchSnapshot();
+    });
+  });
+
+  describe('with validation enabled and missing input', () => {
+    test('returns the right warning message', () => {
+      expect.assertions(1);
+
+      return expect(render(dataCompliance)).resolves.toMatchSnapshot();
     });
   });
 });
