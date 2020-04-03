@@ -1,4 +1,4 @@
-/* eslint-disable no-param-reassign */
+/* eslint-disable no-param-reassign, dot-notation */
 import he from 'he';
 import { text, select, boolean } from '@storybook/addon-knobs';
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
@@ -9,6 +9,7 @@ export const tabLabels = {
   optional: 'Optional elements',
   states: 'States',
   cases: 'Use cases',
+  checks: 'Validation',
 };
 
 export const getExtraKnobs = data => {
@@ -367,4 +368,14 @@ export const getBrandedIconsOptions = (labels, none, hover) => {
   });
 
   return options;
+};
+
+export const getComplianceKnob = data => {
+  data['_compliance_'] = boolean(
+    '_compliance_',
+    data['_compliance_'],
+    tabLabels.checks
+  );
+
+  return data;
 };

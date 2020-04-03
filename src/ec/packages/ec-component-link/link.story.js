@@ -3,7 +3,12 @@ import { storiesOf } from '@storybook/html';
 import { withKnobs, text, select } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
-import { getExtraKnobs, tabLabels, getIconKnobs } from '@ecl-twig/story-utils';
+import {
+  getExtraKnobs,
+  tabLabels,
+  getIconKnobs,
+  getComplianceKnob,
+} from '@ecl-twig/story-utils';
 
 import uiIcons from '@ecl/ec-resources-icons/dist/lists/ui.json';
 import dataDefault from './demo/data--default';
@@ -13,7 +18,9 @@ import dataStandalone from './demo/data--standalone';
 import link from './ecl-link.html.twig';
 import notes from './README.md';
 
-const iconsList = { none: null };
+const iconsList = {};
+iconsList.none = null;
+
 uiIcons.forEach(icon => {
   iconsList[icon] = icon;
 });
@@ -34,6 +41,8 @@ const prepareLink = data => {
 
   getExtraKnobs(data);
 
+  getComplianceKnob(data);
+
   return data;
 };
 
@@ -49,6 +58,8 @@ storiesOf('Components/Navigation/Link', module)
       const name = select('icon.name', iconsList, null, tabLabels.optional);
       if (name !== null) {
         getIconKnobs(dataStory, name, 'ui', 'xs');
+      } else if (name === null && dataStory.icon) {
+        delete dataStory.icon.name;
       }
 
       const demo = document.createDocumentFragment();
@@ -71,6 +82,8 @@ storiesOf('Components/Navigation/Link', module)
       const name = select('icon.name', iconsList, null, tabLabels.optional);
       if (name !== null) {
         getIconKnobs(dataStory, name, 'ui', 'xs');
+      } else if (name === null && dataStory.icon) {
+        delete dataStory.icon.name;
       }
 
       return link(dataStory);
@@ -89,7 +102,11 @@ storiesOf('Components/Navigation/Link', module)
         'rounded-arrow',
         tabLabels.optional
       );
-      getIconKnobs(dataStory, name, 'ui', 'xs', '', 'rotate-90', true);
+      if (name !== null) {
+        getIconKnobs(dataStory, name, 'ui', 'xs', '', 'rotate-90', true);
+      } else if (name === null && dataStory.icon) {
+        delete dataStory.icon.name;
+      }
 
       return link(dataStory);
     },
@@ -104,6 +121,8 @@ storiesOf('Components/Navigation/Link', module)
       const name = select('icon.name', iconsList, null, tabLabels.optional);
       if (name !== null) {
         getIconKnobs(dataStory, name, 'ui', 'xs');
+      } else if (name === null && dataStory.icon) {
+        delete dataStory.icon.name;
       }
 
       return link(dataStory);

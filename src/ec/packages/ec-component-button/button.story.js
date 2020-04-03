@@ -50,6 +50,8 @@ storiesOf('Components/Button', module)
       const name = select('icon.name', iconsList, null, tabLabels.optional);
       if (name !== null) {
         getIconKnobs(data, name, 'ui', 'xs');
+      } else if (name !== null && data.icon) {
+        delete data.icon.name;
       }
 
       return button(data);
@@ -65,6 +67,8 @@ storiesOf('Components/Button', module)
       const name = select('icon.name', iconsList, null, tabLabels.optional);
       if (name !== null) {
         getIconKnobs(data, name, 'ui', 'xs');
+      } else if (name !== null && data.icon) {
+        delete data.icon.name;
       }
 
       return button(data);
@@ -85,6 +89,8 @@ storiesOf('Components/Button', module)
       );
       if (name !== null) {
         getIconKnobs(data, name, 'ui', 'xs', 'default', 'rotate-90');
+      } else if (name !== null && data.icon) {
+        delete data.icon.name;
       }
 
       return button(data);
@@ -100,6 +106,8 @@ storiesOf('Components/Button', module)
       const name = select('icon.name', iconsList, null, tabLabels.optional);
       if (name !== null) {
         getIconKnobs(data, name, 'ui', 'xs');
+      } else if (name !== null && data.icon) {
+        delete data.icon.name;
       }
 
       return button(data);
@@ -115,6 +123,8 @@ storiesOf('Components/Button', module)
       const name = select('icon.name', iconsList, null, tabLabels.optional);
       if (name !== null) {
         getIconKnobs(data, name, 'ui', 'xs');
+      } else if (name !== null && data.icon) {
+        delete data.icon.name;
       }
 
       return button(data);

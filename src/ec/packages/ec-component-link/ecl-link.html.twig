@@ -64,14 +64,6 @@
   {% set _icons = icon %}
 {% endif %}
 
-{# compliance #}
-{% if _compliance_ %}
-  {% set _complains = false %}
-  {% if _link.path is empty and _link.label is empty and _icons[0].name is empty %}
-    {% set _complains = true %}
-  {% endif %}
-{% endif %}
-
 {% set _css_class = ['ecl-link', 'ecl-link--' ~ _link.type]|join(' ') %}
 {% set _extra_attributes = '' %}
 
@@ -140,8 +132,17 @@
   {% endif %}
 </a>
 
-{% endspaceless %}
-
-{% if _compliance_ and _complains %}
-  <hr class="not-ecl2-compliant" style="border: 1px solid red;" />
+{% if _compliance_ %}
+  {% set _complaints_ %}
+    {% include '@ecl-twig/ec-component-link/compliance/compliance.html.twig' with {
+      link: _link,
+      icons: _icons
+    } only %}
+  {% endset %}
+  {% include '@ecl-twig/ec-component-compliance/ecl-compliance.html.twig' with {
+    complaints: _complaints_,
+    component: 'link',
+  } only %}
 {% endif %}
+
+{% endspaceless %}
