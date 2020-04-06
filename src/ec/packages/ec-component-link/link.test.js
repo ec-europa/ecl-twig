@@ -210,7 +210,7 @@ describe('EC - Link', () => {
     });
   });
 
-  describe('with validation enabled and missing input', () => {
+  describe('with validation enabled and missing input data', () => {
     test('returns the right warning message', () => {
       expect.assertions(1);
 

@@ -1,863 +1,875 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`EC - File With translation renders correctly 1`] = `
-<div
-  class="ecl-file"
-  data-ecl-auto-init="FileDownload"
-  data-ecl-file=""
->
+<test>
   <div
-    class="ecl-file__container"
+    class="ecl-file"
+    data-ecl-auto-init="FileDownload"
+    data-ecl-file=""
   >
-    <svg
-      aria-hidden="true"
-      class="ecl-icon ecl-icon--2xl ecl-file__icon"
-      focusable="false"
-    >
-      <use
-        xlink:href="/icons.svg#general--copy"
-      />
-    </svg>
     <div
-      class="ecl-file__info"
+      class="ecl-file__container"
     >
-      <div
-        class="ecl-file__title"
-      >
-        State of the Union 2018 brochure
-      </div>
-      <div
-        class="ecl-file__language"
-      >
-        English
-      </div>
-      <div
-        class="ecl-file__meta"
-      >
-        (16.2 MB - PDF)
-      </div>
-    </div>
-    <a
-      class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-file__download"
-      download=""
-      href="/example"
-    >
-      <span
-        class="ecl-link__label"
-      >
-        Download
-      </span>
-       
       <svg
         aria-hidden="true"
-        class="ecl-icon ecl-icon--fluid ecl-link__icon"
+        class="ecl-icon ecl-icon--2xl ecl-file__icon"
         focusable="false"
       >
         <use
-          xlink:href="/icons.svg#ui--download"
+          xlink:href="/icons.svg#general--copy"
         />
       </svg>
-    </a>
-  </div>
-  <div
-    class="ecl-file__translation-container"
-    data-ecl-file-translation-container=""
-  >
-    <button
-      class="ecl-button ecl-button--ghost ecl-file__translation-toggle"
-      data-ecl-file-translation-toggle=""
-      type="button"
-    >
-      <span
-        class="ecl-button__container"
+      <div
+        class="ecl-file__info"
+      >
+        <div
+          class="ecl-file__title"
+        >
+          State of the Union 2018 brochure
+        </div>
+        <div
+          class="ecl-file__language"
+        >
+          English
+        </div>
+        <div
+          class="ecl-file__meta"
+        >
+          (16.2 MB - PDF)
+        </div>
+      </div>
+      <a
+        class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-file__download"
+        download=""
+        href="/example"
       >
         <span
-          class="ecl-button__label"
-          data-ecl-label="true"
+          class="ecl-link__label"
         >
-          Other languages (3)
+          Download
         </span>
+         
         <svg
           aria-hidden="true"
-          class="ecl-icon ecl-icon--fluid ecl-icon--rotate-180 ecl-button__icon ecl-button__icon--after"
-          data-ecl-icon=""
+          class="ecl-icon ecl-icon--fluid ecl-link__icon"
           focusable="false"
         >
           <use
-            xlink:href="/icons.svg#ui--corner-arrow"
+            xlink:href="/icons.svg#ui--download"
           />
         </svg>
-      </span>
-    </button>
-    <ul
-      class="ecl-file__translation-list"
+      </a>
+    </div>
+    <div
+      class="ecl-file__translation-container"
+      data-ecl-file-translation-container=""
     >
-      <li
-        class="ecl-file__translation-item"
+      <button
+        class="ecl-button ecl-button--ghost ecl-file__translation-toggle"
+        data-ecl-file-translation-toggle=""
+        type="button"
       >
-        <div
-          class="ecl-file__translation-info"
-        >
-          <div
-            class="ecl-file__translation-title"
-            lang="bg"
-          >
-            български
-          </div>
-          <div
-            class="ecl-file__translation-meta"
-          >
-            (15.7 MB - PDF)
-          </div>
-        </div>
-        <a
-          class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-file__translation-download"
-          download=""
-          href="/example#bg"
-          hreflang="bg"
+        <span
+          class="ecl-button__container"
         >
           <span
-            class="ecl-link__label"
+            class="ecl-button__label"
+            data-ecl-label="true"
           >
-            Download
+            Other languages (3)
           </span>
-           
           <svg
             aria-hidden="true"
-            class="ecl-icon ecl-icon--fluid ecl-link__icon"
+            class="ecl-icon ecl-icon--fluid ecl-icon--rotate-180 ecl-button__icon ecl-button__icon--after"
+            data-ecl-icon=""
             focusable="false"
           >
             <use
-              xlink:href="/icons.svg#ui--download"
+              xlink:href="/icons.svg#ui--corner-arrow"
             />
           </svg>
-        </a>
-      </li>
-      <li
-        class="ecl-file__translation-item"
+        </span>
+      </button>
+      <ul
+        class="ecl-file__translation-list"
       >
-        <div
-          class="ecl-file__translation-info"
+        <li
+          class="ecl-file__translation-item"
         >
           <div
-            class="ecl-file__translation-title"
-            lang="es"
+            class="ecl-file__translation-info"
           >
-            español
+            <div
+              class="ecl-file__translation-title"
+              lang="bg"
+            >
+              български
+            </div>
+            <div
+              class="ecl-file__translation-meta"
+            >
+              (15.7 MB - PDF)
+            </div>
           </div>
-          <div
-            class="ecl-file__translation-meta"
+          <a
+            class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-file__translation-download"
+            download=""
+            href="/example#bg"
+            hreflang="bg"
           >
-            (15.8 MB - PDF)
-          </div>
-        </div>
-        <a
-          class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-file__translation-download"
-          download=""
-          href="/example#es"
-          hreflang="es"
+            <span
+              class="ecl-link__label"
+            >
+              Download
+            </span>
+             
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--fluid ecl-link__icon"
+              focusable="false"
+            >
+              <use
+                xlink:href="/icons.svg#ui--download"
+              />
+            </svg>
+          </a>
+        </li>
+        <li
+          class="ecl-file__translation-item"
         >
-          <span
-            class="ecl-link__label"
+          <div
+            class="ecl-file__translation-info"
           >
-            Download
-          </span>
-           
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--fluid ecl-link__icon"
-            focusable="false"
+            <div
+              class="ecl-file__translation-title"
+              lang="es"
+            >
+              español
+            </div>
+            <div
+              class="ecl-file__translation-meta"
+            >
+              (15.8 MB - PDF)
+            </div>
+          </div>
+          <a
+            class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-file__translation-download"
+            download=""
+            href="/example#es"
+            hreflang="es"
           >
-            <use
-              xlink:href="/icons.svg#ui--download"
-            />
-          </svg>
-        </a>
-      </li>
-      <li
-        class="ecl-file__translation-item"
-      >
-        <div
-          class="ecl-file__translation-info"
+            <span
+              class="ecl-link__label"
+            >
+              Download
+            </span>
+             
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--fluid ecl-link__icon"
+              focusable="false"
+            >
+              <use
+                xlink:href="/icons.svg#ui--download"
+              />
+            </svg>
+          </a>
+        </li>
+        <li
+          class="ecl-file__translation-item"
         >
           <div
-            class="ecl-file__translation-title"
-            lang="fr"
+            class="ecl-file__translation-info"
           >
-            français
+            <div
+              class="ecl-file__translation-title"
+              lang="fr"
+            >
+              français
+            </div>
+            <div
+              class="ecl-file__translation-meta"
+            >
+              (15.4 MB - PDF)
+            </div>
           </div>
-          <div
-            class="ecl-file__translation-meta"
+          <a
+            class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-file__translation-download"
+            download=""
+            href="/example#fr"
+            hreflang="fr"
           >
-            (15.4 MB - PDF)
-          </div>
-        </div>
-        <a
-          class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-file__translation-download"
-          download=""
-          href="/example#fr"
-          hreflang="fr"
+            <span
+              class="ecl-link__label"
+            >
+              Download
+            </span>
+             
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--fluid ecl-link__icon"
+              focusable="false"
+            >
+              <use
+                xlink:href="/icons.svg#ui--download"
+              />
+            </svg>
+          </a>
+        </li>
+        <li
+          class="ecl-file__translation-item ecl-file__translation-description"
         >
-          <span
-            class="ecl-link__label"
-          >
-            Download
-          </span>
-           
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--fluid ecl-link__icon"
-            focusable="false"
-          >
-            <use
-              xlink:href="/icons.svg#ui--download"
-            />
-          </svg>
-        </a>
-      </li>
-      <li
-        class="ecl-file__translation-item ecl-file__translation-description"
-      >
-        Looking for another language which is not on the list? Find out why.
-      </li>
-    </ul>
+          Looking for another language which is not on the list? Find out why.
+        </li>
+      </ul>
+    </div>
   </div>
-</div>
+</test>
 `;
 
 exports[`EC - File With translation renders correctly with extra attributes 1`] = `
-<div
-  class="ecl-file"
-  data-ecl-auto-init="FileDownload"
-  data-ecl-file=""
-  data-test="data-test-value"
-  data-test-1="data-test-value-1"
->
+<test>
   <div
-    class="ecl-file__container"
+    class="ecl-file"
+    data-ecl-auto-init="FileDownload"
+    data-ecl-file=""
+    data-test="data-test-value"
+    data-test-1="data-test-value-1"
   >
-    <svg
-      aria-hidden="true"
-      class="ecl-icon ecl-icon--2xl ecl-file__icon"
-      focusable="false"
-    >
-      <use
-        xlink:href="/icons.svg#general--copy"
-      />
-    </svg>
     <div
-      class="ecl-file__info"
+      class="ecl-file__container"
     >
-      <div
-        class="ecl-file__title"
-      >
-        State of the Union 2018 brochure
-      </div>
-      <div
-        class="ecl-file__language"
-      >
-        English
-      </div>
-      <div
-        class="ecl-file__meta"
-      >
-        (16.2 MB - PDF)
-      </div>
-    </div>
-    <a
-      class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-file__download"
-      download=""
-      href="/example"
-    >
-      <span
-        class="ecl-link__label"
-      >
-        Download
-      </span>
-       
       <svg
         aria-hidden="true"
-        class="ecl-icon ecl-icon--fluid ecl-link__icon"
+        class="ecl-icon ecl-icon--2xl ecl-file__icon"
         focusable="false"
       >
         <use
-          xlink:href="/icons.svg#ui--download"
+          xlink:href="/icons.svg#general--copy"
         />
       </svg>
-    </a>
-  </div>
-  <div
-    class="ecl-file__translation-container"
-    data-ecl-file-translation-container=""
-  >
-    <button
-      class="ecl-button ecl-button--ghost ecl-file__translation-toggle"
-      data-ecl-file-translation-toggle=""
-      type="button"
-    >
-      <span
-        class="ecl-button__container"
+      <div
+        class="ecl-file__info"
+      >
+        <div
+          class="ecl-file__title"
+        >
+          State of the Union 2018 brochure
+        </div>
+        <div
+          class="ecl-file__language"
+        >
+          English
+        </div>
+        <div
+          class="ecl-file__meta"
+        >
+          (16.2 MB - PDF)
+        </div>
+      </div>
+      <a
+        class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-file__download"
+        download=""
+        href="/example"
       >
         <span
-          class="ecl-button__label"
-          data-ecl-label="true"
+          class="ecl-link__label"
         >
-          Other languages (3)
+          Download
         </span>
+         
         <svg
           aria-hidden="true"
-          class="ecl-icon ecl-icon--fluid ecl-icon--rotate-180 ecl-button__icon ecl-button__icon--after"
-          data-ecl-icon=""
+          class="ecl-icon ecl-icon--fluid ecl-link__icon"
           focusable="false"
         >
           <use
-            xlink:href="/icons.svg#ui--corner-arrow"
+            xlink:href="/icons.svg#ui--download"
           />
         </svg>
-      </span>
-    </button>
-    <ul
-      class="ecl-file__translation-list"
+      </a>
+    </div>
+    <div
+      class="ecl-file__translation-container"
+      data-ecl-file-translation-container=""
     >
-      <li
-        class="ecl-file__translation-item"
+      <button
+        class="ecl-button ecl-button--ghost ecl-file__translation-toggle"
+        data-ecl-file-translation-toggle=""
+        type="button"
       >
-        <div
-          class="ecl-file__translation-info"
-        >
-          <div
-            class="ecl-file__translation-title"
-            lang="bg"
-          >
-            български
-          </div>
-          <div
-            class="ecl-file__translation-meta"
-          >
-            (15.7 MB - PDF)
-          </div>
-        </div>
-        <a
-          class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-file__translation-download"
-          download=""
-          href="/example#bg"
-          hreflang="bg"
+        <span
+          class="ecl-button__container"
         >
           <span
-            class="ecl-link__label"
+            class="ecl-button__label"
+            data-ecl-label="true"
           >
-            Download
+            Other languages (3)
           </span>
-           
           <svg
             aria-hidden="true"
-            class="ecl-icon ecl-icon--fluid ecl-link__icon"
+            class="ecl-icon ecl-icon--fluid ecl-icon--rotate-180 ecl-button__icon ecl-button__icon--after"
+            data-ecl-icon=""
             focusable="false"
           >
             <use
-              xlink:href="/icons.svg#ui--download"
+              xlink:href="/icons.svg#ui--corner-arrow"
             />
           </svg>
-        </a>
-      </li>
-      <li
-        class="ecl-file__translation-item"
+        </span>
+      </button>
+      <ul
+        class="ecl-file__translation-list"
       >
-        <div
-          class="ecl-file__translation-info"
+        <li
+          class="ecl-file__translation-item"
         >
           <div
-            class="ecl-file__translation-title"
-            lang="es"
+            class="ecl-file__translation-info"
           >
-            español
+            <div
+              class="ecl-file__translation-title"
+              lang="bg"
+            >
+              български
+            </div>
+            <div
+              class="ecl-file__translation-meta"
+            >
+              (15.7 MB - PDF)
+            </div>
           </div>
-          <div
-            class="ecl-file__translation-meta"
+          <a
+            class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-file__translation-download"
+            download=""
+            href="/example#bg"
+            hreflang="bg"
           >
-            (15.8 MB - PDF)
-          </div>
-        </div>
-        <a
-          class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-file__translation-download"
-          download=""
-          href="/example#es"
-          hreflang="es"
+            <span
+              class="ecl-link__label"
+            >
+              Download
+            </span>
+             
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--fluid ecl-link__icon"
+              focusable="false"
+            >
+              <use
+                xlink:href="/icons.svg#ui--download"
+              />
+            </svg>
+          </a>
+        </li>
+        <li
+          class="ecl-file__translation-item"
         >
-          <span
-            class="ecl-link__label"
+          <div
+            class="ecl-file__translation-info"
           >
-            Download
-          </span>
-           
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--fluid ecl-link__icon"
-            focusable="false"
+            <div
+              class="ecl-file__translation-title"
+              lang="es"
+            >
+              español
+            </div>
+            <div
+              class="ecl-file__translation-meta"
+            >
+              (15.8 MB - PDF)
+            </div>
+          </div>
+          <a
+            class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-file__translation-download"
+            download=""
+            href="/example#es"
+            hreflang="es"
           >
-            <use
-              xlink:href="/icons.svg#ui--download"
-            />
-          </svg>
-        </a>
-      </li>
-      <li
-        class="ecl-file__translation-item"
-      >
-        <div
-          class="ecl-file__translation-info"
+            <span
+              class="ecl-link__label"
+            >
+              Download
+            </span>
+             
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--fluid ecl-link__icon"
+              focusable="false"
+            >
+              <use
+                xlink:href="/icons.svg#ui--download"
+              />
+            </svg>
+          </a>
+        </li>
+        <li
+          class="ecl-file__translation-item"
         >
           <div
-            class="ecl-file__translation-title"
-            lang="fr"
+            class="ecl-file__translation-info"
           >
-            français
+            <div
+              class="ecl-file__translation-title"
+              lang="fr"
+            >
+              français
+            </div>
+            <div
+              class="ecl-file__translation-meta"
+            >
+              (15.4 MB - PDF)
+            </div>
           </div>
-          <div
-            class="ecl-file__translation-meta"
+          <a
+            class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-file__translation-download"
+            download=""
+            href="/example#fr"
+            hreflang="fr"
           >
-            (15.4 MB - PDF)
-          </div>
-        </div>
-        <a
-          class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-file__translation-download"
-          download=""
-          href="/example#fr"
-          hreflang="fr"
+            <span
+              class="ecl-link__label"
+            >
+              Download
+            </span>
+             
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--fluid ecl-link__icon"
+              focusable="false"
+            >
+              <use
+                xlink:href="/icons.svg#ui--download"
+              />
+            </svg>
+          </a>
+        </li>
+        <li
+          class="ecl-file__translation-item ecl-file__translation-description"
         >
-          <span
-            class="ecl-link__label"
-          >
-            Download
-          </span>
-           
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--fluid ecl-link__icon"
-            focusable="false"
-          >
-            <use
-              xlink:href="/icons.svg#ui--download"
-            />
-          </svg>
-        </a>
-      </li>
-      <li
-        class="ecl-file__translation-item ecl-file__translation-description"
-      >
-        Looking for another language which is not on the list? Find out why.
-      </li>
-    </ul>
+          Looking for another language which is not on the list? Find out why.
+        </li>
+      </ul>
+    </div>
   </div>
-</div>
+</test>
 `;
 
 exports[`EC - File With translation renders correctly with extra class names 1`] = `
-<div
-  class="ecl-file custom-class custom-class--test"
-  data-ecl-auto-init="FileDownload"
-  data-ecl-file=""
->
+<test>
   <div
-    class="ecl-file__container"
+    class="ecl-file custom-class custom-class--test"
+    data-ecl-auto-init="FileDownload"
+    data-ecl-file=""
   >
-    <svg
-      aria-hidden="true"
-      class="ecl-icon ecl-icon--2xl ecl-file__icon"
-      focusable="false"
-    >
-      <use
-        xlink:href="/icons.svg#general--copy"
-      />
-    </svg>
     <div
-      class="ecl-file__info"
+      class="ecl-file__container"
     >
-      <div
-        class="ecl-file__title"
-      >
-        State of the Union 2018 brochure
-      </div>
-      <div
-        class="ecl-file__language"
-      >
-        English
-      </div>
-      <div
-        class="ecl-file__meta"
-      >
-        (16.2 MB - PDF)
-      </div>
-    </div>
-    <a
-      class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-file__download"
-      download=""
-      href="/example"
-    >
-      <span
-        class="ecl-link__label"
-      >
-        Download
-      </span>
-       
       <svg
         aria-hidden="true"
-        class="ecl-icon ecl-icon--fluid ecl-link__icon"
+        class="ecl-icon ecl-icon--2xl ecl-file__icon"
         focusable="false"
       >
         <use
-          xlink:href="/icons.svg#ui--download"
+          xlink:href="/icons.svg#general--copy"
         />
       </svg>
-    </a>
-  </div>
-  <div
-    class="ecl-file__translation-container"
-    data-ecl-file-translation-container=""
-  >
-    <button
-      class="ecl-button ecl-button--ghost ecl-file__translation-toggle"
-      data-ecl-file-translation-toggle=""
-      type="button"
-    >
-      <span
-        class="ecl-button__container"
+      <div
+        class="ecl-file__info"
+      >
+        <div
+          class="ecl-file__title"
+        >
+          State of the Union 2018 brochure
+        </div>
+        <div
+          class="ecl-file__language"
+        >
+          English
+        </div>
+        <div
+          class="ecl-file__meta"
+        >
+          (16.2 MB - PDF)
+        </div>
+      </div>
+      <a
+        class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-file__download"
+        download=""
+        href="/example"
       >
         <span
-          class="ecl-button__label"
-          data-ecl-label="true"
+          class="ecl-link__label"
         >
-          Other languages (3)
+          Download
         </span>
+         
         <svg
           aria-hidden="true"
-          class="ecl-icon ecl-icon--fluid ecl-icon--rotate-180 ecl-button__icon ecl-button__icon--after"
-          data-ecl-icon=""
+          class="ecl-icon ecl-icon--fluid ecl-link__icon"
           focusable="false"
         >
           <use
-            xlink:href="/icons.svg#ui--corner-arrow"
+            xlink:href="/icons.svg#ui--download"
           />
         </svg>
-      </span>
-    </button>
-    <ul
-      class="ecl-file__translation-list"
+      </a>
+    </div>
+    <div
+      class="ecl-file__translation-container"
+      data-ecl-file-translation-container=""
     >
-      <li
-        class="ecl-file__translation-item"
+      <button
+        class="ecl-button ecl-button--ghost ecl-file__translation-toggle"
+        data-ecl-file-translation-toggle=""
+        type="button"
       >
-        <div
-          class="ecl-file__translation-info"
-        >
-          <div
-            class="ecl-file__translation-title"
-            lang="bg"
-          >
-            български
-          </div>
-          <div
-            class="ecl-file__translation-meta"
-          >
-            (15.7 MB - PDF)
-          </div>
-        </div>
-        <a
-          class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-file__translation-download"
-          download=""
-          href="/example#bg"
-          hreflang="bg"
+        <span
+          class="ecl-button__container"
         >
           <span
-            class="ecl-link__label"
+            class="ecl-button__label"
+            data-ecl-label="true"
           >
-            Download
+            Other languages (3)
           </span>
-           
           <svg
             aria-hidden="true"
-            class="ecl-icon ecl-icon--fluid ecl-link__icon"
+            class="ecl-icon ecl-icon--fluid ecl-icon--rotate-180 ecl-button__icon ecl-button__icon--after"
+            data-ecl-icon=""
             focusable="false"
           >
             <use
-              xlink:href="/icons.svg#ui--download"
+              xlink:href="/icons.svg#ui--corner-arrow"
             />
           </svg>
-        </a>
-      </li>
-      <li
-        class="ecl-file__translation-item"
+        </span>
+      </button>
+      <ul
+        class="ecl-file__translation-list"
       >
-        <div
-          class="ecl-file__translation-info"
+        <li
+          class="ecl-file__translation-item"
         >
           <div
-            class="ecl-file__translation-title"
-            lang="es"
+            class="ecl-file__translation-info"
           >
-            español
+            <div
+              class="ecl-file__translation-title"
+              lang="bg"
+            >
+              български
+            </div>
+            <div
+              class="ecl-file__translation-meta"
+            >
+              (15.7 MB - PDF)
+            </div>
           </div>
-          <div
-            class="ecl-file__translation-meta"
+          <a
+            class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-file__translation-download"
+            download=""
+            href="/example#bg"
+            hreflang="bg"
           >
-            (15.8 MB - PDF)
-          </div>
-        </div>
-        <a
-          class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-file__translation-download"
-          download=""
-          href="/example#es"
-          hreflang="es"
+            <span
+              class="ecl-link__label"
+            >
+              Download
+            </span>
+             
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--fluid ecl-link__icon"
+              focusable="false"
+            >
+              <use
+                xlink:href="/icons.svg#ui--download"
+              />
+            </svg>
+          </a>
+        </li>
+        <li
+          class="ecl-file__translation-item"
         >
-          <span
-            class="ecl-link__label"
+          <div
+            class="ecl-file__translation-info"
           >
-            Download
-          </span>
-           
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--fluid ecl-link__icon"
-            focusable="false"
+            <div
+              class="ecl-file__translation-title"
+              lang="es"
+            >
+              español
+            </div>
+            <div
+              class="ecl-file__translation-meta"
+            >
+              (15.8 MB - PDF)
+            </div>
+          </div>
+          <a
+            class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-file__translation-download"
+            download=""
+            href="/example#es"
+            hreflang="es"
           >
-            <use
-              xlink:href="/icons.svg#ui--download"
-            />
-          </svg>
-        </a>
-      </li>
-      <li
-        class="ecl-file__translation-item"
-      >
-        <div
-          class="ecl-file__translation-info"
+            <span
+              class="ecl-link__label"
+            >
+              Download
+            </span>
+             
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--fluid ecl-link__icon"
+              focusable="false"
+            >
+              <use
+                xlink:href="/icons.svg#ui--download"
+              />
+            </svg>
+          </a>
+        </li>
+        <li
+          class="ecl-file__translation-item"
         >
           <div
-            class="ecl-file__translation-title"
-            lang="fr"
+            class="ecl-file__translation-info"
           >
-            français
+            <div
+              class="ecl-file__translation-title"
+              lang="fr"
+            >
+              français
+            </div>
+            <div
+              class="ecl-file__translation-meta"
+            >
+              (15.4 MB - PDF)
+            </div>
           </div>
-          <div
-            class="ecl-file__translation-meta"
+          <a
+            class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-file__translation-download"
+            download=""
+            href="/example#fr"
+            hreflang="fr"
           >
-            (15.4 MB - PDF)
-          </div>
-        </div>
-        <a
-          class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-file__translation-download"
-          download=""
-          href="/example#fr"
-          hreflang="fr"
+            <span
+              class="ecl-link__label"
+            >
+              Download
+            </span>
+             
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--fluid ecl-link__icon"
+              focusable="false"
+            >
+              <use
+                xlink:href="/icons.svg#ui--download"
+              />
+            </svg>
+          </a>
+        </li>
+        <li
+          class="ecl-file__translation-item ecl-file__translation-description"
         >
-          <span
-            class="ecl-link__label"
-          >
-            Download
-          </span>
-           
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--fluid ecl-link__icon"
-            focusable="false"
-          >
-            <use
-              xlink:href="/icons.svg#ui--download"
-            />
-          </svg>
-        </a>
-      </li>
-      <li
-        class="ecl-file__translation-item ecl-file__translation-description"
-      >
-        Looking for another language which is not on the list? Find out why.
-      </li>
-    </ul>
+          Looking for another language which is not on the list? Find out why.
+        </li>
+      </ul>
+    </div>
   </div>
-</div>
+</test>
 `;
 
 exports[`EC - File Without translation renders correctly 1`] = `
-<div
-  class="ecl-file"
-  data-ecl-file=""
->
+<test>
   <div
-    class="ecl-file__container"
+    class="ecl-file"
+    data-ecl-file=""
   >
-    <svg
-      aria-hidden="true"
-      class="ecl-icon ecl-icon--2xl ecl-file__icon"
-      focusable="false"
-    >
-      <use
-        xlink:href="/icons.svg#general--copy"
-      />
-    </svg>
     <div
-      class="ecl-file__info"
+      class="ecl-file__container"
     >
-      <div
-        class="ecl-file__title"
-      >
-        State of the Union 2018 brochure
-      </div>
-      <div
-        class="ecl-file__language"
-      >
-        English
-      </div>
-      <div
-        class="ecl-file__meta"
-      >
-        (16.2 MB - PDF)
-      </div>
-    </div>
-    <a
-      class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-file__download"
-      download=""
-      href="/example"
-    >
-      <span
-        class="ecl-link__label"
-      >
-        Download
-      </span>
-       
       <svg
         aria-hidden="true"
-        class="ecl-icon ecl-icon--fluid ecl-link__icon"
+        class="ecl-icon ecl-icon--2xl ecl-file__icon"
         focusable="false"
       >
         <use
-          xlink:href="/icons.svg#ui--download"
+          xlink:href="/icons.svg#general--copy"
         />
       </svg>
-    </a>
+      <div
+        class="ecl-file__info"
+      >
+        <div
+          class="ecl-file__title"
+        >
+          State of the Union 2018 brochure
+        </div>
+        <div
+          class="ecl-file__language"
+        >
+          English
+        </div>
+        <div
+          class="ecl-file__meta"
+        >
+          (16.2 MB - PDF)
+        </div>
+      </div>
+      <a
+        class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-file__download"
+        download=""
+        href="/example"
+      >
+        <span
+          class="ecl-link__label"
+        >
+          Download
+        </span>
+         
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--fluid ecl-link__icon"
+          focusable="false"
+        >
+          <use
+            xlink:href="/icons.svg#ui--download"
+          />
+        </svg>
+      </a>
+    </div>
   </div>
-</div>
+</test>
 `;
 
 exports[`EC - File Without translation renders correctly with extra attributes 1`] = `
-<div
-  class="ecl-file"
-  data-ecl-file=""
-  data-test="data-test-value"
-  data-test-1="data-test-value-1"
->
+<test>
   <div
-    class="ecl-file__container"
+    class="ecl-file"
+    data-ecl-file=""
+    data-test="data-test-value"
+    data-test-1="data-test-value-1"
   >
-    <svg
-      aria-hidden="true"
-      class="ecl-icon ecl-icon--2xl ecl-file__icon"
-      focusable="false"
-    >
-      <use
-        xlink:href="/icons.svg#general--copy"
-      />
-    </svg>
     <div
-      class="ecl-file__info"
+      class="ecl-file__container"
     >
-      <div
-        class="ecl-file__title"
-      >
-        State of the Union 2018 brochure
-      </div>
-      <div
-        class="ecl-file__language"
-      >
-        English
-      </div>
-      <div
-        class="ecl-file__meta"
-      >
-        (16.2 MB - PDF)
-      </div>
-    </div>
-    <a
-      class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-file__download"
-      download=""
-      href="/example"
-    >
-      <span
-        class="ecl-link__label"
-      >
-        Download
-      </span>
-       
       <svg
         aria-hidden="true"
-        class="ecl-icon ecl-icon--fluid ecl-link__icon"
+        class="ecl-icon ecl-icon--2xl ecl-file__icon"
         focusable="false"
       >
         <use
-          xlink:href="/icons.svg#ui--download"
+          xlink:href="/icons.svg#general--copy"
         />
       </svg>
-    </a>
+      <div
+        class="ecl-file__info"
+      >
+        <div
+          class="ecl-file__title"
+        >
+          State of the Union 2018 brochure
+        </div>
+        <div
+          class="ecl-file__language"
+        >
+          English
+        </div>
+        <div
+          class="ecl-file__meta"
+        >
+          (16.2 MB - PDF)
+        </div>
+      </div>
+      <a
+        class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-file__download"
+        download=""
+        href="/example"
+      >
+        <span
+          class="ecl-link__label"
+        >
+          Download
+        </span>
+         
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--fluid ecl-link__icon"
+          focusable="false"
+        >
+          <use
+            xlink:href="/icons.svg#ui--download"
+          />
+        </svg>
+      </a>
+    </div>
   </div>
-</div>
+</test>
 `;
 
 exports[`EC - File Without translation renders correctly with extra class names 1`] = `
-<div
-  class="ecl-file custom-class custom-class--test"
-  data-ecl-file=""
->
+<test>
   <div
-    class="ecl-file__container"
+    class="ecl-file custom-class custom-class--test"
+    data-ecl-file=""
   >
-    <svg
-      aria-hidden="true"
-      class="ecl-icon ecl-icon--2xl ecl-file__icon"
-      focusable="false"
-    >
-      <use
-        xlink:href="/icons.svg#general--copy"
-      />
-    </svg>
     <div
-      class="ecl-file__info"
+      class="ecl-file__container"
     >
-      <div
-        class="ecl-file__title"
-      >
-        State of the Union 2018 brochure
-      </div>
-      <div
-        class="ecl-file__language"
-      >
-        English
-      </div>
-      <div
-        class="ecl-file__meta"
-      >
-        (16.2 MB - PDF)
-      </div>
-    </div>
-    <a
-      class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-file__download"
-      download=""
-      href="/example"
-    >
-      <span
-        class="ecl-link__label"
-      >
-        Download
-      </span>
-       
       <svg
         aria-hidden="true"
-        class="ecl-icon ecl-icon--fluid ecl-link__icon"
+        class="ecl-icon ecl-icon--2xl ecl-file__icon"
         focusable="false"
       >
         <use
-          xlink:href="/icons.svg#ui--download"
+          xlink:href="/icons.svg#general--copy"
         />
       </svg>
-    </a>
+      <div
+        class="ecl-file__info"
+      >
+        <div
+          class="ecl-file__title"
+        >
+          State of the Union 2018 brochure
+        </div>
+        <div
+          class="ecl-file__language"
+        >
+          English
+        </div>
+        <div
+          class="ecl-file__meta"
+        >
+          (16.2 MB - PDF)
+        </div>
+      </div>
+      <a
+        class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-file__download"
+        download=""
+        href="/example"
+      >
+        <span
+          class="ecl-link__label"
+        >
+          Download
+        </span>
+         
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--fluid ecl-link__icon"
+          focusable="false"
+        >
+          <use
+            xlink:href="/icons.svg#ui--download"
+          />
+        </svg>
+      </a>
+    </div>
   </div>
-</div>
+</test>
 `;

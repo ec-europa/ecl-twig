@@ -71,20 +71,6 @@
   {% set _css_class = _css_class ~ ' ecl-link--icon ecl-link--icon-' ~ _link.icon_position %}
 {% endif %}
 
-{# Validation #}
-
-{% if _compliance_ %}
-  {% set _complaints_ %}
-    {% include '@ecl-twig/ec-component-link/compliance/ecl-link-compliance.html.twig' with {
-      link: _link,
-      icons: _icons
-    } only %}
-  {% endset %}
-  {% include '@ecl-twig/ec-component-compliance/ecl-compliance.html.twig' with {
-    complaints: _complaints_
-  } only %}
-{% endif %}
-
 {# Internal logic - Process properties #}
 
 {% if extra_classes is defined and extra_classes is not empty %}
@@ -145,5 +131,19 @@
     {{- _link.label -}}
   {% endif %}
 </a>
+
+{# Validation #}
+
+{% if _compliance_ %}
+  {% set _complaints_ %}
+    {% include '@ecl-twig/ec-component-link/compliance/ecl-link-compliance.html.twig' with {
+      link: _link,
+      icons: _icons
+    } only %}
+  {% endset %}
+  {% include '@ecl-twig/ec-component-compliance/ecl-compliance.html.twig' with {
+    complaints: _complaints_
+  } only %}
+{% endif %}
 
 {% endspaceless %}

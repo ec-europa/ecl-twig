@@ -1,432 +1,444 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`EC - Select Default renders correctly 1`] = `
-<div
-  class="ecl-form-group ecl-form-group--select"
->
-  <label
-    class="ecl-form-label"
-    for="select-id"
-  >
-    Select a country
-    <span
-      class="ecl-form-label__optional"
-    >
-       (optional)
-    </span>
-  </label>
+<test>
   <div
-    class="ecl-help-block"
+    class="ecl-form-group ecl-form-group--select"
   >
-    This is the input's helper text.
-  </div>
-  <div
-    class="ecl-select__container ecl-select__container--m"
-  >
-    <select
-      class="ecl-select"
-      id="select-id"
+    <label
+      class="ecl-form-label"
+      for="select-id"
     >
-      <option
-        value="1"
+      Select a country
+      <span
+        class="ecl-form-label__optional"
       >
-        Belgium
-      </option>
-      <option
-        value="2"
-      >
-        France
-      </option>
-      <option
-        value="3"
-      >
-        Luxembourg
-      </option>
-      <option
-        value="4"
-      >
-        Germany
-      </option>
-      <option
-        value="5"
-      >
-        Bulgaria
-      </option>
-    </select>
+         (optional)
+      </span>
+    </label>
     <div
-      class="ecl-select__icon"
+      class="ecl-help-block"
     >
-      <svg
-        aria-hidden="true"
-        class="ecl-icon ecl-icon--s ecl-icon--rotate-180 ecl-select__icon-shape"
-        focusable="false"
+      This is the input's helper text.
+    </div>
+    <div
+      class="ecl-select__container ecl-select__container--m"
+    >
+      <select
+        class="ecl-select"
+        id="select-id"
       >
-        <use
-          xlink:href="/icons.svg#ui--corner-arrow"
-        />
-      </svg>
+        <option
+          value="1"
+        >
+          Belgium
+        </option>
+        <option
+          value="2"
+        >
+          France
+        </option>
+        <option
+          value="3"
+        >
+          Luxembourg
+        </option>
+        <option
+          value="4"
+        >
+          Germany
+        </option>
+        <option
+          value="5"
+        >
+          Bulgaria
+        </option>
+      </select>
+      <div
+        class="ecl-select__icon"
+      >
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--s ecl-icon--rotate-180 ecl-select__icon-shape"
+          focusable="false"
+        >
+          <use
+            xlink:href="/icons.svg#ui--corner-arrow"
+          />
+        </svg>
+      </div>
     </div>
   </div>
-</div>
+</test>
 `;
 
 exports[`EC - Select Default renders correctly with extra attributes 1`] = `
-<div
-  class="ecl-form-group ecl-form-group--select"
->
-  <label
-    class="ecl-form-label"
-    for="select-id"
-  >
-    Select a country
-    <span
-      class="ecl-form-label__required"
-    >
-      *
-    </span>
-  </label>
+<test>
   <div
-    class="ecl-help-block"
+    class="ecl-form-group ecl-form-group--select"
   >
-    This is the input's helper text.
-  </div>
-  <div
-    class="ecl-select__container ecl-select__container--m"
-  >
-    <select
-      class="ecl-select"
-      data-test="data-test-value"
-      data-test-1="data-test-value-1"
-      id="select-id"
-      required=""
+    <label
+      class="ecl-form-label"
+      for="select-id"
     >
-      <option
-        value="1"
+      Select a country
+      <span
+        class="ecl-form-label__required"
       >
-        Belgium
-      </option>
-      <option
-        value="2"
-      >
-        France
-      </option>
-      <option
-        value="3"
-      >
-        Luxembourg
-      </option>
-      <option
-        value="4"
-      >
-        Germany
-      </option>
-      <option
-        value="5"
-      >
-        Bulgaria
-      </option>
-    </select>
+        *
+      </span>
+    </label>
     <div
-      class="ecl-select__icon"
+      class="ecl-help-block"
     >
-      <svg
-        aria-hidden="true"
-        class="ecl-icon ecl-icon--s ecl-icon--rotate-180 ecl-select__icon-shape"
-        focusable="false"
+      This is the input's helper text.
+    </div>
+    <div
+      class="ecl-select__container ecl-select__container--m"
+    >
+      <select
+        class="ecl-select"
+        data-test="data-test-value"
+        data-test-1="data-test-value-1"
+        id="select-id"
+        required=""
       >
-        <use
-          xlink:href="/icons.svg#ui--corner-arrow"
-        />
-      </svg>
+        <option
+          value="1"
+        >
+          Belgium
+        </option>
+        <option
+          value="2"
+        >
+          France
+        </option>
+        <option
+          value="3"
+        >
+          Luxembourg
+        </option>
+        <option
+          value="4"
+        >
+          Germany
+        </option>
+        <option
+          value="5"
+        >
+          Bulgaria
+        </option>
+      </select>
+      <div
+        class="ecl-select__icon"
+      >
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--s ecl-icon--rotate-180 ecl-select__icon-shape"
+          focusable="false"
+        >
+          <use
+            xlink:href="/icons.svg#ui--corner-arrow"
+          />
+        </svg>
+      </div>
     </div>
   </div>
-</div>
+</test>
 `;
 
 exports[`EC - Select Default renders correctly with extra class names 1`] = `
-<div
-  class="ecl-form-group ecl-form-group--select"
->
-  <label
-    class="ecl-form-label"
-    for="select-id"
-  >
-    Select a country
-    <span
-      class="ecl-form-label__required"
-    >
-      *
-    </span>
-  </label>
+<test>
   <div
-    class="ecl-help-block"
+    class="ecl-form-group ecl-form-group--select"
   >
-    This is the input's helper text.
-  </div>
-  <div
-    class="ecl-select__container ecl-select__container--m"
-  >
-    <select
-      class="ecl-select custom-class custom-class--test"
-      id="select-id"
-      required=""
+    <label
+      class="ecl-form-label"
+      for="select-id"
     >
-      <option
-        value="1"
+      Select a country
+      <span
+        class="ecl-form-label__required"
       >
-        Belgium
-      </option>
-      <option
-        value="2"
-      >
-        France
-      </option>
-      <option
-        value="3"
-      >
-        Luxembourg
-      </option>
-      <option
-        value="4"
-      >
-        Germany
-      </option>
-      <option
-        value="5"
-      >
-        Bulgaria
-      </option>
-    </select>
+        *
+      </span>
+    </label>
     <div
-      class="ecl-select__icon"
+      class="ecl-help-block"
     >
-      <svg
-        aria-hidden="true"
-        class="ecl-icon ecl-icon--s ecl-icon--rotate-180 ecl-select__icon-shape"
-        focusable="false"
+      This is the input's helper text.
+    </div>
+    <div
+      class="ecl-select__container ecl-select__container--m"
+    >
+      <select
+        class="ecl-select custom-class custom-class--test"
+        id="select-id"
+        required=""
       >
-        <use
-          xlink:href="/icons.svg#ui--corner-arrow"
-        />
-      </svg>
+        <option
+          value="1"
+        >
+          Belgium
+        </option>
+        <option
+          value="2"
+        >
+          France
+        </option>
+        <option
+          value="3"
+        >
+          Luxembourg
+        </option>
+        <option
+          value="4"
+        >
+          Germany
+        </option>
+        <option
+          value="5"
+        >
+          Bulgaria
+        </option>
+      </select>
+      <div
+        class="ecl-select__icon"
+      >
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--s ecl-icon--rotate-180 ecl-select__icon-shape"
+          focusable="false"
+        >
+          <use
+            xlink:href="/icons.svg#ui--corner-arrow"
+          />
+        </svg>
+      </div>
     </div>
   </div>
-</div>
+</test>
 `;
 
 exports[`EC - Select Disabled renders correctly 1`] = `
-<div
-  class="ecl-form-group ecl-form-group--select"
->
-  <label
-    class="ecl-form-label ecl-form-label--disabled"
-    for="select-id"
-  >
-    Select a country
-    <span
-      class="ecl-form-label__optional"
-    >
-       (optional)
-    </span>
-  </label>
+<test>
   <div
-    class="ecl-help-block ecl-help-block--disabled"
+    class="ecl-form-group ecl-form-group--select"
   >
-    This is the input's helper text.
-  </div>
-  <div
-    class="ecl-select__container ecl-select__container--disabled ecl-select__container--m"
-  >
-    <select
-      class="ecl-select"
-      disabled=""
-      id="select-id"
+    <label
+      class="ecl-form-label ecl-form-label--disabled"
+      for="select-id"
     >
-      <option
-        value="1"
+      Select a country
+      <span
+        class="ecl-form-label__optional"
       >
-        Belgium
-      </option>
-      <option
-        value="2"
-      >
-        France
-      </option>
-      <option
-        value="3"
-      >
-        Luxembourg
-      </option>
-      <option
-        value="4"
-      >
-        Germany
-      </option>
-      <option
-        value="5"
-      >
-        Bulgaria
-      </option>
-    </select>
+         (optional)
+      </span>
+    </label>
     <div
-      class="ecl-select__icon"
+      class="ecl-help-block ecl-help-block--disabled"
     >
-      <svg
-        aria-hidden="true"
-        class="ecl-icon ecl-icon--s ecl-icon--rotate-180 ecl-select__icon-shape"
-        focusable="false"
+      This is the input's helper text.
+    </div>
+    <div
+      class="ecl-select__container ecl-select__container--disabled ecl-select__container--m"
+    >
+      <select
+        class="ecl-select"
+        disabled=""
+        id="select-id"
       >
-        <use
-          xlink:href="/icons.svg#ui--corner-arrow"
-        />
-      </svg>
+        <option
+          value="1"
+        >
+          Belgium
+        </option>
+        <option
+          value="2"
+        >
+          France
+        </option>
+        <option
+          value="3"
+        >
+          Luxembourg
+        </option>
+        <option
+          value="4"
+        >
+          Germany
+        </option>
+        <option
+          value="5"
+        >
+          Bulgaria
+        </option>
+      </select>
+      <div
+        class="ecl-select__icon"
+      >
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--s ecl-icon--rotate-180 ecl-select__icon-shape"
+          focusable="false"
+        >
+          <use
+            xlink:href="/icons.svg#ui--corner-arrow"
+          />
+        </svg>
+      </div>
     </div>
   </div>
-</div>
+</test>
 `;
 
 exports[`EC - Select Required renders correctly 1`] = `
-<div
-  class="ecl-form-group ecl-form-group--select"
->
-  <label
-    class="ecl-form-label"
-    for="select-id"
-  >
-    Select a country
-    <span
-      class="ecl-form-label__required"
-    >
-      *
-    </span>
-  </label>
+<test>
   <div
-    class="ecl-help-block"
+    class="ecl-form-group ecl-form-group--select"
   >
-    This is the input's helper text.
-  </div>
-  <div
-    class="ecl-select__container ecl-select__container--m"
-  >
-    <select
-      class="ecl-select"
-      id="select-id"
-      required=""
+    <label
+      class="ecl-form-label"
+      for="select-id"
     >
-      <option
-        value="1"
+      Select a country
+      <span
+        class="ecl-form-label__required"
       >
-        Belgium
-      </option>
-      <option
-        value="2"
-      >
-        France
-      </option>
-      <option
-        value="3"
-      >
-        Luxembourg
-      </option>
-      <option
-        value="4"
-      >
-        Germany
-      </option>
-      <option
-        value="5"
-      >
-        Bulgaria
-      </option>
-    </select>
+        *
+      </span>
+    </label>
     <div
-      class="ecl-select__icon"
+      class="ecl-help-block"
     >
-      <svg
-        aria-hidden="true"
-        class="ecl-icon ecl-icon--s ecl-icon--rotate-180 ecl-select__icon-shape"
-        focusable="false"
+      This is the input's helper text.
+    </div>
+    <div
+      class="ecl-select__container ecl-select__container--m"
+    >
+      <select
+        class="ecl-select"
+        id="select-id"
+        required=""
       >
-        <use
-          xlink:href="/icons.svg#ui--corner-arrow"
-        />
-      </svg>
+        <option
+          value="1"
+        >
+          Belgium
+        </option>
+        <option
+          value="2"
+        >
+          France
+        </option>
+        <option
+          value="3"
+        >
+          Luxembourg
+        </option>
+        <option
+          value="4"
+        >
+          Germany
+        </option>
+        <option
+          value="5"
+        >
+          Bulgaria
+        </option>
+      </select>
+      <div
+        class="ecl-select__icon"
+      >
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--s ecl-icon--rotate-180 ecl-select__icon-shape"
+          focusable="false"
+        >
+          <use
+            xlink:href="/icons.svg#ui--corner-arrow"
+          />
+        </svg>
+      </div>
     </div>
   </div>
-</div>
+</test>
 `;
 
 exports[`EC - Select With error renders correctly 1`] = `
-<div
-  class="ecl-form-group ecl-form-group--select"
->
-  <label
-    class="ecl-form-label ecl-form-label--invalid"
-    for="select-id"
+<test>
+  <div
+    class="ecl-form-group ecl-form-group--select"
   >
-    Select a country
-    <span
-      class="ecl-form-label__optional"
+    <label
+      class="ecl-form-label ecl-form-label--invalid"
+      for="select-id"
     >
-       (optional)
-    </span>
-  </label>
-  <div
-    class="ecl-help-block"
-  >
-    This is the input's helper text.
-  </div>
-  <div
-    class="ecl-feedback-message"
-  >
-    This is the error message
-  </div>
-  <div
-    class="ecl-select__container ecl-select__container--m"
-  >
-    <select
-      class="ecl-select ecl-select--invalid"
-      id="select-id"
-    >
-      <option
-        value="1"
+      Select a country
+      <span
+        class="ecl-form-label__optional"
       >
-        Belgium
-      </option>
-      <option
-        value="2"
-      >
-        France
-      </option>
-      <option
-        value="3"
-      >
-        Luxembourg
-      </option>
-      <option
-        value="4"
-      >
-        Germany
-      </option>
-      <option
-        value="5"
-      >
-        Bulgaria
-      </option>
-    </select>
+         (optional)
+      </span>
+    </label>
     <div
-      class="ecl-select__icon"
+      class="ecl-help-block"
     >
-      <svg
-        aria-hidden="true"
-        class="ecl-icon ecl-icon--s ecl-icon--rotate-180 ecl-select__icon-shape"
-        focusable="false"
+      This is the input's helper text.
+    </div>
+    <div
+      class="ecl-feedback-message"
+    >
+      This is the error message
+    </div>
+    <div
+      class="ecl-select__container ecl-select__container--m"
+    >
+      <select
+        class="ecl-select ecl-select--invalid"
+        id="select-id"
       >
-        <use
-          xlink:href="/icons.svg#ui--corner-arrow"
-        />
-      </svg>
+        <option
+          value="1"
+        >
+          Belgium
+        </option>
+        <option
+          value="2"
+        >
+          France
+        </option>
+        <option
+          value="3"
+        >
+          Luxembourg
+        </option>
+        <option
+          value="4"
+        >
+          Germany
+        </option>
+        <option
+          value="5"
+        >
+          Bulgaria
+        </option>
+      </select>
+      <div
+        class="ecl-select__icon"
+      >
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--s ecl-icon--rotate-180 ecl-select__icon-shape"
+          focusable="false"
+        >
+          <use
+            xlink:href="/icons.svg#ui--corner-arrow"
+          />
+        </svg>
+      </div>
     </div>
   </div>
-</div>
+</test>
 `;
