@@ -4,7 +4,7 @@ import { withKnobs, boolean } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import {
   getExtraKnobs,
-  getFormKnobs,
+  getFormGroupKnobs,
   tabLabels,
   getFormItemKnobs,
 } from '@ecl-twig/story-utils';
@@ -16,9 +16,12 @@ import radioGroup from './ecl-radio-group.html.twig';
 import notes from './README.md';
 
 const prepareRadio = data => {
-  getFormKnobs(data);
-  getFormItemKnobs(data);
-  getExtraKnobs(data);
+  // Form group knobs.
+  getFormGroupKnobs(data);
+  // Form item knobs.
+  getFormItemKnobs(data, true);
+  // Extra classes and attributes.
+  getExtraKnobs(data, true);
 
   return data;
 };
@@ -27,24 +30,16 @@ storiesOf('Components/Forms/Radio', module)
   .addDecorator(withKnobs)
   .addDecorator(withNotes)
   .addDecorator(withCode)
-  .add(
-    'default',
-    () => {
-      const data = prepareRadio(dataDefault);
-
-      return radioGroup(data);
-    },
-    {
-      notes: { markdown: notes, json: dataDefault },
-    }
-  )
+  .add('default', () => radioGroup(prepareRadio(dataDefault)), {
+    notes: { markdown: notes, json: dataDefault },
+  })
   .add(
     'binary',
     () => {
-      boolean('binary', true, tabLabels.states);
-      const data = prepareRadio(dataBinary);
+      const dataStory = prepareRadio(dataBinary);
+      dataStory.binary = boolean('binary', true, tabLabels.required);
 
-      return radioGroup(data);
+      return radioGroup(dataStory);
     },
     {
       notes: { markdown: notes, json: dataBinary },

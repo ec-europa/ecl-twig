@@ -336,9 +336,13 @@ export const getFormItemKnobs = (data, disabled) => {
       item.value,
       tabLabels.required
     );
-    item.helper_id = select(
-      `items[${i}].value`,
-      [item.helper_id],
+    item.checked = boolean(
+      `items[${i}].checked`,
+      item.checked,
+      tabLabels.states
+    );
+    item.helper_id = text(
+      `items[${i}].helper_id`,
       item.helper_id,
       tabLabels.optional
     );

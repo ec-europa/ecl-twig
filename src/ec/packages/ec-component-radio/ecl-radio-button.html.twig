@@ -23,6 +23,7 @@
 
 {% set _id = id|default('') %}
 {% set _name = name|default('') %}
+{% set _binary = binary|default(false) %}
 {% set _value = value|default('') %}
 {% set _disabled = disabled|default(false) %}
 {% set _invalid = invalid|default(false) %}
@@ -32,17 +33,20 @@
 {% set _label = label|default('') %}
 {% set _css_class = 'ecl-radio' %}
 {% set _label_css_class = 'ecl-radio__label' %}
-{% set _helper_css_class = 'ecl-help-block ecl-radio__help' %}
+{% set _helper_css_class = 'ecl-radio__help' %}
 {% set _box_css_class = 'ecl-radio__box' %}
-{% set _extra_attributes = '' %}
 
 {# Internal logic - Process properties #}
 
 {% if _disabled %}
   {% set _css_class = _css_class ~ ' ecl-radio--disabled' %}
   {% set _label_css_class = _label_css_class ~ ' ecl-radio__label--disabled' %}
-  {% set _helper_css_class = _helper_css_class ~ ' ecl-help-block--disabled' %}
+  {% set _helper_css_class = _helper_css_class ~ ' ecl-radio__help--disabled' %}
   {% set _box_css_class = _box_css_class ~ ' ecl-radio__box--disabled' %}
+{% endif %}
+
+{% if _binary %}
+  {% set _css_class = _css_class ~ ' ecl-radio--binary' %}
 {% endif %}
 
 {% if _invalid %}
