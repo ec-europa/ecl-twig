@@ -61,7 +61,7 @@
 {# Print the result #}
 
 <div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
-  {% set _label = _label_expanded %}
+  {% set _label = _label_collapsed %}
   {% set _button_attributes = [
     { name: 'aria-controls', value: _aria_controls },
     { name: 'data-ecl-expandable-toggle' },
@@ -69,14 +69,20 @@
     { name: 'data-ecl-label-collapsed', value: _label_collapsed },
     { name: 'aria-expanded', value: 'false' }
   ] %}
-  {% include '@ecl-twig/ec-component-button/ecl-button.html.twig' with {
+  {% include '@ecl-twig/ec-component-button/ecl-button.html.twig' with _button|merge({
     label: _label,
     variant: 'secondary',
     type: 'button',
     icon_position: "after",
+    icon: _button.icon|merge({
+    type: 'ui',
+      name: 'corner-arrow',
+      size: 'fluid',
+      transform: 'rotate-180'
+    }),
     extra_classes: 'ecl-expandable__toggle',
     extra_attributes: _button_attributes,
-  }|merge(_button) only %}
+  }) only %}
   <div
     id="{{ _id ~ '-content' }}"
     class="{{ _css_dropdown_class }}"
