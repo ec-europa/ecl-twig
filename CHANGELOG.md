@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.27.0](https://github.com/ec-europa/ecl-twig/compare/v2.26.0...v2.27.0) (2020-04-08)
+
+#### :nail_care: Enhancement
+
+- [#406](https://github.com/ec-europa/ecl-twig/pull/406) feat(form-elements): Refactoring form elements components - FRONT-1029 ([@planctus](https://github.com/planctus))
+- [#405](https://github.com/ec-europa/ecl-twig/pull/405) refactor(demo): Breadcrumb harmonised, optional/mandatory knobs - FRO… ([@planctus](https://github.com/planctus))
+- [#404](https://github.com/ec-europa/ecl-twig/pull/404) refactor(demo): Breadcrumb standardised - optional/mandatory knobs - FRONT-1016 ([@planctus](https://github.com/planctus))
+- [#403](https://github.com/ec-europa/ecl-twig/pull/403) refactor(demo): Breadcrumb core, optional/mandatory knobs - FRONT-1015 ([@planctus](https://github.com/planctus))
+- [#402](https://github.com/ec-europa/ecl-twig/pull/402) refactor(demo): Pagination, mandatory/optional knobs - FRONT-1018 ([@planctus](https://github.com/planctus))
+- [#401](https://github.com/ec-europa/ecl-twig/pull/401) refactor(demo): List, optional/mandatory knobs - FRONT-1020 ([@planctus](https://github.com/planctus))
+- [#400](https://github.com/ec-europa/ecl-twig/pull/400) refactor(demo): File upload, optiona/mandatory knobs - FRONT-1019 ([@planctus](https://github.com/planctus))
+- [#399](https://github.com/ec-europa/ecl-twig/pull/399) refactor(demo): Expandable, optional.mandatory knobs - FRONT-1021 ([@planctus](https://github.com/planctus))
+
+#### :house: Internal
+
+- [#398](https://github.com/ec-europa/ecl-twig/pull/398) fix(deps): Forcing version of minimalist - FRONT-1011 ([@planctus](https://github.com/planctus))
+
+#### Committers: 1
+
+- [@planctus](https://github.com/planctus)
+
 # [2.26.0](https://github.com/ec-europa/ecl-twig/compare/v2.25.1...v2.26.0) (2020-04-01)
 
 #### :rocket: New Feature
