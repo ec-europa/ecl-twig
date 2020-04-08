@@ -216,7 +216,9 @@ export const getFormKnobs = data => {
     );
   }
 
-  data.helper_text = text('helper_text', data.helper_text, tabLabels.optional);
+  data.helper_text = he.decode(
+    text('helper_text', data.helper_text, tabLabels.optional)
+  );
   data.width = select('width', inputWidthOptions, 'm', tabLabels.optional);
 
   return data;
@@ -238,10 +240,8 @@ export const getFormItemKnobs = data => {
       item.helper_id,
       tabLabels.optional
     );
-    item.helper_text = text(
-      `items[${i}].helper_text`,
-      item.helper_text,
-      tabLabels.optional
+    item.helper_text = he.decode(
+      text(`items[${i}].helper_text`, item.helper_text, tabLabels.optional)
     );
   });
 
