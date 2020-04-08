@@ -13,7 +13,6 @@ import notes from './README.md';
 
 const prepareSelect = data => {
   getFormKnobs(data);
-  getExtraKnobs(data);
 
   data.icon_path = select(
     'icon_path',
@@ -35,6 +34,8 @@ const prepareSelect = data => {
     );
   });
 
+  getExtraKnobs(data);
+
   return data;
 };
 
@@ -42,14 +43,6 @@ storiesOf('Components/Forms/Select', module)
   .addDecorator(withKnobs)
   .addDecorator(withNotes)
   .addDecorator(withCode)
-  .add(
-    'default',
-    () => {
-      const dataStory = prepareSelect(specData);
-
-      return selectBox(dataStory);
-    },
-    {
-      notes: { markdown: notes, json: specData },
-    }
-  );
+  .add('default', () => selectBox(prepareSelect(specData)), {
+    notes: { markdown: notes, json: specData },
+  });
