@@ -368,3 +368,12 @@ export const getBrandedIconsOptions = (labels, none, hover) => {
 
   return options;
 };
+
+export const getLinkKnobs = data => {
+  data.links.forEach((link, i) => {
+    link.label = text(`links[${i}].label`, link.label, tabLabels.required);
+    link.path = text(`links[${i}].path`, link.path, tabLabels.required);
+  });
+
+  return data;
+};
