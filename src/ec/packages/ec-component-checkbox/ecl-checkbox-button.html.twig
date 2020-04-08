@@ -89,8 +89,8 @@
     {% if _id %}
       for="{{ _id }}"
     {% endif %}
-    class="ecl-form-label ecl-checkbox__label
-    {{- _invalid ? " ecl-form-label--invalid" -}}"
+    class="ecl-checkbox__label
+    {{- _invalid ? " checkbox__label--invalid" -}}"
   >
     <span class="{{ _box_css_class }}">
       {% include '@ecl-twig/ec-component-icon/ecl-icon.html.twig' with {
@@ -108,7 +108,7 @@
 
   {% if _helper_text is not empty %}
     <div
-      class="ecl-checkbox__help ecl-help-block{{ _disabled ? " ecl-help-block--disabled" }}"
+      class="ecl-checkbox__help{{ _disabled ? " ecl-checkbox__help--disabled" }}"
       {% if _helper_id is not empty %}
         id="{{ _helper_id }}"
       {% endif %}
