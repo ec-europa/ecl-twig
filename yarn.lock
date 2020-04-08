@@ -984,6 +984,13 @@
 "@ecl-twig/data-utils@file:utils/data-utils":
   version "0.0.0-dev-only"
 
+"@ecl-twig/ec-component-checkbox@2.26.0":
+  version "2.26.0"
+  resolved "https://registry.yarnpkg.com/@ecl-twig/ec-component-checkbox/-/ec-component-checkbox-2.26.0.tgz#712b2e9df7921a5d576c0fafc75661c82b6f66c3"
+  integrity sha512-iE3/kFMKnsEFhTkSRvpF87ZeJ+BuzReky5dOME9Gq4OH4g6BLLF9jXr38gKQ7iBhKF1/6mfy21ni8EN9iFpodA==
+  dependencies:
+    "@ecl-twig/ec-component-icon" "2.26.0"
+
 "@ecl-twig/php-storybook@file:php/php_storybook":
   version "0.0.1-alpha"
 
@@ -1009,6 +1016,11 @@
   version "2.26.0"
   resolved "https://registry.yarnpkg.com/@ecl/ec-base/-/ec-base-2.26.0.tgz#f39e8ae8ba762bea09e1707d30781d52970d9411"
   integrity sha512-dHSlRWEovovEWCXOZqZs/WjOXBZlmBlNvLLdlUqZppJ+B/4U9PrKDqQF2XktckGVATBfS9G7MPFQ5ueQ5pzCoQ==
+
+"@ecl/ec-base@^2.27.0":
+  version "2.27.0"
+  resolved "https://registry.yarnpkg.com/@ecl/ec-base/-/ec-base-2.27.0.tgz#1569a1602a803885c80baaf4dbe2e42d0e953d9c"
+  integrity sha512-+P2mDAzC4S+nz1FCwyhvCKTxBtSxYTh98ajROCR+stwmQDOi9qlt7ZE6OFzjwk+g4n5sC/fsk5LDxas2H0i33A==
 
 "@ecl/ec-component-accordion@2.26.0":
   version "2.26.0"
@@ -1160,13 +1172,13 @@
     "@ecl/ec-component-link" "^2.26.0"
     "@ecl/ec-layout-grid" "^2.26.0"
 
-"@ecl/ec-component-form-checkbox@2.26.0":
-  version "2.26.0"
-  resolved "https://registry.yarnpkg.com/@ecl/ec-component-form-checkbox/-/ec-component-form-checkbox-2.26.0.tgz#33f8b08794b6f6654eb9dfa16fcd941e07c625c0"
-  integrity sha512-7EAtN14I9aA5p8TkRAX8dDkO+QClkMP07B1UvOb32i1orrzTd0ERSt0NYXbErcvDTdyvJeXiIRSm+Bi50c2Pzw==
+"@ecl/ec-component-form-checkbox@2.27.0":
+  version "2.27.0"
+  resolved "https://registry.yarnpkg.com/@ecl/ec-component-form-checkbox/-/ec-component-form-checkbox-2.27.0.tgz#a6a055287121deddb57e77c8ae7f863f8fa0be5a"
+  integrity sha512-4xJNa+qFXkOLpw+3Pk9VakpilmFODJcYPAQxYW/2LB/Y/6Y+O1SkH3n9GeOqfSpE6MjpOS08ZWlDa9eEwbamtw==
   dependencies:
-    "@ecl/ec-base" "^2.26.0"
-    "@ecl/ec-component-icon" "^2.26.0"
+    "@ecl/ec-base" "^2.27.0"
+    "@ecl/ec-component-icon" "^2.27.0"
 
 "@ecl/ec-component-form-datepicker@2.26.0":
   version "2.26.0"
@@ -1184,6 +1196,13 @@
   dependencies:
     "@ecl/ec-base" "^2.26.0"
 
+"@ecl/ec-component-form-feedback-message@2.27.0":
+  version "2.27.0"
+  resolved "https://registry.yarnpkg.com/@ecl/ec-component-form-feedback-message/-/ec-component-form-feedback-message-2.27.0.tgz#47d7524da0b1151e07e08b3f89d1fc6182fe7614"
+  integrity sha512-sZBAQYg4N84APottkeKhLZMvCoo49rgth9b+Q27jPXG4RqFKxaZE3s7WwZH3Og63qRSSleXP7pNiyJrHyW8jMA==
+  dependencies:
+    "@ecl/ec-base" "^2.27.0"
+
 "@ecl/ec-component-form-file-upload@2.26.0":
   version "2.26.0"
   resolved "https://registry.yarnpkg.com/@ecl/ec-component-form-file-upload/-/ec-component-form-file-upload-2.26.0.tgz#9c2dddd31ebdc36eca562b0b193533a9187a0579"
@@ -1198,6 +1217,13 @@
   dependencies:
     "@ecl/ec-base" "^2.26.0"
 
+"@ecl/ec-component-form-form-group@2.27.0":
+  version "2.27.0"
+  resolved "https://registry.yarnpkg.com/@ecl/ec-component-form-form-group/-/ec-component-form-form-group-2.27.0.tgz#ebee5a31cadab76a3e0960d578a6dceada1c27ff"
+  integrity sha512-l7uqHxHTvcvei7tWQEQx7xYZaLGh3TJDcoixtWrMW9zgDAIeX8h+ZgqwQmeu7JfW41wIBFLLV+yawuf7akrRIg==
+  dependencies:
+    "@ecl/ec-base" "^2.27.0"
+
 "@ecl/ec-component-form-help-block@2.26.0":
   version "2.26.0"
   resolved "https://registry.yarnpkg.com/@ecl/ec-component-form-help-block/-/ec-component-form-help-block-2.26.0.tgz#45024caa68dae72b90ca6a2a2732c43098702d42"
@@ -1205,12 +1231,26 @@
   dependencies:
     "@ecl/ec-base" "^2.26.0"
 
+"@ecl/ec-component-form-help-block@2.27.0":
+  version "2.27.0"
+  resolved "https://registry.yarnpkg.com/@ecl/ec-component-form-help-block/-/ec-component-form-help-block-2.27.0.tgz#e931e7b80617c207fc629430ff36b2076140b31b"
+  integrity sha512-/aRTbrHZ8Zf/FzVo2o6zxESzA3b0WlW7gzJC5/dxKdtrb5ModCONvl+qISE5GCG1RhqpyYwcONdyYBxVBVFXwg==
+  dependencies:
+    "@ecl/ec-base" "^2.27.0"
+
 "@ecl/ec-component-form-label@2.26.0":
   version "2.26.0"
   resolved "https://registry.yarnpkg.com/@ecl/ec-component-form-label/-/ec-component-form-label-2.26.0.tgz#b2145c36ec9607ed99921a8c6c046be8469e8844"
   integrity sha512-CHHkvyT9OlFAaJFAZ7WHulgkfpT6gf8HP6kVBI0u2cgLDWveV3259XeyFyCI5tUmn1SjLSnEsmf6Lmd3EwOXrA==
   dependencies:
     "@ecl/ec-base" "^2.26.0"
+
+"@ecl/ec-component-form-label@2.27.0":
+  version "2.27.0"
+  resolved "https://registry.yarnpkg.com/@ecl/ec-component-form-label/-/ec-component-form-label-2.27.0.tgz#cac8b3f7192588b9539838bc5a99a19a73f0c35c"
+  integrity sha512-9Ik0Mp5LF+xegIzdBArFzIKb799Rln6WmExAyOrIz6M7XEuOm3qnlBWr8/LqGk95Eg3+wwt5d90LrD8oLhVvJw==
+  dependencies:
+    "@ecl/ec-base" "^2.27.0"
 
 "@ecl/ec-component-form-radio@2.26.0":
   version "2.26.0"
@@ -1264,6 +1304,13 @@
   integrity sha512-harQI7rQM/wUwVxSFrMEffRgt6WBQtadGMVNQN3SZLJAM/JKsEtwtBkJQvS3upP8gUAx6sByOuqB1DPQSo/prA==
   dependencies:
     "@ecl/ec-base" "^2.26.0"
+
+"@ecl/ec-component-icon@^2.27.0":
+  version "2.27.0"
+  resolved "https://registry.yarnpkg.com/@ecl/ec-component-icon/-/ec-component-icon-2.27.0.tgz#c01298d85f89526c6d67d8621c0b086d286c6dda"
+  integrity sha512-wrO3beSXukgHixxGTcBys6KLkK3QIc/USFgF+5cpRe6ETgS7Bk+RUlAhIx/wkcfVr4e6sLc1GPEglfhjDTUsmg==
+  dependencies:
+    "@ecl/ec-base" "^2.27.0"
 
 "@ecl/ec-component-inpage-navigation@2.26.0":
   version "2.26.0"
@@ -1547,10 +1594,10 @@
   resolved "https://registry.yarnpkg.com/@ecl/ec-specs-card/-/ec-specs-card-2.26.0.tgz#fd07aa319fb9229c0e586ec00d3aa19a2aeddfad"
   integrity sha512-cI9AqRsjKov0Ozo0m1b5m9kI2Emq2Uq2ypFSc6TfqDv37RIGWt9vbwqIkeHSEDG9z5VdUY5QHDwB0YH2r0by3Q==
 
-"@ecl/ec-specs-checkbox@2.26.0":
-  version "2.26.0"
-  resolved "https://registry.yarnpkg.com/@ecl/ec-specs-checkbox/-/ec-specs-checkbox-2.26.0.tgz#0c8a60d6fc985575e1e59d83bea5b344ba627326"
-  integrity sha512-2LYTeRWlz4hcxaO0wQxITT26qwrkInk/r/LVwYtvp4WTpk37Qtgfrd+kawM0dp1OKwIkOAw6WIHULNlInNnIWQ==
+"@ecl/ec-specs-checkbox@2.27.0":
+  version "2.27.0"
+  resolved "https://registry.yarnpkg.com/@ecl/ec-specs-checkbox/-/ec-specs-checkbox-2.27.0.tgz#09cb9b9e449a70c662c5a976ae8866f6ce290497"
+  integrity sha512-Ph7jOqNJBmhjc+bStyConL848RrhGE4G5Kb3PnGOY7Hrz2+O+TdMXDk1Bj5Dj7Re6ITCu3finl1OClFBSqLa/Q==
 
 "@ecl/ec-specs-contextual-navigation@2.26.0":
   version "2.26.0"
