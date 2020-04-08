@@ -88,8 +88,7 @@
     {% if _id %}
       for="{{ _id }}"
     {% endif %}
-    class="ecl-checkbox__label
-    {{- _invalid ? " checkbox__label--invalid" -}}"
+    class="ecl-checkbox__label"
   >
     <span class="{{ _box_css_class }}">
       {% include '@ecl-twig/ec-component-icon/ecl-icon.html.twig' with {

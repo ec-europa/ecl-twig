@@ -63,11 +63,10 @@
 {% endif %}
   {{ _extra_attributes|raw }}
 >
-
   {%- if _label is not empty %}
     <legend
       class="ecl-form-label
-      {{- _invalid and _invalid_text is not empty ? ' ecl-checkbox__group--invalid' -}}"
+      {{- _invalid ? ' ecl-form-label--invalid' -}}"
     {% if _label_id %}
       id="{{ _label_id }}"
     {% endif %}
