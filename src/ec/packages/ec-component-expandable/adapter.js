@@ -5,7 +5,7 @@ const adapter = initialData => {
   adaptedData.label_collapsed = adaptedData.labelCollapsed;
   delete adaptedData.labelExpanded;
   delete adaptedData.labelCollapsed;
-  adaptedData.extra_dropdown_classes = 'ecl-u-type-paragraph-m';
+  adaptedData.content = `<p class="ecl-u-type-paragraph-m">${adaptedData.content}</p>`;
   adaptedData.button.icon = {
     path: '/icons.svg',
   };

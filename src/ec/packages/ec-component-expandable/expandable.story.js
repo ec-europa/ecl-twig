@@ -4,6 +4,7 @@ import { withKnobs, text, select } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import { getExtraKnobs, tabLabels } from '@ecl-twig/story-utils';
 import withCode from '@ecl-twig/storybook-addon-code';
+import he from 'he';
 
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import demoData from './demo/data';
@@ -23,7 +24,7 @@ const prepareExpandable = data => {
     data.label_collapsed,
     tabLabels.required
   );
-  data.content = text('content', data.content, tabLabels.required);
+  data.content = he.decode(text('content', data.content, tabLabels.required));
   data.button.icon.path = select(
     'button.icon.path',
     [defaultSprite],
