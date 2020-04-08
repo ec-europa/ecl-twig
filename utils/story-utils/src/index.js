@@ -222,6 +222,10 @@ export const getIconKnobs = (
 };
 
 export const getFormKnobs = data => {
+  let helperTextDefault = '';
+  if (data.helper_text) {
+    helperTextDefault = data.helper_text;
+  }
   const inputWidthOptions = {
     small: 's',
     medium: 'm',
@@ -269,7 +273,7 @@ export const getFormKnobs = data => {
   }
 
   data.helper_text = he.decode(
-    text('helper_text', data.helper_text, tabLabels.optional)
+    text('helper_text', helperTextDefault, tabLabels.optional)
   );
   data.width = select('width', inputWidthOptions, 'm', tabLabels.optional);
 
@@ -277,6 +281,10 @@ export const getFormKnobs = data => {
 };
 
 export const getFormGroupKnobs = data => {
+  let helperTextDefault = '';
+  if (data.helper_text) {
+    helperTextDefault = data.helper_text;
+  }
   data.invalid = boolean('invalid', false, tabLabels.states);
   data.required = boolean('required', false, tabLabels.states);
   if (data.required) {
@@ -316,13 +324,19 @@ export const getFormGroupKnobs = data => {
     );
   }
 
-  data.helper_text = text('helper_text', data.helper_text, tabLabels.optional);
+  data.helper_text = he.decode(
+    text('helper_text', helperTextDefault, tabLabels.optional)
+  );
 
   return data;
 };
 
 export const getFormItemKnobs = (data, disabled) => {
   data.items.forEach((item, i) => {
+    let helperTextDefault = '';
+    if (item.helper_text) {
+      helperTextDefault = item.helper_text;
+    }
     item.label = text(`items[${i}].label`, item.label, tabLabels.required);
     item.id = select(`items[${i}].id`, [item.id], item.id, tabLabels.required);
     if (disabled) {
@@ -349,7 +363,7 @@ export const getFormItemKnobs = (data, disabled) => {
       tabLabels.optional
     );
     item.helper_text = he.decode(
-      text(`items[${i}].helper_text`, item.helper_text, tabLabels.optional)
+      text(`items[${i}].helper_text`, helperTextDefault, tabLabels.optional)
     );
   });
 
@@ -371,6 +385,10 @@ export const getLogoKnobs = data => {
 };
 
 export const getLoginKnobs = (data, required) => {
+  let descriptionDefault = '';
+  if (data.login_box && data.login_box.description) {
+    descriptionDefault = data.login_box.description;
+  }
   let label = tabLabels.optional;
   if (required) {
     label = tabLabels.required;
@@ -398,7 +416,7 @@ export const getLoginKnobs = (data, required) => {
     );
     data.login_box.id = text('login_box.id', data.login_box.id, label);
     data.login_box.description = he.decode(
-      text('login_box.description', data.login_box.description, label)
+      text('login_box.description', descriptionDefault, label)
     );
     data.login_box.label = text('login_box.label', data.login_box.label, label);
     data.login_box.href = text('login_box.href', data.login_box.href, label);

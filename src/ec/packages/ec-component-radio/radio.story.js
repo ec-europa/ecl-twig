@@ -15,7 +15,10 @@ import dataBinary from './demo/data--binary';
 import radioGroup from './ecl-radio-group.html.twig';
 import notes from './README.md';
 
-const prepareRadio = data => {
+const prepareRadio = (data, binary) => {
+  if (binary) {
+    data.binary = boolean('binary', true, tabLabels.required);
+  }
   // Form group knobs.
   getFormGroupKnobs(data);
   // Form item knobs.
@@ -33,15 +36,6 @@ storiesOf('Components/Forms/Radio', module)
   .add('default', () => radioGroup(prepareRadio(dataDefault)), {
     notes: { markdown: notes, json: dataDefault },
   })
-  .add(
-    'binary',
-    () => {
-      const dataStory = prepareRadio(dataBinary);
-      dataStory.binary = boolean('binary', true, tabLabels.required);
-
-      return radioGroup(dataStory);
-    },
-    {
-      notes: { markdown: notes, json: dataBinary },
-    }
-  );
+  .add('binary', () => radioGroup(prepareRadio(dataBinary, true)), {
+    notes: { markdown: notes, json: dataBinary },
+  });
