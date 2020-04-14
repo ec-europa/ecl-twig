@@ -1,0 +1,14 @@
+{#
+  Parameters:
+  - "link" (object)
+  - "icon" (object)
+#}
+
+{% extends "@ecl-twig/ec-component-compliance/ecl-compliance.html.twig" %}
+
+{% set message = [] %}
+{% set not_compliant = link.label is empty and (icons[0].name is not defined or icons[0].name is empty) %}
+{% set message = message|merge({
+  message : '- link.label or icon.name cannot be both empty, an unusable link tag would be generated otherwise'
+}) %}
+

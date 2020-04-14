@@ -8,4 +8,10 @@ npm install --save @ecl-twig/ec-component-compliance
 
 ### Parameters:
 
-- **"_complaints_"** (string) (default: '')
+- **"not_compliant"** (boolean)
+- **"message"** (string) - Message(s) to be shown
+
+### Blocks:
+
+- **"complaints"** (if not_compliant is false)
+- **"compliant"** (if not_compliant is true)

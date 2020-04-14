@@ -1,28 +1,30 @@
-{% spaceless %}
-
 {#
   Parameters:
-  - "complaints" (string) (default: []):
+  - "not-complaint" (boolean)
+  - "message" (string)
+
+  Blocks:
+  - "complaints" (boolean)
+  - "compliant" (string)
 #}
 
-{# Internal properties #}
-
-{% set _complaints = complaints|default('') %}
-
 {# Rendering #}
-
-{% if _complaints|length > 10 %}
 
 <!-- ################################################################################################################
     ecl2-compliance -->
 
-  <div
-    class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-red ecl-u-border-style-solid"
-  >
-    <p class="ecl-u-type-color-grey ecl-u-ml-xl ecl-u-type-s">{{- _complaints -}}</p>
-  </div>
+{% if not_compliant %}
+  {% block complaints %}
+    <div
+      class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-red ecl-u-border-style-solid"
+    >
+      <p class="ecl-u-type-color-grey ecl-u-ml-xl ecl-u-type-s">
+        {{ message }}
+      </p>
+    </div>
+  {% endblock %}
 {% else %}
-  <hr class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid" />
+  {% block compliant %}
+    <hr class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid" />
+  {% endblock %}
 {% endif %}
-
-{% endspaceless %}

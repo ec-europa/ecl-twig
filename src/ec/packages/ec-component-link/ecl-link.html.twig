@@ -132,18 +132,15 @@
   {% endif %}
 </a>
 
+{% endspaceless %}
+
 {# Validation #}
 
 {% if _compliance_ %}
-  {% set _complaints_ %}
-    {% include '@ecl-twig/ec-component-link/compliance/ecl-link-compliance.html.twig' with {
-      link: _link,
-      icons: _icons
-    } only %}
-  {% endset %}
-  {% include '@ecl-twig/ec-component-compliance/ecl-compliance.html.twig' with {
-    complaints: _complaints_
+  {% include '@ecl-twig/ec-component-compliance/components/ecl-link-compliance.html.twig' with {
+    link: _link,
+    icons: _icons
   } only %}
 {% endif %}
 
-{% endspaceless %}
+
