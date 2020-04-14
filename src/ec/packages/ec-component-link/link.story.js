@@ -13,7 +13,6 @@ import {
 import uiIcons from '@ecl/ec-resources-icons/dist/lists/ui.json';
 import dataDefault from './demo/data--default';
 import dataCta from './demo/data--cta';
-import dataCompliance from './demo/data--compliance';
 import dataStandalone from './demo/data--standalone';
 import link from './ecl-link.html.twig';
 import notes from './README.md';
@@ -112,22 +111,5 @@ storiesOf('Components/Navigation/Link', module)
     },
     {
       notes: { markdown: notes, json: dataCta },
-    }
-  )
-  .add(
-    '_compliance_',
-    () => {
-      const dataStory = prepareLink(dataCompliance);
-      const name = select('icon.name', iconsList, null, tabLabels.optional);
-      if (name !== null) {
-        getIconKnobs(dataStory, name, 'ui', 'xs');
-      } else if (name === null && dataStory.icon) {
-        delete dataStory.icon.name;
-      }
-
-      return link(dataStory);
-    },
-    {
-      notes: { markdown: notes, json: { link: dataCompliance } },
     }
   );
