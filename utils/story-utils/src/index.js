@@ -12,7 +12,7 @@ export const tabLabels = {
   checks: 'Validation',
 };
 
-export const getExtraKnobs = data => {
+export const getExtraKnobs = (data, nested) => {
   data.extra_classes = text('extra_classes', '', tabLabels.optional);
   const attribute1Name = text(
     'extra_attributes[0].name',
@@ -54,6 +54,58 @@ export const getExtraKnobs = data => {
     }
   } else {
     data.extra_attributes = null;
+  }
+
+  if (nested) {
+    data.items.forEach((item, i) => {
+      item.extra_classes = text(
+        `items[${i}].extra_classes`,
+        item.extra_classes,
+        tabLabels.optional
+      );
+      const nestedAttr1Name = text(
+        `items[${i}].extra_attributes[0].name`,
+        '',
+        tabLabels.optional
+      );
+      // First attribute.
+      if (nestedAttr1Name !== '') {
+        item.extra_attributes = [];
+        let nestedAttr = {};
+        const nestedAttr1Value = text(
+          `items[${i}].extra_attributes[0].value`,
+          '',
+          tabLabels.optional
+        );
+        const nestedAttr2Name = text(
+          `items[${i}].extra_attributes[1].name`,
+          '',
+          tabLabels.optional
+        );
+
+        nestedAttr.name = nestedAttr1Name;
+        if (nestedAttr1Value !== '') {
+          nestedAttr.value = nestedAttr1Value;
+        }
+        data.items[i].extra_attributes.push(nestedAttr);
+        // Second attribute.
+        if (nestedAttr2Name !== '') {
+          const nestedAttr2Value = text(
+            `items[${i}].extra_attributes[1].value`,
+            '',
+            tabLabels.optional
+          );
+          nestedAttr = {};
+          nestedAttr.name = nestedAttr2Name;
+          if (nestedAttr2Value !== '') {
+            nestedAttr.value = nestedAttr2Value;
+          }
+          data.items[i].extra_attributes.push(nestedAttr);
+        }
+      } else {
+        data.items[i].extra_attributes = null;
+      }
+    });
   }
 
   return data;
@@ -171,6 +223,10 @@ export const getIconKnobs = (
 };
 
 export const getFormKnobs = data => {
+  let helperTextDefault = '';
+  if (data.helper_text) {
+    helperTextDefault = data.helper_text;
+  }
   const inputWidthOptions = {
     small: 's',
     medium: 'm',
@@ -218,31 +274,97 @@ export const getFormKnobs = data => {
   }
 
   data.helper_text = he.decode(
-    text('helper_text', data.helper_text, tabLabels.optional)
+    text('helper_text', helperTextDefault, tabLabels.optional)
   );
   data.width = select('width', inputWidthOptions, 'm', tabLabels.optional);
 
   return data;
 };
 
-export const getFormItemKnobs = data => {
+export const getFormGroupKnobs = data => {
+  let helperTextDefault = '';
+  if (data.helper_text) {
+    helperTextDefault = data.helper_text;
+  }
+  data.invalid = boolean('invalid', false, tabLabels.states);
+  data.required = boolean('required', false, tabLabels.states);
+  if (data.required) {
+    data.required_text = text(
+      'required_text',
+      data.required_text,
+      tabLabels.required
+    );
+    data.optional_text = text(
+      'optional text',
+      data.optional_text,
+      tabLabels.optional
+    );
+  } else {
+    data.optional_text = text(
+      'optional text',
+      data.optional_text,
+      tabLabels.required
+    );
+    data.required_text = text(
+      'required_text',
+      data.required_text,
+      tabLabels.optional
+    );
+  }
+  if (data.invalid) {
+    data.invalid_text = text(
+      'invalid_text',
+      data.invalid_text,
+      tabLabels.required
+    );
+  } else {
+    data.invalid_text = text(
+      'invalid_text',
+      data.invalid_text,
+      tabLabels.optional
+    );
+  }
+
+  data.helper_text = he.decode(
+    text('helper_text', helperTextDefault, tabLabels.optional)
+  );
+
+  return data;
+};
+
+export const getFormItemKnobs = (data, disabled) => {
   data.items.forEach((item, i) => {
+    let helperTextDefault = '';
+    if (item.helper_text) {
+      helperTextDefault = item.helper_text;
+    }
     item.label = text(`items[${i}].label`, item.label, tabLabels.required);
     item.id = select(`items[${i}].id`, [item.id], item.id, tabLabels.required);
+    if (disabled) {
+      item.disabled = boolean(
+        `items[${i}].disabled`,
+        item.disabled,
+        tabLabels.states
+      );
+    }
     item.value = select(
       `items[${i}].value`,
       [item.value],
       item.value,
       tabLabels.required
     );
-    item.helper_id = select(
-      `items[${i}].value`,
-      [item.helper_id],
+    item.checked = boolean(
+      `items[${i}].checked`,
+      item.checked,
+      tabLabels.states
+    );
+    item.helper_id = text(
+      `items[${i}].helper_id`,
       item.helper_id,
       tabLabels.optional
     );
     item.helper_text = he.decode(
-      text(`items[${i}].helper_text`, item.helper_text, tabLabels.optional)
+      text(`items[${i}].helper_text`, helperTextDefault, tabLabels.optional)
     );
   });
 
@@ -264,6 +386,10 @@ export const getLogoKnobs = data => {
 };
 
 export const getLoginKnobs = (data, required) => {
+  let descriptionDefault = '';
+  if (data.login_box && data.login_box.description) {
+    descriptionDefault = data.login_box.description;
+  }
   let label = tabLabels.optional;
   if (required) {
     label = tabLabels.required;
@@ -291,7 +417,7 @@ export const getLoginKnobs = (data, required) => {
     );
     data.login_box.id = text('login_box.id', data.login_box.id, label);
     data.login_box.description = he.decode(
-      text('login_box.description', data.login_box.description, label)
+      text('login_box.description', descriptionDefault, label)
     );
     data.login_box.label = text('login_box.label', data.login_box.label, label);
     data.login_box.href = text('login_box.href', data.login_box.href, label);

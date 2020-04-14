@@ -35,7 +35,7 @@
 {% set _optional_text = optional_text|default('') %}
 {% set _label = label|default('') %}
 
-{% set _css_class = 'ecl-form-group ecl-form-group--checkbox' %}
+{% set _css_class = 'ecl-form-group' %}
 {% set _extra_attributes = '' %}
 
 {# Internal logic - Process properties #}
@@ -63,11 +63,10 @@
 {% endif %}
   {{ _extra_attributes|raw }}
 >
-
   {%- if _label is not empty %}
     <legend
       class="ecl-form-label
-      {{- _invalid and _invalid_text is not empty ? ' ecl-checkbox__group--invalid' -}}"
+      {{- _invalid ? ' ecl-form-label--invalid' -}}"
     {% if _label_id %}
       id="{{ _label_id }}"
     {% endif %}
@@ -83,7 +82,7 @@
 
   {% if _helper_text is not empty %}
     <div
-      class="ecl-checkbox__help ecl-help-block"
+      class="ecl-help-block"
       {% if _helper_id is not empty %}
         id="{{ _helper_id }}"
       {% endif %}

@@ -4,7 +4,7 @@ exports[`EC - checkbox Default renders correctly 1`] = `
 <test>
   <fieldset
     aria-describedby="checkbox-default-helper"
-    class="ecl-form-group ecl-form-group--checkbox"
+    class="ecl-form-group"
   >
     <legend
       class="ecl-form-label"
@@ -18,7 +18,7 @@ exports[`EC - checkbox Default renders correctly 1`] = `
       </span>
     </legend>
     <div
-      class="ecl-checkbox__help ecl-help-block"
+      class="ecl-help-block"
       id="checkbox-default-helper"
     >
       Helper text for the group
@@ -35,7 +35,7 @@ exports[`EC - checkbox Default renders correctly 1`] = `
         value="es"
       />
       <label
-        class="ecl-form-label ecl-checkbox__label"
+        class="ecl-checkbox__label"
         for="checkbox-default-1"
       >
         <span
@@ -54,7 +54,7 @@ exports[`EC - checkbox Default renders correctly 1`] = `
         Spain
       </label>
       <div
-        class="ecl-checkbox__help ecl-help-block"
+        class="ecl-checkbox__help"
         id="helper-default-1"
       >
         Help text for option 1
@@ -71,7 +71,7 @@ exports[`EC - checkbox Default renders correctly 1`] = `
         value="be"
       />
       <label
-        class="ecl-form-label ecl-checkbox__label"
+        class="ecl-checkbox__label"
         for="checkbox-default-2"
       >
         <span
@@ -90,7 +90,7 @@ exports[`EC - checkbox Default renders correctly 1`] = `
         Belgium
       </label>
       <div
-        class="ecl-checkbox__help ecl-help-block"
+        class="ecl-checkbox__help"
         id="helper-default-2"
       >
         Help text for option 2
@@ -108,7 +108,7 @@ exports[`EC - checkbox Default renders correctly 1`] = `
         value="fr"
       />
       <label
-        class="ecl-form-label ecl-checkbox__label"
+        class="ecl-checkbox__label"
         for="checkbox-default-3"
       >
         <span
@@ -127,7 +127,7 @@ exports[`EC - checkbox Default renders correctly 1`] = `
         France (disabled)
       </label>
       <div
-        class="ecl-checkbox__help ecl-help-block ecl-help-block--disabled"
+        class="ecl-checkbox__help ecl-checkbox__help--disabled"
         id="helper-default-3"
       >
         Help text for option 3
@@ -141,7 +141,7 @@ exports[`EC - checkbox Default renders correctly when required 1`] = `
 <test>
   <fieldset
     aria-describedby="checkbox-default-helper"
-    class="ecl-form-group ecl-form-group--checkbox"
+    class="ecl-form-group"
   >
     <legend
       class="ecl-form-label"
@@ -155,7 +155,7 @@ exports[`EC - checkbox Default renders correctly when required 1`] = `
       </span>
     </legend>
     <div
-      class="ecl-checkbox__help ecl-help-block"
+      class="ecl-help-block"
       id="checkbox-default-helper"
     >
       Helper text for the group
@@ -173,7 +173,7 @@ exports[`EC - checkbox Default renders correctly when required 1`] = `
         value="es"
       />
       <label
-        class="ecl-form-label ecl-checkbox__label"
+        class="ecl-checkbox__label"
         for="checkbox-default-1"
       >
         <span
@@ -192,7 +192,7 @@ exports[`EC - checkbox Default renders correctly when required 1`] = `
         Spain
       </label>
       <div
-        class="ecl-checkbox__help ecl-help-block"
+        class="ecl-checkbox__help"
         id="helper-default-1"
       >
         Help text for option 1
@@ -210,7 +210,7 @@ exports[`EC - checkbox Default renders correctly when required 1`] = `
         value="be"
       />
       <label
-        class="ecl-form-label ecl-checkbox__label"
+        class="ecl-checkbox__label"
         for="checkbox-default-2"
       >
         <span
@@ -229,7 +229,7 @@ exports[`EC - checkbox Default renders correctly when required 1`] = `
         Belgium
       </label>
       <div
-        class="ecl-checkbox__help ecl-help-block"
+        class="ecl-checkbox__help"
         id="helper-default-2"
       >
         Help text for option 2
@@ -248,7 +248,7 @@ exports[`EC - checkbox Default renders correctly when required 1`] = `
         value="fr"
       />
       <label
-        class="ecl-form-label ecl-checkbox__label"
+        class="ecl-checkbox__label"
         for="checkbox-default-3"
       >
         <span
@@ -267,7 +267,7 @@ exports[`EC - checkbox Default renders correctly when required 1`] = `
         France (disabled)
       </label>
       <div
-        class="ecl-checkbox__help ecl-help-block ecl-help-block--disabled"
+        class="ecl-checkbox__help ecl-checkbox__help--disabled"
         id="helper-default-3"
       >
         Help text for option 3
@@ -281,7 +281,7 @@ exports[`EC - checkbox Default renders correctly with extra attributes 1`] = `
 <test>
   <fieldset
     aria-describedby="checkbox-default-helper"
-    class="ecl-form-group ecl-form-group--checkbox"
+    class="ecl-form-group"
     data-test="data-test-value"
     data-test-1="data-test-value-1"
   >
@@ -297,7 +297,7 @@ exports[`EC - checkbox Default renders correctly with extra attributes 1`] = `
       </span>
     </legend>
     <div
-      class="ecl-checkbox__help ecl-help-block"
+      class="ecl-help-block"
       id="checkbox-default-helper"
     >
       Helper text for the group
@@ -314,7 +314,7 @@ exports[`EC - checkbox Default renders correctly with extra attributes 1`] = `
         value="es"
       />
       <label
-        class="ecl-form-label ecl-checkbox__label"
+        class="ecl-checkbox__label"
         for="checkbox-default-1"
       >
         <span
@@ -333,7 +333,7 @@ exports[`EC - checkbox Default renders correctly with extra attributes 1`] = `
         Spain
       </label>
       <div
-        class="ecl-checkbox__help ecl-help-block"
+        class="ecl-checkbox__help"
         id="helper-default-1"
       >
         Help text for option 1
@@ -350,7 +350,7 @@ exports[`EC - checkbox Default renders correctly with extra attributes 1`] = `
         value="be"
       />
       <label
-        class="ecl-form-label ecl-checkbox__label"
+        class="ecl-checkbox__label"
         for="checkbox-default-2"
       >
         <span
@@ -369,7 +369,7 @@ exports[`EC - checkbox Default renders correctly with extra attributes 1`] = `
         Belgium
       </label>
       <div
-        class="ecl-checkbox__help ecl-help-block"
+        class="ecl-checkbox__help"
         id="helper-default-2"
       >
         Help text for option 2
@@ -387,7 +387,7 @@ exports[`EC - checkbox Default renders correctly with extra attributes 1`] = `
         value="fr"
       />
       <label
-        class="ecl-form-label ecl-checkbox__label"
+        class="ecl-checkbox__label"
         for="checkbox-default-3"
       >
         <span
@@ -406,7 +406,7 @@ exports[`EC - checkbox Default renders correctly with extra attributes 1`] = `
         France (disabled)
       </label>
       <div
-        class="ecl-checkbox__help ecl-help-block ecl-help-block--disabled"
+        class="ecl-checkbox__help ecl-checkbox__help--disabled"
         id="helper-default-3"
       >
         Help text for option 3
@@ -420,7 +420,7 @@ exports[`EC - checkbox Default renders correctly with extra class names 1`] = `
 <test>
   <fieldset
     aria-describedby="checkbox-default-helper"
-    class="ecl-form-group ecl-form-group--checkbox custom-class custom-class--test"
+    class="ecl-form-group custom-class custom-class--test"
   >
     <legend
       class="ecl-form-label"
@@ -434,7 +434,7 @@ exports[`EC - checkbox Default renders correctly with extra class names 1`] = `
       </span>
     </legend>
     <div
-      class="ecl-checkbox__help ecl-help-block"
+      class="ecl-help-block"
       id="checkbox-default-helper"
     >
       Helper text for the group
@@ -451,7 +451,7 @@ exports[`EC - checkbox Default renders correctly with extra class names 1`] = `
         value="es"
       />
       <label
-        class="ecl-form-label ecl-checkbox__label"
+        class="ecl-checkbox__label"
         for="checkbox-default-1"
       >
         <span
@@ -470,7 +470,7 @@ exports[`EC - checkbox Default renders correctly with extra class names 1`] = `
         Spain
       </label>
       <div
-        class="ecl-checkbox__help ecl-help-block"
+        class="ecl-checkbox__help"
         id="helper-default-1"
       >
         Help text for option 1
@@ -487,7 +487,7 @@ exports[`EC - checkbox Default renders correctly with extra class names 1`] = `
         value="be"
       />
       <label
-        class="ecl-form-label ecl-checkbox__label"
+        class="ecl-checkbox__label"
         for="checkbox-default-2"
       >
         <span
@@ -506,7 +506,7 @@ exports[`EC - checkbox Default renders correctly with extra class names 1`] = `
         Belgium
       </label>
       <div
-        class="ecl-checkbox__help ecl-help-block"
+        class="ecl-checkbox__help"
         id="helper-default-2"
       >
         Help text for option 2
@@ -524,7 +524,7 @@ exports[`EC - checkbox Default renders correctly with extra class names 1`] = `
         value="fr"
       />
       <label
-        class="ecl-form-label ecl-checkbox__label"
+        class="ecl-checkbox__label"
         for="checkbox-default-3"
       >
         <span
@@ -543,7 +543,7 @@ exports[`EC - checkbox Default renders correctly with extra class names 1`] = `
         France (disabled)
       </label>
       <div
-        class="ecl-checkbox__help ecl-help-block ecl-help-block--disabled"
+        class="ecl-checkbox__help ecl-checkbox__help--disabled"
         id="helper-default-3"
       >
         Help text for option 3
@@ -557,10 +557,10 @@ exports[`EC - checkbox Invalid renders correctly 1`] = `
 <test>
   <fieldset
     aria-describedby="checkbox-default-helper"
-    class="ecl-form-group ecl-form-group--checkbox"
+    class="ecl-form-group"
   >
     <legend
-      class="ecl-form-label ecl-checkbox__group--invalid"
+      class="ecl-form-label ecl-form-label--invalid"
       id="checkbox-default-label"
     >
       Select your preferred destinations
@@ -571,7 +571,7 @@ exports[`EC - checkbox Invalid renders correctly 1`] = `
       </span>
     </legend>
     <div
-      class="ecl-checkbox__help ecl-help-block"
+      class="ecl-help-block"
       id="checkbox-default-helper"
     >
       Helper text for the group
@@ -593,7 +593,7 @@ exports[`EC - checkbox Invalid renders correctly 1`] = `
         value="es"
       />
       <label
-        class="ecl-form-label ecl-checkbox__label ecl-form-label--invalid"
+        class="ecl-checkbox__label"
         for="checkbox-invalid-1"
       >
         <span
@@ -612,7 +612,7 @@ exports[`EC - checkbox Invalid renders correctly 1`] = `
         Spain
       </label>
       <div
-        class="ecl-checkbox__help ecl-help-block"
+        class="ecl-checkbox__help"
         id="helper-invalid-1"
       >
         Help text for option 1
@@ -629,7 +629,7 @@ exports[`EC - checkbox Invalid renders correctly 1`] = `
         value="be"
       />
       <label
-        class="ecl-form-label ecl-checkbox__label ecl-form-label--invalid"
+        class="ecl-checkbox__label"
         for="checkbox-invalid-2"
       >
         <span
@@ -648,7 +648,7 @@ exports[`EC - checkbox Invalid renders correctly 1`] = `
         Belgium
       </label>
       <div
-        class="ecl-checkbox__help ecl-help-block"
+        class="ecl-checkbox__help"
         id="helper-invalid-2"
       >
         Help text for option 2
@@ -666,7 +666,7 @@ exports[`EC - checkbox Invalid renders correctly 1`] = `
         value="fr"
       />
       <label
-        class="ecl-form-label ecl-checkbox__label ecl-form-label--invalid"
+        class="ecl-checkbox__label"
         for="checkbox-invalid-3"
       >
         <span
@@ -685,7 +685,7 @@ exports[`EC - checkbox Invalid renders correctly 1`] = `
         France (disabled)
       </label>
       <div
-        class="ecl-checkbox__help ecl-help-block ecl-help-block--disabled"
+        class="ecl-checkbox__help ecl-checkbox__help--disabled"
         id="helper-invalid-3"
       >
         Help text for option 3

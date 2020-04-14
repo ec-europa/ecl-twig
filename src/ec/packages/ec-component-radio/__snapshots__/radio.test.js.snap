@@ -4,7 +4,7 @@ exports[`EC - Radio Binary invalid renders correctly 1`] = `
 <test>
   <fieldset
     aria-describedby="helper-id-1"
-    class="ecl-form-group ecl-form-group--radio ecl-radio__group--binary"
+    class="ecl-form-group"
   >
     <legend
       class="ecl-form-label ecl-form-label--invalid"
@@ -28,7 +28,7 @@ exports[`EC - Radio Binary invalid renders correctly 1`] = `
       Error message for the group
     </div>
     <div
-      class="ecl-radio"
+      class="ecl-radio ecl-radio--binary"
     >
       <input
         checked=""
@@ -49,7 +49,7 @@ exports[`EC - Radio Binary invalid renders correctly 1`] = `
       </label>
     </div>
     <div
-      class="ecl-radio"
+      class="ecl-radio ecl-radio--binary"
     >
       <input
         class="ecl-radio__input"
@@ -76,7 +76,7 @@ exports[`EC - Radio Binary renders correctly 1`] = `
 <test>
   <fieldset
     aria-describedby="helper-id-1"
-    class="ecl-form-group ecl-form-group--radio ecl-radio__group--binary"
+    class="ecl-form-group"
   >
     <legend
       class="ecl-form-label"
@@ -95,7 +95,7 @@ exports[`EC - Radio Binary renders correctly 1`] = `
       Helper text for the group
     </div>
     <div
-      class="ecl-radio"
+      class="ecl-radio ecl-radio--binary"
     >
       <input
         checked=""
@@ -116,7 +116,7 @@ exports[`EC - Radio Binary renders correctly 1`] = `
       </label>
     </div>
     <div
-      class="ecl-radio"
+      class="ecl-radio ecl-radio--binary"
     >
       <input
         class="ecl-radio__input"
@@ -143,7 +143,7 @@ exports[`EC - Radio Default renders correctly 1`] = `
 <test>
   <fieldset
     aria-describedby="helper-id-1"
-    class="ecl-form-group ecl-form-group--radio"
+    class="ecl-form-group"
   >
     <legend
       class="ecl-form-label"
@@ -183,7 +183,7 @@ exports[`EC - Radio Default renders correctly 1`] = `
         Luxembourg
       </label>
       <div
-        class="ecl-help-block ecl-radio__help"
+        class="ecl-radio__help"
         id="helper-1"
       >
         Help text for option 1
@@ -210,7 +210,7 @@ exports[`EC - Radio Default renders correctly 1`] = `
         Belgium
       </label>
       <div
-        class="ecl-help-block ecl-radio__help"
+        class="ecl-radio__help"
         id="helper-2"
       >
         Help text for option 2
@@ -238,7 +238,7 @@ exports[`EC - Radio Default renders correctly 1`] = `
         France (disabled)
       </label>
       <div
-        class="ecl-help-block ecl-radio__help ecl-help-block--disabled"
+        class="ecl-radio__help ecl-radio__help--disabled"
         id="helper-3"
       >
         Help text for option 3
@@ -252,7 +252,7 @@ exports[`EC - Radio Default renders correctly with extra attributes 1`] = `
 <test>
   <fieldset
     aria-describedby="helper-id-1"
-    class="ecl-form-group ecl-form-group--radio"
+    class="ecl-form-group"
     data-test="data-test-value"
     data-test-1="data-test-value-1"
   >
@@ -294,7 +294,7 @@ exports[`EC - Radio Default renders correctly with extra attributes 1`] = `
         Luxembourg
       </label>
       <div
-        class="ecl-help-block ecl-radio__help"
+        class="ecl-radio__help"
         id="helper-1"
       >
         Help text for option 1
@@ -321,7 +321,7 @@ exports[`EC - Radio Default renders correctly with extra attributes 1`] = `
         Belgium
       </label>
       <div
-        class="ecl-help-block ecl-radio__help"
+        class="ecl-radio__help"
         id="helper-2"
       >
         Help text for option 2
@@ -349,7 +349,7 @@ exports[`EC - Radio Default renders correctly with extra attributes 1`] = `
         France (disabled)
       </label>
       <div
-        class="ecl-help-block ecl-radio__help ecl-help-block--disabled"
+        class="ecl-radio__help ecl-radio__help--disabled"
         id="helper-3"
       >
         Help text for option 3
@@ -363,7 +363,7 @@ exports[`EC - Radio Default renders correctly with extra class names 1`] = `
 <test>
   <fieldset
     aria-describedby="helper-id-1"
-    class="ecl-form-group ecl-form-group--radio custom-class custom-class--test"
+    class="ecl-form-group custom-class custom-class--test"
   >
     <legend
       class="ecl-form-label"
@@ -403,7 +403,7 @@ exports[`EC - Radio Default renders correctly with extra class names 1`] = `
         Luxembourg
       </label>
       <div
-        class="ecl-help-block ecl-radio__help"
+        class="ecl-radio__help"
         id="helper-1"
       >
         Help text for option 1
@@ -430,7 +430,7 @@ exports[`EC - Radio Default renders correctly with extra class names 1`] = `
         Belgium
       </label>
       <div
-        class="ecl-help-block ecl-radio__help"
+        class="ecl-radio__help"
         id="helper-2"
       >
         Help text for option 2
@@ -458,7 +458,7 @@ exports[`EC - Radio Default renders correctly with extra class names 1`] = `
         France (disabled)
       </label>
       <div
-        class="ecl-help-block ecl-radio__help ecl-help-block--disabled"
+        class="ecl-radio__help ecl-radio__help--disabled"
         id="helper-3"
       >
         Help text for option 3
@@ -472,7 +472,7 @@ exports[`EC - Radio Invalid renders correctly 1`] = `
 <test>
   <fieldset
     aria-describedby="helper-id-1"
-    class="ecl-form-group ecl-form-group--radio"
+    class="ecl-form-group"
   >
     <legend
       class="ecl-form-label ecl-form-label--invalid"
@@ -517,7 +517,7 @@ exports[`EC - Radio Invalid renders correctly 1`] = `
         Luxembourg
       </label>
       <div
-        class="ecl-help-block ecl-radio__help"
+        class="ecl-radio__help"
         id="helper-1"
       >
         Help text for option 1
@@ -544,7 +544,7 @@ exports[`EC - Radio Invalid renders correctly 1`] = `
         Belgium
       </label>
       <div
-        class="ecl-help-block ecl-radio__help"
+        class="ecl-radio__help"
         id="helper-2"
       >
         Help text for option 2
@@ -572,7 +572,7 @@ exports[`EC - Radio Invalid renders correctly 1`] = `
         France (disabled)
       </label>
       <div
-        class="ecl-help-block ecl-radio__help ecl-help-block--disabled"
+        class="ecl-radio__help ecl-radio__help--disabled"
         id="helper-3"
       >
         Help text for option 3

@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.27.0](https://github.com/ec-europa/ecl-twig/compare/v2.26.0...v2.27.0) (2020-04-08)
+
+### Features
+
+- **form-elements:** Refactoring form elements components - FRONT-1029 ([#406](https://github.com/ec-europa/ecl-twig/issues/406)) ([2636eed](https://github.com/ec-europa/ecl-twig/commit/2636eede836bf97c3cf8755dc24ae88a4a031dfc))
+
 # [2.26.0](https://github.com/ec-europa/ecl-twig/compare/v2.25.1...v2.26.0) (2020-04-01)
 
 **Note:** Version bump only for package @ecl-twig/ec-component-radio
