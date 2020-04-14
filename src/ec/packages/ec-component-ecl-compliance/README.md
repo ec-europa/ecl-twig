@@ -1,9 +1,9 @@
-# ECL Twig - EC Compliance component
+# ECL Twig - EC ECL Compliance component
 
-npm package: `@ecl-twig/ec-component-compliance`
+npm package: `@ecl-twig/ec-component-ecl-compliance`
 
 ```shell
-npm install --save @ecl-twig/ec-component-compliance
+npm install --save @ecl-twig/ec-component-ecl-compliance
 ```
 
 ### Parameters:
