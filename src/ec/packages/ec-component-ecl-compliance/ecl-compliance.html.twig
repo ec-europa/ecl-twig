@@ -1,3 +1,5 @@
+{% spaceless %}
+
 {#
   Parameters:
   - "not-complaint" (boolean)
@@ -19,7 +21,7 @@
       class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-red ecl-u-border-style-solid"
     >
       <p class="ecl-u-type-color-grey ecl-u-ml-xl ecl-u-type-s">
-        {{ message }}
+        {{- message -}}
       </p>
     </div>
   {% endblock %}
@@ -28,3 +30,5 @@
     <hr class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid" />
   {% endblock %}
 {% endif %}
+
+{% endspaceless %}

@@ -22,6 +22,8 @@
 
 {# Internal properties #}
 
+{% set _compliance = _compliance_|default(false) %}
+
 {% set _icon = {
   path: '',
   type: '',
@@ -69,5 +71,13 @@
   {{ _extra_attributes|raw }}>
   <use xlink:href="{{ _icon.path }}#{{ _icon_type }}{{ _icon.name }}"></use>
 </svg>
+
+{# Validation #}
+
+{% if _compliance %}
+  {% include '@ecl-twig/ec-component-ecl-compliance/components/ecl-compliance-icon.html.twig' with {
+    icon: _icon
+  } only %}
+{% endif %}
 
 {% endspaceless %}

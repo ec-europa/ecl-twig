@@ -7,4 +7,4 @@
 {% extends "@ecl-twig/ec-component-ecl-compliance/ecl-compliance.html.twig" %}
 
 {% set not_compliant = link.label is empty and (icons[0].name is not defined or icons[0].name is empty) %}
-{% set message = 'link.label or icon.name cannot be both empty, an unusable link tag would be generated otherwise' %}
+{% set message = '[link]: link.label or icon.name cannot be both empty, an unusable link tag would be generated otherwise' %}

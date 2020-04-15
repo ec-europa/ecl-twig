@@ -40,6 +40,8 @@
 
 {# Internal properties #}
 
+{% set _compliance = _compliance_|default(false) %}
+
 {% set _link = {
   type: 'default',
   label: '',
@@ -103,7 +105,8 @@
         {%- endif -%}
         {%- include '@ecl-twig/ec-component-icon/ecl-icon.html.twig' with _icon|merge({
           icon: icon|default({}),
-          extra_classes: _icon_extra_classes
+          extra_classes: _icon_extra_classes,
+          _compliance_: _compliancee
         }) only -%}
       {%- endif -%}
     {% endfor %}
@@ -122,7 +125,8 @@
         {%- endif -%}
         {%- include '@ecl-twig/ec-component-icon/ecl-icon.html.twig' with _icon|merge({
           icon: icon|default({}),
-          extra_classes: _icon_extra_classes
+          extra_classes: _icon_extra_classes,
+          _compliance_: _compliance
         }) only -%}
       {%- endif -%}
     {% endfor %}
@@ -132,15 +136,13 @@
   {% endif %}
 </a>
 
-{% endspaceless %}
-
 {# Validation #}
 
-{% if _compliance_ %}
+{% if _compliance %}
   {% include '@ecl-twig/ec-component-ecl-compliance/components/ecl-compliance-link.html.twig' with {
     link: _link,
     icons: _icons
   } only %}
 {% endif %}
 
-
+{% endspaceless %}

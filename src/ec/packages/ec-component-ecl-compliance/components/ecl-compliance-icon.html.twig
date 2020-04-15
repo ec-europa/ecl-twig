@@ -1,0 +1,13 @@
+{#
+  Parameters:
+  - "icon" (object)
+#}
+
+{% extends "@ecl-twig/ec-component-ecl-compliance/ecl-compliance.html.twig" %}
+
+{% set message = '' %}
+{% set not_compliant = icon.name is empty or icon.path is empty or icon.type is empty %}
+{% if not_compliant %}
+  {% set message = '[icon]: icon.name, icon.path and icon.type cannot be empty, no icon would be rendered, otherwise.' %}
+{% endif %}
+

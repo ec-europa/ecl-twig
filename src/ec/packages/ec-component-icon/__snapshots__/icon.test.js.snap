@@ -785,3 +785,28 @@ exports[`EC - Icon UI - icon solid-arrow renders correctly 1`] = `
   </svg>
 </test>
 `;
+
+exports[`EC - Icon with validation enabled and missing input data returns the right warning message 1`] = `
+<test>
+  <svg
+    aria-hidden="true"
+    class="ecl-icon ecl-icon--m"
+    focusable="false"
+  >
+    <use
+      xlink:href="#check-filled"
+    />
+  </svg>
+  <!-- ################################################################################################################
+    ecl2-compliance -->
+  <div
+    class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-red ecl-u-border-style-solid"
+  >
+    <p
+      class="ecl-u-type-color-grey ecl-u-ml-xl ecl-u-type-s"
+    >
+      [icon]: icon.name, icon.path and icon.type cannot be empty, no icon would be rendered, otherwise.
+    </p>
+  </div>
+</test>
+`;
