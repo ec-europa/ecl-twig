@@ -800,12 +800,15 @@ exports[`EC - Icon with validation enabled and missing input data returns the ri
   <!-- ################################################################################################################
     ecl2-compliance -->
   <div
-    class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-red ecl-u-border-style-solid"
+    class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-red ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-xs"
   >
     <p
       class="ecl-u-type-color-grey ecl-u-ml-xl ecl-u-type-s"
     >
-      [icon]: icon.name, icon.path and icon.type cannot be empty, no icon would be rendered, otherwise.
+      <b>
+        [icon]
+      </b>
+       - icon.name, icon.path and icon.type cannot be empty, no icon would be rendered, otherwise
     </p>
   </div>
 </test>

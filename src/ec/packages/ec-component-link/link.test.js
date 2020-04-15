@@ -218,6 +218,10 @@ describe('EC - Link', () => {
           label: '',
           path: '',
           type: 'standalone',
+          icon_position: 'after',
+        },
+        icon: {
+          name: 'check-filled',
         },
         _compliance_: true,
       };

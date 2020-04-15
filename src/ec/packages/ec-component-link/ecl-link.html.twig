@@ -106,7 +106,7 @@
         {%- include '@ecl-twig/ec-component-icon/ecl-icon.html.twig' with _icon|merge({
           icon: icon|default({}),
           extra_classes: _icon_extra_classes,
-          _compliance_: _compliancee
+          _compliance_: _compliance
         }) only -%}
       {%- endif -%}
     {% endfor %}
@@ -141,7 +141,7 @@
 {% if _compliance %}
   {% include '@ecl-twig/ec-component-ecl-compliance/components/ecl-compliance-link.html.twig' with {
     link: _link,
-    icons: _icons
+    icon: _icons
   } only %}
 {% endif %}
 

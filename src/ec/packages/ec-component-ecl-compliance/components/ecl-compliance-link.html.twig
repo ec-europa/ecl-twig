@@ -6,5 +6,16 @@
 
 {% extends "@ecl-twig/ec-component-ecl-compliance/ecl-compliance.html.twig" %}
 
-{% set not_compliant = link.label is empty and (icons[0].name is not defined or icons[0].name is empty) %}
-{% set message = '[link]: link.label or icon.name cannot be both empty, an unusable link tag would be generated otherwise' %}
+{% set not_compliant =
+  (link.label is not defined or link.label is empty) and (
+    (link.icon_position is not defined or link.icon_position is empty) or
+    (icon[0].name is not defined or icon[0].name is empty) or
+    (icon[0].type is not defined or icon[0].type is empty) or
+    (icon[0].path is not defined or icon[0].path is empty)
+  )
+%}
+{% if not_compliant %}
+  {% set message = '<b>[link]</b> - link.label and none of link.icon_position, icon.name, icon.path or icon.type cannot be empty at the same time, an unusable link tag would be generated otherwise' %}
+{% else %}
+  {% set message = '<b>[link]</b> - Your implementation is ecl compliant ;)' %}
+{% endif %}

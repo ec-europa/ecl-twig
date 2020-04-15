@@ -2,12 +2,12 @@
 
 {#
   Parameters:
-  - "not-complaint" (boolean)
+  - "not-compliant" (boolean)
   - "message" (string)
 
   Blocks:
-  - "complaints" (boolean)
-  - "compliant" (string)
+  - "complaints"
+  - "compliant"
 #}
 
 {# Rendering #}
@@ -18,16 +18,22 @@
 {% if not_compliant %}
   {% block complaints %}
     <div
-      class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-red ecl-u-border-style-solid"
+      class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-red ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-xs"
     >
       <p class="ecl-u-type-color-grey ecl-u-ml-xl ecl-u-type-s">
-        {{- message -}}
+        {{- message|raw -}}
       </p>
     </div>
   {% endblock %}
 {% else %}
   {% block compliant %}
-    <hr class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid" />
+    <div
+      class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-xs"
+    >
+      <p class="ecl-u-type-color-grey ecl-u-ml-xl ecl-u-type-s">
+        {{- message|raw -}}
+      </p>
+    </div>
   {% endblock %}
 {% endif %}
 
