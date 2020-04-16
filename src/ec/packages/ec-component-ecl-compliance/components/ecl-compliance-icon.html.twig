@@ -7,8 +7,5 @@
 
 {% set message = '' %}
 {% set not_compliant = icon.name is empty or icon.path is empty or icon.type is empty %}
-{% if not_compliant %}
-  {% set message = '<b>[icon]</b> - icon.name, icon.path and icon.type cannot be empty, no icon would be rendered, otherwise' %}
-{% else %}
-  {% set message = '<b>[icon]</b> - Your implementation is ecl compliant ;)' %}
-{% endif %}
+{% set message = 'icon.name, icon.path and icon.type cannot be empty, no icon would be rendered, otherwise' %}
+{% set component = 'icon' %}

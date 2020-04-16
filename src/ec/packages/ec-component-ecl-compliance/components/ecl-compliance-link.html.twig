@@ -14,8 +14,10 @@
     (icon[0].path is not defined or icon[0].path is empty)
   )
 %}
-{% if not_compliant %}
-  {% set message = '<b>[link]</b> - link.label and none of link.icon_position, icon.name, icon.path or icon.type cannot be empty at the same time, an unusable link tag would be generated otherwise' %}
-{% else %}
-  {% set message = '<b>[link]</b> - Your implementation is ecl compliant ;)' %}
+{% set component = 'link' %}
+{% if link.type %}
+  {% set variant = link.type %}
 {% endif %}
+
+{% set message = 'link.label and none of link.icon_position, icon.name, icon.path or icon.type cannot be empty at the same time, an unusable link tag would be generated otherwise' %}
+

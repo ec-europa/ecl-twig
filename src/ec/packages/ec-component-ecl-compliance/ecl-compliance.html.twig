@@ -4,11 +4,23 @@
   Parameters:
   - "not-compliant" (boolean)
   - "message" (string)
+  - "component" (string)
+  - "variant" (string)
 
   Blocks:
   - "complaints"
   - "compliant"
 #}
+
+{# Internal properties #}
+
+{% set _success_message = '' %}
+{% set _identifier = component %}
+{% if variant %}
+  {% set _identifier = component ~ '--' ~ variant %}
+{% endif %}
+{% set _success_message = '<b>[' ~ _identifier ~ ']</b> - Your implementation is ecl compliant ;)' %}
+{% set _message = '<b>[' ~ _identifier ~ ']</b> ' ~ message %}
 
 {# Rendering #}
 
@@ -21,7 +33,7 @@
       class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-red ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-xs"
     >
       <p class="ecl-u-type-color-grey ecl-u-ml-xl ecl-u-type-s">
-        {{- message|raw -}}
+        {{- _message|raw -}}
       </p>
     </div>
   {% endblock %}
@@ -31,7 +43,7 @@
       class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-xs"
     >
       <p class="ecl-u-type-color-grey ecl-u-ml-xl ecl-u-type-s">
-        {{- message|raw -}}
+        {{- _success_message|raw -}}
       </p>
     </div>
   {% endblock %}
