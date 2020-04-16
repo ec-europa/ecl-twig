@@ -1,228 +1,234 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`EC - Dropdown legacy Default renders correctly 1`] = `
-<div
-  class="ecl-dropdown-legacy ecl-dropdown-legacy--padded"
-  data-ecl-auto-init="DropdownLegacy"
->
-  <button
-    aria-controls="dropdown-legacy-example-dropdown-content"
-    class="ecl-button ecl-button--secondary ecl-dropdown-legacy__toggle"
-    data-ecl-dropdown-legacy-toggle="true"
-    type="button"
+<test>
+  <div
+    class="ecl-dropdown-legacy ecl-dropdown-legacy--padded"
+    data-ecl-auto-init="DropdownLegacy"
   >
-    <span
-      class="ecl-button__container"
+    <button
+      aria-controls="dropdown-legacy-example-dropdown-content"
+      class="ecl-button ecl-button--secondary ecl-dropdown-legacy__toggle"
+      data-ecl-dropdown-legacy-toggle="true"
+      type="button"
     >
       <span
-        class="ecl-button__label"
-        data-ecl-label="true"
+        class="ecl-button__container"
       >
-        Dropdown button
+        <span
+          class="ecl-button__label"
+          data-ecl-label="true"
+        >
+          Dropdown button
+        </span>
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--fluid ecl-icon--rotate-180 ecl-button__icon ecl-button__icon--after"
+          data-ecl-icon=""
+          focusable="false"
+        >
+          <use
+            xlink:href="static/icons.svg#ui--corner-arrow"
+          />
+        </svg>
       </span>
-      <svg
-        aria-hidden="true"
-        class="ecl-icon ecl-icon--fluid ecl-icon--rotate-180 ecl-button__icon ecl-button__icon--after"
-        data-ecl-icon=""
-        focusable="false"
-      >
-        <use
-          xlink:href="static/icons.svg#ui--corner-arrow"
-        />
-      </svg>
-    </span>
-  </button>
-  <div
-    class="ecl-dropdown-legacy__content"
-    hidden=""
-    id="dropdown-legacy-example-dropdown-content"
-  >
-    <ul
-      class="ecl-unordered-list ecl-unordered-list--no-bullet"
+    </button>
+    <div
+      class="ecl-dropdown-legacy__content"
+      hidden=""
+      id="dropdown-legacy-example-dropdown-content"
     >
-      <li
-        class="ecl-unordered-list__item"
+      <ul
+        class="ecl-unordered-list ecl-unordered-list--no-bullet"
       >
-        <a
-          class="ecl-link ecl-link--standalone"
-          href="/example"
+        <li
+          class="ecl-unordered-list__item"
         >
-          Jobs, growth and investment
-        </a>
-      </li>
-      <li
-        class="ecl-unordered-list__item"
-      >
-        <a
-          class="ecl-link ecl-link--standalone"
-          href="/example"
+          <a
+            class="ecl-link ecl-link--standalone"
+            href="/example"
+          >
+            Jobs, growth and investment
+          </a>
+        </li>
+        <li
+          class="ecl-unordered-list__item"
         >
-          Digital single market
-        </a>
-      </li>
-      <li
-        class="ecl-unordered-list__item"
-      >
-        <a
-          class="ecl-link ecl-link--standalone"
-          href="/example"
+          <a
+            class="ecl-link ecl-link--standalone"
+            href="/example"
+          >
+            Digital single market
+          </a>
+        </li>
+        <li
+          class="ecl-unordered-list__item"
         >
-          Energy union and climate
-        </a>
-      </li>
-    </ul>
+          <a
+            class="ecl-link ecl-link--standalone"
+            href="/example"
+          >
+            Energy union and climate
+          </a>
+        </li>
+      </ul>
+    </div>
   </div>
-</div>
+</test>
 `;
 
 exports[`EC - Dropdown legacy Default renders correctly with extra attributes 1`] = `
-<div
-  class="ecl-dropdown-legacy ecl-dropdown-legacy--padded"
-  data-ecl-auto-init="DropdownLegacy"
-  data-test="data-test-value"
-  data-test-1="data-test-value-1"
->
-  <button
-    aria-controls="dropdown-legacy-example-dropdown-content"
-    class="ecl-button ecl-button--secondary ecl-dropdown-legacy__toggle"
-    data-ecl-dropdown-legacy-toggle="true"
-    type="button"
+<test>
+  <div
+    class="ecl-dropdown-legacy ecl-dropdown-legacy--padded"
+    data-ecl-auto-init="DropdownLegacy"
+    data-test="data-test-value"
+    data-test-1="data-test-value-1"
   >
-    <span
-      class="ecl-button__container"
+    <button
+      aria-controls="dropdown-legacy-example-dropdown-content"
+      class="ecl-button ecl-button--secondary ecl-dropdown-legacy__toggle"
+      data-ecl-dropdown-legacy-toggle="true"
+      type="button"
     >
       <span
-        class="ecl-button__label"
-        data-ecl-label="true"
+        class="ecl-button__container"
       >
-        Dropdown button
+        <span
+          class="ecl-button__label"
+          data-ecl-label="true"
+        >
+          Dropdown button
+        </span>
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--fluid ecl-icon--rotate-180 ecl-button__icon ecl-button__icon--after"
+          data-ecl-icon=""
+          focusable="false"
+        >
+          <use
+            xlink:href="static/icons.svg#ui--corner-arrow"
+          />
+        </svg>
       </span>
-      <svg
-        aria-hidden="true"
-        class="ecl-icon ecl-icon--fluid ecl-icon--rotate-180 ecl-button__icon ecl-button__icon--after"
-        data-ecl-icon=""
-        focusable="false"
-      >
-        <use
-          xlink:href="static/icons.svg#ui--corner-arrow"
-        />
-      </svg>
-    </span>
-  </button>
-  <div
-    class="ecl-dropdown-legacy__content"
-    hidden=""
-    id="dropdown-legacy-example-dropdown-content"
-  >
-    <ul
-      class="ecl-unordered-list ecl-unordered-list--no-bullet"
+    </button>
+    <div
+      class="ecl-dropdown-legacy__content"
+      hidden=""
+      id="dropdown-legacy-example-dropdown-content"
     >
-      <li
-        class="ecl-unordered-list__item"
+      <ul
+        class="ecl-unordered-list ecl-unordered-list--no-bullet"
       >
-        <a
-          class="ecl-link ecl-link--standalone"
-          href="/example"
+        <li
+          class="ecl-unordered-list__item"
         >
-          Jobs, growth and investment
-        </a>
-      </li>
-      <li
-        class="ecl-unordered-list__item"
-      >
-        <a
-          class="ecl-link ecl-link--standalone"
-          href="/example"
+          <a
+            class="ecl-link ecl-link--standalone"
+            href="/example"
+          >
+            Jobs, growth and investment
+          </a>
+        </li>
+        <li
+          class="ecl-unordered-list__item"
         >
-          Digital single market
-        </a>
-      </li>
-      <li
-        class="ecl-unordered-list__item"
-      >
-        <a
-          class="ecl-link ecl-link--standalone"
-          href="/example"
+          <a
+            class="ecl-link ecl-link--standalone"
+            href="/example"
+          >
+            Digital single market
+          </a>
+        </li>
+        <li
+          class="ecl-unordered-list__item"
         >
-          Energy union and climate
-        </a>
-      </li>
-    </ul>
+          <a
+            class="ecl-link ecl-link--standalone"
+            href="/example"
+          >
+            Energy union and climate
+          </a>
+        </li>
+      </ul>
+    </div>
   </div>
-</div>
+</test>
 `;
 
 exports[`EC - Dropdown legacy Default renders correctly with extra class names 1`] = `
-<div
-  class="ecl-dropdown-legacy ecl-dropdown-legacy--padded custom-class custom-class--test"
-  data-ecl-auto-init="DropdownLegacy"
->
-  <button
-    aria-controls="dropdown-legacy-example-dropdown-content"
-    class="ecl-button ecl-button--secondary ecl-dropdown-legacy__toggle"
-    data-ecl-dropdown-legacy-toggle="true"
-    type="button"
+<test>
+  <div
+    class="ecl-dropdown-legacy ecl-dropdown-legacy--padded custom-class custom-class--test"
+    data-ecl-auto-init="DropdownLegacy"
   >
-    <span
-      class="ecl-button__container"
+    <button
+      aria-controls="dropdown-legacy-example-dropdown-content"
+      class="ecl-button ecl-button--secondary ecl-dropdown-legacy__toggle"
+      data-ecl-dropdown-legacy-toggle="true"
+      type="button"
     >
       <span
-        class="ecl-button__label"
-        data-ecl-label="true"
+        class="ecl-button__container"
       >
-        Dropdown button
+        <span
+          class="ecl-button__label"
+          data-ecl-label="true"
+        >
+          Dropdown button
+        </span>
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--fluid ecl-icon--rotate-180 ecl-button__icon ecl-button__icon--after"
+          data-ecl-icon=""
+          focusable="false"
+        >
+          <use
+            xlink:href="static/icons.svg#ui--corner-arrow"
+          />
+        </svg>
       </span>
-      <svg
-        aria-hidden="true"
-        class="ecl-icon ecl-icon--fluid ecl-icon--rotate-180 ecl-button__icon ecl-button__icon--after"
-        data-ecl-icon=""
-        focusable="false"
-      >
-        <use
-          xlink:href="static/icons.svg#ui--corner-arrow"
-        />
-      </svg>
-    </span>
-  </button>
-  <div
-    class="ecl-dropdown-legacy__content"
-    hidden=""
-    id="dropdown-legacy-example-dropdown-content"
-  >
-    <ul
-      class="ecl-unordered-list ecl-unordered-list--no-bullet"
+    </button>
+    <div
+      class="ecl-dropdown-legacy__content"
+      hidden=""
+      id="dropdown-legacy-example-dropdown-content"
     >
-      <li
-        class="ecl-unordered-list__item"
+      <ul
+        class="ecl-unordered-list ecl-unordered-list--no-bullet"
       >
-        <a
-          class="ecl-link ecl-link--standalone"
-          href="/example"
+        <li
+          class="ecl-unordered-list__item"
         >
-          Jobs, growth and investment
-        </a>
-      </li>
-      <li
-        class="ecl-unordered-list__item"
-      >
-        <a
-          class="ecl-link ecl-link--standalone"
-          href="/example"
+          <a
+            class="ecl-link ecl-link--standalone"
+            href="/example"
+          >
+            Jobs, growth and investment
+          </a>
+        </li>
+        <li
+          class="ecl-unordered-list__item"
         >
-          Digital single market
-        </a>
-      </li>
-      <li
-        class="ecl-unordered-list__item"
-      >
-        <a
-          class="ecl-link ecl-link--standalone"
-          href="/example"
+          <a
+            class="ecl-link ecl-link--standalone"
+            href="/example"
+          >
+            Digital single market
+          </a>
+        </li>
+        <li
+          class="ecl-unordered-list__item"
         >
-          Energy union and climate
-        </a>
-      </li>
-    </ul>
+          <a
+            class="ecl-link ecl-link--standalone"
+            href="/example"
+          >
+            Energy union and climate
+          </a>
+        </li>
+      </ul>
+    </div>
   </div>
-</div>
+</test>
 `;

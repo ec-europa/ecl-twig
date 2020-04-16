@@ -40,6 +40,8 @@
 
 {# Internal properties #}
 
+{% set _compliance = _compliance_|default(false) %}
+
 {% set _link = {
   type: 'default',
   label: '',
@@ -58,14 +60,14 @@
   {% set _link = _link|merge(link) %}
 {% endif %}
 
-{% set _css_class = ['ecl-link', 'ecl-link--' ~ _link.type]|join(' ') %}
-{% set _extra_attributes = '' %}
-
 {% if icon.name is defined and icon.name is not empty %}
   {% set _icons = [icon] %}
 {% elseif icon[1] is defined and icon[1] is not empty %}
   {% set _icons = icon %}
 {% endif %}
+
+{% set _css_class = ['ecl-link', 'ecl-link--' ~ _link.type]|join(' ') %}
+{% set _extra_attributes = '' %}
 
 {% if _icons is defined and _link.icon_position is not empty %}
   {% set _css_class = _css_class ~ ' ecl-link--icon ecl-link--icon-' ~ _link.icon_position %}
@@ -103,7 +105,8 @@
         {%- endif -%}
         {%- include '@ecl-twig/ec-component-icon/ecl-icon.html.twig' with _icon|merge({
           icon: icon|default({}),
-          extra_classes: _icon_extra_classes
+          extra_classes: _icon_extra_classes,
+          _compliance_: _compliance
         }) only -%}
       {%- endif -%}
     {% endfor %}
@@ -122,7 +125,8 @@
         {%- endif -%}
         {%- include '@ecl-twig/ec-component-icon/ecl-icon.html.twig' with _icon|merge({
           icon: icon|default({}),
-          extra_classes: _icon_extra_classes
+          extra_classes: _icon_extra_classes,
+          _compliance_: _compliance
         }) only -%}
       {%- endif -%}
     {% endfor %}
@@ -131,5 +135,14 @@
     {{- _link.label -}}
   {% endif %}
 </a>
+
+{# Validation #}
+
+{% if _compliance %}
+  {% include '@ecl-twig/ec-component-ecl-compliance/components/ecl-compliance-link.html.twig' with {
+    link: _link,
+    icon: _icons
+  } only %}
+{% endif %}
 
 {% endspaceless %}

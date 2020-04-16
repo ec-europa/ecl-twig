@@ -29,6 +29,11 @@ let totalVariants = 0;
 const failed = [];
 
 components.forEach(component => {
+  // Our validation component.
+  if (component === 'ecl-compliance') {
+    return;
+  }
+
   totalComponents += 1;
   console.log(`\nChecking component: ${component}:`);
   console.log(`-------------------------------------------------------`);

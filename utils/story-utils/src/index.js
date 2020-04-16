@@ -1,4 +1,4 @@
-/* eslint-disable no-param-reassign */
+/* eslint-disable no-param-reassign, dot-notation */
 import he from 'he';
 import { text, select, boolean } from '@storybook/addon-knobs';
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
@@ -9,6 +9,7 @@ export const tabLabels = {
   optional: 'Optional elements',
   states: 'States',
   cases: 'Use cases',
+  checks: 'Validation',
 };
 
 export const getExtraKnobs = (data, nested) => {
@@ -207,14 +208,14 @@ export const getIconKnobs = (
       data.link.icon = icon;
     } else {
       data.icon = icon;
-      if (data.link) {
-        data.icon_position = select(
-          'icon_position',
-          iconPositionSettings,
-          'after',
-          tabLabels.optional
-        );
-      }
+    }
+    if (data.link) {
+      data.link.icon_position = select(
+        'icon_position',
+        iconPositionSettings,
+        'after',
+        tabLabels.optional
+      );
     }
   }
 
@@ -500,6 +501,16 @@ export const getLinkKnobs = data => {
     link.label = text(`links[${i}].label`, link.label, tabLabels.required);
     link.path = text(`links[${i}].path`, link.path, tabLabels.required);
   });
+
+  return data;
+};
+
+export const getComplianceKnob = data => {
+  data['_compliance_'] = boolean(
+    '_compliance_',
+    data['_compliance_'],
+    tabLabels.checks
+  );
 
   return data;
 };

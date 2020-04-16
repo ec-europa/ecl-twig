@@ -1,437 +1,465 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`EC - Text field Default renders correctly 1`] = `
-<div
-  class="ecl-form-group"
->
-  <label
-    class="ecl-form-label"
-    for="example"
-  >
-    Label
-    <span
-      class="ecl-form-label__required"
-    >
-      *
-    </span>
-  </label>
+<test>
   <div
-    class="ecl-help-block"
+    class="ecl-form-group"
   >
-    This is the input's helper text.
+    <label
+      class="ecl-form-label"
+      for="example"
+    >
+      Label
+      <span
+        class="ecl-form-label__required"
+      >
+        *
+      </span>
+    </label>
+    <div
+      class="ecl-help-block"
+    >
+      This is the input's helper text.
+    </div>
+    <input
+      class="ecl-text-input ecl-text-input--m"
+      id="example"
+      required=""
+      type="text"
+    />
   </div>
-  <input
-    class="ecl-text-input ecl-text-input--m"
-    id="example"
-    required=""
-    type="text"
-  />
-</div>
+</test>
 `;
 
 exports[`EC - Text field Default renders correctly when required 1`] = `
-<div
-  class="ecl-form-group"
->
-  <label
-    class="ecl-form-label"
-    for="example"
-  >
-    Label
-    <span
-      class="ecl-form-label__required"
-    >
-      *
-    </span>
-  </label>
+<test>
   <div
-    class="ecl-help-block"
+    class="ecl-form-group"
   >
-    This is the input's helper text.
+    <label
+      class="ecl-form-label"
+      for="example"
+    >
+      Label
+      <span
+        class="ecl-form-label__required"
+      >
+        *
+      </span>
+    </label>
+    <div
+      class="ecl-help-block"
+    >
+      This is the input's helper text.
+    </div>
+    <input
+      class="ecl-text-input ecl-text-input--m"
+      id="example"
+      required=""
+      type="text"
+    />
   </div>
-  <input
-    class="ecl-text-input ecl-text-input--m"
-    id="example"
-    required=""
-    type="text"
-  />
-</div>
+</test>
 `;
 
 exports[`EC - Text field Default renders correctly with extra attributes 1`] = `
-<div
-  class="ecl-form-group"
->
-  <label
-    class="ecl-form-label"
-    for="example"
-  >
-    Label
-    <span
-      class="ecl-form-label__required"
-    >
-      *
-    </span>
-  </label>
+<test>
   <div
-    class="ecl-help-block"
+    class="ecl-form-group"
   >
-    This is the input's helper text.
+    <label
+      class="ecl-form-label"
+      for="example"
+    >
+      Label
+      <span
+        class="ecl-form-label__required"
+      >
+        *
+      </span>
+    </label>
+    <div
+      class="ecl-help-block"
+    >
+      This is the input's helper text.
+    </div>
+    <input
+      class="ecl-text-input ecl-text-input--m"
+      data-test="data-test-value"
+      data-test-1="data-test-value-1"
+      id="example"
+      required=""
+      type="text"
+    />
   </div>
-  <input
-    class="ecl-text-input ecl-text-input--m"
-    data-test="data-test-value"
-    data-test-1="data-test-value-1"
-    id="example"
-    required=""
-    type="text"
-  />
-</div>
+</test>
 `;
 
 exports[`EC - Text field Default renders correctly with extra class names 1`] = `
-<div
-  class="ecl-form-group"
->
-  <label
-    class="ecl-form-label"
-    for="example"
-  >
-    Label
-    <span
-      class="ecl-form-label__required"
-    >
-      *
-    </span>
-  </label>
+<test>
   <div
-    class="ecl-help-block"
+    class="ecl-form-group"
   >
-    This is the input's helper text.
+    <label
+      class="ecl-form-label"
+      for="example"
+    >
+      Label
+      <span
+        class="ecl-form-label__required"
+      >
+        *
+      </span>
+    </label>
+    <div
+      class="ecl-help-block"
+    >
+      This is the input's helper text.
+    </div>
+    <input
+      class="ecl-text-input ecl-text-input--m custom-class custom-class--test"
+      id="example"
+      required=""
+      type="text"
+    />
   </div>
-  <input
-    class="ecl-text-input ecl-text-input--m custom-class custom-class--test"
-    id="example"
-    required=""
-    type="text"
-  />
-</div>
+</test>
 `;
 
 exports[`EC - Text field Default renders correctly with extra group class names 1`] = `
-<div
-  class="ecl-form-group custom-group-class custom-group-class--test"
->
-  <label
-    class="ecl-form-label"
-    for="example"
-  >
-    Label
-    <span
-      class="ecl-form-label__required"
-    >
-      *
-    </span>
-  </label>
+<test>
   <div
-    class="ecl-help-block"
+    class="ecl-form-group custom-group-class custom-group-class--test"
   >
-    This is the input's helper text.
+    <label
+      class="ecl-form-label"
+      for="example"
+    >
+      Label
+      <span
+        class="ecl-form-label__required"
+      >
+        *
+      </span>
+    </label>
+    <div
+      class="ecl-help-block"
+    >
+      This is the input's helper text.
+    </div>
+    <input
+      class="ecl-text-input ecl-text-input--m"
+      id="example"
+      required=""
+      type="text"
+    />
   </div>
-  <input
-    class="ecl-text-input ecl-text-input--m"
-    id="example"
-    required=""
-    type="text"
-  />
-</div>
+</test>
 `;
 
 exports[`EC - Text field Default renders correctly with extra label class names 1`] = `
-<div
-  class="ecl-form-group"
->
-  <label
-    class="ecl-form-label custom-label-class custom-label-class--test"
-    for="example"
-  >
-    Label
-    <span
-      class="ecl-form-label__required"
-    >
-      *
-    </span>
-  </label>
+<test>
   <div
-    class="ecl-help-block"
+    class="ecl-form-group"
   >
-    This is the input's helper text.
+    <label
+      class="ecl-form-label custom-label-class custom-label-class--test"
+      for="example"
+    >
+      Label
+      <span
+        class="ecl-form-label__required"
+      >
+        *
+      </span>
+    </label>
+    <div
+      class="ecl-help-block"
+    >
+      This is the input's helper text.
+    </div>
+    <input
+      class="ecl-text-input ecl-text-input--m"
+      id="example"
+      required=""
+      type="text"
+    />
   </div>
-  <input
-    class="ecl-text-input ecl-text-input--m"
-    id="example"
-    required=""
-    type="text"
-  />
-</div>
+</test>
 `;
 
 exports[`EC - Text field Disabled renders correctly 1`] = `
-<div
-  class="ecl-form-group"
->
-  <label
-    class="ecl-form-label ecl-form-label--disabled"
-    for="example"
-  >
-    Label
-    <span
-      class="ecl-form-label__required"
-    >
-      *
-    </span>
-  </label>
+<test>
   <div
-    class="ecl-help-block ecl-help-block--disabled"
+    class="ecl-form-group"
   >
-    This is the input's helper text.
+    <label
+      class="ecl-form-label ecl-form-label--disabled"
+      for="example"
+    >
+      Label
+      <span
+        class="ecl-form-label__required"
+      >
+        *
+      </span>
+    </label>
+    <div
+      class="ecl-help-block ecl-help-block--disabled"
+    >
+      This is the input's helper text.
+    </div>
+    <input
+      class="ecl-text-input ecl-text-input--m"
+      disabled=""
+      id="example"
+      required=""
+      type="text"
+    />
   </div>
-  <input
-    class="ecl-text-input ecl-text-input--m"
-    disabled=""
-    id="example"
-    required=""
-    type="text"
-  />
-</div>
+</test>
 `;
 
 exports[`EC - Text field Disabled renders correctly with extra attributes 1`] = `
-<div
-  class="ecl-form-group"
->
-  <label
-    class="ecl-form-label ecl-form-label--disabled"
-    for="example"
-  >
-    Label
-    <span
-      class="ecl-form-label__required"
-    >
-      *
-    </span>
-  </label>
+<test>
   <div
-    class="ecl-help-block ecl-help-block--disabled"
+    class="ecl-form-group"
   >
-    This is the input's helper text.
+    <label
+      class="ecl-form-label ecl-form-label--disabled"
+      for="example"
+    >
+      Label
+      <span
+        class="ecl-form-label__required"
+      >
+        *
+      </span>
+    </label>
+    <div
+      class="ecl-help-block ecl-help-block--disabled"
+    >
+      This is the input's helper text.
+    </div>
+    <input
+      class="ecl-text-input ecl-text-input--m"
+      data-test="data-test-value"
+      data-test-1="data-test-value-1"
+      disabled=""
+      id="example"
+      required=""
+      type="text"
+    />
   </div>
-  <input
-    class="ecl-text-input ecl-text-input--m"
-    data-test="data-test-value"
-    data-test-1="data-test-value-1"
-    disabled=""
-    id="example"
-    required=""
-    type="text"
-  />
-</div>
+</test>
 `;
 
 exports[`EC - Text field Disabled renders correctly with extra class names 1`] = `
-<div
-  class="ecl-form-group"
->
-  <label
-    class="ecl-form-label ecl-form-label--disabled"
-    for="example"
-  >
-    Label
-    <span
-      class="ecl-form-label__required"
-    >
-      *
-    </span>
-  </label>
+<test>
   <div
-    class="ecl-help-block ecl-help-block--disabled"
+    class="ecl-form-group"
   >
-    This is the input's helper text.
+    <label
+      class="ecl-form-label ecl-form-label--disabled"
+      for="example"
+    >
+      Label
+      <span
+        class="ecl-form-label__required"
+      >
+        *
+      </span>
+    </label>
+    <div
+      class="ecl-help-block ecl-help-block--disabled"
+    >
+      This is the input's helper text.
+    </div>
+    <input
+      class="ecl-text-input ecl-text-input--m custom-class custom-class--test"
+      disabled=""
+      id="example"
+      required=""
+      type="text"
+    />
   </div>
-  <input
-    class="ecl-text-input ecl-text-input--m custom-class custom-class--test"
-    disabled=""
-    id="example"
-    required=""
-    type="text"
-  />
-</div>
+</test>
 `;
 
 exports[`EC - Text field Disabled renders correctly with extra group class names 1`] = `
-<div
-  class="ecl-form-group custom-group-class custom-group-class--test"
->
-  <label
-    class="ecl-form-label ecl-form-label--disabled"
-    for="example"
-  >
-    Label
-    <span
-      class="ecl-form-label__required"
-    >
-      *
-    </span>
-  </label>
+<test>
   <div
-    class="ecl-help-block ecl-help-block--disabled"
+    class="ecl-form-group custom-group-class custom-group-class--test"
   >
-    This is the input's helper text.
+    <label
+      class="ecl-form-label ecl-form-label--disabled"
+      for="example"
+    >
+      Label
+      <span
+        class="ecl-form-label__required"
+      >
+        *
+      </span>
+    </label>
+    <div
+      class="ecl-help-block ecl-help-block--disabled"
+    >
+      This is the input's helper text.
+    </div>
+    <input
+      class="ecl-text-input ecl-text-input--m"
+      disabled=""
+      id="example"
+      required=""
+      type="text"
+    />
   </div>
-  <input
-    class="ecl-text-input ecl-text-input--m"
-    disabled=""
-    id="example"
-    required=""
-    type="text"
-  />
-</div>
+</test>
 `;
 
 exports[`EC - Text field With error renders correctly 1`] = `
-<div
-  class="ecl-form-group"
->
-  <label
-    class="ecl-form-label ecl-form-label--invalid"
-    for="example"
+<test>
+  <div
+    class="ecl-form-group"
   >
-    Label
-    <span
-      class="ecl-form-label__required"
+    <label
+      class="ecl-form-label ecl-form-label--invalid"
+      for="example"
     >
-      *
-    </span>
-  </label>
-  <div
-    class="ecl-help-block"
-  >
-    This is the input's helper text.
+      Label
+      <span
+        class="ecl-form-label__required"
+      >
+        *
+      </span>
+    </label>
+    <div
+      class="ecl-help-block"
+    >
+      This is the input's helper text.
+    </div>
+    <div
+      class="ecl-feedback-message"
+    >
+      This is the error message
+    </div>
+    <input
+      class="ecl-text-input ecl-text-input--invalid ecl-text-input--m"
+      id="example"
+      required=""
+      type="text"
+    />
   </div>
-  <div
-    class="ecl-feedback-message"
-  >
-    This is the error message
-  </div>
-  <input
-    class="ecl-text-input ecl-text-input--invalid ecl-text-input--m"
-    id="example"
-    required=""
-    type="text"
-  />
-</div>
+</test>
 `;
 
 exports[`EC - Text field With error renders correctly with extra attributes 1`] = `
-<div
-  class="ecl-form-group"
->
-  <label
-    class="ecl-form-label ecl-form-label--invalid"
-    for="example"
+<test>
+  <div
+    class="ecl-form-group"
   >
-    Label
-    <span
-      class="ecl-form-label__required"
+    <label
+      class="ecl-form-label ecl-form-label--invalid"
+      for="example"
     >
-      *
-    </span>
-  </label>
-  <div
-    class="ecl-help-block"
-  >
-    This is the input's helper text.
+      Label
+      <span
+        class="ecl-form-label__required"
+      >
+        *
+      </span>
+    </label>
+    <div
+      class="ecl-help-block"
+    >
+      This is the input's helper text.
+    </div>
+    <div
+      class="ecl-feedback-message"
+    >
+      This is the error message
+    </div>
+    <input
+      class="ecl-text-input ecl-text-input--invalid ecl-text-input--m"
+      data-test="data-test-value"
+      data-test-1="data-test-value-1"
+      id="example"
+      required=""
+      type="text"
+    />
   </div>
-  <div
-    class="ecl-feedback-message"
-  >
-    This is the error message
-  </div>
-  <input
-    class="ecl-text-input ecl-text-input--invalid ecl-text-input--m"
-    data-test="data-test-value"
-    data-test-1="data-test-value-1"
-    id="example"
-    required=""
-    type="text"
-  />
-</div>
+</test>
 `;
 
 exports[`EC - Text field With error renders correctly with extra class names 1`] = `
-<div
-  class="ecl-form-group"
->
-  <label
-    class="ecl-form-label ecl-form-label--invalid"
-    for="example"
+<test>
+  <div
+    class="ecl-form-group"
   >
-    Label
-    <span
-      class="ecl-form-label__required"
+    <label
+      class="ecl-form-label ecl-form-label--invalid"
+      for="example"
     >
-      *
-    </span>
-  </label>
-  <div
-    class="ecl-help-block"
-  >
-    This is the input's helper text.
+      Label
+      <span
+        class="ecl-form-label__required"
+      >
+        *
+      </span>
+    </label>
+    <div
+      class="ecl-help-block"
+    >
+      This is the input's helper text.
+    </div>
+    <div
+      class="ecl-feedback-message"
+    >
+      This is the error message
+    </div>
+    <input
+      class="ecl-text-input ecl-text-input--invalid ecl-text-input--m custom-class custom-class--test"
+      id="example"
+      required=""
+      type="text"
+    />
   </div>
-  <div
-    class="ecl-feedback-message"
-  >
-    This is the error message
-  </div>
-  <input
-    class="ecl-text-input ecl-text-input--invalid ecl-text-input--m custom-class custom-class--test"
-    id="example"
-    required=""
-    type="text"
-  />
-</div>
+</test>
 `;
 
 exports[`EC - Text field With error renders correctly with extra group class names 1`] = `
-<div
-  class="ecl-form-group custom-group-class custom-group-class--test"
->
-  <label
-    class="ecl-form-label ecl-form-label--invalid"
-    for="example"
+<test>
+  <div
+    class="ecl-form-group custom-group-class custom-group-class--test"
   >
-    Label
-    <span
-      class="ecl-form-label__required"
+    <label
+      class="ecl-form-label ecl-form-label--invalid"
+      for="example"
     >
-      *
-    </span>
-  </label>
-  <div
-    class="ecl-help-block"
-  >
-    This is the input's helper text.
+      Label
+      <span
+        class="ecl-form-label__required"
+      >
+        *
+      </span>
+    </label>
+    <div
+      class="ecl-help-block"
+    >
+      This is the input's helper text.
+    </div>
+    <div
+      class="ecl-feedback-message"
+    >
+      This is the error message
+    </div>
+    <input
+      class="ecl-text-input ecl-text-input--invalid ecl-text-input--m"
+      id="example"
+      required=""
+      type="text"
+    />
   </div>
-  <div
-    class="ecl-feedback-message"
-  >
-    This is the error message
-  </div>
-  <input
-    class="ecl-text-input ecl-text-input--invalid ecl-text-input--m"
-    id="example"
-    required=""
-    type="text"
-  />
-</div>
+</test>
 `;

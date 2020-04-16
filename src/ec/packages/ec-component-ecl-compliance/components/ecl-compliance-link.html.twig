@@ -1,0 +1,23 @@
+{#
+  Parameters:
+  - "link" (object)
+  - "icon" (object)
+#}
+
+{% extends "@ecl-twig/ec-component-ecl-compliance/ecl-compliance.html.twig" %}
+
+{% set not_compliant =
+  (link.label is not defined or link.label is empty) and (
+    (link.icon_position is not defined or link.icon_position is empty) or
+    (icon[0].name is not defined or icon[0].name is empty) or
+    (icon[0].type is not defined or icon[0].type is empty) or
+    (icon[0].path is not defined or icon[0].path is empty)
+  )
+%}
+{% set component = 'link' %}
+{% if link.type %}
+  {% set variant = link.type %}
+{% endif %}
+
+{% set message = 'link.label and none of link.icon_position, icon.name, icon.path or icon.type cannot be empty at the same time, an unusable link tag would be generated otherwise' %}
+

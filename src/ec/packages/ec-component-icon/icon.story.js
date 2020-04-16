@@ -1,7 +1,12 @@
 import { storiesOf } from '@storybook/html';
 import { withKnobs, select } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
-import { getExtraKnobs, getIconKnobs, tabLabels } from '@ecl-twig/story-utils';
+import {
+  getExtraKnobs,
+  getIconKnobs,
+  tabLabels,
+  getComplianceKnob,
+} from '@ecl-twig/story-utils';
 import withCode from '@ecl-twig/storybook-addon-code';
 
 import brandedIcons from '@ecl/ec-resources-icons/dist/lists/branded.json';
@@ -19,6 +24,7 @@ import notes from './README.md';
 const prepareIcon = (data, name) => {
   getIconKnobs(data, name, data.icon.type);
   getExtraKnobs(data);
+  getComplianceKnob(data);
 
   return data;
 };
