@@ -303,7 +303,7 @@ exports[`EC - Link with validation enabled and missing input data returns the ri
         <b>
           [icon]
         </b>
-         - icon.name, icon.path and icon.type cannot be empty, no icon would be rendered, otherwise
+         icon.name, icon.path and icon.type cannot be empty, no icon would be rendered, otherwise
       </p>
     </div>
   </a>
@@ -316,9 +316,9 @@ exports[`EC - Link with validation enabled and missing input data returns the ri
       class="ecl-u-type-color-grey ecl-u-ml-xl ecl-u-type-s"
     >
       <b>
-        [link]
+        [link--standalone]
       </b>
-       - link.label and none of link.icon_position, icon.name, icon.path or icon.type cannot be empty at the same time, an unusable link tag would be generated otherwise
+       link.label and none of link.icon_position, icon.name, icon.path or icon.type cannot be empty at the same time, an unusable link tag would be generated otherwise
     </p>
   </div>
 </test>
