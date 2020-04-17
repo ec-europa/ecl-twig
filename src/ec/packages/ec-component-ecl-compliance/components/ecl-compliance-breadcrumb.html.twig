@@ -1,0 +1,25 @@
+{#
+  Parameters:
+  - "navigation_text" (string)
+  - "ellipsis_label" (string)
+  - "icon_file_path" (string)
+#}
+
+{% extends "@ecl-twig/ec-component-ecl-compliance/ecl-compliance.html.twig" %}
+
+{% set message = '' %}
+{% set no_navigation_case = navigation_text is empty %}
+{% set no_ellipsis_case = ellipsis_label is empty %}
+{% set no_icon_path_case = icon_file_path is empty %}
+{% set not_compliant = no_navigation_case or no_ellipsis_case or no_icon_path_case %}
+{% set component = 'breadcrumb' %}
+
+{% if no_navigation_case %}
+  {% set message = message ~ '"navigation_text" is mandatory for accessibility reasons.' %}
+{% endif %}
+{% if no_ellipsis_case %}
+  {% set message = message ~ ' "ellipsis_label" is mandatory for accessibility reasons.' %}
+{% endif %}
+{% if no_icon_path_case %}
+  {% set message = message ~ ' "icon_path" is required in order to render the separator.' %}
+{% endif %}
