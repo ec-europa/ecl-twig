@@ -367,3 +367,76 @@ exports[`EC - Message Warning renders correctly 1`] = `
   </div>
 </test>
 `;
+
+exports[`EC - Message with validation enabled and missing input data returns the right warning message 1`] = `
+<test>
+  <div
+    class="ecl-message ecl-message--info"
+    data-ecl-auto-init="Message"
+    data-ecl-message=""
+    role="alert"
+  >
+    <svg
+      aria-hidden="true"
+      class="ecl-icon ecl-icon--l ecl-message__icon"
+      focusable="false"
+    >
+      <use
+        xlink:href="/icons.svg#notifications--information"
+      />
+    </svg>
+    <div
+      class="ecl-message__content"
+    >
+      <button
+        class="ecl-button ecl-button--ghost ecl-message__close"
+        data-ecl-message-close=""
+        type="button"
+      >
+        <span
+          class="ecl-button__container"
+        >
+          <span
+            class="ecl-button__label"
+            data-ecl-label="true"
+          >
+            Close
+          </span>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--s ecl-button__icon ecl-button__icon--after"
+            data-ecl-icon=""
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#ui--close"
+            />
+          </svg>
+        </span>
+      </button>
+      <div
+        class="ecl-message__title"
+      >
+        Information message
+      </div>
+      <p
+        class="ecl-message__description"
+      />
+    </div>
+  </div>
+  <!-- ################################################################################################################
+    ecl2-compliance -->
+  <div
+    class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-red ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-l"
+  >
+    <p
+      class="ecl-u-type-color-grey ecl-u-ml-xl ecl-u-type-s"
+    >
+      <b>
+        [message--info]
+      </b>
+        "description" text is mandatory. 
+    </p>
+  </div>
+</test>
+`;

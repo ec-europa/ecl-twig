@@ -21,6 +21,7 @@
 {% set _title = title|default('') %}
 {% set _close = close|default({}) %}
 {% set _description = description|default('') %}
+{% set _compliance = _compliance_|default(false) %}
 
 {% set _css_class = 'ecl-message' %}
 {% set _extra_attributes = 'data-ecl-auto-init="Message"' %}
@@ -66,11 +67,24 @@
       extra_attributes: [{
         name: 'data-ecl-message-close',
       }],
+      _compliance_: _compliance
     }) only %}
 
     <div class="ecl-message__title">{{ _title }}</div>
     <p class="ecl-message__description">{{ _description }}</p>
   </div>
 </div>
+
+{# Validation #}
+
+{% if _compliance %}
+  {% include '@ecl-twig/ec-component-ecl-compliance/components/ecl-compliance-message.html.twig' with {
+    variant: _variant,
+    icon: _icon,
+    title: _title,
+    close: _close,
+    description: _description
+  } only %}
+{% endif %}
 
 {% endspaceless %}

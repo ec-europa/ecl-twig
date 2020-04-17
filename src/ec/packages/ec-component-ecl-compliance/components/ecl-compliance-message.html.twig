@@ -1,0 +1,23 @@
+{#
+  Parameters:
+  - variant: (string),
+  - icon: (object),
+  - title: (string),
+  - close: (object)
+  - description (text)
+#}
+
+{% extends "@ecl-twig/ec-component-ecl-compliance/ecl-compliance.html.twig" %}
+
+{% set message = '' %}
+{% set no_title_case = title is empty %}
+{% set no_description_case = description is empty %}
+{% set not_compliant = no_title_case or no_description_case %}
+{% set component = 'message' %}
+
+{% if no_title_case %}
+  {% set message = message ~ ' "title" is mandatory.' %}
+{% endif %}
+{% if no_description_case %}
+  {% set message = message ~ ' "description" text is mandatory.' %}
+{% endif %}
