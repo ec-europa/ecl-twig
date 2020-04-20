@@ -7,6 +7,7 @@ import {
   getFormGroupKnobs,
   tabLabels,
   getFormItemKnobs,
+  getComplianceKnob,
 } from '@ecl-twig/story-utils';
 import withCode from '@ecl-twig/storybook-addon-code';
 
@@ -30,6 +31,7 @@ const prepareCheckbox = data => {
   });
 
   getExtraKnobs(data, true);
+  getComplianceKnob(data);
 
   return data;
 };
