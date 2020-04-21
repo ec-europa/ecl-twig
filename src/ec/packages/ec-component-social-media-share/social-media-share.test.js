@@ -49,6 +49,7 @@ describe('EC - Social Media Share', () => {
   describe('with validation enabled and missing input data', () => {
     test('returns the right warning message', () => {
       expect.assertions(1);
+
       const dataCompliance = {
         ...demoData,
         _compliance_: true,
