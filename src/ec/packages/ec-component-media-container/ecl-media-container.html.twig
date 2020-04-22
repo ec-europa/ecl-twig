@@ -29,6 +29,7 @@
       ...
     ]
   - "ratio" (string) (default: 16-9)
+  - "_compliance_" (boolean) (default: false)
 
   Blocks:
     - "embedded_media"
@@ -45,6 +46,7 @@
 {% set _ratio = ratio|default('16-9') %}
 {% set _sources = sources|default({}) %}
 {% set _tracks = tracks|default({}) %}
+{% set _compliance = _compliance_|default(false) %}
 
 {# Internal logic - Process properties #}
 
@@ -69,7 +71,7 @@
   <div class="ecl-media-container__media ecl-media-container__media--ratio-{{ _ratio }}">
     {%- block embedded_media _embedded_media|raw -%}
   </div>
-{% elseif _sources is not empty and sources is iterable %}
+{% elseif _sources is not empty and _sources is iterable %}
   <video
     class="ecl-media-container__media"
     controls
@@ -78,7 +80,7 @@
 {% for source in _sources %}
   <source type="{{ source.type }}" src="{{ source.src }}" />
 {% endfor %}
-  {% if tracks is not empty and tracks is iterable %}
+  {% if _tracks is not empty and _tracks is iterable %}
   {% for track in _tracks %}
     <track
       kind="{{ track.kind }}"
@@ -96,9 +98,23 @@
     src="{{ _image }}"
   />
 {% endif %}
+{% if _description is not empty %}
   <figcaption class="ecl-media-container__caption">
     {{- _description -}}
   </figcaption>
+{% endif %}
 </figure>
+
+{# Validation #}
+
+{% if _compliance %}
+  {% include '@ecl-twig/ec-component-ecl-compliance/components/ecl-compliance-media-container.html.twig' with {
+    alt: _alt,
+    image: _image,
+    embedded_media: _embedded_media,
+    sources: _sources,
+    tracks: _tracks
+  } only %}
+{% endif %}
 
 {% endspaceless %}
