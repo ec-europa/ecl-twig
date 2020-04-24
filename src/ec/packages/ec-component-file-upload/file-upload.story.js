@@ -2,7 +2,12 @@
 import { storiesOf } from '@storybook/html';
 import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
-import { getExtraKnobs, tabLabels, getFormKnobs } from '@ecl-twig/story-utils';
+import {
+  getExtraKnobs,
+  tabLabels,
+  getFormKnobs,
+  getComplianceKnob,
+} from '@ecl-twig/story-utils';
 import withCode from '@ecl-twig/storybook-addon-code';
 
 // Import data for tests
@@ -34,6 +39,7 @@ const prepareFileUpload = data => {
   );
 
   getExtraKnobs(data);
+  getComplianceKnob(data);
 
   return data;
 };
