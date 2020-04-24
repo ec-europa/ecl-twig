@@ -6,11 +6,12 @@
   - "invalid_text" (string)
   - "optional_text" (string)
   - "required_text" (string)
+  - "component" (string)
 #}
 
 {% extends "@ecl-twig/ec-component-ecl-compliance/ecl-compliance.html.twig" %}
 
-{% set component = 'form-group' %}
+{% set component = component ? component : 'form-group' %}
 {% set message = '' %}
 {% set mandatory_case = required and required_text is empty %}
 {% set invalid_case = invalid and invalid_text is empty %}
