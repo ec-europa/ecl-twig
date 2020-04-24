@@ -43,7 +43,6 @@ describe('EC - Expandable', () => {
 
       const dataCompliance = { ...demoData, _compliance_: true };
       dataCompliance.label_expanded = '';
-      dataCompliance.button.icon.path = '';
 
       return expect(render(dataCompliance)).resolves.toMatchSnapshot();
     });
