@@ -2,7 +2,11 @@
 import { storiesOf } from '@storybook/html';
 import { withKnobs, text, select } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
-import { getExtraKnobs, tabLabels } from '@ecl-twig/story-utils';
+import {
+  getExtraKnobs,
+  tabLabels,
+  getComplianceKnob,
+} from '@ecl-twig/story-utils';
 import withCode from '@ecl-twig/storybook-addon-code';
 
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
@@ -88,6 +92,7 @@ const prepareFile = data => {
   }
 
   getExtraKnobs(data);
+  getComplianceKnob(data);
 
   return data;
 };
@@ -96,25 +101,9 @@ storiesOf('Components/File', module)
   .addDecorator(withNotes)
   .addDecorator(withCode)
   .addDecorator(withKnobs)
-  .add(
-    'without translation',
-    () => {
-      const data = prepareFile(dataWithoutTranslation);
-
-      return file(data);
-    },
-    {
-      notes: { markdown: notes, json: dataWithoutTranslation },
-    }
-  )
-  .add(
-    'with translation',
-    () => {
-      const data = prepareFile(dataWithTranslation);
-
-      return file(data);
-    },
-    {
-      notes: { markdown: notes, json: dataWithTranslation },
-    }
-  );
+  .add('without translation', () => file(prepareFile(dataWithoutTranslation)), {
+    notes: { markdown: notes, json: dataWithoutTranslation },
+  })
+  .add('with translation', () => file(prepareFile(dataWithTranslation)), {
+    notes: { markdown: notes, json: dataWithTranslation },
+  });
