@@ -2,7 +2,11 @@
 import { storiesOf } from '@storybook/html';
 import { withKnobs, text, select } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
-import { getExtraKnobs, tabLabels } from '@ecl-twig/story-utils';
+import {
+  getExtraKnobs,
+  tabLabels,
+  getComplianceKnob,
+} from '@ecl-twig/story-utils';
 import withCode from '@ecl-twig/storybook-addon-code';
 
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
@@ -24,6 +28,7 @@ const prepareSearchForm = data => {
   );
 
   getExtraKnobs(data);
+  getComplianceKnob(data);
 
   return data;
 };
@@ -32,14 +37,6 @@ storiesOf('Components/Forms/Search Form', module)
   .addDecorator(withKnobs)
   .addDecorator(withNotes)
   .addDecorator(withCode)
-  .add(
-    'default',
-    () => {
-      const dataStory = prepareSearchForm(dataDefault);
-
-      return searchForm(dataStory);
-    },
-    {
-      notes: { markdown: notes, json: dataDefault },
-    }
-  );
+  .add('default', () => searchForm(prepareSearchForm(dataDefault)), {
+    notes: { markdown: notes, json: dataDefault },
+  });
