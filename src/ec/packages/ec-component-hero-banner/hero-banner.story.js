@@ -2,7 +2,12 @@
 import { storiesOf } from '@storybook/html';
 import { withKnobs, text, boolean, select } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
-import { getExtraKnobs, getIconKnobs, tabLabels } from '@ecl-twig/story-utils';
+import {
+  getExtraKnobs,
+  getIconKnobs,
+  tabLabels,
+  getComplianceKnob,
+} from '@ecl-twig/story-utils';
 import withCode from '@ecl-twig/storybook-addon-code';
 
 import uiIcons from '@ecl/ec-resources-icons/dist/lists/ui.json';
@@ -58,6 +63,7 @@ const prepareBanner = data => {
   }
 
   getExtraKnobs(data);
+  getComplianceKnob(data);
 
   return data;
 };
