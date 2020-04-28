@@ -1,0 +1,23 @@
+{#
+  Parameters:
+    type: (string)
+    image: (string)
+#}
+
+{% extends "@ecl-twig/ec-component-ecl-compliance/ecl-compliance.html.twig" %}
+
+{% set message = '' %}
+{% set component = 'page-banner' %}
+{% set no_image_case = false %}
+
+{% if type in ['image', 'image-shade'] %}
+  {% set no_image_case = image is not defined or image is empty %}
+{% endif %}
+
+{% set not_compliant = no_image_case %}
+
+{% set message = message ~ ' when type is "' ~ type ~ '" "image" is mandatory.' %}
+
+
+
+
