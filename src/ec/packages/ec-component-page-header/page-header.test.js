@@ -6,6 +6,7 @@ import pageHeaderDataMetaTitle from './demo/data--meta-title';
 import pageHeaderDataMetaTitleDescription from './demo/data--meta-title-description';
 import pageHeaderDataEvents from './demo/data--events';
 import pageHeaderDataEventsDescription from './demo/data--events-description';
+import pageHeaderDataBackgroundImage from './demo/data--background-image';
 
 describe('EC - Page Header', () => {
   const template =
@@ -191,6 +192,39 @@ describe('EC - Page Header', () => {
       expect.assertions(1);
 
       const withExtraAttributes = merge(pageHeaderDataEventsDescription, {
+        extra_attributes: [
+          { name: 'data-test', value: 'data-test-value' },
+          { name: 'data-test-1', value: 'data-test-value-1' },
+        ],
+      });
+
+      return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
+    });
+  });
+
+  describe('background image', () => {
+    test(`- renders correctly`, () => {
+      expect.assertions(1);
+
+      return expect(
+        render(pageHeaderDataBackgroundImage)
+      ).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly with extra class names', () => {
+      expect.assertions(1);
+
+      const withExtraClasses = merge(pageHeaderDataBackgroundImage, {
+        extra_classes: 'custom-class custom-class--test',
+      });
+
+      return expect(render(withExtraClasses)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly with extra attributes', () => {
+      expect.assertions(1);
+
+      const withExtraAttributes = merge(pageHeaderDataBackgroundImage, {
         extra_attributes: [
           { name: 'data-test', value: 'data-test-value' },
           { name: 'data-test-1', value: 'data-test-value-1' },

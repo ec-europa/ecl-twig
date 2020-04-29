@@ -11,7 +11,9 @@
             "icon" (associative array) Predefined structure compatible with EC Icon
         },
         ...
-        ]
+        ],
+    - "background_image" (boolean) (default: false) With or without header background
+    - "background_image_url (string) (default: '') Image url, in a default impementation
     - "breadcrumb" (associative array) (default: '') Predefined structure compatible with EC Breadcrumb
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
@@ -26,11 +28,22 @@
 {% set _title = title|default('') %}
 {% set _meta = meta|default('') %}
 {% set _description = description|default('') %}
+{% set _background_image = background_image|default(false) %}
+{% set _background_image_url = background_image_url|default('') %}
 
 {% set _css_class = 'ecl-page-header' %}
 {% set _extra_attributes = '' %}
 
 {# Internal logic - Process properties #}
+
+{% if _background_image %}
+  {% set _css_class = _css_class ~ ' ' ~ _css_class ~ '--background-image' %}
+{% endif %}
+
+{% if _background_image and _background_image_url is not empty %}
+  {% set _extra_attributes = 'style="background-image: url(' ~ _background_image_url ~ ')"' %}
+{% endif %}
+
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
 {% endif %}
