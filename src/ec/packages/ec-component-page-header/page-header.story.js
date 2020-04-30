@@ -67,14 +67,12 @@ const preparePageHeader = data => {
       );
     });
   }
+  data.background_image = boolean(
+    'background_image',
+    data.background_image,
+    tabLabels.required
+  );
   if (data.background_image) {
-    data.background_image = boolean(
-      'background_image',
-      data.background_image,
-      tabLabels.required
-    );
-  }
-  if (data.background_image_url) {
     data.background_image_url = text(
       'background_image_url',
       data.background_image_url,

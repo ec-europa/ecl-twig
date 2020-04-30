@@ -1,12 +1,5 @@
-/* eslint-disable import/no-extraneous-dependencies, no-param-reassign */
+/* eslint-disable import/no-extraneous-dependencies */
+import specData from '@ecl/ec-specs-page-header/demo/data--background-image';
 import adapter from '../adapter';
 
-export default adapter({
-  title: 'Page title',
-  description:
-    'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium',
-  meta: 'News article | 17 October 2015',
-  background_image_url:
-    'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
-  background_image: true,
-});
+export default adapter(specData);
