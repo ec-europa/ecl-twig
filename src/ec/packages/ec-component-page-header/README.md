@@ -31,7 +31,7 @@ npm install --save @ecl-twig/ec-component-page-header
   title: 'Page title',  
   description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium',  
   meta: 'News article | 17 October 2015',  
-  ackground_image: true,  
+  background_image: true,  
   background_image_url: "https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg",  
   breadcrumb: {  
     links: [    
