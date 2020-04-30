@@ -27,6 +27,12 @@ const adapter = initialData => {
     });
   }
 
+  if (adaptedData.backgroundImage) {
+    adaptedData.background_image = true;
+    adaptedData.background_image_url = adaptedData.backgroundImage;
+    delete adaptedData.backgroundImage;
+  }
+
   adaptedData.breadcrumb = breadcrumbDataSimple;
   if (adaptedData.infos) {
     adaptedData.infos = adaptedData.infos.map(formatPageHeaderInfo);

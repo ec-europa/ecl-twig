@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.28.0](https://github.com/ec-europa/ecl-twig/compare/v2.27.0...v2.28.0) (2020-04-30)
+
+#### :rocket: New Feature
+
+- [#439](https://github.com/ec-europa/ecl-twig/pull/439) feat(label): Adding component, FRONT-1131 ([@planctus](https://github.com/planctus))
+- [#440](https://github.com/ec-europa/ecl-twig/pull/440) feat(page-header): Adding background-image variant ([@planctus](https://github.com/planctus))
+
+#### Committers: 1
+
+- [@planctus](https://github.com/planctus)
+
 # [2.27.0](https://github.com/ec-europa/ecl-twig/compare/v2.26.0...v2.27.0) (2020-04-08)
 
 #### :nail_care: Enhancement

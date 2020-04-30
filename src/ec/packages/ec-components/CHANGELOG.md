@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.28.0](https://github.com/ec-europa/ecl-twig/compare/v2.27.0...v2.28.0) (2020-04-30)
+
+### Features
+
+- **label:** Adding component, FRONT-1131 ([#439](https://github.com/ec-europa/ecl-twig/issues/439)) ([040a2c9](https://github.com/ec-europa/ecl-twig/commit/040a2c968629f4503f9063ff2be8e8c75dfc39a5))
+
 # [2.27.0](https://github.com/ec-europa/ecl-twig/compare/v2.26.0...v2.27.0) (2020-04-08)
 
 **Note:** Version bump only for package @ecl-twig/ec-components
