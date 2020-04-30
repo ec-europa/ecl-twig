@@ -37,11 +37,7 @@ const prepareMessage = data => {
 
   getIconKnobs(data, name, 'notifications', 'l', 'primary', 'none');
 
-  data.close.label = text(
-    'data.close.label',
-    data.close.label,
-    tabLabels.required
-  );
+  data.close.label = text('close.label', data.close.label, tabLabels.required);
   data.close.icon.path = select(
     'close.icon.path',
     [defaultSprite],
