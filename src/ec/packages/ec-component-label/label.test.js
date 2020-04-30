@@ -1,5 +1,5 @@
 import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
-import dataDefault from './demo/data';
+import dataDefault from '@ecl/ec-specs-label/demo/data';
 
 describe('EC - Label', () => {
   const template = '@ecl-twig/ec-component-label/ecl-label.html.twig';

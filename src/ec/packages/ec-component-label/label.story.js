@@ -5,7 +5,7 @@ import { getExtraKnobs, tabLabels } from '@ecl-twig/story-utils';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
 
-import dataDefault from './demo/data';
+import dataDefault from '@ecl/ec-specs-label/demo/data';
 import label from './ecl-label.html.twig';
 import notes from './README.md';
 
