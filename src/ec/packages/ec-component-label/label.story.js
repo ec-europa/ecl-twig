@@ -20,7 +20,7 @@ const prepareLabel = data => {
   data.variant = select(
     'variant',
     options,
-    'low importance',
+    options['low importance'],
     tabLabels.optional
   );
 
