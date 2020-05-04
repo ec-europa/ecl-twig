@@ -46,5 +46,14 @@ describe('EC - Description list', () => {
 
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
     });
+
+    test('with missing input data and debug enabled shows the right warning message', () => {
+      expect.assertions(1);
+
+      const dataCompliance = { ...data, _compliance_: true };
+      dataCompliance.items[0].term = '';
+
+      return expect(render(dataCompliance)).resolves.toMatchSnapshot();
+    });
   });
 });
