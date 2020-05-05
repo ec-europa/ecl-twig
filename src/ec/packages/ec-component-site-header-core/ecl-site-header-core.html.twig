@@ -52,7 +52,8 @@
           "name" (string) (default: ''),
           "value" (optional) (string)
         ...
-      ]
+      ],
+    - "_compliance_" (boolean) (default: false) Activates debug
 
 #}
 
@@ -67,6 +68,7 @@
 {% set _search_toggle = search_toggle|default({}) %}
 {% set _extra_attributes = '' %}
 {% set _css_class = 'ecl-site-header-core' %}
+{% set _compliance = _compliance_|default(false) %}
 
 {% set _search_form = {
   text_input: {
@@ -89,8 +91,9 @@
     { name: 'data-ecl-search-form' },
     { name: 'id', value: 'search-form-id' }
   ],
-  extra_classes: 'ecl-site-header-core__search'
-}
+  extra_classes: 'ecl-site-header-core__search',
+  _compliance_: _compliance
+  }
 %}
 
 {# Merge options #}
@@ -179,7 +182,8 @@
                 name: 'logged-in',
                 size: 's'
               },
-              extra_classes: 'ecl-site-header-core__icon'
+              extra_classes: 'ecl-site-header-core__icon',
+              _compliance_: _compliance
             } only %}
              {{- login_toggle.label_logged -}}
              {% include '@ecl-twig/ec-component-icon/ecl-icon.html.twig' with {
@@ -189,7 +193,8 @@
                 name: 'corner-arrow',
                 size: 'xs'
               },
-              extra_classes: 'ecl-site-header-core__login-arrow'
+              extra_classes: 'ecl-site-header-core__login-arrow',
+              _compliance_: _compliance
             } only %}
           </a>
           <div
@@ -205,14 +210,15 @@
               link: {
                 label: _login_box.label,
                 path: _login_box.href,
-                type: "standalone"
+                type: "standalone",
+                _compliance_: _compliance
               }
             } only %}
           </div>
         {% else %}
           <a
             class="ecl-link ecl-link--standalone ecl-site-header-core__login-toggle"
-            href="{{ _login_box.href_not_logged }}"
+            href="{{ _login_toggle.href_not_logged }}"
           >
             {% include '@ecl-twig/ec-component-icon/ecl-icon.html.twig' with {
               icon: {
@@ -221,7 +227,8 @@
                 name: 'log-in',
                 size: 's'
               },
-              extra_classes: 'ecl-site-header-core__icon'
+              extra_classes: 'ecl-site-header-core__icon',
+              _compliance_: _compliance
             } only %}
             {{- login_toggle.label_not_logged -}}
           </a>
@@ -245,7 +252,8 @@
                 name: 'language',
                 size: 's'
               },
-              extra_classes: 'ecl-site-header-core__icon'
+              extra_classes: 'ecl-site-header-core__icon',
+              _compliance_: _compliance
             } only %}
             <span class="ecl-site-header-core__language-code">{{ _language_selector.code }}</span>
           </span>
@@ -268,7 +276,8 @@
               size: 's',
               extra_attributes: [
                { name: 'aria-hidden', value: true }
-              ]
+              ],
+              _compliance_: _compliance
             }
           } only -%}
           {{- _search_toggle.label -}}
@@ -289,9 +298,25 @@
     extra_attributes: [
       { name: 'hidden' },
       { name: 'id', value: 'language-list-overlay' }
-    ]
+    ],
+    _compliance_: _compliance
   } only %}
 {% endif %}
 </header>
+
+{# Validation #}
+
+{% if _compliance %}
+  {% include '@ecl-twig/ec-component-ecl-compliance/components/ecl-compliance-site-header-core.html.twig' with {
+    logo: _logo,
+    language_selector: _language_selector,
+    logged: _logged,
+    login_box: _login_box,
+    login_toggle: _login_toggle,
+    icon_file_path: _icon_file_path,
+    search_toggle: _search_toggle,
+    has_overlay: _has_overlay
+  } only %}
+{% endif %}
 
 {% endspaceless %}

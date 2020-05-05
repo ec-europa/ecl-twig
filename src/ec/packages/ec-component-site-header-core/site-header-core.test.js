@@ -44,6 +44,15 @@ describe('EC - Site Header Core', () => {
 
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
     });
+
+    test('with missing input data and degug enabled returns the right warning message', () => {
+      expect.assertions(1);
+
+      const dataCompliance = { ...englishData, _compliance_: true };
+      dataCompliance.icon_file_path = '';
+
+      return expect(render(dataCompliance)).resolves.toMatchSnapshot();
+    });
   });
 
   describe('Translated', () => {
