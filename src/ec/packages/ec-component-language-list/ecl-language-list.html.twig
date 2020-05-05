@@ -3,6 +3,7 @@
 {#
   Parameters:
   - "overlay" (boolean) (default:false)
+  - "data_lang_overlay" (string) (default: '')
   - "close_label (string) (default: ''): label of close button
   - "title" (string) (default: ''): title of the page
   - "items" (array) (default: [])
@@ -29,6 +30,7 @@
 {% set _close_label = close_label|default('') %}
 {% set _title = title|default('') %}
 {% set _extra_attributes = '' %}
+{% set _data_lang_overlay = data_lang_overlay|default('') %}
 
 {% if _overlay %}
   {% set _css_class = 'ecl-language-list ecl-language-list--overlay' %}
@@ -55,7 +57,7 @@
 
 {# Print the result #}
 
-<div class="{{ _css_class }}" {{ _extra_attributes|raw }} {{ data_lang_overlay }}>
+<div class="{{ _css_class }}" {{ _extra_attributes|raw }} {{ _data_lang_overlay }}>
 {% if _overlay %}
   <div class="ecl-language-list__container ecl-container">
     <div class="ecl-row">
@@ -71,7 +73,7 @@
           },
           icon_position: "after",
           extra_classes: 'ecl-language-list__close-button',
-          extra_attributes: [{ name: 'data-ecl-language-list-close', value: '' }]
+          extra_attributes: [{ name: 'data-ecl-language-list-close' }]
         } only %}
       </div>
       <div
@@ -83,10 +85,13 @@
     </div>
 {% else %}
   <header class="ecl-language-list__header">
+  {% if (_logo.path is defined and _logo.path is not empty) and
+      (_logo.alt is defined and _logo.alt is not empty) %}
     <img class="ecl-language-list__logo" src="{{ _logo.path }}" alt="{{ _logo.alt }}" />
+  {% endif %}
   </header>
   <div class="ecl-language-list__container ecl-container">
-  {% endif %}
+{% endif %}
   {% include '@ecl-twig/ec-component-language-list/ecl-language-list-grid.html.twig' with {
       items: _items,
       overlay: _overlay,
