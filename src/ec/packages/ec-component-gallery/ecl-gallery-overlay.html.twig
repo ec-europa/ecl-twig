@@ -95,7 +95,7 @@
   </section>
 
   <footer class="ecl-gallery__detail" data-ecl-gallery-overlay-footer>
-  {% if _overlay.counter_separator %}
+  {% if _overlay.counter_separator is defined and _overlay.counter_separator is not empty %}
     <div class="ecl-gallery__detail-counter">
       <span data-ecl-gallery-overlay-counter-current>0</span>{{- ' ' -}}
         {{- _overlay.counter_separator }}{{- ' ' -}}
