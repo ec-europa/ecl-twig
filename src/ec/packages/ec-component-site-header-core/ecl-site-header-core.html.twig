@@ -69,32 +69,12 @@
 {% set _extra_attributes = '' %}
 {% set _css_class = 'ecl-site-header-core' %}
 {% set _compliance = _compliance_|default(false) %}
-
-{% set _search_form = {
-  text_input: {
-    id: 'input-search',
-    label: 'search',
-    extra_classes: 'ecl-search-form__text-input'
-  },
-  button: {
-    variant: 'search',
-    icon: {
-      type: 'general',
-      name: 'search',
-      path: _icon_file_path,
-      size: 'fluid',
-    },
-    label: 'Search',
-    extra_classes: 'ecl-search-form__button'
-  },
-  extra_attributes: [
-    { name: 'data-ecl-search-form' },
-    { name: 'id', value: 'search-form-id' }
-  ],
-  extra_classes: 'ecl-site-header-core__search',
-  _compliance_: _compliance
-  }
-%}
+{% set _search_form_extra_attributes = [{ name: 'data-ecl-search-form' }] %}
+{% set _search_input_extra_classes = 'ecl-search-form__text-input' %}
+{% set _search_form_extra_classes = 'ecl-site-header-core__search' %}
+{% set _search_input_extra_attributes = [] %}
+{% set _search_button_extra_attributes = [] %}
+{% set _search_button_label = '' %}
 
 {# Merge options #}
 
@@ -122,14 +102,63 @@
 {% if _language_selector.overlay is defined and _language_selector.overlay is not empty %}
   {% set _has_overlay = true %}
 {% endif %}
-
-{% if search_form.text_input is defined and search_form.text_input is not empty %}
-  {% set _search_form = _search_form|merge({text_input: _search_form.text_input|merge(search_form.text_input) }) %}
+{% if search_form is defined and search_form is not empty %}
+  {# Extra attributes for the search form #}
+  {% if search_form.extra_attributes is defined and search_form.extra_attributes is not empty %}
+    {% set _search_form_extra_attributes = _search_form_extra_attributes|merge(search_form.extra_attributes) %}
+  {% endif %}
+  {# Extra classes for the search form #}
+  {% if search_form.extra_classes is defined and search_form.extra_classes is not empty %}
+    {% set _search_form_extra_classes = _search_form_extra_classes ~ ' ' ~ search_form.extra_classes %}
+  {% endif %}
+  {% if search_form.text_input is defined and search_form.text_input is not empty %}
+    {# Extra classes for the search input #}
+    {% if search_form.text_input.extra_classes is defined and search_form.text_input.extra_classes is not empty %}
+      {% set _search_input_extra_classes = _search_input_extra_classes ~ ' ' ~ _search_form.text_input.extra_classes %}
+    {% endif %}
+    {# Extra attributes for the search input #}
+    {% if search_form.text_input.extra_attributes is defined and search_form.text_input.extra_attributes is not empty %}
+      {% set _search_input_extra_attributes = _search_input_extra_attributes|merge(search_form.text_input.extra_attributes) %}
+    {% endif %}
+  {% endif %}
+  {% if search_form.button is defined and search_form.button is not empty %}
+    {# Extra classes for the search button #}
+    {% if search_form.button.extra_classes is defined and search_form.button.extra_classes is not empty %}
+      {% set _search_button_extra_classes = _search_button_extra_classes ~ ' ' ~ search_form.button.extra_classes %}
+    {% endif %}
+    {# Extra attributes for the search button #}
+    {% if search_form.button.extra_attributes is defined and search_form.button.extra_attributes is not empty %}
+      {% set _search_button_extra_attributes = _search_button_extra_attributes|merge(search_form.button.extra_attributes) %}
+    {% endif %}
+    {# Label for the search button #}
+    {% if search_form.button.label is defined and search_form.button.label is not empty %}
+      {% set _search_button_label = search_form.button.label %}
+    {% endif %}
+  {% endif %}
 {% endif %}
 
-{% if search_form.button is defined and search_form.button is not empty %}
-  {% set _search_form = _search_form|merge({ button: _search_form.button|merge(search_form.button) }) %}
-{% endif %}
+{% set _search_form = {
+  text_input: {
+    extra_classes: _search_input_extra_classes,
+    extra_attributes: _search_input_extra_attributes,
+  },
+  button: {
+    label: _search_button_label,
+    variant: 'search',
+    icon: {
+      type: 'general',
+      name: 'search',
+      path: _icon_file_path,
+      size: 'fluid',
+    },
+    extra_classes: _button_extra_classes,
+    extra_attributes: _search_button_extra_attributes,
+  },
+  extra_attributes: _search_form_extra_attributes,
+  extra_classes: _search_form_extra_classes,
+  _compliance_: _compliance,
+  }
+%}
 
 {# Internal logic - Process properties #}
 
