@@ -53,16 +53,16 @@
   {% set message = message ~ ' It looks like we completely miss the "items" here.' %}
 {% endif %}
 {% if no_id_case %}
-  {% set message = message ~ 'The "id" is needed in each element to make the accordion work.' %}
+  {% set message = message ~ ' The "id" is needed in each element to make the accordion work.' %}
 {% endif %}
 {% if no_content_case %}
-  {% set message = message ~ '"content" is needed in each element of the accordion.' %}
+  {% set message = message ~ ' "content" is needed in each element of the accordion.' %}
 {% endif %}
 {% if no_toggle_case %}
-  {% set message = message ~ '"toggle" element is needed to properly render the button.' %}
+  {% set message = message ~ ' "toggle" element is needed to properly render the button.' %}
 {% endif %}
 {% if no_toggle_label_case %}
-  {% set message = message ~ '"label" element is needed in each item to properly render the accordion button.' %}
+  {% set message = message ~ ' "label" element is needed in each item to properly render the accordion button.' %}
 {% endif %}
 {% if no_toggle_icon_case %}
   {% set message = message ~ ' The "icon" is needed in each of the buttons.' %}
