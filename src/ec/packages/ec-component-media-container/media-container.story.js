@@ -1,4 +1,3 @@
-/* eslint-disable no-param-reassign */
 import he from 'he';
 import { storiesOf } from '@storybook/html';
 import { withKnobs, text, select, object } from '@storybook/addon-knobs';

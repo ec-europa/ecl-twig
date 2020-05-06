@@ -1,4 +1,3 @@
-/* eslint-disable no-param-reassign */
 import breadcrumbDataSimple from '../ec-component-breadcrumb/demo/data--simple';
 
 function formatPageHeaderInfo(i) {
@@ -25,6 +24,12 @@ const adapter = initialData => {
       info.icon.name = iconName;
       info.icon.path = '/icons.svg';
     });
+  }
+
+  if (adaptedData.backgroundImage) {
+    adaptedData.background_image = true;
+    adaptedData.background_image_url = adaptedData.backgroundImage;
+    delete adaptedData.backgroundImage;
   }
 
   adaptedData.breadcrumb = breadcrumbDataSimple;
