@@ -25,6 +25,8 @@
 {% set _media_share_path = '' %}
 {% set _image_alt = '' %}
 {% set _item = item|default({}) %}
+{% set _has_icon = (_item.icon is defined and _item.icon is not empty) and
+  (_item.icon.name is defined and _item.icon.name is not empty) %}
 
 {# Internal logic - Process properties #}
 
@@ -71,14 +73,14 @@
     data-ecl-gallery-item
     data-ecl-gallery-item-share="{{ _media_share_path }}"
   >
+  {% if _item is not empty %}
     <figure class="ecl-gallery__image-container">
-      {% if _item and _item is not empty and _item.video and _item.video is not empty %}
+      {% if _item.video is defined and _item.video is not empty %}
         {% include '@ecl-twig/ec-component-gallery/ecl-video.html.twig' %}
       {% else %}
         <img src="{{ _media_href }}" alt="{{ _image_alt }}" class="ecl-gallery__image" />
       {% endif %}
-
-      {% if _item.icon is not empty and _item.icon.name is not empty %}
+      {% if _has_icon %}
         {% include '@ecl-twig/ec-component-icon/ecl-icon.html.twig' with {
           icon: _item.icon|merge({
             size: "l",
@@ -91,21 +93,22 @@
         data-ecl-gallery-description
       >
         {{- _item.description -}}
-
-        {% if _item.icon is not empty and _item.icon.name is not empty %}
+        {% if _has_icon %}
           {%- include '@ecl-twig/ec-component-icon/ecl-icon.html.twig' with {
             icon: _item.icon|merge({
               size: "l",
             }),
             extra_classes: 'ecl-gallery__description-icon'
           } only %}
-        {% endif -%}
-
+        {% endif %}
+        {% if _item.meta is defined and _item.meta is not empty %}
         <span class="ecl-gallery__meta" data-ecl-gallery-meta>
           {{- _item.meta -}}
         </span>
+        {% endif %}
       </figcaption>
     </figure>
+  {% endif %}
   </a>
 </li>
 
