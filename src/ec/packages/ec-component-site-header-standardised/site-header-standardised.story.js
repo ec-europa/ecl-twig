@@ -16,6 +16,7 @@ import {
   getLoginKnobs,
   getLanguageSelectorKnobs,
   getSearchFormKnobs,
+  getComplianceKnob,
 } from '@ecl-twig/story-utils';
 import withCode from '@ecl-twig/storybook-addon-code';
 
@@ -139,6 +140,8 @@ const prepareSiteHeaderStandardised = (data, lang) => {
   getExtraKnobs(data);
   // Menu.
   data.menu = object('data.menu', data.menu, tabLabels.optional);
+  // Compliance
+  getComplianceKnob(data);
 
   return data;
 };
