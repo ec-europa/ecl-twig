@@ -49,7 +49,7 @@ describe('EC - Site Header Standardised', () => {
       expect.assertions(1);
 
       const dataCompliance = { ...englishData, _compliance_: true };
-      dataCompliance.banner_top = {};
+      dataCompliance.banner_top = '';
 
       return expect(render(dataCompliance)).resolves.toMatchSnapshot();
     });
