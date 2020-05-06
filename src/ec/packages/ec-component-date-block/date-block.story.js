@@ -1,4 +1,4 @@
-/* eslint-disable no-param-reassign, no-shadow */
+/* eslint-disable no-shadow */
 import { storiesOf } from '@storybook/html';
 import { withKnobs, text, select } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
