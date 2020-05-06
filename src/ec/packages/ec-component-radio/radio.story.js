@@ -7,6 +7,7 @@ import {
   getFormGroupKnobs,
   tabLabels,
   getFormItemKnobs,
+  getComplianceKnob,
 } from '@ecl-twig/story-utils';
 import withCode from '@ecl-twig/storybook-addon-code';
 
@@ -25,6 +26,8 @@ const prepareRadio = (data, binary) => {
   getFormItemKnobs(data, true);
   // Extra classes and attributes.
   getExtraKnobs(data, true);
+  // Compliance knob.
+  getComplianceKnob(data);
 
   return data;
 };

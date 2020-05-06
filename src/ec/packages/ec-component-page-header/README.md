@@ -15,6 +15,8 @@ npm install --save @ecl-twig/ec-component-page-header
 - **"infos"** (array) (default: []) Array of infos. format:
   - "text" (string) Label of info
   - "icon" (associative array) Predefined structure compatible with EC Icon
+- **"background_image"** (boolean) (default: false) With or without background image
+- **"background_image_url"** (string) (default: '') Background image url
 - **"breadcrumb"** (associative array) (default: '') Predefined structure compatible with EC Breadcrumb
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
@@ -29,6 +31,8 @@ npm install --save @ecl-twig/ec-component-page-header
   title: 'Page title',  
   description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium',  
   meta: 'News article | 17 October 2015',  
+  background_image: true,  
+  background_image_url: "https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg",  
   breadcrumb: {  
     links: [    
       {  

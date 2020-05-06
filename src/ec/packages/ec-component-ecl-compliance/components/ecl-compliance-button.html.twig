@@ -1,0 +1,16 @@
+{#
+  Parameters:
+  - label (string),
+  - variant (String),
+  - type (string_,
+  - icon (object),
+  - icon_position (string)
+  - disabled: (boolean)
+#}
+
+{% extends "@ecl-twig/ec-component-ecl-compliance/ecl-compliance.html.twig" %}
+
+{% set not_compliant = label is empty %}
+{% set component = 'button' %}
+
+{% set message = '"label" is mandatory' %}
