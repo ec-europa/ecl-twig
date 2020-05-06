@@ -1,4 +1,3 @@
-/* eslint-disable no-param-reassign */
 import { storiesOf } from '@storybook/html';
 import { withKnobs, text, button } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
