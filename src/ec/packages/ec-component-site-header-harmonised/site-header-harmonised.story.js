@@ -15,6 +15,7 @@ import {
   getLoginKnobs,
   getLanguageSelectorKnobs,
   getSearchFormKnobs,
+  getComplianceKnob,
 } from '@ecl-twig/story-utils';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
@@ -198,6 +199,7 @@ const prepareSiteHeaderHarmonised = data => {
     );
     data.menu = object('data.menu', data.menu, tabLabels.optional);
   }
+  getComplianceKnob(data);
 
   return data;
 };
