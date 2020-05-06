@@ -14,6 +14,7 @@ npm install --save @ecl-twig/ec-component-language-list
   - "path" (string) (default: '')
   - "active" (boolean) (default: false)
 - **"overlay"** (boolean) (default: false)
+- **"data_lang_overlay"** (string) (default: '')
 - **"icon_path"** (string) (default: ''): file containing the svg icons
 - **"close_label"** (string) (default: ''): label of close button
 - **"title"** (string) (default: ''): title of the page
