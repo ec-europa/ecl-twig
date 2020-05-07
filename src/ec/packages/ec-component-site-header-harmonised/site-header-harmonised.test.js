@@ -81,7 +81,7 @@ describe('EC - Site Header Harmonised', () => {
       expect.assertions(1);
 
       const dataCompliance = { ...dataGroup2, _compliance_: true };
-      dataCompliance.banner_top = '';
+      dataCompliance.logo.src = '';
 
       return expect(render(dataCompliance)).resolves.toMatchSnapshot();
     });
@@ -106,6 +106,7 @@ describe('EC - Site Header Harmonised', () => {
 
   test('renders correctly with extra attributes', () => {
     expect.assertions(1);
+
     const withExtraAttributes = merge(dataGroup3, {
       extra_attributes: [
         { name: 'data-test', value: 'data-test-value' },

@@ -6382,7 +6382,7 @@ exports[`EC - Site Header Harmonised Group 1 with missing input data and degug e
       <b>
         [site-header-harmonised]
       </b>
-        "banner_top" is mandatory. It represents the "class link".
+        In group1 "banner_top" is mandatory. It represents the "class link".
     </p>
   </div>
 </test>
@@ -11063,7 +11063,7 @@ exports[`EC - Site Header Harmonised Group 2 with missing input data and degug e
           <img
             alt="European Commission logo"
             class="ecl-site-header-harmonised__logo-image"
-            src="/logo--en.svg"
+            src=""
             title="European Commission"
           />
         </a>
@@ -12622,15 +12622,15 @@ exports[`EC - Site Header Harmonised Group 2 with missing input data and degug e
   <!-- ################################################################################################################
     ecl2-compliance -->
   <div
-    class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+    class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-red ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
   >
     <p
-      class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+      class="ecl-u-type-color-grey ecl-u-ml-m ecl-u-type-xs"
     >
       <b>
         [site-header-harmonised]
       </b>
-       - ecl compliant.
+        "logo" needs to contain an "alt", a "src", an "href", a "language" and a "title" keys defined and not empty, they are all mandatory.
     </p>
   </div>
 </test>
@@ -12782,7 +12782,7 @@ exports[`EC - Site Header Harmonised with missing input data and degug enabled r
       <b>
         [site-header-harmonised]
       </b>
-        "banner_top" is mandatory. It represents the "class link". In group1 and group3 the site name is mandatory.
+        In group3 "banner_top" is mandatory. It represents the "class link". In group3 ~ the site name is mandatory.
     </p>
   </div>
 </test>

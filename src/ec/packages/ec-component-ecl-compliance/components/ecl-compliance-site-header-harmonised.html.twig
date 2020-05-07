@@ -109,9 +109,6 @@
   no_menu_site_name_case
 %}
 
-{% if no_banner_top_case %}
-  {% set message = message ~ ' "banner_top" is mandatory. It represents the "class link".' %}
-{% endif %}
 {% if no_logo_case %}
   {% set message = message ~ ' "logo" is mandatory. it needs to contain an "alt", a "src" and a "title".' %}
 {% endif %}
@@ -142,10 +139,13 @@
 {% if no_logged_in_box_keys_case %}
   {% set message = message ~ ' If the login box is present and the user is logged in the "login_box.description" needs to be defined and not empty' %}
 {% endif %}
+{% if no_banner_top_case %}
+  {% set message = message ~ ' In ' ~ group ~ ' "banner_top" is mandatory. It represents the "class link".' %}
+{% endif %}
 {% if no_site_name_case %}
-  {% set message = message ~ ' In group1 and group3 the site name is mandatory.' %}
+  {% set message = message ~ ' In ' ~ group ~ ' ~ the site name is mandatory.' %}
 {% endif %}
 {% if no_menu_site_name_case %}
-  {% set message = message ~ ' When you use the menu in group1 or group3 it needs to contain the "site_name" key set and filled in' %}
+  {% set message = message ~ ' When you use the menu in ' ~ group ~ ' it needs to contain the "site_name" key set and filled in.' %}
 {% endif %}
 
