@@ -43,8 +43,9 @@
 <div class="{{ _css_class }}" {{ _extra_attributes|raw }}>
   <div class="ecl-container">
   {% if _breadcrumb is not empty %}
-    {% include '@ecl-twig/ec-component-breadcrumb-core/ecl-breadcrumb-core.html.twig' with breadcrumb|merge({
-      extra_classes: 'ecl-page-header-core__breadcrumb'
+    {% include '@ecl-twig/ec-component-breadcrumb-core/ecl-breadcrumb-core.html.twig' with _breadcrumb|merge({
+      extra_classes: 'ecl-page-header-core__breadcrumb',
+      _compliance_: _compliance
     }) only %}
   {% endif %}
   {% if _meta is not empty %}
