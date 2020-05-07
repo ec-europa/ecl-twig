@@ -7,10 +7,6 @@
 
 {% set message = '' %}
 {% set component = 'page-header-standardised' %}
-{% set no_title_case = title is empty %}
+{% set not_compliant = title is empty %}
+{% set message = '"title" is mandatory.' %}
 
-{% set not_compliant = no_title_case %}
-
-{% if no_title_case %}
-  {% set message = '"title" is mandatory.' %}
-{% endif %}
