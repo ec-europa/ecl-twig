@@ -152,30 +152,30 @@
       {% set _search_button_label = search_form.button.label %}
     {% endif %}
   {% endif %}
-{% endif %}
 
-{% set _search_form = {
-  text_input: {
-    extra_classes: _search_input_extra_classes,
-    extra_attributes: _search_input_extra_attributes,
-  },
-  button: {
-    label: _search_button_label,
-    variant: 'search',
-    icon: {
-      type: 'general',
-      name: 'search',
-      path: _icon_file_path,
-      size: 'fluid',
+  {% set _search_form = {
+    text_input: {
+      extra_classes: _search_input_extra_classes,
+      extra_attributes: _search_input_extra_attributes,
     },
-    extra_classes: _button_extra_classes,
-    extra_attributes: _search_button_extra_attributes,
-  },
-  extra_attributes: _search_form_extra_attributes,
-  extra_classes: _search_form_extra_classes,
-  _compliance_: _compliance
+    button: {
+      label: _search_button_label,
+      variant: 'search',
+      icon: {
+        type: 'general',
+        name: 'search',
+        path: _icon_file_path,
+        size: 'fluid',
+      },
+      extra_classes: _button_extra_classes,
+      extra_attributes: _search_button_extra_attributes,
+    },
+    extra_attributes: _search_form_extra_attributes,
+    extra_classes: _search_form_extra_classes,
+    _compliance_: _compliance
   }
 %}
+{% endif %}
 
 {# Internal logic - Process properties #}
 
@@ -313,7 +313,7 @@
             {{- _language_selector.label -}}
         </a>
         {% endif %}
-      {% if _search_form is defined and search_form is not empty %}
+      {% if _search_form is defined %}
         <div class="ecl-site-header-harmonised__search-container">
         {% if _search_toggle is not empty %}
           <a
@@ -400,7 +400,8 @@
     login_toggle: _login_toggle,
     icon_file_path: _icon_file_path,
     search_toggle: _search_toggle,
-    has_overlay: _has_overlay
+    has_overlay: _has_overlay,
+    menu: _menu
   } only %}
 {% endif %}
 
