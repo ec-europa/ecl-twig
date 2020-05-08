@@ -1,0 +1,72 @@
+{#
+  Parameters:
+    - title: (string)
+    - close: (string)
+    - back: (string),
+    - group: (string),
+    - icon_path: (string),
+    - items: (array of objects),
+    - site_name: (string),
+    - menu_link: (object)
+#}
+
+{% extends "@ecl-twig/ec-component-ecl-compliance/ecl-compliance.html.twig" %}
+{% set component = 'menu' %}
+{% set message = '' %}
+
+{% set no_icon_path_case = icon_path is empty %}
+{% set no_items_case = items is not defined or items is empty or items is not iterable %}
+{% set no_item_label_case = false %}
+{% set no_item_path_case = false %}
+{% set no_subitem_path_case = false %}
+{% set no_subitem_label_case = false %}
+
+{% if no_items_case == false %}
+  {% for item in items %}
+    {% set item_children = item.children is defined and item.children is not empty and item.children is iterable %}
+    {% if item.label is not defined or item.label is empty %}
+      {% set no_item_label_case = true %}
+    {% endif %}
+    {% if item.path is not defined or item.path is empty %}
+      {% set no_item_path_case = true %}
+    {% endif %}
+    {% if item_children %}
+      {% for subitem in item.children %}
+        {% if subitem.path is not defined or subitem.path is empty %}
+          {% set no_subitem_path_case = true %}
+        {% endif %}
+        {% if subitem.label is not defined or subitem.label is empty %}
+          {% set no_subitem_label_case = true %}
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{% set not_compliant =
+  no_items_case or
+  no_item_label_case or
+  no_item_path_case or
+  no_icon_path_case or
+  no_subitem_path_case or
+  no_subitem_label_case
+%}
+
+{% if no_icon_path_case %}
+  {% set message = message ~ ' The "icon_path" is required to retrieve the icons sprite.' %}
+{% endif %}
+{% if no_items_case %}
+  {% set message = message ~ ' There is no item provided for this menu.' %}
+{% endif %}
+{% if no_item_path_case %}
+  {% set message = message ~ ' Each element in "items" needs to contain a "path" key set and filled in.' %}
+{% endif %}
+{% if no_item_label_case %}
+  {% set message = message ~ ' Each element in "items" needs to contain a "label" key set and filled in.' %}
+{% endif %}
+{% if no_subitem_path_case %}
+  {% set message = message ~ ' Each element in the "children" array inside an item needs to contain a "path" key set and filled in.' %}
+{% endif %}
+{% if no_subitem_label_case %}
+  {% set message = message ~ ' Each element in the "children" array inside an item needs to contain a "label" key set and filled in.' %}
+{% endif %}

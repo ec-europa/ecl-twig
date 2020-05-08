@@ -18,6 +18,8 @@
 {% set _menu_item_attributes = 'data-ecl-menu-link' %}
 {% set _menu_list_item_attributes = 'data-ecl-menu-item' %}
 {% set _menu_list_item_class = 'ecl-menu__item' %}
+{% set _icon_path = icon_path|default('') %}
+{% set _compliance = _compliance_|default(true) %}
 {% set _has_children = item.children is defined and item.children is not empty and item.children is iterable %}
 
 {% if _item.is_current is defined %}
@@ -30,7 +32,7 @@
   {% set _menu_item_icon %}
    {% include '@ecl-twig/ec-component-icon/ecl-icon.html.twig' with {
       icon: {
-        path: icon_path,
+        path: _icon_path,
         type: 'ui',
         name: 'corner-arrow',
         size: 'xs',
@@ -48,7 +50,9 @@
     class="{{ _menu_item_class }}"
     {{ _menu_item_attributes }}
   >{{- item.label -}}
-    {%- if _has_children -%}{{- _menu_item_icon -}}{% endif -%}
+    {%- if _has_children -%}
+      {{- _menu_item_icon -}}
+    {% endif -%}
   </a>
 {% if _has_children %}
   <div
@@ -84,9 +88,7 @@
 {% if _compliance %}
   {% include '@ecl-twig/ec-component-ecl-compliance/components/ecl-compliance-menu-item.html.twig' with {
     icon_path: _icon_path,
-    item: item,
-    site_name: _site_name,
-    menu_link: _menu_link
+    item: _item,
   } only %}
 {% endif %}
 
