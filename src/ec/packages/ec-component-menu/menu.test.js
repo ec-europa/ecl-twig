@@ -37,6 +37,15 @@ describe('EC - Menu', () => {
 
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
     });
+
+    test('with missing input data and debug enabled shows the right warning messages', () => {
+      expect.assertions(1);
+
+      const dataCompliance = { ...enData, _compliance_: true };
+      dataCompliance.items[3].label = '';
+
+      return expect(render(dataCompliance)).resolves.toMatchSnapshot();
+    });
   });
 
   describe('Translated', () => {
