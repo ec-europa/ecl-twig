@@ -94,7 +94,8 @@
 {% if _compliance %}
   {% include '@ecl-twig/ec-component-ecl-compliance/components/ecl-compliance-tag.html.twig' with {
     tag: _tag,
-    default_icon_path: default_icon_path
+    default_icon_path: default_icon_path,
+    icon_path: default_icon_path
   } only %}
 {% endif %}
 
