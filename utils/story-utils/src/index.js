@@ -426,7 +426,7 @@ export const getLoginKnobs = (data, required) => {
   return data;
 };
 
-export const getLanguageSelectorKnobs = (data, required) => {
+export const getLanguageSelectorKnobs = (data, required, deprecated) => {
   let label = tabLabels.optional;
   if (required) {
     label = tabLabels.required;
@@ -436,11 +436,19 @@ export const getLanguageSelectorKnobs = (data, required) => {
     data.language_selector.href,
     label
   );
-  data.language_selector.label = text(
-    'language_selector.label',
-    data.language_selector.label,
-    label
-  );
+  if (deprecated) {
+    data.language_selector.name = text(
+      'language_selector.name',
+      data.language_selector.name,
+      label
+    );
+  } else {
+    data.language_selector.label = text(
+      'language_selector.label',
+      data.language_selector.label,
+      label
+    );
+  }
   data.language_selector.code = text(
     'language_selector.code',
     data.language_selector.code,
