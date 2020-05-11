@@ -40,4 +40,13 @@ describe('EC - Menu Legacy', () => {
 
     return expect(render(optionsWithExtraClasses)).resolves.toMatchSnapshot();
   });
+
+  test('with missing input data and debug enabled it returns the right warning messages.', () => {
+    expect.assertions(1);
+
+    const dataCompliance = { ...demoData, _compliance_: true };
+    dataCompliance.items[2].children[1].items[0].label = '';
+
+    return expect(render(dataCompliance)).resolves.toMatchSnapshot();
+  });
 });

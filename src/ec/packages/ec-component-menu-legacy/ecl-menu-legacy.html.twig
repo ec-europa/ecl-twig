@@ -22,7 +22,8 @@
         "name" (string) (default: ''),
         "value" (optional) (string)
       ...
-    ]
+    ],
+    "_compliance_" (boolean) (default: false) Activates debug
 #}
 
 {# Internal properties #}
@@ -37,6 +38,7 @@
   'aria-expanded="false"',
   'data-ecl-menu-legacy']|join(' ')
 %}
+{% set _compliance = _compliance_|default(false) %}
 
 {% set _icon = {
   path: _icon_path,
@@ -101,6 +103,7 @@
           },
           extra_classes: _extra_classes,
           extra_attributes: [{ name: 'data-' ~ _prefix_class ~ '-link' }],
+          _compliance_: _compliance
         } only -%}
       {% else %}
       <li class="{{ _link_class_name }}" data-{{ _prefix_class }}-item data-ecl-has-children="true" >
@@ -109,6 +112,7 @@
           icon: _icon,
           extra_classes: _extra_classes,
           extra_attributes: [{ name: 'data-' ~ _prefix_class ~ '-link' }],
+           _compliance_: _compliance
         } only -%}
         {#second level#}
         <div class="{{ _prefix_class }}__mega" data-{{ _prefix_class }}-mega>
@@ -126,6 +130,7 @@
                   link: {'type': 'standalone', 'label': _child_link.label, 'path': _child_link.href},
                   extra_classes: _extra_classes,
                   extra_attributes: [{ name: 'data-ecl-menu-legacy-sublink' }],
+                   _compliance_: _compliance
                 } only -%}
               </li>
               {% endfor %}
@@ -142,4 +147,13 @@
   </div>
 </nav>
 
+{# Validation #}
+
+{% if _compliance %}
+  {% include '@ecl-twig/ec-component-ecl-compliance/components/ecl-compliance-menu-legacy.html.twig' with {
+    icon_path: _icon_path,
+    items: _links,
+    label: _menu_label
+  } only %}
+{% endif %}
 {% endspaceless %}
