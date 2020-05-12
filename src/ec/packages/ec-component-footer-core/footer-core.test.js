@@ -37,5 +37,14 @@ describe('EC - Footer Core', () => {
 
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
     });
+
+    test('with missing input data and debug enabled it returns the right warning messages', () => {
+      expect.assertions(1);
+
+      const dataCompliance = { ...options, _compliance_: true };
+      dataCompliance.sections[0].description = '';
+
+      return expect(render(dataCompliance)).resolves.toMatchSnapshot();
+    });
   });
 });
