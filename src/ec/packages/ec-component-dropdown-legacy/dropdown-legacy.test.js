@@ -40,5 +40,14 @@ describe('EC - Dropdown legacy', () => {
 
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
     });
+
+    test('with missing input data and debug enabled it returns the right warning messages.', () => {
+      expect.assertions(1);
+
+      const dataCompliance = { ...demoData, _compliance_: true };
+      dataCompliance.list.items[1].label = '';
+
+      return expect(render(dataCompliance)).resolves.toMatchSnapshot();
+    });
   });
 });
