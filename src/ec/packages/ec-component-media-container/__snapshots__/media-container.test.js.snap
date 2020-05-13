@@ -125,3 +125,36 @@ exports[`EC Media Container Media Container generic tests renders correctly with
   </figure>
 </test>
 `;
+
+exports[`EC Media Container with validation enabled and missing input data returns the right warning message 1`] = `
+<test>
+  <figure
+    class="ecl-media-container"
+  >
+    <img
+      alt="Jean Monnet banner"
+      class="ecl-media-container__media"
+      src=""
+    />
+    <figcaption
+      class="ecl-media-container__caption"
+    >
+      The European Commission has put forward ambitious yet realistic proposals for a modern EU budget. It is time for an EU budget that reflects rapid developments in innovation, the economy, the environment and geopolitics, amongst others.
+    </figcaption>
+  </figure>
+  <!-- ################################################################################################################
+    ecl2-compliance -->
+  <div
+    class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-red ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+  >
+    <p
+      class="ecl-u-type-color-grey ecl-u-ml-m ecl-u-type-xs"
+    >
+      <b>
+        [media-container]
+      </b>
+       One media is required for the media-container component, an "image", an "embedded_media" or video "tracks" and "sources".
+    </p>
+  </div>
+</test>
+`;

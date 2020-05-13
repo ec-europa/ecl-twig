@@ -17,6 +17,7 @@
   - "extra_attributes" (optional) (array) (default: []) Extra attributes for select
     - "name" (string) Attribute name, eg. 'data-test'
     - "value" (optional) (string) Attribute value, eg: 'data-test-1'
+  - "_compliance_" (boolean) (default: false) Activates debug.
   Blocks:
   - "helper_text"
   - "invalid_text"
@@ -35,12 +36,12 @@
 {% set _name = name|default('') %}
 {% set _icon_path = icon_path|default(false) %}
 {% set _width = width|default('m') %}
-
 {% set _helper_text = helper_text|default('') %}
 {% set _invalid_text = invalid_text|default('') %}
 {% set _required_text = required_text|default('') %}
 {% set _optional_text = optional_text|default('') %}
 {% set _label = label|default('') %}
+{% set _compliance = _compliance_|default(false) %}
 
 {% set _css_group_class = 'ecl-form-group' %}
 {% set _css_class = ['ecl-select'] %}
@@ -145,5 +146,23 @@
     </div>
   </div>
 </div>
+
+{# Validation #}
+
+{% if _compliance %}
+  {% include '@ecl-twig/ec-component-ecl-compliance/components/ecl-compliance-select.html.twig' with {
+    id: _id,
+    options: _options,
+    disabled: _disabled,
+    invalid: _invalid,
+    required: _required,
+    name: _name,
+    icon_path: _icon_path,
+    invalid_text: _invalid_text,
+    required_text: _required_text,
+    label: _label,
+    optional_text: _optional_text
+  } only %}
+{% endif %}
 
 {% endspaceless %}

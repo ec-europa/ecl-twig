@@ -3,6 +3,40 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.28.1](https://github.com/ec-europa/ecl-twig/compare/v2.28.0...v2.28.1) (2020-05-06)
+
+##### :bug: Bug Fix
+
+- [#448](https://github.com/ec-europa/ecl-twig/pull/448) fix(menu): using local variables - FRONT-1140 ([@planctus](https://github.com/planctus))
+- [#449](https://github.com/ec-europa/ecl-twig/pull/449) fix(radio): Initializing local \_extra_attributes variable - FRONT-1144 ([@planctus](https://github.com/planctus))
+- [#447](https://github.com/ec-europa/ecl-twig/pull/447) fix(button): Using local variable \_disabled - FRONT-1139 ([@planctus](https://github.com/planctus))
+- [#451](https://github.com/ec-europa/ecl-twig/pull/451) fix(language-list): Adding checks for props - FRONT-1143 ([@planctus](https://github.com/planctus))
+- [#446](https://github.com/ec-europa/ecl-twig/pull/446) fix(card): Adding checks on props - FRONT-1138 ([@planctus](https://github.com/planctus))
+
+#### :nail_care: Enhancement
+
+- [#450](https://github.com/ec-europa/ecl-twig/pull/450) fix(gallery): Adding checks for props - FRONT-1141 ([@planctus](https://github.com/planctus))
+
+#### :house: Internal
+
+- [#453](https://github.com/ec-europa/ecl-twig/pull/453) chore(eslint): fix linting rules - noissue ([@kalinchernev](https://github.com/kalinchernev))
+
+#### Committers: 2
+
+- Kalin Chernev ([@kalinchernev](https://github.com/kalinchernev))
+- [@planctus](https://github.com/planctus)
+
+# [2.28.0](https://github.com/ec-europa/ecl-twig/compare/v2.27.0...v2.28.0) (2020-04-30)
+
+#### :rocket: New Feature
+
+- [#439](https://github.com/ec-europa/ecl-twig/pull/439) feat(label): Adding component, FRONT-1131 ([@planctus](https://github.com/planctus))
+- [#440](https://github.com/ec-europa/ecl-twig/pull/440) feat(page-header): Adding background-image variant ([@planctus](https://github.com/planctus))
+
+#### Committers: 1
+
+- [@planctus](https://github.com/planctus)
+
 # [2.27.0](https://github.com/ec-europa/ecl-twig/compare/v2.26.0...v2.27.0) (2020-04-08)
 
 #### :nail_care: Enhancement

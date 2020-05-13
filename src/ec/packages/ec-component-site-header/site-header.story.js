@@ -1,4 +1,3 @@
-/* eslint-disable no-param-reassign */
 import merge from 'deepmerge';
 import { storiesOf } from '@storybook/html';
 import { withKnobs, button } from '@storybook/addon-knobs';

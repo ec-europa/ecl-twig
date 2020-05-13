@@ -27,6 +27,7 @@
 {% set _navigation_text = navigation_text|default('') %}
 {% set _ellipsis_label = ellipsis_label|default('') %}
 {% set _breadcrumb_segment_class = 'ecl-breadcrumb__segment' %}
+{% set _compliance = _compliance_|default(false) %}
 
 {% set _default_icon_structure = {
   icon: {
@@ -91,7 +92,8 @@
               label: link.label,
               path: link.path
             },
-            extra_classes: 'ecl-breadcrumb__link'
+            extra_classes: 'ecl-breadcrumb__link',
+            _compliance_: _compliance
           } only %}
           {% include '@ecl-twig/ec-component-icon/ecl-icon.html.twig' with _default_icon_structure only %}
         </li>
@@ -99,5 +101,15 @@
     {% endfor %}
   </ol>
 </nav>
+
+{# Validation #}
+
+{% if _compliance %}
+  {% include '@ecl-twig/ec-component-ecl-compliance/components/ecl-compliance-breadcrumb.html.twig' with {
+    navigation_text: _navigation_text,
+    ellipsis_label: _ellipsis_label,
+    icon_file_path: icon_file_path
+  } only %}
+{% endif %}
 
 {% endspaceless %}
