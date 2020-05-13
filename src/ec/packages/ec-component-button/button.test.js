@@ -111,4 +111,18 @@ describe('EC - Button', () => {
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
     });
   });
+
+  describe('with validation enabled and missing input data', () => {
+    test('returns the right warning message', () => {
+      expect.assertions(1);
+
+      const dataCompliance = {
+        ...dataPrimary,
+        label: '',
+        _compliance_: true,
+      };
+
+      return expect(render(dataCompliance)).resolves.toMatchSnapshot();
+    });
+  });
 });
