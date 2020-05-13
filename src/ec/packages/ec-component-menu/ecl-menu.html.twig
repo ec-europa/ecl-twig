@@ -46,6 +46,9 @@
 {% set _group = group|default('group1') %}
 {% set _css_class = 'ecl-menu' %}
 {% set _css_class = _css_class ~ ' ' ~ _css_class ~ '--' ~ _group %}
+{% set _extra_attributes = '' %}
+{% set _site_name = site_name|default('') %}
+{% set _icon_path = icon_path|default('') %}
 
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
@@ -80,12 +83,12 @@
           size: 's',
           type: 'general',
           name: 'hamburger',
-          path: icon_path
+          path: _icon_path
         }
       } only %}
-      {{- title -}}
+      {{- _title -}}
     </a>
-    <div class="ecl-menu__site-name">{{ site_name }}</div>
+    <div class="ecl-menu__site-name">{{ _site_name }}</div>
     <section class="ecl-menu__inner" data-ecl-menu-inner>
       <header class="ecl-menu__inner-header">
         <button
@@ -119,7 +122,7 @@
           <span class="ecl-button__container">
             {% include '@ecl-twig/ec-component-icon/ecl-icon.html.twig' with {
               icon: {
-                path: icon_path,
+                path: _icon_path,
                 name: 'corner-arrow',
                 type: 'ui',
                 size: 's',
@@ -143,7 +146,7 @@
         {% if item is defined and item is not empty %}
           {% include '@ecl-twig/ec-component-menu/ecl-menu-item.html.twig' with {
             item: item,
-            icon_path: icon_path,
+            icon_path: _icon_path,
           } only %}
         {% endif %}
         {% endfor %}
