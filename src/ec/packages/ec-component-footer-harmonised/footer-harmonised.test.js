@@ -37,6 +37,15 @@ describe('EC - Footer Harmonised', () => {
 
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
     });
+
+    test('with missing input data and debug enabled it renders the right warning messages', () => {
+      expect.assertions(1);
+
+      const dataCompliance = { ...dataGroup1, _compliance_: true };
+      dataCompliance.sections[0].title.link.label = '';
+
+      return expect(render(dataCompliance)).resolves.toMatchSnapshot();
+    });
   });
 
   describe('Group 2', () => {
@@ -67,6 +76,15 @@ describe('EC - Footer Harmonised', () => {
 
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
     });
+
+    test('with missing input data and debug enabled it renders the right warning messages', () => {
+      expect.assertions(1);
+
+      const dataCompliance = { ...dataGroup2, _compliance_: true };
+      dataCompliance.sections[0].title.link.label = '';
+
+      return expect(render(dataCompliance)).resolves.toMatchSnapshot();
+    });
   });
 
   describe('Group 3', () => {
@@ -96,6 +114,15 @@ describe('EC - Footer Harmonised', () => {
       });
 
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
+    });
+
+    test('with missing input data and debug enabled it renders the right warning messages', () => {
+      expect.assertions(1);
+
+      const dataCompliance = { ...dataGroup3, _compliance_: true };
+      dataCompliance.sections[0].title.link.label = '';
+
+      return expect(render(dataCompliance)).resolves.toMatchSnapshot();
     });
   });
 });

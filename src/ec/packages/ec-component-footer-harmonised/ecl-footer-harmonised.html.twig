@@ -19,7 +19,8 @@
   - "extra_classes" (optional) (string) (default: '') Extra classes (space separated) for the icon
   - "extra_attributes" (optional) (array) (default: []) Extra attributes for icon
     - "name" (string) Attribute name, eg. 'data-test'
-    - "value" (string) Attribute value, eg: 'data-test-1'
+    - "value" (string) Attribute value, eg: 'data-test-1',
+  - "_compliance_" (boolean) (default: false) Activates debug
 #}
 
 {# Internal properties #}
@@ -31,6 +32,7 @@
 {% set _section_logos_class_names = 'ecl-footer-harmonised__logo-list' %}
 {% set _logo_class = 'ecl-footer-harmonised__logo' %}
 {% set _internal_wrapper = false %}
+{% set _compliance = _compliance_|default(false) %}
 
 {# Internal logic - Process properties #}
 
@@ -88,6 +90,7 @@
         link: _section.title.link|merge({ type: 'standalone'}),
         extra_classes: _title_class_name,
         icon: _section.title.icon|default({}),
+        _compliance_: _compliance
       }) only %}
     {% else %}
       <div class="{{ _title_class_name }}">
@@ -132,6 +135,7 @@
            {% include '@ecl-twig/ec-component-link/ecl-link.html.twig' with _item|merge({
               link: _item.link|default({})|merge({ type: 'standalone' }),
               extra_classes: 'ecl-footer-harmonised__link',
+              _compliance_: _compliance
             }) only %}
         </li>
        {% endfor %}
@@ -149,5 +153,13 @@
 {% endfor %}
   </div>
 </footer>
+
+{# Validation #}
+
+{% if _compliance %}
+  {% include '@ecl-twig/ec-component-ecl-compliance/components/ecl-compliance-footer-harmonised.html.twig' with {
+    sections: _sections
+  } only %}
+{% endif %}
 
 {% endspaceless %}

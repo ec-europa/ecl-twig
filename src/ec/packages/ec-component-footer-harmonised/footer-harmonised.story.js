@@ -1,8 +1,13 @@
-/* eslint-disable no-shadow */
+/* eslint-disable no-shadow, dot-notation */
 import { storiesOf } from '@storybook/html';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import { withKnobs, button, text } from '@storybook/addon-knobs';
 import withCode from '@ecl-twig/storybook-addon-code';
+import {
+  getExtraKnobs,
+  tabLabels,
+  getComplianceKnob,
+} from '@ecl-twig/story-utils';
 
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import logoEC from '@ecl/ec-resources-logo/logo--en.svg';
@@ -45,10 +50,6 @@ const related = JSON.parse(JSON.stringify(dataGroup1.sections[2][1]));
 let dataG1 = [...dataGroup1.sections];
 const dataG2 = [...dataGroup2.sections];
 const dataG3 = [...dataGroup3.sections];
-// Labels for the buttons.
-const requiredGroupId = 'Mandatory elements';
-const optionalGroupId = 'Optional elements';
-const useCasesGroup = 'Use cases';
 
 // Buttons callbacks for optional elements.
 // Group 3
@@ -178,12 +179,16 @@ const resetBtnToggler = () => {
 
 // Prepare the knobs for group3.
 const formatFooterG3 = dataG3 => {
-  dataG3[0].title = text('sections[0].title', dataG3[0].title, requiredGroupId);
+  dataG3[0].title = text(
+    'sections[0].title',
+    dataG3[0].title,
+    tabLabels.required
+  );
   dataG3[1].logos.forEach((logo, index) => {
-    let label = optionalGroupId;
+    let label = tabLabels.optional;
     let logoSrc = dataG3[1].logos[index].logo.src;
     if (index === 2) {
-      label = requiredGroupId;
+      label = tabLabels.required;
       logoSrc = logoEC;
     }
     if (logo) {
@@ -205,6 +210,8 @@ const formatFooterG3 = dataG3 => {
     }
   });
 
+  getExtraKnobs(dataG3);
+  getComplianceKnob(dataG3);
   // Return the full specs.
   return dataG3;
 };
@@ -216,26 +223,26 @@ const formatFooterG2 = dataG2 => {
     label: text(
       'sections[0].title.link.label',
       dataG2[0].title.link.label,
-      requiredGroupId
+      tabLabels.required
     ),
     path: text(
       'sections[0].title.link.path',
       dataG2[0].title.link.path,
-      requiredGroupId
+      tabLabels.required
     ),
-    placeholder: text('', 'none', optionalGroupId),
+    placeholder: text('', 'none', tabLabels.optional),
   };
   // Service navigation.
   dataG2[1].links.forEach((link, index) => {
     dataG2[1].links[index].link.label = text(
       `sections[1].links[${index}].link.label`,
       dataG2[1].links[index].link.label,
-      requiredGroupId
+      tabLabels.required
     );
     dataG2[1].links[index].link.path = text(
       `sections[1].links[${index}].link.path`,
       dataG2[1].links[index].link.path,
-      requiredGroupId
+      tabLabels.required
     );
   });
   // Legal navigation.
@@ -243,15 +250,17 @@ const formatFooterG2 = dataG2 => {
     dataG2[2].links[index].link.label = text(
       `sections[2].links[${index}].link.label`,
       dataG2[2].links[index].link.label,
-      requiredGroupId
+      tabLabels.required
     );
     dataG2[2].links[index].link.path = text(
       `sections[2].links[${index}].link.path`,
       dataG2[2].links[index].link.path,
-      requiredGroupId
+      tabLabels.required
     );
   });
 
+  getExtraKnobs(dataG2);
+  getComplianceKnob(dataG2);
   // Return the full specs.
   return dataG2;
 };
@@ -271,41 +280,41 @@ const formatFooterG1 = dataG1 => {
     label: text(
       'sections[0].title.link.label',
       dataG1[0].title.link.label,
-      requiredGroupId
+      tabLabels.required
     ),
     path: text(
       'sections[0].title.link.path',
       dataG1[0].title.link.path,
-      requiredGroupId
+      tabLabels.required
     ),
   };
   dataG1[0].description = text(
     'sections[0].description',
     dataG1[0].description,
-    requiredGroupId
+    tabLabels.required
   );
   // Classes.
   if (dataG1[3].links) {
     dataG1[3].content_before = text(
       'sections[3].content_before',
       dataG1[3].content_before,
-      optionalGroupId
+      tabLabels.optional
     );
     dataG1[3].list_class_name = text(
       'sections[3].list_class_name',
       dataG1[3].list_class_name,
-      optionalGroupId
+      tabLabels.optional
     );
     dataG1[3].links.forEach((link, index) => {
       dataG1[3].links[index].link.label = text(
         `sections[3].links[${index}].link.label`,
         dataG1[3].links[index].link.label,
-        optionalGroupId
+        tabLabels.optional
       );
       dataG1[3].links[index].link.path = text(
         `sections[3].links[${index}].link.path`,
         dataG1[3].links[index].link.path,
-        optionalGroupId
+        tabLabels.optional
       );
     });
   }
@@ -314,12 +323,12 @@ const formatFooterG1 = dataG1 => {
     label: text(
       'sections[4].title.link.label',
       dataG1[4].title.link.label,
-      requiredGroupId
+      tabLabels.required
     ),
     path: text(
       'sections[4].title.link.path',
       dataG1[4].title.link.path,
-      requiredGroupId
+      tabLabels.required
     ),
   };
   // Service navigation.
@@ -327,12 +336,12 @@ const formatFooterG1 = dataG1 => {
     dataG1[5].links[index].link.label = text(
       `sections[5].links[${index}].link.label`,
       dataG1[5].links[index].link.label,
-      requiredGroupId
+      tabLabels.required
     );
     dataG1[5].links[index].link.path = text(
       `sections[5].links[${index}].link.path`,
       dataG1[5].links[index].link.path,
-      requiredGroupId
+      tabLabels.required
     );
   });
   // Legal navigation.
@@ -340,15 +349,17 @@ const formatFooterG1 = dataG1 => {
     dataG1[6].links[index].link.label = text(
       `sections[6].links[${index}].link.label`,
       dataG1[6].links[index].link.label,
-      requiredGroupId
+      tabLabels.required
     );
     dataG1[6].links[index].link.path = text(
       `sections[6].links[${index}].link.path`,
       dataG1[6].links[index].link.path,
-      requiredGroupId
+      tabLabels.required
     );
   });
 
+  getExtraKnobs(dataG1);
+  getComplianceKnob(dataG1);
   // Return the full specs.
   return dataG1;
 };
@@ -360,44 +371,71 @@ storiesOf('Components/Footers/Harmonised', module)
   .add(
     'group 1',
     () => {
-      button('With our without class names', classBtnToggler, useCasesGroup);
+      button('With our without class names', classBtnToggler, tabLabels.cases);
       button(
         'With our without DG-related service navigation (contact us)',
         serviceBtnToggler,
-        useCasesGroup
+        tabLabels.cases
       );
       button(
         'With our without DG-related service navigation (Follow us)',
         socialBtnToggler,
-        useCasesGroup
+        tabLabels.cases
       );
       button(
         'With our without DG-related navigation (About us)',
         aboutBtnToggler,
-        useCasesGroup
+        tabLabels.cases
       );
       button(
         'With our without DG-related navigation (Related sites)',
         relatedBtnToggler,
-        useCasesGroup
+        tabLabels.cases
       );
-      button('Reset the layout', resetBtnToggler, useCasesGroup);
+      button('Reset the layout', resetBtnToggler, tabLabels.cases);
 
       return footerHarmonised({
         group: 'group1',
         sections: formatFooterG1(dataG1),
+        _compliance_: dataG1['_compliance_'],
+        extra_classes: dataG1.extra_classes,
+        extra_attributes: dataG1.extra_attributes,
       });
     },
     {
-      notes: { markdown: notes, json: { group: 'group1', sections: dataG1 } },
+      notes: {
+        markdown: notes,
+        json: {
+          group: 'group1',
+          sections: dataG1,
+          _compliance_: dataG1['_compliance_'],
+          extra_attributes: dataG1.extra_attributes,
+          extra_classes: dataG1.extra_classes,
+        },
+      },
     }
   )
   .add(
     'group 2',
     () =>
-      footerHarmonised({ group: 'group2', sections: formatFooterG2(dataG2) }),
+      footerHarmonised({
+        group: 'group2',
+        sections: formatFooterG2(dataG2),
+        _compliance_: dataG2['_compliance_'],
+        extra_attributes: dataG2.extra_attributes,
+        extra_classes: dataG2.extra_classes,
+      }),
     {
-      notes: { markdown: notes, json: { group: 'group2', sections: dataG2 } },
+      notes: {
+        markdown: notes,
+        json: {
+          group: 'group2',
+          sections: dataG2,
+          _compliance_: dataG2['_compliance_'],
+          extra_attributes: dataG2.extra_attributes,
+          extra_classes: dataG2.extra_classes,
+        },
+      },
     }
   )
   .add(
@@ -406,24 +444,33 @@ storiesOf('Components/Footers/Harmonised', module)
       button(
         'With or without first "Partnership logo"',
         partnershipLogoBtnToggler,
-        useCasesGroup
+        tabLabels.cases
       );
       button(
         'With or without second "Partnership logo"',
         partnershipLogo1BtnToggler,
-        useCasesGroup
+        tabLabels.cases
       );
-      button('Reset the layout', resetG3BtnToggler, useCasesGroup);
+      button('Reset the layout', resetG3BtnToggler, tabLabels.cases);
 
       return footerHarmonised({
         group: 'group3',
         sections: formatFooterG3(dataG3),
+        _compliance_: dataG3['_compliance_'],
+        extra_classes: dataG3.extra_classes,
+        extra_attributes: dataG3.extra_attributes,
       });
     },
     {
       notes: {
         markdown: notes,
-        json: { group: 'group3', sections: dataG3 },
+        json: {
+          group: 'group3',
+          sections: dataG3,
+          _compliance_: dataG3['_compliance_'],
+          extra_attributes: dataG3.extra_attributes,
+          extra_classes: dataG3.extra_classes,
+        },
       },
     }
   );

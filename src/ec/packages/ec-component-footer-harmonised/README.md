@@ -24,7 +24,8 @@ npm install --save @ecl-twig/ec-component-footer-harmonised
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
-  - "value" (string) Attribute value, eg: 'data-test-1'
+  - "value" (string) Attribute value, eg: 'data-test-1',
+- **_compliance_"** (boolean) (default: false) Activates debug
 
 ### Example:
 
@@ -34,6 +35,7 @@ npm install --save @ecl-twig/ec-component-footer-harmonised
   group: 'group1', 
   sections: [ 
     { 
+      type: 'site_name', 
       section_id: 1,
       title: { 
         link: { 
