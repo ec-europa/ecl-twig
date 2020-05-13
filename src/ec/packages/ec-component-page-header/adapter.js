@@ -1,4 +1,3 @@
-/* eslint-disable no-param-reassign */
 import breadcrumbDataSimple from '../ec-component-breadcrumb/demo/data--simple';
 
 function formatPageHeaderInfo(i) {

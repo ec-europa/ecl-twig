@@ -1,4 +1,3 @@
-/* eslint-disable no-param-reassign */
 import { storiesOf } from '@storybook/html';
 import {
   withKnobs,

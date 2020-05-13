@@ -20,6 +20,7 @@
           "value" (optional) (string)
         ...
       ]
+    - "_compliance" (boolean) (default: false) Activates debug
 #}
 
 {# Internal properties #}
@@ -47,13 +48,17 @@
   extra_classes: 'ecl-breadcrumb-core__icon',
   extra_attributes: [{ name: 'role', value: 'presentation' }]
 } %}
-
+{% set _compliance = _compliance_|default(false) %}
 {% set _css_class = 'ecl-breadcrumb-core' %}
 
 {# Internal logic - Process properties #}
 
 {% if _breadcrumb_size > (_min_items_left + _min_items_right) %}
   {% set _nav_attributes = _nav_attributes|merge([{ name: 'data-ecl-auto-init', value: 'BreadcrumbCore' }]) %}
+{% endif %}
+
+{% if _compliance %}
+  {% set _breadcrumb_icon = _breadcrumb_icon|merge({ '_compliance_': true }) %}
 {% endif %}
 
 {% if extra_classes is defined and extra_classes is not empty %}
@@ -112,8 +117,9 @@
         <li class="{{ _breadcrumb_segment_class }}" {{ _breadcrumb_segment_attributes|raw }}>
           {% include '@ecl-twig/ec-component-link/ecl-link.html.twig' with {
             link: link|default({})|merge({
-              type: 'standalone'
+              type: 'standalone',
             }),
+            _compliance_: _compliance,
             extra_classes: 'ecl-breadcrumb-core__link'
           } only %}
           {% include '@ecl-twig/ec-component-icon/ecl-icon.html.twig' with _breadcrumb_icon only %}
@@ -122,5 +128,15 @@
     {% endfor %}
   </ol>
 </nav>
+
+{# Validation #}
+
+{% if _compliance %}
+  {% include '@ecl-twig/ec-component-ecl-compliance/components/ecl-compliance-breadcrumb.html.twig' with {
+    navigation_text: _navigation_text,
+    ellipsis_label: _ellipsis_label,
+    icon_file_path: icon_file_path
+  } only %}
+{% endif %}
 
 {% endspaceless %}
