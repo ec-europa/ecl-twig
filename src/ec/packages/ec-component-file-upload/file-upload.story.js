@@ -23,9 +23,8 @@ const prepareFileUpload = data => {
     data.multiple = boolean('multiple', data.multiple, tabLabels.required);
   }
   data.id = select('id', [data.id], data.id, tabLabels.required);
-  data.name = text('name', data.name, tabLabels.required);
   data.label = text('label', data.label, tabLabels.required);
-
+  data.name = text('name', data.name, tabLabels.optional);
   data.button_choose_label = text(
     'button_choose_label',
     data.button_choose_label,
