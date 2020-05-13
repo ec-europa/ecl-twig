@@ -28,7 +28,11 @@
   <div class="ecl-language-list__column ecl-col-12 ecl-col-lg-4 ecl-offset-lg-2">
     <ul class="ecl-language-list__list">
       {% for _item in _column1 %}
-        <li class="ecl-language-list__item{{ _item.active ? ' ecl-language-list__item--is-active' : '' }}">
+        {% set _item_class = 'ecl-language-list__item' %}
+        {% if _item.active is defined %}
+          {% set _item_class = _item_class ~ ' ecl-language-list__item--is-active' %}
+        {% endif %}
+        <li class="{{ _item_class }}">
           {% include '@ecl-twig/ec-component-language-list/ecl-language-list-item.html.twig' with {
             item: _item,
             overlay: _overlay,
@@ -41,7 +45,11 @@
   <div class="ecl-language-list__column ecl-col-12 ecl-col-lg-4">
     <ul class="ecl-language-list__list">
       {% for _item in _column2 %}
-        <li class="ecl-language-list__item{{ _item.active ? ' ecl-language-list__item--is-active' : '' }}">
+        {% set _item_class = 'ecl-language-list__item' %}
+        {% if _item.active is defined %}
+          {% set _item_class = _item_class ~ ' ecl-language-list__item--is-active' %}
+        {% endif %}
+        <li class="{{ _item_class }}">
           {% include '@ecl-twig/ec-component-language-list/ecl-language-list-item.html.twig' with {
             item: _item,
             overlay: _overlay,

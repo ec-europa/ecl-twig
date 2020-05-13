@@ -1,4 +1,4 @@
-/* eslint-disable no-param-reassign */
+/* eslint-disable dot-notation */
 import { storiesOf } from '@storybook/html';
 import { withKnobs, text, select } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
@@ -6,6 +6,7 @@ import {
   getExtraKnobs,
   tabLabels,
   getBrandedIconsOptions,
+  getComplianceKnob,
 } from '@ecl-twig/story-utils';
 import withCode from '@ecl-twig/storybook-addon-code';
 
@@ -23,6 +24,7 @@ const prepareSocialMediaFollow = (data, vertical) => {
       'vertical',
       tabLabels.required
     );
+    data['_compliance_'] = false;
   } else {
     delete data.variant;
   }
@@ -143,7 +145,7 @@ const prepareSocialMediaFollow = (data, vertical) => {
   });
 
   getExtraKnobs(data);
-
+  getComplianceKnob(data);
   return data;
 };
 

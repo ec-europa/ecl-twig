@@ -1,4 +1,3 @@
-/* eslint-disable no-param-reassign */
 import { storiesOf } from '@storybook/html';
 import { withKnobs, button } from '@storybook/addon-knobs';
 import { loremIpsum } from 'lorem-ipsum';

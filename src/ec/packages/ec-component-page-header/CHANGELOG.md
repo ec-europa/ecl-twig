@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.28.1](https://github.com/ec-europa/ecl-twig/compare/v2.28.0...v2.28.1) (2020-05-06)
+
+**Note:** Version bump only for package @ecl-twig/ec-component-page-header
+
+# [2.28.0](https://github.com/ec-europa/ecl-twig/compare/v2.27.0...v2.28.0) (2020-04-30)
+
+### Features
+
+- **page-header:** Adding background-image variant ([#440](https://github.com/ec-europa/ecl-twig/issues/440)) ([a4ec637](https://github.com/ec-europa/ecl-twig/commit/a4ec6373af32c5b179e9a5ae76998124ef8a51c1))
+
 # [2.27.0](https://github.com/ec-europa/ecl-twig/compare/v2.26.0...v2.27.0) (2020-04-08)
 
 **Note:** Version bump only for package @ecl-twig/ec-component-page-header

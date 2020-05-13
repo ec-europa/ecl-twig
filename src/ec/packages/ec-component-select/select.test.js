@@ -43,6 +43,15 @@ describe('EC - Select', () => {
         render(optionsWithExtraAttributes)
       ).resolves.toMatchSnapshot();
     });
+
+    test('with missing input data and debug enabled returns the right warning message', () => {
+      expect.assertions(1);
+
+      const dataCompliance = { ...specData, _compliance_: true };
+      dataCompliance.options[0].value = '';
+
+      return expect(render(dataCompliance)).resolves.toMatchSnapshot();
+    });
   });
 
   describe('Required', () => {

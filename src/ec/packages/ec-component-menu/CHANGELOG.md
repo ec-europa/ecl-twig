@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.28.1](https://github.com/ec-europa/ecl-twig/compare/v2.28.0...v2.28.1) (2020-05-06)
+
+### Bug Fixes
+
+- **menu:** using local variables - FRONT-1140 ([#448](https://github.com/ec-europa/ecl-twig/issues/448)) ([6d2a261](https://github.com/ec-europa/ecl-twig/commit/6d2a26108222da2c52be53cef5f1cf00a14598b9))
+
+# [2.28.0](https://github.com/ec-europa/ecl-twig/compare/v2.27.0...v2.28.0) (2020-04-30)
+
+**Note:** Version bump only for package @ecl-twig/ec-component-menu
+
 # [2.27.0](https://github.com/ec-europa/ecl-twig/compare/v2.26.0...v2.27.0) (2020-04-08)
 
 **Note:** Version bump only for package @ecl-twig/ec-component-menu
