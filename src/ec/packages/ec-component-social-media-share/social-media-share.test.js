@@ -46,4 +46,17 @@ describe('EC - Social Media Share', () => {
       return expect(render(demoData)).resolves.toMatchSnapshot();
     });
   });
+  describe('with validation enabled and missing input data', () => {
+    test('returns the right warning message', () => {
+      expect.assertions(1);
+
+      const dataCompliance = {
+        ...demoData,
+        _compliance_: true,
+      };
+      dataCompliance.description = '';
+
+      return expect(render(dataCompliance)).resolves.toMatchSnapshot();
+    });
+  });
 });

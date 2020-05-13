@@ -34,5 +34,14 @@ describe('EC - Skip Link', () => {
 
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
     });
+
+    test('With missing input data returns the right warning message', () => {
+      expect.assertions(1);
+
+      const dataCompliance = { ...specs, _compliance_: true };
+      dataCompliance.href = '';
+
+      return expect(render(dataCompliance)).resolves.toMatchSnapshot();
+    });
   });
 });

@@ -20,7 +20,8 @@
           "name" (string) (default: ''),
           "value" (optional) (string)
         ...
-      ]
+      ],
+    - "_compliance_" (boolean) (default: false)
 #}
 
 {# Internal properties #}
@@ -28,6 +29,7 @@
 {% set _css_class = 'ecl-accordion2' %}
 {% set _extra_attributes = 'data-ecl-auto-init="Accordion2"' %}
 {% set _items = items|default([]) %}
+{% set _compliance = _compliance_|default(false) %}
 
 {# Internal logic - Process properties #}
 
@@ -70,7 +72,8 @@
                   size: "m"
                 },
                 extra_classes: 'ecl-accordion2__toggle-icon',
-                extra_attributes: [{ name: "data-ecl-accordion2-icon" }]
+                extra_attributes: [{ name: "data-ecl-accordion2-icon" }],
+                _compliance_: _compliance
               } only %}
               <span class="ecl-accordion2__toggle-title">
                 {{- _item.toggle.label -}}
@@ -91,5 +94,13 @@
     {% endfor %}
   {% endif %}
 </div>
+
+{# Validation #}
+
+{% if _compliance %}
+  {% include '@ecl-twig/ec-component-ecl-compliance/components/ecl-compliance-accordion.html.twig' with {
+    items: _items
+  } only %}
+{% endif %}
 
 {% endspaceless %}

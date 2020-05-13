@@ -1,4 +1,3 @@
-/* eslint-disable no-param-reassign */
 import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
 import defaultDataStructure from './demo/data';

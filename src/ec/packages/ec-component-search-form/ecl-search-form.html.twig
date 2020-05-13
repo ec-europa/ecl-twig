@@ -22,6 +22,7 @@
 {% set _button = button|default('') %}
 {% set _text_input = text_input|default('') %}
 {% set _extra_attributes = '' %}
+{% set _compliance = _compliance_|default(false) %}
 
 {# Internal logic - Process properties #}
 
@@ -64,5 +65,13 @@
   {% endif %}
   {%- block extra_form_elements _extra_form_elements|raw -%}
 </form>
+
+{# Validation #}
+
+{% if _compliance %}
+  {% include '@ecl-twig/ec-component-ecl-compliance/components/ecl-compliance-search-form.html.twig' with {
+    button: _button
+  } only %}
+{% endif %}
 
 {% endspaceless %}
