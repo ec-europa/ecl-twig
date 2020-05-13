@@ -58,4 +58,15 @@ describe('EC Media Container', () => {
       return expect(render(demoContentEmbed)).resolves.toMatchSnapshot();
     });
   });
+
+  describe('with validation enabled and missing input data', () => {
+    test('returns the right warning message', () => {
+      expect.assertions(1);
+
+      const dataCompliance = { ...defaultDataStructure, _compliance_: true };
+      dataCompliance.image = '';
+
+      return expect(render(dataCompliance)).resolves.toMatchSnapshot();
+    });
+  });
 });

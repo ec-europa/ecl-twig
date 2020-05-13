@@ -64,4 +64,18 @@ describe('EC - Message', () => {
       return expect(render(dataError)).resolves.toMatchSnapshot();
     });
   });
+
+  describe('with validation enabled and missing input data', () => {
+    test('returns the right warning message', () => {
+      expect.assertions(1);
+
+      const dataCompliance = {
+        ...dataInfo,
+        description: '',
+        _compliance_: true,
+      };
+
+      return expect(render(dataCompliance)).resolves.toMatchSnapshot();
+    });
+  });
 });

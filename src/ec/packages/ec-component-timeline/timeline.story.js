@@ -1,4 +1,4 @@
-/* eslint-disable no-param-reassign,prefer-destructuring */
+/* eslint-disable prefer-destructuring */
 import { storiesOf } from '@storybook/html';
 import { withKnobs, number, text, select } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
