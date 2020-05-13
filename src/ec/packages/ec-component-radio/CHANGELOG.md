@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.28.1](https://github.com/ec-europa/ecl-twig/compare/v2.28.0...v2.28.1) (2020-05-06)
+
+### Bug Fixes
+
+- **radio:** Initializing local \_extra_attributes variable - FRONT-1144 ([#449](https://github.com/ec-europa/ecl-twig/issues/449)) ([e5e1fcf](https://github.com/ec-europa/ecl-twig/commit/e5e1fcfb860deec4ef5f7c4a47f31f5812bd2143))
+
 # [2.28.0](https://github.com/ec-europa/ecl-twig/compare/v2.27.0...v2.28.0) (2020-04-30)
 
 **Note:** Version bump only for package @ecl-twig/ec-component-radio

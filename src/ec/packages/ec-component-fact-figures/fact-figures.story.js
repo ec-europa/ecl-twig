@@ -1,4 +1,4 @@
-/* eslint-disable no-param-reassign, camelcase */
+/* eslint-disable camelcase */
 import { storiesOf } from '@storybook/html';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import {

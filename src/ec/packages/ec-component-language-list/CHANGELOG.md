@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.28.1](https://github.com/ec-europa/ecl-twig/compare/v2.28.0...v2.28.1) (2020-05-06)
+
+### Bug Fixes
+
+- **language-list:** Adding checks for props - FRONT-1143 ([#451](https://github.com/ec-europa/ecl-twig/issues/451)) ([ad414ef](https://github.com/ec-europa/ecl-twig/commit/ad414ef897560f2d460f4059e361a4953f5b9e6e))
+
 # [2.28.0](https://github.com/ec-europa/ecl-twig/compare/v2.27.0...v2.28.0) (2020-04-30)
 
 **Note:** Version bump only for package @ecl-twig/ec-component-language-list
