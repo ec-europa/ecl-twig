@@ -20,7 +20,20 @@
 {% set _compliance = _compliance_|default(false) %}
 
 {# Internal logic - Process properties #}
-{% if _item.path is defined and _item.path is not empty and _item.label is defined and _item.label is not empty %}
+
+{% set _item_attribute = [] %}
+{% if _item.lang is defined and _item.lang is not empty %}
+  {% set _item_attribute = _item_attribute|merge([{ name: 'lang', value: _item.lang }]) %}
+  {% set _item_attribute = _item_attribute|merge([{ name: 'hreflang', value: _item.lang }]) %}
+{% endif %}
+{% if _overlay %}
+  {% set _item_attribute = _item_attribute|merge([{ name: 'rel', value: 'alternate' }]) %}
+{% endif %}
+
+{# Print the result #}
+
+{% if _item.label is defined and item.label is not empty and
+  _item.path is defined and _item.path is not empty %}
   {% set _item_icon = {} %}
   {% if _item.active is defined %}
     {% set _item_icon = {
@@ -30,32 +43,6 @@
       size: 'xs'
     } %}
   {% endif %}
-
-  {# Print the result #}
-  {% if _item.label is defined and item.label is not empty and
-    _item.path is defined and _item.path is not empty %}
-    {% set _item_attribute = [] %}
-    {% if _item.lang is defined and _item.lang is not empty %}
-      {% set _item_attribute = _item_attribute|merge([{ name: 'lang', value: _item.lang }]) %}
-      {% set _item_attribute = _item_attribute|merge([{ name: 'hreflang', value: _item.lang }]) %}
-      {% if _overlay %}
-        {% set _item_attribute = _item_attribute|merge([{ name: 'rel', value: 'alternate' }]) %}
-      {% endif %}
-    {% endif %}
-    {% include '@ecl-twig/ec-component-link/ecl-link.html.twig' with {
-      link: {
-        type: 'standalone',
-        label: _item.label,
-        path: _item.path,
-        icon_position: 'after'
-      },
-      icon: _item_icon,
-      extra_classes: 'ecl-language-list__link',
-      extra_attributes: _item_attribute
-    } only %}
-  {% endif %}
-
-  {# Print the result #}
 
   {% include '@ecl-twig/ec-component-link/ecl-link.html.twig' with {
     link: {
