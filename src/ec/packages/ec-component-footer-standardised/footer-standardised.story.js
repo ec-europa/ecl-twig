@@ -1,10 +1,15 @@
-/* eslint-disable no-shadow */
+/* eslint-disable no-shadow, dot-notation */
 import { storiesOf } from '@storybook/html';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
 import { withKnobs, button, text } from '@storybook/addon-knobs';
-import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
+import {
+  getExtraKnobs,
+  tabLabels,
+  getComplianceKnob,
+} from '@ecl-twig/story-utils';
 
+import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import sections from './demo/data';
 import footerStandardised from './ecl-footer-standardised.html.twig';
 import notes from './README.md';
@@ -35,15 +40,8 @@ const related = JSON.parse(JSON.stringify(sections.sections[2][1]));
 
 // Preserve the original data.
 let data = [...sections.sections];
-// Labels for the buttons.
-const requiredGroupId = 'Mandatory elements';
-const optionalGroupId = 'Optional elements';
-const useCasesGroup = 'Use cases';
+
 // Buttons callbacks.
-// Classes.
-const classBtnToggler = () => {
-  data[3] = data[3].links ? { section_id: 6 } : sections.sections[3];
-};
 // Dg related service navigation (contact us)
 const serviceBtnToggler = () => {
   // If it's where is supposed to be, hide it
@@ -146,6 +144,27 @@ const resetBtnToggler = () => {
 };
 // Prepare the knobs for group1
 const formatFooter = data => {
+  button(
+    'With or without DG-related service navigation (contact us)',
+    serviceBtnToggler,
+    tabLabels.cases
+  );
+  button(
+    'With or without DG-related service navigation (Follow us)',
+    socialBtnToggler,
+    tabLabels.cases
+  );
+  button(
+    'With or without DG-related navigation (About us)',
+    aboutBtnToggler,
+    tabLabels.cases
+  );
+  button(
+    'With or without DG-related navigation (Related sites)',
+    relatedBtnToggler,
+    tabLabels.cases
+  );
+  button('Reset the layout', resetBtnToggler, tabLabels.cases);
   // Swap the columns when needed.
   if (!data[1][0].title && !data[1][1].title) {
     data[1][0] = data[2][0].title ? aboutUs : { section_id: 2 };
@@ -159,41 +178,41 @@ const formatFooter = data => {
     label: text(
       'sections[0].title.link.label',
       data[0].title.link.label,
-      requiredGroupId
+      tabLabels.required
     ),
     path: text(
       'sections[0].title.link.path',
       data[0].title.link.path,
-      requiredGroupId
+      tabLabels.required
     ),
   };
   data[0].description = text(
     'sections[0].description',
     data[0].description,
-    requiredGroupId
+    tabLabels.required
   );
   // Classes.
   if (data[3].links) {
     data[3].content_before = text(
       'sections[3].content_before',
       data[3].content_before,
-      optionalGroupId
+      tabLabels.optional
     );
     data[3].list_class_name = text(
       'sections[3].list_class_name',
       data[3].list_class_name,
-      optionalGroupId
+      tabLabels.optional
     );
     data[3].links.forEach((link, index) => {
       data[3].links[index].link.label = text(
         `sections[3].links[${index}].link.label`,
         data[3].links[index].link.label,
-        optionalGroupId
+        tabLabels.optional
       );
       data[3].links[index].link.path = text(
         `sections[3].links[${index}].link.path`,
         data[3].links[index].link.path,
-        optionalGroupId
+        tabLabels.optional
       );
     });
   }
@@ -202,12 +221,12 @@ const formatFooter = data => {
     label: text(
       'sections[4].title.link.label',
       data[4].title.link.label,
-      requiredGroupId
+      tabLabels.required
     ),
     path: text(
       'sections[4].title.link.path',
       data[4].title.link.path,
-      requiredGroupId
+      tabLabels.required
     ),
   };
   // Service navigation.
@@ -215,12 +234,12 @@ const formatFooter = data => {
     data[5].links[index].link.label = text(
       `sections[5].links[${index}].link.label`,
       data[5].links[index].link.label,
-      requiredGroupId
+      tabLabels.required
     );
     data[5].links[index].link.path = text(
       `sections[5].links[${index}].link.path`,
       data[5].links[index].link.path,
-      requiredGroupId
+      tabLabels.required
     );
   });
   // Legal navigation.
@@ -228,14 +247,17 @@ const formatFooter = data => {
     data[6].links[index].link.label = text(
       `sections[6].links[${index}].link.label`,
       data[6].links[index].link.label,
-      requiredGroupId
+      tabLabels.required
     );
     data[6].links[index].link.path = text(
       `sections[6].links[${index}].link.path`,
       data[6].links[index].link.path,
-      requiredGroupId
+      tabLabels.required
     );
   });
+
+  getExtraKnobs(data);
+  getComplianceKnob(data);
 
   // Return the full specs.
   return data;
@@ -248,30 +270,12 @@ storiesOf('Components/Footers/Standardised', module)
   .add(
     'default',
     () => {
-      button('With or without class names', classBtnToggler, useCasesGroup);
-      button(
-        'With or without DG-related service navigation (contact us)',
-        serviceBtnToggler,
-        useCasesGroup
-      );
-      button(
-        'With or without DG-related service navigation (Follow us)',
-        socialBtnToggler,
-        useCasesGroup
-      );
-      button(
-        'With or without DG-related navigation (About us)',
-        aboutBtnToggler,
-        useCasesGroup
-      );
-      button(
-        'With or without DG-related navigation (Related sites)',
-        relatedBtnToggler,
-        useCasesGroup
-      );
-      button('Reset the layout', resetBtnToggler, useCasesGroup);
-
-      return footerStandardised({ sections: formatFooter(data) });
+      return footerStandardised({
+        sections: formatFooter(data),
+        extra_classes: data.extra_classes,
+        extra_attributes: data.extra_attributes,
+        _compliance_: data['_compliance_'],
+      });
     },
     {
       notes: { markdown: notes, json: data },
