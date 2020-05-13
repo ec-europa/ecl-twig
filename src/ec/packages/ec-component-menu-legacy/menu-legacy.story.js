@@ -2,13 +2,14 @@ import { storiesOf } from '@storybook/html';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import { withKnobs, text, select } from '@storybook/addon-knobs';
 import withCode from '@ecl-twig/storybook-addon-code';
-import iconPath from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import {
   getExtraKnobs,
   tabLabels,
   getComplianceKnob,
 } from '@ecl-twig/story-utils';
+import he from 'he';
 
+import iconPath from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import demoData from './demo/data';
 import menuLegacy from './ecl-menu-legacy.html.twig';
 import notes from './README.md';
@@ -23,7 +24,9 @@ const prepareMenuLegacy = data => {
   );
 
   data.items.forEach((item, i) => {
-    item.label = text(`items[${i}].label`, item.label, tabLabels.required);
+    item.label = he.decode(
+      text(`items[${i}].label`, item.label, tabLabels.required)
+    );
     item.href = text(`items[${i}].href`, item.href, tabLabels.required);
 
     if (item.children) {
