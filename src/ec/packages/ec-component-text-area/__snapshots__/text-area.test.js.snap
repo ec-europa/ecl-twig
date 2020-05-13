@@ -221,6 +221,40 @@ exports[`EC - Text area Default renders correctly with extra label class names 1
 </test>
 `;
 
+exports[`EC - Text area Default with missing input data and debug enabled returns the right warning message 1`] = `
+<test>
+  <div
+    class="ecl-form-group"
+  >
+    <div
+      class="ecl-help-block"
+    >
+      This is the input's helper text.
+    </div>
+    <textarea
+      class="ecl-text-area ecl-text-area--m"
+      id="example"
+      required=""
+      rows="4"
+    />
+  </div>
+  <!-- ################################################################################################################
+    ecl2-compliance -->
+  <div
+    class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-red ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+  >
+    <p
+      class="ecl-u-type-color-grey ecl-u-ml-m ecl-u-type-xs"
+    >
+      <b>
+        [text-area]
+      </b>
+       The "label" is mandatory.
+    </p>
+  </div>
+</test>
+`;
+
 exports[`EC - Text area Disabled renders correctly 1`] = `
 <test>
   <div
@@ -493,6 +527,51 @@ exports[`EC - Text area With error renders correctly with extra group class name
       required=""
       rows="4"
     />
+  </div>
+</test>
+`;
+
+exports[`EC - Text area With error with missing input data and debug enabled returns the right warning message 1`] = `
+<test>
+  <div
+    class="ecl-form-group"
+  >
+    <label
+      class="ecl-form-label ecl-form-label--invalid"
+      for="example"
+    >
+      Label
+      <span
+        class="ecl-form-label__required"
+      >
+        *
+      </span>
+    </label>
+    <div
+      class="ecl-help-block"
+    >
+      This is the input's helper text.
+    </div>
+    <textarea
+      class="ecl-text-area ecl-text-area--invalid ecl-text-area--m"
+      id="example"
+      required=""
+      rows="4"
+    />
+  </div>
+  <!-- ################################################################################################################
+    ecl2-compliance -->
+  <div
+    class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-red ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+  >
+    <p
+      class="ecl-u-type-color-grey ecl-u-ml-m ecl-u-type-xs"
+    >
+      <b>
+        [text-area]
+      </b>
+        When the form element is invalid the "invalid_text" is mandatory.
+    </p>
   </div>
 </test>
 `;

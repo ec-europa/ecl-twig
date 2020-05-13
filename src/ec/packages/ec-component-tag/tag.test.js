@@ -35,6 +35,15 @@ describe('EC - Tag', () => {
 
       return expect(render(optionsWithExtraClasses)).resolves.toMatchSnapshot();
     });
+
+    test('with missing input data and debug enabled returns the right warning message', () => {
+      expect.assertions(1);
+
+      const dataCompliance = { ...dataLink, _compliance_: true };
+      dataCompliance.tag.path = '';
+
+      return expect(render(dataCompliance)).resolves.toMatchSnapshot();
+    });
   });
 
   describe('Button', () => {
@@ -65,6 +74,15 @@ describe('EC - Tag', () => {
 
       return expect(render(optionsWithExtraClasses)).resolves.toMatchSnapshot();
     });
+
+    test('with missing input data and debug enabled returns the right warning message', () => {
+      expect.assertions(1);
+
+      const dataCompliance = { ...dataButton, _compliance_: true };
+      dataCompliance.tag.label = '';
+
+      return expect(render(dataCompliance)).resolves.toMatchSnapshot();
+    });
   });
 
   describe('Removable', () => {
@@ -94,6 +112,16 @@ describe('EC - Tag', () => {
       });
 
       return expect(render(optionsWithExtraClasses)).resolves.toMatchSnapshot();
+    });
+
+    test('with missing input data and debug enabled returns the right warning message', () => {
+      expect.assertions(1);
+
+      const dataCompliance = { ...dataRemovable, _compliance_: true };
+      dataCompliance.tag.aria_label = '';
+      dataCompliance.default_icon_path = '';
+
+      return expect(render(dataCompliance)).resolves.toMatchSnapshot();
     });
   });
 });
