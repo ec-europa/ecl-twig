@@ -71,10 +71,10 @@
   {% set message = message ~ ' The action indicator is mandatory, "link.icon" needs to be set.' %}
 {% endif %}
 {% if no_image_case %}
-  {% set message = message ~ ' when type is "' ~ type ~ '" "image" is mandatory.' %}
+  {% set message = message ~ ' When type is "' ~ type ~ '" the "image" key needs to be set and filled in.' %}
 {% endif %}
 {% if no_call_to_action_case %}
-  {% set message = message ~ ' The cta is mandatory, you should implement it as a "link" but also a "button" is supported, although deprecated.' %}
+  {% set message = message ~ ' The call to action is mandatory, you should implement it as a "link" but also a "button" is supported, although deprecated.' %}
 {% endif %}
 {% if no_button_icon_path_case %}
   {% set message = message ~ ' The action indicator is mandatory, the "button.icon.path" is needed for it.' %}
@@ -83,16 +83,16 @@
   {% set message = message ~ ' The action indicator is mandatory, the "link.icon.path" is needed for it.' %}
 {% endif %}
 {% if no_link_label_case %}
-  {% set message = message ~ ' The cta is mandatory, the "link.link.label" is needed for it.' %}
+  {% set message = message ~ ' The label in the call to action link is mandatory, the "link.link.label" is needed for it.' %}
 {% endif %}
 {% if no_link_path_case %}
-  {% set message = message ~ ' The "link.link.path" is needed for the cta link.' %}
+  {% set message = message ~ ' The "link.link.path" is needed for the call to action link to work.' %}
 {% endif %}
 {% if no_link_icon_name_case %}
-  {% set message = message ~ ' Without "link.icon.name" we would not be able to render any "action indicator" in the cta.' %}
+  {% set message = message ~ ' Without "link.icon.name" we would not be able to render any "action indicator" in the call to action link.' %}
 {% endif %}
 {% if no_link_icon_type_case %}
-  {% set message = message ~ ' Without "link.icon.type" we would not be able to render any "action indicator" in the cta.' %}
+  {% set message = message ~ ' Without "link.icon.type" we would not be able to render any "action indicator" in the call to action link.' %}
 {% endif %}
 
 
