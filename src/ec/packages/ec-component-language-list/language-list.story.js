@@ -2,7 +2,11 @@ import { storiesOf } from '@storybook/html';
 import { withKnobs, text, select } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
-import { getExtraKnobs, tabLabels } from '@ecl-twig/story-utils';
+import {
+  getExtraKnobs,
+  tabLabels,
+  getComplianceKnob,
+} from '@ecl-twig/story-utils';
 
 import logoPath from '@ecl/ec-resources-logo/logo--mute.svg';
 import iconPath from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
@@ -75,6 +79,7 @@ const prepareLanguageList = data => {
   });
 
   getExtraKnobs(data);
+  getComplianceKnob(data);
 
   return data;
 };
