@@ -10,6 +10,8 @@ npm install --save @ecl-twig/ec-component-footer-harmonised
 
 - **"group"** (string) (default: 'group1'): 'group1' or 'group2'
 - **"sections"** (array of objects) (default: [])
+  - "type" (string) (optional) 'dg_services_navigation, site_name, legal_navigation,
+    service_navigation, dg_related_navigation, corporate_name, partnership_logos, commission_logo'
   - "section_id" (integer) (default: '') The id will be used to form the class name
   - "title" (optional) (string) OR (object with Link component in property)
   - "title_class_name" (optional) (string) (default: '')

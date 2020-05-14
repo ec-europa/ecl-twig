@@ -11,7 +11,7 @@ const formatSection = (section, name) => {
     switch (name) {
       case 'siteName':
         s.section_id = '1';
-        s.type = 'site-name';
+        s.type = 'site_name';
         break;
       case 'dgServices':
         s.section_id = '2';
@@ -47,12 +47,15 @@ const formatSection = (section, name) => {
         break;
       case 'partnershipLogos':
         s.section_id = '2';
+        s.type = 'partnership_logos';
         break;
       case 'ecLogo':
         s.section_id = '2';
+        s.type = 'commission_logo';
         break;
       case 'partnershipLabel':
         s.section_id = '1';
+        s.type = 'partnership_label';
         break;
     }
 

@@ -1,5 +1,6 @@
 {#
   Parameters:
+  - "group" (integer)
   - "sections" (array of objects) [
     {
     - "type" (string)
@@ -23,65 +24,113 @@
 {% set no_corporate_name_case = true %}
 {% set no_service_links_case = true %}
 {% set no_legal_links_case = true %}
+{% set no_commission_logo_case = true %}
+{% set no_partnership_logos_case = true %}
+{% set variant = group|default('') %}
+{% set not_compliant = false %}
 
 {% set no_sections_case = sections is empty or sections is not iterable %}
-{% if (sections[0] is defined and sections[0] is not empty) and
-  (sections[0].title is defined and sections[0].title is not empty) and
-  (sections[0].title.link is defined and sections[0].title.link is not empty) and
-  (sections[0].title.link.label is defined and sections[0].title.link.label is not empty) %}
-    {% set no_site_name_case = false %}
-{% endif %}
-
-{% if (sections[0] is defined and sections[0] is not empty) and
-  (sections[0].description is defined and sections[0].description is not empty) %}
-  {% set no_content_owner_case = false %}
-{% endif %}
 
 {% if no_sections_case == false %}
   {% for section in sections %}
-    {% if loop.index > 0 %}
-      {% if section.type is defined and section.type is not empty %}
-        {% if section.type == 'class_names' and section.links is defined and section.links is not empty and section.links is iterable %}
-          {% set no_class_links_case = false %}
+    {% if section.type == 'site_name' and
+      (section.title is defined and section.title is not empty) and
+      (section.title.link is defined and section.title.link is not empty) and
+      (section.title.link.label is defined and section.title.link.label is not empty)
+    %}
+      {% set no_site_name_case = false %}
+    {% endif %}
+
+    {% if section.type == 'site_name' and
+      (section.description is defined and section.description is not empty) %}
+      {% set no_content_owner_case = false %}
+    {% endif %}
+
+    {% if section.type == 'class_names' and
+      (section.links is defined and section.links is not empty and section.links is iterable) %}
+      {% set no_class_links_case = false %}
+    {% endif %}
+
+    {% if section.type == 'corporate_name' %}
+      {% set no_corporate_name_case = false %}
+    {% endif %}
+
+    {% if section.type == 'service_navigation' and
+      (section.links is defined and section.links is not empty and section.links is iterable) %}
+      {% set no_service_links_case = false %}
+    {% endif %}
+
+    {% if section.type == 'legal_navigation' and
+    (section.links is defined and section.links is not empty and section.links is iterable) %}
+      {% set no_legal_links_case = false %}
+    {% endif %}
+
+    {% if section.logos is defined and section.logos is not empty and section.logos is iterable %}
+      {% for item in section.logos %}
+        {% if item.type is defined and item.type == 'commission_logo' and
+          (item.logo is defined and item.logo is not empty) %}
+          {% set no_commission_logo_case = false %}
         {% endif %}
-        {% if section.type == 'corporate_name' %}
-          {% set no_corporate_name_case = false %}
+        {% if item.type is defined and item.type == 'partnership_logos' and
+          (item.logo is defined and item.logo is not empty) %}
+          {% set no_partnership_logos_case = false %}
         {% endif %}
-        {% if section.type == 'service_navigation' and section.links is defined and section.links is not empty and section.links is iterable %}
-          {% set no_service_links_case = false %}
-        {% endif %}
-        {% if section.type == 'legal_navigation' and section.links is defined and section.links is not empty and section.links is iterable %}
-          {% set no_legal_links_case = false %}
-        {% endif %}
-      {% endif %}
+      {% endfor %}
     {% endif %}
   {% endfor %}
 {% endif %}
 
-{% set not_compliant =
-  no_sections_case or
-  no_site_name_case or
-  no_content_owner_case or
-  no_service_links_case or
-  no_legal_links_case or
-  no_corporate_name_case
-%}
+{% if variant == 'group1' %}
+  {% set not_compliant =
+    no_sections_case or
+    no_site_name_case or
+    no_content_owner_case or
+    no_service_links_case or
+    no_legal_links_case or
+    no_corporate_name_case
+  %}
+{% endif %}
 
-{% if no_sections_case %}
-  {% set message = message ~ '"sections" need to be defined and it should contain an array of sections, footer would be empty otherwise.' %}
+{% if variant == 'group2' %}
+  {% set not_compliant =
+    no_service_links_case or
+    no_legal_links_case or
+    no_corporate_name_case
+  %}
 {% endif %}
-{% if no_site_name_case %}
-  {% set message = message ~ ' "sections[0].title.link.label" is mandatory, it represents the site name.' %}
+
+{% if variant == 'group3' %}
+  {% set not_compliant =
+    no_partnership_logos_case or
+    no_commission_logo_case
+  %}
 {% endif %}
-{% if no_content_owner_case %}
-  {% set message = message ~ ' "sections[0].description" is mandatory as it represents the content owner details.' %}
+
+{% if (variant == 'group1' or variant == 'group2') and
+  no_sections_case %}
+  {% set message = message ~ ' "sections" need to be defined and it should contain an array of sections, footer would be empty otherwise.' %}
 {% endif %}
-{% if no_service_links_case %}
-  {% set message = message ~ ' " We could not identify the "service navigation" section, which is mandatory.' %}
+{% if (variant == 'group1' or variant == 'group2') and
+  no_site_name_case %}
+  {% set message = message ~ ' "sections[0].title.link.label" is mandatory in ' ~ variant ~ ', it represents the site name.' %}
 {% endif %}
-{% if no_legal_links_case %}
-  {% set message = message ~ ' " We could not identify the "legal navigation" section, which is mandatory.' %}
+{% if variant == 'group1' and no_content_owner_case %}
+  {% set message = message ~ ' "sections[0].description" in ' ~ variant ~ ' is mandatory as it represents the content owner details.' %}
 {% endif %}
-{% if no_corporate_name_case %}
-  {% set message = message ~ ' " We could not identify the "corporate_name" section, which is mandatory.' %}
+{% if variant == 'group1' and no_service_links_case %}
+  {% set message = message ~ ' We could not identify the "service navigation" section, in ' ~ variant ~ ' it is mandatory.' %}
+{% endif %}
+{% if (variant == 'group1' or variant == 'group2') and
+  no_legal_links_case %}
+  {% set message = message ~ ' We could not identify the "legal navigation" section, in ' ~ variant ~ ' it is mandatory.' %}
+{% endif %}
+{% if (variant == 'group1' or variant == 'group2') and
+  no_corporate_name_case %}
+  {% set message = message ~ ' We could not identify the "corporate_name" section, in ' ~ variant ~ ' it is mandatory.' %}
+{% endif %}
+{% if variant == 'group3' and no_commission_logo_case %}
+  {% set message = message ~ ' We could not identify the "commission_logo" section, in ' ~ variant ~ ' it is mandatory.' %}
+{% endif %}
+{% if variant == 'group3' and no_partnership_logos_case %}
+  {% set message = message ~ ' We could not identify the "partnership_logos" section, in ' ~ variant ~ ' it is mandatory.' %}
 {% endif %}

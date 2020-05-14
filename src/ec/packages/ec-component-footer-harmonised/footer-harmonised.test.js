@@ -120,7 +120,7 @@ describe('EC - Footer Harmonised', () => {
       expect.assertions(1);
 
       const dataCompliance = { ...dataGroup3, _compliance_: true };
-      dataCompliance.sections[0].title.link.label = '';
+      dataCompliance.sections[1].logos = '';
 
       return expect(render(dataCompliance)).resolves.toMatchSnapshot();
     });
