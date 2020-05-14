@@ -1109,191 +1109,40 @@ exports[`EC - Table Default with missing input data and debug enabled shows the 
   >
     <thead
       class="ecl-table__head"
-    />
-    <tbody
-      class="ecl-table__body"
     >
       <tr
-        class="ecl-table__row row-extra-class"
-        data-test=""
-        data-test-another=""
+        class="ecl-table__row"
       >
-        <td
-          class="ecl-table__cell"
-          data-ecl-table-header="Job title"
+        <th
+          class="ecl-table__header"
         >
-          Administators in Competition Law
-        </td>
-        <td
-          class="ecl-table__cell"
-          data-ecl-table-header="EFSI finance approved by EIB"
+          Job title
+        </th>
+        <th
+          class="ecl-table__header"
         >
-          AD7
-        </td>
-        <td
-          class="ecl-table__cell"
-          data-ecl-table-header="Location"
+          EFSI finance approved by EIB
+        </th>
+        <th
+          class="ecl-table__header"
         >
-          Brussels (Belgium), Luxembourg (Luxembourg), Strasbourg (France)
-        </td>
-        <td
-          class="ecl-table__cell"
-          data-ecl-table-header="Organization"
+          Location
+        </th>
+        <th
+          class="ecl-table__header"
         >
-          European Commission
-        </td>
-        <td
-          class="ecl-table__cell"
-          data-ecl-table-header="Type of contract"
+          Organization
+        </th>
+        <th
+          class="ecl-table__header"
         >
-          Permanent official
-        </td>
+          Type of contract
+        </th>
       </tr>
-      <tr
-        class="ecl-table__row row-extra-class row-extra-class"
-        data-test=""
-        data-test-another=""
-      >
-        <td
-          class="ecl-table__cell"
-          data-ecl-table-header="Job title"
-        >
-          Administators in Economic and Monetary Union Law
-        </td>
-        <td
-          class="ecl-table__cell"
-          data-ecl-table-header="EFSI finance approved by EIB"
-        >
-          AD7
-        </td>
-        <td
-          class="ecl-table__cell"
-          data-ecl-table-header="Location"
-        >
-          Brussels (Belgium), Luxembourg (Luxembourg), Strasbourg (France)
-        </td>
-        <td
-          class="ecl-table__cell"
-          data-ecl-table-header="Organization"
-        >
-          European Commission
-        </td>
-        <td
-          class="ecl-table__cell"
-          data-ecl-table-header="Type of contract"
-        >
-          Permanent official
-        </td>
-      </tr>
-      <tr
-        class="ecl-table__row row-extra-class row-extra-class row-extra-class"
-        data-test=""
-        data-test-another=""
-      >
-        <td
-          class="ecl-table__cell"
-          data-ecl-table-header="Job title"
-        >
-          Administators in Financial rules appliable to the EU budget
-        </td>
-        <td
-          class="ecl-table__cell"
-          data-ecl-table-header="EFSI finance approved by EIB"
-        >
-          AD7
-        </td>
-        <td
-          class="ecl-table__cell"
-          data-ecl-table-header="Location"
-        >
-          Brussels (Belgium), Luxembourg (Luxembourg), Strasbourg (France)
-        </td>
-        <td
-          class="ecl-table__cell"
-          data-ecl-table-header="Organization"
-        >
-          European Commission
-        </td>
-        <td
-          class="ecl-table__cell"
-          data-ecl-table-header="Type of contract"
-        >
-          Permanent official
-        </td>
-      </tr>
-      <tr
-        class="ecl-table__row row-extra-class row-extra-class row-extra-class row-extra-class"
-        data-test=""
-        data-test-another=""
-      >
-        <td
-          class="ecl-table__cell"
-          data-ecl-table-header="Job title"
-        >
-          Corporate Support Officer
-        </td>
-        <td
-          class="ecl-table__cell"
-          data-ecl-table-header="EFSI finance approved by EIB"
-        >
-          FG IV
-        </td>
-        <td
-          class="ecl-table__cell"
-          data-ecl-table-header="Location"
-        >
-          Prague (Czech Republic)
-        </td>
-        <td
-          class="ecl-table__cell"
-          data-ecl-table-header="Organization"
-        >
-          European Commission
-        </td>
-        <td
-          class="ecl-table__cell"
-          data-ecl-table-header="Type of contract"
-        >
-          Permanent official
-        </td>
-      </tr>
-      <tr
-        class="ecl-table__row row-extra-class row-extra-class row-extra-class row-extra-class row-extra-class"
-        data-test=""
-        data-test-another=""
-      >
-        <td
-          class="ecl-table__cell"
-          data-ecl-table-header="Job title"
-        >
-          Policy Officer - Clean Energy For All Europeans
-        </td>
-        <td
-          class="ecl-table__cell"
-          data-ecl-table-header="EFSI finance approved by EIB"
-        >
-          FG II, FG III, FG IV
-        </td>
-        <td
-          class="ecl-table__cell"
-          data-ecl-table-header="Location"
-        >
-          Vigo (Spain)
-        </td>
-        <td
-          class="ecl-table__cell"
-          data-ecl-table-header="Organization"
-        >
-          EU-LISA
-        </td>
-        <td
-          class="ecl-table__cell"
-          data-ecl-table-header="Type of contract"
-        >
-          Seconded National Expert (SNE)
-        </td>
-      </tr>
-    </tbody>
+    </thead>
+    <tbody
+      class="ecl-table__body"
+    />
   </table>
   <!-- ################################################################################################################
     ecl2-compliance -->
@@ -1306,7 +1155,7 @@ exports[`EC - Table Default with missing input data and debug enabled shows the 
       <b>
         [table]
       </b>
-        "headers" are mandatory.
+        No table cell has been provided, "rows" should be defined and containing an array or items. You have at least one empty header. The label in each of the headers array items needs to be set and filled in.
     </p>
   </div>
 </test>

@@ -75,7 +75,8 @@ describe('EC - Table', () => {
       expect.assertions(1);
 
       const dataCompliance = { ...dataDefault, _compliance_: true };
-      dataCompliance.headers = [];
+      dataCompliance.headers[0].label = '';
+      dataCompliance.rows = [];
 
       return expect(render(dataCompliance)).resolves.toMatchSnapshot();
     });
