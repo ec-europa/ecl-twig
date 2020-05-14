@@ -33,57 +33,109 @@ let leftData = { ...bannerDataAlignLeft };
 
 // Show/hide buttons for optional elements.
 const defaultDescBtnToggler = () => {
-  defaultData.baseline = defaultData.baseline
-    ? false
-    : bannerDataDefault.baseline;
+  if (defaultData.baseline) {
+    delete defaultData.baseline;
+  } else {
+    defaultData.baseline = bannerDataDefault.baseline;
+  }
 };
 const imageDescBtnToggler = () => {
-  imageData.baseline = imageData.baseline ? false : bannerDataImage.baseline;
+  if (imageData.baseline) {
+    delete imageData.baseline;
+  } else {
+    imageData.baseline = bannerDataImage.baseline;
+  }
 };
 const imageShadeDescBtnToggler = () => {
-  imageShadeData.baseline = imageShadeData.baseline
-    ? false
-    : bannerDataImageShade.baseline;
+  if (imageShadeData.baseline) {
+    delete imageShadeData.baseline;
+  } else {
+    imageShadeData.baseline = bannerDataImageShade.baseline;
+  }
 };
 const primaryDescBtnToggler = () => {
-  primaryData.baseline = primaryData.baseline
-    ? false
-    : bannerDataPrimary.baseline;
+  if (primaryData.baseline) {
+    delete primaryData.baseline;
+  } else {
+    primaryData.baseline = bannerDataPrimary.baseline;
+  }
 };
 const leftDescBtnToggler = () => {
-  leftData.baseline = leftData.baseline ? false : bannerDataAlignLeft.baseline;
+  if (leftData.baseline) {
+    delete leftData.baseline;
+  } else {
+    leftData.baseline = bannerDataAlignLeft.baseline;
+  }
 };
 const defaultTitleBtnToggler = () => {
-  defaultData.title = defaultData.title ? false : bannerDataDefault.title;
+  if (defaultData.title) {
+    delete defaultData.title;
+  } else {
+    defaultData.title = bannerDataDefault.title;
+  }
 };
 const imageTitleBtnToggler = () => {
-  imageData.title = imageData.title ? false : bannerDataImage.title;
+  if (imageData.title) {
+    delete imageData.title;
+  } else {
+    imageData.title = bannerDataImage.title;
+  }
 };
 const imageShadeTitleBtnToggler = () => {
-  imageShadeData.title = imageShadeData.title
-    ? false
-    : bannerDataImageShade.title;
+  if (imageShadeData.title) {
+    delete imageShadeData.title;
+  } else {
+    imageShadeData.title = bannerDataImageShade.title;
+  }
 };
 const primaryTitleBtnToggler = () => {
-  primaryData.title = primaryData.title ? false : bannerDataPrimary.title;
+  if (primaryData.title) {
+    delete primaryData.title;
+  } else {
+    primaryData.title = bannerDataPrimary.title;
+  }
 };
 const leftTitleBtnToggler = () => {
-  leftData.title = leftData.title ? false : bannerDataAlignLeft.title;
+  if (leftData.title) {
+    delete leftData.title;
+  } else {
+    leftData.title = bannerDataAlignLeft.title;
+  }
 };
 const defaultCtaBtnToggler = () => {
-  defaultData.link = defaultData.link ? false : bannerDataDefault.link;
+  if (defaultData.link) {
+    delete defaultData.link;
+  } else {
+    defaultData.link = bannerDataDefault.link;
+  }
 };
 const imageCtaBtnToggler = () => {
-  imageData.link = imageData.link ? false : bannerDataImage.link;
+  if (imageData.link) {
+    delete imageData.link;
+  } else {
+    imageData.link = bannerDataImage.link;
+  }
 };
 const imageShadeCtaBtnToggler = () => {
-  imageShadeData.link = imageShadeData.link ? false : bannerDataImage.link;
+  if (imageShadeData.link) {
+    delete imageShadeData.link;
+  } else {
+    imageShadeData.link = bannerDataImage.link;
+  }
 };
 const primaryCtaBtnToggler = () => {
-  primaryData.link = primaryData.link ? false : bannerDataPrimary.link;
+  if (primaryData.link) {
+    delete primaryData.link;
+  } else {
+    primaryData.link = bannerDataPrimary.link;
+  }
 };
 const leftCtaBtnToggler = () => {
-  leftData.link = leftData.link ? false : bannerDataAlignLeft.link;
+  if (leftData.link) {
+    delete leftData.link;
+  } else {
+    leftData.link = bannerDataAlignLeft.link;
+  }
 };
 // Reset buttons.
 const defaultResetBtnToggler = () => {
@@ -103,11 +155,8 @@ const leftResetBtnToggler = () => {
 };
 
 uiIcons.unshift('null');
-const preparePageBanner = data => {
-  if (data.centered) {
-    data.centered = boolean('centered', data.centered, tabLabels.states);
-  }
-
+const preparePageBanner = (data, variant) => {
+  data.centered = boolean('centered', data.centered, tabLabels.states);
   data.type = select('type', [data.type], data.type, tabLabels.required);
   if (data.title) {
     data.title = text('title', data.title, tabLabels.optional);
@@ -115,7 +164,7 @@ const preparePageBanner = data => {
   if (data.baseline) {
     data.baseline = text('baseline', data.baseline, tabLabels.optional);
   }
-  if (data.image) {
+  if (variant === 'img') {
     data.image = text('image', data.image, tabLabels.required);
   }
   if (data.link) {
@@ -169,10 +218,14 @@ storiesOf('Components/Banners/Page Banner', module)
     () => {
       button('With or without title', imageTitleBtnToggler, tabLabels.cases);
       button('With or without baseline', imageDescBtnToggler, tabLabels.cases);
-      button('With or without cta', imageCtaBtnToggler, tabLabels.cases);
+      button(
+        'With or without call to action',
+        imageCtaBtnToggler,
+        tabLabels.cases
+      );
       button('Reset the layout', imageResetBtnToggler, tabLabels.cases);
 
-      return pageBanner(preparePageBanner(imageData));
+      return pageBanner(preparePageBanner(imageData, 'img'));
     },
     {
       notes: { markdown: notes, json: imageData },
@@ -191,10 +244,14 @@ storiesOf('Components/Banners/Page Banner', module)
         imageShadeDescBtnToggler,
         tabLabels.cases
       );
-      button('With or without cta', imageShadeCtaBtnToggler, tabLabels.cases);
+      button(
+        'With or without call to action',
+        imageShadeCtaBtnToggler,
+        tabLabels.cases
+      );
       button('Reset the layout', imageShadeResetBtnToggler, tabLabels.cases);
 
-      return pageBanner(preparePageBanner(imageShadeData));
+      return pageBanner(preparePageBanner(imageShadeData, 'img'));
     },
     {
       notes: { markdown: notes, json: imageShadeData },
@@ -209,7 +266,11 @@ storiesOf('Components/Banners/Page Banner', module)
         primaryDescBtnToggler,
         tabLabels.cases
       );
-      button('With or without cta', primaryCtaBtnToggler, tabLabels.cases);
+      button(
+        'With or without call to action',
+        primaryCtaBtnToggler,
+        tabLabels.cases
+      );
       button('Reset the layout', primaryResetBtnToggler, tabLabels.cases);
 
       return pageBanner(preparePageBanner(primaryData));
@@ -227,7 +288,11 @@ storiesOf('Components/Banners/Page Banner', module)
         defaultDescBtnToggler,
         tabLabels.cases
       );
-      button('With or without cta', defaultCtaBtnToggler, tabLabels.cases);
+      button(
+        'With or without call to action',
+        defaultCtaBtnToggler,
+        tabLabels.cases
+      );
       button('Reset the layout', defaultResetBtnToggler, tabLabels.cases);
 
       return pageBanner(preparePageBanner(defaultData));
@@ -241,7 +306,11 @@ storiesOf('Components/Banners/Page Banner', module)
     () => {
       button('With or without title', leftTitleBtnToggler, tabLabels.cases);
       button('With or without baseline', leftDescBtnToggler, tabLabels.cases);
-      button('With or without cta', leftCtaBtnToggler, tabLabels.cases);
+      button(
+        'With or without call to action',
+        leftCtaBtnToggler,
+        tabLabels.cases
+      );
       button('Reset the layout', leftResetBtnToggler, tabLabels.cases);
 
       return pageBanner(preparePageBanner(leftData));
