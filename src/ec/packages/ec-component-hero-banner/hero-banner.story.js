@@ -20,6 +20,7 @@ import heroBanner from './ecl-hero-banner.html.twig';
 import notes from './README.md';
 
 uiIcons.unshift('null');
+
 const prepareBanner = (data, variant) => {
   data.centered = boolean('centered', data.centered, tabLabels.states);
   data.type = select('type', [data.type], data.type, tabLabels.required);
