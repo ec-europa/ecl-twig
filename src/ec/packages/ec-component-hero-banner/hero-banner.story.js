@@ -20,7 +20,7 @@ import heroBanner from './ecl-hero-banner.html.twig';
 import notes from './README.md';
 
 uiIcons.unshift('null');
-const prepareBanner = data => {
+const prepareBanner = (data, img) => {
   if (data.centered) {
     data.centered = boolean('centered', data.centered, tabLabels.states);
   }
@@ -28,7 +28,7 @@ const prepareBanner = data => {
   data.title = text('title', data.title, tabLabels.required);
   data.description = text('description', data.description, tabLabels.required);
 
-  if (data.image) {
+  if (img) {
     data.image = text('image', data.image, tabLabels.required);
   }
   data.link.link.label = text(
@@ -71,10 +71,10 @@ storiesOf('Components/Banners/Hero Banner', module)
   .addDecorator(withKnobs)
   .addDecorator(withNotes)
   .addDecorator(withCode)
-  .add('image', () => heroBanner(prepareBanner(dataImage)), {
+  .add('image', () => heroBanner(prepareBanner(dataImage, 'img')), {
     notes: { markdown: notes, json: dataImage },
   })
-  .add('image-shade', () => heroBanner(prepareBanner(dataImageShade)), {
+  .add('image-shade', () => heroBanner(prepareBanner(dataImageShade, 'img')), {
     notes: { markdown: notes, json: dataImageShade },
   })
   .add('primary', () => heroBanner(prepareBanner(dataPrimary)), {
