@@ -26,7 +26,7 @@ const preparePageHeader = (data, variant) => {
 
   if (variant === 'event') {
     data.infos.forEach((info, i) => {
-      info.text = text(`Info[${i}].text`, info.text, tabLabels.required);
+      info.text = text(`infos[${i}].text`, info.text, tabLabels.required);
       info.icon.name = select(
         `infos[${i}].icon.name`,
         [info.icon.name],
