@@ -1,6 +1,10 @@
 import { storiesOf } from '@storybook/html';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
-import { getExtraKnobs, tabLabels } from '@ecl-twig/story-utils';
+import {
+  getExtraKnobs,
+  tabLabels,
+  getComplianceKnob,
+} from '@ecl-twig/story-utils';
 import withCode from '@ecl-twig/storybook-addon-code';
 import { withKnobs, text, boolean } from '@storybook/addon-knobs';
 
@@ -69,6 +73,7 @@ const prepareTable = (data, attr) => {
   });
 
   getExtraKnobs(data);
+  getComplianceKnob(data);
 
   return data;
 };
