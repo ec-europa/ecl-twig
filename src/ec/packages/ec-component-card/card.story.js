@@ -2,6 +2,11 @@ import { storiesOf } from '@storybook/html';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import { withKnobs, text, array, button } from '@storybook/addon-knobs';
 import withCode from '@ecl-twig/storybook-addon-code';
+import {
+  getExtraKnobs,
+  tabLabels,
+  getComplianceKnob,
+} from '@ecl-twig/story-utils';
 
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import dataCard from './demo/data--card';
@@ -16,10 +21,7 @@ let defaultData = { ...dataCard.card };
 let eventData = { ...dataCardEvent.card };
 let tagData = { ...dataCardTag.card };
 let tileData = { ...dataCardTile.card };
-// Labels for the buttons.
-const requiredGroupId = 'Mandatory elements';
-const optionalGroupId = 'Optional elements';
-const useCasesGroup = 'Use cases';
+
 // Show/hide buttons for optional elements.
 const descBtnToggler = () => {
   defaultData.description = defaultData.description
@@ -90,27 +92,27 @@ const formatCard = data => {
   const title = data.title.type
     ? {
         ...data.title,
-        type: text('card.title.type', data.title.type, optionalGroupId),
-        label: text('card.title.label', data.title.label, requiredGroupId),
+        type: text('card.title.type', data.title.type, tabLabels.optional),
+        label: text('card.title.label', data.title.label, tabLabels.required),
       }
     : {
         ...data.title,
-        label: text('card.title.label', data.title.label, requiredGroupId),
+        label: text('card.title.label', data.title.label, tabLabels.required),
       };
   // Description.
   const description = data.description
-    ? text('card.description', data.description, optionalGroupId)
+    ? text('card.description', data.description, tabLabels.optional)
     : false;
   // Meta.
   const meta = data.meta
-    ? array('card.meta (tags)', data.meta, '|', optionalGroupId)
+    ? array('card.meta', data.meta, '|', tabLabels.optional)
     : false;
 
   const formatTag = (tag, index) => {
     tag.label = text(
-      `card.tags.label (Tag ${index})`,
+      `card.tags[${index}].label`,
       tag.label,
-      optionalGroupId
+      tabLabels.optional
     );
     // Tags.
     return tag;
@@ -119,9 +121,9 @@ const formatCard = data => {
 
   const formatInfos = (info, index) => {
     info.label = text(
-      `card.infos.label (Info ${index})`,
+      `card.infos[${index}].label`,
       info.label,
-      optionalGroupId
+      tabLabels.optional
     );
     info.icon.path = defaultSprite;
     // Infos.
@@ -131,9 +133,9 @@ const formatCard = data => {
 
   const formatLinks = (link, index) => {
     link.label = text(
-      `card.links.label (Link ${index})`,
+      `card.links[${index}].label`,
       link.label,
-      optionalGroupId
+      tabLabels.optional
     );
     // Links.
     return link;
@@ -142,24 +144,29 @@ const formatCard = data => {
   // Image.
   const image = data.image
     ? {
-        alt: text('card.image.alt', data.image.alt, optionalGroupId),
-        src: text('card.image.src', data.image.src, optionalGroupId),
+        alt: text('card.image.alt', data.image.alt, tabLabels.optional),
+        src: text('card.image.src', data.image.src, tabLabels.optional),
       }
     : {};
 
   const newCard = {
-    card: {
-      title,
-      description,
-      meta,
-      tags,
-      infos,
-      image,
-      links,
-    },
+    title,
+    description,
+    meta,
+    tags,
+    infos,
+    image,
+    links,
   };
+
+  data = {};
   // Return the full object.
-  return newCard;
+  data.card = newCard;
+
+  getExtraKnobs(data);
+  getComplianceKnob(data);
+
+  return data;
 };
 
 storiesOf('Components/Card', module)
@@ -169,12 +176,16 @@ storiesOf('Components/Card', module)
   .add(
     'card',
     () => {
-      button('With or without card.image', imgBtnToggler, useCasesGroup);
-      button('With or without card.tags', tagsBtnToggler, useCasesGroup);
-      button('With or without card.infos', infosBtnToggler, useCasesGroup);
-      button('With or without card.meta', metaBtnToggler, useCasesGroup);
-      button('With or without card.description', descBtnToggler, useCasesGroup);
-      button('Reset the layout', resetBtnToggler, useCasesGroup);
+      button('With or without card.image', imgBtnToggler, tabLabels.cases);
+      button('With or without card.tags', tagsBtnToggler, tabLabels.cases);
+      button('With or without card.infos', infosBtnToggler, tabLabels.cases);
+      button('With or without card.meta', metaBtnToggler, tabLabels.cases);
+      button(
+        'With or without card.description',
+        descBtnToggler,
+        tabLabels.cases
+      );
+      button('Reset the layout', resetBtnToggler, tabLabels.cases);
 
       return card(formatCard(defaultData));
     },
@@ -188,15 +199,20 @@ storiesOf('Components/Card', module)
       button(
         'With or without card.description',
         descTileBtnToggler,
-        useCasesGroup
+        tabLabels.cases
       );
-      button('With or without card.links', linksBtnToggler, useCasesGroup);
-      button('Reset the layout', resetTileBtnToggler, useCasesGroup);
+      button('With or without card.links', linksBtnToggler, tabLabels.cases);
+      button('Reset the layout', resetTileBtnToggler, tabLabels.cases);
 
       return card(formatCard(tileData));
     },
     {
-      notes: { markdown: notes, json: { card: tileData } },
+      notes: {
+        markdown: notes,
+        json: {
+          card: tileData,
+        },
+      },
     }
   )
   .add(
@@ -205,12 +221,12 @@ storiesOf('Components/Card', module)
       button(
         'With or without card.description',
         descTagBtnToggler,
-        useCasesGroup
+        tabLabels.cases
       );
-      button('With or without card.tags', tagsTagBtnToggler, useCasesGroup);
-      button('With or without card.meta', metaTagBtnToggler, useCasesGroup);
-      button('With or without card.image', imgTagBtnToggler, useCasesGroup);
-      button('Reset the layout', resetTagBtnToggler, useCasesGroup);
+      button('With or without card.tags', tagsTagBtnToggler, tabLabels.cases);
+      button('With or without card.meta', metaTagBtnToggler, tabLabels.cases);
+      button('With or without card.image', imgTagBtnToggler, tabLabels.cases);
+      button('Reset the layout', resetTagBtnToggler, tabLabels.cases);
 
       return card(formatCard(tagData));
     },
@@ -221,18 +237,18 @@ storiesOf('Components/Card', module)
   .add(
     'event',
     () => {
-      button('With or without card.image', imgEventBtnToggler, useCasesGroup);
+      button('With or without card.image', imgEventBtnToggler, tabLabels.cases);
       button(
         'With or without cad.description"',
         descEventBtnToggler,
-        useCasesGroup
+        tabLabels.cases
       );
       button(
         'With or without card.infos"',
         infosEventBtnToggler,
-        useCasesGroup
+        tabLabels.cases
       );
-      button('Reset the layout', resetEventBtnToggler, useCasesGroup);
+      button('Reset the layout', resetEventBtnToggler, tabLabels.cases);
 
       return card(formatCard(eventData));
     },
