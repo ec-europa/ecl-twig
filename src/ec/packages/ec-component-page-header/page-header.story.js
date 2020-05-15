@@ -1,14 +1,12 @@
 import { storiesOf } from '@storybook/html';
-import {
-  withKnobs,
-  text,
-  boolean,
-  select,
-  object,
-} from '@storybook/addon-knobs';
+import { withKnobs, text, boolean, select } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
-import { getExtraKnobs, tabLabels } from '@ecl-twig/story-utils';
+import {
+  getExtraKnobs,
+  tabLabels,
+  getComplianceKnob,
+} from '@ecl-twig/story-utils';
 
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import pageHeaderDataTitle from './demo/data--title';
@@ -21,29 +19,12 @@ import pageHeaderBackgroundImage from './demo/data--background-image';
 import pageHeader from './ecl-page-header.html.twig';
 import notes from './README.md';
 
-const pageHeaderDataEventsInfo = [];
-const pageHeaderDataEventsDescriptioninfo = [];
-
-pageHeaderDataEvents.infos.forEach((item, key) => {
-  pageHeaderDataEventsInfo.push(pageHeaderDataEvents.infos[key].text);
-  pageHeaderDataEvents.infos[key].text = '';
-});
-
-pageHeaderDataEventsDescription.infos.forEach((item, key) => {
-  pageHeaderDataEventsDescriptioninfo.push(
-    pageHeaderDataEventsDescription.infos[key].text
-  );
-  pageHeaderDataEventsDescription.infos[key].text = '';
-});
-
-const preparePageHeader = data => {
+const preparePageHeader = (data, variant) => {
   data.title = text('title', data.title, tabLabels.required);
   data.description = text('description', data.description, tabLabels.optional);
+  data.meta = text('meta', data.meta, tabLabels.optional);
 
-  if (data.meta) {
-    data.meta = text('meta', data.meta, tabLabels.optional);
-  }
-  if (data.infos) {
+  if (variant === 'event') {
     data.infos.forEach((info, i) => {
       info.text = text(`Info[${i}].text`, info.text, tabLabels.required);
       info.icon.name = select(
@@ -66,31 +47,50 @@ const preparePageHeader = data => {
       );
     });
   }
-  data.background_image = boolean(
-    'background_image',
-    data.background_image,
-    tabLabels.required
-  );
-  if (data.background_image) {
+
+  if (variant === 'img') {
+    data.background_image = boolean(
+      'background_image',
+      data.background_image,
+      tabLabels.required
+    );
     data.background_image_url = text(
       'background_image_url',
       data.background_image_url,
       tabLabels.optional
     );
   }
+  data.breadcrumb.ellipsis_label = text(
+    'breadcrumb.ellipsis_label',
+    data.breadcrumb.ellipsis_label,
+    tabLabels.required
+  );
+  data.breadcrumb.navigation_text = text(
+    'breadcrumb.navigation_text',
+    data.breadcrumb.navigation_text,
+    tabLabels.required
+  );
   data.breadcrumb.icon_file_path = select(
     'breadcrumb.icon_file_path',
     [defaultSprite],
     defaultSprite,
     tabLabels.required
   );
-  data.breadcrumb = object(
-    'data.breadcrumb',
-    data.breadcrumb,
-    tabLabels.optional
-  );
+  data.breadcrumb.links.forEach((item, i) => {
+    item.label = text(
+      `data.breadcrumb.links[${i}].label`,
+      item.label,
+      tabLabels.required
+    );
+    item.path = text(
+      `data.breadcrumb.links[${i}].path`,
+      item.path,
+      tabLabels.required
+    );
+  });
 
   getExtraKnobs(data);
+  getComplianceKnob(data);
 
   return data;
 };
@@ -129,21 +129,22 @@ storiesOf('Components/deprecated/Page Header', module)
   )
   .add(
     'ECL < 2.14 events',
-    () => pageHeader(preparePageHeader(pageHeaderDataEvents)),
+    () => pageHeader(preparePageHeader(pageHeaderDataEvents, 'event')),
     {
       notes: { markdown: notes, json: pageHeaderDataEvents },
     }
   )
   .add(
     'ECL < 2.14 events-description',
-    () => pageHeader(preparePageHeader(pageHeaderDataEventsDescription)),
+    () =>
+      pageHeader(preparePageHeader(pageHeaderDataEventsDescription, 'event')),
     {
       notes: { markdown: notes, json: pageHeaderDataEventsDescription },
     }
   )
   .add(
     'ECL < 2.14 Background image',
-    () => pageHeader(preparePageHeader(pageHeaderBackgroundImage)),
+    () => pageHeader(preparePageHeader(pageHeaderBackgroundImage, 'img')),
     {
       notes: { markdown: notes, json: pageHeaderBackgroundImage },
     }

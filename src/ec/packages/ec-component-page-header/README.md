@@ -21,7 +21,8 @@ npm install --save @ecl-twig/ec-component-page-header
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
-  - "value" (string) Attribute value, eg: 'data-test-1'
+  - "value" (string) Attribute value, eg: 'data-test-1',
+- **"_compliance_"** (boolean) (default: false) Activates debug
 
 ### Example :
 
