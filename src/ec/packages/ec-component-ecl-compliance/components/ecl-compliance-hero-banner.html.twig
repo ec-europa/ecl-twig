@@ -11,6 +11,7 @@
 
 {% set message = '' %}
 {% set component = 'hero-banner' %}
+{% set variant = type|default('') %}
 {% set no_image_case = false %}
 {% set no_icon_case = false %}
 {% set no_link_icon_path_case = false %}
@@ -71,7 +72,7 @@
   {% set message = message ~ ' The action indicator is mandatory, "link.icon" needs to be set.' %}
 {% endif %}
 {% if no_image_case %}
-  {% set message = message ~ ' When type is "' ~ type ~ '" the "image" key needs to be set and filled in.' %}
+  {% set message = message ~ ' When type is "' ~ type ~ '", the "image" property needs to be set and filled in.' %}
 {% endif %}
 {% if no_call_to_action_case %}
   {% set message = message ~ ' The call to action is mandatory, you should implement it as a "link" but also a "button" is supported, although deprecated.' %}
