@@ -9,6 +9,7 @@
 {% set message = '' %}
 {% set component = 'page-banner' %}
 {% set no_image_case = false %}
+{% set variant = type|default('') %}
 
 {% if type in ['image', 'image-shade'] %}
   {% set no_image_case = image is not defined or image is empty %}
