@@ -62,6 +62,7 @@ describe('EC - Unordered list', () => {
 
       const dataCompliance = { ...data, _compliance_: true };
       dataCompliance.items[1].label = '';
+      dataCompliance.items[0].nested[0].label = '';
 
       return expect(render(dataCompliance)).resolves.toMatchSnapshot();
     });
