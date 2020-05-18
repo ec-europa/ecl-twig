@@ -33,7 +33,7 @@
 {% set not_compliant = no_term_case or no_items_case or no_term_in_item_case %}
 
 {% if no_items_case %}
-  {% set message = message ~ ' We cannot render a list without any item, "items" should be set and filled in with an array of items.' %}
+  {% set message = message ~ ' The "items" property is required.' %}
 {% endif %}
 {% if no_term_case %}
   {% set message = message ~ ' No term in the list should be empty.' %}
