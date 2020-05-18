@@ -39,6 +39,5 @@
   {% set message = message ~ ' No term in the list should be empty.' %}
 {% endif %}
 {% if no_term_in_item_case %}
-  {% set message = message ~ ' Each item in the "term" array should not be empty.' %}
+  {% set message = message ~ ' Each item in the "term" is required to be present.' %}
 {% endif %}
-
