@@ -52,6 +52,9 @@ describe('EC - Description list', () => {
 
       const dataCompliance = { ...data, _compliance_: true };
       dataCompliance.items[0].term = '';
+      dataCompliance.items[0].definition = '';
+      dataCompliance.items[1].term[0] = '';
+      dataCompliance.items[2].definition[0] = '';
 
       return expect(render(dataCompliance)).resolves.toMatchSnapshot();
     });

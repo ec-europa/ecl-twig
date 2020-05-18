@@ -193,16 +193,9 @@ exports[`EC - Description list Default with missing input data and debug enabled
   <dl
     class="ecl-description-list"
   >
-    <dd
-      class="ecl-description-list__definition"
-    >
-      The executive body of the European Union formed in 1967, which initiates action in the EU and mediates between member governments. Former name (until 1993): Commission of the European Communities
-    </dd>
     <dt
       class="ecl-description-list__term"
-    >
-      European Union
-    </dt>
+    />
     <dt
       class="ecl-description-list__term"
     >
@@ -220,9 +213,7 @@ exports[`EC - Description list Default with missing input data and debug enabled
     </dt>
     <dd
       class="ecl-description-list__definition"
-    >
-      A native or naturalized member of a state or nation who owes allegiance to its government and is entitled to its protection
-    </dd>
+    />
     <dd
       class="ecl-description-list__definition"
     >
@@ -240,7 +231,7 @@ exports[`EC - Description list Default with missing input data and debug enabled
       <b>
         [description-list]
       </b>
-        No term in the list should be empty.
+        Every item in the "items" array should contain a "term" property set and filled in. Every sub-item in the "term" array should have a value set. Every item in the "items" array should contain a "definition" property set and filled in. Every sub-item in the "definition" array should have a value set.
     </p>
   </div>
 </test>

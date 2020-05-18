@@ -26,10 +26,10 @@ const prepareList = data => {
   }
   data.items.forEach((item, i) => {
     if (Array.isArray(item.term)) {
-      item.term.forEach((term, ind) => {
-        data.items[i].term[ind] = text(
-          `items[${i}].term[${ind}]`,
-          term,
+      item.term.forEach((termItem, j) => {
+        data.items[i].term[j] = text(
+          `items[${i}].term[${j}]`,
+          termItem,
           tabLabels.required
         );
       });
@@ -37,14 +37,14 @@ const prepareList = data => {
       item.term = text(`items[${i}].term`, item.term, tabLabels.required);
     }
     if (Array.isArray(item.definition)) {
-      item.definition.forEach((definition, ind) => {
-        data.items[i].definition[ind] = text(
-          `items[${i}].definition[${ind}]`,
-          definition,
+      item.definition.forEach((definitionItem, k) => {
+        data.items[i].definition[k] = text(
+          `items[${i}].definition[${k}]`,
+          definitionItem,
           tabLabels.required
         );
       });
-    } else if (item.definition) {
+    } else {
       item.definition = text(
         `items[${i}].definition`,
         item.definition,
