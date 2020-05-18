@@ -50,6 +50,11 @@ describe('EC - Site Header Core', () => {
 
       const dataCompliance = { ...englishData, _compliance_: true };
       dataCompliance.icon_file_path = '';
+      dataCompliance.search_form.button.label = '';
+      dataCompliance.language_selector.label = '';
+      dataCompliance.search_toggle.label = '';
+      dataCompliance.login_toggle.label_not_logged = '';
+      dataCompliance.logo.alt = '';
 
       return expect(render(dataCompliance)).resolves.toMatchSnapshot();
     });
