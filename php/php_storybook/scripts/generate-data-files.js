@@ -53,7 +53,10 @@ listRender.forEach(pkg => {
   const packageLocation = `${nodeModules}/${pkg}`;
   let specLocation = '';
 
-  if (componentRootName === 'ordered-list') {
+  if (
+    componentRootName === 'ordered-list' ||
+    componentRootName === 'unordered-list'
+  ) {
     specLocation = packageLocation.replace(
       `@ecl-twig/${system}-component-${componentRootName}`,
       `@ecl/${system}-specs-list`
