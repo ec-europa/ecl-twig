@@ -75,6 +75,15 @@ describe('EC - Page Banner', () => {
 
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
     });
+
+    test('with validation enabled and missing input data returns the right warning message', () => {
+      expect.assertions(1);
+
+      const dataCompliance = { ...data, _compliance_: true };
+      dataCompliance.image = '';
+
+      return expect(render(dataCompliance)).resolves.toMatchSnapshot();
+    });
   });
 
   describe('image-shade', () => {
