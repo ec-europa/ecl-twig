@@ -50,6 +50,10 @@ describe('EC - Site Header Standardised', () => {
 
       const dataCompliance = { ...englishData, _compliance_: true };
       dataCompliance.banner_top = '';
+      dataCompliance.search_form.button.label = '';
+      dataCompliance.search_toggle.label = '';
+      dataCompliance.login_toggle.label_not_logged = '';
+      dataCompliance.logo.alt = '';
 
       return expect(render(dataCompliance)).resolves.toMatchSnapshot();
     });

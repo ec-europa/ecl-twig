@@ -103,6 +103,12 @@ exports[`EC - Site Header Standardised Default renders correctly 1`] = `
               <div
                 class="ecl-form-group"
               >
+                <label
+                  class="ecl-form-label ecl-search-form__label"
+                  for="search-input-id"
+                >
+                  Search
+                </label>
                 <input
                   class="ecl-text-input ecl-text-input--m ecl-search-form__text-input"
                   id="search-input-id"
@@ -1722,6 +1728,12 @@ exports[`EC - Site Header Standardised Default renders correctly when logged in 
               <div
                 class="ecl-form-group"
               >
+                <label
+                  class="ecl-form-label ecl-search-form__label"
+                  for="search-input-id"
+                >
+                  Search
+                </label>
                 <input
                   class="ecl-text-input ecl-text-input--m ecl-search-form__text-input"
                   id="search-input-id"
@@ -3311,6 +3323,12 @@ exports[`EC - Site Header Standardised Default renders correctly with extra attr
               <div
                 class="ecl-form-group"
               >
+                <label
+                  class="ecl-form-label ecl-search-form__label"
+                  for="search-input-id"
+                >
+                  Search
+                </label>
                 <input
                   class="ecl-text-input ecl-text-input--m ecl-search-form__text-input"
                   id="search-input-id"
@@ -4898,6 +4916,12 @@ exports[`EC - Site Header Standardised Default renders correctly with extra clas
               <div
                 class="ecl-form-group"
               >
+                <label
+                  class="ecl-form-label ecl-search-form__label"
+                  for="search-input-id"
+                >
+                  Search
+                </label>
                 <input
                   class="ecl-text-input ecl-text-input--m ecl-search-form__text-input"
                   id="search-input-id"
@@ -6400,7 +6424,7 @@ exports[`EC - Site Header Standardised Default with missing input data and degug
           href="/example"
         >
           <img
-            alt="European Commission logo"
+            alt=""
             class="ecl-site-header-standardised__logo-image"
             src="/logo--en.svg"
             title="European Commission"
@@ -6439,7 +6463,6 @@ exports[`EC - Site Header Standardised Default with missing input data and degug
                    - ecl compliant.
                 </p>
               </div>
-              Log in
             </a>
           </div>
           <a
@@ -6502,7 +6525,6 @@ exports[`EC - Site Header Standardised Default with missing input data and degug
                   xlink:href="/icons.svg#general--search"
                 />
               </svg>
-              Search
             </a>
             <form
               class="ecl-search-form ecl-site-header-standardised__search"
@@ -6513,6 +6535,12 @@ exports[`EC - Site Header Standardised Default with missing input data and degug
               <div
                 class="ecl-form-group"
               >
+                <label
+                  class="ecl-form-label ecl-search-form__label"
+                  for="search-input-id"
+                >
+                  Search
+                </label>
                 <input
                   class="ecl-text-input ecl-text-input--m ecl-search-form__text-input"
                   id="search-input-id"
@@ -6530,9 +6558,7 @@ exports[`EC - Site Header Standardised Default with missing input data and degug
                   <span
                     class="ecl-button__label"
                     data-ecl-label="true"
-                  >
-                    Search
-                  </span>
+                  />
                   <svg
                     aria-hidden="true"
                     class="ecl-icon ecl-icon--xs ecl-button__icon ecl-button__icon--after"
@@ -6549,15 +6575,15 @@ exports[`EC - Site Header Standardised Default with missing input data and degug
             <!-- ################################################################################################################
     ecl2-compliance -->
             <div
-              class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+              class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-red ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
             >
               <p
-                class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                class="ecl-u-type-color-grey ecl-u-ml-m ecl-u-type-xs"
               >
                 <b>
                   [search-form]
                 </b>
-                 - ecl compliant.
+                 "button.label" is mandatory.
               </p>
             </div>
           </div>
@@ -8005,7 +8031,7 @@ exports[`EC - Site Header Standardised Default with missing input data and degug
       <b>
         [site-header-standardised]
       </b>
-        "banner_top" is mandatory. It represents the "class link".
+        "banner_top" is mandatory. It represents the "class link". "logo" needs to contain an "alt", a "src", an "href", a "language" and a "title" properties set and filled in. "search_toggle" needs to contain a "label" and an "href" properties set and filled in. If the login box is present, when the user is logged out, the "login.toggle.label_not_logged" and "login.toggle.href_not_logged" properties need to be set and filled in. The "button" object inside the "search_form" needs to contain a "label" property set and filled in.
     </p>
   </div>
 </test>
@@ -8114,6 +8140,12 @@ exports[`EC - Site Header Standardised Translated renders correctly 1`] = `
               <div
                 class="ecl-form-group"
               >
+                <label
+                  class="ecl-form-label ecl-search-form__label"
+                  for="search-input-id"
+                >
+                  Recherche
+                </label>
                 <input
                   class="ecl-text-input ecl-text-input--m ecl-search-form__text-input"
                   id="search-input-id"
@@ -9703,6 +9735,12 @@ exports[`EC - Site Header Standardised Translated renders correctly with extra a
               <div
                 class="ecl-form-group"
               >
+                <label
+                  class="ecl-form-label ecl-search-form__label"
+                  for="search-input-id"
+                >
+                  Recherche
+                </label>
                 <input
                   class="ecl-text-input ecl-text-input--m ecl-search-form__text-input"
                   id="search-input-id"
@@ -11290,6 +11328,12 @@ exports[`EC - Site Header Standardised Translated renders correctly with extra c
               <div
                 class="ecl-form-group"
               >
+                <label
+                  class="ecl-form-label ecl-search-form__label"
+                  for="search-input-id"
+                >
+                  Recherche
+                </label>
                 <input
                   class="ecl-text-input ecl-text-input--m ecl-search-form__text-input"
                   id="search-input-id"

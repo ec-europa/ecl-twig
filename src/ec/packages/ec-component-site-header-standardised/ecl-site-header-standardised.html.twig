@@ -150,10 +150,10 @@
 {% endif %}
 
 {% set _search_form = {
-  text_input: {
+  text_input: search_form.text_input|default({})|merge({
     extra_classes: _search_input_extra_classes,
     extra_attributes: _search_input_extra_attributes,
-  },
+  }),
   button: {
     label: _search_button_label,
     variant: 'search',
@@ -320,7 +320,7 @@
               extra_attributes: [
                { name: 'aria-hidden', value: true }
               ],
-              _compliance_: _compliance,
+              _compliance_: _compliance
             }
           } only -%}
           {{- _search_toggle.label -}}
@@ -379,7 +379,8 @@
     login_toggle: _login_toggle,
     icon_file_path: _icon_file_path,
     search_toggle: _search_toggle,
-    has_overlay: _has_overlay
+    has_overlay: _has_overlay,
+    search_form: _search_form
   } only %}
 {% endif %}
 

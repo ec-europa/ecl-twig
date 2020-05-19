@@ -154,7 +154,7 @@ storiesOf('Components/Site Headers/Standardised', module)
     () => {
       button(btnLangLabel, enBtnLangHandler, tabLabels.cases);
       button(btnLoginLabel, enBtnLoginHandler, tabLabels.cases);
-      const dataStory = prepareSiteHeaderStandardised(enData);
+      const dataStory = prepareSiteHeaderStandardised(enData, 'en');
 
       return siteHeaderStandardised(dataStory);
     },
@@ -167,7 +167,7 @@ storiesOf('Components/Site Headers/Standardised', module)
     () => {
       button(btnLangLabel, enBtnLangHandler, tabLabels.cases);
       enData.logged = true;
-      const dataStory = prepareSiteHeaderStandardised(enData);
+      const dataStory = prepareSiteHeaderStandardised(enData, 'en');
 
       return siteHeaderStandardised(dataStory);
     },
