@@ -115,34 +115,29 @@
 {% endif %}
 
 {% if search_form is defined and search_form is not empty %}
-  {# Extra attributes for the search form #}
   {% if search_form.extra_attributes is defined and search_form.extra_attributes is not empty %}
     {% set _search_form_extra_attributes = _search_form_extra_attributes|merge(search_form.extra_attributes) %}
   {% endif %}
-  {# Extra classes for the search form #}
   {% if search_form.extra_classes is defined and search_form.extra_classes is not empty %}
     {% set _search_form_extra_classes = _search_form_extra_classes ~ ' ' ~ search_form.extra_classes %}
   {% endif %}
+
   {% if search_form.text_input is defined and search_form.text_input is not empty %}
-    {# Extra classes for the search input #}
     {% if search_form.text_input.extra_classes is defined and search_form.text_input.extra_classes is not empty %}
       {% set _search_input_extra_classes = _search_input_extra_classes ~ ' ' ~ _search_form.text_input.extra_classes %}
     {% endif %}
-    {# Extra attributes for the search input #}
     {% if search_form.text_input.extra_attributes is defined and search_form.text_input.extra_attributes is not empty %}
       {% set _search_input_extra_attributes = _search_input_extra_attributes|merge(search_form.text_input.extra_attributes) %}
     {% endif %}
   {% endif %}
+
   {% if search_form.button is defined and search_form.button is not empty %}
-    {# Extra classes for the search button #}
     {% if search_form.button.extra_classes is defined and search_form.button.extra_classes is not empty %}
       {% set _search_button_extra_classes = _search_button_extra_classes ~ ' ' ~ search_form.button.extra_classes %}
     {% endif %}
-    {# Extra attributes for the search button #}
     {% if search_form.button.extra_attributes is defined and search_form.button.extra_attributes is not empty %}
       {% set _search_button_extra_attributes = _search_button_extra_attributes|merge(search_form.button.extra_attributes) %}
     {% endif %}
-    {# Label for the search button #}
     {% if search_form.button.label is defined and search_form.button.label is not empty %}
       {% set _search_button_label = search_form.button.label %}
     {% endif %}
