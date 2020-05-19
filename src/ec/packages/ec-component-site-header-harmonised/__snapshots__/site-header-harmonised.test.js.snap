@@ -103,8 +103,16 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly 1`] = `
               <div
                 class="ecl-form-group"
               >
+                <label
+                  class="ecl-form-label ecl-search-form__label"
+                  for="search-input-id"
+                >
+                  Search
+                </label>
                 <input
                   class="ecl-text-input ecl-text-input--m ecl-search-form__text-input"
+                  id="search-input-id"
+                  name="Search"
                   type="search"
                 />
               </div>
@@ -1691,8 +1699,16 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly with extra attrib
               <div
                 class="ecl-form-group"
               >
+                <label
+                  class="ecl-form-label ecl-search-form__label"
+                  for="search-input-id"
+                >
+                  Search
+                </label>
                 <input
                   class="ecl-text-input ecl-text-input--m ecl-search-form__text-input"
+                  id="search-input-id"
+                  name="Search"
                   type="search"
                 />
               </div>
@@ -3277,8 +3293,16 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly with extra class 
               <div
                 class="ecl-form-group"
               >
+                <label
+                  class="ecl-form-label ecl-search-form__label"
+                  for="search-input-id"
+                >
+                  Search
+                </label>
                 <input
                   class="ecl-text-input ecl-text-input--m ecl-search-form__text-input"
+                  id="search-input-id"
+                  name="Search"
                   type="search"
                 />
               </div>
@@ -4778,7 +4802,7 @@ exports[`EC - Site Header Harmonised Group 1 with missing input data and degug e
           href="/example"
         >
           <img
-            alt="European Commission logo"
+            alt=""
             class="ecl-site-header-harmonised__logo-image"
             src="/logo--en.svg"
             title="European Commission"
@@ -4800,24 +4824,23 @@ exports[`EC - Site Header Harmonised Group 1 with missing input data and degug e
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#general--log-in"
+                  xlink:href="#general--log-in"
                 />
               </svg>
               <!-- ################################################################################################################
     ecl2-compliance -->
               <div
-                class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+                class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-red ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
               >
                 <p
-                  class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                  class="ecl-u-type-color-grey ecl-u-ml-m ecl-u-type-xs"
                 >
                   <b>
                     [icon]
                   </b>
-                   - ecl compliant.
+                   icon.name and icon.path cannot be empty.
                 </p>
               </div>
-              Log in
             </a>
           </div>
           <a
@@ -4836,28 +4859,26 @@ exports[`EC - Site Header Harmonised Group 1 with missing input data and degug e
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#general--language"
+                  xlink:href="#general--language"
                 />
               </svg>
               <!-- ################################################################################################################
     ecl2-compliance -->
               <div
-                class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+                class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-red ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
               >
                 <p
-                  class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                  class="ecl-u-type-color-grey ecl-u-ml-m ecl-u-type-xs"
                 >
                   <b>
                     [icon]
                   </b>
-                   - ecl compliant.
+                   icon.name and icon.path cannot be empty.
                 </p>
               </div>
               <span
                 class="ecl-site-header-harmonised__language-code"
-              >
-                en
-              </span>
+              />
             </span>
             English
           </a>
@@ -4877,7 +4898,7 @@ exports[`EC - Site Header Harmonised Group 1 with missing input data and degug e
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#general--search"
+                  xlink:href="#general--search"
                 />
               </svg>
               Search
@@ -4891,8 +4912,16 @@ exports[`EC - Site Header Harmonised Group 1 with missing input data and degug e
               <div
                 class="ecl-form-group"
               >
+                <label
+                  class="ecl-form-label ecl-search-form__label"
+                  for="search-input-id"
+                >
+                  Search
+                </label>
                 <input
                   class="ecl-text-input ecl-text-input--m ecl-search-form__text-input"
+                  id="search-input-id"
+                  name="Search"
                   type="search"
                 />
               </div>
@@ -4907,9 +4936,7 @@ exports[`EC - Site Header Harmonised Group 1 with missing input data and degug e
                   <span
                     class="ecl-button__label"
                     data-ecl-label="true"
-                  >
-                    Search
-                  </span>
+                  />
                   <svg
                     aria-hidden="true"
                     class="ecl-icon ecl-icon--xs ecl-button__icon ecl-button__icon--after"
@@ -4917,7 +4944,7 @@ exports[`EC - Site Header Harmonised Group 1 with missing input data and degug e
                     focusable="false"
                   >
                     <use
-                      xlink:href="/icons.svg#general--search"
+                      xlink:href="#general--search"
                     />
                   </svg>
                 </span>
@@ -4926,15 +4953,15 @@ exports[`EC - Site Header Harmonised Group 1 with missing input data and degug e
             <!-- ################################################################################################################
     ecl2-compliance -->
             <div
-              class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+              class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-red ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
             >
               <p
-                class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                class="ecl-u-type-color-grey ecl-u-ml-m ecl-u-type-xs"
               >
                 <b>
                   [search-form]
                 </b>
-                 - ecl compliant.
+                 "button.label" is mandatory. "button.icon_path" is mandatory to render the search button icon.
               </p>
             </div>
           </div>
@@ -4965,7 +4992,7 @@ exports[`EC - Site Header Harmonised Group 1 with missing input data and degug e
             focusable="false"
           >
             <use
-              xlink:href="/icons.svg#general--hamburger"
+              xlink:href="#general--hamburger"
             />
           </svg>
           Menu
@@ -4997,7 +5024,7 @@ exports[`EC - Site Header Harmonised Group 1 with missing input data and degug e
                   focusable="false"
                 >
                   <use
-                    xlink:href="/icons.svg#ui--close-filled"
+                    xlink:href="#ui--close-filled"
                   />
                 </svg>
                 <span
@@ -5028,7 +5055,7 @@ exports[`EC - Site Header Harmonised Group 1 with missing input data and degug e
                   focusable="false"
                 >
                   <use
-                    xlink:href="/icons.svg#ui--corner-arrow"
+                    xlink:href="#ui--corner-arrow"
                   />
                 </svg>
                 <span
@@ -5072,7 +5099,7 @@ exports[`EC - Site Header Harmonised Group 1 with missing input data and degug e
                   focusable="false"
                 >
                   <use
-                    xlink:href="/icons.svg#ui--corner-arrow"
+                    xlink:href="#ui--corner-arrow"
                   />
                 </svg>
               </a>
@@ -5279,7 +5306,7 @@ exports[`EC - Site Header Harmonised Group 1 with missing input data and degug e
                   focusable="false"
                 >
                   <use
-                    xlink:href="/icons.svg#ui--corner-arrow"
+                    xlink:href="#ui--corner-arrow"
                   />
                 </svg>
               </a>
@@ -5343,7 +5370,7 @@ exports[`EC - Site Header Harmonised Group 1 with missing input data and degug e
                   focusable="false"
                 >
                   <use
-                    xlink:href="/icons.svg#ui--corner-arrow"
+                    xlink:href="#ui--corner-arrow"
                   />
                 </svg>
               </a>
@@ -5528,7 +5555,7 @@ exports[`EC - Site Header Harmonised Group 1 with missing input data and degug e
                   focusable="false"
                 >
                   <use
-                    xlink:href="/icons.svg#ui--corner-arrow"
+                    xlink:href="#ui--corner-arrow"
                   />
                 </svg>
               </a>
@@ -5636,7 +5663,7 @@ exports[`EC - Site Header Harmonised Group 1 with missing input data and degug e
                   focusable="false"
                 >
                   <use
-                    xlink:href="/icons.svg#ui--corner-arrow"
+                    xlink:href="#ui--corner-arrow"
                   />
                 </svg>
               </a>
@@ -5843,7 +5870,7 @@ exports[`EC - Site Header Harmonised Group 1 with missing input data and degug e
                   focusable="false"
                 >
                   <use
-                    xlink:href="/icons.svg#ui--corner-arrow"
+                    xlink:href="#ui--corner-arrow"
                   />
                 </svg>
               </a>
@@ -6009,11 +6036,39 @@ exports[`EC - Site Header Harmonised Group 1 with missing input data and degug e
                   focusable="false"
                 >
                   <use
-                    xlink:href="/icons.svg#ui--close"
+                    xlink:href="#ui--close"
                   />
                 </svg>
+                <!-- ################################################################################################################
+    ecl2-compliance -->
+                <div
+                  class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-red ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+                >
+                  <p
+                    class="ecl-u-type-color-grey ecl-u-ml-m ecl-u-type-xs"
+                  >
+                    <b>
+                      [icon]
+                    </b>
+                     icon.name and icon.path cannot be empty.
+                  </p>
+                </div>
               </span>
             </button>
+            <!-- ################################################################################################################
+    ecl2-compliance -->
+            <div
+              class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+            >
+              <p
+                class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+              >
+                <b>
+                  [button--ghost]
+                </b>
+                 - ecl compliant.
+              </p>
+            </div>
           </div>
           <div
             class="ecl-language-list__title ecl-col-12 ecl-col-lg-8 ecl-offset-lg-2"
@@ -6043,6 +6098,20 @@ exports[`EC - Site Header Harmonised Group 1 with missing input data and degug e
                 >
                   български
                 </a>
+                <!-- ################################################################################################################
+    ecl2-compliance -->
+                <div
+                  class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+                >
+                  <p
+                    class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                  >
+                    <b>
+                      [link--standalone]
+                    </b>
+                     - ecl compliant.
+                  </p>
+                </div>
               </li>
               <li
                 class="ecl-language-list__item"
@@ -6056,6 +6125,20 @@ exports[`EC - Site Header Harmonised Group 1 with missing input data and degug e
                 >
                   español
                 </a>
+                <!-- ################################################################################################################
+    ecl2-compliance -->
+                <div
+                  class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+                >
+                  <p
+                    class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                  >
+                    <b>
+                      [link--standalone]
+                    </b>
+                     - ecl compliant.
+                  </p>
+                </div>
               </li>
               <li
                 class="ecl-language-list__item"
@@ -6069,6 +6152,20 @@ exports[`EC - Site Header Harmonised Group 1 with missing input data and degug e
                 >
                   čeština
                 </a>
+                <!-- ################################################################################################################
+    ecl2-compliance -->
+                <div
+                  class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+                >
+                  <p
+                    class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                  >
+                    <b>
+                      [link--standalone]
+                    </b>
+                     - ecl compliant.
+                  </p>
+                </div>
               </li>
               <li
                 class="ecl-language-list__item"
@@ -6082,6 +6179,20 @@ exports[`EC - Site Header Harmonised Group 1 with missing input data and degug e
                 >
                   dansk
                 </a>
+                <!-- ################################################################################################################
+    ecl2-compliance -->
+                <div
+                  class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+                >
+                  <p
+                    class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                  >
+                    <b>
+                      [link--standalone]
+                    </b>
+                     - ecl compliant.
+                  </p>
+                </div>
               </li>
               <li
                 class="ecl-language-list__item"
@@ -6095,6 +6206,20 @@ exports[`EC - Site Header Harmonised Group 1 with missing input data and degug e
                 >
                   Deutsch
                 </a>
+                <!-- ################################################################################################################
+    ecl2-compliance -->
+                <div
+                  class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+                >
+                  <p
+                    class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                  >
+                    <b>
+                      [link--standalone]
+                    </b>
+                     - ecl compliant.
+                  </p>
+                </div>
               </li>
               <li
                 class="ecl-language-list__item"
@@ -6108,6 +6233,20 @@ exports[`EC - Site Header Harmonised Group 1 with missing input data and degug e
                 >
                   eesti
                 </a>
+                <!-- ################################################################################################################
+    ecl2-compliance -->
+                <div
+                  class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+                >
+                  <p
+                    class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                  >
+                    <b>
+                      [link--standalone]
+                    </b>
+                     - ecl compliant.
+                  </p>
+                </div>
               </li>
               <li
                 class="ecl-language-list__item"
@@ -6121,6 +6260,20 @@ exports[`EC - Site Header Harmonised Group 1 with missing input data and degug e
                 >
                   ελληνικά
                 </a>
+                <!-- ################################################################################################################
+    ecl2-compliance -->
+                <div
+                  class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+                >
+                  <p
+                    class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                  >
+                    <b>
+                      [link--standalone]
+                    </b>
+                     - ecl compliant.
+                  </p>
+                </div>
               </li>
               <li
                 class="ecl-language-list__item ecl-language-list__item--is-active"
@@ -6144,10 +6297,38 @@ exports[`EC - Site Header Harmonised Group 1 with missing input data and degug e
                     focusable="false"
                   >
                     <use
-                      xlink:href="/icons.svg#ui--check"
+                      xlink:href="#ui--check"
                     />
                   </svg>
+                  <!-- ################################################################################################################
+    ecl2-compliance -->
+                  <div
+                    class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-red ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+                  >
+                    <p
+                      class="ecl-u-type-color-grey ecl-u-ml-m ecl-u-type-xs"
+                    >
+                      <b>
+                        [icon]
+                      </b>
+                       icon.name and icon.path cannot be empty.
+                    </p>
+                  </div>
                 </a>
+                <!-- ################################################################################################################
+    ecl2-compliance -->
+                <div
+                  class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+                >
+                  <p
+                    class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                  >
+                    <b>
+                      [link--standalone]
+                    </b>
+                     - ecl compliant.
+                  </p>
+                </div>
               </li>
               <li
                 class="ecl-language-list__item"
@@ -6161,6 +6342,20 @@ exports[`EC - Site Header Harmonised Group 1 with missing input data and degug e
                 >
                   français
                 </a>
+                <!-- ################################################################################################################
+    ecl2-compliance -->
+                <div
+                  class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+                >
+                  <p
+                    class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                  >
+                    <b>
+                      [link--standalone]
+                    </b>
+                     - ecl compliant.
+                  </p>
+                </div>
               </li>
               <li
                 class="ecl-language-list__item"
@@ -6174,6 +6369,20 @@ exports[`EC - Site Header Harmonised Group 1 with missing input data and degug e
                 >
                   Gaeilge
                 </a>
+                <!-- ################################################################################################################
+    ecl2-compliance -->
+                <div
+                  class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+                >
+                  <p
+                    class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                  >
+                    <b>
+                      [link--standalone]
+                    </b>
+                     - ecl compliant.
+                  </p>
+                </div>
               </li>
               <li
                 class="ecl-language-list__item"
@@ -6187,6 +6396,20 @@ exports[`EC - Site Header Harmonised Group 1 with missing input data and degug e
                 >
                   hrvatski
                 </a>
+                <!-- ################################################################################################################
+    ecl2-compliance -->
+                <div
+                  class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+                >
+                  <p
+                    class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                  >
+                    <b>
+                      [link--standalone]
+                    </b>
+                     - ecl compliant.
+                  </p>
+                </div>
               </li>
               <li
                 class="ecl-language-list__item"
@@ -6200,6 +6423,20 @@ exports[`EC - Site Header Harmonised Group 1 with missing input data and degug e
                 >
                   italiano
                 </a>
+                <!-- ################################################################################################################
+    ecl2-compliance -->
+                <div
+                  class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+                >
+                  <p
+                    class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                  >
+                    <b>
+                      [link--standalone]
+                    </b>
+                     - ecl compliant.
+                  </p>
+                </div>
               </li>
             </ul>
           </div>
@@ -6221,6 +6458,20 @@ exports[`EC - Site Header Harmonised Group 1 with missing input data and degug e
                 >
                   latviešu
                 </a>
+                <!-- ################################################################################################################
+    ecl2-compliance -->
+                <div
+                  class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+                >
+                  <p
+                    class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                  >
+                    <b>
+                      [link--standalone]
+                    </b>
+                     - ecl compliant.
+                  </p>
+                </div>
               </li>
               <li
                 class="ecl-language-list__item"
@@ -6234,6 +6485,20 @@ exports[`EC - Site Header Harmonised Group 1 with missing input data and degug e
                 >
                   lietuvių
                 </a>
+                <!-- ################################################################################################################
+    ecl2-compliance -->
+                <div
+                  class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+                >
+                  <p
+                    class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                  >
+                    <b>
+                      [link--standalone]
+                    </b>
+                     - ecl compliant.
+                  </p>
+                </div>
               </li>
               <li
                 class="ecl-language-list__item"
@@ -6247,6 +6512,20 @@ exports[`EC - Site Header Harmonised Group 1 with missing input data and degug e
                 >
                   magyar
                 </a>
+                <!-- ################################################################################################################
+    ecl2-compliance -->
+                <div
+                  class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+                >
+                  <p
+                    class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                  >
+                    <b>
+                      [link--standalone]
+                    </b>
+                     - ecl compliant.
+                  </p>
+                </div>
               </li>
               <li
                 class="ecl-language-list__item"
@@ -6260,6 +6539,20 @@ exports[`EC - Site Header Harmonised Group 1 with missing input data and degug e
                 >
                   Malti
                 </a>
+                <!-- ################################################################################################################
+    ecl2-compliance -->
+                <div
+                  class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+                >
+                  <p
+                    class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                  >
+                    <b>
+                      [link--standalone]
+                    </b>
+                     - ecl compliant.
+                  </p>
+                </div>
               </li>
               <li
                 class="ecl-language-list__item"
@@ -6273,6 +6566,20 @@ exports[`EC - Site Header Harmonised Group 1 with missing input data and degug e
                 >
                   Nederlands
                 </a>
+                <!-- ################################################################################################################
+    ecl2-compliance -->
+                <div
+                  class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+                >
+                  <p
+                    class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                  >
+                    <b>
+                      [link--standalone]
+                    </b>
+                     - ecl compliant.
+                  </p>
+                </div>
               </li>
               <li
                 class="ecl-language-list__item"
@@ -6286,6 +6593,20 @@ exports[`EC - Site Header Harmonised Group 1 with missing input data and degug e
                 >
                   polski
                 </a>
+                <!-- ################################################################################################################
+    ecl2-compliance -->
+                <div
+                  class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+                >
+                  <p
+                    class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                  >
+                    <b>
+                      [link--standalone]
+                    </b>
+                     - ecl compliant.
+                  </p>
+                </div>
               </li>
               <li
                 class="ecl-language-list__item"
@@ -6299,6 +6620,20 @@ exports[`EC - Site Header Harmonised Group 1 with missing input data and degug e
                 >
                   português
                 </a>
+                <!-- ################################################################################################################
+    ecl2-compliance -->
+                <div
+                  class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+                >
+                  <p
+                    class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                  >
+                    <b>
+                      [link--standalone]
+                    </b>
+                     - ecl compliant.
+                  </p>
+                </div>
               </li>
               <li
                 class="ecl-language-list__item"
@@ -6312,6 +6647,20 @@ exports[`EC - Site Header Harmonised Group 1 with missing input data and degug e
                 >
                   română
                 </a>
+                <!-- ################################################################################################################
+    ecl2-compliance -->
+                <div
+                  class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+                >
+                  <p
+                    class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                  >
+                    <b>
+                      [link--standalone]
+                    </b>
+                     - ecl compliant.
+                  </p>
+                </div>
               </li>
               <li
                 class="ecl-language-list__item"
@@ -6325,6 +6674,20 @@ exports[`EC - Site Header Harmonised Group 1 with missing input data and degug e
                 >
                   slovenčina
                 </a>
+                <!-- ################################################################################################################
+    ecl2-compliance -->
+                <div
+                  class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+                >
+                  <p
+                    class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                  >
+                    <b>
+                      [link--standalone]
+                    </b>
+                     - ecl compliant.
+                  </p>
+                </div>
               </li>
               <li
                 class="ecl-language-list__item"
@@ -6338,6 +6701,20 @@ exports[`EC - Site Header Harmonised Group 1 with missing input data and degug e
                 >
                   slovenščina
                 </a>
+                <!-- ################################################################################################################
+    ecl2-compliance -->
+                <div
+                  class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+                >
+                  <p
+                    class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                  >
+                    <b>
+                      [link--standalone]
+                    </b>
+                     - ecl compliant.
+                  </p>
+                </div>
               </li>
               <li
                 class="ecl-language-list__item"
@@ -6351,6 +6728,20 @@ exports[`EC - Site Header Harmonised Group 1 with missing input data and degug e
                 >
                   suomi
                 </a>
+                <!-- ################################################################################################################
+    ecl2-compliance -->
+                <div
+                  class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+                >
+                  <p
+                    class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                  >
+                    <b>
+                      [link--standalone]
+                    </b>
+                     - ecl compliant.
+                  </p>
+                </div>
               </li>
               <li
                 class="ecl-language-list__item"
@@ -6364,11 +6755,39 @@ exports[`EC - Site Header Harmonised Group 1 with missing input data and degug e
                 >
                   svenska
                 </a>
+                <!-- ################################################################################################################
+    ecl2-compliance -->
+                <div
+                  class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+                >
+                  <p
+                    class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                  >
+                    <b>
+                      [link--standalone]
+                    </b>
+                     - ecl compliant.
+                  </p>
+                </div>
               </li>
             </ul>
           </div>
         </div>
       </div>
+    </div>
+    <!-- ################################################################################################################
+    ecl2-compliance -->
+    <div
+      class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-red ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+    >
+      <p
+        class="ecl-u-type-color-grey ecl-u-ml-m ecl-u-type-xs"
+      >
+        <b>
+          [language-list]
+        </b>
+          In the overlay the close icon is mandatory, "icon_path" needs to set and filled in.
+      </p>
     </div>
   </header>
   <!-- ################################################################################################################
@@ -6382,7 +6801,7 @@ exports[`EC - Site Header Harmonised Group 1 with missing input data and degug e
       <b>
         [site-header-harmonised]
       </b>
-        In group1 "banner_top" is mandatory. It represents the "class link".
+        "logo" needs to contain an "alt", a "src", an "href", a "language" and a "title" properties set and filled in. "icon_file_path" is needed to retrieve the icons sprite. If the "language_selector" is set it needs to contain a "code" and a "label" properties set and filled in. If the login box is present, when the user is logged out, the "login.toggle.label_not_logged" and "login.toggle.href_not_logged" properties need to be set and filled in. If the "search_form" is set, the "button" object inside of it needs to contain a "label" property set and filled in.
     </p>
   </div>
 </test>
@@ -6472,8 +6891,16 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly 1`] = `
               <div
                 class="ecl-form-group"
               >
+                <label
+                  class="ecl-form-label ecl-search-form__label"
+                  for="search-input-id"
+                >
+                  Search
+                </label>
                 <input
                   class="ecl-text-input ecl-text-input--m ecl-search-form__text-input"
+                  id="search-input-id"
+                  name="Search"
                   type="search"
                 />
               </div>
@@ -8025,8 +8452,16 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly with extra attrib
               <div
                 class="ecl-form-group"
               >
+                <label
+                  class="ecl-form-label ecl-search-form__label"
+                  for="search-input-id"
+                >
+                  Search
+                </label>
                 <input
                   class="ecl-text-input ecl-text-input--m ecl-search-form__text-input"
+                  id="search-input-id"
+                  name="Search"
                   type="search"
                 />
               </div>
@@ -9576,8 +10011,16 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly with extra class 
               <div
                 class="ecl-form-group"
               >
+                <label
+                  class="ecl-form-label ecl-search-form__label"
+                  for="search-input-id"
+                >
+                  Search
+                </label>
                 <input
                   class="ecl-text-input ecl-text-input--m ecl-search-form__text-input"
+                  id="search-input-id"
+                  name="Search"
                   type="search"
                 />
               </div>
@@ -11141,8 +11584,16 @@ exports[`EC - Site Header Harmonised Group 2 with missing input data and degug e
               <div
                 class="ecl-form-group"
               >
+                <label
+                  class="ecl-form-label ecl-search-form__label"
+                  for="search-input-id"
+                >
+                  Search
+                </label>
                 <input
                   class="ecl-text-input ecl-text-input--m ecl-search-form__text-input"
+                  id="search-input-id"
+                  name="Search"
                   type="search"
                 />
               </div>
@@ -12260,8 +12711,36 @@ exports[`EC - Site Header Harmonised Group 2 with missing input data and degug e
                     xlink:href="/icons.svg#ui--close"
                   />
                 </svg>
+                <!-- ################################################################################################################
+    ecl2-compliance -->
+                <div
+                  class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+                >
+                  <p
+                    class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                  >
+                    <b>
+                      [icon]
+                    </b>
+                     - ecl compliant.
+                  </p>
+                </div>
               </span>
             </button>
+            <!-- ################################################################################################################
+    ecl2-compliance -->
+            <div
+              class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+            >
+              <p
+                class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+              >
+                <b>
+                  [button--ghost]
+                </b>
+                 - ecl compliant.
+              </p>
+            </div>
           </div>
           <div
             class="ecl-language-list__title ecl-col-12 ecl-col-lg-8 ecl-offset-lg-2"
@@ -12291,6 +12770,20 @@ exports[`EC - Site Header Harmonised Group 2 with missing input data and degug e
                 >
                   български
                 </a>
+                <!-- ################################################################################################################
+    ecl2-compliance -->
+                <div
+                  class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+                >
+                  <p
+                    class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                  >
+                    <b>
+                      [link--standalone]
+                    </b>
+                     - ecl compliant.
+                  </p>
+                </div>
               </li>
               <li
                 class="ecl-language-list__item"
@@ -12304,6 +12797,20 @@ exports[`EC - Site Header Harmonised Group 2 with missing input data and degug e
                 >
                   español
                 </a>
+                <!-- ################################################################################################################
+    ecl2-compliance -->
+                <div
+                  class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+                >
+                  <p
+                    class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                  >
+                    <b>
+                      [link--standalone]
+                    </b>
+                     - ecl compliant.
+                  </p>
+                </div>
               </li>
               <li
                 class="ecl-language-list__item"
@@ -12317,6 +12824,20 @@ exports[`EC - Site Header Harmonised Group 2 with missing input data and degug e
                 >
                   čeština
                 </a>
+                <!-- ################################################################################################################
+    ecl2-compliance -->
+                <div
+                  class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+                >
+                  <p
+                    class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                  >
+                    <b>
+                      [link--standalone]
+                    </b>
+                     - ecl compliant.
+                  </p>
+                </div>
               </li>
               <li
                 class="ecl-language-list__item"
@@ -12330,6 +12851,20 @@ exports[`EC - Site Header Harmonised Group 2 with missing input data and degug e
                 >
                   dansk
                 </a>
+                <!-- ################################################################################################################
+    ecl2-compliance -->
+                <div
+                  class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+                >
+                  <p
+                    class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                  >
+                    <b>
+                      [link--standalone]
+                    </b>
+                     - ecl compliant.
+                  </p>
+                </div>
               </li>
               <li
                 class="ecl-language-list__item"
@@ -12343,6 +12878,20 @@ exports[`EC - Site Header Harmonised Group 2 with missing input data and degug e
                 >
                   Deutsch
                 </a>
+                <!-- ################################################################################################################
+    ecl2-compliance -->
+                <div
+                  class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+                >
+                  <p
+                    class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                  >
+                    <b>
+                      [link--standalone]
+                    </b>
+                     - ecl compliant.
+                  </p>
+                </div>
               </li>
               <li
                 class="ecl-language-list__item"
@@ -12356,6 +12905,20 @@ exports[`EC - Site Header Harmonised Group 2 with missing input data and degug e
                 >
                   eesti
                 </a>
+                <!-- ################################################################################################################
+    ecl2-compliance -->
+                <div
+                  class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+                >
+                  <p
+                    class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                  >
+                    <b>
+                      [link--standalone]
+                    </b>
+                     - ecl compliant.
+                  </p>
+                </div>
               </li>
               <li
                 class="ecl-language-list__item"
@@ -12369,6 +12932,20 @@ exports[`EC - Site Header Harmonised Group 2 with missing input data and degug e
                 >
                   ελληνικά
                 </a>
+                <!-- ################################################################################################################
+    ecl2-compliance -->
+                <div
+                  class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+                >
+                  <p
+                    class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                  >
+                    <b>
+                      [link--standalone]
+                    </b>
+                     - ecl compliant.
+                  </p>
+                </div>
               </li>
               <li
                 class="ecl-language-list__item ecl-language-list__item--is-active"
@@ -12395,7 +12972,35 @@ exports[`EC - Site Header Harmonised Group 2 with missing input data and degug e
                       xlink:href="/icons.svg#ui--check"
                     />
                   </svg>
+                  <!-- ################################################################################################################
+    ecl2-compliance -->
+                  <div
+                    class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+                  >
+                    <p
+                      class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                    >
+                      <b>
+                        [icon]
+                      </b>
+                       - ecl compliant.
+                    </p>
+                  </div>
                 </a>
+                <!-- ################################################################################################################
+    ecl2-compliance -->
+                <div
+                  class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+                >
+                  <p
+                    class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                  >
+                    <b>
+                      [link--standalone]
+                    </b>
+                     - ecl compliant.
+                  </p>
+                </div>
               </li>
               <li
                 class="ecl-language-list__item"
@@ -12409,6 +13014,20 @@ exports[`EC - Site Header Harmonised Group 2 with missing input data and degug e
                 >
                   français
                 </a>
+                <!-- ################################################################################################################
+    ecl2-compliance -->
+                <div
+                  class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+                >
+                  <p
+                    class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                  >
+                    <b>
+                      [link--standalone]
+                    </b>
+                     - ecl compliant.
+                  </p>
+                </div>
               </li>
               <li
                 class="ecl-language-list__item"
@@ -12422,6 +13041,20 @@ exports[`EC - Site Header Harmonised Group 2 with missing input data and degug e
                 >
                   Gaeilge
                 </a>
+                <!-- ################################################################################################################
+    ecl2-compliance -->
+                <div
+                  class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+                >
+                  <p
+                    class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                  >
+                    <b>
+                      [link--standalone]
+                    </b>
+                     - ecl compliant.
+                  </p>
+                </div>
               </li>
               <li
                 class="ecl-language-list__item"
@@ -12435,6 +13068,20 @@ exports[`EC - Site Header Harmonised Group 2 with missing input data and degug e
                 >
                   hrvatski
                 </a>
+                <!-- ################################################################################################################
+    ecl2-compliance -->
+                <div
+                  class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+                >
+                  <p
+                    class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                  >
+                    <b>
+                      [link--standalone]
+                    </b>
+                     - ecl compliant.
+                  </p>
+                </div>
               </li>
               <li
                 class="ecl-language-list__item"
@@ -12448,6 +13095,20 @@ exports[`EC - Site Header Harmonised Group 2 with missing input data and degug e
                 >
                   italiano
                 </a>
+                <!-- ################################################################################################################
+    ecl2-compliance -->
+                <div
+                  class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+                >
+                  <p
+                    class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                  >
+                    <b>
+                      [link--standalone]
+                    </b>
+                     - ecl compliant.
+                  </p>
+                </div>
               </li>
             </ul>
           </div>
@@ -12469,6 +13130,20 @@ exports[`EC - Site Header Harmonised Group 2 with missing input data and degug e
                 >
                   latviešu
                 </a>
+                <!-- ################################################################################################################
+    ecl2-compliance -->
+                <div
+                  class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+                >
+                  <p
+                    class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                  >
+                    <b>
+                      [link--standalone]
+                    </b>
+                     - ecl compliant.
+                  </p>
+                </div>
               </li>
               <li
                 class="ecl-language-list__item"
@@ -12482,6 +13157,20 @@ exports[`EC - Site Header Harmonised Group 2 with missing input data and degug e
                 >
                   lietuvių
                 </a>
+                <!-- ################################################################################################################
+    ecl2-compliance -->
+                <div
+                  class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+                >
+                  <p
+                    class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                  >
+                    <b>
+                      [link--standalone]
+                    </b>
+                     - ecl compliant.
+                  </p>
+                </div>
               </li>
               <li
                 class="ecl-language-list__item"
@@ -12495,6 +13184,20 @@ exports[`EC - Site Header Harmonised Group 2 with missing input data and degug e
                 >
                   magyar
                 </a>
+                <!-- ################################################################################################################
+    ecl2-compliance -->
+                <div
+                  class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+                >
+                  <p
+                    class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                  >
+                    <b>
+                      [link--standalone]
+                    </b>
+                     - ecl compliant.
+                  </p>
+                </div>
               </li>
               <li
                 class="ecl-language-list__item"
@@ -12508,6 +13211,20 @@ exports[`EC - Site Header Harmonised Group 2 with missing input data and degug e
                 >
                   Malti
                 </a>
+                <!-- ################################################################################################################
+    ecl2-compliance -->
+                <div
+                  class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+                >
+                  <p
+                    class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                  >
+                    <b>
+                      [link--standalone]
+                    </b>
+                     - ecl compliant.
+                  </p>
+                </div>
               </li>
               <li
                 class="ecl-language-list__item"
@@ -12521,6 +13238,20 @@ exports[`EC - Site Header Harmonised Group 2 with missing input data and degug e
                 >
                   Nederlands
                 </a>
+                <!-- ################################################################################################################
+    ecl2-compliance -->
+                <div
+                  class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+                >
+                  <p
+                    class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                  >
+                    <b>
+                      [link--standalone]
+                    </b>
+                     - ecl compliant.
+                  </p>
+                </div>
               </li>
               <li
                 class="ecl-language-list__item"
@@ -12534,6 +13265,20 @@ exports[`EC - Site Header Harmonised Group 2 with missing input data and degug e
                 >
                   polski
                 </a>
+                <!-- ################################################################################################################
+    ecl2-compliance -->
+                <div
+                  class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+                >
+                  <p
+                    class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                  >
+                    <b>
+                      [link--standalone]
+                    </b>
+                     - ecl compliant.
+                  </p>
+                </div>
               </li>
               <li
                 class="ecl-language-list__item"
@@ -12547,6 +13292,20 @@ exports[`EC - Site Header Harmonised Group 2 with missing input data and degug e
                 >
                   português
                 </a>
+                <!-- ################################################################################################################
+    ecl2-compliance -->
+                <div
+                  class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+                >
+                  <p
+                    class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                  >
+                    <b>
+                      [link--standalone]
+                    </b>
+                     - ecl compliant.
+                  </p>
+                </div>
               </li>
               <li
                 class="ecl-language-list__item"
@@ -12560,6 +13319,20 @@ exports[`EC - Site Header Harmonised Group 2 with missing input data and degug e
                 >
                   română
                 </a>
+                <!-- ################################################################################################################
+    ecl2-compliance -->
+                <div
+                  class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+                >
+                  <p
+                    class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                  >
+                    <b>
+                      [link--standalone]
+                    </b>
+                     - ecl compliant.
+                  </p>
+                </div>
               </li>
               <li
                 class="ecl-language-list__item"
@@ -12573,6 +13346,20 @@ exports[`EC - Site Header Harmonised Group 2 with missing input data and degug e
                 >
                   slovenčina
                 </a>
+                <!-- ################################################################################################################
+    ecl2-compliance -->
+                <div
+                  class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+                >
+                  <p
+                    class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                  >
+                    <b>
+                      [link--standalone]
+                    </b>
+                     - ecl compliant.
+                  </p>
+                </div>
               </li>
               <li
                 class="ecl-language-list__item"
@@ -12586,6 +13373,20 @@ exports[`EC - Site Header Harmonised Group 2 with missing input data and degug e
                 >
                   slovenščina
                 </a>
+                <!-- ################################################################################################################
+    ecl2-compliance -->
+                <div
+                  class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+                >
+                  <p
+                    class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                  >
+                    <b>
+                      [link--standalone]
+                    </b>
+                     - ecl compliant.
+                  </p>
+                </div>
               </li>
               <li
                 class="ecl-language-list__item"
@@ -12599,6 +13400,20 @@ exports[`EC - Site Header Harmonised Group 2 with missing input data and degug e
                 >
                   suomi
                 </a>
+                <!-- ################################################################################################################
+    ecl2-compliance -->
+                <div
+                  class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+                >
+                  <p
+                    class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                  >
+                    <b>
+                      [link--standalone]
+                    </b>
+                     - ecl compliant.
+                  </p>
+                </div>
               </li>
               <li
                 class="ecl-language-list__item"
@@ -12612,11 +13427,39 @@ exports[`EC - Site Header Harmonised Group 2 with missing input data and degug e
                 >
                   svenska
                 </a>
+                <!-- ################################################################################################################
+    ecl2-compliance -->
+                <div
+                  class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+                >
+                  <p
+                    class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                  >
+                    <b>
+                      [link--standalone]
+                    </b>
+                     - ecl compliant.
+                  </p>
+                </div>
               </li>
             </ul>
           </div>
         </div>
       </div>
+    </div>
+    <!-- ################################################################################################################
+    ecl2-compliance -->
+    <div
+      class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+    >
+      <p
+        class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+      >
+        <b>
+          [language-list]
+        </b>
+         - ecl compliant.
+      </p>
     </div>
   </header>
   <!-- ################################################################################################################
@@ -12630,7 +13473,7 @@ exports[`EC - Site Header Harmonised Group 2 with missing input data and degug e
       <b>
         [site-header-harmonised]
       </b>
-        "logo" needs to contain an "alt", a "src", an "href", a "language" and a "title" keys defined and not empty, they are all mandatory.
+        "logo" needs to contain an "alt", a "src", an "href", a "language" and a "title" properties set and filled in.
     </p>
   </div>
 </test>
@@ -12763,11 +13606,6 @@ exports[`EC - Site Header Harmonised with missing input data and degug enabled r
             title="Site name"
           />
         </a>
-        <div
-          class="ecl-site-header-harmonised__site-name"
-        >
-          Site name
-        </div>
       </div>
     </div>
   </header>
@@ -12782,7 +13620,7 @@ exports[`EC - Site Header Harmonised with missing input data and degug enabled r
       <b>
         [site-header-harmonised]
       </b>
-        In group3 "banner_top" is mandatory. It represents the "class link". In group3 ~ the site name is mandatory.
+        In "group3" the "site_name" property needs to set and filled in.
     </p>
   </div>
 </test>

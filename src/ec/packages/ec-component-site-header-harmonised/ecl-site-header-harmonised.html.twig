@@ -85,6 +85,7 @@
 {% set _search_input_extra_attributes = [] %}
 {% set _search_button_extra_attributes = [] %}
 {% set _search_button_label = '' %}
+{% set _site_name = site_name|default('') %}
 
 {# Merge options #}
 
@@ -120,44 +121,39 @@
 {% endif %}
 
 {% if search_form is defined and search_form is not empty %}
-  {# Extra attributes for the search form #}
   {% if search_form.extra_attributes is defined and search_form.extra_attributes is not empty %}
     {% set _search_form_extra_attributes = _search_form_extra_attributes|merge(search_form.extra_attributes) %}
   {% endif %}
-  {# Extra classes for the search form #}
   {% if search_form.extra_classes is defined and search_form.extra_classes is not empty %}
     {% set _search_form_extra_classes = _search_form_extra_classes ~ ' ' ~ search_form.extra_classes %}
   {% endif %}
+
   {% if search_form.text_input is defined and search_form.text_input is not empty %}
-    {# Extra classes for the search input #}
     {% if search_form.text_input.extra_classes is defined and search_form.text_input.extra_classes is not empty %}
       {% set _search_input_extra_classes = _search_input_extra_classes ~ ' ' ~ _search_form.text_input.extra_classes %}
     {% endif %}
-    {# Extra attributes for the search input #}
     {% if search_form.text_input.extra_attributes is defined and search_form.text_input.extra_attributes is not empty %}
       {% set _search_input_extra_attributes = _search_input_extra_attributes|merge(search_form.text_input.extra_attributes) %}
     {% endif %}
   {% endif %}
+
   {% if search_form.button is defined and search_form.button is not empty %}
-    {# Extra classes for the search button #}
     {% if search_form.button.extra_classes is defined and search_form.button.extra_classes is not empty %}
       {% set _search_button_extra_classes = _search_button_extra_classes ~ ' ' ~ search_form.button.extra_classes %}
     {% endif %}
-    {# Extra attributes for the search button #}
     {% if search_form.button.extra_attributes is defined and search_form.button.extra_attributes is not empty %}
       {% set _search_button_extra_attributes = _search_button_extra_attributes|merge(search_form.button.extra_attributes) %}
     {% endif %}
-    {# Label for the search button #}
     {% if search_form.button.label is defined and search_form.button.label is not empty %}
       {% set _search_button_label = search_form.button.label %}
     {% endif %}
   {% endif %}
 
   {% set _search_form = {
-    text_input: {
+    text_input: search_form.text_input|default({})|merge({
       extra_classes: _search_input_extra_classes,
       extra_attributes: _search_input_extra_attributes,
-    },
+    }),
     button: {
       label: _search_button_label,
       variant: 'search',
@@ -212,8 +208,8 @@
         />
       </a>
     {% endif %}
-    {% if site_name is defined and site_name is not empty and _group == 'group3' %}
-      <div class="ecl-site-header-harmonised__site-name">{{ site_name }}</div>
+    {% if _site_name is not empty and _group == 'group3' %}
+      <div class="ecl-site-header-harmonised__site-name">{{ _site_name }}</div>
     {% endif %}
     {% if _group != 'group3' %}
       <div class="ecl-site-header-harmonised__action">
@@ -361,7 +357,7 @@
 {% endif %}
 {% if _menu is empty and _group == 'group1' %}
   <div class="ecl-site-header-harmonised__banner">
-    <div class="ecl-container">{{ site_name }}</div>
+    <div class="ecl-container">{{ _site_name }}</div>
   </div>
 {% endif %}
 {% if _menu is not empty %}
@@ -401,7 +397,9 @@
     icon_file_path: _icon_file_path,
     search_toggle: _search_toggle,
     has_overlay: _has_overlay,
-    menu: _menu
+    menu: _menu,
+    search_form: _search_form,
+    site_name: _site_name
   } only %}
 {% endif %}
 
