@@ -53,6 +53,7 @@ const adapter = initialData => {
     button: {
       label: adaptedData.searchForm.buttonLabel,
     },
+    extra_attributes: [{ name: 'id', value: adaptedData.searchForm.id }],
   };
   delete adaptedData.searchForm;
 
