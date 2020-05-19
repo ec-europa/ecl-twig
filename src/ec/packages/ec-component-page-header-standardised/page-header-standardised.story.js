@@ -15,15 +15,15 @@ import demoMetaTitleDescriptionContent from './demo/data--meta-title-description
 import pageHeaderStandardised from './ecl-page-header-standardised.html.twig';
 import notes from './README.md';
 
-const preparePageHeaderStandardised = data => {
+const preparePageHeaderStandardised = (data, desc, meta) => {
   data.breadcrumb.icon_file_path = defaultSprite;
   data.title = text('title', data.title, tabLabels.required);
   data.breadcrumb = object('breadcrumb', data.breadcrumb, tabLabels.required);
 
-  if (data.meta) {
+  if (meta) {
     data.meta = text('meta', data.meta, tabLabels.optional);
   }
-  if (data.description) {
+  if (desc) {
     data.description = text(
       'description',
       data.description,
@@ -53,7 +53,7 @@ storiesOf('Components/Page Headers/Page Header Standardised', module)
     'meta-title',
     () =>
       pageHeaderStandardised(
-        preparePageHeaderStandardised(demoMetaTitleContent)
+        preparePageHeaderStandardised(demoMetaTitleContent, false, true)
       ),
     {
       notes: { markdown: notes, json: demoMetaTitleContent },
@@ -63,7 +63,11 @@ storiesOf('Components/Page Headers/Page Header Standardised', module)
     'meta-title-description',
     () =>
       pageHeaderStandardised(
-        preparePageHeaderStandardised(demoMetaTitleDescriptionContent)
+        preparePageHeaderStandardised(
+          demoMetaTitleDescriptionContent,
+          true,
+          true
+        )
       ),
     {
       notes: {
