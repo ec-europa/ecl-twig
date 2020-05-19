@@ -45,7 +45,11 @@ describe('EC - Menu Legacy', () => {
     expect.assertions(1);
 
     const dataCompliance = { ...demoData, _compliance_: true };
-    dataCompliance.items[2].children[1].items[0].label = '';
+    dataCompliance.items[2].children[0].items[0].label = '';
+    dataCompliance.items[2].children[1].items[1].href = '';
+    dataCompliance.label = '';
+    dataCompliance.items[3].label = '';
+    dataCompliance.items[4].href = '';
 
     return expect(render(dataCompliance)).resolves.toMatchSnapshot();
   });

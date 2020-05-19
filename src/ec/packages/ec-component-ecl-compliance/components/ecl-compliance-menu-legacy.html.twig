@@ -54,23 +54,23 @@
 %}
 
 {% if no_label_case %}
-  {% set message = message ~ ' The "label" is required.' %}
+  {% set message = message ~ ' "label" is mandatory.' %}
 {% endif %}
 {% if no_icon_path_case %}
-  {% set message = message ~ ' The "icon_href" is required to retrieve the icons sprite.' %}
+  {% set message = message ~ ' "icon_href" is required to retrieve the icons sprite.' %}
 {% endif %}
 {% if no_items_case %}
-  {% set message = message ~ ' There is no item provided for this menu.' %}
+  {% set message = message ~ ' "items" is mandatory.' %}
 {% endif %}
 {% if no_item_href_case %}
-  {% set message = message ~ ' Each element in the "items" array needs to contain a "href" key set and filled in.' %}
+  {% set message = message ~ ' Each element in the "items" array needs to contain a "href" property set and filled in.' %}
 {% endif %}
 {% if no_item_label_case %}
-  {% set message = message ~ ' Each element in "items" array needs to contain a "label" key set and filled in.' %}
+  {% set message = message ~ ' Each element in "items" array needs to contain a "label" property set and filled in.' %}
 {% endif %}
 {% if no_subitem_href_case %}
-  {% set message = message ~ ' Each element in the "items" array defined in the "children" array for a menu item needs to contain a "href" key set and filled in.' %}
+  {% set message = message ~ ' Each element in the "items" array defined in the "children" array for a menu item needs to contain a "href" property set and filled in.' %}
 {% endif %}
 {% if no_subitem_label_case %}
-  {% set message = message ~ ' Each element in the "items" array defined in the "children" array for a menu item needs to contain a "label" key set and filled in.' %}
+  {% set message = message ~ ' Each element in the "items" array defined in the "children" array for a menu item needs to contain a "label" property set and filled in.' %}
 {% endif %}

@@ -30,15 +30,15 @@ const prepareMenuLegacy = data => {
     item.href = text(`items[${i}].href`, item.href, tabLabels.required);
 
     if (item.children) {
-      item.children.forEach((column, ind) => {
-        column.items.forEach((subItem, idx) => {
+      item.children.forEach((column, j) => {
+        column.items.forEach((subItem, k) => {
           subItem.label = text(
-            `items[${i}].children[${ind}].items[${idx}].label`,
+            `items[${i}].children[${j}].items[${k}].label`,
             subItem.label,
             tabLabels.optional
           );
           subItem.href = text(
-            `items[${i}].children[${ind}].items[${idx}].href`,
+            `items[${i}].children[${j}].items[${k}].href`,
             subItem.href,
             tabLabels.optional
           );
