@@ -43,6 +43,10 @@ describe('EC - Footer Core', () => {
 
       const dataCompliance = { ...options, _compliance_: true };
       dataCompliance.sections[0].description = '';
+      dataCompliance.sections[0].title.link.label = '';
+      dataCompliance.sections[1].links = [];
+      dataCompliance.sections[2].links = [];
+      dataCompliance.sections[3].links = [];
 
       return expect(render(dataCompliance)).resolves.toMatchSnapshot();
     });

@@ -36,31 +36,31 @@ const formatFooter = data => {
     }
 
     if (section.links) {
-      section.links.forEach((link, index) => {
+      section.links.forEach((link, j) => {
         link.link.label = text(
-          `sections[${i}].links[${index}].link.label`,
+          `sections[${i}].links[${j}].link.label`,
           link.link.label,
           tabLabels.required
         );
         link.link.path = text(
-          `sections[${i}].links[${index}].link.path`,
+          `sections[${i}].links[${j}].link.path`,
           link.link.path,
           tabLabels.required
         );
 
         if (link.icon) {
           link.icon.name = text(
-            `sections[${i}].links[${index}].icon.name`,
+            `sections[${i}].links[${j}].icon.name`,
             link.icon.name,
             tabLabels.required
           );
           link.icon.path = text(
-            `sections[${i}].links[${index}].icon.path`,
+            `sections[${i}].links[${j}].icon.path`,
             defaultSprite,
             tabLabels.required
           );
           link.icon.size = text(
-            `sections[${i}].links[${index}].icon.size`,
+            `sections[${i}].links[${j}].icon.size`,
             link.icon.size,
             tabLabels.required
           );
