@@ -16,15 +16,15 @@ import demoMetaTitleDescriptionContent from './demo/data--meta-title-description
 import pageHeaderHarmonised from './ecl-page-header-harmonised.html.twig';
 import notes from './README.md';
 
-const preparePageHeaderHarmonised = data => {
+const preparePageHeaderHarmonised = (data, desc, meta) => {
   data.breadcrumb.icon_file_path = defaultSprite;
   data.title = text('title', data.title, tabLabels.required);
   data.breadcrumb = object('breadcrumb', data.breadcrumb, tabLabels.required);
 
-  if (data.meta) {
+  if (meta) {
     data.meta = text('meta', data.meta, tabLabels.optional);
   }
-  if (data.description) {
+  if (desc) {
     data.description = text(
       'description',
       data.description,
@@ -52,7 +52,9 @@ storiesOf('Components/Page Headers/Page Header Harmonised', module)
   .add(
     'meta-title',
     () =>
-      pageHeaderHarmonised(preparePageHeaderHarmonised(demoMetaTitleContent)),
+      pageHeaderHarmonised(
+        preparePageHeaderHarmonised(demoMetaTitleContent, false, true)
+      ),
     {
       notes: { markdown: notes, json: demoMetaTitleContent },
     }
@@ -61,7 +63,7 @@ storiesOf('Components/Page Headers/Page Header Harmonised', module)
     'meta-title-description',
     () =>
       pageHeaderHarmonised(
-        preparePageHeaderHarmonised(demoMetaTitleDescriptionContent)
+        preparePageHeaderHarmonised(demoMetaTitleDescriptionContent, true, true)
       ),
     {
       notes: {
