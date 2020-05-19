@@ -15,11 +15,14 @@
 {% set message = '' %}
 
 {% set no_icon_path_case = icon_path is empty %}
-{% set no_items_case = items is not defined or items is empty or items is not iterable %}
+{% set no_items_case = items is empty or items is not iterable %}
 {% set no_item_label_case = false %}
 {% set no_item_path_case = false %}
 {% set no_subitem_path_case = false %}
 {% set no_subitem_label_case = false %}
+{% set no_close_label_case = close is empty %}
+{% set no_title_case = title is empty %}
+{% set no_back_case = back is empty %}
 
 {% if no_items_case == false %}
   {% for item in items %}
@@ -49,24 +52,36 @@
   no_item_path_case or
   no_icon_path_case or
   no_subitem_path_case or
-  no_subitem_label_case
+  no_subitem_label_case or
+  no_close_label_case or
+  no_title_case or
+  no_back_case
 %}
 
 {% if no_icon_path_case %}
-  {% set message = message ~ ' The "icon_path" is required to retrieve the icons sprite.' %}
+  {% set message = message ~ ' The "icon_path" property is required to retrieve the icons sprite.' %}
 {% endif %}
 {% if no_items_case %}
-  {% set message = message ~ ' There is no item provided for this menu.' %}
+  {% set message = message ~ ' "items" is mandatory and it should contain an array of menu items.' %}
 {% endif %}
 {% if no_item_path_case %}
-  {% set message = message ~ ' Each element in "items" needs to contain a "path" key set and filled in.' %}
+  {% set message = message ~ ' Each element in "items" needs to contain a "path" property set and filled in.' %}
 {% endif %}
 {% if no_item_label_case %}
-  {% set message = message ~ ' Each element in "items" needs to contain a "label" key set and filled in.' %}
+  {% set message = message ~ ' Each element in "items" needs to contain a "label" property set and filled in.' %}
 {% endif %}
 {% if no_subitem_path_case %}
-  {% set message = message ~ ' Each element in the "children" array inside an item needs to contain a "path" key set and filled in.' %}
+  {% set message = message ~ ' Each element in the "children" array inside a main item needs to contain a "path" property set and filled in.' %}
 {% endif %}
 {% if no_subitem_label_case %}
-  {% set message = message ~ ' Each element in the "children" array inside an item needs to contain a "label" key set and filled in.' %}
+  {% set message = message ~ ' Each element in the "children" array inside a main item needs to contain a "label" property set and filled in.' %}
+{% endif %}
+{% if no_close_label_case %}
+  {% set message = message ~ ' "close" is mandatory as it represents the close button label.' %}
+{% endif %}
+{% if no_title_case %}
+  {% set message = message ~ ' "title" is mandatory as it represents the menu button label.' %}
+{% endif %}
+{% if no_back_case %}
+  {% set message = message ~ ' "back" is mandatory as it represents the back button label.' %}
 {% endif %}

@@ -43,6 +43,10 @@ describe('EC - Menu', () => {
 
       const dataCompliance = { ...enData, _compliance_: true };
       dataCompliance.items[3].label = '';
+      dataCompliance.close = '';
+      dataCompliance.title = '';
+      dataCompliance.items[1].children[1].label = '';
+      dataCompliance.back = '';
 
       return expect(render(dataCompliance)).resolves.toMatchSnapshot();
     });

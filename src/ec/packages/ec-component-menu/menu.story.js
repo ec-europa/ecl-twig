@@ -30,14 +30,14 @@ const prepareMenu = data => {
     item.path = text(`items[${i}].path`, item.path, tabLabels.required);
 
     if (item.children) {
-      item.children.forEach((subitem, ind) => {
+      item.children.forEach((subitem, j) => {
         subitem.label = text(
-          `items[${i}].children[${ind}].label`,
+          `items[${i}].children[${j}].label`,
           subitem.label,
           tabLabels.optional
         );
         subitem.path = text(
-          `items[${i}].children[${ind}].path`,
+          `items[${i}].children[${j}].path`,
           subitem.path,
           tabLabels.optional
         );
