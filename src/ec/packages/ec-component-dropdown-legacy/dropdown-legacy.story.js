@@ -16,15 +16,15 @@ import dropdown from './ecl-dropdown-legacy.html.twig';
 import notes from './README.md';
 
 const prepareDropdown = data => {
+  data.button.label = text(
+    'button.label',
+    data.button.label,
+    tabLabels.required
+  );
   data.button.icon.path = select(
     'button.icon.path',
     [defaultSprite],
     defaultSprite,
-    tabLabels.required
-  );
-  data.button.label = text(
-    'button.label',
-    data.button.label,
     tabLabels.required
   );
   data.list.items.forEach((item, i) => {

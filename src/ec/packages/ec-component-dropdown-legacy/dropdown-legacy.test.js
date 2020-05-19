@@ -46,6 +46,9 @@ describe('EC - Dropdown legacy', () => {
 
       const dataCompliance = { ...demoData, _compliance_: true };
       dataCompliance.list.items[1].label = '';
+      dataCompliance.button.label = '';
+      dataCompliance.id = '';
+      dataCompliance.button.icon.path = '';
 
       return expect(render(dataCompliance)).resolves.toMatchSnapshot();
     });
