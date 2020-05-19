@@ -38,7 +38,9 @@ const adapter = initialData => {
     adaptedData.card.infos = adaptedData.infos;
     adaptedData.card.infos.forEach(info => {
       info.icon.path = '/icons.svg';
-      info.icon.name = info.icon.shape;
+      const [type, name] = info.icon.shape.split('--');
+      info.icon.name = name;
+      info.icon.type = type;
       delete info.icon.shape;
     });
     delete adaptedData.infos;
