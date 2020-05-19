@@ -42,6 +42,9 @@ describe('EC - Site Header', () => {
 
       const dataCompliance = { ...englishData, _compliance_: true };
       dataCompliance.logo.src = '';
+      dataCompliance.language_selector.code = '';
+      dataCompliance.language_selector.overlay.close_label = '';
+      dataCompliance.language_selector.overlay.title = '';
 
       return expect(render(dataCompliance)).resolves.toMatchSnapshot();
     });

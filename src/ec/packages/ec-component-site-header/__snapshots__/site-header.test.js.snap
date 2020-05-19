@@ -1576,9 +1576,7 @@ exports[`EC - Site Header Default with missing input data and debug enabled it r
               </div>
               <span
                 class="ecl-site-header__language-code"
-              >
-                en
-              </span>
+              />
             </span>
           </a>
           <div
@@ -1608,9 +1606,7 @@ exports[`EC - Site Header Default with missing input data and debug enabled it r
                       <span
                         class="ecl-button__label"
                         data-ecl-label="true"
-                      >
-                        Close
-                      </span>
+                      />
                       <svg
                         aria-hidden="true"
                         class="ecl-icon ecl-icon--s ecl-button__icon ecl-button__icon--after"
@@ -1627,9 +1623,7 @@ exports[`EC - Site Header Default with missing input data and debug enabled it r
                 <div
                   class="ecl-language-list__title ecl-col-12 ecl-col-lg-8 ecl-offset-lg-2"
                   id="ecl-language-list__title"
-                >
-                  Select your language
-                </div>
+                />
               </div>
               <div
                 class="ecl-row"
@@ -2054,7 +2048,7 @@ exports[`EC - Site Header Default with missing input data and debug enabled it r
       <b>
         [site-header]
       </b>
-        "logo" needs to contain an "alt", a "src", an "href", a "language" and a "title" keys defined and not empty, they are all mandatory.
+        "logo" needs to contain an "alt", a "src", an "href", a "language" and a "title" properties set and filled in. "language_selector" needs to contain a "code" and a "label" properties set and filled in. The "close_label" property needs to be defined inside the "language_selector.overlay" object. The "title" property needs to defined inside the "language_selector.overlay" object.
     </p>
   </div>
 </test>
