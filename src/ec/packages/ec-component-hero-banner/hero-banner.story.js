@@ -1,7 +1,12 @@
 import { storiesOf } from '@storybook/html';
 import { withKnobs, text, boolean, select } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
-import { getExtraKnobs, getIconKnobs, tabLabels } from '@ecl-twig/story-utils';
+import {
+  getExtraKnobs,
+  getIconKnobs,
+  tabLabels,
+  getComplianceKnob,
+} from '@ecl-twig/story-utils';
 import withCode from '@ecl-twig/storybook-addon-code';
 
 import uiIcons from '@ecl/ec-resources-icons/dist/lists/ui.json';
@@ -15,15 +20,14 @@ import heroBanner from './ecl-hero-banner.html.twig';
 import notes from './README.md';
 
 uiIcons.unshift('null');
-const prepareBanner = data => {
-  if (data.centered) {
-    data.centered = boolean('centered', data.centered, tabLabels.states);
-  }
+
+const prepareBanner = (data, variant) => {
+  data.centered = boolean('centered', data.centered, tabLabels.states);
   data.type = select('type', [data.type], data.type, tabLabels.required);
   data.title = text('title', data.title, tabLabels.required);
   data.description = text('description', data.description, tabLabels.required);
 
-  if (data.image) {
+  if (variant === 'img') {
     data.image = text('image', data.image, tabLabels.required);
   }
   data.link.link.label = text(
@@ -57,6 +61,7 @@ const prepareBanner = data => {
   }
 
   getExtraKnobs(data);
+  getComplianceKnob(data);
 
   return data;
 };
@@ -65,10 +70,10 @@ storiesOf('Components/Banners/Hero Banner', module)
   .addDecorator(withKnobs)
   .addDecorator(withNotes)
   .addDecorator(withCode)
-  .add('image', () => heroBanner(prepareBanner(dataImage)), {
+  .add('image', () => heroBanner(prepareBanner(dataImage, 'img')), {
     notes: { markdown: notes, json: dataImage },
   })
-  .add('image-shade', () => heroBanner(prepareBanner(dataImageShade)), {
+  .add('image-shade', () => heroBanner(prepareBanner(dataImageShade, 'img')), {
     notes: { markdown: notes, json: dataImageShade },
   })
   .add('primary', () => heroBanner(prepareBanner(dataPrimary)), {
