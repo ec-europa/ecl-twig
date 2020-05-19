@@ -13,6 +13,7 @@
   - "extra_attributes" (optional) (array) (default: [])
     - "name" (string) Attribute name, eg. 'data-test'
     - "value" (optional) (string) Attribute value, eg: 'data-test-1'
+  - "_compliance_": (boolean) (default: false) Activates debug
 #}
 
 {# Internal properties #}
@@ -26,6 +27,7 @@
 {% set _image = image|default('') %}
 {% set _button = button|default({}) %}
 {% set _link = link|default({}) %}
+{% set _compliance = _compliance_|default(false) %}
 
 {# Internal logic - Process properties #}
 
@@ -56,6 +58,7 @@
     <div class="ecl-page-banner__image" style="background-image:url({{ _image }})"></div>
   {% endif %}
   <div class="ecl-container ecl-page-banner__container">
+  {% if _title is not empty or _baseline is not empty or link is not empty or button is not empty %}
     <div class="ecl-page-banner__content">
       <h1 class="ecl-page-banner__title">{{ _title }}</h1>
       {% if _baseline is not empty %}
@@ -66,15 +69,27 @@
           link: _link.link|merge({
             type: 'cta',
           }),
-          extra_classes: 'ecl-page-banner__link-cta'
+          extra_classes: 'ecl-page-banner__link-cta',
+          _compliance_: _compliance
         }) only %}
       {% elseif _button is not empty %}
         {% include '@ecl-twig/ec-component-button/ecl-button.html.twig' with _button|merge({
-          extra_classes: 'ecl-page-banner__button'
+          extra_classes: 'ecl-page-banner__button',
+          _compliance_: _compliance
         }) only %}
       {% endif %}
     </div>
   </div>
+  {% endif %}
 </section>
+
+{# Validation #}
+
+{% if _compliance %}
+  {% include '@ecl-twig/ec-component-ecl-compliance/components/ecl-compliance-page-banner.html.twig' with {
+    type: _type,
+    image: _image
+  } only %}
+{% endif %}
 
 {% endspaceless %}
