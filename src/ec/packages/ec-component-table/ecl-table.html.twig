@@ -30,7 +30,8 @@
         "value" (optional) (string)
       },
       ...
-    ]
+    ],
+  - "_compliance_" (boolean) (default: false): Activates debug
 #}
 
 {# Internal properties #}
@@ -47,6 +48,7 @@
 {% set _headers = headers|default([]) %}
 {% set _rows = rows|default([]) %}
 {% set _zebra = zebra|default(false) %}
+{% set _compliance = _compliance_|default(false) %}
 
 {# Internal logic - Process properties #}
 
@@ -103,5 +105,14 @@
     {% endfor %}
   </tbody>
 </table>
+
+{# Validation #}
+
+{% if _compliance %}
+  {% include '@ecl-twig/ec-component-ecl-compliance/components/ecl-compliance-table.html.twig' with {
+    headers: _headers,
+    rows: _rows
+  } only %}
+{% endif %}
 
 {% endspaceless %}
