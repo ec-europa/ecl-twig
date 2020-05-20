@@ -82,7 +82,7 @@ describe('EC - Site Header Harmonised', () => {
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
     });
 
-    test('with missing input data and degug enabled returns the right warning message', () => {
+    test('with missing input data and debug enabled returns the right warning message', () => {
       expect.assertions(1);
 
       const dataCompliance = { ...dataGroup2, _compliance_: true };
@@ -122,7 +122,7 @@ describe('EC - Site Header Harmonised', () => {
     return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
   });
 
-  test('with missing input data and degug enabled returns the right warning message', () => {
+  test('with missing input data and debug enabled returns the right warning message', () => {
     expect.assertions(1);
 
     const dataCompliance = { ...dataGroup3, _compliance_: true };
