@@ -37,6 +37,17 @@ describe('EC - Language List', () => {
 
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
     });
+
+    test('with validation enabled and missing input data returns the right warning message', () => {
+      expect.assertions(1);
+
+      const dataCompliance = { ...dataSplash, _compliance_: true };
+      dataCompliance.logo.path = '';
+      dataCompliance.logo.alt = 'European Commission logo';
+      dataCompliance.items[0].label = '';
+
+      return expect(render(dataCompliance)).resolves.toMatchSnapshot();
+    });
   });
 
   describe('Overlay', () => {
@@ -70,6 +81,16 @@ describe('EC - Language List', () => {
       });
 
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
+    });
+
+    test('with validation enabled and missing input data returns the right warning message', () => {
+      expect.assertions(1);
+
+      const dataCompliance = { ...dataOverlay, _compliance_: true };
+      dataCompliance.icon_path = '';
+      dataCompliance.items[0].label = '';
+
+      return expect(render(dataCompliance)).resolves.toMatchSnapshot();
     });
   });
 });
