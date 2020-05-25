@@ -26,6 +26,7 @@
 {% set no_legal_links_case = true %}
 {% set no_commission_logo_case = true %}
 {% set no_partnership_logos_case = true %}
+{% set no_corporate_name_link_case = false %}
 {% set variant = group|default('') %}
 {% set not_compliant = false %}
 
@@ -52,6 +53,10 @@
 
     {% if section.type == 'corporate_name' %}
       {% set no_corporate_name_case = false %}
+      {% set no_corporate_name_link_case = (section.title is not defined or section.title is empty) or
+        (section.title.link is not defined or section.title.link is empty) or
+        (section.title.link.label is not defined or section.title.link.label is empty) or
+        (section.title.link.path is not defined or section.title.link.path is empty) %}
     {% endif %}
 
     {% if section.type == 'service_navigation' and
@@ -86,14 +91,16 @@
     no_content_owner_case or
     no_service_links_case or
     no_legal_links_case or
-    no_corporate_name_case %}
+    no_corporate_name_case or
+    no_corporate_name_link_case %}
 {% endif %}
 
 {% if variant == 'group2' %}
   {% set not_compliant =
     no_service_links_case or
     no_legal_links_case or
-    no_corporate_name_case %}
+    no_corporate_name_case or
+    no_corporate_name_link_case %}
 {% endif %}
 
 {% if variant == 'group3' %}
@@ -106,12 +113,11 @@
   no_sections_case %}
   {% set message = message ~ ' "sections" need to be defined and it should contain an array of sections, footer would be empty otherwise.' %}
 {% endif %}
-{% if (variant == 'group1' or variant == 'group2') and
-  no_site_name_case %}
-  {% set message = message ~ ' "sections[0].title.link.label" is mandatory in ' ~ variant ~ ', it represents the site name.' %}
+{% if (variant == 'group1') and no_site_name_case %}
+  {% set message = message ~ ' "sections[0].title.link.label" is mandatory in ' ~ variant ~ ', it represents the mandatory "site name" section.' %}
 {% endif %}
 {% if variant == 'group1' and no_content_owner_case %}
-  {% set message = message ~ ' "sections[0].description" in ' ~ variant ~ ' is mandatory as it represents the content owner details.' %}
+  {% set message = message ~ ' "sections[0].description" in ' ~ variant ~ ' is mandatory as it represents the mandatory "content owner" section.' %}
 {% endif %}
 {% if variant == 'group1' and no_service_links_case %}
   {% set message = message ~ ' We could not identify the "service navigation" section, in ' ~ variant ~ ' it is mandatory.' %}
@@ -129,4 +135,7 @@
 {% endif %}
 {% if variant == 'group3' and no_partnership_logos_case %}
   {% set message = message ~ ' We could not identify the "partnership_logos" section, in ' ~ variant ~ ' it is mandatory.' %}
+{% endif %}
+{% if variant != 'group3' and no_corporate_name_link_case %}
+  {% set message = message ~ ' The "corporate_name" section needs to contain a "title.link.path" and "title.link.label" properties set and filled in.' %}
 {% endif %}
