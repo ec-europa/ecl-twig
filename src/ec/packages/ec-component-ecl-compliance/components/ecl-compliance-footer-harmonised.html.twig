@@ -36,8 +36,7 @@
     {% if section.type == 'site_name' and
       (section.title is defined and section.title is not empty) and
       (section.title.link is defined and section.title.link is not empty) and
-      (section.title.link.label is defined and section.title.link.label is not empty)
-    %}
+      (section.title.link.label is defined and section.title.link.label is not empty) %}
       {% set no_site_name_case = false %}
     {% endif %}
 
@@ -87,23 +86,20 @@
     no_content_owner_case or
     no_service_links_case or
     no_legal_links_case or
-    no_corporate_name_case
-  %}
+    no_corporate_name_case %}
 {% endif %}
 
 {% if variant == 'group2' %}
   {% set not_compliant =
     no_service_links_case or
     no_legal_links_case or
-    no_corporate_name_case
-  %}
+    no_corporate_name_case %}
 {% endif %}
 
 {% if variant == 'group3' %}
   {% set not_compliant =
     no_partnership_logos_case or
-    no_commission_logo_case
-  %}
+    no_commission_logo_case %}
 {% endif %}
 
 {% if (variant == 'group1' or variant == 'group2') and
