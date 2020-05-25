@@ -43,6 +43,8 @@ describe('EC - Footer Harmonised', () => {
 
       const dataCompliance = { ...dataGroup1, _compliance_: true };
       dataCompliance.sections[0].title.link.label = '';
+      dataCompliance.sections[0].description = '';
+      dataCompliance.sections[6].links = [];
 
       return expect(render(dataCompliance)).resolves.toMatchSnapshot();
     });
@@ -82,6 +84,7 @@ describe('EC - Footer Harmonised', () => {
 
       const dataCompliance = { ...dataGroup2, _compliance_: true };
       dataCompliance.sections[0].title.link.label = '';
+      dataCompliance.sections[0].description = '';
 
       return expect(render(dataCompliance)).resolves.toMatchSnapshot();
     });
