@@ -211,14 +211,14 @@ const prepareFooterStandardised = data => {
         section.content_before = text(
           `sections[${i}].content_before`,
           section.content_before,
-          tabLabels.optional
+          tabLabels.required
         );
       }
       if (section.list_class_name) {
         section.list_class_name = text(
           `sections[${i}].list_class_name`,
           section.list_class_name,
-          tabLabels.optional
+          tabLabels.required
         );
       }
       if (section.links) {
@@ -226,34 +226,48 @@ const prepareFooterStandardised = data => {
           linkItem.link.label = text(
             `sections[${i}].links[${j}].link.label`,
             linkItem.link.label,
-            tabLabels.optional
+            tabLabels.required
           );
           linkItem.link.path = text(
             `sections[${i}].links[${j}].link.path`,
             linkItem.link.path,
-            tabLabels.optional
+            tabLabels.required
           );
           if (linkItem.icon) {
             linkItem.icon.name = text(
               `sections[${i}].links[${j}].icon.name`,
               linkItem.icon.name,
-              tabLabels.optional
+              tabLabels.required
             );
             linkItem.icon.path = text(
               `sections[${i}].links[${j}].icon.path`,
               defaultSprite,
-              tabLabels.optional
+              tabLabels.required
             );
             linkItem.icon.size = text(
               `sections[${i}].links[${j}].icon.size`,
               linkItem.icon.size,
-              tabLabels.optional
+              tabLabels.required
             );
           }
         });
       }
     } else {
       section.forEach((sectionItem, j) => {
+        if (sectionItem.content_before) {
+          sectionItem.content_before = text(
+            `sections[${i}][${j}].content_before`,
+            sectionItem.content_before,
+            tabLabels.optional
+          );
+        }
+        if (sectionItem.list_class_name) {
+          sectionItem.list_class_name = text(
+            `sections[${i}][${j}].list_class_name`,
+            sectionItem.list_class_name,
+            tabLabels.optional
+          );
+        }
         if (sectionItem.links) {
           sectionItem.title = text(
             `sections[${i}][${j}].title`,
