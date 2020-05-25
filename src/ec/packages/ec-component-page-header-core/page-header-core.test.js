@@ -43,6 +43,16 @@ describe('EC - Page Header Core', () => {
 
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
     });
+
+    test('with missing input data and debug enabled it shows the right warning messages', () => {
+      expect.assertions(1);
+
+      const dataCompliance = { ...demoTitleContent, _compliance_: true };
+      dataCompliance.breadcrumb = {};
+      dataCompliance.title = '';
+
+      return expect(render(dataCompliance)).resolves.toMatchSnapshot();
+    });
   });
 
   describe('meta-title', () => {

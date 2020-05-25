@@ -16,9 +16,13 @@
     - "alt" (string) (default: ''): alt text for the logo
     - "path" (string) (default: ''): path to the logo svg
   - "extra_classes" (optional) (string) (default: '')
-  - "extra_attributes" (optional) (array) (default: [])
+  - "extra_attributes" (optional) (array) (default: []) [{
     - "name" (string) Attribute name, eg. 'data-test'
     - "value" (string) Attribute value, eg: 'data-test-1'
+    },
+    ...
+    ],
+  - "_compliance": (boolean) (default: false) Activates debug
 #}
 
 {# Internal properties #}
@@ -30,6 +34,7 @@
 {% set _close_label = close_label|default('') %}
 {% set _title = title|default('') %}
 {% set _extra_attributes = '' %}
+{% set _compliance = _compliance_|default(false) %}
 {% set _data_lang_overlay = data_lang_overlay|default('') %}
 
 {% if _overlay %}
@@ -73,7 +78,8 @@
           },
           icon_position: "after",
           extra_classes: 'ecl-language-list__close-button',
-          extra_attributes: [{ name: 'data-ecl-language-list-close' }]
+          extra_attributes: [{ name: 'data-ecl-language-list-close' }],
+          _compliance_: _compliance,
         } only %}
       </div>
       <div
@@ -96,8 +102,21 @@
       items: _items,
       overlay: _overlay,
       icon_path: _icon_path,
+      _compliance_: _compliance
   } only %}
   </div>
 </div>
 
+{# Validation #}
+
+{% if _compliance %}
+  {% include '@ecl-twig/ec-component-ecl-compliance/components/ecl-compliance-language-list.html.twig' with {
+    overlay: _overlay,
+    close_label: _close_label,
+    title: _title,
+    items: _items,
+    icon_path: _icon_path,
+    logo: _logo
+  } only %}
+{% endif %}
 {% endspaceless %}

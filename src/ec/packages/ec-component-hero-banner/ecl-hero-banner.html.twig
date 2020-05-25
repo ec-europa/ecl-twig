@@ -15,7 +15,8 @@
           "name" (string) (default: ''),
           "value" (optional) (string)
         ...
-      ]
+      ],
+    _compliance_: boolean (default: false) Activates debug
 #}
 
 {# Internal properties #}
@@ -27,7 +28,7 @@
 {% set _image = image|default('') %}
 {% set _button = button|default({}) %}
 {% set _link = link|default({}) %}
-
+{% set _compliance = _compliance_|default(false) %}
 {% set _css_class = ['ecl-hero-banner ecl-hero-banner--' ~ _type]|join(' ') %}
 {% set _extra_attributes = '' %}
 
@@ -66,14 +67,30 @@
         {% include '@ecl-twig/ec-component-link/ecl-link.html.twig' with _link|merge({
           link: _link.link|merge({
             type: 'cta',
-          })
+          }),
+           _compliance_: _compliance
         }) only %}
       {% elseif _button is not empty %}
         {% include '@ecl-twig/ec-component-button/ecl-button.html.twig' with _button|merge({
-          extra_classes: 'ecl-hero-banner__button'
+          extra_classes: 'ecl-hero-banner__button',
+          _compliance_: _compliance
         }) only %}
       {% endif %}
     </div>
   </div>
 </section>
+
+{# Validation #}
+
+{% if _compliance %}
+  {% include '@ecl-twig/ec-component-ecl-compliance/components/ecl-compliance-hero-banner.html.twig' with {
+    type: _type,
+    title: _title,
+    description: _description,
+    button: _button,
+    link: _link,
+    image: _image
+  } only %}
+{% endif %}
+
 {% endspaceless %}
