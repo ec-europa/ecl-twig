@@ -1,0 +1,22 @@
+{#
+  Parameters:
+  - "items" (array) (default: [])
+#}
+
+{% extends "@ecl-twig/ec-component-ecl-compliance/ecl-compliance.html.twig" %}
+{% set component = 'gallery' %}
+
+{% set less_than_five_case = false %}
+{% set no_items_case = items is empty or items is not iterable %}
+{% if no_items_case == false %}
+  {% set less_than_five_case = items|length < 5 %}
+{% endif %}
+
+{% set not_compliant = no_items_case or less_than_five_case %}
+
+{% if no_items_case %}
+  {% set message = '"items" needs to be an array containing at least one "gallery item".' %}
+{% endif %}
+{% if less_than_five_case %}
+  {% set message = 'You have less then five items in your gallery, in this case you should use use an unordered list or a media container.' %}
+{% endif %}

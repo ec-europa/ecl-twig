@@ -1,0 +1,54 @@
+{#
+  Parameters:
+  - "overlay" (object)
+    - "close" (object)
+    - "previous" (object)
+    - "next" (object)
+    - "counter_separator"
+    - "download" (object)
+    - "share" (object)
+  - "item" (object)
+#}
+
+{% extends "@ecl-twig/ec-component-ecl-compliance/ecl-compliance.html.twig" %}
+{% set component = 'gallery-overlay' %}
+{% set message = '' %}
+
+{% set no_overlay_case = overlay is empty %}
+{% if no_overlay_case == false %}
+  {% set no_close_case = overlay.close is not defined or overlay.close is empty %}
+  {% set no_previous_case = overlay.previous is not defined or overlay.previous is empty %}
+  {% set no_next_case = overlay.next is not defined or overlay.next is empty %}
+  {% set no_counter_separator_case = overlay.counter_separator is not defined or overlay.counter_separator is empty %}
+  {% set no_download_case = overlay.download is not defined or overlay.download is empty %}
+  {% set no_share_case = overlay.share is not defined or overlay.share is empty %}
+{% endif %}
+{% set no_item_case = item is empty %}
+
+{% set not_compliant =
+  no_overlay_case or
+  no_close_case or
+  no_previous_case or
+  no_next_case or
+  no_counter_separator_case or
+  no_download_case or
+  no_item_case %}
+
+{% if no_overlay_case %}
+  {% set message = message ~ ' The "overlay" is mandatory.' %}
+{% endif %}
+{% if no_close_case %}
+  {% set message = message ~ ' The "overlay.close" property is mandatory as it represents the close button.' %}
+{% endif %}
+{% if no_next_case %}
+  {% set message = message ~ ' The "overlay.next" property is mandatory as it represents the "next" button.' %}
+{% endif %}
+{% if no_previous_case %}
+  {% set message = message ~ ' The "overlay.previous" property is mandatory as it represents the "previous" button.' %}
+{% endif %}
+{% if no_download_case %}
+  {% set message = message ~ ' The "overlay.download" property is mandatory as it represents the "download" button.' %}
+{% endif %}
+{% if no_item_case %}
+  {% set message = message ~ ' The "item" property is mandatory as it identifies the active item in the overlay.' %}
+{% endif %}
