@@ -1,4 +1,4 @@
-/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable import/no-extraneous-dependencies, no-param-reassign */
 import specData from '@ecl/ec-specs-gallery/demo/data';
 
 const defaultSprite = '/static/icons.svg';
@@ -55,18 +55,12 @@ function formatItem(i) {
     image: i.image,
   };
 
-  if (i.image) {
-    item.path = i.image.src;
-    item.alt = i.image.alt;
-  } else if (i.video) {
-    item.path = i.video.poster;
-    item.alt = 'VIDEO NOT SUPPORTED YET'; // We don't have equivalent for "alt" in "video"
-    if (i.video.tracks && Array.isArray(i.video.tracks)) {
-      i.video.tracks.forEach(track => {
-        track.src_lang = track.srcLang; // eslint-disable-line no-param-reassign
-      });
-    }
-  } else {
+  if (i.video && i.video.tracks && Array.isArray(i.video.tracks)) {
+    i.video.tracks.forEach(track => {
+      track.src_lang = track.srcLang;
+      delete track.srcLang;
+    });
+  } else if (!i.image || !i.image.alt) {
     // Fallback to previous structure
     item.path = i.src;
     item.alt = i.alt;
