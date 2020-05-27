@@ -12,6 +12,7 @@ npm install --save @ecl-twig/ec-component-footer-standardised
   - "type" (optional) (string) Section type valid values are:
     (site_name, service_navigation, legal_navigation, corporate_name, dg_related_navigation,
     dg_services_navigation, class_names)
+  - "section_id" (integer) (default: '') The id will be used to form the class name
   - "title" (optional) (string) OR (object with Link component in property)
   - "title_class_name" (optional) (string) (default: '')
   - "description" (optional) (string) (default: '')
@@ -31,6 +32,7 @@ npm install --save @ecl-twig/ec-component-footer-standardised
   sections: [ 
     { 
       type: 'site_name', 
+      section_id: 1,
       title: { 
         link: { 
           label: "Site name", 
@@ -42,6 +44,7 @@ npm install --save @ecl-twig/ec-component-footer-standardised
       }, 
       { 
         type: 'dg_services_navigation', 
+        section_id: 2, 
         title: 'Contact us', 
         title_class_name: 'ecl-footer-standardised__title--separator', 
         links: [ 
@@ -55,6 +58,7 @@ npm install --save @ecl-twig/ec-component-footer-standardised
       }, 
       { 
         type: 'dg_services_navigation', 
+        section_id: 2, 
         title: 'Follow us on', 
         title_class_name: 'ecl-footer-standardised__title--separator', 
         links: [ 
@@ -77,6 +81,7 @@ npm install --save @ecl-twig/ec-component-footer-standardised
       }, 
       { 
         type: 'class_names', 
+        section_id: 3,
         content_before: 'More information on:', 
         links: [ 
           { 

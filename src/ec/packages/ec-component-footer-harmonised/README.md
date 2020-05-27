@@ -51,7 +51,7 @@ npm install --save @ecl-twig/ec-component-footer-harmonised
       { 
         section_id: 2, 
         title: 'Contact us', 
-        title_class_name: 'ecl-footer-standardised__title--separator', 
+        title_class_name: 'ecl-footer-harmonised__title--separator', 
         links: [ 
           { 
             link: { 
@@ -64,7 +64,7 @@ npm install --save @ecl-twig/ec-component-footer-harmonised
       { 
         section_id: 2, 
         title: 'Follow us on', 
-        title_class_name: 'ecl-footer-standardised__title--separator', 
+        title_class_name: 'ecl-footer-harmonised__title--separator', 
         links: [ 
           { 
             link: { 
@@ -81,7 +81,7 @@ npm install --save @ecl-twig/ec-component-footer-harmonised
             ... 
           }, 
         ], 
-        list_class_name: 'ecl-footer-standardised__list--inline', 
+        list_class_name: 'ecl-footer-harmonised__list--inline', 
       }, 
       { 
         section_id: 3,
@@ -95,7 +95,7 @@ npm install --save @ecl-twig/ec-component-footer-harmonised
             ... 
           }, 
         ], 
-        list_class_name: 'ecl-footer-standardised__list--condensed', 
+        list_class_name: 'ecl-footer-harmonised__list--condensed', 
       }, 
       ... 
     ] 
