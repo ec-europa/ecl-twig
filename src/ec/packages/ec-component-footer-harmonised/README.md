@@ -10,6 +10,8 @@ npm install --save @ecl-twig/ec-component-footer-harmonised
 
 - **"group"** (string) (default: 'group1'): 'group1' or 'group2'
 - **"sections"** (array of objects) (default: [])
+  - "type" (string) (optional) 'dg_services_navigation, site_name, legal_navigation,
+    service_navigation, dg_related_navigation, corporate_name, partnership_logos, commission_logo'
   - "section_id" (integer) (default: '') The id will be used to form the class name
   - "title" (optional) (string) OR (object with Link component in property)
   - "title_class_name" (optional) (string) (default: '')
@@ -24,7 +26,8 @@ npm install --save @ecl-twig/ec-component-footer-harmonised
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
-  - "value" (string) Attribute value, eg: 'data-test-1'
+  - "value" (string) Attribute value, eg: 'data-test-1',
+- **_compliance_"** (boolean) (default: false) Activates debug
 
 ### Example:
 
@@ -34,6 +37,7 @@ npm install --save @ecl-twig/ec-component-footer-harmonised
   group: 'group1', 
   sections: [ 
     { 
+      type: 'site_name', 
       section_id: 1,
       title: { 
         link: { 
