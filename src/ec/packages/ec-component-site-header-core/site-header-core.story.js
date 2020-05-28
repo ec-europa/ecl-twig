@@ -15,6 +15,7 @@ import {
   getLoginKnobs,
   getLanguageSelectorKnobs,
   getSearchFormKnobs,
+  getComplianceKnob,
 } from '@ecl-twig/story-utils';
 import withCode from '@ecl-twig/storybook-addon-code';
 
@@ -95,6 +96,8 @@ const prepareSiteHeaderCore = (data, lang) => {
   );
   // Extra classes and extra attributes.
   getExtraKnobs(data);
+  // Compliance.
+  getComplianceKnob(data);
 
   return data;
 };

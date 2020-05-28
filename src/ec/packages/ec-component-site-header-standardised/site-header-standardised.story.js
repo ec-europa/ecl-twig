@@ -15,6 +15,7 @@ import {
   getLoginKnobs,
   getLanguageSelectorKnobs,
   getSearchFormKnobs,
+  getComplianceKnob,
 } from '@ecl-twig/story-utils';
 import withCode from '@ecl-twig/storybook-addon-code';
 
@@ -138,6 +139,8 @@ const prepareSiteHeaderStandardised = (data, lang) => {
   getExtraKnobs(data);
   // Menu.
   data.menu = object('data.menu', data.menu, tabLabels.optional);
+  // Compliance
+  getComplianceKnob(data);
 
   return data;
 };
@@ -151,7 +154,7 @@ storiesOf('Components/Site Headers/Standardised', module)
     () => {
       button(btnLangLabel, enBtnLangHandler, tabLabels.cases);
       button(btnLoginLabel, enBtnLoginHandler, tabLabels.cases);
-      const dataStory = prepareSiteHeaderStandardised(enData);
+      const dataStory = prepareSiteHeaderStandardised(enData, 'en');
 
       return siteHeaderStandardised(dataStory);
     },
@@ -164,7 +167,7 @@ storiesOf('Components/Site Headers/Standardised', module)
     () => {
       button(btnLangLabel, enBtnLangHandler, tabLabels.cases);
       enData.logged = true;
-      const dataStory = prepareSiteHeaderStandardised(enData);
+      const dataStory = prepareSiteHeaderStandardised(enData, 'en');
 
       return siteHeaderStandardised(dataStory);
     },

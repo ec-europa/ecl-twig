@@ -1,20 +1,29 @@
-/* eslint-disable no-shadow */
+/* eslint-disable no-shadow, dot-notation */
 import { storiesOf } from '@storybook/html';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
 import { withKnobs, button, text } from '@storybook/addon-knobs';
-import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
+import {
+  getExtraKnobs,
+  tabLabels,
+  getComplianceKnob,
+} from '@ecl-twig/story-utils';
 
-import sections from './demo/data';
+import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
+import specs from './demo/data';
 import footerStandardised from './ecl-footer-standardised.html.twig';
 import notes from './README.md';
 
 // Icons.
-sections.sections.forEach(section => {
+specs.sections.forEach(section => {
   if (!Array.isArray(section)) {
     section = [section];
   }
+
   section.forEach(s => {
+    if (section.title && section.title.icon) {
+      section.title.icon.path = defaultSprite;
+    }
     if (s.links && Array.isArray(s.links)) {
       s.links.forEach(l => {
         if (l.icon) {
@@ -22,221 +31,285 @@ sections.sections.forEach(section => {
         }
       });
     }
-    if (s.title && s.title.icon) {
-      s.title.icon.path = defaultSprite;
-    }
   });
 });
 
-const contactUs = JSON.parse(JSON.stringify(sections.sections[1][0]));
-const followUs = JSON.parse(JSON.stringify(sections.sections[1][1]));
-const aboutUs = JSON.parse(JSON.stringify(sections.sections[2][0]));
-const related = JSON.parse(JSON.stringify(sections.sections[2][1]));
+const contactUs = JSON.parse(JSON.stringify(specs.sections[1][0]));
+const followUs = JSON.parse(JSON.stringify(specs.sections[1][1]));
+const aboutUs = JSON.parse(JSON.stringify(specs.sections[2][0]));
+const related = JSON.parse(JSON.stringify(specs.sections[2][1]));
 
 // Preserve the original data.
-let data = [...sections.sections];
-// Labels for the buttons.
-const requiredGroupId = 'Mandatory elements';
-const optionalGroupId = 'Optional elements';
-const useCasesGroup = 'Use cases';
+const data = { ...specs };
+
 // Buttons callbacks.
-// Classes.
-const classBtnToggler = () => {
-  data[3] = data[3].links ? { section_id: 6 } : sections.sections[3];
-};
 // Dg related service navigation (contact us)
 const serviceBtnToggler = () => {
   // If it's where is supposed to be, hide it
-  if (data[1][0].demo_id === 'contact_us') {
-    data[1][0] = { section_id: 2 };
+  if (data.sections[1][0].demo_id === 'contact_us') {
+    data.sections[1][0] = { section_id: 2 };
   } else {
     // Two blocks might have taken its place.
-    if (data[1][1].demo_id === 'related') {
-      data[1][1] = { section_id: 2 };
-      data[2][1] = related;
-      data[2][1].section_id = 3;
+    if (data.sections[1][1].demo_id === 'related') {
+      data.sections[1][1] = { section_id: 2 };
+      data.sections[2][1] = related;
+      data.sections[2][1].section_id = 3;
     }
-    if (data[1][0].demo_id === 'about_us') {
-      data[1][0] = { section_id: 2 };
-      data[2][0] = aboutUs;
-      data[2][0].section_id = 3;
+    if (data.sections[1][0].demo_id === 'about_us') {
+      data.sections[1][0] = { section_id: 2 };
+      data.sections[2][0] = aboutUs;
+      data.sections[2][0].section_id = 3;
     }
     // Show it.
-    data[1][0] = contactUs;
-    data[1][0].section_id = 2;
+    data.sections[1][0] = contactUs;
+    data.sections[1][0].section_id = 2;
   }
 };
 // Dg related service navigation. (follow us)
 const socialBtnToggler = () => {
   // If it's where is supposed to be, hide it
-  if (data[1][1].demo_id === 'follow_us') {
-    data[1][1] = { section_id: 2 };
+  if (data.sections[1][1].demo_id === 'follow_us') {
+    data.sections[1][1] = { section_id: 2 };
   } else {
     // Two blocks might have taken its place.
-    if (data[1][1].demo_id === 'related') {
-      data[1][1] = { section_id: 2 };
-      data[2][1] = related;
-      data[2][1].section_id = 3;
+    if (data.sections[1][1].demo_id === 'related') {
+      data.sections[1][1] = { section_id: 2 };
+      data.sections[2][1] = related;
+      data.sections[2][1].section_id = 3;
     }
-    if (data[1][0].demo_id === 'about_us') {
-      data[1][0] = { section_id: 2 };
-      data[2][0] = aboutUs;
-      data[2][0].section_id = 3;
+    if (data.sections[1][0].demo_id === 'about_us') {
+      data.sections[1][0] = { section_id: 2 };
+      data.sections[2][0] = aboutUs;
+      data.sections[2][0].section_id = 3;
     }
     // Show it.
-    data[1][1] = followUs;
-    data[1][1].section_id = 2;
+    data.sections[1][1] = followUs;
+    data.sections[1][1].section_id = 2;
   }
 };
 // Dg related navigation. (About us)
 const aboutBtnToggler = () => {
   // No optional section is rendered.
   const emptyOptional =
-    !data[1][0].demo_id &&
-    !data[1][1].demo_id &&
-    !data[2][1].demo_id &&
-    !data[2][0].demo_id;
+    !data.sections[1][0].demo_id &&
+    !data.sections[1][1].demo_id &&
+    !data.sections[2][1].demo_id &&
+    !data.sections[2][0].demo_id;
   // If it's where is supposed to be, hide it.
-  if (data[2][0].demo_id === 'about_us') {
-    data[2][0] = { section_id: 3 };
+  if (data.sections[2][0].demo_id === 'about_us') {
+    data.sections[2][0] = { section_id: 3 };
     // If it's in the other column, we hide it.
-  } else if (data[1][0].demo_id === 'about_us') {
-    data[1][0] = { section_id: 2 };
+  } else if (data.sections[1][0].demo_id === 'about_us') {
+    data.sections[1][0] = { section_id: 2 };
     // If no block is present or we have only one column.
-  } else if (emptyOptional || data[1][1].demo_id === 'related') {
-    data[1][0] = aboutUs;
-    data[1][0].section_id = 2;
+  } else if (emptyOptional || data.sections[1][1].demo_id === 'related') {
+    data.sections[1][0] = aboutUs;
+    data.sections[1][0].section_id = 2;
     // We show it.
   } else {
-    data[2][0] = aboutUs;
-    data[2][0].section_id = 3;
+    data.sections[2][0] = aboutUs;
+    data.sections[2][0].section_id = 3;
   }
 };
 // Dg related navigation. (Related sites)
 const relatedBtnToggler = () => {
   // No optional section is rendered.
   const emptyOptional =
-    !data[1][0].demo_id &&
-    !data[1][1].demo_id &&
-    !data[2][1].demo_id &&
-    !data[2][0].demo_id;
+    !data.sections[1][0].demo_id &&
+    !data.sections[1][1].demo_id &&
+    !data.sections[2][1].demo_id &&
+    !data.sections[2][0].demo_id;
   // If it's where is supposed to be, hide it.
-  if (data[2][1].demo_id === 'related') {
-    data[2][1] = { section_id: 3 };
+  if (data.sections[2][1].demo_id === 'related') {
+    data.sections[2][1] = { section_id: 3 };
     // If it's in the other column, we hide it.
-  } else if (data[1][1].demo_id === 'related') {
-    data[1][1] = { section_id: 2 };
+  } else if (data.sections[1][1].demo_id === 'related') {
+    data.sections[1][1] = { section_id: 2 };
     // If no block is present or we have only one column.
-  } else if (emptyOptional || data[1][0].demo_id === 'about_us') {
-    data[1][1] = related;
-    data[1][1].section_id = 2;
+  } else if (emptyOptional || data.sections[1][0].demo_id === 'about_us') {
+    data.sections[1][1] = related;
+    data.sections[1][1].section_id = 2;
     // We show it.
   } else {
-    data[2][1] = related;
-    data[2][1].section_id = 3;
+    data.sections[2][1] = related;
+    data.sections[2][1].section_id = 3;
   }
 };
 // Reset button.
 const resetBtnToggler = () => {
-  data = [...sections.sections];
-  data[1][0] = contactUs;
-  data[1][1] = followUs;
-  data[2][0] = aboutUs;
-  data[2][1] = related;
+  data.sections[1][0] = contactUs;
+  data.sections[1][1] = followUs;
+  data.sections[2][0] = aboutUs;
+  data.sections[2][1] = related;
+  data.sections[1][0].section_id = 2;
+  data.sections[1][1].section_id = 2;
+  data.sections[2][0].section_id = 3;
+  data.sections[2][1].section_id = 3;
 };
 // Prepare the knobs for group1
-const formatFooter = data => {
-  // Swap the columns when needed.
-  if (!data[1][0].title && !data[1][1].title) {
-    data[1][0] = data[2][0].title ? aboutUs : { section_id: 2 };
-    data[1][1] = data[2][1].title ? related : { section_id: 2 };
-    data[1][0].section_id = 2;
-    data[1][1].section_id = 2;
-    data[2] = [{ section_id: 3 }, { section_id: 3 }];
-  }
-  // Site name & content owner details.
-  data[0].title.link = {
-    label: text(
-      'sections[0].title.link.label',
-      data[0].title.link.label,
-      requiredGroupId
-    ),
-    path: text(
-      'sections[0].title.link.path',
-      data[0].title.link.path,
-      requiredGroupId
-    ),
-  };
-  data[0].description = text(
-    'sections[0].description',
-    data[0].description,
-    requiredGroupId
+const prepareFooterStandardised = data => {
+  button(
+    'With or without DG-related service navigation (contact us)',
+    serviceBtnToggler,
+    tabLabels.cases
   );
-  // Classes.
-  if (data[3].links) {
-    data[3].content_before = text(
-      'sections[3].content_before',
-      data[3].content_before,
-      optionalGroupId
-    );
-    data[3].list_class_name = text(
-      'sections[3].list_class_name',
-      data[3].list_class_name,
-      optionalGroupId
-    );
-    data[3].links.forEach((link, index) => {
-      data[3].links[index].link.label = text(
-        `sections[3].links[${index}].link.label`,
-        data[3].links[index].link.label,
-        optionalGroupId
-      );
-      data[3].links[index].link.path = text(
-        `sections[3].links[${index}].link.path`,
-        data[3].links[index].link.path,
-        optionalGroupId
-      );
-    });
+  button(
+    'With or without DG-related service navigation (Follow us)',
+    socialBtnToggler,
+    tabLabels.cases
+  );
+  button(
+    'With or without DG-related navigation (About us)',
+    aboutBtnToggler,
+    tabLabels.cases
+  );
+  button(
+    'With or without DG-related navigation (Related sites)',
+    relatedBtnToggler,
+    tabLabels.cases
+  );
+  button('Reset the layout', resetBtnToggler, tabLabels.cases);
+  // Swap the columns when needed.
+  if (!data.sections[1][0].title && !data.sections[1][1].title) {
+    data.sections[1][0] = data.sections[2][0].title
+      ? aboutUs
+      : { section_id: 2 };
+    data.sections[1][1] = data.sections[2][1].title
+      ? related
+      : { section_id: 2 };
+    data.sections[1][0].section_id = 2;
+    data.sections[1][1].section_id = 2;
+    data.sections[2][0] = { section_id: 3 };
+    data.sections[2][1] = { section_id: 3 };
   }
-  // Corporate name.
-  data[4].title.link = {
-    label: text(
-      'sections[4].title.link.label',
-      data[4].title.link.label,
-      requiredGroupId
-    ),
-    path: text(
-      'sections[4].title.link.path',
-      data[4].title.link.path,
-      requiredGroupId
-    ),
-  };
-  // Service navigation.
-  data[5].links.forEach((link, index) => {
-    data[5].links[index].link.label = text(
-      `sections[5].links[${index}].link.label`,
-      data[5].links[index].link.label,
-      requiredGroupId
-    );
-    data[5].links[index].link.path = text(
-      `sections[5].links[${index}].link.path`,
-      data[5].links[index].link.path,
-      requiredGroupId
-    );
-  });
-  // Legal navigation.
-  data[6].links.forEach((link, index) => {
-    data[6].links[index].link.label = text(
-      `sections[6].links[${index}].link.label`,
-      data[6].links[index].link.label,
-      requiredGroupId
-    );
-    data[6].links[index].link.path = text(
-      `sections[6].links[${index}].link.path`,
-      data[6].links[index].link.path,
-      requiredGroupId
-    );
+
+  data.sections.forEach((section, i) => {
+    if (!Array.isArray(section)) {
+      if (section.title && section.title.link) {
+        section.title.link = {
+          label: text(
+            `sections[${i}].title.link.label`,
+            section.title.link.label,
+            tabLabels.required
+          ),
+          path: text(
+            `sections[${i}].title.link.path`,
+            section.title.link.path,
+            tabLabels.required
+          ),
+        };
+      }
+      // Site name & content owner details.
+      if (section.description) {
+        section.description = text(
+          `sections[${i}].description`,
+          section.description,
+          tabLabels.required
+        );
+      }
+      if (section.content_before) {
+        section.content_before = text(
+          `sections[${i}].content_before`,
+          section.content_before,
+          tabLabels.required
+        );
+      }
+      if (section.list_class_name) {
+        section.list_class_name = text(
+          `sections[${i}].list_class_name`,
+          section.list_class_name,
+          tabLabels.required
+        );
+      }
+      if (section.links) {
+        section.links.forEach((linkItem, j) => {
+          linkItem.link.label = text(
+            `sections[${i}].links[${j}].link.label`,
+            linkItem.link.label,
+            tabLabels.required
+          );
+          linkItem.link.path = text(
+            `sections[${i}].links[${j}].link.path`,
+            linkItem.link.path,
+            tabLabels.required
+          );
+          if (linkItem.icon) {
+            linkItem.icon.name = text(
+              `sections[${i}].links[${j}].icon.name`,
+              linkItem.icon.name,
+              tabLabels.required
+            );
+            linkItem.icon.path = text(
+              `sections[${i}].links[${j}].icon.path`,
+              defaultSprite,
+              tabLabels.required
+            );
+            linkItem.icon.size = text(
+              `sections[${i}].links[${j}].icon.size`,
+              linkItem.icon.size,
+              tabLabels.required
+            );
+          }
+        });
+      }
+    } else {
+      section.forEach((sectionItem, j) => {
+        if (sectionItem.content_before) {
+          sectionItem.content_before = text(
+            `sections[${i}][${j}].content_before`,
+            sectionItem.content_before,
+            tabLabels.optional
+          );
+        }
+        if (sectionItem.list_class_name) {
+          sectionItem.list_class_name = text(
+            `sections[${i}][${j}].list_class_name`,
+            sectionItem.list_class_name,
+            tabLabels.optional
+          );
+        }
+        if (sectionItem.links) {
+          sectionItem.title = text(
+            `sections[${i}][${j}].title`,
+            sectionItem.title,
+            tabLabels.optional
+          );
+          sectionItem.links.forEach((linkItem, k) => {
+            linkItem.link.label = text(
+              `sections[${i}][${j}].links[${k}].link.label`,
+              linkItem.link.label,
+              tabLabels.optional
+            );
+            linkItem.link.path = text(
+              `sections[${i}][${j}].links[${k}].link.path`,
+              linkItem.link.path,
+              tabLabels.optional
+            );
+            if (linkItem.icon) {
+              linkItem.icon.name = text(
+                `sections[${i}][${j}].links[${k}].icon.name`,
+                linkItem.icon.name,
+                tabLabels.optional
+              );
+              linkItem.icon.path = text(
+                `sections[${i}][${j}].links[${k}].icon.path`,
+                defaultSprite,
+                tabLabels.optional
+              );
+              linkItem.icon.size = text(
+                `sections[${i}][${j}].links[${k}].icon.size`,
+                linkItem.icon.size,
+                tabLabels.optional
+              );
+            }
+          });
+        }
+      });
+    }
   });
 
+  getExtraKnobs(data);
+  getComplianceKnob(data);
   // Return the full specs.
   return data;
 };
@@ -245,35 +318,6 @@ storiesOf('Components/Footers/Standardised', module)
   .addDecorator(withCode)
   .addDecorator(withNotes)
   .addDecorator(withKnobs)
-  .add(
-    'default',
-    () => {
-      button('With or without class names', classBtnToggler, useCasesGroup);
-      button(
-        'With or without DG-related service navigation (contact us)',
-        serviceBtnToggler,
-        useCasesGroup
-      );
-      button(
-        'With or without DG-related service navigation (Follow us)',
-        socialBtnToggler,
-        useCasesGroup
-      );
-      button(
-        'With or without DG-related navigation (About us)',
-        aboutBtnToggler,
-        useCasesGroup
-      );
-      button(
-        'With or without DG-related navigation (Related sites)',
-        relatedBtnToggler,
-        useCasesGroup
-      );
-      button('Reset the layout', resetBtnToggler, useCasesGroup);
-
-      return footerStandardised({ sections: formatFooter(data) });
-    },
-    {
-      notes: { markdown: notes, json: data },
-    }
-  );
+  .add('default', () => footerStandardised(prepareFooterStandardised(data)), {
+    notes: { markdown: notes, json: data },
+  });

@@ -37,7 +37,8 @@
           "name" (string) (default: ''),
           "value" (optional) (string)
         ...
-      ]
+      ],
+    - "_compliance_" (boolean) (default: false) Activates debug
 
 #}
 
@@ -47,6 +48,7 @@
 {% set _language_selector = language_selector|default({}) %}
 {% set _icon_file_path = icon_file_path|default('') %}
 {% set _auto_init = auto_init|default(true) %}
+{% set _compliance = _compliance_|default(false) %}
 
 {% set _search_form = {
   text_input: {
@@ -65,7 +67,8 @@
     label: search_form.button.label|default('Search'),
     extra_classes: 'ecl-search-form__button'
   },
-  extra_classes: 'ecl-site-header__search'
+  extra_classes: 'ecl-site-header__search',
+  _compliance_: _compliance
 }
 %}
 
@@ -141,7 +144,8 @@
                 path: _icon_file_path,
                 type: 'general',
                 name: 'language'
-              }
+              },
+              _compliance_: _compliance
             } only %}
             <span class="ecl-site-header__language-code">{{ _language_selector.code }}</span>
           </span>
@@ -156,7 +160,8 @@
             { name: 'aria-labelledby', value: 'ecl-language-list__title' },
             { name: 'role', value: 'dialog' },
             { name: 'hidden' }
-          ]
+          ],
+          _compliance_: _compliance
         } %}
       </div>
     </div>
@@ -165,4 +170,13 @@
   </div>
 </header>
 
+{# Validation #}
+
+{% if _compliance %}
+  {% include '@ecl-twig/ec-component-ecl-compliance/components/ecl-compliance-site-header.html.twig' with {
+    logo: _logo,
+    language_selector: _language_selector,
+    icon_file_path: _icon_file_path
+  } only %}
+{% endif %}
 {% endspaceless %}
