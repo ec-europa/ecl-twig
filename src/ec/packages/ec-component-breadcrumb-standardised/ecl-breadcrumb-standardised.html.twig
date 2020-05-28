@@ -18,7 +18,9 @@
           "name" (string) (default: ''),
           "value" (optional) (string)
         ...
-      ]
+      ],
+    - **"_compliance_"** (boolean) (default: false) - Activates debug
+
 #}
 
 {# Internal properties #}
@@ -35,6 +37,7 @@
   { name: 'aria-label', value: _navigation_text },
   { name: 'data-ecl-breadcrumb-standardised', value: 'true' }]
 %}
+{% set _compliance = _compliance_|default(false) %}
 {% set _breadcrumb_icon = {
   icon: {
     type: 'ui',
@@ -53,6 +56,10 @@
 
 {% if _breadcrumb_size > (_min_items_left + _min_items_right) %}
   {% set _nav_attributes = _nav_attributes|merge([{ name: 'data-ecl-auto-init', value: 'BreadcrumbStandardised' }]) %}
+{% endif %}
+
+{% if _compliance %}
+  {% set _breadcrumb_icon = _breadcrumb_icon|merge({ '_compliance_': true }) %}
 {% endif %}
 
 {% if extra_classes is defined and extra_classes is not empty %}
@@ -113,7 +120,8 @@
             link: link|default({})|merge({
               type: 'standalone'
             }),
-            extra_classes: 'ecl-breadcrumb-standardised__link'
+            extra_classes: 'ecl-breadcrumb-standardised__link',
+             _compliance_: _compliance
           } only %}
           {% include '@ecl-twig/ec-component-icon/ecl-icon.html.twig' with _breadcrumb_icon only %}
         </li>
@@ -121,5 +129,16 @@
     {% endfor %}
   </ol>
 </nav>
+
+{# Validation #}
+
+{% if _compliance %}
+  {% include '@ecl-twig/ec-component-ecl-compliance/components/ecl-compliance-breadcrumb.html.twig' with {
+    navigation_text: _navigation_text,
+    ellipsis_label: _ellipsis_label,
+    icon_file_path: icon_file_path,
+    variant: 'standardised'
+  } only %}
+{% endif %}
 
 {% endspaceless %}

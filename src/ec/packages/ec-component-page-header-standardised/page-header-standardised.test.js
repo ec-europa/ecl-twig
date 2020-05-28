@@ -43,6 +43,15 @@ describe('EC - Page Header Standardised', () => {
 
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
     });
+
+    test('with missing input data and debug enabled it returns the right warning messages', () => {
+      expect.assertions(1);
+
+      const dataCompliance = { ...demoTitleContent, _compliance_: true };
+      dataCompliance.title = '';
+
+      return expect(render(dataCompliance)).resolves.toMatchSnapshot();
+    });
   });
 
   describe('meta-title', () => {

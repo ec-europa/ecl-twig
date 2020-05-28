@@ -1,8 +1,12 @@
-/* eslint-disable no-param-reassign */
 import { storiesOf } from '@storybook/html';
 import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
-import { getExtraKnobs, tabLabels, getFormKnobs } from '@ecl-twig/story-utils';
+import {
+  getExtraKnobs,
+  tabLabels,
+  getFormKnobs,
+  getComplianceKnob,
+} from '@ecl-twig/story-utils';
 import withCode from '@ecl-twig/storybook-addon-code';
 
 // Import data for tests
@@ -19,9 +23,8 @@ const prepareFileUpload = data => {
     data.multiple = boolean('multiple', data.multiple, tabLabels.required);
   }
   data.id = select('id', [data.id], data.id, tabLabels.required);
-  data.name = text('name', data.name, tabLabels.required);
   data.label = text('label', data.label, tabLabels.required);
-
+  data.name = text('name', data.name, tabLabels.optional);
   data.button_choose_label = text(
     'button_choose_label',
     data.button_choose_label,
@@ -34,6 +37,7 @@ const prepareFileUpload = data => {
   );
 
   getExtraKnobs(data);
+  getComplianceKnob(data);
 
   return data;
 };

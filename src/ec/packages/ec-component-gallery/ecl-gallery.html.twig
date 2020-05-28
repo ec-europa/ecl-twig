@@ -31,6 +31,8 @@
 {% set _items = items|default([]) %}
 {% set _selected_item_id = selected_item_id|default(0) %}
 {% set _extra_attributes = 'data-ecl-auto-init="Gallery"' %}
+{% set _overlay_class = '' %}
+{% set _overlay_attrs = [] %}
 
 {# Internal logic - Process properties #}
 
@@ -53,8 +55,14 @@
 <section class="{{ _css_class }}" {{ _extra_attributes|raw }} data-ecl-gallery>
   <ul class="ecl-gallery__list">
     {% for _item in _items %}
-      {% set _item_class = _item.extra_classes ? _item.extra_classes : '' %}
-      {% set _item_attrs = _item.extra_attributes ? _item.extra_attributes : '' %}
+      {% set _item_class = '' %}
+      {% set _item_attrs = [] %}
+      {% if _item.extra_classes is defined and _item.extra_classes is not empty %}
+        {% set _item_class = _item.extra_classes %}
+      {% endif %}
+      {% if _item.extra_attributes is defined and _item.extra_attributes is not empty %}
+        {% set _item_attrs = _item.extra_attributes %}
+      {% endif %}
       {% include '@ecl-twig/ec-component-gallery/ecl-gallery-item.html.twig' with {
         item: _item,
         extra_attributes: _item_attrs,
@@ -64,11 +72,15 @@
   </ul>
 
   {% set _selected_item = {} %}
-  {% if _items[_selected_item_id] is not empty %}
+  {% if _items[_selected_item_id] is defined and _items[_selected_item_id] is not empty %}
     {% set _selected_item = _items[_selected_item_id] %}
   {% endif %}
-  {% set _overlay_class = overlay.extra_classes ? overlay.extra_classes : '' %}
-  {% set _overlay_attrs = overlay.extra_attributes ? overlay.extra_attributes : '' %}
+  {% if overlay.extra_classes is defined and overlay.extra_classes is not empty %}
+    {% set _overlay_class = overlay.extra_classes %}
+  {% endif %}
+  {% if overlay.extra_attributes is defined and overlay.extra_attributes is not empty %}
+    {% set _overlay_attrs = overlay.extra_attributes %}
+  {% endif %}
   {% include '@ecl-twig/ec-component-gallery/ecl-gallery-overlay.html.twig' with {
     overlay: _overlay,
     extra_attributes: _overlay_attrs,

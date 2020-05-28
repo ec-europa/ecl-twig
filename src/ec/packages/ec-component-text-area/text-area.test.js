@@ -79,6 +79,15 @@ describe('EC - Text area', () => {
 
       return expect(render(optionsWithExtraClasses)).resolves.toMatchSnapshot();
     });
+
+    test('with missing input data and debug enabled returns the right warning message', () => {
+      expect.assertions(1);
+
+      const dataCompliance = { ...dataDefault, _compliance_: true };
+      dataCompliance.label = '';
+
+      return expect(render(dataCompliance)).resolves.toMatchSnapshot();
+    });
   });
 
   describe('Disabled', () => {
@@ -162,6 +171,15 @@ describe('EC - Text area', () => {
       });
 
       return expect(render(optionsWithExtraClasses)).resolves.toMatchSnapshot();
+    });
+
+    test('with missing input data and debug enabled returns the right warning message', () => {
+      expect.assertions(1);
+
+      const dataCompliance = { ...dataError, _compliance_: true };
+      dataCompliance.invalid_text = '';
+
+      return expect(render(dataCompliance)).resolves.toMatchSnapshot();
     });
   });
 });

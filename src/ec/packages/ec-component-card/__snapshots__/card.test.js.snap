@@ -365,6 +365,223 @@ exports[`EC - Card Default renders correctly with extra class names 1`] = `
 </test>
 `;
 
+exports[`EC - Card Default with validation enabled and missing input data returns the right warning message 1`] = `
+<test>
+  <article
+    class="ecl-card"
+  >
+    <header
+      class="ecl-card__header"
+    >
+      <div
+        aria-label="card image"
+        class="ecl-card__image"
+        role="img"
+        style="background-image:url('https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg')"
+      />
+      <div
+        class="ecl-card__meta"
+      >
+        Meta1 | Meta2
+      </div>
+      <h1
+        class="ecl-card__title"
+      >
+        <a
+          class="ecl-link ecl-link--standalone"
+          href="/example"
+        />
+        <!-- ################################################################################################################
+    ecl2-compliance -->
+        <div
+          class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-red ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+        >
+          <p
+            class="ecl-u-type-color-grey ecl-u-ml-m ecl-u-type-xs"
+          >
+            <b>
+              [link--standalone]
+            </b>
+             link.label and none of link.icon_position, icon.name, icon.path or icon.type cannot be empty at the same time, an unusable link tag would be generated otherwise
+          </p>
+        </div>
+      </h1>
+    </header>
+    <div
+      class="ecl-card__body"
+    >
+      <div
+        class="ecl-card__description"
+      >
+        Transparently designing and evaluating evidence-based EU legislation, backed by citizens views.
+      </div>
+    </div>
+    <footer
+      class="ecl-card__footer"
+    >
+      <ul
+        class="ecl-card__info-container"
+      >
+        <li
+          class="ecl-card__info-item"
+        >
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--xs"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#general--calendar"
+            />
+          </svg>
+          <!-- ################################################################################################################
+    ecl2-compliance -->
+          <div
+            class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+          >
+            <p
+              class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+            >
+              <b>
+                [icon]
+              </b>
+               - ecl compliant.
+            </p>
+          </div>
+          <span
+            class="ecl-card__info-label"
+          >
+            2018/10/22
+          </span>
+        </li>
+        <li
+          class="ecl-card__info-item"
+        >
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--xs"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#general--location"
+            />
+          </svg>
+          <!-- ################################################################################################################
+    ecl2-compliance -->
+          <div
+            class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+          >
+            <p
+              class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+            >
+              <b>
+                [icon]
+              </b>
+               - ecl compliant.
+            </p>
+          </div>
+          <span
+            class="ecl-card__info-label"
+          >
+            Luxembourg
+          </span>
+        </li>
+      </ul>
+      <ul
+        class="ecl-card__tag-container"
+      >
+        <li
+          class="ecl-card__tag-item"
+        >
+          <a
+            class="ecl-tag ecl-card__tag"
+            href="/example"
+          >
+            tag 1
+          </a>
+          <!-- ################################################################################################################
+    ecl2-compliance -->
+          <div
+            class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+          >
+            <p
+              class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+            >
+              <b>
+                [tag--link]
+              </b>
+               - ecl compliant.
+            </p>
+          </div>
+        </li>
+        <li
+          class="ecl-card__tag-item"
+        >
+          <a
+            class="ecl-tag ecl-card__tag"
+            href="/example"
+          >
+            tag 2
+          </a>
+          <!-- ################################################################################################################
+    ecl2-compliance -->
+          <div
+            class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+          >
+            <p
+              class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+            >
+              <b>
+                [tag--link]
+              </b>
+               - ecl compliant.
+            </p>
+          </div>
+        </li>
+        <li
+          class="ecl-card__tag-item"
+        >
+          <a
+            class="ecl-tag ecl-card__tag"
+            href="/example"
+          >
+            tag 3
+          </a>
+          <!-- ################################################################################################################
+    ecl2-compliance -->
+          <div
+            class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+          >
+            <p
+              class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+            >
+              <b>
+                [tag--link]
+              </b>
+               - ecl compliant.
+            </p>
+          </div>
+        </li>
+      </ul>
+    </footer>
+  </article>
+  <!-- ################################################################################################################
+    ecl2-compliance -->
+  <div
+    class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-red ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+  >
+    <p
+      class="ecl-u-type-color-grey ecl-u-ml-m ecl-u-type-xs"
+    >
+      <b>
+        [card]
+      </b>
+        "card.title.label" is mandatory.
+    </p>
+  </div>
+</test>
+`;
+
 exports[`EC - Card Events renders correctly 1`] = `
 <test>
   <article

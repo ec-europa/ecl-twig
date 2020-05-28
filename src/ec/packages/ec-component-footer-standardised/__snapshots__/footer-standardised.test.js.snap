@@ -1150,3 +1150,632 @@ exports[`EC - Footer Standardised default renders correctly with extra class nam
   </footer>
 </test>
 `;
+
+exports[`EC - Footer Standardised default with missing input data and debug enabled it returns the right warning messages 1`] = `
+<test>
+  <footer
+    class="ecl-footer-standardised"
+  >
+    <div
+      class="ecl-container ecl-footer-standardised__container"
+    >
+      <section
+        class="ecl-footer-standardised__section ecl-footer-standardised__section1"
+      >
+        <a
+          class="ecl-link ecl-link--standalone ecl-footer-standardised__title"
+          href=""
+        >
+          Site name
+        </a>
+        <!-- ################################################################################################################
+    ecl2-compliance -->
+        <div
+          class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+        >
+          <p
+            class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+          >
+            <b>
+              [link--standalone]
+            </b>
+             - ecl compliant.
+          </p>
+        </div>
+      </section>
+      <div
+        class="ecl-footer-standardised__section2"
+      >
+        <section
+          class="ecl-footer-standardised__section"
+        >
+          <div
+            class="ecl-footer-standardised__title ecl-footer-standardised__title--separator"
+          >
+            Contact us
+          </div>
+          <ul
+            class="ecl-footer-standardised__list"
+          >
+            <li
+              class="ecl-footer-standardised__list-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+                href="/example"
+              >
+                Contact information of the DG
+              </a>
+              <!-- ################################################################################################################
+    ecl2-compliance -->
+              <div
+                class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+              >
+                <p
+                  class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                >
+                  <b>
+                    [link--standalone]
+                  </b>
+                   - ecl compliant.
+                </p>
+              </div>
+            </li>
+          </ul>
+        </section>
+        <section
+          class="ecl-footer-standardised__section"
+        >
+          <div
+            class="ecl-footer-standardised__title ecl-footer-standardised__title--separator"
+          >
+            Follow us on
+          </div>
+          <ul
+            class="ecl-footer-standardised__list ecl-footer-standardised__list--inline"
+          >
+            <li
+              class="ecl-footer-standardised__list-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-before ecl-footer-standardised__link"
+                href="/example"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--xs ecl-link__icon"
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#branded--facebook"
+                  />
+                </svg>
+                <!-- ################################################################################################################
+    ecl2-compliance -->
+                <div
+                  class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+                >
+                  <p
+                    class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                  >
+                    <b>
+                      [icon]
+                    </b>
+                     - ecl compliant.
+                  </p>
+                </div>
+                 
+                <span
+                  class="ecl-link__label"
+                >
+                  Facebook
+                </span>
+              </a>
+              <!-- ################################################################################################################
+    ecl2-compliance -->
+              <div
+                class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+              >
+                <p
+                  class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                >
+                  <b>
+                    [link--standalone]
+                  </b>
+                   - ecl compliant.
+                </p>
+              </div>
+            </li>
+            <li
+              class="ecl-footer-standardised__list-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-before ecl-footer-standardised__link"
+                href="/example"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--xs ecl-link__icon"
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#branded--twitter"
+                  />
+                </svg>
+                <!-- ################################################################################################################
+    ecl2-compliance -->
+                <div
+                  class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+                >
+                  <p
+                    class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                  >
+                    <b>
+                      [icon]
+                    </b>
+                     - ecl compliant.
+                  </p>
+                </div>
+                 
+                <span
+                  class="ecl-link__label"
+                >
+                  Twitter
+                </span>
+              </a>
+              <!-- ################################################################################################################
+    ecl2-compliance -->
+              <div
+                class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+              >
+                <p
+                  class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                >
+                  <b>
+                    [link--standalone]
+                  </b>
+                   - ecl compliant.
+                </p>
+              </div>
+            </li>
+            <li
+              class="ecl-footer-standardised__list-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-before ecl-footer-standardised__link"
+                href="/example"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--xs ecl-link__icon"
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#branded--linkedin"
+                  />
+                </svg>
+                <!-- ################################################################################################################
+    ecl2-compliance -->
+                <div
+                  class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+                >
+                  <p
+                    class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                  >
+                    <b>
+                      [icon]
+                    </b>
+                     - ecl compliant.
+                  </p>
+                </div>
+                 
+                <span
+                  class="ecl-link__label"
+                >
+                  Linkedin
+                </span>
+              </a>
+              <!-- ################################################################################################################
+    ecl2-compliance -->
+              <div
+                class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+              >
+                <p
+                  class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                >
+                  <b>
+                    [link--standalone]
+                  </b>
+                   - ecl compliant.
+                </p>
+              </div>
+            </li>
+          </ul>
+        </section>
+      </div>
+      <div
+        class="ecl-footer-standardised__section3"
+      >
+        <section
+          class="ecl-footer-standardised__section"
+        >
+          <div
+            class="ecl-footer-standardised__title ecl-footer-standardised__title--separator"
+          >
+            About us
+          </div>
+          <ul
+            class="ecl-footer-standardised__list"
+          >
+            <li
+              class="ecl-footer-standardised__list-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+                href="/example"
+              >
+                Information about the DG
+              </a>
+              <!-- ################################################################################################################
+    ecl2-compliance -->
+              <div
+                class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+              >
+                <p
+                  class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                >
+                  <b>
+                    [link--standalone]
+                  </b>
+                   - ecl compliant.
+                </p>
+              </div>
+            </li>
+          </ul>
+        </section>
+        <section
+          class="ecl-footer-standardised__section"
+        >
+          <div
+            class="ecl-footer-standardised__title ecl-footer-standardised__title--separator"
+          >
+            Related sites
+          </div>
+          <ul
+            class="ecl-footer-standardised__list"
+          >
+            <li
+              class="ecl-footer-standardised__list-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+                href="/example"
+              >
+                Related link 1
+              </a>
+              <!-- ################################################################################################################
+    ecl2-compliance -->
+              <div
+                class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+              >
+                <p
+                  class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                >
+                  <b>
+                    [link--standalone]
+                  </b>
+                   - ecl compliant.
+                </p>
+              </div>
+            </li>
+            <li
+              class="ecl-footer-standardised__list-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+                href="/example"
+              >
+                Related link 2
+              </a>
+              <!-- ################################################################################################################
+    ecl2-compliance -->
+              <div
+                class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+              >
+                <p
+                  class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                >
+                  <b>
+                    [link--standalone]
+                  </b>
+                   - ecl compliant.
+                </p>
+              </div>
+            </li>
+            <li
+              class="ecl-footer-standardised__list-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+                href="/example"
+              >
+                Related link 3
+              </a>
+              <!-- ################################################################################################################
+    ecl2-compliance -->
+              <div
+                class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+              >
+                <p
+                  class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                >
+                  <b>
+                    [link--standalone]
+                  </b>
+                   - ecl compliant.
+                </p>
+              </div>
+            </li>
+            <li
+              class="ecl-footer-standardised__list-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+                href="/example"
+              >
+                Related link 4
+              </a>
+              <!-- ################################################################################################################
+    ecl2-compliance -->
+              <div
+                class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+              >
+                <p
+                  class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                >
+                  <b>
+                    [link--standalone]
+                  </b>
+                   - ecl compliant.
+                </p>
+              </div>
+            </li>
+            <li
+              class="ecl-footer-standardised__list-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+                href="/example"
+              >
+                Related link 5
+              </a>
+              <!-- ################################################################################################################
+    ecl2-compliance -->
+              <div
+                class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+              >
+                <p
+                  class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                >
+                  <b>
+                    [link--standalone]
+                  </b>
+                   - ecl compliant.
+                </p>
+              </div>
+            </li>
+          </ul>
+        </section>
+      </div>
+      <section
+        class="ecl-footer-standardised__section ecl-footer-standardised__section6"
+      >
+        <div
+          class="ecl-footer-standardised__content"
+        >
+          More information on:
+        </div>
+        <ul
+          class="ecl-footer-standardised__list ecl-footer-standardised__list--condensed"
+        >
+          <li
+            class="ecl-footer-standardised__list-item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+              href="/example"
+            >
+              Class name 1
+            </a>
+            <!-- ################################################################################################################
+    ecl2-compliance -->
+            <div
+              class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+            >
+              <p
+                class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+              >
+                <b>
+                  [link--standalone]
+                </b>
+                 - ecl compliant.
+              </p>
+            </div>
+          </li>
+          <li
+            class="ecl-footer-standardised__list-item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+              href="/example"
+            >
+              Class name 2
+            </a>
+            <!-- ################################################################################################################
+    ecl2-compliance -->
+            <div
+              class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+            >
+              <p
+                class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+              >
+                <b>
+                  [link--standalone]
+                </b>
+                 - ecl compliant.
+              </p>
+            </div>
+          </li>
+        </ul>
+      </section>
+      <section
+        class="ecl-footer-standardised__section ecl-footer-standardised__section7"
+      >
+        <a
+          class="ecl-link ecl-link--standalone ecl-footer-standardised__title"
+          href="https://ec.europa.eu/info/index_en"
+        />
+        <!-- ################################################################################################################
+    ecl2-compliance -->
+        <div
+          class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-red ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+        >
+          <p
+            class="ecl-u-type-color-grey ecl-u-ml-m ecl-u-type-xs"
+          >
+            <b>
+              [link--standalone]
+            </b>
+             link.label and none of link.icon_position, icon.name, icon.path or icon.type cannot be empty at the same time, an unusable link tag would be generated otherwise
+          </p>
+        </div>
+      </section>
+      <section
+        class="ecl-footer-standardised__section ecl-footer-standardised__section8"
+      >
+        <ul
+          class="ecl-footer-standardised__list"
+        >
+          <li
+            class="ecl-footer-standardised__list-item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+              href="/example"
+            >
+              Contact the European Commission
+            </a>
+            <!-- ################################################################################################################
+    ecl2-compliance -->
+            <div
+              class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+            >
+              <p
+                class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+              >
+                <b>
+                  [link--standalone]
+                </b>
+                 - ecl compliant.
+              </p>
+            </div>
+          </li>
+          <li
+            class="ecl-footer-standardised__list-item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-footer-standardised__link"
+              href="/example"
+            >
+              <span
+                class="ecl-link__label"
+              >
+                Follow the European Commission on social media
+              </span>
+               
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--xs ecl-link__icon"
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#ui--external"
+                />
+              </svg>
+              <!-- ################################################################################################################
+    ecl2-compliance -->
+              <div
+                class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+              >
+                <p
+                  class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                >
+                  <b>
+                    [icon]
+                  </b>
+                   - ecl compliant.
+                </p>
+              </div>
+            </a>
+            <!-- ################################################################################################################
+    ecl2-compliance -->
+            <div
+              class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+            >
+              <p
+                class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+              >
+                <b>
+                  [link--standalone]
+                </b>
+                 - ecl compliant.
+              </p>
+            </div>
+          </li>
+          <li
+            class="ecl-footer-standardised__list-item"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-footer-standardised__link"
+              href="/example"
+            >
+              Resources for partners
+            </a>
+            <!-- ################################################################################################################
+    ecl2-compliance -->
+            <div
+              class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+            >
+              <p
+                class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+              >
+                <b>
+                  [link--standalone]
+                </b>
+                 - ecl compliant.
+              </p>
+            </div>
+          </li>
+        </ul>
+      </section>
+      <section
+        class="ecl-footer-standardised__section ecl-footer-standardised__section9"
+      />
+    </div>
+  </footer>
+  <!-- ################################################################################################################
+    ecl2-compliance -->
+  <div
+    class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-red ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+  >
+    <p
+      class="ecl-u-type-color-grey ecl-u-ml-m ecl-u-type-xs"
+    >
+      <b>
+        [footer-standardised]
+      </b>
+        "sections[0].title.link.label" and "sections[0].title.link.path" properties need to be set and filled in as they represent the mandatory "site name" section. "sections[0].description" is mandatory as it represents the mandatory "content owner" section. We could not identify the "legal navigation" section, which is mandatory. The "sections[4].title.link.label" and "sections[4].title.link.path" needs to be set and filled in as they represent the mandatory "corporate name" section.
+    </p>
+  </div>
+</test>
+`;

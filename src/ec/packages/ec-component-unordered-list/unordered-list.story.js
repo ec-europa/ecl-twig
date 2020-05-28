@@ -1,8 +1,11 @@
-/* eslint-disable no-param-reassign */
 import { storiesOf } from '@storybook/html';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import { withKnobs, select, text } from '@storybook/addon-knobs';
-import { getExtraKnobs, tabLabels } from '@ecl-twig/story-utils';
+import {
+  getExtraKnobs,
+  tabLabels,
+  getComplianceKnob,
+} from '@ecl-twig/story-utils';
 import he from 'he';
 import withCode from '@ecl-twig/storybook-addon-code';
 
@@ -38,6 +41,7 @@ const prepareUnorderedList = data => {
   });
 
   getExtraKnobs(data);
+  getComplianceKnob(data);
 
   return data;
 };

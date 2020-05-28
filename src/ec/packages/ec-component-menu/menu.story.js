@@ -1,9 +1,12 @@
-/* eslint-disable no-param-reassign */
 import { storiesOf } from '@storybook/html';
-import { withKnobs, select, text, object } from '@storybook/addon-knobs';
+import { withKnobs, select, text } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
-import { getExtraKnobs, tabLabels } from '@ecl-twig/story-utils';
+import {
+  getExtraKnobs,
+  tabLabels,
+  getComplianceKnob,
+} from '@ecl-twig/story-utils';
 
 import iconPath from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import enData from './demo/data--en';
@@ -22,9 +25,28 @@ const prepareMenu = data => {
     tabLabels.required
   );
 
-  getExtraKnobs(data);
+  data.items.forEach((item, i) => {
+    item.label = text(`items[${i}].label`, item.label, tabLabels.required);
+    item.path = text(`items[${i}].path`, item.path, tabLabels.required);
 
-  data.items = object('items', data.items, tabLabels.optional);
+    if (item.children) {
+      item.children.forEach((subitem, j) => {
+        subitem.label = text(
+          `items[${i}].children[${j}].label`,
+          subitem.label,
+          tabLabels.optional
+        );
+        subitem.path = text(
+          `items[${i}].children[${j}].path`,
+          subitem.path,
+          tabLabels.optional
+        );
+      });
+    }
+  });
+
+  getExtraKnobs(data);
+  getComplianceKnob(data);
 
   return data;
 };

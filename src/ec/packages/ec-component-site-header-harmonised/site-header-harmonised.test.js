@@ -37,6 +37,20 @@ describe('EC - Site Header Harmonised', () => {
 
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
     });
+
+    test('with missing input data and debug enabled returns the right warning message', () => {
+      expect.assertions(1);
+
+      const dataCompliance = { ...dataGroup1, _compliance_: true };
+      dataCompliance.icon_file_path = '';
+      dataCompliance.banner_top = '';
+      dataCompliance.logo.alt = '';
+      dataCompliance.language_selector.code = '';
+      dataCompliance.search_form.button.label = '';
+      dataCompliance.login_toggle.label_not_logged = '';
+
+      return expect(render(dataCompliance)).resolves.toMatchSnapshot();
+    });
   });
 
   describe('Group 2', () => {
@@ -67,6 +81,15 @@ describe('EC - Site Header Harmonised', () => {
 
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
     });
+
+    test('with missing input data and debug enabled returns the right warning message', () => {
+      expect.assertions(1);
+
+      const dataCompliance = { ...dataGroup2, _compliance_: true };
+      dataCompliance.logo.src = '';
+
+      return expect(render(dataCompliance)).resolves.toMatchSnapshot();
+    });
   });
 
   describe('Group 3', () => {
@@ -84,17 +107,27 @@ describe('EC - Site Header Harmonised', () => {
 
       return expect(render(withExtraClasses)).resolves.toMatchSnapshot();
     });
-  });
 
-  test('renders correctly with extra attributes', () => {
-    expect.assertions(1);
-    const withExtraAttributes = merge(dataGroup3, {
-      extra_attributes: [
-        { name: 'data-test', value: 'data-test-value' },
-        { name: 'data-test-1', value: 'data-test-value-1' },
-      ],
+    test('renders correctly with extra attributes', () => {
+      expect.assertions(1);
+
+      const withExtraAttributes = merge(dataGroup3, {
+        extra_attributes: [
+          { name: 'data-test', value: 'data-test-value' },
+          { name: 'data-test-1', value: 'data-test-value-1' },
+        ],
+      });
+
+      return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
     });
 
-    return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
+    test('with missing input data and debug enabled returns the right warning message', () => {
+      expect.assertions(1);
+
+      const dataCompliance = { ...dataGroup3, _compliance_: true };
+      dataCompliance.site_name = '';
+
+      return expect(render(dataCompliance)).resolves.toMatchSnapshot();
+    });
   });
 });

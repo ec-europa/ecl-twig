@@ -14,6 +14,7 @@ npm install --save @ecl-twig/ec-component-language-list
   - "path" (string) (default: '')
   - "active" (boolean) (default: false)
 - **"overlay"** (boolean) (default: false)
+- **"data_lang_overlay"** (string) (default: '')
 - **"icon_path"** (string) (default: ''): file containing the svg icons
 - **"close_label"** (string) (default: ''): label of close button
 - **"title"** (string) (default: ''): title of the page
@@ -21,6 +22,7 @@ npm install --save @ecl-twig/ec-component-language-list
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
+- **"_compliance_"**: (boolean) (default: false) Activates debug
 
 ### Example for overlay:
 
