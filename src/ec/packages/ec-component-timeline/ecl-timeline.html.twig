@@ -16,7 +16,8 @@ Parameters:
   - "extra_classes" (string) (default: '')
   - "extra_attributes" (array) (default: []): format:
     - "name" (string) (default: '')
-    - "value" (optional) (string)
+    - "value" (optional) (string),
+  - "_compliance_" (boolean) (default: false) Activates debug
 #}
 
 {# Internal properties #}
@@ -99,11 +100,25 @@ Parameters:
               {name: 'data-ecl-label-collapsed', value: _toggle_collapsed},
               {name: 'data-ecl-label-expanded', value: _toggle_expanded},
             ],
+            _compliance_: _compliance
           } only %}
         </li>
       {% endif %}
     {% endfor %}
   {% endif %}
 </ol>
+
+{# Validation #}
+
+{% if _compliance_ %}
+  {% include '@ecl-twig/ec-component-ecl-compliance/components/ecl-compliance-timeline.html.twig' with {
+    items: _items,
+    icon_path: _icon_path,
+    toggle_collapsed: _toggle_collapsed,
+    toggle_expanded: _toggle_expanded,
+    hide_from: _hide_from,
+    hide_to: _hide_to
+  } only %}
+{% endif %}
 
 {% endspaceless %}
