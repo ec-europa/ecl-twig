@@ -256,7 +256,7 @@ export const getFormKnobs = data => {
       tabLabels.required
     );
     data.optional_text = text(
-      'optional text',
+      'optional_text',
       data.optional_text,
       tabLabels.optional
     );
