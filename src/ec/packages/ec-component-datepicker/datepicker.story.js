@@ -14,21 +14,19 @@ import dataDefault from './demo/data';
 import datepicker from './ecl-datepicker.html.twig';
 import notes from './README.md';
 
-const iconOptions = {
-  none: false,
-  defaultSprite,
-};
-
 const prepareDatePicker = data => {
   getFormKnobs(data);
 
   data.label = text('label', data.label, tabLabels.required);
   data.icons_path = select(
     'icons_path',
-    iconOptions,
+    ['none', defaultSprite],
     defaultSprite,
     tabLabels.required
   );
+  if (data.icons_path === 'none') {
+    data.icons_path = false;
+  }
   data.placeholder = text('placeholder', data.placeholder, tabLabels.required);
 
   getExtraKnobs(data);
