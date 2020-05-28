@@ -15,11 +15,6 @@ import demoData from './demo/data';
 import timeline from './ecl-timeline.html.twig';
 import notes from './README.md';
 
-const iconOptions = {
-  none: false,
-  defaultSprite,
-};
-
 const prepareTimeline = data => {
   const from = data.hide.from;
   const to = data.hide.to;
@@ -45,10 +40,13 @@ const prepareTimeline = data => {
   );
   data.icon_path = select(
     'icon_path',
-    iconOptions,
+    ['none', defaultSprite],
     defaultSprite,
     tabLabels.required
   );
+  if (data.icon_path === 'none') {
+    data.icon_path = false;
+  }
 
   data.items.forEach((item, i) => {
     const { id, label, title, content } = item;
