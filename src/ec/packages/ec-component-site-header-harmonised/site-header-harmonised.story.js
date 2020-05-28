@@ -14,6 +14,7 @@ import {
   getLoginKnobs,
   getLanguageSelectorKnobs,
   getSearchFormKnobs,
+  getComplianceKnob,
 } from '@ecl-twig/story-utils';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
@@ -109,7 +110,7 @@ const btnLoginHandler = () => {
   }
 };
 
-const prepareSiteHeaderHarmonised = data => {
+const prepareSiteHeaderHarmonised = (data, variant) => {
   if (data.login_box) {
     data.logged = boolean('logged', data.logged, tabLabels.states);
   }
@@ -121,13 +122,17 @@ const prepareSiteHeaderHarmonised = data => {
       tabLabels.required
     );
   }
-  data.site_name = text('site_name', data.site_name, tabLabels.required);
+  if (variant === 'group3') {
+    data.site_name = text('site_name', data.site_name, tabLabels.required);
+  } else {
+    data.site_name = text('site_name', data.site_name, tabLabels.optional);
+  }
   if (data.group) {
     data.group = select('group', [data.group], data.group, tabLabels.required);
   } else {
     data.group = select('group', ['group1'], 'group1', tabLabels.optional);
   }
-  if (data.banner_top && data.banner_top.link) {
+  if (variant === 'group1' && data.banner_top && data.banner_top.link) {
     data.banner_top.link.label = text(
       'banner_top.link.label',
       data.banner_top.link.label,
@@ -198,6 +203,8 @@ const prepareSiteHeaderHarmonised = data => {
     data.menu = object('data.menu', data.menu, tabLabels.optional);
   }
 
+  getComplianceKnob(data);
+
   return data;
 };
 storiesOf('Components/Site Headers/Harmonised', module)
@@ -217,7 +224,7 @@ storiesOf('Components/Site Headers/Harmonised', module)
         tabLabels.cases
       );
       dataG1.logged = true;
-      const dataStory = prepareSiteHeaderHarmonised(dataG1);
+      const dataStory = prepareSiteHeaderHarmonised(dataG1, 'group1');
 
       return siteHeaderHarmonised(dataStory);
     },
@@ -231,7 +238,7 @@ storiesOf('Components/Site Headers/Harmonised', module)
       button(btnLangLabel, btnLangG2Handler, tabLabels.cases);
       button(btnSearchLabel, btnSearchG2Handler, tabLabels.cases);
       button(btnMenuLabel, btnMenuG2Handler, tabLabels.cases);
-      const dataStory = prepareSiteHeaderHarmonised(dataG2);
+      const dataStory = prepareSiteHeaderHarmonised(dataG2, 'group2');
 
       return siteHeaderHarmonised(dataStory);
     },
@@ -243,7 +250,7 @@ storiesOf('Components/Site Headers/Harmonised', module)
     'group 3',
     () => {
       button(btnLogoLabel, btnLogoHandler, tabLabels.cases);
-      const dataStory = prepareSiteHeaderHarmonised(dataG3);
+      const dataStory = prepareSiteHeaderHarmonised(dataG3, 'group3');
 
       return siteHeaderHarmonised(dataStory);
     },

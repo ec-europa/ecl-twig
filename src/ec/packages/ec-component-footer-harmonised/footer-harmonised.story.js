@@ -3,6 +3,11 @@ import { storiesOf } from '@storybook/html';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import { withKnobs, button, text } from '@storybook/addon-knobs';
 import withCode from '@ecl-twig/storybook-addon-code';
+import {
+  getExtraKnobs,
+  tabLabels,
+  getComplianceKnob,
+} from '@ecl-twig/story-utils';
 
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import logoEC from '@ecl/ec-resources-logo/logo--en.svg';
@@ -42,313 +47,405 @@ const followUs = JSON.parse(JSON.stringify(dataGroup1.sections[1][1]));
 const aboutUs = JSON.parse(JSON.stringify(dataGroup1.sections[2][0]));
 const related = JSON.parse(JSON.stringify(dataGroup1.sections[2][1]));
 
-let dataG1 = [...dataGroup1.sections];
-const dataG2 = [...dataGroup2.sections];
-const dataG3 = [...dataGroup3.sections];
-// Labels for the buttons.
-const requiredGroupId = 'Mandatory elements';
-const optionalGroupId = 'Optional elements';
-const useCasesGroup = 'Use cases';
+const dataG1 = { ...dataGroup1 };
+const dataG2 = { ...dataGroup2 };
+const dataG3 = { ...dataGroup3 };
 
 // Buttons callbacks for optional elements.
 // Group 3
 const partnershipLogoBtnToggler = () => {
-  if (dataG3[1].logos[0]) {
-    delete dataG3[1].logos[0];
+  if (dataG3.sections[1].logos[0]) {
+    delete dataG3.sections[1].logos[0];
   } else {
-    dataG3[1].logos[0] = logo0;
+    dataG3.sections[1].logos[0] = logo0;
   }
 };
 const partnershipLogo1BtnToggler = () => {
-  if (dataG3[1].logos[1]) {
-    delete dataG3[1].logos[1];
+  if (dataG3.sections[1].logos[1]) {
+    delete dataG3.sections[1].logos[1];
   } else {
-    dataG3[1].logos[1] = logo1;
+    dataG3.sections[1].logos[1] = logo1;
   }
 };
 const resetG3BtnToggler = () => {
-  dataG3[1].logos[0] = logo0;
-  dataG3[1].logos[1] = logo1;
+  dataG3.sections[1].logos[0] = logo0;
+  dataG3.sections[1].logos[1] = logo1;
 };
 // Group 1
 // Classes.
 const classBtnToggler = () => {
-  dataG1[3] = dataG1[3].links ? { section_id: 6 } : dataGroup1.sections[3];
+  dataG1.sections[3] = dataG1.sections[3].links
+    ? { section_id: 6 }
+    : dataGroup1.sections[3];
 };
 // Dg related service navigation (contact us)
 const serviceBtnToggler = () => {
   // If it's where is supposed to be, hide it
-  if (dataG1[1][0].demo_id === 'contact_us') {
-    dataG1[1][0] = { section_id: 2 };
+  if (dataG1.sections[1][0].demo_id === 'contact_us') {
+    dataG1.sections[1][0] = { section_id: 2 };
   } else {
     // Two blocks might have taken its place.
-    if (dataG1[1][1].demo_id === 'related') {
-      dataG1[1][1] = { section_id: 2 };
-      dataG1[2][1] = related;
-      dataG1[2][1].section_id = 3;
+    if (dataG1.sections[1][1].demo_id === 'related') {
+      dataG1.sections[1][1] = { section_id: 2 };
+      dataG1.sections[2][1] = related;
+      dataG1.sections[2][1].section_id = 3;
     }
-    if (dataG1[1][0].demo_id === 'about_us') {
-      dataG1[1][0] = { section_id: 2 };
-      dataG1[2][0] = aboutUs;
-      dataG1[2][0].section_id = 3;
+    if (dataG1.sections[1][0].demo_id === 'about_us') {
+      dataG1.sections[1][0] = { section_id: 2 };
+      dataG1.sections[2][0] = aboutUs;
+      dataG1.sections[2][0].section_id = 3;
     }
     // Show it.
-    dataG1[1][0] = contactUs;
-    dataG1[1][0].section_id = 2;
+    dataG1.sections[1][0] = contactUs;
+    dataG1.sections[1][0].section_id = 2;
   }
 };
 // Dg related service navigation. (follow us)
 const socialBtnToggler = () => {
   // If it's where is supposed to be, hide it
-  if (dataG1[1][1].demo_id === 'follow_us') {
-    dataG1[1][1] = { section_id: 2 };
+  if (dataG1.sections[1][1].demo_id === 'follow_us') {
+    dataG1.sections[1][1] = { section_id: 2 };
   } else {
     // Two blocks might have taken its place.
-    if (dataG1[1][1].demo_id === 'related') {
-      dataG1[1][1] = { section_id: 2 };
-      dataG1[2][1] = related;
-      dataG1[2][1].section_id = 3;
+    if (dataG1.sections[1][1].demo_id === 'related') {
+      dataG1.sections[1][1] = { section_id: 2 };
+      dataG1.sections[2][1] = related;
+      dataG1.sections[2][1].section_id = 3;
     }
-    if (dataG1[1][0].demo_id === 'about_us') {
-      dataG1[1][0] = { section_id: 2 };
-      dataG1[2][0] = aboutUs;
-      dataG1[2][0].section_id = 3;
+    if (dataG1.sections[1][0].demo_id === 'about_us') {
+      dataG1.sections[1][0] = { section_id: 2 };
+      dataG1.sections[2][0] = aboutUs;
+      dataG1.sections[2][0].section_id = 3;
     }
     // Show it.
-    dataG1[1][1] = followUs;
-    dataG1[1][1].section_id = 2;
+    dataG1.sections[1][1] = followUs;
+    dataG1.sections[1][1].section_id = 2;
   }
 };
 // Dg related navigation. (About us)
 const aboutBtnToggler = () => {
   // No optional section is rendered.
   const emptyOptional =
-    !dataG1[1][0].demo_id &&
-    !dataG1[1][1].demo_id &&
-    !dataG1[2][1].demo_id &&
-    !dataG1[2][0].demo_id;
+    !dataG1.sections[1][0].demo_id &&
+    !dataG1.sections[1][1].demo_id &&
+    !dataG1.sections[2][1].demo_id &&
+    !dataG1.sections[2][0].demo_id;
   // If it's where is supposed to be, hide it.
-  if (dataG1[2][0].demo_id === 'about_us') {
-    dataG1[2][0] = { section_id: 3 };
+  if (dataG1.sections[2][0].demo_id === 'about_us') {
+    dataG1.sections[2][0] = { section_id: 3 };
     // If it's in the other column, we hide it.
-  } else if (dataG1[1][0].demo_id === 'about_us') {
-    dataG1[1][0] = { section_id: 2 };
+  } else if (dataG1.sections[1][0].demo_id === 'about_us') {
+    dataG1.sections[1][0] = { section_id: 2 };
     // If no block is present or we have only one column.
-  } else if (emptyOptional || dataG1[1][1].demo_id === 'related') {
-    dataG1[1][0] = aboutUs;
-    dataG1[1][0].section_id = 2;
+  } else if (emptyOptional || dataG1.sections[1][1].demo_id === 'related') {
+    dataG1.sections[1][0] = aboutUs;
+    dataG1.sections[1][0].section_id = 2;
     // We show it.
   } else {
-    dataG1[2][0] = aboutUs;
-    dataG1[2][0].section_id = 3;
+    dataG1.sections[2][0] = aboutUs;
+    dataG1.sections[2][0].section_id = 3;
   }
 };
 // Dg related navigation. (Related sites)
 const relatedBtnToggler = () => {
   // No optional section is rendered.
   const emptyOptional =
-    !dataG1[1][0].demo_id &&
-    !dataG1[1][1].demo_id &&
-    !dataG1[2][1].demo_id &&
-    !dataG1[2][0].demo_id;
+    !dataG1.sections[1][0].demo_id &&
+    !dataG1.sections[1][1].demo_id &&
+    !dataG1.sections[2][1].demo_id &&
+    !dataG1.sections[2][0].demo_id;
   // If it's where is supposed to be, hide it.
-  if (dataG1[2][1].demo_id === 'related') {
-    dataG1[2][1] = { section_id: 3 };
+  if (dataG1.sections[2][1].demo_id === 'related') {
+    dataG1.sections[2][1] = { section_id: 3 };
     // If it's in the other column, we hide it.
-  } else if (dataG1[1][1].demo_id === 'related') {
-    dataG1[1][1] = { section_id: 2 };
+  } else if (dataG1.sections[1][1].demo_id === 'related') {
+    dataG1.sections[1][1] = { section_id: 2 };
     // If no block is present or we have only one column.
-  } else if (emptyOptional || dataG1[1][0].demo_id === 'about_us') {
-    dataG1[1][1] = related;
-    dataG1[1][1].section_id = 2;
+  } else if (emptyOptional || dataG1.sections[1][0].demo_id === 'about_us') {
+    dataG1.sections[1][1] = related;
+    dataG1.sections[1][1].section_id = 2;
     // We show it.
   } else {
-    dataG1[2][1] = related;
-    dataG1[2][1].section_id = 3;
+    dataG1.sections[2][1] = related;
+    dataG1.sections[2][1].section_id = 3;
   }
 };
 // Reset button.
 const resetBtnToggler = () => {
-  dataG1 = [...dataGroup1.sections];
-  dataG1[1][0] = contactUs;
-  dataG1[1][1] = followUs;
-  dataG1[2][0] = aboutUs;
-  dataG1[2][1] = related;
+  dataG1.sections[1][0] = contactUs;
+  dataG1.sections[1][1] = followUs;
+  dataG1.sections[2][0] = aboutUs;
+  dataG1.sections[2][1] = related;
+  dataG1.sections[1][0].section_id = 2;
+  dataG1.sections[1][1].section_id = 2;
+  dataG1.sections[2][0].section_id = 3;
+  dataG1.sections[2][1].section_id = 3;
 };
 
 // Prepare the knobs for group3.
-const formatFooterG3 = dataG3 => {
-  dataG3[0].title = text('sections[0].title', dataG3[0].title, requiredGroupId);
-  dataG3[1].logos.forEach((logo, index) => {
-    let label = optionalGroupId;
-    let logoSrc = dataG3[1].logos[index].logo.src;
-    if (index === 2) {
-      label = requiredGroupId;
-      logoSrc = logoEC;
+const prepareFooterHarmonisedG3 = dataG3 => {
+  button(
+    'With or without first "Partnership logo"',
+    partnershipLogoBtnToggler,
+    tabLabels.cases
+  );
+  button(
+    'With or without second "Partnership logo"',
+    partnershipLogo1BtnToggler,
+    tabLabels.cases
+  );
+  button('Reset the layout', resetG3BtnToggler, tabLabels.cases);
+  dataG3.sections.forEach((section, i) => {
+    if (section.title) {
+      section.title = text(
+        `sections[${i}].title`,
+        section.title,
+        tabLabels.required
+      );
     }
-    if (logo) {
-      dataG3[1].logos[index].logo.title = text(
-        `sections[1].logos[${index}].logo.title`,
-        dataG3[1].logos[index].logo.title,
-        label
-      );
-      dataG3[1].logos[index].logo.alt = text(
-        `sections[1].logos[${index}].logo.alt`,
-        dataG3[1].logos[index].logo.alt,
-        label
-      );
-      dataG3[1].logos[index].logo.src = text(
-        `sections[1].logos[${index}].logo.src`,
-        logoSrc,
-        label
-      );
+
+    if (section.logos && Array.isArray(section.logos)) {
+      section.logos.forEach((logo, j) => {
+        let label = tabLabels.optional;
+        let logoSrc = section.logos[j].logo.src;
+        if (j === 2) {
+          label = tabLabels.required;
+          logoSrc = logoEC;
+        }
+        if (logo) {
+          section.logos[j].logo.title = text(
+            `sections[${i}].logos[${j}].logo.title`,
+            section.logos[j].logo.title,
+            label
+          );
+          section.logos[j].logo.alt = text(
+            `sections[${i}].logos[${j}].logo.alt`,
+            section.logos[j].logo.alt,
+            label
+          );
+          section.logos[j].logo.src = text(
+            `sections[${i}].logos[${j}].logo.src`,
+            logoSrc,
+            label
+          );
+        }
+      });
     }
   });
 
+  getExtraKnobs(dataG3);
+  getComplianceKnob(dataG3);
   // Return the full specs.
   return dataG3;
 };
 
 // Prepare the knobs for group2.
-const formatFooterG2 = dataG2 => {
-  // Corporate name.
-  dataG2[0].title.link = {
-    label: text(
-      'sections[0].title.link.label',
-      dataG2[0].title.link.label,
-      requiredGroupId
-    ),
-    path: text(
-      'sections[0].title.link.path',
-      dataG2[0].title.link.path,
-      requiredGroupId
-    ),
-    placeholder: text('', 'none', optionalGroupId),
-  };
-  // Service navigation.
-  dataG2[1].links.forEach((link, index) => {
-    dataG2[1].links[index].link.label = text(
-      `sections[1].links[${index}].link.label`,
-      dataG2[1].links[index].link.label,
-      requiredGroupId
-    );
-    dataG2[1].links[index].link.path = text(
-      `sections[1].links[${index}].link.path`,
-      dataG2[1].links[index].link.path,
-      requiredGroupId
-    );
-  });
-  // Legal navigation.
-  dataG2[2].links.forEach((link, index) => {
-    dataG2[2].links[index].link.label = text(
-      `sections[2].links[${index}].link.label`,
-      dataG2[2].links[index].link.label,
-      requiredGroupId
-    );
-    dataG2[2].links[index].link.path = text(
-      `sections[2].links[${index}].link.path`,
-      dataG2[2].links[index].link.path,
-      requiredGroupId
-    );
+const prepareFooterHarmonisedG2 = dataG2 => {
+  dataG2.sections.forEach((section, i) => {
+    if (section.title) {
+      section.title.link = {
+        label: text(
+          `sections[${i}].title.link.label`,
+          section.title.link.label,
+          tabLabels.required
+        ),
+        path: text(
+          `sections[${i}].title.link.path`,
+          section.title.link.path,
+          tabLabels.required
+        ),
+      };
+    }
+    if (section.links) {
+      section.links.forEach((linkItem, j) => {
+        linkItem.link.label = text(
+          `sections[${i}].links[${j}].link.label`,
+          linkItem.link.label,
+          tabLabels.required
+        );
+        linkItem.link.path = text(
+          `sections[${i}].links[${j}].link.path`,
+          linkItem.link.path,
+          tabLabels.required
+        );
+      });
+    }
   });
 
+  getExtraKnobs(dataG2);
+  getComplianceKnob(dataG2);
   // Return the full specs.
   return dataG2;
 };
 
 // Prepare the knobs for group1
-const formatFooterG1 = dataG1 => {
-  // Swap the columns when needed.
-  if (!dataG1[1][0].title && !dataG1[1][1].title) {
-    dataG1[1][0] = dataG1[2][0].title ? aboutUs : { section_id: 2 };
-    dataG1[1][1] = dataG1[2][1].title ? related : { section_id: 2 };
-    dataG1[1][0].section_id = 2;
-    dataG1[1][1].section_id = 2;
-    dataG1[2] = [{ section_id: 3 }, { section_id: 3 }];
-  }
-  // Site name & content owner details.
-  dataG1[0].title.link = {
-    label: text(
-      'sections[0].title.link.label',
-      dataG1[0].title.link.label,
-      requiredGroupId
-    ),
-    path: text(
-      'sections[0].title.link.path',
-      dataG1[0].title.link.path,
-      requiredGroupId
-    ),
-  };
-  dataG1[0].description = text(
-    'sections[0].description',
-    dataG1[0].description,
-    requiredGroupId
+const prepareFooterHarmonisedG1 = dataG1 => {
+  button('With our without class names', classBtnToggler, tabLabels.cases);
+  button(
+    'With our without DG-related service navigation (contact us)',
+    serviceBtnToggler,
+    tabLabels.cases
   );
-  // Classes.
-  if (dataG1[3].links) {
-    dataG1[3].content_before = text(
-      'sections[3].content_before',
-      dataG1[3].content_before,
-      optionalGroupId
-    );
-    dataG1[3].list_class_name = text(
-      'sections[3].list_class_name',
-      dataG1[3].list_class_name,
-      optionalGroupId
-    );
-    dataG1[3].links.forEach((link, index) => {
-      dataG1[3].links[index].link.label = text(
-        `sections[3].links[${index}].link.label`,
-        dataG1[3].links[index].link.label,
-        optionalGroupId
-      );
-      dataG1[3].links[index].link.path = text(
-        `sections[3].links[${index}].link.path`,
-        dataG1[3].links[index].link.path,
-        optionalGroupId
-      );
-    });
+  button(
+    'With our without DG-related service navigation (Follow us)',
+    socialBtnToggler,
+    tabLabels.cases
+  );
+  button(
+    'With our without DG-related navigation (About us)',
+    aboutBtnToggler,
+    tabLabels.cases
+  );
+  button(
+    'With our without DG-related navigation (Related sites)',
+    relatedBtnToggler,
+    tabLabels.cases
+  );
+  button('Reset the layout', resetBtnToggler, tabLabels.cases);
+  // Swap the columns when needed.
+  if (!dataG1.sections[1][0].title && !dataG1.sections[1][1].title) {
+    dataG1.sections[1][0] = dataG1.sections[2][0].title
+      ? aboutUs
+      : { section_id: 2 };
+    dataG1.sections[1][1] = dataG1.sections[2][1].title
+      ? related
+      : { section_id: 2 };
+    dataG1.sections[1][0].section_id = 2;
+    dataG1.sections[1][1].section_id = 2;
+    dataG1.sections[2][0] = { section_id: 3 };
+    dataG1.sections[2][1] = { section_id: 3 };
   }
-  // Corporate name.
-  dataG1[4].title.link = {
-    label: text(
-      'sections[4].title.link.label',
-      dataG1[4].title.link.label,
-      requiredGroupId
-    ),
-    path: text(
-      'sections[4].title.link.path',
-      dataG1[4].title.link.path,
-      requiredGroupId
-    ),
-  };
-  // Service navigation.
-  dataG1[5].links.forEach((link, index) => {
-    dataG1[5].links[index].link.label = text(
-      `sections[5].links[${index}].link.label`,
-      dataG1[5].links[index].link.label,
-      requiredGroupId
-    );
-    dataG1[5].links[index].link.path = text(
-      `sections[5].links[${index}].link.path`,
-      dataG1[5].links[index].link.path,
-      requiredGroupId
-    );
-  });
-  // Legal navigation.
-  dataG1[6].links.forEach((link, index) => {
-    dataG1[6].links[index].link.label = text(
-      `sections[6].links[${index}].link.label`,
-      dataG1[6].links[index].link.label,
-      requiredGroupId
-    );
-    dataG1[6].links[index].link.path = text(
-      `sections[6].links[${index}].link.path`,
-      dataG1[6].links[index].link.path,
-      requiredGroupId
-    );
+
+  dataG1.sections.forEach((section, i) => {
+    if (!Array.isArray(section)) {
+      let label = tabLabels.required;
+      if (i === 3) {
+        label = tabLabels.optional;
+      }
+      if (section.title && section.title.link) {
+        section.title.link = {
+          label: text(
+            `sections[${i}].title.link.label`,
+            section.title.link.label,
+            label
+          ),
+          path: text(
+            `sections[${i}].title.link.path`,
+            section.title.link.path,
+            label
+          ),
+        };
+      }
+      if (section.description) {
+        section.description = text(
+          `sections[${i}].description`,
+          section.description,
+          label
+        );
+      }
+      if (section.content_before) {
+        section.content_before = text(
+          `sections[${i}].content_before`,
+          section.content_before,
+          label
+        );
+      }
+      if (section.list_class_name) {
+        section.list_class_name = text(
+          `sections[${i}].list_class_name`,
+          section.list_class_name,
+          label
+        );
+      }
+      if (section.links) {
+        section.links.forEach((linkItem, j) => {
+          linkItem.link.label = text(
+            `sections[${i}].links[${j}].link.label`,
+            linkItem.link.label,
+            label
+          );
+          linkItem.link.path = text(
+            `sections[${i}].links[${j}].link.path`,
+            linkItem.link.path,
+            label
+          );
+          if (linkItem.icon) {
+            linkItem.icon.name = text(
+              `sections[${i}].links[${j}].icon.name`,
+              linkItem.icon.name,
+              label
+            );
+            linkItem.icon.path = text(
+              `sections[${i}].links[${j}].icon.path`,
+              defaultSprite,
+              label
+            );
+            linkItem.icon.size = text(
+              `sections[${i}].links[${j}].icon.size`,
+              linkItem.icon.size,
+              label
+            );
+          }
+        });
+      }
+    } else {
+      section.forEach((sectionItem, j) => {
+        if (sectionItem.content_before) {
+          sectionItem.content_before = text(
+            `sections[${i}][${j}].content_before`,
+            sectionItem.content_before,
+            tabLabels.optional
+          );
+        }
+        if (sectionItem.list_class_name) {
+          sectionItem.list_class_name = text(
+            `sections[${i}][${j}].list_class_name`,
+            sectionItem.list_class_name,
+            tabLabels.optional
+          );
+        }
+        if (sectionItem.links) {
+          sectionItem.title = text(
+            `sections[${i}][${j}].title`,
+            sectionItem.title,
+            tabLabels.optional
+          );
+          sectionItem.links.forEach((linkItem, k) => {
+            linkItem.link.label = text(
+              `sections[${i}][${j}].links[${k}].link.label`,
+              linkItem.link.label,
+              tabLabels.optional
+            );
+            linkItem.link.path = text(
+              `sections[${i}][${j}].links[${k}].link.path`,
+              linkItem.link.path,
+              tabLabels.optional
+            );
+            if (linkItem.icon) {
+              linkItem.icon.name = text(
+                `sections[${i}][${j}].links[${k}].icon.name`,
+                linkItem.icon.name,
+                tabLabels.optional
+              );
+              linkItem.icon.path = text(
+                `sections[${i}][${j}].links[${k}].icon.path`,
+                defaultSprite,
+                tabLabels.optional
+              );
+              linkItem.icon.size = text(
+                `sections[${i}][${j}].links[${k}].icon.size`,
+                linkItem.icon.size,
+                tabLabels.optional
+              );
+            }
+          });
+        }
+      });
+    }
   });
 
+  getExtraKnobs(dataG1);
+  getComplianceKnob(dataG1);
   // Return the full specs.
   return dataG1;
 };
@@ -357,73 +454,21 @@ storiesOf('Components/Footers/Harmonised', module)
   .addDecorator(withCode)
   .addDecorator(withNotes)
   .addDecorator(withKnobs)
-  .add(
-    'group 1',
-    () => {
-      button('With our without class names', classBtnToggler, useCasesGroup);
-      button(
-        'With our without DG-related service navigation (contact us)',
-        serviceBtnToggler,
-        useCasesGroup
-      );
-      button(
-        'With our without DG-related service navigation (Follow us)',
-        socialBtnToggler,
-        useCasesGroup
-      );
-      button(
-        'With our without DG-related navigation (About us)',
-        aboutBtnToggler,
-        useCasesGroup
-      );
-      button(
-        'With our without DG-related navigation (Related sites)',
-        relatedBtnToggler,
-        useCasesGroup
-      );
-      button('Reset the layout', resetBtnToggler, useCasesGroup);
-
-      return footerHarmonised({
-        group: 'group1',
-        sections: formatFooterG1(dataG1),
-      });
+  .add('group 1', () => footerHarmonised(prepareFooterHarmonisedG1(dataG1)), {
+    notes: {
+      markdown: notes,
+      json: { dataG1 },
     },
-    {
-      notes: { markdown: notes, json: { group: 'group1', sections: dataG1 } },
-    }
-  )
-  .add(
-    'group 2',
-    () =>
-      footerHarmonised({ group: 'group2', sections: formatFooterG2(dataG2) }),
-    {
-      notes: { markdown: notes, json: { group: 'group2', sections: dataG2 } },
-    }
-  )
-  .add(
-    'group 3',
-    () => {
-      button(
-        'With or without first "Partnership logo"',
-        partnershipLogoBtnToggler,
-        useCasesGroup
-      );
-      button(
-        'With or without second "Partnership logo"',
-        partnershipLogo1BtnToggler,
-        useCasesGroup
-      );
-      button('Reset the layout', resetG3BtnToggler, useCasesGroup);
-
-      return footerHarmonised({
-        group: 'group3',
-        sections: formatFooterG3(dataG3),
-      });
+  })
+  .add('group 2', () => footerHarmonised(prepareFooterHarmonisedG2(dataG2)), {
+    notes: {
+      markdown: notes,
+      json: { dataG2 },
     },
-    {
-      notes: {
-        markdown: notes,
-        json: { group: 'group3', sections: dataG3 },
-      },
-    }
-  );
+  })
+  .add('group 3', () => footerHarmonised(prepareFooterHarmonisedG3(dataG3)), {
+    notes: {
+      markdown: notes,
+      json: { dataG3 },
+    },
+  });

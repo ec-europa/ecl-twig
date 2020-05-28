@@ -441,6 +441,95 @@ exports[`EC - Page Banner image renders correctly with extra class names 1`] = `
 </test>
 `;
 
+exports[`EC - Page Banner image with validation enabled and missing input data returns the right warning message 1`] = `
+<test>
+  <section
+    class="ecl-page-banner ecl-page-banner--image ecl-page-banner--centered"
+  >
+    <div
+      class="ecl-container ecl-page-banner__container"
+    >
+      <div
+        class="ecl-page-banner__content"
+      >
+        <h1
+          class="ecl-page-banner__title"
+        >
+          EU Budget for the future
+        </h1>
+        <p
+          class="ecl-page-banner__baseline"
+        >
+          Innovation, economy, environment and geopolitics
+        </p>
+        <a
+          class="ecl-link ecl-link--cta ecl-link--icon ecl-link--icon-after ecl-page-banner__link-cta"
+          href="/example"
+        >
+          <span
+            class="ecl-link__label"
+          >
+            Subscribe
+          </span>
+           
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-link__icon"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#ui--corner-arrow"
+            />
+          </svg>
+          <!-- ################################################################################################################
+    ecl2-compliance -->
+          <div
+            class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+          >
+            <p
+              class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+            >
+              <b>
+                [icon]
+              </b>
+               - ecl compliant.
+            </p>
+          </div>
+        </a>
+        <!-- ################################################################################################################
+    ecl2-compliance -->
+        <div
+          class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+        >
+          <p
+            class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+          >
+            <b>
+              [link--cta]
+            </b>
+             - ecl compliant.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ################################################################################################################
+    ecl2-compliance -->
+  <div
+    class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-red ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+  >
+    <p
+      class="ecl-u-type-color-grey ecl-u-ml-m ecl-u-type-xs"
+    >
+      <b>
+        [page-banner--image]
+      </b>
+        When type is "image", the "image" property needs to be set and filled in.
+    </p>
+  </div>
+</test>
+`;
+
 exports[`EC - Page Banner image-shade - renders correctly 1`] = `
 <test>
   <section

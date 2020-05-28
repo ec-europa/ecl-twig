@@ -1514,6 +1514,938 @@ exports[`EC - Site Header Default renders correctly with extra class names 1`] =
 </test>
 `;
 
+exports[`EC - Site Header Default with missing input data and debug enabled it returns the right warning messages 1`] = `
+<test>
+  <header
+    class="ecl-site-header"
+    data-ecl-auto-init="SiteHeader"
+    data-ecl-site-header="true"
+  >
+    <div
+      class="ecl-site-header__container ecl-container"
+    >
+      <div
+        class="ecl-site-header__banner"
+      >
+        <a
+          aria-label="European Commission"
+          class="ecl-link ecl-link--standalone"
+          href="/example"
+        >
+          <img
+            alt="European Commission logo"
+            class="ecl-site-header__logo-image"
+            src=""
+            title="European Commission"
+          />
+        </a>
+        <div
+          class="ecl-site-header__selector"
+        >
+          <a
+            class="ecl-link ecl-link--standalone ecl-site-header__selector-link"
+            data-ecl-language-selector="true"
+            href="/example"
+          >
+            English
+            <span
+              class="ecl-site-header__language-icon"
+            >
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--m"
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#general--language"
+                />
+              </svg>
+              <!-- ################################################################################################################
+    ecl2-compliance -->
+              <div
+                class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+              >
+                <p
+                  class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                >
+                  <b>
+                    [icon]
+                  </b>
+                   - ecl compliant.
+                </p>
+              </div>
+              <span
+                class="ecl-site-header__language-code"
+              />
+            </span>
+          </a>
+          <div
+            aria-labelledby="ecl-language-list__title"
+            class="ecl-language-list ecl-language-list--overlay"
+            data-ecl-language-list-overlay=""
+            hidden=""
+            role="dialog"
+          >
+            <div
+              class="ecl-language-list__container ecl-container"
+            >
+              <div
+                class="ecl-row"
+              >
+                <div
+                  class="ecl-language-list__close ecl-col-12 ecl-col-lg-8 ecl-offset-lg-2"
+                >
+                  <button
+                    class="ecl-button ecl-button--ghost ecl-language-list__close-button"
+                    data-ecl-language-list-close=""
+                    type="submit"
+                  >
+                    <span
+                      class="ecl-button__container"
+                    >
+                      <span
+                        class="ecl-button__label"
+                        data-ecl-label="true"
+                      />
+                      <svg
+                        aria-hidden="true"
+                        class="ecl-icon ecl-icon--s ecl-button__icon ecl-button__icon--after"
+                        data-ecl-icon=""
+                        focusable="false"
+                      >
+                        <use
+                          xlink:href="/icons.svg#ui--close"
+                        />
+                      </svg>
+                      <!-- ################################################################################################################
+    ecl2-compliance -->
+                      <div
+                        class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+                      >
+                        <p
+                          class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                        >
+                          <b>
+                            [icon]
+                          </b>
+                           - ecl compliant.
+                        </p>
+                      </div>
+                    </span>
+                  </button>
+                  <!-- ################################################################################################################
+    ecl2-compliance -->
+                  <div
+                    class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-red ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+                  >
+                    <p
+                      class="ecl-u-type-color-grey ecl-u-ml-m ecl-u-type-xs"
+                    >
+                      <b>
+                        [button--ghost]
+                      </b>
+                       "label" is mandatory
+                    </p>
+                  </div>
+                </div>
+                <div
+                  class="ecl-language-list__title ecl-col-12 ecl-col-lg-8 ecl-offset-lg-2"
+                  id="ecl-language-list__title"
+                />
+              </div>
+              <div
+                class="ecl-row"
+              >
+                <div
+                  class="ecl-language-list__column ecl-col-12 ecl-col-lg-4 ecl-offset-lg-2"
+                >
+                  <ul
+                    class="ecl-language-list__list"
+                  >
+                    <li
+                      class="ecl-language-list__item"
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-language-list__link"
+                        href="/example#language_bg"
+                        hreflang="bg"
+                        lang="bg"
+                        rel="alternate"
+                      >
+                        български
+                      </a>
+                      <!-- ################################################################################################################
+    ecl2-compliance -->
+                      <div
+                        class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+                      >
+                        <p
+                          class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                        >
+                          <b>
+                            [link--standalone]
+                          </b>
+                           - ecl compliant.
+                        </p>
+                      </div>
+                    </li>
+                    <li
+                      class="ecl-language-list__item"
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-language-list__link"
+                        href="/example#language_es"
+                        hreflang="es"
+                        lang="es"
+                        rel="alternate"
+                      >
+                        español
+                      </a>
+                      <!-- ################################################################################################################
+    ecl2-compliance -->
+                      <div
+                        class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+                      >
+                        <p
+                          class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                        >
+                          <b>
+                            [link--standalone]
+                          </b>
+                           - ecl compliant.
+                        </p>
+                      </div>
+                    </li>
+                    <li
+                      class="ecl-language-list__item"
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-language-list__link"
+                        href="/example#language_cs"
+                        hreflang="cs"
+                        lang="cs"
+                        rel="alternate"
+                      >
+                        čeština
+                      </a>
+                      <!-- ################################################################################################################
+    ecl2-compliance -->
+                      <div
+                        class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+                      >
+                        <p
+                          class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                        >
+                          <b>
+                            [link--standalone]
+                          </b>
+                           - ecl compliant.
+                        </p>
+                      </div>
+                    </li>
+                    <li
+                      class="ecl-language-list__item"
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-language-list__link"
+                        href="/example#language_da"
+                        hreflang="da"
+                        lang="da"
+                        rel="alternate"
+                      >
+                        dansk
+                      </a>
+                      <!-- ################################################################################################################
+    ecl2-compliance -->
+                      <div
+                        class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+                      >
+                        <p
+                          class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                        >
+                          <b>
+                            [link--standalone]
+                          </b>
+                           - ecl compliant.
+                        </p>
+                      </div>
+                    </li>
+                    <li
+                      class="ecl-language-list__item"
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-language-list__link"
+                        href="/example#language_de"
+                        hreflang="de"
+                        lang="de"
+                        rel="alternate"
+                      >
+                        Deutsch
+                      </a>
+                      <!-- ################################################################################################################
+    ecl2-compliance -->
+                      <div
+                        class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+                      >
+                        <p
+                          class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                        >
+                          <b>
+                            [link--standalone]
+                          </b>
+                           - ecl compliant.
+                        </p>
+                      </div>
+                    </li>
+                    <li
+                      class="ecl-language-list__item"
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-language-list__link"
+                        href="/example#language_et"
+                        hreflang="et"
+                        lang="et"
+                        rel="alternate"
+                      >
+                        eesti
+                      </a>
+                      <!-- ################################################################################################################
+    ecl2-compliance -->
+                      <div
+                        class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+                      >
+                        <p
+                          class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                        >
+                          <b>
+                            [link--standalone]
+                          </b>
+                           - ecl compliant.
+                        </p>
+                      </div>
+                    </li>
+                    <li
+                      class="ecl-language-list__item"
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-language-list__link"
+                        href="/example#language_el"
+                        hreflang="el"
+                        lang="el"
+                        rel="alternate"
+                      >
+                        ελληνικά
+                      </a>
+                      <!-- ################################################################################################################
+    ecl2-compliance -->
+                      <div
+                        class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+                      >
+                        <p
+                          class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                        >
+                          <b>
+                            [link--standalone]
+                          </b>
+                           - ecl compliant.
+                        </p>
+                      </div>
+                    </li>
+                    <li
+                      class="ecl-language-list__item ecl-language-list__item--is-active"
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-language-list__link"
+                        href="/example#language_en"
+                        hreflang="en"
+                        lang="en"
+                        rel="alternate"
+                      >
+                        <span
+                          class="ecl-link__label"
+                        >
+                          English
+                        </span>
+                         
+                        <svg
+                          aria-hidden="true"
+                          class="ecl-icon ecl-icon--xs ecl-link__icon"
+                          focusable="false"
+                        >
+                          <use
+                            xlink:href="/icons.svg#ui--check"
+                          />
+                        </svg>
+                        <!-- ################################################################################################################
+    ecl2-compliance -->
+                        <div
+                          class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+                        >
+                          <p
+                            class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                          >
+                            <b>
+                              [icon]
+                            </b>
+                             - ecl compliant.
+                          </p>
+                        </div>
+                      </a>
+                      <!-- ################################################################################################################
+    ecl2-compliance -->
+                      <div
+                        class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+                      >
+                        <p
+                          class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                        >
+                          <b>
+                            [link--standalone]
+                          </b>
+                           - ecl compliant.
+                        </p>
+                      </div>
+                    </li>
+                    <li
+                      class="ecl-language-list__item"
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-language-list__link"
+                        href="/example#language_fr"
+                        hreflang="fr"
+                        lang="fr"
+                        rel="alternate"
+                      >
+                        français
+                      </a>
+                      <!-- ################################################################################################################
+    ecl2-compliance -->
+                      <div
+                        class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+                      >
+                        <p
+                          class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                        >
+                          <b>
+                            [link--standalone]
+                          </b>
+                           - ecl compliant.
+                        </p>
+                      </div>
+                    </li>
+                    <li
+                      class="ecl-language-list__item"
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-language-list__link"
+                        href="/example#language_ga"
+                        hreflang="ga"
+                        lang="ga"
+                        rel="alternate"
+                      >
+                        Gaeilge
+                      </a>
+                      <!-- ################################################################################################################
+    ecl2-compliance -->
+                      <div
+                        class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+                      >
+                        <p
+                          class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                        >
+                          <b>
+                            [link--standalone]
+                          </b>
+                           - ecl compliant.
+                        </p>
+                      </div>
+                    </li>
+                    <li
+                      class="ecl-language-list__item"
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-language-list__link"
+                        href="/example#language_hr"
+                        hreflang="hr"
+                        lang="hr"
+                        rel="alternate"
+                      >
+                        hrvatski
+                      </a>
+                      <!-- ################################################################################################################
+    ecl2-compliance -->
+                      <div
+                        class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+                      >
+                        <p
+                          class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                        >
+                          <b>
+                            [link--standalone]
+                          </b>
+                           - ecl compliant.
+                        </p>
+                      </div>
+                    </li>
+                    <li
+                      class="ecl-language-list__item"
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-language-list__link"
+                        href="/example#language_it"
+                        hreflang="it"
+                        lang="it"
+                        rel="alternate"
+                      >
+                        italiano
+                      </a>
+                      <!-- ################################################################################################################
+    ecl2-compliance -->
+                      <div
+                        class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+                      >
+                        <p
+                          class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                        >
+                          <b>
+                            [link--standalone]
+                          </b>
+                           - ecl compliant.
+                        </p>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                <div
+                  class="ecl-language-list__column ecl-col-12 ecl-col-lg-4"
+                >
+                  <ul
+                    class="ecl-language-list__list"
+                  >
+                    <li
+                      class="ecl-language-list__item"
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-language-list__link"
+                        href="/example#language_lv"
+                        hreflang="lv"
+                        lang="lv"
+                        rel="alternate"
+                      >
+                        latviešu
+                      </a>
+                      <!-- ################################################################################################################
+    ecl2-compliance -->
+                      <div
+                        class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+                      >
+                        <p
+                          class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                        >
+                          <b>
+                            [link--standalone]
+                          </b>
+                           - ecl compliant.
+                        </p>
+                      </div>
+                    </li>
+                    <li
+                      class="ecl-language-list__item"
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-language-list__link"
+                        href="/example#language_lt"
+                        hreflang="lt"
+                        lang="lt"
+                        rel="alternate"
+                      >
+                        lietuvių
+                      </a>
+                      <!-- ################################################################################################################
+    ecl2-compliance -->
+                      <div
+                        class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+                      >
+                        <p
+                          class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                        >
+                          <b>
+                            [link--standalone]
+                          </b>
+                           - ecl compliant.
+                        </p>
+                      </div>
+                    </li>
+                    <li
+                      class="ecl-language-list__item"
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-language-list__link"
+                        href="/example#language_hu"
+                        hreflang="hu"
+                        lang="hu"
+                        rel="alternate"
+                      >
+                        magyar
+                      </a>
+                      <!-- ################################################################################################################
+    ecl2-compliance -->
+                      <div
+                        class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+                      >
+                        <p
+                          class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                        >
+                          <b>
+                            [link--standalone]
+                          </b>
+                           - ecl compliant.
+                        </p>
+                      </div>
+                    </li>
+                    <li
+                      class="ecl-language-list__item"
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-language-list__link"
+                        href="/example#language_mt"
+                        hreflang="mt"
+                        lang="mt"
+                        rel="alternate"
+                      >
+                        Malti
+                      </a>
+                      <!-- ################################################################################################################
+    ecl2-compliance -->
+                      <div
+                        class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+                      >
+                        <p
+                          class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                        >
+                          <b>
+                            [link--standalone]
+                          </b>
+                           - ecl compliant.
+                        </p>
+                      </div>
+                    </li>
+                    <li
+                      class="ecl-language-list__item"
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-language-list__link"
+                        href="/example#language_nl"
+                        hreflang="nl"
+                        lang="nl"
+                        rel="alternate"
+                      >
+                        Nederlands
+                      </a>
+                      <!-- ################################################################################################################
+    ecl2-compliance -->
+                      <div
+                        class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+                      >
+                        <p
+                          class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                        >
+                          <b>
+                            [link--standalone]
+                          </b>
+                           - ecl compliant.
+                        </p>
+                      </div>
+                    </li>
+                    <li
+                      class="ecl-language-list__item"
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-language-list__link"
+                        href="/example#language_pl"
+                        hreflang="pl"
+                        lang="pl"
+                        rel="alternate"
+                      >
+                        polski
+                      </a>
+                      <!-- ################################################################################################################
+    ecl2-compliance -->
+                      <div
+                        class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+                      >
+                        <p
+                          class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                        >
+                          <b>
+                            [link--standalone]
+                          </b>
+                           - ecl compliant.
+                        </p>
+                      </div>
+                    </li>
+                    <li
+                      class="ecl-language-list__item"
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-language-list__link"
+                        href="/example#language_pt"
+                        hreflang="pt"
+                        lang="pt"
+                        rel="alternate"
+                      >
+                        português
+                      </a>
+                      <!-- ################################################################################################################
+    ecl2-compliance -->
+                      <div
+                        class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+                      >
+                        <p
+                          class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                        >
+                          <b>
+                            [link--standalone]
+                          </b>
+                           - ecl compliant.
+                        </p>
+                      </div>
+                    </li>
+                    <li
+                      class="ecl-language-list__item"
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-language-list__link"
+                        href="/example#language_ro"
+                        hreflang="ro"
+                        lang="ro"
+                        rel="alternate"
+                      >
+                        română
+                      </a>
+                      <!-- ################################################################################################################
+    ecl2-compliance -->
+                      <div
+                        class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+                      >
+                        <p
+                          class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                        >
+                          <b>
+                            [link--standalone]
+                          </b>
+                           - ecl compliant.
+                        </p>
+                      </div>
+                    </li>
+                    <li
+                      class="ecl-language-list__item"
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-language-list__link"
+                        href="/example#language_sk"
+                        hreflang="sk"
+                        lang="sk"
+                        rel="alternate"
+                      >
+                        slovenčina
+                      </a>
+                      <!-- ################################################################################################################
+    ecl2-compliance -->
+                      <div
+                        class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+                      >
+                        <p
+                          class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                        >
+                          <b>
+                            [link--standalone]
+                          </b>
+                           - ecl compliant.
+                        </p>
+                      </div>
+                    </li>
+                    <li
+                      class="ecl-language-list__item"
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-language-list__link"
+                        href="/example#language_sl"
+                        hreflang="sl"
+                        lang="sl"
+                        rel="alternate"
+                      >
+                        slovenščina
+                      </a>
+                      <!-- ################################################################################################################
+    ecl2-compliance -->
+                      <div
+                        class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+                      >
+                        <p
+                          class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                        >
+                          <b>
+                            [link--standalone]
+                          </b>
+                           - ecl compliant.
+                        </p>
+                      </div>
+                    </li>
+                    <li
+                      class="ecl-language-list__item"
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-language-list__link"
+                        href="/example#language_fi"
+                        hreflang="fi"
+                        lang="fi"
+                        rel="alternate"
+                      >
+                        suomi
+                      </a>
+                      <!-- ################################################################################################################
+    ecl2-compliance -->
+                      <div
+                        class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+                      >
+                        <p
+                          class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                        >
+                          <b>
+                            [link--standalone]
+                          </b>
+                           - ecl compliant.
+                        </p>
+                      </div>
+                    </li>
+                    <li
+                      class="ecl-language-list__item"
+                    >
+                      <a
+                        class="ecl-link ecl-link--standalone ecl-language-list__link"
+                        href="/example#language_sv"
+                        hreflang="sv"
+                        lang="sv"
+                        rel="alternate"
+                      >
+                        svenska
+                      </a>
+                      <!-- ################################################################################################################
+    ecl2-compliance -->
+                      <div
+                        class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+                      >
+                        <p
+                          class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                        >
+                          <b>
+                            [link--standalone]
+                          </b>
+                           - ecl compliant.
+                        </p>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- ################################################################################################################
+    ecl2-compliance -->
+          <div
+            class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-red ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+          >
+            <p
+              class="ecl-u-type-color-grey ecl-u-ml-m ecl-u-type-xs"
+            >
+              <b>
+                [language-list]
+              </b>
+                In the overlay the "close_label" needs to set and filled in. In the overlay the "title" needs to set and filled in.
+            </p>
+          </div>
+        </div>
+      </div>
+      <form
+        class="ecl-search-form ecl-site-header__search"
+        role="search"
+      >
+        <div
+          class="ecl-form-group"
+        >
+          <label
+            class="ecl-form-label ecl-search-form__label"
+            for="search-form"
+          >
+            Search
+          </label>
+          <input
+            class="ecl-text-input ecl-text-input--m ecl-search-form__text-input"
+            id="search-form"
+            type="search"
+          />
+        </div>
+        <button
+          aria-label="Search"
+          class="ecl-button ecl-button--search ecl-search-form__button"
+          type="submit"
+        >
+          <span
+            class="ecl-button__container"
+          >
+            <span
+              class="ecl-button__label"
+              data-ecl-label="true"
+            >
+              Search
+            </span>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--xs ecl-button__icon ecl-button__icon--after"
+              data-ecl-icon=""
+              focusable="false"
+            >
+              <use
+                xlink:href="/icons.svg#general--search"
+              />
+            </svg>
+          </span>
+        </button>
+      </form>
+      <!-- ################################################################################################################
+    ecl2-compliance -->
+      <div
+        class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+      >
+        <p
+          class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+        >
+          <b>
+            [search-form]
+          </b>
+           - ecl compliant.
+        </p>
+      </div>
+    </div>
+  </header>
+  <!-- ################################################################################################################
+    ecl2-compliance -->
+  <div
+    class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-red ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+  >
+    <p
+      class="ecl-u-type-color-grey ecl-u-ml-m ecl-u-type-xs"
+    >
+      <b>
+        [site-header]
+      </b>
+        "logo" needs to contain an "alt", a "src", an "href", a "language" and a "title" properties set and filled in. "language_selector" needs to contain a "code" and a "label" properties set and filled in. The "close_label" property needs to be defined inside the "language_selector.overlay" object. The "title" property needs to defined inside the "language_selector.overlay" object.
+    </p>
+  </div>
+</test>
+`;
+
 exports[`EC - Site Header Translated renders correctly 1`] = `
 <test>
   <header

@@ -17,17 +17,39 @@
           "name" (string) (default: ''),
           "value" (optional) (string)
         ...
-      ]
+      ],
+    - "_compliance_" (boolean) (default: false) Activates debug
 #}
 
 {# Internal properties #}
 
 {% set _id = id|default('') %}
 {% set _aria_controls = _id ~ '-dropdown-content' %}
-{% set _button = button|default({}) %}
+{% set _compliance = _compliance_|default(false) %}
+
+{% set _button_attributes = [
+{ name: 'aria-controls', value: _aria_controls },
+{ name: 'data-ecl-dropdown-legacy-toggle', value: 'true' }] %}
+
+{% set _button = {
+  label: _button.label,
+    variant: _button.variant,
+    type: 'button',
+    icon: {
+      type: 'ui',
+      name: 'corner-arrow',
+      transform: 'rotate-180',
+      size: 'fluid',
+    },
+    icon_position: "after",
+    extra_classes: 'ecl-dropdown-legacy__toggle',
+    extra_attributes: _button_attributes,
+    _compliance_: _compliance
+  }|merge(button|default({}))
+%}
+
 {% set _list = list|default({}) %}
 {% set _auto_init = auto_init ?? true %}
-
 {% set _css_class = 'ecl-dropdown-legacy ecl-dropdown-legacy--padded' %}
 {% set _extra_attributes = 'data-ecl-auto-init="DropdownLegacy"' %}
 
@@ -52,19 +74,7 @@
 {# Print the result #}
 
 <div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
-  {% set _button_attributes = [
-    { name: 'aria-controls', value: _aria_controls },
-    { name: 'data-ecl-dropdown-legacy-toggle', value: 'true' }] %}
-
-  {% include '@ecl-twig/ec-component-button/ecl-button.html.twig' with {
-    label: _button.label,
-    variant: _button.variant,
-    type: 'button',
-    icon: _icon,
-    icon_position: "after",
-    extra_classes: 'ecl-dropdown-legacy__toggle',
-    extra_attributes: _button_attributes,
-  }|merge(_button) only %}
+  {% include '@ecl-twig/ec-component-button/ecl-button.html.twig' with _button only %}
   <div
     id="{{ _id ~ '-dropdown-content' }}"
     class="ecl-dropdown-legacy__content"
@@ -79,5 +89,15 @@
     </ul>
   </div>
 </div>
+
+{# Validation #}
+
+{% if _compliance %}
+  {% include '@ecl-twig/ec-component-ecl-compliance/components/ecl-compliance-dropdown-legacy.html.twig' with {
+    id: _id,
+    button: _button,
+    list: _list
+  } only %}
+{% endif %}
 
 {% endspaceless %}

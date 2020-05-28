@@ -53,15 +53,14 @@ const adapter = initialData => {
 
   // Search form.
   adaptedData.search_form = {
-    extra_attributes: [{ name: 'id', value: adaptedData.searchForm.id }],
     text_input: {
       id: adaptedData.searchForm.textInputId,
-      name: adaptedData.searchForm.inputLabel,
       label: adaptedData.searchForm.inputLabel,
     },
     button: {
       label: adaptedData.searchForm.buttonLabel,
     },
+    extra_attributes: [{ name: 'id', value: adaptedData.searchForm.id }],
   };
   delete adaptedData.searchForm;
   adaptedData.menu_label = 'Menu';
