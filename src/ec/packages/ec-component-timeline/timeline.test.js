@@ -113,6 +113,7 @@ describe('EC - Timeline', () => {
 
     const dataCompliance = { ...demoData, _compliance_: true };
     dataCompliance.items[1].label = '';
+    dataCompliance.toggle_collapsed = '';
 
     return expect(render(dataCompliance)).resolves.toMatchSnapshot();
   });
