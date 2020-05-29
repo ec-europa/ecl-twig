@@ -24,20 +24,24 @@ const prepareTimeline = data => {
   } else {
     hiddenCount = data.items.length + to - from;
   }
-  data.hide.from = number('hide.from', data.hide.from, {}, tabLabels.required);
-  data.hide.to = number('hide.to', data.hide.to, {}, tabLabels.required);
   data.toggle_collapsed = select(
     'toggle_collapsed',
-    [`Show ${hiddenCount} more items`],
+    ['none', `Show ${hiddenCount} more items`],
     `Show ${hiddenCount} more items`,
     tabLabels.required
   );
+  if (data.toggle_collapsed === 'none') {
+    data.toggle_collapsed = '';
+  }
   data.toggle_expanded = select(
     'toggle_expanded',
-    [`Hide ${hiddenCount} items`],
+    ['none', `Hide ${hiddenCount} items`],
     `Hide ${hiddenCount} items`,
     tabLabels.required
   );
+  if (data.toggle_expanded === 'none') {
+    data.toggle_expanded = '';
+  }
   data.icon_path = select(
     'icon_path',
     ['none', defaultSprite],
@@ -45,8 +49,11 @@ const prepareTimeline = data => {
     tabLabels.required
   );
   if (data.icon_path === 'none') {
-    data.icon_path = false;
+    data.icon_path = '';
   }
+
+  data.hide.from = number('hide.from', data.hide.from, {}, tabLabels.optional);
+  data.hide.to = number('hide.to', data.hide.to, {}, tabLabels.optional);
 
   data.items.forEach((item, i) => {
     const { id, label, title, content } = item;

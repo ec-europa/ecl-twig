@@ -114,6 +114,8 @@ describe('EC - Timeline', () => {
     const dataCompliance = { ...demoData, _compliance_: true };
     dataCompliance.items[1].label = '';
     dataCompliance.toggle_collapsed = '';
+    dataCompliance.toggle_expanded = '';
+    dataCompliance.icon_path = '';
 
     return expect(render(dataCompliance)).resolves.toMatchSnapshot();
   });
