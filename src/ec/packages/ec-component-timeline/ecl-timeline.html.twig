@@ -30,6 +30,7 @@ Parameters:
 {% set _toggle_expanded = toggle_expanded|default('') %}
 {% set _hide_from = hide.from|default(items|length) %}
 {% set _hide_to = hide.to|default(items|length) %}
+{% set _compliance = _compliance_|default(false) %}
 
 {# Internal logic - Process properties #}
 
@@ -110,7 +111,7 @@ Parameters:
 
 {# Validation #}
 
-{% if _compliance_ %}
+{% if _compliance %}
   {% include '@ecl-twig/ec-component-ecl-compliance/components/ecl-compliance-timeline.html.twig' with {
     items: _items,
     icon_path: _icon_path,
