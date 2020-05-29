@@ -24,24 +24,16 @@ const prepareTimeline = data => {
   } else {
     hiddenCount = data.items.length + to - from;
   }
-  data.toggle_collapsed = select(
+  data.toggle_collapsed = text(
     'toggle_collapsed',
-    ['none', `Show ${hiddenCount} more items`],
     `Show ${hiddenCount} more items`,
     tabLabels.required
   );
-  if (data.toggle_collapsed === 'none') {
-    data.toggle_collapsed = '';
-  }
-  data.toggle_expanded = select(
+  data.toggle_expanded = text(
     'toggle_expanded',
-    ['none', `Hide ${hiddenCount} items`],
     `Hide ${hiddenCount} items`,
     tabLabels.required
   );
-  if (data.toggle_expanded === 'none') {
-    data.toggle_expanded = '';
-  }
   data.icon_path = select(
     'icon_path',
     ['none', defaultSprite],
