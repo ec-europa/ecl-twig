@@ -391,18 +391,14 @@ exports[`EC - Card Default with validation enabled and missing input data return
           class="ecl-link ecl-link--standalone"
           href="/example"
         />
-        <!-- ################################################################################################################
-    ecl2-compliance -->
+        <!-- ecl2-compliance: link--standalone -->
         <div
-          class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-red ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+          class="ecl2-compliance ecl-u-border-width-1 ecl-u-mt-xl ecl-u-border-color-red ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
         >
           <p
             class="ecl-u-type-color-grey ecl-u-ml-m ecl-u-type-xs"
           >
-            <b>
-              [link--standalone]
-            </b>
-             link.label and none of link.icon_position, icon.name, icon.path or icon.type cannot be empty at the same time, an unusable link tag would be generated otherwise
+            [link] - {{ link.label }} and none of {{ link.icon_position }}, {{ icon.name }}, {{ icon.path }} or {{ icon.type }} can be empty at the same time, an unusable link would be generated otherwise
           </p>
         </div>
       </h1>
@@ -434,20 +430,20 @@ exports[`EC - Card Default with validation enabled and missing input data return
               xlink:href="/icons.svg#general--calendar"
             />
           </svg>
-          <!-- ################################################################################################################
-    ecl2-compliance -->
-          <div
-            class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+          <span
+            class="ecl-u-type-color-green"
+            title="[icon] - ecl compliant."
           >
-            <p
-              class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--xs"
+              focusable="false"
             >
-              <b>
-                [icon]
-              </b>
-               - ecl compliant.
-            </p>
-          </div>
+              <use
+                xlink:href="/icons.svg#notifications--success"
+              />
+            </svg>
+          </span>
           <span
             class="ecl-card__info-label"
           >
@@ -466,20 +462,20 @@ exports[`EC - Card Default with validation enabled and missing input data return
               xlink:href="/icons.svg#general--location"
             />
           </svg>
-          <!-- ################################################################################################################
-    ecl2-compliance -->
-          <div
-            class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+          <span
+            class="ecl-u-type-color-green"
+            title="[icon] - ecl compliant."
           >
-            <p
-              class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--xs"
+              focusable="false"
             >
-              <b>
-                [icon]
-              </b>
-               - ecl compliant.
-            </p>
-          </div>
+              <use
+                xlink:href="/icons.svg#notifications--success"
+              />
+            </svg>
+          </span>
           <span
             class="ecl-card__info-label"
           >
@@ -499,18 +495,14 @@ exports[`EC - Card Default with validation enabled and missing input data return
           >
             tag 1
           </a>
-          <!-- ################################################################################################################
-    ecl2-compliance -->
+          <!-- ecl2-compliance: tag--link -->
           <div
             class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
           >
             <p
               class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
             >
-              <b>
-                [tag--link]
-              </b>
-               - ecl compliant.
+              [tag] - ecl compliant.
             </p>
           </div>
         </li>
@@ -523,18 +515,14 @@ exports[`EC - Card Default with validation enabled and missing input data return
           >
             tag 2
           </a>
-          <!-- ################################################################################################################
-    ecl2-compliance -->
+          <!-- ecl2-compliance: tag--link -->
           <div
             class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
           >
             <p
               class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
             >
-              <b>
-                [tag--link]
-              </b>
-               - ecl compliant.
+              [tag] - ecl compliant.
             </p>
           </div>
         </li>
@@ -547,36 +535,28 @@ exports[`EC - Card Default with validation enabled and missing input data return
           >
             tag 3
           </a>
-          <!-- ################################################################################################################
-    ecl2-compliance -->
+          <!-- ecl2-compliance: tag--link -->
           <div
             class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
           >
             <p
               class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
             >
-              <b>
-                [tag--link]
-              </b>
-               - ecl compliant.
+              [tag] - ecl compliant.
             </p>
           </div>
         </li>
       </ul>
     </footer>
   </article>
-  <!-- ################################################################################################################
-    ecl2-compliance -->
+  <!-- ecl2-compliance: card -->
   <div
-    class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-red ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+    class="ecl2-compliance ecl-u-border-width-1 ecl-u-mt-xl ecl-u-border-color-red ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
   >
     <p
       class="ecl-u-type-color-grey ecl-u-ml-m ecl-u-type-xs"
     >
-      <b>
-        [card]
-      </b>
-        "card.title.label" is mandatory.
+      [card] -  "card.title.label" is mandatory.
     </p>
   </div>
 </test>

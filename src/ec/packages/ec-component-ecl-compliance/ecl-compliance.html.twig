@@ -2,11 +2,12 @@
 
 {#
   Parameters:
-  - "not-compliant" (boolean)
+  - "not_compliant" (boolean)
   - "message" (string)
   - "component" (string)
   - "variant" (string)
   - "icon_path" (string)
+  - "inner_check" (boolean)
 
   Blocks:
   - "complaints"
@@ -16,24 +17,28 @@
 {# Internal properties #}
 
 {% set _success_message = '' %}
+{% set _inner_check = inner_check|default(false) %}
 {% set _identifier = component %}
+{% set _icon_path = icon_path|default('') %}
+{% set _success_message = '[' ~ _identifier ~ '] - ecl compliant.' %}
+{% set _message = '[' ~ _identifier ~ '] - ' ~ message %}
+
 {% if variant %}
   {% set _identifier = component ~ '--' ~ variant %}
 {% endif %}
-{% set _success_message = '[' ~ _identifier ~ '] - ecl compliant.' %}
-{% set _message = '[' ~ _identifier ~ '] ' ~ message %}
 
 {# Rendering #}
 
-<!-- ################################################################################################################
-    ecl2-compliance -->
+{% if _inner_check == false or _icon_path is not defined or _icon_path is empty %}
+  <!-- ecl2-compliance: {{ _identifier }} -->
+{% endif %}
 
 {% if not_compliant %}
   {% block complaints %}
-    {% if icon_path is defined and icon_path is not empty %}
-      <span class="ecl-u-type-color-red ecl-u-d-inline-flex" title="{{ _message|raw }}">
+    {% if _icon_path is not empty and _inner_check %}
+      <span class="ecl-u-type-color-red" title="{{ _message|raw }}">
       {% include '@ecl-twig/ec-component-icon/ecl-icon.html.twig' with {
-          icon: { type: 'notifications', name: 'error', size: 'xs', path: icon_path },
+          icon: { type: 'notifications', name: 'error', size: 'xs', path: _icon_path },
         } only %}
       </span>
     {% else %}
@@ -48,10 +53,10 @@
   {% endblock %}
 {% else %}
   {% block compliant %}
-    {% if icon_path is defined and icon_path is not empty %}
-      <span class="ecl-u-type-color-green ecl-u-d-inline-flex" title="{{ _success_message|raw }}">
+    {% if _icon_path is not empty and _inner_check %}
+      <span class="ecl-u-type-color-green" title="{{ _success_message|raw }}">
       {% include '@ecl-twig/ec-component-icon/ecl-icon.html.twig' with {
-          icon: { type: 'notifications', name: 'success', size: 'xs', path: icon_path },
+          icon: { type: 'notifications', name: 'success', size: 'xs', path: _icon_path },
         } only %}
       </span>
     {% else %}

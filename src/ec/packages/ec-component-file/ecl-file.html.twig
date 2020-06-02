@@ -64,7 +64,8 @@
     {% include '@ecl-twig/ec-component-icon/ecl-icon.html.twig' with {
       icon: _icon,
       extra_classes: 'ecl-file__icon',
-      _compliance_: _compliance
+      _compliance_: _compliance,
+      inner_check: true
     } only %}
   {% if _title is not empty or language is not empty or meta is not empty %}
     <div class="ecl-file__info">
@@ -91,7 +92,8 @@
       }),
       extra_classes: 'ecl-file__download',
       extra_attributes: [{ name: 'download' }],
-      _compliance_: _compliance
+      _compliance_: _compliance,
+      inner_check: true
     }) only %}
   </div>
 
@@ -111,7 +113,8 @@
         }),
         extra_classes: 'ecl-file__translation-toggle',
         extra_attributes: [{ name: 'data-ecl-file-translation-toggle' }],
-        _compliance_: _compliance
+        _compliance_: _compliance,
+        inner_check: true
       }) only %}
 
       <ul class="ecl-file__translation-list">
@@ -147,7 +150,8 @@
                 { name: 'download' },
                 { name: 'hreflang', value: _item.lang }
               ],
-              _compliance_: _compliance
+              _compliance_: _compliance,
+              inner_check: true
             }) only %}
           </li>
         {% endfor %}

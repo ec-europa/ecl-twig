@@ -61,7 +61,8 @@
       {% include '@ecl-twig/ec-component-icon/ecl-icon.html.twig' with {
         icon: item.icon|merge(_icon),
         extra_classes: 'ecl-fact-figures__icon',
-        _compliance_: _compliance
+        _compliance_: _compliance,
+        inner_check: true
       } only %}
     {% endif %}
     {% if item.value is defined and item.value is not empty %}
@@ -91,7 +92,8 @@
         type: 'standalone',
       }),
       extra_classes: 'ecl-fact-figures__view-all-link',
-      _compliance_: _compliance
+      _compliance_: _compliance,
+      inner_check: true
     }) only %}
   </div>
 {% endif %}

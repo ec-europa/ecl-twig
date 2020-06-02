@@ -18,12 +18,16 @@
           "name" (string) (default: ''),
           "value" (optional) (string)
         ...
-      ]
+      ],
+    - "_compliance_" (boolean) (default: false) - Activates debug
+    - "inner_check" (boolean) (default: false) - Inline compliance report
 #}
 
 {# Internal properties #}
 
 {% set _breadcrumb_size = links|length %}
+{% set _links = links|default([]) %}
+{% set _icon_file_path = icon_file_path|default('') %}
 {% set _navigation_text = navigation_text|default('') %}
 {% set _ellipsis_label = ellipsis_label|default('') %}
 {% set _breadcrumb_segment_class = 'ecl-breadcrumb__segment' %}
@@ -40,6 +44,10 @@
   extra_classes: 'ecl-breadcrumb__icon',
   extra_attributes: [{ name: 'role', value: 'presentation' }]
 } %}
+
+{% if _compliance %}
+  {% set _default_icon_structure = _default_icon_structure|merge({ '_compliance_': true, 'inner_check': true }) %}
+{% endif %}
 
 {% set _css_class = 'ecl-breadcrumb' %}
 {% set _extra_attributes = [
@@ -68,6 +76,7 @@
 
 <nav class="{{ _css_class }}" {{ _extra_attributes|raw }}>
   <ol class="ecl-breadcrumb__container">
+  {% if _links is not empty %}
     {% for key, link in links %}
       {% set _breadcrumb_segment_attributes = 'data-ecl-breadcrumb-item="static" aria-hidden="false"' %}
       {% if loop.last %}
@@ -93,12 +102,15 @@
               path: link.path
             },
             extra_classes: 'ecl-breadcrumb__link',
-            _compliance_: _compliance
+            _compliance_: _compliance,
+            inner_check: true,
+            icon_path: _icon_file_path
           } only %}
           {% include '@ecl-twig/ec-component-icon/ecl-icon.html.twig' with _default_icon_structure only %}
         </li>
       {% endif %}
     {% endfor %}
+  {% endif %}
   </ol>
 </nav>
 
@@ -106,6 +118,7 @@
 
 {% if _compliance %}
   {% include '@ecl-twig/ec-component-ecl-compliance/components/ecl-compliance-breadcrumb.html.twig' with {
+    links: _links,
     navigation_text: _navigation_text,
     ellipsis_label: _ellipsis_label,
     icon_file_path: icon_file_path

@@ -19,16 +19,18 @@
           "value" (optional) (string)
         ...
       ],
-    - **"_compliance_"** (boolean) (default: false) - Activates debug
-
+    - "_compliance_" (boolean) (default: false) - Activates debug
+    - "inner_check" (boolean) (default: false) - Inline compliance report
 #}
 
 {# Internal properties #}
 
 {% set _breadcrumb_size = links|length %}
+{% set _links = links|default([]) %}
 {% set _navigation_text = navigation_text|default('') %}
 {% set _ellipsis_label = ellipsis_label|default('') %}
 {% set _ellipsis_text = ellipsis_text|default('…') %}
+{% set _icon_file_path = icon_file_path|default('') %}
 {% set _extra_attributes = '' %}
 {% set _breadcrumb_segment_class = 'ecl-breadcrumb-standardised__segment' %}
 {% set _min_items_left = min_items_left|default(1) %}
@@ -44,7 +46,7 @@
     name: 'corner-arrow',
     size: '2xs',
     transform: 'rotate-90',
-    path: icon_file_path|default(''),
+    path: _icon_file_path,
   },
   extra_classes: 'ecl-breadcrumb-standardised__icon',
   extra_attributes: [{ name: 'role', value: 'presentation' }]
@@ -59,7 +61,7 @@
 {% endif %}
 
 {% if _compliance %}
-  {% set _breadcrumb_icon = _breadcrumb_icon|merge({ '_compliance_': true }) %}
+  {% set _breadcrumb_icon = _breadcrumb_icon|merge({ '_compliance_': true, 'inner_check': true }) %}
 {% endif %}
 
 {% if extra_classes is defined and extra_classes is not empty %}
@@ -121,7 +123,9 @@
               type: 'standalone'
             }),
             extra_classes: 'ecl-breadcrumb-standardised__link',
-             _compliance_: _compliance
+             _compliance_: _compliance,
+             inner_check: true,
+             icon_path: _icon_file_path
           } only %}
           {% include '@ecl-twig/ec-component-icon/ecl-icon.html.twig' with _breadcrumb_icon only %}
         </li>
@@ -134,6 +138,7 @@
 
 {% if _compliance %}
   {% include '@ecl-twig/ec-component-ecl-compliance/components/ecl-compliance-breadcrumb.html.twig' with {
+    links: _links,
     navigation_text: _navigation_text,
     ellipsis_label: _ellipsis_label,
     icon_file_path: icon_file_path,

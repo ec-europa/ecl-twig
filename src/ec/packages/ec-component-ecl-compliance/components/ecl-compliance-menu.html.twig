@@ -59,29 +59,29 @@
 %}
 
 {% if no_icon_path_case %}
-  {% set message = message ~ ' The "icon_path" property is required to retrieve the icons sprite.' %}
+  {% set message = message ~ ' The {{ icon_path }} property is required to retrieve the icons sprite.' %}
 {% endif %}
 {% if no_items_case %}
-  {% set message = message ~ ' "items" is mandatory and it should contain an array of menu items.' %}
+  {% set message = message ~ ' {{ items }} is mandatory and it should contain an array of menu items.' %}
 {% endif %}
 {% if no_item_path_case %}
-  {% set message = message ~ ' Each element in "items" needs to contain a "path" property set and filled in.' %}
+  {% set message = message ~ ' Each element in the {{ items }} array needs to contain a {{ path }} property set and filled in.' %}
 {% endif %}
 {% if no_item_label_case %}
-  {% set message = message ~ ' Each element in "items" needs to contain a "label" property set and filled in.' %}
+  {% set message = message ~ ' Each element in the {{ items }} array needs to contain a {{ label }} property set and filled in.' %}
 {% endif %}
 {% if no_subitem_path_case %}
-  {% set message = message ~ ' Each element in the "children" array inside a main item needs to contain a "path" property set and filled in.' %}
+  {% set message = message ~ ' Each element in the {{ children }} array inside a main item needs to contain a {{ path }} property set and filled in.' %}
 {% endif %}
 {% if no_subitem_label_case %}
-  {% set message = message ~ ' Each element in the "children" array inside a main item needs to contain a "label" property set and filled in.' %}
+  {% set message = message ~ ' Each element in the {{ children }} array inside a main item needs to contain a {{ label }} property set and filled in.' %}
 {% endif %}
 {% if no_close_label_case %}
-  {% set message = message ~ ' "close" is mandatory as it represents the close button label.' %}
+  {% set message = message ~ ' {{ close }} property needs to set and filled in as it represents the close button label.' %}
 {% endif %}
 {% if no_title_case %}
-  {% set message = message ~ ' "title" is mandatory as it represents the menu button label.' %}
+  {% set message = message ~ ' {{ title }} property needs to set and filled in as it represents the menu button label.' %}
 {% endif %}
 {% if no_back_case %}
-  {% set message = message ~ ' "back" is mandatory as it represents the back button label.' %}
+  {% set message = message ~ ' {{ back }} property needs to set and filled in as it represents the back button label.' %}
 {% endif %}

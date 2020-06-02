@@ -104,7 +104,8 @@
       {% include '@ecl-twig/ec-component-checkbox/ecl-checkbox-button.html.twig' with _item|merge({
         name: _name,
         invalid: _invalid,
-        _compliance_: _compliance
+        _compliance_: _compliance,
+        inner_check: true
       }) only %}
     {% endfor -%}
   {% endif %}
@@ -121,7 +122,8 @@
     invalid_text: _invalid_text,
     required_text: _required_text,
     optional_text: _optional_text,
-    label: _label
+    label: _label,
+    variant: 'checkbox'
   } only %}
 {% endif %}
 

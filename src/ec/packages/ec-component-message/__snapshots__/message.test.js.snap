@@ -412,34 +412,30 @@ exports[`EC - Message with validation enabled and missing input data returns the
               xlink:href="/icons.svg#ui--close"
             />
           </svg>
-          <!-- ################################################################################################################
-    ecl2-compliance -->
-          <div
-            class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+          <span
+            class="ecl-u-type-color-green"
+            title="[icon] - ecl compliant."
           >
-            <p
-              class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--xs"
+              focusable="false"
             >
-              <b>
-                [icon]
-              </b>
-               - ecl compliant.
-            </p>
-          </div>
+              <use
+                xlink:href="/icons.svg#notifications--success"
+              />
+            </svg>
+          </span>
         </span>
       </button>
-      <!-- ################################################################################################################
-    ecl2-compliance -->
+      <!-- ecl2-compliance: button--ghost -->
       <div
         class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
       >
         <p
           class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
         >
-          <b>
-            [button--ghost]
-          </b>
-           - ecl compliant.
+          [button] - ecl compliant.
         </p>
       </div>
       <div
@@ -452,18 +448,14 @@ exports[`EC - Message with validation enabled and missing input data returns the
       />
     </div>
   </div>
-  <!-- ################################################################################################################
-    ecl2-compliance -->
+  <!-- ecl2-compliance: message--info -->
   <div
-    class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-red ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+    class="ecl2-compliance ecl-u-border-width-1 ecl-u-mt-xl ecl-u-border-color-red ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
   >
     <p
       class="ecl-u-type-color-grey ecl-u-ml-m ecl-u-type-xs"
     >
-      <b>
-        [message--info]
-      </b>
-        "description" text is mandatory.
+      [message] -  "description" text is mandatory.
     </p>
   </div>
 </test>

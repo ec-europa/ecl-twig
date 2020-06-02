@@ -1,7 +1,11 @@
 import { storiesOf } from '@storybook/html';
 import { withKnobs, text, select } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
-import { getExtraKnobs, tabLabels } from '@ecl-twig/story-utils';
+import {
+  getExtraKnobs,
+  tabLabels,
+  getComplianceKnob,
+} from '@ecl-twig/story-utils';
 import withCode from '@ecl-twig/storybook-addon-code';
 import he from 'he';
 
@@ -26,12 +30,16 @@ const prepareExpandable = data => {
   data.content = he.decode(text('content', data.content, tabLabels.required));
   data.button.icon.path = select(
     'button.icon.path',
-    [defaultSprite],
+    ['none', defaultSprite],
     defaultSprite,
     tabLabels.required
   );
+  if (data.button.icon.path === 'none') {
+    data.button.icon.path = '';
+  }
 
   getExtraKnobs(data);
+  getComplianceKnob(data);
 
   return data;
 };

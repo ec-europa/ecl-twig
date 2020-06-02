@@ -23,6 +23,7 @@
 {# Internal properties #}
 
 {% set _compliance = _compliance_|default(false) %}
+{% set _inner_check = inner_check|default(false) %}
 
 {% set _icon = {
   path: '',
@@ -77,7 +78,8 @@
 {% if _compliance %}
   {% include '@ecl-twig/ec-component-ecl-compliance/components/ecl-compliance-icon.html.twig' with {
     icon: _icon,
-    icon_path: _icon.path
+    icon_path: _icon.path,
+    inner_check: _inner_check
   } only %}
 {% endif %}
 
