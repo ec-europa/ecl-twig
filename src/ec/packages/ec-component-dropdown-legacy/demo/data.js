@@ -6,6 +6,7 @@ const adapter = initialData => {
   const adaptedData = JSON.parse(JSON.stringify(initialData));
 
   const [type, name] = adaptedData.button.icon.shape.split('--');
+  delete adaptedData.button.icon.shape;
 
   adaptedData.button.icon = {
     type,

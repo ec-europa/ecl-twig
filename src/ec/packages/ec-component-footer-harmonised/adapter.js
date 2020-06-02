@@ -11,10 +11,12 @@ const formatSection = (section, name) => {
     switch (name) {
       case 'siteName':
         s.section_id = '1';
+        s.type = 'site_name';
         break;
       case 'dgServices':
         s.section_id = '2';
         s.demo_id = 'contact_us';
+        s.type = 'dg_services_navigation';
         if (i === 1) {
           s.demo_id = 'follow_us';
         }
@@ -22,30 +24,38 @@ const formatSection = (section, name) => {
       case 'dgNavigations':
         s.section_id = '3';
         s.demo_id = 'about_us';
+        s.type = 'dg_related_navigation';
         if (i === 1) {
           s.demo_id = 'related';
         }
         break;
       case 'classes':
         s.section_id = '6';
+        s.type = 'class_names';
         break;
       case 'corporateName':
         s.section_id = '7';
+        s.type = 'corporate_name';
         break;
       case 'serviceNavigation':
         s.section_id = '8';
+        s.type = 'service_navigation';
         break;
       case 'legalNavigation':
         s.section_id = '9';
+        s.type = 'legal_navigation';
         break;
       case 'partnershipLogos':
         s.section_id = '2';
+        s.type = 'partnership_logos';
         break;
       case 'ecLogo':
         s.section_id = '2';
+        s.type = 'commission_logo';
         break;
       case 'partnershipLabel':
         s.section_id = '1';
+        s.type = 'partnership_label';
         break;
     }
 

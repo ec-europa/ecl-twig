@@ -37,6 +37,18 @@ describe('EC - Footer Harmonised', () => {
 
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
     });
+
+    test('with missing input data and debug enabled it renders the right warning messages', () => {
+      expect.assertions(1);
+
+      const dataCompliance = { ...dataGroup1, _compliance_: true };
+      dataCompliance.sections[0].title.link.label = '';
+      dataCompliance.sections[0].description = '';
+      dataCompliance.sections[6].links = [];
+      dataCompliance.sections[4].title.link.label = '';
+
+      return expect(render(dataCompliance)).resolves.toMatchSnapshot();
+    });
   });
 
   describe('Group 2', () => {
@@ -67,6 +79,16 @@ describe('EC - Footer Harmonised', () => {
 
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
     });
+
+    test('with missing input data and debug enabled it renders the right warning messages', () => {
+      expect.assertions(1);
+
+      const dataCompliance = { ...dataGroup2, _compliance_: true };
+      dataCompliance.sections[0].title.link.label = '';
+      dataCompliance.sections[0].description = '';
+
+      return expect(render(dataCompliance)).resolves.toMatchSnapshot();
+    });
   });
 
   describe('Group 3', () => {
@@ -96,6 +118,16 @@ describe('EC - Footer Harmonised', () => {
       });
 
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
+    });
+
+    test('with missing input data and debug enabled it renders the right warning messages', () => {
+      expect.assertions(1);
+
+      const dataCompliance = { ...dataGroup3, _compliance_: true };
+      dataCompliance.sections[1].logos = '';
+      dataCompliance.sections[0].title.link.label = '';
+
+      return expect(render(dataCompliance)).resolves.toMatchSnapshot();
     });
   });
 });
