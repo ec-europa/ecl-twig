@@ -2,11 +2,15 @@
 import { storiesOf } from '@storybook/html';
 import { withKnobs, number, text, select } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
-import { getExtraKnobs, tabLabels } from '@ecl-twig/story-utils';
+import {
+  getExtraKnobs,
+  tabLabels,
+  getComplianceKnob,
+} from '@ecl-twig/story-utils';
 import he from 'he';
 import withCode from '@ecl-twig/storybook-addon-code';
 
-import iconPath from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
+import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import demoData from './demo/data';
 import timeline from './ecl-timeline.html.twig';
 import notes from './README.md';
@@ -20,38 +24,41 @@ const prepareTimeline = data => {
   } else {
     hiddenCount = data.items.length + to - from;
   }
-  data.hide.from = number('hide.from', data.hide.from, {}, tabLabels.required);
-  data.hide.to = number('hide.to', data.hide.to, {}, tabLabels.required);
-  data.toggle_collapsed = select(
+  data.toggle_collapsed = text(
     'toggle_collapsed',
-    [`Show ${hiddenCount} more items`],
     `Show ${hiddenCount} more items`,
     tabLabels.required
   );
-  data.toggle_expanded = select(
+  data.toggle_expanded = text(
     'toggle_expanded',
-    [`Hide ${hiddenCount} items`],
     `Hide ${hiddenCount} items`,
     tabLabels.required
   );
   data.icon_path = select(
     'icon_path',
-    [iconPath],
-    iconPath,
+    ['none', defaultSprite],
+    defaultSprite,
     tabLabels.required
   );
+  if (data.icon_path === 'none') {
+    data.icon_path = '';
+  }
 
-  data.items.forEach((item, index) => {
+  data.hide.from = number('hide.from', data.hide.from, {}, tabLabels.optional);
+  data.hide.to = number('hide.to', data.hide.to, {}, tabLabels.optional);
+
+  data.items.forEach((item, i) => {
     const { id, label, title, content } = item;
-    item.id = text(`items[${index}].id`, id, tabLabels.optional);
-    item.label = text(`items[${index}].label`, label, tabLabels.required);
-    item.title = text(`items[${index}].title`, title, tabLabels.optional);
+    item.label = text(`items[${i}].label`, label, tabLabels.required);
+    item.id = text(`items[${i}].id`, id, tabLabels.optional);
+    item.title = text(`items[${i}].title`, title, tabLabels.optional);
     item.content = he.decode(
-      text(`items[${index}].content`, content, tabLabels.required)
+      text(`items[${i}].content`, content, tabLabels.required)
     );
   });
 
   getExtraKnobs(data);
+  getComplianceKnob(data);
 
   return data;
 };

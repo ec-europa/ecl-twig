@@ -16,7 +16,8 @@ Parameters:
   - "extra_classes" (string) (default: '')
   - "extra_attributes" (array) (default: []): format:
     - "name" (string) (default: '')
-    - "value" (optional) (string)
+    - "value" (optional) (string),
+  - "_compliance_" (boolean) (default: false) Activates debug
 #}
 
 {# Internal properties #}
@@ -29,6 +30,8 @@ Parameters:
 {% set _toggle_expanded = toggle_expanded|default('') %}
 {% set _hide_from = hide.from|default(items|length) %}
 {% set _hide_to = hide.to|default(items|length) %}
+{% set _compliance = _compliance_|default(false) %}
+{% set _toggler = false %}
 
 {# Internal logic - Process properties #}
 
@@ -80,6 +83,7 @@ Parameters:
       </li>
       {# Display the show more button if required. #}
       {% if (_hide_amount > 0 and loop.revindex == _bottom_amount + 1) or (_hide_amount > 0 and _hide_to == 0 and loop.revindex == 1) %}
+        {% set _toggler = true %}
         <li class="ecl-timeline2__item ecl-timeline2__item--toggle">
           {% include '@ecl-twig/ec-component-button/ecl-button.html.twig' with {
             label: _toggle_collapsed,
@@ -99,11 +103,27 @@ Parameters:
               {name: 'data-ecl-label-collapsed', value: _toggle_collapsed},
               {name: 'data-ecl-label-expanded', value: _toggle_expanded},
             ],
+            _compliance_: _compliance
           } only %}
         </li>
       {% endif %}
     {% endfor %}
   {% endif %}
 </ol>
+
+{# Validation #}
+
+{% if _compliance %}
+  {% include '@ecl-twig/ec-component-ecl-compliance/components/ecl-compliance-timeline.html.twig' with {
+    toggler: _toggler,
+    hide_amout: _hide_amount,
+    items: _items,
+    icon_path: _icon_path,
+    toggle_collapsed: _toggle_collapsed,
+    toggle_expanded: _toggle_expanded,
+    hide_from: _hide_from,
+    hide_to: _hide_to
+  } only %}
+{% endif %}
 
 {% endspaceless %}
