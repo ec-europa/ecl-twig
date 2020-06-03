@@ -209,16 +209,20 @@ exports[`EC - Expandable Collapsed with missing input data and debug enbaled ret
         </span>
       </span>
     </button>
-    <!-- ecl2-compliance: button--secondary -->
-    <div
-      class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+    <span
+      class="ecl-u-type-color-green"
+      title="[button--secondary] - ecl compliant."
     >
-      <p
-        class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+      <svg
+        aria-hidden="true"
+        class="ecl-icon ecl-icon--xs"
+        focusable="false"
       >
-        [button] - ecl compliant.
-      </p>
-    </div>
+        <use
+          xlink:href="example#notifications--success"
+        />
+      </svg>
+    </span>
     <div
       class="ecl-expandable__content"
       hidden=""

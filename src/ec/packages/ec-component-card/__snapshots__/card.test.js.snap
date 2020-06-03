@@ -398,7 +398,7 @@ exports[`EC - Card Default with validation enabled and missing input data return
           <p
             class="ecl-u-type-color-grey ecl-u-ml-m ecl-u-type-xs"
           >
-            [link] - {{ link.label }} and none of {{ link.icon_position }}, {{ icon.name }}, {{ icon.path }} or {{ icon.type }} can be empty at the same time, an unusable link would be generated otherwise
+            [link--standalone] - {{ link.label }} and none of {{ link.icon_position }}, {{ icon.name }}, {{ icon.path }} or {{ icon.type }} can be empty at the same time, an unusable link would be generated otherwise
           </p>
         </div>
       </h1>
@@ -495,16 +495,20 @@ exports[`EC - Card Default with validation enabled and missing input data return
           >
             tag 1
           </a>
-          <!-- ecl2-compliance: tag--link -->
-          <div
-            class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+          <span
+            class="ecl-u-type-color-green"
+            title="[tag--link] - ecl compliant."
           >
-            <p
-              class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--xs"
+              focusable="false"
             >
-              [tag] - ecl compliant.
-            </p>
-          </div>
+              <use
+                xlink:href="/icons.svg#notifications--success"
+              />
+            </svg>
+          </span>
         </li>
         <li
           class="ecl-card__tag-item"
@@ -515,16 +519,20 @@ exports[`EC - Card Default with validation enabled and missing input data return
           >
             tag 2
           </a>
-          <!-- ecl2-compliance: tag--link -->
-          <div
-            class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+          <span
+            class="ecl-u-type-color-green"
+            title="[tag--link] - ecl compliant."
           >
-            <p
-              class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--xs"
+              focusable="false"
             >
-              [tag] - ecl compliant.
-            </p>
-          </div>
+              <use
+                xlink:href="/icons.svg#notifications--success"
+              />
+            </svg>
+          </span>
         </li>
         <li
           class="ecl-card__tag-item"
@@ -535,16 +543,20 @@ exports[`EC - Card Default with validation enabled and missing input data return
           >
             tag 3
           </a>
-          <!-- ecl2-compliance: tag--link -->
-          <div
-            class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+          <span
+            class="ecl-u-type-color-green"
+            title="[tag--link] - ecl compliant."
           >
-            <p
-              class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--xs"
+              focusable="false"
             >
-              [tag] - ecl compliant.
-            </p>
-          </div>
+              <use
+                xlink:href="/icons.svg#notifications--success"
+              />
+            </svg>
+          </span>
         </li>
       </ul>
     </footer>

@@ -428,16 +428,20 @@ exports[`EC - Message with validation enabled and missing input data returns the
           </span>
         </span>
       </button>
-      <!-- ecl2-compliance: button--ghost -->
-      <div
-        class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+      <span
+        class="ecl-u-type-color-green"
+        title="[button--ghost] - ecl compliant."
       >
-        <p
-          class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--xs"
+          focusable="false"
         >
-          [button] - ecl compliant.
-        </p>
-      </div>
+          <use
+            xlink:href="/icons.svg#notifications--success"
+          />
+        </svg>
+      </span>
       <div
         class="ecl-message__title"
       >
@@ -455,7 +459,7 @@ exports[`EC - Message with validation enabled and missing input data returns the
     <p
       class="ecl-u-type-color-grey ecl-u-ml-m ecl-u-type-xs"
     >
-      [message] -  "description" text is mandatory.
+      [message--info] -  "description" text is mandatory.
     </p>
   </div>
 </test>
