@@ -42,6 +42,16 @@ describe('EC - Page Header', () => {
 
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
     });
+
+    test('with missing input data and debug enabled it returns the right warning messages', () => {
+      expect.assertions(1);
+
+      const dataCompliance = { ...pageHeaderDataTitle, _compliance_: true };
+      dataCompliance.title = '';
+      dataCompliance.breadcrumb = '';
+
+      return expect(render(dataCompliance)).resolves.toMatchSnapshot();
+    });
   });
 
   describe('title-description', () => {
