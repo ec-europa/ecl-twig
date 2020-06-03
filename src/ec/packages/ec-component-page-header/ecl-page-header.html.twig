@@ -67,7 +67,8 @@
   {% if _breadcrumb is not empty %}
     {% include '@ecl-twig/ec-component-breadcrumb/ecl-breadcrumb.html.twig' with _breadcrumb|merge({
       extra_classes: 'ecl-page-header__breadcrumb',
-      _compliance_: _compliance
+      _compliance_: _compliance,
+      inner_check: true
     }) only %}
   {% endif %}
   {% if composition is defined and composition is not empty %}

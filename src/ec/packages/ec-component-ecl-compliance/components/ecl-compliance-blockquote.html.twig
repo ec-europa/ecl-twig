@@ -12,8 +12,8 @@
 {% set no_quote = citation is not defined or citation is empty %}
 {% set not_compliant = no_author or no_citation %}
 {% if no_author %}
-  {% set message = message ~ 'The "author" of the quote is mandatory.' %}
+  {% set message = message ~ 'The {{ author }} of the quote is mandatory.' %}
 {% endif %}
 {% if no_quote %}
-  {% set message = message ~ ' The "citation" is mandatory.' %}
+  {% set message = message ~ ' The {{ citation }} is mandatory.' %}
 {% endif %}

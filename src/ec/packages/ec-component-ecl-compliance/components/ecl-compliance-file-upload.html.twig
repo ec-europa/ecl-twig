@@ -29,8 +29,8 @@
 {% set not_compliant = no_button_choose_case or no_button_replace_case %}
 
 {% if no_button_choose_case %}
-  {% set message = ' "button_choose_label" is mandatory.' %}
+  {% set message = ' {{ button_choose_label }} needs to be set and filled in.' %}
 {% endif %}
 {% if no_button_replace_case %}
-  {% set message = message ~ ' "button_replace_label" is mandatory.' %}
+  {% set message = message ~ ' {{ button_replace_label }} needs to be set and filled in.' %}
 {% endif %}

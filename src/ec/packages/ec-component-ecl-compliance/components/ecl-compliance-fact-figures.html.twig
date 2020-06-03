@@ -33,11 +33,11 @@
 {% set not_compliant = no_icon_case or no_title_case or no_value_case %}
 
 {% if no_icon_case %}
-  {% set message = message ~ 'If you want to display icons, the name, path and type for each of them is mandatory, no icon would be rendered, otherwise' %}
+  {% set message = message ~ 'when {{ display_icons }} is true, the {{ name }}, {{ path }} and {{ type }} properties for each icon need to be set and filled in.' %}
 {% endif %}
 {% if no_title_case %}
-  {% set message = message ~ ' The "title" in each item is mandatory.' %}
+  {% set message = message ~ ' The {{ title }} in each item needs to be set and filled in.' %}
 {% endif %}
 {% if no_value_case %}
-  {% set message = message ~ ' The "value" in each item is mandatory.' %}
+  {% set message = message ~ ' The {{ value }} in each item needs to be set and filled in.' %}
 {% endif %}

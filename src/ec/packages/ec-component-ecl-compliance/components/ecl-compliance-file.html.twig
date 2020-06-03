@@ -67,38 +67,38 @@
 %}
 
 {% if no_title_case %}
-  {% set message = message ~ ' "title" is mandatory.' %}
+  {% set message = message ~ ' {{ title }} property needs to be set and filled in.' %}
 {% endif %}
 {% if no_meta_case %}
-  {% set message = message ~ ' "meta" is mandatory.' %}
+  {% set message = message ~ ' {{ meta }} property needs to be set and filled in.' %}
 {% endif %}
 {% if no_language_case %}
-  {% set message = message ~ ' "language" is mandatory.' %}
+  {% set message = message ~ ' {{ language }} property needs to set and filled in.' %}
 {% endif %}
 {% if no_icon_case %}
-  {% set message = message ~ ' "The "icon.path" is needed to retrieve the icon.' %}
+  {% set message = message ~ ' "The {{ icon.path }} property is needed to retrieve the icons file.' %}
 {% endif %}
 {% if no_translation_title_case %}
-  {% set message = message ~ ' "In the "translation.items" each item needs a "download.title" to be set and filled in.' %}
+  {% set message = message ~ ' "In the {{ translation.items }} each item needs a {{ download.title }} property to be set and filled in.' %}
 {% endif %}
 {% if no_translation_meta_case %}
-  {% set message = message ~ ' "In the "translation.items" each item needs the "meta" to be set and filled in.' %}
+  {% set message = message ~ ' "In the {{ translation.items }} each item needs the {{ meta }} property to be set and filled in.' %}
 {% endif %}
 {% if no_translation_lang_case %}
-  {% set message = message ~ ' "In the "translation.items" each item needs the "lang" to be set and filled in.' %}
+  {% set message = message ~ ' "In the {{ translation.items }} each item needs the {{ lang }} property to be set and filled in.' %}
 {% endif %}
 {% if no_download_case %}
-  {% set message = message ~ ' "download.link" needs to be set for the file to be downlodable.' %}
+  {% set message = message ~ ' {{ download.link }} needs to be set for the file to be downlodable.' %}
 {% endif %}
 {% if no_download_link_case %}
-  {% set message = message ~ ' "download.link.path" and "download.link.label" needs to be set for the file to be downlodable.' %}
+  {% set message = message ~ ' {{ download.link.path }} and {{ download.link.label }} need to be set for the file to be downlodable.' %}
 {% endif %}
 {% if no_translation_download_case %}
-  {% set message = message ~ ' Each item in the "translation.items" array needs a "download" object.' %}
+  {% set message = message ~ ' Each item in the {{ translation.items }} array needs a {{ download }} object.' %}
 {% endif %}
 {% if no_translation_download_link_case %}
-  {% set message = message ~ ' The "download" object in each of the "translation.items" array needs to contain a "link" object' %}
+  {% set message = message ~ ' The {{ download }} object in each of the {{ translation.items }} array needs to contain a {{ link }} object.' %}
 {% endif %}
 {% if no_translation_download_link_data_case %}
-  {% set message = message ~ ' The "link" object in each of the "translation.items.download" object needs to contain the "path" and the "label"' %}
+  {% set message = message ~ ' The {{ link }} object in each of the {{ translation.items.download }} objects needs to contain a {{ path }} and a {{ label }} properties.' %}
 {% endif %}

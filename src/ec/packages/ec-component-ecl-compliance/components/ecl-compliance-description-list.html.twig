@@ -45,17 +45,17 @@
 %}
 
 {% if no_items_case %}
-  {% set message = message ~ ' The "items" property is required.' %}
+  {% set message = message ~ ' The {{ items }} property is required.' %}
 {% endif %}
 {% if no_term_case %}
-  {% set message = message ~ ' Every item in the "items" array should contain a "term" property set and filled in.' %}
+  {% set message = message ~ ' Every item in the {{ items }} array should contain a {{ term }} property set and filled in.' %}
 {% endif %}
 {% if no_term_in_item_case %}
-  {% set message = message ~ ' Every sub-item in the "term" array should have a value set.' %}
+  {% set message = message ~ ' Every sub-item in the {{ term }} array should have a value set.' %}
 {% endif %}
 {% if no_definition_case %}
-  {% set message = message ~ ' Every item in the "items" array should contain a "definition" property set and filled in.' %}
+  {% set message = message ~ ' Every item in the {{ items }} array should contain a {{ definition }} property set and filled in.' %}
 {% endif %}
 {% if no_definition_in_item_case %}
-  {% set message = message ~ ' Every sub-item in the "definition" array should have a value set.' %}
+  {% set message = message ~ ' Every sub-item in the {{ definition }} array should have a value set.' %}
 {% endif %}

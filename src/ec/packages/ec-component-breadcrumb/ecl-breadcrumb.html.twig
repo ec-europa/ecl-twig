@@ -32,6 +32,7 @@
 {% set _ellipsis_label = ellipsis_label|default('') %}
 {% set _breadcrumb_segment_class = 'ecl-breadcrumb__segment' %}
 {% set _compliance = _compliance_|default(false) %}
+{% set _inner_check = inner_check|default(false) %}
 
 {% set _default_icon_structure = {
   icon: {
@@ -121,7 +122,8 @@
     links: _links,
     navigation_text: _navigation_text,
     ellipsis_label: _ellipsis_label,
-    icon_file_path: icon_file_path
+    icon_file_path: icon_file_path,
+    inner_check: _inner_check
   } only %}
 {% endif %}
 
