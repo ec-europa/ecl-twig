@@ -35,6 +35,7 @@
 {% set _min_items_left = min_items_left|default(1) %}
 {% set _min_items_right = min_items_right|default(2) %}
 {% set _icon_file_path = icon_file_path|default('') %}
+
 {% set _nav_attributes = [
   { name: 'aria-label', value: _navigation_text },
   { name: 'data-ecl-breadcrumb-harmonised', value: 'true' }]
@@ -145,7 +146,8 @@
     navigation_text: _navigation_text,
     ellipsis_label: _ellipsis_label,
     icon_file_path: _icon_file_path,
-    variant: 'harmonised'
+    variant: 'harmonised',
+    inner_check: _inner_check
   } only %}
 {% endif %}
 

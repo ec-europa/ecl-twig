@@ -40,6 +40,7 @@
   { name: 'data-ecl-breadcrumb-standardised', value: 'true' }]
 %}
 {% set _compliance = _compliance_|default(false) %}
+{% set _inner_check = inner_check|default(false) %}
 {% set _breadcrumb_icon = {
   icon: {
     type: 'ui',
@@ -142,7 +143,8 @@
     navigation_text: _navigation_text,
     ellipsis_label: _ellipsis_label,
     icon_file_path: icon_file_path,
-    variant: 'standardised'
+    variant: 'standardised',
+    inner_check: _inner_check
   } only %}
 {% endif %}
 

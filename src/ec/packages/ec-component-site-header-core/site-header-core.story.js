@@ -50,24 +50,30 @@ const prepareSiteHeaderCore = (data, lang) => {
   data.logged = boolean('logged', data.logged, tabLabels.states);
   data.icon_file_path = select(
     'icon_file_path',
-    [defaultSprite],
+    ['none', defaultSprite],
     defaultSprite,
     tabLabels.required
   );
+  if (data.icon_file_path === 'none') {
+    data.icon_file_path = '';
+  }
   if (lang === 'en') {
     data.logo.src = select(
       'logo.src',
-      [englishBanner],
+      ['none', englishBanner],
       englishBanner,
       tabLabels.required
     );
   } else {
     data.logo.src = select(
       'logo.src',
-      [frenchBanner],
+      ['none', frenchBanner],
       frenchBanner,
       tabLabels.required
     );
+  }
+  if (data.logo.src === 'none') {
+    data.logo.src = '';
   }
   // Logo knobs
   getLogoKnobs(data, true);
@@ -135,7 +141,7 @@ storiesOf('Components/Site Headers/Core', module)
     'translated',
     () => {
       button(btnLabel, frBtnHandler, tabLabels.cases);
-      const dataStory = prepareSiteHeaderCore(frData, 'en');
+      const dataStory = prepareSiteHeaderCore(frData, 'fr');
 
       return siteHeaderCore(dataStory);
     },

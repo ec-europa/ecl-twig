@@ -18,8 +18,11 @@
 
 {% set _success_message = '' %}
 {% set _inner_check = inner_check|default(false) %}
-{% set _identifier = component %}
+{% set _identifier = component|default('') %}
 {% set _icon_path = icon_path|default('') %}
+{% if _icon_path is empty %}
+  {% set _icon_path = icon_file_path|default('') %}
+{% endif %}
 {% if variant %}
   {% set _identifier = component ~ '--' ~ variant %}
 {% endif %}
@@ -28,7 +31,7 @@
 
 {# Rendering #}
 
-{% if _inner_check == false or _icon_path is not defined or _icon_path is empty %}
+{% if _inner_check == false or _icon_path is empty %}
   <!-- ecl2-compliance: {{ _identifier }} -->
 {% endif %}
 

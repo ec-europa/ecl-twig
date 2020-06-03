@@ -150,10 +150,13 @@
     extra_attributes: _search_button_extra_attributes,
   },
   extra_attributes: _search_form_extra_attributes,
-  extra_classes: _search_form_extra_classes,
-  _compliance_: _compliance,
+  extra_classes: _search_form_extra_classes
   }
 %}
+
+{% if _compliance %}
+  {% set _search_form = _search_form|merge({'_compliance_': _compliance, 'inner_check': true }) %}
+{% endif %}
 
 {# Internal logic - Process properties #}
 
@@ -207,7 +210,8 @@
                 size: 's'
               },
               extra_classes: 'ecl-site-header-core__icon',
-              _compliance_: _compliance
+              _compliance_: _compliance,
+              inner_check: true
             } only %}
              {{- login_toggle.label_logged -}}
              {% include '@ecl-twig/ec-component-icon/ecl-icon.html.twig' with {
@@ -218,7 +222,8 @@
                 size: 'xs'
               },
               extra_classes: 'ecl-site-header-core__login-arrow',
-              _compliance_: _compliance
+              _compliance_: _compliance,
+              inner_check: true
             } only %}
           </a>
           <div
@@ -235,7 +240,8 @@
                 label: _login_box.label,
                 path: _login_box.href,
                 type: "standalone",
-                _compliance_: _compliance
+                _compliance_: _compliance,
+                inner_check: true
               }
             } only %}
           </div>
@@ -252,7 +258,8 @@
                 size: 's'
               },
               extra_classes: 'ecl-site-header-core__icon',
-              _compliance_: _compliance
+              _compliance_: _compliance,
+              inner_check: true
             } only %}
             {{- login_toggle.label_not_logged -}}
           </a>
@@ -277,7 +284,8 @@
                 size: 's'
               },
               extra_classes: 'ecl-site-header-core__icon',
-              _compliance_: _compliance
+              _compliance_: _compliance,
+              inner_check: true
             } only %}
             <span class="ecl-site-header-core__language-code">{{ _language_selector.code }}</span>
           </span>
@@ -301,7 +309,8 @@
               extra_attributes: [
                { name: 'aria-hidden', value: true }
               ],
-              _compliance_: _compliance
+              _compliance_: _compliance,
+              inner_check: true
             }
           } only -%}
           {{- _search_toggle.label -}}
@@ -323,7 +332,8 @@
       { name: 'hidden' },
       { name: 'id', value: 'language-list-overlay' }
     ],
-    _compliance_: _compliance
+    _compliance_: _compliance,
+    inner_check: true
   } only %}
 {% endif %}
 </header>

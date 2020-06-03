@@ -496,16 +496,20 @@ exports[`EC - Page Banner image with validation enabled and missing input data r
             </svg>
           </span>
         </a>
-        <!-- ecl2-compliance: link--cta -->
-        <div
-          class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+        <span
+          class="ecl-u-type-color-green"
+          title="[link--cta] - ecl compliant."
         >
-          <p
-            class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--xs"
+            focusable="false"
           >
-            [link--cta] - ecl compliant.
-          </p>
-        </div>
+            <use
+              xlink:href="/icons.svg#notifications--success"
+            />
+          </svg>
+        </span>
       </div>
     </div>
   </section>

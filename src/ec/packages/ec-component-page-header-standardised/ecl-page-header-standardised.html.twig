@@ -45,7 +45,8 @@
   {% if _breadcrumb is not empty %}
     {% include '@ecl-twig/ec-component-breadcrumb-standardised/ecl-breadcrumb-standardised.html.twig' with _breadcrumb|merge({
       extra_classes: 'ecl-page-header-standardised__breadcrumb',
-      _compliance_: _compliance
+      _compliance_: _compliance,
+      inner_check: true
     }) only %}
   {% endif %}
   {% if _meta is not empty %}

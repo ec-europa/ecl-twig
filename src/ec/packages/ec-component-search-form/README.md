@@ -15,6 +15,8 @@ npm install --save @ecl-twig/ec-component-search-form
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
+- **"\_compliance"** (boolean) (default: false) Activates debug
+- **"inner_check"** (boolean) (default: false) Inline compliance report
 
 ### Example:
 

@@ -52,6 +52,7 @@
   extra_attributes: [{ name: 'role', value: 'presentation' }]
 } %}
 {% set _compliance = _compliance_|default(false) %}
+{% set _inner_check = inner_check|default(false) %}
 {% set _css_class = 'ecl-breadcrumb-core' %}
 
 {# Internal logic - Process properties #}
