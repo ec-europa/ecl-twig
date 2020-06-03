@@ -568,7 +568,7 @@ exports[`EC - Card Default with validation enabled and missing input data return
     <p
       class="ecl-u-type-color-grey ecl-u-ml-m ecl-u-type-xs"
     >
-      [card] -  "card.title.label" is mandatory.
+      [card] -  {{ card.title.label }} property needs to set and filled in.
     </p>
   </div>
 </test>

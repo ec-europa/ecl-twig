@@ -281,7 +281,7 @@ exports[`EC - Dropdown legacy Default with missing input data and debug enabled 
       <p
         class="ecl-u-type-color-grey ecl-u-ml-m ecl-u-type-xs"
       >
-        [button--secondary] - "label" is mandatory
+        [button--secondary] - {{ label }} property needs to set and filled in.
       </p>
     </div>
     <div
@@ -325,7 +325,7 @@ exports[`EC - Dropdown legacy Default with missing input data and debug enabled 
     <p
       class="ecl-u-type-color-grey ecl-u-ml-m ecl-u-type-xs"
     >
-      [dropdown-legacy] -  "id" is mandatory as it is needed to make the component work. "button.icon.path" is mandatory as it is needed to retrieve the icons sprite. "button.label" is mandatory. Each item in the "items" array defined in the "list" object needs to contain a "label" property set and filled in.
+      [dropdown-legacy] -  {{ id }} property needs to set and filled in to make the component work. {{ button.icon.path }} needs to be set and filled in to be able to retrieve the icons sprite. {{ button.label }} needs to set and filled in. Each item in the {{ items }} array defined in the {{ list }} object needs to contain a {{ label }} property set and filled in.
     </p>
   </div>
 </test>

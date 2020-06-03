@@ -594,7 +594,7 @@ exports[`EC - Accordion2 with validation enabled and missing input data returns 
     <p
       class="ecl-u-type-color-grey ecl-u-ml-m ecl-u-type-xs"
     >
-      [accordion] -  The "id" is needed in each element to make the accordion work. "label" element is needed in each item to properly render the accordion button.
+      [accordion] -  The {{ id }} property needs to be set in every item to make the component work. {{ label }} property needs to be set to properly render the item.
     </p>
   </div>
 </test>
