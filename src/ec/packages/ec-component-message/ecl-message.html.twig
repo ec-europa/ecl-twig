@@ -10,6 +10,7 @@
   - "extra_attributes" (optional) (array) (default: []) Extra attributes for select
     - "name" (string) Attribute name, eg. 'data-test'
     - "value" (optional) (string) Attribute value, eg: 'data-test-1'
+  - "_compliance_" (boolean) (default: false) Activates debug
   Blocks:
   - "description": content of the message
 #}
@@ -53,21 +54,21 @@
     icon: _icon,
     extra_classes: 'ecl-message__icon',
   } only %}
-
+  {% if _close.icon is defined and _close.icon is not empty %}
+    {% set _icon = _close.icon|merge({ size: 's', name: 'close', type: 'ui' }) %}
+    {% if _compliance %}
+      {% set _close = _close|merge({ '_compliance_': _compliance, inner_check: true }) %}
+    {% endif %}
+  {% endif %}
   <div class="ecl-message__content">
     {% include '@ecl-twig/ec-component-button/ecl-button.html.twig' with _close|merge({
       type: 'button',
       variant: 'ghost',
-      icon: _close.icon|merge({
-        size: 's',
-        name: 'close',
-        type: 'ui',
-      }),
+      icon: _icon,
       extra_classes: 'ecl-message__close',
       extra_attributes: [{
         name: 'data-ecl-message-close',
-      }],
-      _compliance_: _compliance
+      }]
     }) only %}
 
     <div class="ecl-message__title">{{ _title }}</div>

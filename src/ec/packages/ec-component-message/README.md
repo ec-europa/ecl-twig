@@ -16,6 +16,7 @@ npm install --save @ecl-twig/ec-component-message
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
+- **"_compliance_"** (boolean) (default: false) Activates debug
 
 ### Blocks:
 

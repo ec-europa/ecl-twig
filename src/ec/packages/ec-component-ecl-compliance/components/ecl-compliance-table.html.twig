@@ -14,9 +14,11 @@
 
 {% if no_headers_case == false %}
   {% for header in headers %}
-    {% if header.label is not defined or header.label is empty %}
-      {% set no_header_label_case = true %}
-    {% endif %}
+    {% for cell in header %}
+      {% if cell.label is not defined or cell.label is empty %}
+        {% set no_header_label_case = true %}
+      {% endif %}
+    {% endfor %}
   {% endfor %}
 {% endif %}
 

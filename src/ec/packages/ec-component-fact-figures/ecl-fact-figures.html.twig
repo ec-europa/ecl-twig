@@ -58,6 +58,7 @@
   {% for item in items %}
     <div class="ecl-fact-figures__item">
     {% if item.icon is defined and item.icon is not empty and _display_icons %}
+      {% set _icon_path = item.icon.path|default('') %}
       {% include '@ecl-twig/ec-component-icon/ecl-icon.html.twig' with {
         icon: item.icon|merge(_icon),
         extra_classes: 'ecl-fact-figures__icon',
@@ -93,7 +94,8 @@
       }),
       extra_classes: 'ecl-fact-figures__view-all-link',
       _compliance_: _compliance,
-      inner_check: true
+      inner_check: true,
+      icon_path: _icon_path|default('')
     }) only %}
   </div>
 {% endif %}

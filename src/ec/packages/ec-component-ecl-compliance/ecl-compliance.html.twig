@@ -20,12 +20,11 @@
 {% set _inner_check = inner_check|default(false) %}
 {% set _identifier = component %}
 {% set _icon_path = icon_path|default('') %}
-{% set _success_message = '[' ~ _identifier ~ '] - ecl compliant.' %}
-{% set _message = '[' ~ _identifier ~ '] - ' ~ message %}
-
 {% if variant %}
   {% set _identifier = component ~ '--' ~ variant %}
 {% endif %}
+{% set _success_message = '[' ~ _identifier ~ '] - ecl compliant.' %}
+{% set _message = '[' ~ _identifier ~ '] - ' ~ message %}
 
 {# Rendering #}
 
