@@ -16,14 +16,15 @@ import notes from './README.md';
 const preprareAccordion = data => {
   data.items.forEach((item, index) => {
     const { id, level, toggle, content } = item;
-    const levels = [1, 2, 3, 4, 5, 6];
-    item.level = select(
-      `items[${index}].level`,
-      levels,
-      level,
+    item.id = select(
+      `items[${index}].id`,
+      ['none', id],
+      id,
       tabLabels.required
     );
-    item.id = select(`items[${index}].id`, [id], id, tabLabels.required);
+    if (item.id === 'none') {
+      item.id = '';
+    }
     item.content = text(`items[${index}].content`, content, tabLabels.required);
     item.toggle.label = text(
       `items[${index}].toggle.label`,
@@ -32,13 +33,24 @@ const preprareAccordion = data => {
     );
     item.toggle.icon.path = select(
       `items[${index}].toggle.icon.path`,
-      [defaultSprite],
+      ['none', defaultSprite],
       defaultSprite,
       tabLabels.required
     );
-    getExtraKnobs(data);
-    getComplianceKnob(data);
+    if (item.toggle.icon.path === 'none') {
+      item.toggle.icon.path = '';
+    }
+    const levels = [1, 2, 3, 4, 5, 6];
+    item.level = select(
+      `items[${index}].level`,
+      levels,
+      level,
+      tabLabels.optional
+    );
   });
+
+  getExtraKnobs(data);
+  getComplianceKnob(data);
 
   return data;
 };
