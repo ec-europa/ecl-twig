@@ -1256,7 +1256,7 @@ exports[`EC - Language List Overlay with validation enabled and missing input da
                 <p
                   class="ecl-u-type-color-grey ecl-u-ml-m ecl-u-type-xs"
                 >
-                  [icon] - icon.name and icon.path cannot be empty.
+                  [icon] - {{ icon.name }} and {{ icon.path }} properties need to set and filled in.
                 </p>
               </div>
             </span>
@@ -1461,7 +1461,7 @@ exports[`EC - Language List Overlay with validation enabled and missing input da
                   <p
                     class="ecl-u-type-color-grey ecl-u-ml-m ecl-u-type-xs"
                   >
-                    [icon] - icon.name and icon.path cannot be empty.
+                    [icon] - {{ icon.name }} and {{ icon.path }} properties need to set and filled in.
                   </p>
                 </div>
               </a>
@@ -1864,7 +1864,7 @@ exports[`EC - Language List Overlay with validation enabled and missing input da
     <p
       class="ecl-u-type-color-grey ecl-u-ml-m ecl-u-type-xs"
     >
-      [language-list] -  In the overlay the close icon is mandatory, "icon_path" needs to set and filled in. Each item needs to contain a "label".
+      [language-list] -  In the {{ overlay }} the close icon is mandatory, {{ icon_path }} needs to set and filled in. Each item needs to contain a {{ label }} property set and filled in.
     </p>
   </div>
 </test>
@@ -3481,7 +3481,7 @@ exports[`EC - Language List Splash with validation enabled and missing input dat
     <p
       class="ecl-u-type-color-grey ecl-u-ml-m ecl-u-type-xs"
     >
-      [language-list] -  To render the logo we need the "logo.path" to be set and filled in. Each item needs to contain a "label".
+      [language-list] -  To render the {{ logo }}, {{ logo.path }} needs to be set and filled in. Each item needs to contain a {{ label }} property set and filled in.
     </p>
   </div>
 </test>

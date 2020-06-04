@@ -61,20 +61,20 @@
 %}
 
 {% if no_logo_case %}
-  {% set message = message ~ ' "logo" is mandatory. it needs to contain an "alt", a "src" and a "title" properties.' %}
+  {% set message = message ~ ' {{ logo }} is mandatory.' %}
 {% endif %}
 {% if no_logo_keys_case %}
-  {% set message = message ~ ' "logo" needs to contain an "alt", a "src", an "href", a "language" and a "title" properties set and filled in.' %}
+  {% set message = message ~ ' {{ logo }} needs to contain an {{ alt }}, a {{ src }}, an {{ href }}, a {{ language }} and a {{ title }} properties set and filled in.' %}
 {% endif %}
 {% if no_icon_path_case %}
-  {% set message = message ~ ' "icon_file_path" is needed to retrieve the icons sprite.' %}
+  {% set message = message ~ ' {{ icon_file_path }} property needs to be set and filled in to retrieve the icons sprite.' %}
 {% endif %}
 {% if no_language_selector_keys_case %}
-  {% set message = message ~ ' "language_selector" needs to contain a "code" and a "label" properties set and filled in.' %}
+  {% set message = message ~ ' {{ language_selector }} needs to contain a {{ code }} and a {{ label }} properties set and filled in.' %}
 {% endif %}
 {% if no_overlay_close_label_case %}
-  {% set message = message ~ ' The "close_label" property needs to be defined inside the "language_selector.overlay" object.' %}
+  {% set message = message ~ ' The {{ close_label }} property needs to be defined inside the {{ language_selector.overlay }} object.' %}
 {% endif %}
 {% if no_overlay_title_case %}
-  {% set message = message ~ ' The "title" property needs to defined inside the "language_selector.overlay" object.' %}
+  {% set message = message ~ ' The {{ title }} property needs to defined inside the {{ language_selector.overlay }} object.' %}
 {% endif %}

@@ -94,11 +94,11 @@
   {% set message = message ~ ' {{ download.link.path }} and {{ download.link.label }} need to be set for the file to be downlodable.' %}
 {% endif %}
 {% if no_translation_download_case %}
-  {% set message = message ~ ' Each item in the {{ translation.items }} array needs a {{ download }} object.' %}
+  {% set message = message ~ ' Each item in the {{ translation.items }} array needs to contain a {{ download }} object.' %}
 {% endif %}
 {% if no_translation_download_link_case %}
   {% set message = message ~ ' The {{ download }} object in each of the {{ translation.items }} array needs to contain a {{ link }} object.' %}
 {% endif %}
 {% if no_translation_download_link_data_case %}
-  {% set message = message ~ ' The {{ link }} object in each of the {{ translation.items.download }} objects needs to contain a {{ path }} and a {{ label }} properties.' %}
+  {% set message = message ~ ' The {{ download.link }} object in each of the {{ translation.items }} needs to contain {{ path }} and {{ label }} properties set and filled in.' %}
 {% endif %}

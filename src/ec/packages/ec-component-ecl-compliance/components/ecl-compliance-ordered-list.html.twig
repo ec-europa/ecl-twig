@@ -30,12 +30,12 @@
 {% set not_compliant = no_items_case or no_label_case or no_nested_label_case %}
 
 {% if no_items_case %}
-  {% set message = message ~ ' We cannot render a list without any item, "items" should be set and filled in with an array of items.' %}
+  {% set message = message ~ ' {{ items }} needs to set as a non empty array.' %}
 {% endif %}
 {% if no_label_case %}
-  {% set message = message ~ ' Each item should have a "label".' %}
+  {% set message = message ~ ' Each item in the {{ items }} array should have a {{ label }} property set and filled in.' %}
 {% endif %}
 {% if no_nested_label_case %}
-  {% set message = message ~ ' Each sub-item in nested array should have a "label" defined and not empty.' %}
+  {% set message = message ~ ' Each sub-item in {{ nested }} array should have a {{ label }} property set and filled in.' %}
 {% endif %}
 

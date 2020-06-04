@@ -21,7 +21,7 @@
 {# no media provided at all #}
 {% set not_compliant = no_image_case and no_embedded_media_case and no_video_resources_case %}
 {% if not_compliant %}
-  {% set message = 'One media is required for the media-container component, an "image", an "embedded_media" or video "tracks" and "sources".' %}
+  {% set message = 'One media is required for, an {{ image }}, an {{ embedded_media }} or a {{ video }} with {{ tracks }} and {{ sources }}.' %}
 {% endif %}
 {# No embedded_media, we check for video sources #}
 {% if no_embedded_media_case and no_sources_case == false %}
@@ -31,7 +31,7 @@
     {% endif %}
   {% endfor %}
   {% if not_compliant %}
-    {% set message = message ~ 'The "sources" parameter should be an array with a "src" and a "type" for each element.' %}
+    {% set message = message ~ ' {{ sources }} should be defined as an array of items with a {{ src }} and a {{type }} properties for each element.' %}
   {% endif %}
 {% endif %}
 {# No embedded_media, we check for video tracks #}
@@ -46,11 +46,11 @@
     {% endif %}
   {% endfor %}
   {% if not_compliant and tracks_issue is defined %}
-    {% set message = message ~ ' The "tracks" parameter should be an array with a "src", a "kind", a "label" and a "src_lang" for each element.' %}
+    {% set message = message ~ ' {{ tracks }} should be defined as an array with a {{ src }}, a {{ kind }}, a {{ label }} and a {{ src_lang }} for each element.' %}
   {% endif %}
 {% endif %}
 {# No embedded_media, no video, we check for a missing alt attribute in the image #}
 {% if no_embedded_media_case and no_video_resources_case and no_image_case == false and no_alt_case %}
   {% set not_compliant = true %}
-  {% set message = 'If an image is set as the media also the "alt" parameter needs to be set.' %}
+  {% set message = 'If {{ image }} is set also the {{ alt }} property needs to be set and filled in.' %}
 {% endif %}

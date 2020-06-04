@@ -111,31 +111,31 @@
 
 {% if (variant == 'group1' or variant == 'group2') and
   no_sections_case %}
-  {% set message = message ~ ' "sections" need to be defined and it should contain an array of sections, footer would be empty otherwise.' %}
+  {% set message = message ~ ' {{ sections }} needs to be defined as an array of sections, the component would be empty otherwise.' %}
 {% endif %}
 {% if (variant == 'group1') and no_site_name_case %}
-  {% set message = message ~ ' "sections[0].title.link.label" is mandatory in ' ~ variant ~ ', it represents the mandatory "site name" section.' %}
+  {% set message = message ~ ' {{ sections[0].title.link.label }} is mandatory in ' ~ variant ~ ', it represents the mandatory site name section.' %}
 {% endif %}
 {% if variant == 'group1' and no_content_owner_case %}
-  {% set message = message ~ ' "sections[0].description" in ' ~ variant ~ ' is mandatory as it represents the mandatory "content owner" section.' %}
+  {% set message = message ~ ' {{ sections[0].description }} in ' ~ variant ~ ' is mandatory as it represents the mandatory content owner section.' %}
 {% endif %}
 {% if variant == 'group1' and no_service_links_case %}
-  {% set message = message ~ ' We could not identify the "service navigation" section, in ' ~ variant ~ ' it is mandatory.' %}
+  {% set message = message ~ ' The service navigation section was not found, in ' ~ variant ~ ' it is mandatory.' %}
 {% endif %}
 {% if (variant == 'group1' or variant == 'group2') and
   no_legal_links_case %}
-  {% set message = message ~ ' We could not identify the "legal navigation" section, in ' ~ variant ~ ' it is mandatory.' %}
+  {% set message = message ~ ' The legal navigation section was not found, in ' ~ variant ~ ' it is mandatory.' %}
 {% endif %}
 {% if (variant == 'group1' or variant == 'group2') and
   no_corporate_name_case %}
-  {% set message = message ~ ' We could not identify the "corporate_name" section, in ' ~ variant ~ ' it is mandatory.' %}
+  {% set message = message ~ ' The corporate name section was not found, in ' ~ variant ~ ' it is mandatory.' %}
 {% endif %}
 {% if variant == 'group3' and no_commission_logo_case %}
-  {% set message = message ~ ' We could not identify the "commission_logo" section, in ' ~ variant ~ ' it is mandatory.' %}
+  {% set message = message ~ ' The commission logo section was not found, in ' ~ variant ~ ' it is mandatory.' %}
 {% endif %}
 {% if variant == 'group3' and no_partnership_logos_case %}
-  {% set message = message ~ ' We could not identify the "partnership_logos" section, in ' ~ variant ~ ' it is mandatory.' %}
+  {% set message = message ~ ' The partnership logos section as not found, in ' ~ variant ~ ' it is mandatory.' %}
 {% endif %}
 {% if variant != 'group3' and no_corporate_name_link_case %}
-  {% set message = message ~ ' The "corporate_name" section needs to contain a "title.link.path" and "title.link.label" properties set and filled in.' %}
+  {% set message = message ~ ' The corporate name section needs to contain a {{ title.link.path }} and {{ title.link.label }} properties set and filled in.' %}
 {% endif %}

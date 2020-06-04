@@ -15,10 +15,10 @@
 {% set component = 'pagination' %}
 
 {% if no_label_case %}
-  {% set message = message ~ '"label" is required for accessibility reasons.' %}
+  {% set message = message ~ ' {{ label }} needs to set and filled in for accessibility reasons.' %}
 {% endif %}
 {% if no_items_case %}
-  {% set message = message ~ 'No "items" have been provided.' %}
+  {% set message = message ~ 'No {{ items }} array was provided.' %}
   {% else %}
     {% for item in items %}
       {% if item.link is not defined %}
@@ -33,15 +33,6 @@
     {% endfor %}
 {% endif %}
 
-{% if previous_case == false %}
-  {% set message = message ~ ' Previous link is mandatory.' %}
-{% endif %}
-{% if next_case == false %}
-  {% set message = message ~ ' Next link is mandatory.' %}
-{% endif %}
-{% if active_case != 1 %}
-  {% set message = message ~ ' The active page is mandatory, simply provide an item without a "link".' %}
-{% endif %}
 {% set not_compliant =
   no_label_case or
   no_items_case or
@@ -49,3 +40,14 @@
   next_case == false or
   previous_case == false
 %}
+
+{% if previous_case == false %}
+  {% set message = message ~ ' Previous link is mandatory.' %}
+{% endif %}
+{% if next_case == false %}
+  {% set message = message ~ ' Next link is mandatory.' %}
+{% endif %}
+{% if active_case != 1 %}
+  {% set message = message ~ ' The active page is mandatory, one item should not contain the {{ link }} object.' %}
+{% endif %}
+

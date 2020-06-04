@@ -245,7 +245,7 @@ exports[`EC - Text area Default with missing input data and debug enabled return
     <p
       class="ecl-u-type-color-grey ecl-u-ml-m ecl-u-type-xs"
     >
-      [text-area] - The "label" is mandatory.
+      [text-area] - The {{ label }} property needs to set and filled in.
     </p>
   </div>
 </test>
@@ -562,7 +562,7 @@ exports[`EC - Text area With error with missing input data and debug enabled ret
     <p
       class="ecl-u-type-color-grey ecl-u-ml-m ecl-u-type-xs"
     >
-      [text-area] -  When the form element is invalid the "invalid_text" is mandatory.
+      [text-area] -  When the form element is invalid the {{ invalid_text }} property needs to be set and filled in.
     </p>
   </div>
 </test>

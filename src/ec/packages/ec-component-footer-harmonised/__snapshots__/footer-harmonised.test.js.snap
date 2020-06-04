@@ -1700,7 +1700,7 @@ exports[`EC - Footer Harmonised Group 1 with missing input data and debug enable
     <p
       class="ecl-u-type-color-grey ecl-u-ml-m ecl-u-type-xs"
     >
-      [footer-harmonised--group1] -  "sections[0].title.link.label" is mandatory in group1, it represents the mandatory "site name" section. "sections[0].description" in group1 is mandatory as it represents the mandatory "content owner" section. We could not identify the "legal navigation" section, in group1 it is mandatory. The "corporate_name" section needs to contain a "title.link.path" and "title.link.label" properties set and filled in.
+      [footer-harmonised--group1] -  {{ sections[0].title.link.label }} is mandatory in group1, it represents the mandatory site name section. {{ sections[0].description }} in group1 is mandatory as it represents the mandatory content owner section. The legal navigation section was not found, in group1 it is mandatory. The corporate name section needs to contain a {{ title.link.path }} and {{ title.link.label }} properties set and filled in.
     </p>
   </div>
 </test>
@@ -2346,7 +2346,7 @@ exports[`EC - Footer Harmonised Group 2 with missing input data and debug enable
     <p
       class="ecl-u-type-color-grey ecl-u-ml-m ecl-u-type-xs"
     >
-      [footer-harmonised--group2] -  The "corporate_name" section needs to contain a "title.link.path" and "title.link.label" properties set and filled in.
+      [footer-harmonised--group2] -  The corporate name section needs to contain a {{ title.link.path }} and {{ title.link.label }} properties set and filled in.
     </p>
   </div>
 </test>
@@ -2563,7 +2563,7 @@ exports[`EC - Footer Harmonised Group 3 with missing input data and debug enable
     <p
       class="ecl-u-type-color-grey ecl-u-ml-m ecl-u-type-xs"
     >
-      [footer-harmonised--group3] -  We could not identify the "commission_logo" section, in group3 it is mandatory. We could not identify the "partnership_logos" section, in group3 it is mandatory.
+      [footer-harmonised--group3] -  The commission logo section was not found, in group3 it is mandatory. The partnership logos section as not found, in group3 it is mandatory.
     </p>
   </div>
 </test>

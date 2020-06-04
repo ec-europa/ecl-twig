@@ -1015,7 +1015,7 @@ exports[`EC - Footer Core default with missing input data and debug enabled it r
     <p
       class="ecl-u-type-color-grey ecl-u-ml-m ecl-u-type-xs"
     >
-      [footer-core] -  "sections[0].title.link.label" is mandatory, it represents the site name. "sections[0].description" is mandatory as it represents the content owner details. "sections[1].links" is mandatory as it holds the class navigation items. "sections[2].links" is mandatory as it holds the service navigation items. "sections[3].links" is mandatory as it holds the legal navigation items.
+      [footer-core] -  The {{ sections[0].title.link.label }} property needs to be set and filled in as it represents the site name. The {{ sections[0].description }} property needs to be set and filled in as it represents the content owner details. {{ sections[1].links }} is mandatory as it holds the class navigation items. {{ sections[2].links }} is mandatory as it holds the service navigation items. {{ sections[3].links }} is mandatory as it holds the legal navigation items.
     </p>
   </div>
 </test>

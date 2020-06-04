@@ -14,8 +14,8 @@
 {% set not_compliant = no_title_case or no_breadcrumb_case %}
 
 {% if no_title_case %}
-  {% set message = message ~ ' "title" is mandatory.' %}
+  {% set message = message ~ ' {{ title }} needs to set and filled in.' %}
 {% endif %}
 {% if no_breadcrumb_case %}
-  {% set message = message ~ ' "breadcrumb" is mandatory.' %}
+  {% set message = message ~ ' {{ breadcrumb }} is mandatory, it should contain a breadcrumb object.' %}
 {% endif %}

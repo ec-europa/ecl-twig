@@ -1702,7 +1702,7 @@ exports[`EC - Footer Standardised default with missing input data and debug enab
     <p
       class="ecl-u-type-color-grey ecl-u-ml-m ecl-u-type-xs"
     >
-      [footer-standardised] -  "sections[0].title.link.label" and "sections[0].title.link.path" properties need to be set and filled in as they represent the mandatory "site name" section. "sections[0].description" is mandatory as it represents the mandatory "content owner" section. We could not identify the "legal navigation" section, which is mandatory. The "sections[4].title.link.label" and "sections[4].title.link.path" needs to be set and filled in as they represent the mandatory "corporate name" section.
+      [footer-standardised] -  {{ sections[0].title.link.label }} and {{sections[0].title.link.path }} properties need to be set and filled in as they represent the mandatory site name section. {{ sections[0].description }} property needs to be set and filled in as it represents the mandatory content owner section. The legal navigation section was not found, it is mandatory. The {{ sections[4].title.link.label }} and {{ sections[4].title.link.path }} need to be set and filled in as they represent the mandatory corporate name section.
     </p>
   </div>
 </test>

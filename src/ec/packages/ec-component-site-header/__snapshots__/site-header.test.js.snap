@@ -2258,7 +2258,7 @@ exports[`EC - Site Header Default with missing input data and debug enabled it r
             <p
               class="ecl-u-type-color-grey ecl-u-ml-m ecl-u-type-xs"
             >
-              [language-list] -  In the overlay the "close_label" needs to set and filled in. In the overlay the "title" needs to set and filled in.
+              [language-list] -  In the {{ overlay }} the {{ close_label }} property needs to set and filled in. In the {{ overlay }} the {{ title }} needs to set and filled in.
             </p>
           </div>
         </div>
@@ -2328,7 +2328,7 @@ exports[`EC - Site Header Default with missing input data and debug enabled it r
     <p
       class="ecl-u-type-color-grey ecl-u-ml-m ecl-u-type-xs"
     >
-      [site-header] -  "logo" needs to contain an "alt", a "src", an "href", a "language" and a "title" properties set and filled in. "language_selector" needs to contain a "code" and a "label" properties set and filled in. The "close_label" property needs to be defined inside the "language_selector.overlay" object. The "title" property needs to defined inside the "language_selector.overlay" object.
+      [site-header] -  {{ logo }} needs to contain an {{ alt }}, a {{ src }}, an {{ href }}, a {{ language }} and a {{ title }} properties set and filled in. {{ language_selector }} needs to contain a {{ code }} and a {{ label }} properties set and filled in. The {{ close_label }} property needs to be defined inside the {{ language_selector.overlay }} object. The {{ title }} property needs to defined inside the {{ language_selector.overlay }} object.
     </p>
   </div>
 </test>

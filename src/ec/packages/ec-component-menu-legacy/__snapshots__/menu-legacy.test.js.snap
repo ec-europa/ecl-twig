@@ -5115,7 +5115,7 @@ exports[`EC - Menu Legacy with missing input data and debug enabled it returns t
     <p
       class="ecl-u-type-color-grey ecl-u-ml-m ecl-u-type-xs"
     >
-      [menu-legacy] -  "label" is mandatory. Each element in the "items" array needs to contain a "href" property set and filled in. Each element in "items" array needs to contain a "label" property set and filled in. Each element in the "items" array defined in the "children" array for a menu item needs to contain a "href" property set and filled in. Each element in the "items" array defined in the "children" array for a menu item needs to contain a "label" property set and filled in.
+      [menu-legacy] -  {{ label }} needs to be set and filled in. Each element in the {{ items }} array needs to contain an {{ href }} property set and filled in. Each element in {{ items }} array needs to contain a {{ label }} property set and filled in. Each element in the {{ items }} array defined in the {{ children }} array for a menu item needs to contain an {{ href }} property set and filled in. Each element in the {{ items }} array defined in the {{ children }} array for a menu item needs to contain a {{ label }} property set and filled in.
     </p>
   </div>
 </test>

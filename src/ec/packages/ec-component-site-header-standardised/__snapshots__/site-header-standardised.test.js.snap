@@ -6571,7 +6571,7 @@ exports[`EC - Site Header Standardised Default with missing input data and debug
               <p
                 class="ecl-u-type-color-grey ecl-u-ml-m ecl-u-type-xs"
               >
-                [search-form] - {{ button.label }} is mandatory.
+                [search-form] -  {{ button.label }} needs to be set and filleds in.
               </p>
             </div>
           </div>
@@ -8541,7 +8541,7 @@ exports[`EC - Site Header Standardised Default with missing input data and debug
     <p
       class="ecl-u-type-color-grey ecl-u-ml-m ecl-u-type-xs"
     >
-      [site-header-standardised] -  "banner_top" is mandatory. It represents the "class link". "logo" needs to contain an "alt", a "src", an "href", a "language" and a "title" properties set and filled in. "search_toggle" needs to contain a "label" and an "href" properties set and filled in. If the login box is present, when the user is logged out, the "login.toggle.label_not_logged" and "login.toggle.href_not_logged" properties need to be set and filled in. The "button" object inside the "search_form" needs to contain a "label" property set and filled in.
+      [site-header-standardised] -  {{ banner_top }} is mandatory. It represents the class link. {{ logo }} needs to contain an {{ alt }}, a {{ src }}, an {{ href }}, a {{ language }} and a {{ title }} properties set and filled in. {{ search_toggle }} needs to contain a {{ label }} and an {{ href }} properties set and filled in. If the login box is present, when the user is logged out, the {{ login.toggle.label_not_logged }} and {{ login.toggle.href_not_logged }} properties need to be set and filled in. The {{ button }} object inside the {{ search_form }} needs to contain a {{ label }} property set and filled in.
     </p>
   </div>
 </test>

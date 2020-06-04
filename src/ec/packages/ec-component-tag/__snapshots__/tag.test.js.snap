@@ -48,7 +48,7 @@ exports[`EC - Tag Button with missing input data and debug enabled returns the r
     <p
       class="ecl-u-type-color-grey ecl-u-ml-m ecl-u-type-xs"
     >
-      [tag--button] -  tag.label is mandatory.
+      [tag--button] -  {{ tag.label }} needs to set and filled inis mandatory.
     </p>
   </div>
 </test>
@@ -104,7 +104,7 @@ exports[`EC - Tag Link with missing input data and debug enabled returns the rig
     <p
       class="ecl-u-type-color-grey ecl-u-ml-m ecl-u-type-xs"
     >
-      [tag--link] -  When the tag is a link the tag.path is needed.
+      [tag--link] -  When the tag is a link the {{ tag.path }} property need to be set and filled in.
     </p>
   </div>
 </test>
@@ -240,7 +240,7 @@ exports[`EC - Tag Removable with missing input data and debug enabled returns th
         <p
           class="ecl-u-type-color-grey ecl-u-ml-m ecl-u-type-xs"
         >
-          [icon] - icon.name and icon.path cannot be empty.
+          [icon] - {{ icon.name }} and {{ icon.path }} properties need to set and filled in.
         </p>
       </div>
       <svg
@@ -259,7 +259,7 @@ exports[`EC - Tag Removable with missing input data and debug enabled returns th
         <p
           class="ecl-u-type-color-grey ecl-u-ml-m ecl-u-type-xs"
         >
-          [icon] - icon.name and icon.path cannot be empty.
+          [icon] - {{ icon.name }} and {{ icon.path }} properties need to set and filled in.
         </p>
       </div>
     </button>
@@ -271,7 +271,7 @@ exports[`EC - Tag Removable with missing input data and debug enabled returns th
     <p
       class="ecl-u-type-color-grey ecl-u-ml-m ecl-u-type-xs"
     >
-      [tag--removable] -  default_icon_path is needed for rendering the icon. aria_label is needed for accessibility reasons.
+      [tag--removable] -  {{ default_icon_path }} needs to be set and filled in. {{ aria_label }} needs to be set and filled in for accessibility reasons.
     </p>
   </div>
 </test>

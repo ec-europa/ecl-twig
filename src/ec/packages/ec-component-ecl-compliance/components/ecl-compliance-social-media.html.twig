@@ -29,17 +29,17 @@
 {% set not_compliant = no_description_case or too_many_case or no_icon_case or no_label_case or no_icon_name_case %}
 
 {% if no_description_case %}
-  {% set message = message ~ ' "description" is mandatory.' %}
+  {% set message = message ~ ' {{ description }} needs to be set and filled in.' %}
 {% endif %}
 {% if too_many_case %}
-  {% set message = message ~ ' If more than 6 items have to be provided, please use the "other social network" link.' %}
+  {% set message = message ~ ' If more than 6 items have to be provided, please use the other social network link.' %}
 {% endif %}
 {% if no_icon_case %}
-  {% set message = message ~ ' All the items need to have an "icon" associated.' %}
+  {% set message = message ~ ' All the items need to have an {{ icon }} associated.' %}
 {% endif %}
 {% if no_label_case %}
-  {% set message = message ~ ' All the items need to have a "label" associated.' %}
+  {% set message = message ~ ' All the items need to have a {{ label }} property set and filled in.' %}
 {% endif %}
 {% if no_icon_name_case %}
-  {% set message = message ~ ' All the icons need the "name" to be set in order to retrieve the right one.' %}
+  {% set message = message ~ ' All the icons need the {{ name }} property set and filled in order to retrieve the right icon.' %}
 {% endif %}

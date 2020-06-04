@@ -2280,7 +2280,7 @@ exports[`EC - Site Header Core Default with missing input data and degug enabled
                 <p
                   class="ecl-u-type-color-grey ecl-u-ml-m ecl-u-type-xs"
                 >
-                  [icon] - icon.name and icon.path cannot be empty.
+                  [icon] - {{ icon.name }} and {{ icon.path }} properties need to set and filled in.
                 </p>
               </div>
             </a>
@@ -2311,7 +2311,7 @@ exports[`EC - Site Header Core Default with missing input data and degug enabled
                 <p
                   class="ecl-u-type-color-grey ecl-u-ml-m ecl-u-type-xs"
                 >
-                  [icon] - icon.name and icon.path cannot be empty.
+                  [icon] - {{ icon.name }} and {{ icon.path }} properties need to set and filled in.
                 </p>
               </div>
               <span
@@ -2394,7 +2394,7 @@ exports[`EC - Site Header Core Default with missing input data and degug enabled
               <p
                 class="ecl-u-type-color-grey ecl-u-ml-m ecl-u-type-xs"
               >
-                [search-form] - {{ button.label }} is mandatory. {{ button.icon_path }} is mandatory to render the search button icon.
+                [search-form] -  {{ button.label }} needs to be set and filleds in. {{ button.icon_path }} needs to be set and filled in to render the search button icon.
               </p>
             </div>
           </div>
@@ -2449,7 +2449,7 @@ exports[`EC - Site Header Core Default with missing input data and degug enabled
                   <p
                     class="ecl-u-type-color-grey ecl-u-ml-m ecl-u-type-xs"
                   >
-                    [icon] - icon.name and icon.path cannot be empty.
+                    [icon] - {{ icon.name }} and {{ icon.path }} properties need to set and filled in.
                   </p>
                 </div>
               </span>
@@ -2674,7 +2674,7 @@ exports[`EC - Site Header Core Default with missing input data and degug enabled
                     <p
                       class="ecl-u-type-color-grey ecl-u-ml-m ecl-u-type-xs"
                     >
-                      [icon] - icon.name and icon.path cannot be empty.
+                      [icon] - {{ icon.name }} and {{ icon.path }} properties need to set and filled in.
                     </p>
                   </div>
                 </a>
@@ -3077,7 +3077,7 @@ exports[`EC - Site Header Core Default with missing input data and degug enabled
       <p
         class="ecl-u-type-color-grey ecl-u-ml-m ecl-u-type-xs"
       >
-        [language-list] -  In the overlay the close icon is mandatory, "icon_path" needs to set and filled in.
+        [language-list] -  In the {{ overlay }} the close icon is mandatory, {{ icon_path }} needs to set and filled in.
       </p>
     </div>
   </header>
@@ -3088,7 +3088,7 @@ exports[`EC - Site Header Core Default with missing input data and degug enabled
     <p
       class="ecl-u-type-color-grey ecl-u-ml-m ecl-u-type-xs"
     >
-      [site-header-core] -  "logo" needs to contain an "alt", a "src", an "href", a "language" and a "title" properties set and filled in. "icon_file_path" is needed to retrieve the icons sprite. "language_selector" needs to contain a "code" and a "label" properties set and filled in. "search_toggle" needs to contain a "label" and an "href" properties set and filled in. If the login box is present, when the user is logged out, the "login_toggle.label_not_logged" and "login_toggle.href_not_logged" properties need to be set and filled in. The "button" object inside the "search_form" needs to contain a non empty "label" property.
+      [site-header-core] -  {{ logo }} needs to contain an {{ alt }], a {{ src }}, an {{ href }}, a {{ language }} and a {{ title }} properties set and filled in. {{ icon_file_path }} needs to set and filled in to retrieve the icons file. {{ language_selector }} object needs to contain a {{ code }} and a {{ label }} properties set and filled in. {{ search_toggle }} object needs to contain a {{ label }} and an {{ href }} properties set and filled in. If the login box is present, when the user is logged out, the {{ login_toggle.label_not_logged }} and {{ login_toggle.href_not_logged }} properties need to be set and filled in. The {{ button }} object inside the {{ search_form }} one needs to contain a {{ label }} property set and filled in.
     </p>
   </div>
 </test>

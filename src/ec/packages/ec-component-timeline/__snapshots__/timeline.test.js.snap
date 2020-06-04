@@ -6585,7 +6585,7 @@ exports[`EC - Timeline with missing input data and debug enabled it returns the 
             <p
               class="ecl-u-type-color-grey ecl-u-ml-m ecl-u-type-xs"
             >
-              [icon] - icon.name and icon.path cannot be empty.
+              [icon] - {{ icon.name }} and {{ icon.path }} properties need to set and filled in.
             </p>
           </div>
         </span>
@@ -6650,7 +6650,7 @@ exports[`EC - Timeline with missing input data and debug enabled it returns the 
     <p
       class="ecl-u-type-color-grey ecl-u-ml-m ecl-u-type-xs"
     >
-      [timeline] -  If the toggler is shown the "icon_path" parameter needs to be set and filled in. Each "item" of the timeline should contain a "label" property set and filled in as it represents the mandatory timestamp. The "toggle_collapsed" property needs to be set and filled in as it represents the toggler button label. The "toggle_expanded" property needs to be set and filled in as it represents the toggler button label.
+      [timeline] -  If the toggler is shown the {{ icon_path }} parameter needs to be set and filled in. Each item of the timeline should contain a {{ label }} property set and filled in as it represents the mandatory timestamp. The {{ toggle_collapsed }} property needs to be set and filled in as it represents the toggler button label. The {{ toggle_expanded }} property needs to be set and filled in as it represents the toggler button label.
     </p>
   </div>
 </test>

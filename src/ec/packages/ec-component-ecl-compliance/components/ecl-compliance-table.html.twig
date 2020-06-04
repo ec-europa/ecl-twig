@@ -24,11 +24,11 @@
 
 {% set not_compliant = no_headers_case or no_rows_case or no_header_label_case %}
 {% if no_rows_case %}
-  {% set message = message ~ ' No table cell has been provided, "rows" should be defined and containing an array or items.' %}
+  {% set message = message ~ ' No table cell has been provided, {{ rows }} should be defined as an array or items.' %}
 {% endif %}
 {% if no_headers_case %}
-  {% set message = message ~ ' "headers" are mandatory.' %}
+  {% set message = message ~ ' {{ headers }} are mandatory.' %}
 {% endif %}
 {% if no_header_label_case %}
-  {% set message = message ~ ' You have at least one empty header. The label in each of the headers array items needs to be set and filled in.' %}
+  {% set message = message ~ ' You have at least one empty header. The label in each of the {{ headers }} array items needs to be set and filled in.' %}
 {% endif %}

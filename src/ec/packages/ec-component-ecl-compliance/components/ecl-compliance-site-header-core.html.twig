@@ -103,44 +103,44 @@
 %}
 
 {% if no_logo_case %}
-  {% set message = message ~ ' "logo" is mandatory. it needs to contain an "alt", a "src" and a "title" properties.' %}
+  {% set message = message ~ ' {{ logo }} is mandatory.' %}
 {% endif %}
 {% if no_logo_keys_case %}
-  {% set message = message ~ ' "logo" needs to contain an "alt", a "src", an "href", a "language" and a "title" properties set and filled in.' %}
+  {% set message = message ~ ' {{ logo }} needs to contain an {{ alt }], a {{ src }}, an {{ href }}, a {{ language }} and a {{ title }} properties set and filled in.' %}
 {% endif %}
 {% if no_icon_path_case %}
-  {% set message = message ~ ' "icon_file_path" is needed to retrieve the icons sprite.' %}
+  {% set message = message ~ ' {{ icon_file_path }} needs to set and filled in to retrieve the icons file.' %}
 {% endif %}
 {% if no_language_selector_case %}
-  {% set message = message ~ ' "language_selector" is mandatory.' %}
+  {% set message = message ~ ' {{ language_selector }] property needs to be set and filled in.' %}
 {% endif %}
 {% if no_search_toggle_case %}
-  {% set message = message ~ ' "search_toggle" is mandatory.' %}
+  {% set message = message ~ ' {{ search_toggle }} is mandatory.' %}
 {% endif %}
 {% if no_language_selector_keys_case %}
-  {% set message = message ~ ' "language_selector" needs to contain a "code" and a "label" properties set and filled in.' %}
+  {% set message = message ~ ' {{ language_selector }} object needs to contain a {{ code }} and a {{ label }} properties set and filled in.' %}
 {% endif %}
 {% if no_search_toggle_keys_case %}
-  {% set message = message ~ ' "search_toggle" needs to contain a "label" and an "href" properties set and filled in.' %}
+  {% set message = message ~ ' {{ search_toggle }} object needs to contain a {{ label }} and an {{ href }} properties set and filled in.' %}
 {% endif %}
 {% if no_overlay_items_case %}
-  {% set message = message ~ ' If you define an "overlay" it should contain an array of "items".' %}
+  {% set message = message ~ ' If {{ overlay }} is defined it should contain an array of {{ items }}.' %}
 {% endif %}
 {% if no_logged_in_toggle_keys_case %}
-  {% set message = message ~ ' If the login box is present, when the user is logged in, the "login_toggle.label_logged" and the "login_toggle.href_logged" need to be set and filled in.' %}
+  {% set message = message ~ ' If the login box is present, when the user is logged in, the {{ login_toggle.label_logged }} and the {{ login_toggle.href_logged }} properties need to be set and filled in.' %}
 {% endif %}
 {% if no_logged_out_toggle_keys_case %}
-  {% set message = message ~ ' If the login box is present, when the user is logged out, the "login_toggle.label_not_logged" and "login_toggle.href_not_logged" properties need to be set and filled in.' %}
+  {% set message = message ~ ' If the login box is present, when the user is logged out, the {{ login_toggle.label_not_logged }} and {{ login_toggle.href_not_logged }} properties need to be set and filled in.' %}
 {% endif %}
 {% if no_login_box_case_keys_case %}
-  {% set message = message ~ ' If the login box is present, the "login_box.label", "login_box.id" and "login_box.href" properties need to be set and filled in.' %}
+  {% set message = message ~ ' If the login box is present, the {{ login_box.label }}, {{ login_box.id }} and {{ login_box.href }} properties need to be set and filled in.' %}
 {% endif %}
 {% if no_logged_in_box_case_keys_case %}
-  {% set message = message ~ ' If the login box is present and the user is logged in the "login_box.description" property needs set and filled in.' %}
+  {% set message = message ~ ' If the login box is present and the user is logged in the {{ login_box.description }} property needs set and filled in.' %}
 {% endif %}
 {% if no_search_label_case %}
-  {% set message = message ~ ' The "button" object inside the "search_form" needs to contain a non empty "label" property.' %}
+  {% set message = message ~ ' The {{ button }} object inside the {{ search_form }} one needs to contain a {{ label }} property set and filled in.' %}
 {% endif %}
 {% if no_text_input_label_or_id_case %}
-  {% set message = message ~ ' The "text_input.id" and the "text_input.label" properties are both required for accessibility reasons.' %}
+  {% set message = message ~ ' The {{ text_input.id }} and the {{ text_input.label }} properties need to set and filled in for accessibility reasons.' %}
 {% endif %}

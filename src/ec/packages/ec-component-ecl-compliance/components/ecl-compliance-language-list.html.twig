@@ -72,32 +72,32 @@
 %}
 
 {% if no_items_case %}
-  {% set message = message ~ '"items" cannot be empty.' %}
+  {% set message = message ~ ' {{ items }} cannot be empty.' %}
 {% endif %}
 {% if no_close_label_case %}
-  {% set message = message ~ ' In the overlay the "close_label" needs to set and filled in.' %}
+  {% set message = message ~ ' In the {{ overlay }} the {{ close_label }} property needs to set and filled in.' %}
 {% endif %}
 {% if no_title_case %}
-  {% set message = message ~ ' In the overlay the "title" needs to set and filled in.' %}
+  {% set message = message ~ ' In the {{ overlay }} the {{ title }} needs to set and filled in.' %}
 {% endif %}
 {% if no_icon_path_case %}
-  {% set message = message ~ ' In the overlay the close icon is mandatory, "icon_path" needs to set and filled in.' %}
+  {% set message = message ~ ' In the {{ overlay }} the close icon is mandatory, {{ icon_path }} needs to set and filled in.' %}
 {% endif %}
 {% if no_logo_case %}
-  {% set message = message ~ ' In the splash the "logo" needs to set.' %}
+  {% set message = message ~ ' In the splash the {{ logo }} object needs to set.' %}
 {% endif %}
 {% if no_logo_path_case %}
-  {% set message = message ~ ' To render the logo we need the "logo.path" to be set and filled in.' %}
+  {% set message = message ~ ' To render the {{ logo }}, {{ logo.path }} needs to be set and filled in.' %}
 {% endif %}
 {% if no_logo_alt_case %}
-  {% set message = message ~ ' Since the logo is an image the "logo.alt" is required.' %}
+  {% set message = message ~ ' Since the {{ logo }} is an image the {{ logo.alt }] property needs to set and filled in.' %}
 {% endif %}
 {% if no_item_label_case %}
-  {% set message = message ~ ' Each item needs to contain a "label".' %}
+  {% set message = message ~ ' Each item needs to contain a {{ label }} property set and filled in.' %}
 {% endif %}
 {% if no_item_path_case %}
-  {% set message = message ~ ' Each item needs to contain a "path".' %}
+  {% set message = message ~ ' Each item needs to contain a {{ path }} property set and filled in.' %}
 {% endif %}
 {% if no_item_lang_case %}
-  {% set message = message ~ ' Each item needs to contain a "lang".' %}
+  {% set message = message ~ ' Each item needs to contain a {{ lang }} property set and filled in.' %}
 {% endif %}

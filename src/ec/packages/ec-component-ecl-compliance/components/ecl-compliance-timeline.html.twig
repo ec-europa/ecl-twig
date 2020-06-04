@@ -41,17 +41,17 @@
   no_icon_path_case %}
 
 {% if no_items_case %}
-  {% set message = message ~ ' "items" is mandatory, it needs to be defined as an array of objects.' %}
+  {% set message = message ~ ' {{ items }} is mandatory, it needs to be defined as an array of objects.' %}
 {% endif %}
 {% if no_icon_path_case %}
-  {% set message = message ~ ' If the toggler is shown the "icon_path" parameter needs to be set and filled in.' %}
+  {% set message = message ~ ' If the toggler is shown the {{ icon_path }} parameter needs to be set and filled in.' %}
 {% endif %}
 {% if no_item_timestamp_case %}
-  {% set message = message ~ ' Each "item" of the timeline should contain a "label" property set and filled in as it represents the mandatory timestamp.' %}
+  {% set message = message ~ ' Each item of the timeline should contain a {{ label }} property set and filled in as it represents the mandatory timestamp.' %}
 {% endif %}
 {% if no_toggle_collapsed_case %}
-  {% set message = message ~ ' The "toggle_collapsed" property needs to be set and filled in as it represents the toggler button label.' %}
+  {% set message = message ~ ' The {{ toggle_collapsed }} property needs to be set and filled in as it represents the toggler button label.' %}
 {% endif %}
 {% if no_toggle_expanded_case %}
-  {% set message = message ~ ' The "toggle_expanded" property needs to be set and filled in as it represents the toggler button label.' %}
+  {% set message = message ~ ' The {{ toggle_expanded }} property needs to be set and filled in as it represents the toggler button label.' %}
 {% endif %}

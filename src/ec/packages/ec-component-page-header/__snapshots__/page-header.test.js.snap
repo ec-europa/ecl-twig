@@ -1965,7 +1965,7 @@ exports[`EC - Page Header title with missing input data and debug enabled it ret
     <p
       class="ecl-u-type-color-grey ecl-u-ml-m ecl-u-type-xs"
     >
-      [page-header] -  "title" is mandatory. "breadcrumb" is mandatory.
+      [page-header] -  {{ title }} needs to set and filled in. {{ breadcrumb }} is mandatory, it should contain a breadcrumb object.
     </p>
   </div>
 </test>
