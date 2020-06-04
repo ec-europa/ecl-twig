@@ -12,7 +12,7 @@
 {% set no_button_label_case = button.label is not defined or button.label is empty %}
 {% set not_compliant = no_icon_path_case or no_button_label_case %}
 {% if no_button_label_case %}
-  {% set message = message ~ ' {{ button.label }} needs to be set and filleds in.' %}
+  {% set message = message ~ ' {{ button.label }} needs to be set and filled in.' %}
 {% endif %}
 {% if no_icon_path_case %}
   {% set message = message ~ ' {{ button.icon_path }} needs to be set and filled in to render the search button icon.' %}

@@ -16,6 +16,15 @@ import notes from './README.md';
 
 const preparePagination = data => {
   data.label = text('label', data.label, tabLabels.required);
+  data.icon_path = select(
+    'icon_path',
+    ['none', defaultSprite],
+    defaultSprite,
+    tabLabels.optional
+  );
+  if (data.icon_path === 'none') {
+    data.icon_path = '';
+  }
   data.items.forEach((item, i) => {
     if (item.type) {
       item.type = select(
