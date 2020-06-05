@@ -80,7 +80,7 @@ const prepareGallery = data => {
         tabLabels.required
       );
       if (item.icon.path === 'none') {
-        item.icon = false;
+        item.icon.path = '';
       } else {
         item.icon.type = select(
           `items[${i}].icon.type`,
@@ -174,7 +174,7 @@ const prepareGallery = data => {
     tabLabels.required
   );
   if (data.overlay.close.icon.path === 'none') {
-    data.overlay.close.icon = {};
+    data.overlay.close.icon.path = '';
   } else {
     data.overlay.close.icon.type = select(
       'overlay.close.icon.type',
@@ -228,7 +228,7 @@ const prepareGallery = data => {
     tabLabels.required
   );
   if (data.overlay.next.icon.path === 'none') {
-    data.overlay.next.icon = {};
+    data.overlay.next.icon.path = '';
   } else {
     data.overlay.next.icon.type = select(
       `overlay.next.icon.type`,
@@ -260,7 +260,7 @@ const prepareGallery = data => {
     tabLabels.required
   );
   if (data.overlay.download.icon.path === 'none') {
-    data.overlay.download.icon = {};
+    data.overlay.download.icon.path = '';
   } else {
     data.overlay.download.icon.type = select(
       `overlay.download.icon.type`,
@@ -282,7 +282,7 @@ const prepareGallery = data => {
     tabLabels.optional
   );
   if (data.overlay.share.icon.path === 'none') {
-    data.overlay.share.icon = {};
+    data.overlay.share.icon.path = '';
   } else {
     data.overlay.share.icon.type = select(
       'overlay.share.icon.type',
