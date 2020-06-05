@@ -74,9 +74,10 @@ const prepareSiteHeaderCore = (data, lang) => {
   }
   if (data.logo.src === 'none') {
     data.logo.src = '';
+  } else {
+    // Logo knobs
+    getLogoKnobs(data, true);
   }
-  // Logo knobs
-  getLogoKnobs(data, true);
   // Login box and login toggle knobs.
   getLoginKnobs(data, true);
   // Language selector knobs.

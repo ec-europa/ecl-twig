@@ -81,6 +81,10 @@
 
 {# Merge options #}
 
+{% if _compliance %}
+  {% set _search_form = _search_form|merge({ _compliance_: true, inner_check: true }) %}
+{% endif %}
+
 {% if logo is defined and logo is not empty %}
   {% set _logo = _logo|merge(logo) %}
 {% endif %}
@@ -145,7 +149,8 @@
                 type: 'general',
                 name: 'language'
               },
-              _compliance_: _compliance
+              _compliance_: _compliance,
+              inner_check: true
             } only %}
             <span class="ecl-site-header__language-code">{{ _language_selector.code }}</span>
           </span>
@@ -161,7 +166,8 @@
             { name: 'role', value: 'dialog' },
             { name: 'hidden' }
           ],
-          _compliance_: _compliance
+          _compliance_: _compliance,
+          inner_check: true
         } %}
       </div>
     </div>

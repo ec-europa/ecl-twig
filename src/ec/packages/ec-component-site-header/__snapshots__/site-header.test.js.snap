@@ -1560,16 +1560,20 @@ exports[`EC - Site Header Default with missing input data and debug enabled it r
                   xlink:href="/icons.svg#general--language"
                 />
               </svg>
-              <!-- ecl2-compliance: icon -->
-              <div
-                class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+              <span
+                class="ecl-u-type-color-green"
+                title="[icon] - ecl compliant."
               >
-                <p
-                  class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--xs"
+                  focusable="false"
                 >
-                  [icon] - ecl compliant.
-                </p>
-              </div>
+                  <use
+                    xlink:href="/icons.svg#notifications--success"
+                  />
+                </svg>
+              </span>
               <span
                 class="ecl-site-header__language-code"
               />
@@ -2251,16 +2255,20 @@ exports[`EC - Site Header Default with missing input data and debug enabled it r
               </div>
             </div>
           </div>
-          <!-- ecl2-compliance: language-list -->
-          <div
-            class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-red ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+          <span
+            class="ecl-u-type-color-red"
+            title="[language-list] -  In the {{ overlay }} the {{ close_label }} property needs to set and filled in. In the {{ overlay }} the {{ title }} needs to set and filled in."
           >
-            <p
-              class="ecl-u-type-color-grey ecl-u-ml-m ecl-u-type-xs"
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--xs"
+              focusable="false"
             >
-              [language-list] -  In the {{ overlay }} the {{ close_label }} property needs to set and filled in. In the {{ overlay }} the {{ title }} needs to set and filled in.
-            </p>
-          </div>
+              <use
+                xlink:href="/icons.svg#notifications--error"
+              />
+            </svg>
+          </span>
         </div>
       </div>
       <form
@@ -2309,16 +2317,20 @@ exports[`EC - Site Header Default with missing input data and debug enabled it r
           </span>
         </button>
       </form>
-      <!-- ecl2-compliance: search-form -->
-      <div
-        class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+      <span
+        class="ecl-u-type-color-green"
+        title="[search-form] - ecl compliant."
       >
-        <p
-          class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--xs"
+          focusable="false"
         >
-          [search-form] - ecl compliant.
-        </p>
-      </div>
+          <use
+            xlink:href="/icons.svg#notifications--success"
+          />
+        </svg>
+      </span>
     </div>
   </header>
   <!-- ecl2-compliance: site-header -->

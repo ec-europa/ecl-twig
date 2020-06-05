@@ -83,27 +83,34 @@ const prepareSiteHeaderStandardised = (data, lang) => {
   );
   data.icon_file_path = select(
     'icon_file_path',
-    [defaultSprite],
+    ['none', defaultSprite],
     defaultSprite,
     tabLabels.required
   );
+  if (data.icon_file_path === 'none') {
+    data.icon_file_path = '';
+  }
   if (lang === 'en') {
     data.logo.src = select(
       'logo.src',
-      [englishBanner],
+      ['none', englishBanner],
       englishBanner,
       tabLabels.required
     );
   } else {
     data.logo.src = select(
       'logo.src',
-      [frenchBanner],
+      ['none', frenchBanner],
       frenchBanner,
       tabLabels.required
     );
   }
-  // Logo knobs
-  getLogoKnobs(data, true);
+  if (data.logo.src === 'none') {
+    data.logo.src = '';
+  } else {
+    // Logo knobs
+    getLogoKnobs(data, true);
+  }
   // Login box and login toggle knobs.
   getLoginKnobs(data, true);
   // Search toggle.
