@@ -25,7 +25,8 @@
 
 {% set no_item_case = item is empty %}
 {% if no_item_case == false %}
-  {% set no_icon_case = (item.video is defined and item.video is not empty) and (item.icon is not defined or item.icon is empty) %}
+  {% set no_icon_case = (item.video is defined and item.video is not empty) and
+  (item.icon is not defined or item.icon is empty) %}
   {% if item.video is defined and item.video is not empty %}
     {% set no_video_sources_case = item.video.sources is not defined or
       item.video.sources is empty or
