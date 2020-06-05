@@ -261,20 +261,17 @@ const prepareGallery = data => {
   );
   if (data.overlay.download.icon.path === 'none') {
     data.overlay.download.icon.path = '';
-  } else {
-    data.overlay.download.icon.type = select(
-      `overlay.download.icon.type`,
-      [data.overlay.download.icon.type],
-      data.overlay.download.icon.type,
-      tabLabels.required
-    );
-    data.overlay.download.icon.name = select(
-      `overlay.download.icon.name`,
-      [data.overlay.download.icon.name],
-      data.overlay.download.icon.name,
-      tabLabels.required
-    );
   }
+  data.overlay.share.link.label = text(
+    'overlay.share.link.label',
+    data.overlay.share.link.label,
+    tabLabels.optional
+  );
+  data.overlay.share.link.path = text(
+    'overlay.share.link.path',
+    data.overlay.share.link.path,
+    tabLabels.optional
+  );
   data.overlay.share.icon.path = select(
     'overlay.share.icon.path',
     ['none', defaultSprite],
@@ -283,19 +280,6 @@ const prepareGallery = data => {
   );
   if (data.overlay.share.icon.path === 'none') {
     data.overlay.share.icon.path = '';
-  } else {
-    data.overlay.share.icon.type = select(
-      'overlay.share.icon.type',
-      [data.overlay.share.icon.type],
-      data.overlay.share.icon.type,
-      tabLabels.optional
-    );
-    data.overlay.share.icon.name = select(
-      'overlay.share.icon.name',
-      [data.overlay.share.icon.name],
-      data.overlay.share.icon.name,
-      tabLabels.optional
-    );
   }
 
   getExtraKnobs(data);

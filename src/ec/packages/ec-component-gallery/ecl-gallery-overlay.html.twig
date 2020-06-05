@@ -111,9 +111,9 @@
     {% if (_overlay.download is defined and _overlay.download is not empty) and
       (_overlay.download.link is defined and _overlay.download.link is not empty) %}
       {% include '@ecl-twig/ec-component-link/ecl-link.html.twig' with _overlay.download|merge({
-        link: {
-          icon_position: 'after',
-        }|merge(_overlay.download.link),
+        link: _overlay.download.link|merge({
+          icon_position: 'after'
+        }),
         icon: _overlay.download.icon|merge({
           name: 'download',
           size: 'fluid',
@@ -130,9 +130,9 @@
     {% if (_overlay.share is defined and _overlay.share is not empty) and
       (_overlay.share.link is defined and _overlay.share.link is not empty) %}
       {% include '@ecl-twig/ec-component-link/ecl-link.html.twig' with _overlay.share|merge({
-        link: {
-          icon_position: 'after',
-        }|merge(_overlay.share.link),
+        link: _overlay.share.link|merge({
+          icon_position: 'after'
+        }),
         icon: _overlay.share.icon|merge({
           name: 'share',
           size: 'fluid',
