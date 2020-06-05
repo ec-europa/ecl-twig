@@ -1222,7 +1222,7 @@ exports[`EC - Footer Corporate with missing input data and debug enabled it retu
       <b>
         [footer]
       </b>
-        The "common" array contains at least one item with a missing the "label" or "path" property. "sections[1]" contains at least an item with a missing "label" or "path" properties.
+        The "common" array contains at least one item with a missing "label" or "path" property. "sections[1]" contains at least one item with a missing "label" or "path" properties.
     </p>
   </div>
 </test>
@@ -3058,7 +3058,7 @@ exports[`EC - Footer Custom with missing input data and debug enabled it returns
       <b>
         [footer]
       </b>
-        If "identity" is set, it should contain a "title" property set and filled in. If "identity.follow" is set, it should contain a "label" property set and filled in.
+        If "identity" is set, the "identity.title" property needs to be set and filled in. If "identity.follow" is set, the "identity.follow.label" property needs to be set and filled in.
     </p>
   </div>
 </test>

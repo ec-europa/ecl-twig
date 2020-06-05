@@ -43,7 +43,10 @@
     {% endfor %}
   {% endif %}
 
-  {% set no_identity_info_case = identity.info is not defined or identity.info is empty or identity.info is not iterable %}
+  {% set no_identity_info_case =
+    identity.info is not defined or
+    identity.info is empty or
+    identity.info is not iterable %}
   {% if no_identity_info_case == false %}
     {% for info_item in identity.info %}
       {% if (info_item.link is not defined or info_item.link is empty) and
@@ -59,7 +62,10 @@
 {% if no_sections_case == false %}
   {% for section in sections %}
     {% set section_number = loop.index0 %}
-    {% set no_section_links_case = section.links is not defined or section.links is empty or section.links is not iterable %}
+    {% set no_section_links_case =
+      section.links is not defined or
+      section.links is empty or
+      section.links is not iterable %}
     {% if no_section_links_case == false %}
       {% for linkItem in section.links %}
         {% if (linkItem.link.label is not defined or linkItem.link.label is empty) or
@@ -111,7 +117,7 @@
   {% set message = message ~ ' Each item in the "common" array should contain a "link" object.' %}
 {% endif %}
 {% if no_common_link_keys_case %}
-  {% set message = message ~ ' The "common" array contains at least one item with a missing the "label" or "path" property.' %}
+  {% set message = message ~ ' The "common" array contains at least one item with a missing "label" or "path" property.' %}
 {% endif %}
 {% if no_section_links_case %}
   {% set message = message ~ ' "Each item in the "sections" array should contain a "links" array of link named objects.' %}
@@ -126,16 +132,16 @@
       {% set prefix = prefix ~ '"sections[' ~ section ~ ']" ' ~ label %}
     {% endif %}
   {% endfor %}
-  {% set message = message ~ ' ' ~ prefix ~ ' at least an item with a missing "label" or "path" properties.' %}
+  {% set message = message ~ ' ' ~ prefix ~ ' at least one item with a missing "label" or "path" properties.' %}
 {% endif %}
 {% if no_identity_title_case %}
-  {% set message = message ~ ' If "identity" is set, it should contain a "title" property set and filled in.' %}
+  {% set message = message ~ ' If "identity" is set, the "identity.title" property needs to be set and filled in.' %}
 {% endif %}
 {% if no_identity_follow_label_case %}
-  {% set message = message ~ ' If "identity.follow" is set, it should contain a "label" property set and filled in.' %}
+  {% set message = message ~ ' If "identity.follow" is set, the "identity.follow.label" property needs to be set and filled in.' %}
 {% endif %}
 {% if no_identity_follow_links_case %}
-  {% set message = message ~ ' If "identity.follow" is set, it should contain a "links" array of link objects.' %}
+  {% set message = message ~ ' If "identity.follow" is set, "identity.follow.links" should be defined as an array of link objects.' %}
 {% endif %}
 {% if no_identity_info_link_case %}
   {% set message = message ~ ' The "identity.info" array contains at least one "link" object missing the "label" or "path" property.' %}

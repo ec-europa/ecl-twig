@@ -9,11 +9,17 @@ import {
   getComplianceKnob,
 } from '@ecl-twig/story-utils';
 
+import brandedIcons from '@ecl/ec-resources-icons/dist/lists/branded.json';
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import dataCustom from './demo/data--custom';
 import dataCorporate from './demo/data--corporate';
 import footer from './ecl-footer.html.twig';
 import notes from './README.md';
+
+const iconsList = ['external'];
+brandedIcons.forEach(icon => {
+  iconsList.push(icon);
+});
 
 const prepareFooter = data => {
   if (data.identity) {
@@ -40,18 +46,22 @@ const prepareFooter = data => {
       );
 
       if (linkItem.icon) {
-        linkItem.icon.name = select(
-          `identity.follow.links[${i}].icon.name`,
-          [linkItem.icon.name],
-          linkItem.icon.name,
-          tabLabels.required
-        );
         linkItem.icon.path = select(
           `identity.follow.links[${i}].icon.path`,
-          [defaultSprite],
+          ['none', defaultSprite],
           defaultSprite,
           tabLabels.required
         );
+        if (linkItem.icon.path === 'none') {
+          linkItem.icon.path = '';
+        } else {
+          linkItem.icon.name = select(
+            `identity.follow.links[${i}].icon.name`,
+            [...iconsList],
+            linkItem.icon.name,
+            tabLabels.required
+          );
+        }
       }
     });
   }
@@ -69,18 +79,22 @@ const prepareFooter = data => {
         tabLabels.required
       );
       if (linkItem.icon) {
-        linkItem.icon.name = select(
-          `sections[${i}].links[${j}].icon.name`,
-          [linkItem.icon.name],
-          linkItem.icon.name,
-          tabLabels.required
-        );
         linkItem.icon.path = select(
           `sections[${i}].links[${j}].icon.path`,
-          [defaultSprite],
+          ['none', defaultSprite],
           defaultSprite,
           tabLabels.required
         );
+        if (linkItem.icon.path === 'none') {
+          linkItem.icon.path = '';
+        } else {
+          linkItem.icon.name = select(
+            `sections[${i}].links[${j}].icon.name`,
+            [...iconsList],
+            linkItem.icon.name,
+            tabLabels.required
+          );
+        }
       }
     });
   });
