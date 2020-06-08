@@ -16,6 +16,11 @@
   crossorigin="anonymous"
   media="print"
 />
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/tippy.js@6/animations/scale-extreme.css"
+/>
+<link rel="stylesheet" href="https://unpkg.com/tippy.js@6/dist/svg-arrow.css" />
 <script
   src="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v2.28.0/ec-preset-legacy-website/scripts/ecl-ec-preset-legacy-website.js"
   integrity="sha256-2B+g0IcAEtT6w/l4kfC+IAjfsgAG0NgdXc0mK/guX5E=
@@ -25,11 +30,50 @@
 ></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/7.8.3/polyfill.min.js"></script>
 <script src="https://unpkg.com/svg4everybody@2.1.9/dist/svg4everybody.min.js"></script>
+<script src="https://unpkg.com/@popperjs/core@2"></script>
+<script src="https://unpkg.com/tippy.js@6"></script>
+<style>
+  .tippy-box {
+    color: white;
+    font-family: arial, sans-serif;
+    padding: 0.25rem;
+    font-weight: 600;
+  }
+  .tippy-box[data-theme~='ecl-compliance-success'] {
+    background-color: #467a39;
+  }
+  .tippy-box[data-theme~='ecl-compliance-success'] > .tippy-svg-arrow {
+    fill: #467a39;
+  }
+  .tippy-box[data-theme~='ecl-compliance-failure'] {
+    background-color: #da2131;
+  }
+  .tippy-box[data-theme~='ecl-compliance-failure'] > .tippy-svg-arrow {
+    fill: #da2131;
+  }
+</style>
 <script>
   // https://github.com/storybookjs/storybook/issues/6113#issuecomment-473965255
   function runOnPageChange() {
     ECL.autoInit();
+
+    if ((complianceReps = document.querySelectorAll('.ecl-compliance-inner'))) {
+      tippy.setDefaultProps({
+        interactive: true,
+        animation: 'scale-extreme',
+        arrow: tippy.roundArrow,
+      });
+      complianceReps.forEach(e => {
+        if (e.hasAttribute('title')) {
+          e.setAttribute('data-tippy-content', e.getAttribute('title'));
+          e.removeAttribute('title');
+        }
+      });
+      tippy('.ecl-compliance-success', { theme: 'ecl-compliance-success' });
+      tippy('.ecl-compliance-failure', { theme: 'ecl-compliance-failure' });
+    }
   }
+
   document.addEventListener(
     'DOMContentLoaded',
     function() {

@@ -38,7 +38,7 @@
 {% if not_compliant %}
   {% block complaints %}
     {% if _icon_path is not empty and _inner_check %}
-      <span class="ecl-u-type-color-red" title="{{ _message|raw }}">
+      <span class="ecl-u-type-color-red ecl-compliance-inner ecl-compliance-failure" title="{{ _message|raw }}">
       {% include '@ecl-twig/ec-component-icon/ecl-icon.html.twig' with {
           icon: { type: 'notifications', name: 'error', size: 'xs', path: _icon_path },
         } only %}
@@ -56,7 +56,7 @@
 {% else %}
   {% block compliant %}
     {% if _icon_path is not empty and _inner_check %}
-      <span class="ecl-u-type-color-green" title="{{ _success_message|raw }}">
+      <span class="ecl-u-type-color-green ecl-compliance-inner ecl-compliance-success" title="{{ _success_message|raw }}">
       {% include '@ecl-twig/ec-component-icon/ecl-icon.html.twig' with {
           icon: { type: 'notifications', name: 'success', size: 'xs', path: _icon_path },
         } only %}
