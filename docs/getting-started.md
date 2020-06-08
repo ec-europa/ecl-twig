@@ -31,9 +31,23 @@ There's also an extra package: `@ecl-twig/{ec,eu}-components` which is used to a
 
 Each component comes with a story `*.story.js` which is consumed by [Storybook](https://storybook.js.org/). In this story file, you import the main Twig template and you pass data to it. That's it!
 
-You can use knobs to make the showcase more dynamic and interactive.
+In ecl-twig the storybook knobs are extensively used to accurately represent the full input data with the aim of offering the possibility to customise the component and retrieve the correct object to the passed to the component in the `notes` tab.
+Their label is supposed to be defined the same way the property is accessible in the expected input data.
+Ex: `link.icon.path`
 
-More features will come in the near future...
+Knobs in ecl-twig are grouped together to simplify their usage and offer additional information, like if the property controlled by the knob is mandatory or optional, for instance, the available groups are _mandatory_, _optional_, _use cases_, _status_
+In ecl-twig buttons knobs are used to defined different use cases the component might have, when blocks of information are optional and can be toggled on and off in a component demo.
+In many cases (like icons, path to the logo...) there is no real advantage for the user in editing the value used in the demo, therefore we only offer the possibility of unsetting it, mainly for testing the compliance checks we perform.
+
+### ECL Compliance
+
+The ecl-twig library comes with a special component named `ecl-compliance`, which defines a parent template for the ecl compliance checks and contains all the children templates for the checks applied to the single components.
+For each of our components there should be a compliance check available through our storybook demo and to all the consumers of the library through the ecl-compliance package and a parameter applied to the component instantiation: `_ecl_compliance_`.
+
+The name of the child template is expected to respect this convention for the file name:
+_ecl-compliance-{nameOfThecomponent}.html-twig_
+
+it should be placed in: `src/{system}/packages/{system}-component-ecl-compliance/components/`
 
 ### EC system
 
