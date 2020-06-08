@@ -35,8 +35,8 @@
   no_item_case %}
 
 {% if no_source_keys_case %}
-  {% set message = message ~ '"item.sources" should be an array with a "src" and a "type" properties for each element.' %}
+  {% set message = message ~ '{{ item.sources }} should be an array with a {{ src }} and a {{ type }} properties for each element.' %}
 {% endif %}
 {% if no_item_case %}
-  {% set message = message ~ '"item" should contain an array of "sources" and "tracks".' %}
+  {% set message = message ~ ' {{ item }} should contain an array of {{ sources }} and {{ tracks }}.' %}
 {% endif %}
