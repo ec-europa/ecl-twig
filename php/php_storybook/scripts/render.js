@@ -4,7 +4,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const twing = require('../../../../src/ec/.storybook/environment');
+const twing = require('../../../src/ec/.storybook/environment');
 
 const extension = 'html.twig';
 const rootFolder = process.cwd();
@@ -18,6 +18,10 @@ const components = args[1] ? [args[1]] : fs.readdirSync(systemFolder);
 components.forEach(component => {
   const pkg = `${system}-component-${component}`;
   let componentTemplate = component;
+  // Our validation component.
+  if (component === 'ecl-compliance') {
+    return;
+  }
   // Two known exceptions..
   if (component === 'checkbox' || component === 'radio') {
     componentTemplate = `${component}-group`;

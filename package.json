@@ -50,14 +50,6 @@
     "@babel/node": "7.8.7",
     "@babel/preset-env": "7.9.5",
     "@babel/preset-react": "7.9.4",
-    "@ecl-twig/data-utils": "file:utils/data-utils",
-    "@ecl-twig/php-storybook": "file:php/php_storybook",
-    "@ecl-twig/story-utils": "file:utils/story-utils",
-    "@ecl-twig/storybook-addon-code": "file:utils/storybook-addon-code",
-    "@ecl-twig/storybook-addon-diff": "file:utils/storybook-addon-diff",
-    "@ecl-twig/storybook-addon-jscode": "file:utils/storybook-addon-jscode",
-    "@ecl-twig/storybook-addon-notes": "file:utils/storybook-addon-notes",
-    "@ecl-twig/test-utils": "file:utils/test-utils",
     "@storybook/addon-knobs": "5.3.18",
     "@storybook/addon-options": "5.3.18",
     "@storybook/addon-viewport": "5.3.18",
@@ -130,7 +122,8 @@
   "workspaces": [
     "src/ec/packages/*",
     "src/eu/packages/*",
-    "src/php/packages/*"
+    "utils/*",
+    "php/php_storybook"
   ],
   "jest": {
     "verbose": true
