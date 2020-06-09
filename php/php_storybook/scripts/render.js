@@ -18,10 +18,6 @@ const components = args[1] ? [args[1]] : fs.readdirSync(systemFolder);
 components.forEach(component => {
   const pkg = `${system}-component-${component}`;
   let componentTemplate = component;
-  // Our validation component.
-  if (component === 'ecl-compliance') {
-    return;
-  }
   // Two known exceptions..
   if (component === 'checkbox' || component === 'radio') {
     componentTemplate = `${component}-group`;

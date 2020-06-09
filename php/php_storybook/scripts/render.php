@@ -23,10 +23,6 @@ $components = array_slice(scandir(Path::canonicalize($system_path)), 2);
 foreach ($components as $component) {
   $component_group = $component_family = '';
   $template = '@ecl-twig/ec-component-' . $component . '/' . $prefix . $component;
-  // Our validation component.
-  if ($component == 'ecl-compliance') {
-    continue;
-  }
   // Two known exceptions.
   if ($component == 'checkbox' || $component == 'radio') {
     $template = $template . '-group';
