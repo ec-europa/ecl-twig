@@ -19,6 +19,7 @@ npm install --save @ecl-twig/ec-component-breadcrumb-harmonised
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
 - **"_compliance_"** (optional) (boolean) (default: false) Activates debug
+- **"_compliance_inner_check_"** (optional) (boolean) (default: false) Inline compliance report
 
 ### Example :
 

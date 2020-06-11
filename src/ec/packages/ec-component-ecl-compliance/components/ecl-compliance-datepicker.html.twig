@@ -7,13 +7,11 @@
     required_text: (string),
     optional_text: (string),
     label: (string),
-    icons_path: (string),
-    inner_check: (boolean)
+    icons_path: (string)
 #}
 
 {% extends "@ecl-twig/ec-component-ecl-compliance/ecl-compliance.html.twig" %}
 {% set component = 'datepicker' %}
-{% set _inner_check = inner_check|default(false) %}
 {% set not_compliant = icons_path is empty %}
 {% set message = '{{ icons_path }} property needs to be set and filled in as it is needed to retrieve the icons sprite file.' %}
 
@@ -25,6 +23,6 @@
   required_text: required_text,
   optional_text: optional_text,
   label: label,
-  inner_check: true,
+  _compliance_inner_check_: true,
   icon_path: icons_path
 } only %}

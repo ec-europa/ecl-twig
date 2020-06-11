@@ -20,7 +20,7 @@ npm install --save @ecl-twig/ec-component-page-banner
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
 - **_compliance_** (boolean) (default: false) Activates debug
-- **"inner_check"** (boolean) (default: false) inline compliance report
+- **"_compliance_inner_check_"** (boolean) (default: false) inline compliance report
 
 ### Example :
 

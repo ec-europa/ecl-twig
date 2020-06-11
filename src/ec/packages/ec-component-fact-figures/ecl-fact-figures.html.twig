@@ -20,7 +20,8 @@
           "value" (string) (default: '')
         },
         ...
-      ]
+      ],
+    - "_compliance_" (boolean) (default: false) Activates debug
 #}
 
 {# Parameters #}
@@ -63,7 +64,7 @@
         icon: item.icon|merge(_icon),
         extra_classes: 'ecl-fact-figures__icon',
         _compliance_: _compliance,
-        inner_check: true
+        _compliance_inner_check_: true
       } only %}
     {% endif %}
     {% if item.value is defined and item.value is not empty %}
@@ -94,7 +95,7 @@
       }),
       extra_classes: 'ecl-fact-figures__view-all-link',
       _compliance_: _compliance,
-      inner_check: true,
+      _compliance_inner_check_: true,
       icon_path: _icon_path|default('')
     }) only %}
   </div>

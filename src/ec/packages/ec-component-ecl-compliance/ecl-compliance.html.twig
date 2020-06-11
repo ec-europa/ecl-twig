@@ -7,7 +7,7 @@
   - "component" (string)
   - "variant" (string)
   - "icon_path" (string)
-  - "inner_check" (boolean)
+  - "_compliance_inner_check_" (boolean)
 
   Blocks:
   - "complaints"
@@ -17,7 +17,7 @@
 {# Internal properties #}
 
 {% set _success_message = '' %}
-{% set _inner_check = inner_check|default(false) %}
+{% set _compliance_inner_check = _compliance_inner_check_|default(false) %}
 {% set _identifier = component|default('') %}
 {% set _icon_path = icon_path|default('') %}
 {% if _icon_path is empty %}
@@ -26,18 +26,18 @@
 {% if variant %}
   {% set _identifier = component ~ '--' ~ variant %}
 {% endif %}
-{% set _success_message = '[' ~ _identifier ~ '] - ecl compliant.' %}
+{% set _success_message = '[' ~ _identifier ~ '] - ecl compliant' %}
 {% set _message = '[' ~ _identifier ~ '] - ' ~ message %}
 
 {# Rendering #}
 
-{% if _inner_check == false or _icon_path is empty %}
+{% if _compliance_inner_check == false or _icon_path is empty %}
   <!-- ecl2-compliance: {{ _identifier }} -->
 {% endif %}
 
 {% if not_compliant %}
   {% block complaints %}
-    {% if _icon_path is not empty and _inner_check %}
+    {% if _icon_path is not empty and _compliance_inner_check %}
       <span class="ecl-u-type-color-red ecl-compliance-inner ecl-compliance-failure ecl-u-ma-2xs" title="{{ _message|raw }}">
       {% include '@ecl-twig/ec-component-icon/ecl-icon.html.twig' with {
           icon: { type: 'notifications', name: 'error', size: 'xs', path: _icon_path },
@@ -55,7 +55,7 @@
   {% endblock %}
 {% else %}
   {% block compliant %}
-    {% if _icon_path is not empty and _inner_check %}
+    {% if _icon_path is not empty and _compliance_inner_check %}
       <span class="ecl-u-type-color-green ecl-compliance-inner ecl-compliance-success ecl-u-ma-2xs" title="{{ _success_message|raw }}">
       {% include '@ecl-twig/ec-component-icon/ecl-icon.html.twig' with {
           icon: { type: 'notifications', name: 'success', size: 'xs', path: _icon_path },

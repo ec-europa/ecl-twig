@@ -1,7 +1,11 @@
-/* eslint-disable no-param-reassign */
+import he from 'he';
 import { storiesOf } from '@storybook/html';
 import { withKnobs, text, select } from '@storybook/addon-knobs';
-import { getExtraKnobs, tabLabels } from '@ecl-twig/story-utils';
+import {
+  getExtraKnobs,
+  tabLabels,
+  getComplianceKnob,
+} from '@ecl-twig/story-utils';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
 
@@ -16,7 +20,7 @@ const options = {
 };
 
 const prepareLabel = data => {
-  data.label = text('label', data.label, tabLabels.required);
+  data.label = he.decode(text('label', data.label, tabLabels.required));
   data.variant = select(
     'variant',
     options,
@@ -25,6 +29,7 @@ const prepareLabel = data => {
   );
 
   getExtraKnobs(data);
+  getComplianceKnob(data);
 
   return data;
 };

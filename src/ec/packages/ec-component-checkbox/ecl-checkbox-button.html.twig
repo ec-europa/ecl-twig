@@ -101,7 +101,9 @@
           name: "check",
           size: "s"
         },
-        extra_classes: 'ecl-checkbox__icon'
+        extra_classes: 'ecl-checkbox__icon',
+        _compliance_: _compliance,
+        _compliance_inner_check_: true
       } only %}
     </span>
     {%- block label _label -%}
@@ -125,7 +127,7 @@
   {% include '@ecl-twig/ec-component-ecl-compliance/components/ecl-compliance-checkbox.html.twig' with {
     icon_path: _icon_path,
     label: _label,
-    inner_check: true
+    _compliance_inner_check_: true
   } only %}
 {% endif %}
 

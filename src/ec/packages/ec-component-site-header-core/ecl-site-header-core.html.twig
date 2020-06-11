@@ -155,7 +155,10 @@
 %}
 
 {% if _compliance %}
-  {% set _search_form = _search_form|merge({'_compliance_': _compliance, 'inner_check': true }) %}
+  {% set _search_form = _search_form|merge({
+    _compliance_: _compliance,
+    _compliance_inner_check_: true
+  }) %}
 {% endif %}
 
 {# Internal logic - Process properties #}
@@ -211,7 +214,7 @@
               },
               extra_classes: 'ecl-site-header-core__icon',
               _compliance_: _compliance,
-              inner_check: true
+              _compliance_inner_check_: true
             } only %}
              {{- login_toggle.label_logged -}}
              {% include '@ecl-twig/ec-component-icon/ecl-icon.html.twig' with {
@@ -223,7 +226,7 @@
               },
               extra_classes: 'ecl-site-header-core__login-arrow',
               _compliance_: _compliance,
-              inner_check: true
+              _compliance_inner_check_: true
             } only %}
           </a>
           <div
@@ -241,7 +244,7 @@
                 path: _login_box.href,
                 type: "standalone",
                 _compliance_: _compliance,
-                inner_check: true
+                _compliance_inner_check_: true
               }
             } only %}
           </div>
@@ -259,7 +262,7 @@
               },
               extra_classes: 'ecl-site-header-core__icon',
               _compliance_: _compliance,
-              inner_check: true
+              _compliance_inner_check_: true
             } only %}
             {{- login_toggle.label_not_logged -}}
           </a>
@@ -285,7 +288,7 @@
               },
               extra_classes: 'ecl-site-header-core__icon',
               _compliance_: _compliance,
-              inner_check: true
+              _compliance_inner_check_: true
             } only %}
             <span class="ecl-site-header-core__language-code">{{ _language_selector.code }}</span>
           </span>
@@ -310,7 +313,7 @@
                { name: 'aria-hidden', value: true }
               ],
               _compliance_: _compliance,
-              inner_check: true
+              _compliance_inner_check_: true
             }
           } only -%}
           {{- _search_toggle.label -}}
@@ -333,7 +336,7 @@
       { name: 'id', value: 'language-list-overlay' }
     ],
     _compliance_: _compliance,
-    inner_check: true
+    _compliance_inner_check_: true
   } only %}
 {% endif %}
 </header>

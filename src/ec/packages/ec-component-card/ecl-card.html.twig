@@ -34,7 +34,7 @@
         ...
       ],
     - "_compliance_": (boolean) (default: false) Activates debug
-    - "inner_check": (boolean) (default: false) Inline compliance report
+    - "_compliance_inner_check_": (boolean) (default: false) Inline compliance report
 #}
 
 {# Internal properties #}
@@ -55,7 +55,7 @@
 {% endif %}
 
 {% set _compliance = _compliance_|default(false) %}
-{% set _inner_check = inner_check|default(false) %}
+{% set _compliance_inner_check = _compliance_inner_check_|default(false) %}
 {% set _css_class = 'ecl-card' %}
 {% set _extra_attributes = '' %}
 {% set _icon_path = icon_path|default('') %}
@@ -98,7 +98,7 @@
         {% include '@ecl-twig/ec-component-link/ecl-link.html.twig' with {
           link: _card.title,
           _compliance_: _compliance,
-          inner_check: true,
+          _compliance_inner_check_: true,
           icon_path: _icon_path
         } only %}
       {% else %}
@@ -121,7 +121,7 @@
             link: link|merge({ type: 'standalone' }),
             extra_classes: 'ecl-card__link',
             _compliance_: _compliance,
-            inner_check: true,
+            _compliance_inner_check_: true,
             icon_path: _icon_path
           } only %}
         </li>
@@ -150,7 +150,7 @@
             {% include '@ecl-twig/ec-component-icon/ecl-icon.html.twig' with {
               icon: _icon|default({}),
               _compliance_: _compliance,
-              inner_check: true
+              _compliance_inner_check_: true
             } only %}
             <span class="ecl-card__info-label">{{ info.label }}</span>
           </li>
@@ -165,7 +165,7 @@
               tag: tag,
               extra_classes: 'ecl-card__tag',
               _compliance_: _compliance,
-              inner_check: true,
+              _compliance_inner_check_: true,
               icon_path: _icon_path
             } only %}
           </li>
@@ -182,7 +182,7 @@
 {% if _compliance %}
   {% include '@ecl-twig/ec-component-ecl-compliance/components/ecl-compliance-card.html.twig' with {
     card: _card,
-    inner_check: _inner_check,
+    _compliance_inner_check_: _compliance_inner_check,
     icon_path: _icon_path
    } only %}
 {% endif %}

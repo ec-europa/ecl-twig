@@ -169,7 +169,10 @@
     extra_classes: _search_form_extra_classes,
   } %}
   {% if _compliance %}
-    {% set _search_form = _search_form|merge({'_compliance_': true, 'inner_check': true }) %}
+    {% set _search_form = _search_form|merge({
+      _compliance_: true,
+      _compliance_inner_check_: true
+    }) %}
   {% endif %}
 {% endif %}
 
@@ -232,7 +235,7 @@
               },
               extra_classes: 'ecl-site-header-harmonised__icon',
               _compliance_: _compliance,
-              inner_check: true
+              _compliance_inner_check_: true
             } only %}
             {{- login_toggle.label_logged -}}
             {% include '@ecl-twig/ec-component-icon/ecl-icon.html.twig' with {
@@ -244,7 +247,7 @@
               },
               extra_classes: 'ecl-site-header-harmonised__login-arrow',
               _compliance_: _compliance,
-              inner_check: true
+              _compliance_inner_check_: true
             } only %}
           </a>
           <div
@@ -263,7 +266,7 @@
                 type: "standalone"
               },
               _compliance_: _compliance,
-              inner_check: true
+              _compliance_inner_check_: true
             } only %}
           </div>
         {% else %}
@@ -280,7 +283,7 @@
               },
                 extra_classes: 'ecl-site-header-harmonised__icon',
                 _compliance_: _compliance,
-                inner_check: true
+                _compliance_inner_check_: true
             } only %}
             {{- login_toggle.label_not_logged -}}
           </a>
@@ -307,7 +310,7 @@
             },
             extra_classes: 'ecl-site-header-harmonised__icon',
             _compliance_: _compliance,
-            inner_check: true
+            _compliance_inner_check_: true
           } only %}
             <span class="ecl-site-header-harmonised__language-code">{{ _language_selector.code }}</span>
           </span>
@@ -334,7 +337,7 @@
                 { name: 'aria-hidden', value: true }
                 ],
                 _compliance_: _compliance,
-                inner_check: true
+                _compliance_inner_check_: true
               }
             } only -%}
             {{- _search_toggle.label -}}
@@ -354,7 +357,7 @@
         {% include '@ecl-twig/ec-component-link/ecl-link.html.twig' with banner_top|merge({
           link: banner_top.link|merge({ type: 'standalone'}),
           _compliance_: _compliance,
-          inner_check: true,
+          _compliance_inner_check_: true,
           icon_path: _icon_file_path
         }) only %}
       {% else %}
@@ -373,7 +376,7 @@
     group: _group,
     icon_path: _icon_file_path,
     _compliance_: _compliance,
-    inner_check: true
+    _compliance_inner_check_: true
   }) only %}
 {% endif %}
 {% if _has_overlay is defined %}
@@ -388,7 +391,7 @@
       { name: 'id', value: 'language-list-overlay' }
     ],
     _compliance_: _compliance,
-    inner_check: true
+    _compliance_inner_check_: true
   } only %}
 {% endif %}
 </header>
