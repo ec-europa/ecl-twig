@@ -35,7 +35,7 @@ In ecl-twig the storybook knobs are extensively used to accurately represent the
 Their label is supposed to be defined the same way the property is accessible in the expected input data.
 Ex: `link.icon.path`
 
-Knobs in ecl-twig are grouped together to simplify their usage and offer additional information, like if the property controlled by the knob is mandatory or optional, for instance, the available groups are _mandatory_, _optional_, _use cases_, _status_
+Knobs in ecl-twig are grouped together to simplify their usage and offer additional information, like whether the property controlled by the knob is mandatory or optional, for instance, the available groups are _mandatory_, _optional_, _use cases_, _status_
 In ecl-twig buttons knobs are used to defined different use cases the component might have, when blocks of information are optional and can be toggled on and off in a component demo.
 In many cases (like icons, path to the logo...) there is no real advantage for the user in editing the value used in the demo, therefore we only offer the possibility of unsetting it, mainly for testing the compliance checks we perform.
 
