@@ -42,7 +42,7 @@
     "start:php-eu": "echo \"Nothing to do...\"",
     "storybook:php-ec": "start-storybook -s ./static/images -p 9002 -c php/ec/.storybook",
     "storybook:php-eu": "start-storybook -s ./static/images -p 9002 -c php/eu/.storybook",
-    "update-version": "lerna version --conventional-commits --no-push --no-git-tag-version",
+    "update-version": "lerna version --no-push --no-git-tag-version",
     "test": "npm run jest"
   },
   "devDependencies": {
