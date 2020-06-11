@@ -41,11 +41,13 @@ In many cases (like icons, path to the logo...) there is no real advantage for t
 
 ### ECL Compliance
 
-The ecl-twig library comes with a special component named `ecl-compliance`, which defines a parent template for the ecl compliance checks and contains all the children templates for the checks applied to the single components.
-For each of our components there should be a compliance check available through our storybook demo and to all the consumers of the library through the ecl-compliance package and a parameter applied to the component instantiation: `_ecl_compliance_`.
+The ecl-twig library comes with a special component named `ecl-compliance`, which defines a parent template for the ecl compliance checks to be performed, it also contains all the children templates for the checks applied to the single components.
+Each of our templates should have a corresponding child template defined so to make a compliance check available through our storybook demo and to all the consumers of the library thanks to the ecl-compliance package and a parameter applied to the component instantiation: `_ecl_compliance_`.
 
-The name of the child template is expected to respect this convention for the file name:
-_ecl-compliance-{nameOfThecomponent}.html-twig_
+An additional parameter `_ecl_compliance_inner_check_` is available for identifying the inner checks run by a component on all its included templates from the overall compliance performed on a component. This offers us the possibility of differentiating the output of the report. Mind that for this parameter to work also the `icon_path` needs to be available in order to render an icon for the success or the failure of the checks.
+
+The file name of the child template is expected to follow this convention:
+_ecl-compliance-{nameOfTheComponent}.html-twig_
 
 it should be placed in: `src/{system}/packages/{system}-component-ecl-compliance/components/`
 
