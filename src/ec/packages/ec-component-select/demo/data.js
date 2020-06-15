@@ -1,7 +1,7 @@
 import specs from '@ecl/ec-specs-select/demo/data';
-import merge from 'deepmerge';
 
-const fullSpecs = merge(specs, {
+const fullSpecs = {
+  ...specs,
   icon_path: '/icons.svg',
   invalid_text: 'This is the error message',
   helper_text: "This is the input's helper text.",
@@ -10,6 +10,6 @@ const fullSpecs = merge(specs, {
   required: true,
   required_text: '*',
   id: 'select-id',
-});
+};
 
 export default fullSpecs;
