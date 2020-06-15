@@ -6,8 +6,9 @@
   "description": "ECL Twig - Package to build a storybook instance on the fly for both js and php rendered components",
   "private": true,
   "scripts": {
-    "render": "composer run render",
-    "setup": "composer run setup"
+    "setup": "composer run setup",
+    "setupPhp": "composer run install",
+    "render:php": "composer run render"
   },
   "repository": {
     "type": "git",
@@ -23,5 +24,10 @@
     "design-system",
     "twig"
   ],
-  "dependencies": {}
+  "dependencies": {
+    "gh-pages": "2.2.0",
+    "html-differ": "1.4.0",
+    "puppeteer": "2.1.1",
+    "yargs-interactive": "3.0.0"
+  }
 }
