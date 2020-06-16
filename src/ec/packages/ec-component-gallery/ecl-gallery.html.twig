@@ -2,6 +2,8 @@
 
 {#
   Parameters:
+  - "counter_label" (string) (default: '') Label of the counter
+  - "view_all_label" (string) (default: '') Label of the view all button
   - "overlay" (object) (default: {})
     - "close" (object) (default: {}): object of type button
     - "previous" (object) (default: {}): object of type button
@@ -28,6 +30,8 @@
 {% set _css_class = 'ecl-gallery' %}
 {% set _extra_attributes = '' %}
 {% set _overlay = overlay|default({}) %}
+{% set _counter_label = counter_label|default('') %}
+{% set _view_all_label = view_all_label|default('') %}
 {% set _items = items|default([]) %}
 {% set _selected_item_id = selected_item_id|default(0) %}
 {% set _extra_attributes = 'data-ecl-auto-init="Gallery"' %}
@@ -70,6 +74,16 @@
       } only %}
     {% endfor %}
   </ul>
+  <div class="ecl-gallery__info">
+    <strong data-ecl-gallery-count>0</strong> {{ _counter_label -}}
+  </div>
+
+  {% include '@ecl-twig/ec-component-button/ecl-button.html.twig' with {
+    label: _view_all_label,
+    type: 'submit',
+    variant: 'ghost',
+    extra_attributes: [{ name: 'data-ecl-gallery-all' }]
+  } only %}
 
   {% set _selected_item = {} %}
   {% if _items[_selected_item_id] is defined and _items[_selected_item_id] is not empty %}
