@@ -75,8 +75,7 @@
     {% endfor %}
   </ul>
   <div class="ecl-gallery__info">
-    <strong data-ecl-gallery-count>0</strong>
-    {{- _counter_label -}}
+    <strong data-ecl-gallery-count>0</strong> {{ _counter_label -}}
   </div>
 
   {% include '@ecl-twig/ec-component-button/ecl-button.html.twig' with {
