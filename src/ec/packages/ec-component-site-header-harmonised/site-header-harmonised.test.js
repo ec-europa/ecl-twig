@@ -25,6 +25,14 @@ describe('EC - Site Header Harmonised', () => {
       return expect(render(withExtraClasses)).resolves.toMatchSnapshot();
     });
 
+    test('renders correctly when logged in', () => {
+      expect.assertions(1);
+
+      const loggedIn = { ...dataGroup1, logged: true };
+
+      return expect(render(loggedIn)).resolves.toMatchSnapshot();
+    });
+
     test('renders correctly with extra attributes', () => {
       expect.assertions(1);
 

@@ -51,7 +51,7 @@
     {% include '@ecl-twig/ec-component-button/ecl-button.html.twig' with _overlay.close|merge({
       extra_classes: 'ecl-gallery__close-button',
       variant: _button_variant,
-      type: _button_type,
+      type: 'submit',
       extra_attributes: [
         { name: 'data-ecl-gallery-close' },
       ],
