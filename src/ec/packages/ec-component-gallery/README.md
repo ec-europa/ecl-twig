@@ -22,6 +22,8 @@ npm install --save @ecl-twig/ec-component-gallery
   - "meta" (string) (default: '')
   - "icon" (object) (default: {}): object of type icon
   - "share_path" (string) (default: '')
+- **"view_all_label"** (string) (default: '') Label of the view all button
+- **"counter_label"** (string) (default: '') Label of the counter
 - **"selected_item_id"** (int) (default: 0)
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
@@ -33,6 +35,8 @@ npm install --save @ecl-twig/ec-component-gallery
 <!-- prettier-ignore -->
 ```twig
 {% include '@ecl-twig/ec-component-gallery/ecl-gallery.html.twig' with {  
+  view_all_label: 'View all', 
+  counter_label: 'Media files in this gallery' , 
   items: [ 
     { 
       path: 'path/to/image.jpg', 
