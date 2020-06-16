@@ -7,7 +7,7 @@
   "private": true,
   "scripts": {
     "setup": "composer run setup",
-    "setupPhp": "composer run install",
+    "setupPhp": "composer install",
     "render:php": "composer run render"
   },
   "repository": {
@@ -24,7 +24,7 @@
     "design-system",
     "twig"
   ],
-  "dependencies": {
+  "devDependencies": {
     "gh-pages": "2.2.0",
     "html-differ": "1.4.0",
     "puppeteer": "2.1.1",
