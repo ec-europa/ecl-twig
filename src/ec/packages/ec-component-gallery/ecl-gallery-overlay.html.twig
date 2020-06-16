@@ -49,7 +49,7 @@
     {% include '@ecl-twig/ec-component-button/ecl-button.html.twig' with _overlay.close|merge({
       extra_classes: 'ecl-gallery__close-button',
       variant: _button_variant,
-      type: _button_type,
+      type: 'submit',
       extra_attributes: [
         { name: 'data-ecl-gallery-close' },
       ],
@@ -107,7 +107,7 @@
       (_overlay.download.link is defined and _overlay.download.link is not empty) %}
       {% include '@ecl-twig/ec-component-link/ecl-link.html.twig' with _overlay.download|merge({
         link: {
-          icon_position: 'after',
+          icon_position: 'after'
         }|merge(_overlay.download.link),
         icon: _overlay.download.icon|merge({
           name: 'download',

@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import specData from '@ecl/ec-specs-gallery/demo/data';
 
 const defaultSprite = '/static/icons.svg';
@@ -89,6 +88,8 @@ const data = {
     download: formatLink(specData.overlay.download),
     share: formatLink(specData.overlay.share),
   },
+  view_all_label: specData.viewAllLabel,
+  counter_label: specData.counterLabel,
 };
 
 data.overlay.download.link.path = '/example';
