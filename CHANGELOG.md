@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.29.0](https://github.com/ec-europa/ecl-twig/compare/v2.28.1...v2.29.0) (2020-06-16)
+
+#### :nail_care: Enhancement
+
+- [#477](https://github.com/ec-europa/ecl-twig/pull/477) feat(gallery): Component and resources updates for v2.29.0 - FRONT-1222 ([@planctus](https://github.com/planctus))
+
+#### :memo: Documentation
+
+- [#473](https://github.com/ec-europa/ecl-twig/pull/473) docs(changelog): Removing changelog file from individual packages - FRONT-1162 ([@planctus](https://github.com/planctus))
+
+#### :house: Internal
+
+- [#475](https://github.com/ec-europa/ecl-twig/pull/475) chore(deps): updates, 11-06-20 - FRONT-1211 ([@planctus](https://github.com/planctus))
+
+#### Committers: 1
+
+- [@planctus](https://github.com/planctus)
+
 ## [2.28.1](https://github.com/ec-europa/ecl-twig/compare/v2.28.0...v2.28.1) (2020-05-06)
 
 ##### :bug: Bug Fix
