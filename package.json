@@ -2,7 +2,7 @@
   "private": true,
   "scripts": {
     "build:ec": "build-storybook -c ./src/ec/storybook/.storybook -o build/ec",
-    "build:eu": "echo \"Nothing to do...\"",
+    "build:eu": "build-storybook -c ./src/eu/storybook/.storybook -o build/eu",
     "build-storybook:ec": "build-storybook -c php/ec/.storybook -o php/dist/ec && yarn copy:php && yarn fix-php-dist",
     "build-storybook:eu": "echo \"Nothing to do...\"",
     "changelog": "lerna-changelog",
@@ -37,7 +37,7 @@
     "render:js": "node_modules/@ecl-twig/php-storybook/scripts/render.js",
     "render-php-js": "run-s \"render:* {1} \" pretty:php --",
     "start:ec": "start-storybook -p 9001 -c src/ec/storybook/.storybook",
-    "start:eu": "echo \"Nothing to do...\"",
+    "start:eu": "start-storybook -p 9001 -c src/eu/storybook/.storybook",
     "start:php-ec": "npm-run-all setupPhp clean:php render-php-js storybook:php-ec",
     "start:php-eu": "echo \"Nothing to do...\"",
     "storybook:php-ec": "start-storybook -s ./static/images -p 9002 -c php/ec/.storybook",

@@ -1,6 +1,6 @@
 const path = require('path');
-
-const stories = ['../../packages/**/*.story.js'];
+// We actually point at the EC templates.
+const stories = ['../../../ec/packages/**/*.story.js'];
 
 const addons = [
   '@storybook/addon-options',
