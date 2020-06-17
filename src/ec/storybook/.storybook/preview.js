@@ -1,7 +1,7 @@
 import { configure, addParameters } from '@storybook/html';
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import { create } from '@storybook/theming';
-import { version } from '../../../lerna.json';
+import { version } from '../../../../lerna.json';
 
 addParameters({
   options: {
@@ -48,17 +48,3 @@ addParameters({
     },
   },
 });
-
-const contexts = [require.context('../packages', true, /.*\.story\.js$/)];
-
-configure(() => {
-  contexts.forEach(context => {
-    context
-      .keys()
-      .filter(key => !key.includes('node_modules'))
-      // Hidden components.
-      // @see: INNO-1542
-      .filter(key => !key.includes('ec-component-contextual-navigation'))
-      .forEach(context);
-  });
-}, module);
