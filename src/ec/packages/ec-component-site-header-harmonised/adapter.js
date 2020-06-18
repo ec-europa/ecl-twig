@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import { formatLink } from '@ecl-twig/data-utils';
 import he from 'he';
 
