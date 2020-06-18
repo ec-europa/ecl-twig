@@ -9,8 +9,8 @@ const addons = [
 ];
 
 const managerEntries = [
-  '@ecl-twig/storybook-addon-code/src/register',
   '@ecl-twig//storybook-addon-notes/src/register',
+  '@ecl-twig/storybook-addon-code/src/register',
 ];
 
 const managerWebpack = async baseConfig => {
