@@ -3,7 +3,12 @@
   "npmClient": "yarn",
   "useWorkspaces": true,
   "loglevel": "success",
-  "packages": ["src/ec/packages/*", "src/eu/packages/*"],
+  "packages": [
+    "src/ec/packages/*",
+    "src/eu/packages/*",
+    "src/ec/storybook",
+    "src/eu/storybook"
+  ],
   "changelog": {
     "repo": "ec-europa/ecl-twig",
     "labels": {
