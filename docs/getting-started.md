@@ -31,26 +31,9 @@ There's also an extra package: `@ecl-twig/{ec,eu}-components` which is used to a
 
 Each component comes with a story `*.story.js` which is consumed by [Storybook](https://storybook.js.org/). In this story file, you import the main Twig template and you pass data to it. That's it!
 
-In ecl-twig the storybook knobs are extensively used to accurately represent the full input data with the aim of offering the possibility to customise the component and retrieve the correct object representing the input data currently feeding the component, in the storybook `notes` tab.
-The label of the knobs are supposed to be defined in the same way the properties are accessible in the expected input data.
-Ex: `link.icon.path`
-
-Knobs in ecl-twig are grouped together to simplify their usage, the available groups are _mandatory_, _optional_, _use cases_, _status_.
-Buttons knobs are used to define the different use-cases the component might have, when relevant.
-In many cases (like icons, path to the logo...) there is no real advantage for the user in editing the value used in the demo, therefore we only offer the possibility of unsetting it, mainly for testing the compliance checks we perform.
-
 ### ECL Compliance
 
 The ecl-twig library comes with a special component named `ecl-compliance`, which defines a parent template for the ecl compliance checks to be performed.
-Each of our templates should have a corresponding child template defined, this will make a compliance check available in our storybook demo and in any implementation of the ecl-twig library, when the `_ecl_compliance_` property is set to true.
-
-The file name of the child template is expected to follow this convention:
-_ecl-compliance-{nameOfTheComponent}.html-twig_
-it should be placed in: `src/{system}/packages/{system}-component-ecl-compliance/components/`
-
-An additional parameter `_ecl_compliance_inner_check_` is available for identifying the checks run by a component on all its included templates from the overall compliance performed on a component by the user. This offers us the possibility of differentiating the output of the report.
-
-Mind that for this parameter to work also the `icon_path` needs to be available in order to render an icon for the success or the failure of the checks, otherwise the standard report will be used.
 
 ### EC system
 
