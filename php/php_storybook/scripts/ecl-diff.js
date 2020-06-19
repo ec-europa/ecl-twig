@@ -31,7 +31,7 @@ const diffOptions = {
 };
 
 const htmlDiffer = new HtmlDiffer(diffOptions);
-let packages = require(`../../../../src/${system}/.storybook/${system}-packages.js`)
+let packages = require(`../../../src/${system}/.storybook/${system}-packages.js`)
   .list;
 
 const domain = 'https://ec.europa.eu';

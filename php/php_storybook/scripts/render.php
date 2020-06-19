@@ -11,7 +11,7 @@ $extension = '.html.twig';
 $output_folder = 'php';
 $system = !empty($argv[1]) ? $argv[1] : 'ec';
 $prefix = 'ecl-';
-$root_folder = __DIR__ . '/../../../../';
+$root_folder = __DIR__ . '/../../../';
 $root_folder_abs = Path::canonicalize($root_folder);
 $packages_folder = $root_folder_abs . DIRECTORY_SEPARATOR . 'src/' . $system . DIRECTORY_SEPARATOR . 'packages';
 // The place to store HTML output of the Twig PHP renderer.

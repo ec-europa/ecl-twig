@@ -4,7 +4,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const twing = require('../../../../src/ec/.storybook/environment');
+const twing = require('../../../src/ec/.storybook/environment');
 
 const extension = 'html.twig';
 const rootFolder = process.cwd();
