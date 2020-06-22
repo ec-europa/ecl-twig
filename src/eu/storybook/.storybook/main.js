@@ -1,5 +1,5 @@
 // We actually point at the EC templates.
-const stories = ['../../../ec/packages/**/*.story.js'];
+const stories = ['../../../ec/packages/**/!(*contextual-navigation).story.js'];
 
 const addons = [
   '@storybook/addon-options',

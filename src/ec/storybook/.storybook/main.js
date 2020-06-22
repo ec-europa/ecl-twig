@@ -1,4 +1,4 @@
-const stories = ['../../packages/**/*.story.js'];
+const stories = ['../../packages/**/!(*contextual-navigation).story.js'];
 
 const addons = [
   '@storybook/addon-options',
