@@ -1,4 +1,3 @@
-const path = require('path');
 // We actually point at the EC templates.
 const stories = ['../../../ec/packages/**/*.story.js'];
 

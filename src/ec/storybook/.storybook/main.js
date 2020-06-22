@@ -1,5 +1,3 @@
-const path = require('path');
-
 const stories = ['../../packages/**/*.story.js'];
 
 const addons = [
