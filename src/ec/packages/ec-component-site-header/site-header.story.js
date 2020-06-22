@@ -1,4 +1,3 @@
-import merge from 'deepmerge';
 import { storiesOf } from '@storybook/html';
 import { withKnobs, button } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
@@ -42,12 +41,11 @@ storiesOf('Components/deprecated/Site Header', module)
     'ECL < 2.12 - default',
     () =>
       siteHeader(
-        merge(enData, {
-          logo: {
-            src: englishBanner,
-          },
+        {
+          ...enData,
+          logo: { src: englishBanner },
           icon_file_path: defaultSprite,
-        }),
+        },
         button(btnLabel, EnBtnHandler)
       ),
     {
@@ -58,12 +56,11 @@ storiesOf('Components/deprecated/Site Header', module)
     'ECL < 2.12 - translated',
     () =>
       siteHeader(
-        merge(frData, {
-          logo: {
-            src: frenchBanner,
-          },
+        {
+          ...frData,
+          logo: { src: frenchBanner },
           icon_file_path: defaultSprite,
-        }),
+        },
         button(btnLabel, frBtnHandler)
       ),
     {
