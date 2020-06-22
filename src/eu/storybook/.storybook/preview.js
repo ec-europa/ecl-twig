@@ -1,4 +1,4 @@
-import { configure, addParameters } from '@storybook/html';
+import { addParameters } from '@storybook/html';
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import { create } from '@storybook/theming';
 import { version } from '../../../../lerna.json';
