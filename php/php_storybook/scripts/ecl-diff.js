@@ -31,7 +31,7 @@ const diffOptions = {
 };
 
 const htmlDiffer = new HtmlDiffer(diffOptions);
-let packages = require(`@ecl-twig/${system}-storybook/.storybook/${system}-packages.js`)
+let packages = require(`@ecl-twig/${system}-storybook/.storybook/packages.js`)
   .list;
 
 const domain = 'https://ec.europa.eu';
@@ -154,7 +154,7 @@ yargsInteractive()
 
         if (!fs.existsSync(twigFullPath)) {
           console.error(
-            `It seems that "${component}" has not been rendered yet, please run yarn check:component ${component} ${system}`
+            `It seems that "${component}" has not been rendered yet, please run yarn check:component ${system} ${component}`
           );
           process.exit(1);
         } else if (!fs.existsSync(`${twigFullPath}/${fileName}`)) {
