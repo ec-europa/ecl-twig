@@ -2,14 +2,11 @@
 const stories = ['../../../ec/packages/**/!(*contextual-navigation).story.js'];
 
 const addons = [
-  '@storybook/addon-options',
-  '@storybook/addon-knobs',
-  '@storybook/addon-viewport',
-];
-
-const managerEntries = [
-  '@ecl-twig//storybook-addon-notes/src/register',
+  '@ecl-twig/storybook-addon-notes/src/register',
   '@ecl-twig/storybook-addon-code/src/register',
+  '@storybook/addon-options',
+  '@storybook/addon-viewport',
+  '@storybook/addon-knobs',
 ];
 
 const managerWebpack = async baseConfig => {
@@ -19,4 +16,4 @@ const managerWebpack = async baseConfig => {
   return baseConfig;
 };
 
-module.exports = { stories, addons, managerEntries, managerWebpack };
+module.exports = { stories, addons, managerWebpack };
