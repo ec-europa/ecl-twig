@@ -29,6 +29,7 @@ module.exports = {
       files: ['src/**/*.{story,test}.js', 'src/**/packages/**/adapter.js'],
       rules: {
         'no-param-reassign': 0,
+        'import/no-extraneous-dependencies': 0,
       },
     },
     {

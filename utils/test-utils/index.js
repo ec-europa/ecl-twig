@@ -1,5 +1,5 @@
 const merge = require('deepmerge');
-const twing = require('../../../src/ec/.storybook/environment'); // eslint-disable-line import/no-unresolved
+const twing = require('../../src/ec/.storybook/environment'); // eslint-disable-line import/no-unresolved
 
 const renderTwigFileAsNode = (file, options) =>
   new Promise((resolve, reject) => {

@@ -1,9 +1,8 @@
-/* eslint-disable import/no-extraneous-dependencies, no-param-reassign */
-import { formatLink, escapeHTML } from '@ecl-twig/data-utils';
+import { formatLink } from '@ecl-twig/data-utils';
+import he from 'he';
 
 const adapter = initialData => {
   const adaptedData = JSON.parse(JSON.stringify(initialData));
-
   const defaultSprite = '/icons.svg';
   const logo = '/logo--en.svg';
 
@@ -26,7 +25,7 @@ const adapter = initialData => {
   adaptedData.login_box = adaptedData.loginBox;
   delete adaptedData.loginBox;
   if (adaptedData.login_box) {
-    adaptedData.login_box.description = escapeHTML(
+    adaptedData.login_box.description = he.escape(
       adaptedData.login_box.description
     );
   }
