@@ -3,7 +3,7 @@
 | Status        | accepted <!--becomes accepted, rejected or superseded later--> |
 | ------------- | -------------------------------------------------------------- |
 | **Proposed**  | 2020-04-30                                                     |
-| **Accepted**  | 2020-06-19                                                     |
+| **Accepted**  | 2020-06-24                                                     |
 | **Driver**    | @planctus                                                      |
 | **Approver**  | @kalinchernev, @papegaill                                      |
 | **Consulted** | @papegaill, @emeryro, @kalinchernev, @pgingao                  |
@@ -11,27 +11,27 @@
 
 ## Decision
 
-In order to facilitate the implementation of the ECL components while also enforcing somehow the correct usage of those, the ecl-twig library offers an ecl-compliance tool in the form of checks that can be performed on a component to test whether it respects the editorial guidelines defined for it.
-This tool uses only logic defined in twig templates in order to make the functionality available to any consumer of the library without any additional need, in a transparent way.
+In order to facilitate and enforce the correct implementation of ECL components, the ECL-Twig library provides the `ecl-compliance` tool.
+This tool is a collection of Twig templates providing an extended list of business and technical requirements expected in a component's implementation.
 
 ## Context
 
-Ecl twig is a library of twig templates implementing vanilla ECL components: https://ec.europa.eu/component-library/.
+ECL-Twig is a library of twig templates implementing vanilla ECL components: https://ec.europa.eu/component-library/.
 The vanilla component definition implies all the guidelines to use it, the elements that are mandatory and the ones that are optional.
 ex: Timeline usage page - https://ec.europa.eu/component-library/ec/components/timeline/usage/
 In order to properly implement a component defined by ECL, then, the mandatory elements need to be present.
 
 ## Consequences
 
-Each of our templates should have a corresponding child template defined, this will make a compliance check available in our storybook demo and in any implementation of the ecl-twig library, when the `_ecl_compliance_` property is set to true.
+Each of our templates should have a corresponding child template defined, this will make a compliance check available in our storybook demo and in any implementation of the ECL-Twig library, when the `_ecl_compliance_` property is set to true.
 
 The file name of the child template is expected to follow this convention:
 _ecl-compliance-{nameOfTheComponent}.html-twig_
 it should be placed in: `src/{system}/packages/{system}-component-ecl-compliance/components/`
 
-An additional parameter `_ecl_compliance_inner_check_` is available for identifying the checks run by a component on all its included templates from the overall compliance performed on a component by the user. This offers us the possibility of differentiating the output of the report.
+An additional parameter `_ecl_compliance_inner_check_` is available for identifying the checks run by a component on all its included templates from the overall compliance performed on a component by the user. This offers the possibility of differentiating the output of the report.
 
-Mind that for this parameter to work also the `icon_path` needs to be available in order to render an icon for the success or the failure of the checks, otherwise the standard report will be used.
+:warning: For this parameter to work also the `icon_path` needs to be available in order to render an icon for the success or the failure of the checks, the standard report would be used otherwise.
 
 ### Expected output
 
@@ -65,21 +65,21 @@ The output of the compliance checks should be rendered together with the compone
 ```
 
 This output gives a visual feedback in the rendered component, with a confirmation message or a detail of the problem(s) found, in case of success or failure.
-In our storybook the "inner checks" are a bit fancier due to the introduction of a js library: https://atomiks.github.io/tippyjs/ while they would normally appear as the default tooltip shown by the browser when hovering an element with the "title" attribute defined.
+In the ECL-Twig storybook the "inner checks" are a bit fancier due to the introduction of a js library: https://atomiks.github.io/tippyjs/, they would normally appear as the default tooltip shown by the browser when hovering an element with a "title" attribute defined.
 
 ### Concrete actions
 
 Here's the plan to follow:
 
 1, The developer creates a template in `src/{system}/packages/{system}-component-ecl-compliance/components/` as a child template of `ecl-compliance.html.twig` with this name convention: `ecl-compliance-{nameOfTheComponent}.html-twig`.
-In this file the developers extends the parent template:
+In this file the developer extends the parent template:
 
 ```twig
 {% extends "@ecl-twig/ec-component-ecl-compliance/ecl-compliance.html.twig" %}
 ```
 
-and he sets the use cases with the checks following the elements defined as mandatory/optional in the ECL usage page for that component.
-The parent template will receive the `message` property as a string and `not-compliant` as a boolean. If not compliant it will print the message otherwise a success message with the name of the component and the variant tested.
+This template will hold the use cases and the checks needed, following the elements defined as mandatory/optional in the ECL's usage page for that component.
+The parent template will receive the `message` property as a string and `not-compliant` as a boolean.
 Ex: `[fact-figures] - ecl compliant`
 
 2. The developer adds a compliance check to a newly defined component by including its corresponding compliance child template:
@@ -102,7 +102,7 @@ const prepareComponent = data => {
 }
 ```
 
-4. The developers adds a scenario in the test including all the use cases defined in the compliance template (when possible):
+4. The developer adds a scenario in the test including all the use cases defined in the compliance template (when possible):
    Ex:
 
 ```
@@ -117,5 +117,5 @@ const prepareComponent = data => {
   });
 ```
 
-5. Each iteration on a component containing changes that would affect the current logic set for its compliance, but also a change in the editorial guidelines for an ECL component could potentially require work in the children templates on ecl-twig.
-   This is a not a new scenario, though, also the organisation of knobs we currently have required some vigilance on the updates of the usage guidelines.
+5. :warning: Each iteration on a component containing changes that would affect the current logic set for its compliance as well as any change in the editorial guidelines for an ECL component could potentially require some work in the children templates on ECL-Twig.
+   This is a not a new scenario, though, also the organisation of knobs currently used already required some vigilance on the updates of the usage guidelines.
