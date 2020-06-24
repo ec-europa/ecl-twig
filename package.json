@@ -44,7 +44,7 @@
     "test": "npm run jest",
     "twing:copy": "ncp static build",
     "twing:clean": "rimraf build dist",
-    "twing:dist": "npm-run-all twing:clean storybook-build-twing:ec twing:copy",
+    "twing:dist": "npm-run-all twing:clean storybook-build-twing:* twing:copy",
     "update-version": "lerna version --no-push --no-git-tag-version",
     "clean": "yarn twing:clean",
     "copy": "yarn twing:copy",
