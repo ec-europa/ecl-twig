@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-/* eslint-disable no-console, import/no-extraneous-dependencies */
+/* eslint-disable no-console */
 
 const replace = require('replace-in-file');
 
