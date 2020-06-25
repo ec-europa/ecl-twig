@@ -92,7 +92,8 @@
         link: _section.title.link|merge({ type: 'standalone'}),
         extra_classes: _title_class_name,
         icon: _section.title.icon|default({}),
-        _compliance_: _compliance
+        _compliance_: _compliance,
+        _compliance_inner_check_: true
       }) only %}
     {% else %}
       <div class="{{ _title_class_name }}">
@@ -137,7 +138,8 @@
            {% include '@ecl-twig/ec-component-link/ecl-link.html.twig' with _item|merge({
               link: _item.link|default({})|merge({ type: 'standalone' }),
               extra_classes: 'ecl-footer-harmonised__link',
-              _compliance_: _compliance
+              _compliance_: _compliance,
+              _compliance_inner_check_: true
             }) only %}
         </li>
        {% endfor %}

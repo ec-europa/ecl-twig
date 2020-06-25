@@ -20,7 +20,8 @@
           "value" (string) (default: '')
         },
         ...
-      ]
+      ],
+    - "_compliance_" (boolean) (default: false) Activates debug
 #}
 
 {# Parameters #}
@@ -58,10 +59,12 @@
   {% for item in items %}
     <div class="ecl-fact-figures__item">
     {% if item.icon is defined and item.icon is not empty and _display_icons %}
+      {% set _icon_path = item.icon.path|default('') %}
       {% include '@ecl-twig/ec-component-icon/ecl-icon.html.twig' with {
         icon: item.icon|merge(_icon),
         extra_classes: 'ecl-fact-figures__icon',
-        _compliance_: _compliance
+        _compliance_: _compliance,
+        _compliance_inner_check_: true
       } only %}
     {% endif %}
     {% if item.value is defined and item.value is not empty %}
@@ -91,7 +94,9 @@
         type: 'standalone',
       }),
       extra_classes: 'ecl-fact-figures__view-all-link',
-      _compliance_: _compliance
+      _compliance_: _compliance,
+      _compliance_inner_check_: true,
+      icon_path: _icon_path|default('')
     }) only %}
   </div>
 {% endif %}

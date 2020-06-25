@@ -1166,18 +1166,14 @@ exports[`EC - Footer Harmonised Group 1 with missing input data and debug enable
           class="ecl-link ecl-link--standalone ecl-footer-harmonised__title"
           href="/example"
         />
-        <!-- ################################################################################################################
-    ecl2-compliance -->
+        <!-- ecl2-compliance: link--standalone -->
         <div
           class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-red ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
         >
           <p
             class="ecl-u-type-color-grey ecl-u-ml-m ecl-u-type-xs"
           >
-            <b>
-              [link--standalone]
-            </b>
-             link.label and none of link.icon_position, icon.name, icon.path or icon.type cannot be empty at the same time, an unusable link tag would be generated otherwise
+            [link--standalone] - {{ link.label }} and none of {{ link.icon_position }}, {{ icon.name }}, {{ icon.path }} or {{ icon.type }} can be empty at the same time, an unusable link would be generated otherwise
           </p>
         </div>
       </section>
@@ -1204,18 +1200,14 @@ exports[`EC - Footer Harmonised Group 1 with missing input data and debug enable
               >
                 Contact information of the DG
               </a>
-              <!-- ################################################################################################################
-    ecl2-compliance -->
+              <!-- ecl2-compliance: link--standalone -->
               <div
                 class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
               >
                 <p
                   class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
                 >
-                  <b>
-                    [link--standalone]
-                  </b>
-                   - ecl compliant.
+                  [link--standalone] - ecl compliant
                 </p>
               </div>
             </li>
@@ -1248,20 +1240,20 @@ exports[`EC - Footer Harmonised Group 1 with missing input data and debug enable
                     xlink:href="/icons.svg#branded--facebook"
                   />
                 </svg>
-                <!-- ################################################################################################################
-    ecl2-compliance -->
-                <div
-                  class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+                <span
+                  class="ecl-u-type-color-green ecl-compliance-inner ecl-compliance-success ecl-u-ma-2xs"
+                  title="[icon] - ecl compliant"
                 >
-                  <p
-                    class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                  <svg
+                    aria-hidden="true"
+                    class="ecl-icon ecl-icon--xs"
+                    focusable="false"
                   >
-                    <b>
-                      [icon]
-                    </b>
-                     - ecl compliant.
-                  </p>
-                </div>
+                    <use
+                      xlink:href="/icons.svg#notifications--success"
+                    />
+                  </svg>
+                </span>
                  
                 <span
                   class="ecl-link__label"
@@ -1269,20 +1261,20 @@ exports[`EC - Footer Harmonised Group 1 with missing input data and debug enable
                   Facebook
                 </span>
               </a>
-              <!-- ################################################################################################################
-    ecl2-compliance -->
-              <div
-                class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+              <span
+                class="ecl-u-type-color-green ecl-compliance-inner ecl-compliance-success ecl-u-ma-2xs"
+                title="[link--standalone] - ecl compliant"
               >
-                <p
-                  class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--xs"
+                  focusable="false"
                 >
-                  <b>
-                    [link--standalone]
-                  </b>
-                   - ecl compliant.
-                </p>
-              </div>
+                  <use
+                    xlink:href="/icons.svg#notifications--success"
+                  />
+                </svg>
+              </span>
             </li>
             <li
               class="ecl-footer-harmonised__list-item"
@@ -1300,20 +1292,20 @@ exports[`EC - Footer Harmonised Group 1 with missing input data and debug enable
                     xlink:href="/icons.svg#branded--twitter"
                   />
                 </svg>
-                <!-- ################################################################################################################
-    ecl2-compliance -->
-                <div
-                  class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+                <span
+                  class="ecl-u-type-color-green ecl-compliance-inner ecl-compliance-success ecl-u-ma-2xs"
+                  title="[icon] - ecl compliant"
                 >
-                  <p
-                    class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                  <svg
+                    aria-hidden="true"
+                    class="ecl-icon ecl-icon--xs"
+                    focusable="false"
                   >
-                    <b>
-                      [icon]
-                    </b>
-                     - ecl compliant.
-                  </p>
-                </div>
+                    <use
+                      xlink:href="/icons.svg#notifications--success"
+                    />
+                  </svg>
+                </span>
                  
                 <span
                   class="ecl-link__label"
@@ -1321,20 +1313,20 @@ exports[`EC - Footer Harmonised Group 1 with missing input data and debug enable
                   Twitter
                 </span>
               </a>
-              <!-- ################################################################################################################
-    ecl2-compliance -->
-              <div
-                class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+              <span
+                class="ecl-u-type-color-green ecl-compliance-inner ecl-compliance-success ecl-u-ma-2xs"
+                title="[link--standalone] - ecl compliant"
               >
-                <p
-                  class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--xs"
+                  focusable="false"
                 >
-                  <b>
-                    [link--standalone]
-                  </b>
-                   - ecl compliant.
-                </p>
-              </div>
+                  <use
+                    xlink:href="/icons.svg#notifications--success"
+                  />
+                </svg>
+              </span>
             </li>
             <li
               class="ecl-footer-harmonised__list-item"
@@ -1352,20 +1344,20 @@ exports[`EC - Footer Harmonised Group 1 with missing input data and debug enable
                     xlink:href="/icons.svg#branded--linkedin"
                   />
                 </svg>
-                <!-- ################################################################################################################
-    ecl2-compliance -->
-                <div
-                  class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+                <span
+                  class="ecl-u-type-color-green ecl-compliance-inner ecl-compliance-success ecl-u-ma-2xs"
+                  title="[icon] - ecl compliant"
                 >
-                  <p
-                    class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                  <svg
+                    aria-hidden="true"
+                    class="ecl-icon ecl-icon--xs"
+                    focusable="false"
                   >
-                    <b>
-                      [icon]
-                    </b>
-                     - ecl compliant.
-                  </p>
-                </div>
+                    <use
+                      xlink:href="/icons.svg#notifications--success"
+                    />
+                  </svg>
+                </span>
                  
                 <span
                   class="ecl-link__label"
@@ -1373,20 +1365,20 @@ exports[`EC - Footer Harmonised Group 1 with missing input data and debug enable
                   Linkedin
                 </span>
               </a>
-              <!-- ################################################################################################################
-    ecl2-compliance -->
-              <div
-                class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+              <span
+                class="ecl-u-type-color-green ecl-compliance-inner ecl-compliance-success ecl-u-ma-2xs"
+                title="[link--standalone] - ecl compliant"
               >
-                <p
-                  class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--xs"
+                  focusable="false"
                 >
-                  <b>
-                    [link--standalone]
-                  </b>
-                   - ecl compliant.
-                </p>
-              </div>
+                  <use
+                    xlink:href="/icons.svg#notifications--success"
+                  />
+                </svg>
+              </span>
             </li>
           </ul>
         </section>
@@ -1414,18 +1406,14 @@ exports[`EC - Footer Harmonised Group 1 with missing input data and debug enable
               >
                 Information about the DG
               </a>
-              <!-- ################################################################################################################
-    ecl2-compliance -->
+              <!-- ecl2-compliance: link--standalone -->
               <div
                 class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
               >
                 <p
                   class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
                 >
-                  <b>
-                    [link--standalone]
-                  </b>
-                   - ecl compliant.
+                  [link--standalone] - ecl compliant
                 </p>
               </div>
             </li>
@@ -1451,18 +1439,14 @@ exports[`EC - Footer Harmonised Group 1 with missing input data and debug enable
               >
                 Related link 1
               </a>
-              <!-- ################################################################################################################
-    ecl2-compliance -->
+              <!-- ecl2-compliance: link--standalone -->
               <div
                 class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
               >
                 <p
                   class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
                 >
-                  <b>
-                    [link--standalone]
-                  </b>
-                   - ecl compliant.
+                  [link--standalone] - ecl compliant
                 </p>
               </div>
             </li>
@@ -1475,18 +1459,14 @@ exports[`EC - Footer Harmonised Group 1 with missing input data and debug enable
               >
                 Related link 2
               </a>
-              <!-- ################################################################################################################
-    ecl2-compliance -->
+              <!-- ecl2-compliance: link--standalone -->
               <div
                 class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
               >
                 <p
                   class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
                 >
-                  <b>
-                    [link--standalone]
-                  </b>
-                   - ecl compliant.
+                  [link--standalone] - ecl compliant
                 </p>
               </div>
             </li>
@@ -1499,18 +1479,14 @@ exports[`EC - Footer Harmonised Group 1 with missing input data and debug enable
               >
                 Related link 3
               </a>
-              <!-- ################################################################################################################
-    ecl2-compliance -->
+              <!-- ecl2-compliance: link--standalone -->
               <div
                 class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
               >
                 <p
                   class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
                 >
-                  <b>
-                    [link--standalone]
-                  </b>
-                   - ecl compliant.
+                  [link--standalone] - ecl compliant
                 </p>
               </div>
             </li>
@@ -1523,18 +1499,14 @@ exports[`EC - Footer Harmonised Group 1 with missing input data and debug enable
               >
                 Related link 4
               </a>
-              <!-- ################################################################################################################
-    ecl2-compliance -->
+              <!-- ecl2-compliance: link--standalone -->
               <div
                 class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
               >
                 <p
                   class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
                 >
-                  <b>
-                    [link--standalone]
-                  </b>
-                   - ecl compliant.
+                  [link--standalone] - ecl compliant
                 </p>
               </div>
             </li>
@@ -1547,18 +1519,14 @@ exports[`EC - Footer Harmonised Group 1 with missing input data and debug enable
               >
                 Related link 5
               </a>
-              <!-- ################################################################################################################
-    ecl2-compliance -->
+              <!-- ecl2-compliance: link--standalone -->
               <div
                 class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
               >
                 <p
                   class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
                 >
-                  <b>
-                    [link--standalone]
-                  </b>
-                   - ecl compliant.
+                  [link--standalone] - ecl compliant
                 </p>
               </div>
             </li>
@@ -1585,18 +1553,14 @@ exports[`EC - Footer Harmonised Group 1 with missing input data and debug enable
             >
               Class name 1
             </a>
-            <!-- ################################################################################################################
-    ecl2-compliance -->
+            <!-- ecl2-compliance: link--standalone -->
             <div
               class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
             >
               <p
                 class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
               >
-                <b>
-                  [link--standalone]
-                </b>
-                 - ecl compliant.
+                [link--standalone] - ecl compliant
               </p>
             </div>
           </li>
@@ -1609,18 +1573,14 @@ exports[`EC - Footer Harmonised Group 1 with missing input data and debug enable
             >
               Class name 2
             </a>
-            <!-- ################################################################################################################
-    ecl2-compliance -->
+            <!-- ecl2-compliance: link--standalone -->
             <div
               class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
             >
               <p
                 class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
               >
-                <b>
-                  [link--standalone]
-                </b>
-                 - ecl compliant.
+                [link--standalone] - ecl compliant
               </p>
             </div>
           </li>
@@ -1633,18 +1593,14 @@ exports[`EC - Footer Harmonised Group 1 with missing input data and debug enable
           class="ecl-link ecl-link--standalone ecl-footer-harmonised__title"
           href="https://ec.europa.eu/info/index_en"
         />
-        <!-- ################################################################################################################
-    ecl2-compliance -->
+        <!-- ecl2-compliance: link--standalone -->
         <div
           class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-red ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
         >
           <p
             class="ecl-u-type-color-grey ecl-u-ml-m ecl-u-type-xs"
           >
-            <b>
-              [link--standalone]
-            </b>
-             link.label and none of link.icon_position, icon.name, icon.path or icon.type cannot be empty at the same time, an unusable link tag would be generated otherwise
+            [link--standalone] - {{ link.label }} and none of {{ link.icon_position }}, {{ icon.name }}, {{ icon.path }} or {{ icon.type }} can be empty at the same time, an unusable link would be generated otherwise
           </p>
         </div>
       </section>
@@ -1663,18 +1619,14 @@ exports[`EC - Footer Harmonised Group 1 with missing input data and debug enable
             >
               Contact the European Commission
             </a>
-            <!-- ################################################################################################################
-    ecl2-compliance -->
+            <!-- ecl2-compliance: link--standalone -->
             <div
               class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
             >
               <p
                 class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
               >
-                <b>
-                  [link--standalone]
-                </b>
-                 - ecl compliant.
+                [link--standalone] - ecl compliant
               </p>
             </div>
           </li>
@@ -1700,35 +1652,35 @@ exports[`EC - Footer Harmonised Group 1 with missing input data and debug enable
                   xlink:href="/icons.svg#ui--external"
                 />
               </svg>
-              <!-- ################################################################################################################
-    ecl2-compliance -->
-              <div
-                class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+              <span
+                class="ecl-u-type-color-green ecl-compliance-inner ecl-compliance-success ecl-u-ma-2xs"
+                title="[icon] - ecl compliant"
               >
-                <p
-                  class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--xs"
+                  focusable="false"
                 >
-                  <b>
-                    [icon]
-                  </b>
-                   - ecl compliant.
-                </p>
-              </div>
+                  <use
+                    xlink:href="/icons.svg#notifications--success"
+                  />
+                </svg>
+              </span>
             </a>
-            <!-- ################################################################################################################
-    ecl2-compliance -->
-            <div
-              class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+            <span
+              class="ecl-u-type-color-green ecl-compliance-inner ecl-compliance-success ecl-u-ma-2xs"
+              title="[link--standalone] - ecl compliant"
             >
-              <p
-                class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--xs"
+                focusable="false"
               >
-                <b>
-                  [link--standalone]
-                </b>
-                 - ecl compliant.
-              </p>
-            </div>
+                <use
+                  xlink:href="/icons.svg#notifications--success"
+                />
+              </svg>
+            </span>
           </li>
           <li
             class="ecl-footer-harmonised__list-item"
@@ -1739,18 +1691,14 @@ exports[`EC - Footer Harmonised Group 1 with missing input data and debug enable
             >
               Resources for partners
             </a>
-            <!-- ################################################################################################################
-    ecl2-compliance -->
+            <!-- ecl2-compliance: link--standalone -->
             <div
               class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
             >
               <p
                 class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
               >
-                <b>
-                  [link--standalone]
-                </b>
-                 - ecl compliant.
+                [link--standalone] - ecl compliant
               </p>
             </div>
           </li>
@@ -1761,18 +1709,14 @@ exports[`EC - Footer Harmonised Group 1 with missing input data and debug enable
       />
     </div>
   </footer>
-  <!-- ################################################################################################################
-    ecl2-compliance -->
+  <!-- ecl2-compliance: footer-harmonised--group1 -->
   <div
     class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-red ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
   >
     <p
       class="ecl-u-type-color-grey ecl-u-ml-m ecl-u-type-xs"
     >
-      <b>
-        [footer-harmonised--group1]
-      </b>
-        "sections[0].title.link.label" is mandatory in group1, it represents the mandatory "site name" section. "sections[0].description" in group1 is mandatory as it represents the mandatory "content owner" section. We could not identify the "legal navigation" section, in group1 it is mandatory. The "corporate_name" section needs to contain a "title.link.path" and "title.link.label" properties set and filled in.
+      [footer-harmonised--group1] -  {{ sections[0].title.link.label }} is mandatory in group1, it represents the mandatory site name section. {{ sections[0].description }} in group1 is mandatory as it represents the mandatory content owner section. The legal navigation section was not found, in group1 it is mandatory. The corporate name section needs to contain a {{ title.link.path }} and {{ title.link.label }} properties set and filled in.
     </p>
   </div>
 </test>
@@ -2194,18 +2138,14 @@ exports[`EC - Footer Harmonised Group 2 with missing input data and debug enable
           class="ecl-link ecl-link--standalone ecl-footer-harmonised__title"
           href="https://ec.europa.eu/info/index_en"
         />
-        <!-- ################################################################################################################
-    ecl2-compliance -->
+        <!-- ecl2-compliance: link--standalone -->
         <div
           class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-red ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
         >
           <p
             class="ecl-u-type-color-grey ecl-u-ml-m ecl-u-type-xs"
           >
-            <b>
-              [link--standalone]
-            </b>
-             link.label and none of link.icon_position, icon.name, icon.path or icon.type cannot be empty at the same time, an unusable link tag would be generated otherwise
+            [link--standalone] - {{ link.label }} and none of {{ link.icon_position }}, {{ icon.name }}, {{ icon.path }} or {{ icon.type }} can be empty at the same time, an unusable link would be generated otherwise
           </p>
         </div>
       </section>
@@ -2224,18 +2164,14 @@ exports[`EC - Footer Harmonised Group 2 with missing input data and debug enable
             >
               Contact the European Commission
             </a>
-            <!-- ################################################################################################################
-    ecl2-compliance -->
+            <!-- ecl2-compliance: link--standalone -->
             <div
               class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
             >
               <p
                 class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
               >
-                <b>
-                  [link--standalone]
-                </b>
-                 - ecl compliant.
+                [link--standalone] - ecl compliant
               </p>
             </div>
           </li>
@@ -2261,35 +2197,35 @@ exports[`EC - Footer Harmonised Group 2 with missing input data and debug enable
                   xlink:href="/icons.svg#ui--external"
                 />
               </svg>
-              <!-- ################################################################################################################
-    ecl2-compliance -->
-              <div
-                class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+              <span
+                class="ecl-u-type-color-green ecl-compliance-inner ecl-compliance-success ecl-u-ma-2xs"
+                title="[icon] - ecl compliant"
               >
-                <p
-                  class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--xs"
+                  focusable="false"
                 >
-                  <b>
-                    [icon]
-                  </b>
-                   - ecl compliant.
-                </p>
-              </div>
+                  <use
+                    xlink:href="/icons.svg#notifications--success"
+                  />
+                </svg>
+              </span>
             </a>
-            <!-- ################################################################################################################
-    ecl2-compliance -->
-            <div
-              class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+            <span
+              class="ecl-u-type-color-green ecl-compliance-inner ecl-compliance-success ecl-u-ma-2xs"
+              title="[link--standalone] - ecl compliant"
             >
-              <p
-                class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--xs"
+                focusable="false"
               >
-                <b>
-                  [link--standalone]
-                </b>
-                 - ecl compliant.
-              </p>
-            </div>
+                <use
+                  xlink:href="/icons.svg#notifications--success"
+                />
+              </svg>
+            </span>
           </li>
           <li
             class="ecl-footer-harmonised__list-item"
@@ -2300,18 +2236,14 @@ exports[`EC - Footer Harmonised Group 2 with missing input data and debug enable
             >
               Resources for partners
             </a>
-            <!-- ################################################################################################################
-    ecl2-compliance -->
+            <!-- ecl2-compliance: link--standalone -->
             <div
               class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
             >
               <p
                 class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
               >
-                <b>
-                  [link--standalone]
-                </b>
-                 - ecl compliant.
+                [link--standalone] - ecl compliant
               </p>
             </div>
           </li>
@@ -2332,18 +2264,14 @@ exports[`EC - Footer Harmonised Group 2 with missing input data and debug enable
             >
               Language policy
             </a>
-            <!-- ################################################################################################################
-    ecl2-compliance -->
+            <!-- ecl2-compliance: link--standalone -->
             <div
               class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
             >
               <p
                 class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
               >
-                <b>
-                  [link--standalone]
-                </b>
-                 - ecl compliant.
+                [link--standalone] - ecl compliant
               </p>
             </div>
           </li>
@@ -2356,18 +2284,14 @@ exports[`EC - Footer Harmonised Group 2 with missing input data and debug enable
             >
               Cookies
             </a>
-            <!-- ################################################################################################################
-    ecl2-compliance -->
+            <!-- ecl2-compliance: link--standalone -->
             <div
               class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
             >
               <p
                 class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
               >
-                <b>
-                  [link--standalone]
-                </b>
-                 - ecl compliant.
+                [link--standalone] - ecl compliant
               </p>
             </div>
           </li>
@@ -2380,18 +2304,14 @@ exports[`EC - Footer Harmonised Group 2 with missing input data and debug enable
             >
               Privacy policy
             </a>
-            <!-- ################################################################################################################
-    ecl2-compliance -->
+            <!-- ecl2-compliance: link--standalone -->
             <div
               class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
             >
               <p
                 class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
               >
-                <b>
-                  [link--standalone]
-                </b>
-                 - ecl compliant.
+                [link--standalone] - ecl compliant
               </p>
             </div>
           </li>
@@ -2404,18 +2324,14 @@ exports[`EC - Footer Harmonised Group 2 with missing input data and debug enable
             >
               Legal notice
             </a>
-            <!-- ################################################################################################################
-    ecl2-compliance -->
+            <!-- ecl2-compliance: link--standalone -->
             <div
               class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
             >
               <p
                 class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
               >
-                <b>
-                  [link--standalone]
-                </b>
-                 - ecl compliant.
+                [link--standalone] - ecl compliant
               </p>
             </div>
           </li>
@@ -2428,18 +2344,14 @@ exports[`EC - Footer Harmonised Group 2 with missing input data and debug enable
             >
               Brexit content disclaimer
             </a>
-            <!-- ################################################################################################################
-    ecl2-compliance -->
+            <!-- ecl2-compliance: link--standalone -->
             <div
               class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
             >
               <p
                 class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
               >
-                <b>
-                  [link--standalone]
-                </b>
-                 - ecl compliant.
+                [link--standalone] - ecl compliant
               </p>
             </div>
           </li>
@@ -2447,18 +2359,14 @@ exports[`EC - Footer Harmonised Group 2 with missing input data and debug enable
       </section>
     </div>
   </footer>
-  <!-- ################################################################################################################
-    ecl2-compliance -->
+  <!-- ecl2-compliance: footer-harmonised--group2 -->
   <div
     class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-red ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
   >
     <p
       class="ecl-u-type-color-grey ecl-u-ml-m ecl-u-type-xs"
     >
-      <b>
-        [footer-harmonised--group2]
-      </b>
-        The "corporate_name" section needs to contain a "title.link.path" and "title.link.label" properties set and filled in.
+      [footer-harmonised--group2] -  The corporate name section needs to contain a {{ title.link.path }} and {{ title.link.label }} properties set and filled in.
     </p>
   </div>
 </test>
@@ -2668,18 +2576,14 @@ exports[`EC - Footer Harmonised Group 3 with missing input data and debug enable
       />
     </div>
   </footer>
-  <!-- ################################################################################################################
-    ecl2-compliance -->
+  <!-- ecl2-compliance: footer-harmonised--group3 -->
   <div
     class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-red ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
   >
     <p
       class="ecl-u-type-color-grey ecl-u-ml-m ecl-u-type-xs"
     >
-      <b>
-        [footer-harmonised--group3]
-      </b>
-        We could not identify the "commission_logo" section, in group3 it is mandatory. We could not identify the "partnership_logos" section, in group3 it is mandatory.
+      [footer-harmonised--group3] -  The commission logo section was not found, in group3 it is mandatory. The partnership logos section as not found, in group3 it is mandatory.
     </p>
   </div>
 </test>

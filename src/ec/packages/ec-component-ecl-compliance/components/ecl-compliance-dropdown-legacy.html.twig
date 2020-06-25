@@ -35,20 +35,20 @@
 %}
 
 {% if no_id_case %}
-  {% set message = message ~ ' "id" is mandatory as it is needed to make the component work.' %}
+  {% set message = message ~ ' {{ id }} property needs to set and filled in to make the component work.' %}
 {% endif %}
 {% if no_icon_path_case %}
-  {% set message = message ~ ' "button.icon.path" is mandatory as it is needed to retrieve the icons sprite.' %}
+  {% set message = message ~ ' {{ button.icon.path }} needs to be set and filled in to be able to retrieve the icons sprite.' %}
 {% endif %}
 {% if no_button_label_case %}
-  {% set message = message ~ ' "button.label" is mandatory.' %}
+  {% set message = message ~ ' {{ button.label }} needs to set and filled in.' %}
 {% endif %}
 {% if no_list_case %}
-  {% set message = message ~ ' "list" is mandatory and it should contain an array of "items".' %}
+  {% set message = message ~ ' {{ list }} is mandatory and it should contain an array of {{ items }}.' %}
 {% endif %}
 {% if no_list_items_case %}
-  {% set message = message ~ ' "items" needs to be an array defined in the "list" object.' %}
+  {% set message = message ~ ' {{ items }} needs to be an array defined in the {{ list }} object.' %}
 {% endif %}
 {% if no_item_label_case %}
-  {% set message = message ~ ' Each item in the "items" array defined in the "list" object needs to contain a "label" property set and filled in.' %}
+  {% set message = message ~ ' Each item in the {{ items }} array defined in the {{ list }} object needs to contain a {{ label }} property set and filled in.' %}
 {% endif %}

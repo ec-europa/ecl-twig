@@ -31,9 +31,9 @@ There's also an extra package: `@ecl-twig/{ec,eu}-components` which is used to a
 
 Each component comes with a story `*.story.js` which is consumed by [Storybook](https://storybook.js.org/). In this story file, you import the main Twig template and you pass data to it. That's it!
 
-You can use knobs to make the showcase more dynamic and interactive.
+### ECL Compliance
 
-More features will come in the near future...
+The ecl-twig library comes with a special component named `ecl-compliance`, which defines a parent template for the ecl compliance checks to be performed.
 
 ### EC system
 

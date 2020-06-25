@@ -13,7 +13,7 @@
 {% extends "@ecl-twig/ec-component-ecl-compliance/ecl-compliance.html.twig" %}
 {% set component = 'datepicker' %}
 {% set not_compliant = icons_path is empty %}
-{% set message = '"icons_path" property needs to be set and filled in as it is needed to retrieve the icons sprite file.' %}
+{% set message = '{{ icons_path }} property needs to be set and filled in as it is needed to retrieve the icons sprite file.' %}
 
 {% include '@ecl-twig/ec-component-ecl-compliance/components/ecl-compliance-form-group.html.twig' with {
   helper_id: helper_id,
@@ -22,5 +22,7 @@
   invalid_text: invalid_text,
   required_text: required_text,
   optional_text: optional_text,
-  label: label
+  label: label,
+  _compliance_inner_check_: true,
+  icon_path: icons_path
 } only %}

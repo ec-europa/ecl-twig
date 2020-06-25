@@ -45,7 +45,7 @@ const prepareSiteHeader = (data, lang) => {
     button(btnLabel, enBtnHandler, tabLabels.cases);
     data.logo.src = select(
       'logo.src',
-      [englishBanner],
+      ['none', englishBanner],
       englishBanner,
       tabLabels.required
     );
@@ -53,19 +53,26 @@ const prepareSiteHeader = (data, lang) => {
     button(btnLabel, frBtnHandler, tabLabels.cases);
     data.logo.src = select(
       'logo.src',
-      [frenchBanner],
+      ['none', frenchBanner],
       frenchBanner,
       tabLabels.required
     );
   }
+  if (data.logo.src === 'none') {
+    data.logo.src = '';
+  } else {
+    // Logo knobs
+    getLogoKnobs(data, true);
+  }
   data.icon_file_path = select(
     'icon_file_path',
-    [defaultSprite],
+    ['none', defaultSprite],
     defaultSprite,
     tabLabels.required
   );
-  // Logo knobs
-  getLogoKnobs(data, true);
+  if (data.icon_file_path === 'none') {
+    data.icon_file_path = '';
+  }
   // Language selector knobs.
   if (data.language_selector) {
     getLanguageSelectorKnobs(data, false, true);

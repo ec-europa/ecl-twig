@@ -3,6 +3,7 @@
 {#
   Parameters:
   - "label" (string) (default: ''): for screen reader
+  - "icon_path" (string) (default: '') Path to the icons file
   - "items" (array) (default: []):
     - "type" (string) (default: ''): could be 'previous', 'current' or 'next'
     - "label" (string) (default: ''): label used when the item is not a link
@@ -12,7 +13,8 @@
   - "extra_attributes" (optional) (array) (default: [])
     - "name" (string) Attribute name, eg. 'data-test'
     - "value" (optional) (string) Attribute value, eg: 'data-test-1'
-  - "_compliance_" (boolean) (default: false): Activates the debug
+  - "_compliance_" (boolean) (default: false) Activates the debug
+  - "_compliance_inner_check_" (boolean) (default: false) Inline compliance report
 #}
 
 {# Internal properties #}
@@ -20,8 +22,10 @@
 {% set _label = label|default('') %}
 {% set _items = items|default([]) %}
 {% set _compliance = _compliance_|default(false) %}
+{% set _compliance_inner_check = _compliance_inner_check_|default(false) %}
 {% set _css_class = 'ecl-pagination' %}
 {% set _extra_attributes = '' %}
+{% set _icon_path = icon_path|default('') %}
 
 {# Internal logic - Process properties #}
 
@@ -46,13 +50,17 @@
     {% for _item in _items %}
       <li class="ecl-pagination__item{{ _item.type ? ' ecl-pagination__item--' ~ _item.type }}">
         {% if _item.link is not empty %}
+          {% set _link = _item.link.link|merge({ type: 'standalone' }) %}
+          {% if _item.link.icon is defined and _item.link.icon is not empty %}
+            {% set _icon = _icon_path is not empty ? _item.link.icon|merge({ path: _icon_path }) : _item.link.icon %}
+          {% endif %}
           {% include '@ecl-twig/ec-component-link/ecl-link.html.twig' with _item.link|merge({
-            link: _item.link.link|merge({
-              type: 'standalone',
-            }),
+            link: _link|default({}),
+            icon: _icon|default({}),
             extra_classes: "ecl-pagination__link",
             extra_attributes: [{ name: "aria-label", value: _item.aria_label }],
-            _compliance_: _compliance
+            _compliance_: _compliance,
+            _compliance_inner_check_: true
           }) only %}
         {% else %}
           <span
@@ -79,7 +87,8 @@
 {% if _compliance %}
   {% include '@ecl-twig/ec-component-ecl-compliance/components/ecl-compliance-pagination.html.twig' with {
     label: _label,
-    items: _items
+    items: _items,
+    _compliance_inner_check_: _compliance_inner_check
   } only %}
 {% endif %}
 

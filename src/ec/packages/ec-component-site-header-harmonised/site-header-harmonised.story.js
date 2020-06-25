@@ -117,10 +117,13 @@ const prepareSiteHeaderHarmonised = (data, variant) => {
   if (data.group !== 'group3') {
     data.icon_file_path = select(
       'icon_file_path',
-      [defaultSprite],
+      ['none', defaultSprite],
       defaultSprite,
       tabLabels.required
     );
+    if (data.icon_file_path === 'none') {
+      data.icon_file_path = '';
+    }
   }
   if (variant === 'group3') {
     data.site_name = text('site_name', data.site_name, tabLabels.required);
@@ -154,9 +157,17 @@ const prepareSiteHeaderHarmonised = (data, variant) => {
       logoDefault = data.logo.src;
       required = false;
     }
-    data.logo.src = select('logo.src', [logoDefault], logoDefault, label);
-
-    getLogoKnobs(data, required);
+    data.logo.src = select(
+      'logo.src',
+      ['none', logoDefault],
+      logoDefault,
+      label
+    );
+    if (data.logo.src === 'none') {
+      data.logo.src = '';
+    } else {
+      getLogoKnobs(data, required);
+    }
   }
   // Login box and login toggle knobs.
   if (data.login_box) {

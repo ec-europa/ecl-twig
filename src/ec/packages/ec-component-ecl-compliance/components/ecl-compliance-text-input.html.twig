@@ -26,14 +26,14 @@
 {% set component = 'text-input' %}
 
 {% if no_label_case %}
-  {% set message = 'The "label" is mandatory.' %}
+  {% set message = 'The {{ label }} property needs to be set and filled in.' %}
 {% endif %}
 {% if mandatory_case %}
-  {% set message = message ~ ' When the form element is mandatory the "required_text" is mandatory.' %}
+  {% set message = message ~ ' When the form element is mandatory the {{ required_text }} needs to be set and filled in.' %}
 {% endif %}
 {% if invalid_case %}
-  {% set message = message ~ ' When the form element is invalid the "invalid_text" is mandatory.' %}
+  {% set message = message ~ ' When the form element is invalid the {{ invalid_text }} needs to be set and filled in.' %}
 {% endif %}
 {% if optional_case %}
-  {% set message = message ~ ' When the text input is optional the "optional_text" is mandatory.' %}
+  {% set message = message ~ ' When the text input is optional the {{ optional_text }} needs to be set and filled in.' %}
 {% endif %}

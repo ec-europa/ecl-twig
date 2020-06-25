@@ -77,26 +77,26 @@
 %}
 
 {% if no_sections_case %}
-  {% set message = message ~ ' "sections" need to be defined and it should contain an array of sections, footer would be empty otherwise.' %}
+  {% set message = message ~ ' {{ sections }} needs to be defined as an array of sections, the component would be empty otherwise.' %}
 {% endif %}
 {% if no_site_name_case %}
-  {% set message = message ~ ' "sections[0].title.link.label" and "sections[0].title.link.path" properties need to be set and filled in as they represent the mandatory "site name" section.' %}
+  {% set message = message ~ ' {{ sections[0].title.link.label }} and {{sections[0].title.link.path }} properties need to be set and filled in as they represent the mandatory site name section.' %}
 {% endif %}
 {% if no_content_owner_case %}
-  {% set message = message ~ ' "sections[0].description" is mandatory as it represents the mandatory "content owner" section.' %}
+  {% set message = message ~ ' {{ sections[0].description }} property needs to be set and filled in as it represents the mandatory content owner section.' %}
 {% endif %}
 {% if no_class_links_case %}
-  {% set message = message ~ ' We could not identify the "class names" section, which is mandatory.' %}
+  {% set message = message ~ ' The class names section was not found, it is mandatory.' %}
 {% endif %}
 {% if no_service_links_case %}
-  {% set message = message ~ ' We could not identify the "service navigation" section, which is mandatory.' %}
+  {% set message = message ~ ' The service navigation section was not found, it is mandatory.' %}
 {% endif %}
 {% if no_legal_links_case %}
-  {% set message = message ~ ' We could not identify the "legal navigation" section, which is mandatory.' %}
+  {% set message = message ~ ' The legal navigation section was not found, it is mandatory.' %}
 {% endif %}
 {% if no_corporate_name_case %}
-  {% set message = message ~ ' We could not identify the "corporate_name" section, which is mandatory.' %}
+  {% set message = message ~ ' The corporate name section was not found, it is mandatory.' %}
 {% endif %}
 {% if no_corporate_name_link_case %}
-  {% set message = message ~ ' The "sections[4].title.link.label" and "sections[4].title.link.path" needs to be set and filled in as they represent the mandatory "corporate name" section.' %}
+  {% set message = message ~ ' The {{ sections[4].title.link.label }} and {{ sections[4].title.link.path }} need to be set and filled in as they represent the mandatory corporate name section.' %}
 {% endif %}

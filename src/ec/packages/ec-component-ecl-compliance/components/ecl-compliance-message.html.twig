@@ -17,11 +17,11 @@
 {% set not_compliant = no_title_case or no_description_case or no_close_button_label_case %}
 
 {% if no_title_case %}
-  {% set message = message ~ ' "title" is mandatory.' %}
+  {% set message = message ~ ' {{ title }} needs to set and filled in.' %}
 {% endif %}
 {% if no_description_case %}
-  {% set message = message ~ ' "description" text is mandatory.' %}
+  {% set message = message ~ ' {{ description }} needs to be set and filled in.' %}
 {% endif %}
 {% if no_close_button_label_case %}
-  {% set message = message ~ ' "close.label" is mandatory. We need it for the close button to be compliant.' %}
+  {% set message = message ~ ' {{ close.label }} needs to set and filled in, for the close button to be compliant.' %}
 {% endif %}

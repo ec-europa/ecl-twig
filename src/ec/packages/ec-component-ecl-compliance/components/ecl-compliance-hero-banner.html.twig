@@ -63,37 +63,37 @@
 %}
 
 {% if no_title_case %}
-  {% set message = message ~ ' "title" is mandatory.' %}
+  {% set message = message ~ ' The {{ title }} propert needs toset and filled in.' %}
 {% endif %}
 {% if no_description_case %}
-  {% set message = message ~ ' "description" is mandatory.' %}
+  {% set message = message ~ ' The {{ description }} property needs to be set and filled in.' %}
 {% endif %}
 {% if no_icon_case %}
-  {% set message = message ~ ' The action indicator is mandatory, "link.icon" needs to be set.' %}
+  {% set message = message ~ ' The action indicator is mandatory, {{ link.icon }} needs to be set and filled in.' %}
 {% endif %}
 {% if no_image_case %}
-  {% set message = message ~ ' When type is "' ~ type ~ '", the "image" property needs to be set and filled in.' %}
+  {% set message = message ~ ' When type is ' ~ type ~ ', the {{ image }} property needs to be set and filled in.' %}
 {% endif %}
 {% if no_call_to_action_case %}
-  {% set message = message ~ ' The call to action is mandatory, you should implement it as a "link" but also a "button" is supported, although deprecated.' %}
+  {% set message = message ~ ' The call to action is mandatory, it should be defined as a link but also a button is supported, although deprecated.' %}
 {% endif %}
 {% if no_button_icon_path_case %}
-  {% set message = message ~ ' The action indicator is mandatory, the "button.icon.path" is needed for it.' %}
+  {% set message = message ~ ' The action indicator is mandatory, the {{ button.icon.path }} property needs to be set and filled in.' %}
 {% endif %}
 {% if no_link_icon_path_case %}
-  {% set message = message ~ ' The action indicator is mandatory, the "link.icon.path" is needed for it.' %}
+  {% set message = message ~ ' The action indicator is mandatory, the {{ link.icon.path }} property needs to be set and filled in.' %}
 {% endif %}
 {% if no_link_label_case %}
-  {% set message = message ~ ' The label in the call to action link is mandatory, the "link.link.label" is needed for it.' %}
+  {% set message = message ~ ' The label in the call to action link is mandatory, the {{ link.link.label }} property needs to be set and filled in.' %}
 {% endif %}
 {% if no_link_path_case %}
-  {% set message = message ~ ' The "link.link.path" is needed for the call to action link to work.' %}
+  {% set message = message ~ ' The {{ link.link.path }} is needed for the call to action link to work.' %}
 {% endif %}
 {% if no_link_icon_name_case %}
-  {% set message = message ~ ' Without "link.icon.name" we would not be able to render any "action indicator" in the call to action link.' %}
+  {% set message = message ~ ' Without {{ link.icon.name }} it would not be possible to render any action indicator in the call to action link.' %}
 {% endif %}
 {% if no_link_icon_type_case %}
-  {% set message = message ~ ' Without "link.icon.type" we would not be able to render any "action indicator" in the call to action link.' %}
+  {% set message = message ~ ' Without {{ link.icon.type }} it would not be possible to render any action indicator in the call to action link.' %}
 {% endif %}
 
 

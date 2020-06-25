@@ -33,18 +33,19 @@
 
 {% set _button = {
   label: _button.label,
-    variant: _button.variant,
-    type: 'button',
-    icon: {
-      type: 'ui',
-      name: 'corner-arrow',
-      transform: 'rotate-180',
-      size: 'fluid',
-    },
-    icon_position: "after",
-    extra_classes: 'ecl-dropdown-legacy__toggle',
-    extra_attributes: _button_attributes,
-    _compliance_: _compliance
+  variant: _button.variant,
+  type: 'button',
+  icon: {
+    type: 'ui',
+    name: 'corner-arrow',
+    transform: 'rotate-180',
+    size: 'fluid',
+  },
+  icon_position: "after",
+  extra_classes: 'ecl-dropdown-legacy__toggle',
+  extra_attributes: _button_attributes,
+  _compliance_: _compliance,
+  _compliance_inner_check_: true
   }|merge(button|default({}))
 %}
 

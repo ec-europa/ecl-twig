@@ -20,11 +20,13 @@ const prepareMenu = data => {
   data.back = text('back', data.back, tabLabels.required);
   data.icon_path = select(
     'icon_path',
-    [iconPath],
+    ['none', iconPath],
     iconPath,
     tabLabels.required
   );
-
+  if (data.icon_path === 'none') {
+    data.icon_path = '';
+  }
   data.items.forEach((item, i) => {
     item.label = text(`items[${i}].label`, item.label, tabLabels.required);
     item.path = text(`items[${i}].path`, item.path, tabLabels.required);

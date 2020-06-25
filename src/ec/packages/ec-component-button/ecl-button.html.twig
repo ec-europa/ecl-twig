@@ -13,7 +13,9 @@
           "name" (string) (default: ''),
           "value" (optional) (string)
         ...
-      ]
+      ],
+    - "_compliance_" (boolean) (default: false): Activates debug
+    - "_compliance_inner_check_" (boolean) (default: false): Inline compliance report
   Blocks:
     - "label"
 #}
@@ -29,6 +31,7 @@
 {% set _icon_position = icon_position|default('after') %}
 {% set _disabled = disabled|default(false) %}
 {% set _compliance = _compliance_|default(false) %}
+{% set _compliance_inner_check = _compliance_inner_check_|default(false) %}
 
 {# Internal logic - Process properties #}
 
@@ -66,7 +69,8 @@
           extra_attributes: [
             { name: 'data-ecl-icon' }
           ],
-          _compliance_: _compliance
+          _compliance_: _compliance,
+          _compliance_inner_check: true
         } only %}
       {% endif %}
       <span class="ecl-button__label" data-ecl-label="true">{% block label _label|raw %}</span>
@@ -77,7 +81,8 @@
           extra_attributes: [
             { name: 'data-ecl-icon' }
           ],
-          _compliance_: _compliance
+          _compliance_: _compliance,
+          _compliance_inner_check_: true
         } only %}
       {% endif %}
     </span>
@@ -95,7 +100,8 @@
     type: _type,
     icon: _icon,
     icon_position: _icon_position,
-    disabled: _disabled
+    disabled: _disabled,
+    _compliance_inner_check_: _compliance_inner_check
   } only %}
 {% endif %}
 

@@ -73,24 +73,24 @@
 %}
 
 {% if no_item_case %}
-  {% set message = message ~ ' "item" needs to contain a "path", an "alt" and a "description".' %}
+  {% set message = message ~ ' {{ item }} needs to contain a {{ path }}, an {{ alt }} and a {{ description }} properties set and filled in.' %}
 {% endif %}
 {% if no_item_path_case %}
-  {% set message = message ~ ' "item.path" is mandatory.' %}
+  {% set message = message ~ ' {{ item.path }} property needs to set and filled in.' %}
 {% endif %}
 {% if no_item_alt_case %}
-  {% set message = message ~ ' When the "item" is an image, one of "item.image.alt" or "item.alt" needs to be set and filled in.' %}
+  {% set message = message ~ ' When the {{ item }} is an image, one of {{ item.image.alt }} or {{ item.alt }} properties needs to be set and filled in.' %}
 {% endif %}
 {% if no_image_source_case %}
-  {% set message = message ~ ' When the "item" is an image, one of "item.image.src" or "item.path" needs to be set and filled in.' %}
+  {% set message = message ~ ' When the {{ item }} is an image, one of {{ item.image.src }} or {{ item.path }} properties needs to be set and filled in.' %}
 {% endif %}
 {% if no_icon_case %}
-  {% set message = message ~ ' When the "item" is a video, the "item.icon" needs to be set and contain a "path", a "name" and a "type" properties set and filled in.' %}
+  {% set message = message ~ ' When the {{ item }} is a video, the {{ item.icon }} needs to be set and contain a {{ path }}, a {{ name }} and a {{ type }} properties set and filled in.' %}
 {% endif %}
 {% if no_video_sources_case %}
-  {% set message = message ~ ' When the "item" is a video, the "video.sources" property should be defined as an array containing objects with a "src" property set and filled in.' %}
+  {% set message = message ~ ' When the {{ item }} is a video, the {{ video.sources }} property should be defined as an array containing objects with a {{ src }} property set and filled in.' %}
 {% endif %}
 {% if no_video_source_case %}
-  {% set message = message ~ ' When the "item" is a video each item in the "sources" array should contain a "src" and a "type" properties set and filled in. ' %}
+  {% set message = message ~ ' When the {{ item }} is a video each item in the {{ sources }} array should contain a {{ src }} and a {{ type }} properties set and filled in. ' %}
 {% endif %}
 

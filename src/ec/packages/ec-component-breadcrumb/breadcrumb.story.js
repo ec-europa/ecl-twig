@@ -20,10 +20,13 @@ import notes from './README.md';
 const prepareBreadcrumb = data => {
   data.icon_file_path = select(
     'icon_file_path',
-    [defaultSprite],
+    ['none', defaultSprite],
     defaultSprite,
     tabLabels.required
   );
+  if (data.icon_file_path === 'none') {
+    data.icon_file_path = '';
+  }
   data.navigation_text = text(
     'navigation_text',
     data.navigation_text,

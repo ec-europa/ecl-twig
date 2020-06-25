@@ -21,10 +21,13 @@ const prepareSearchForm = data => {
   );
   data.button.icon.path = select(
     'button.icon.path',
-    [defaultSprite],
+    ['none', defaultSprite],
     defaultSprite,
     tabLabels.required
   );
+  if (data.button.icon.path === 'none') {
+    data.button.icon.path = '';
+  }
 
   getExtraKnobs(data);
   getComplianceKnob(data);

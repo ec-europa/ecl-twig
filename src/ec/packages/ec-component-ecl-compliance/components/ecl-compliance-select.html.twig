@@ -15,6 +15,7 @@
 
 {% extends "@ecl-twig/ec-component-ecl-compliance/ecl-compliance.html.twig" %}
 {% set component = 'select' %}
+
 {% include "@ecl-twig/ec-component-ecl-compliance/components/ecl-compliance-form-group.html.twig" with {
     invalid: invalid,
     required: required,
@@ -22,11 +23,14 @@
     invalid_text: invalid_text,
     optional_text: optional_text,
     required_text: required_text,
-    component: component
+    variant: component,
+    _compliance_inner_check_: true,
+    icon_path: icon_path
  } only %}
 
 {% set message = '' %}
 {% set invalid_option_case = false %}
+{% set no_icon_path_case = icon_path is empty %}
 {% set no_options_case = options is not defined or options is empty %}
 {% if no_options_case == false %}
   {% for option in options %}
@@ -37,12 +41,15 @@
   {% endfor %}
 {% endif %}
 
-{% set not_compliant = no_options_case or invalid_option_case %}
+{% set not_compliant = no_options_case or invalid_option_case or no_icon_path_case %}
 
 {% if no_options_case %}
-  {% set message = '"options" needs to contain at least one valid option (with a label and a value).' %}
+  {% set message = '{{ options }} needs to contain at least one valid option with a {{ label }} and a {{ value }} properties set and filled in.' %}
 {% endif %}
 {% if invalid_option_case %}
-  {% set message = message ~ ' Each option needs to contain a "label" and a "value".' %}
+  {% set message = message ~ ' Each option needs to contain a {{ label }} and a {{ value }} properties set and filled in.' %}
+{% endif %}
+{% if no_icon_path_case %}
+  {% set message = message ~ ' {{ icon_path }} needs to be set and filled in in order to retrieve the icons sprite.' %}
 {% endif %}
 

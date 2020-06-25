@@ -8,5 +8,5 @@
 {% set message = '' %}
 {% set component = 'radio' %}
 {% set not_compliant = label is not defined or label is empty %}
-{% set message = 'The label for each radio element is mandatory.' %}
+{% set message = 'The {{ label }} property for each radio element needs to set and filled in.' %}
 

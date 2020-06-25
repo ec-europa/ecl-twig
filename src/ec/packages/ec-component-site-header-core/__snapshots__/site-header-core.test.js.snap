@@ -2273,18 +2273,14 @@ exports[`EC - Site Header Core Default with missing input data and degug enabled
                   xlink:href="#general--log-in"
                 />
               </svg>
-              <!-- ################################################################################################################
-    ecl2-compliance -->
+              <!-- ecl2-compliance: icon -->
               <div
                 class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-red ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
               >
                 <p
                   class="ecl-u-type-color-grey ecl-u-ml-m ecl-u-type-xs"
                 >
-                  <b>
-                    [icon]
-                  </b>
-                   icon.name and icon.path cannot be empty.
+                  [icon] - {{ icon.name }} and {{ icon.path }} properties need to set and filled in.
                 </p>
               </div>
             </a>
@@ -2308,18 +2304,14 @@ exports[`EC - Site Header Core Default with missing input data and degug enabled
                   xlink:href="#general--language"
                 />
               </svg>
-              <!-- ################################################################################################################
-    ecl2-compliance -->
+              <!-- ecl2-compliance: icon -->
               <div
                 class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-red ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
               >
                 <p
                   class="ecl-u-type-color-grey ecl-u-ml-m ecl-u-type-xs"
                 >
-                  <b>
-                    [icon]
-                  </b>
-                   icon.name and icon.path cannot be empty.
+                  [icon] - {{ icon.name }} and {{ icon.path }} properties need to set and filled in.
                 </p>
               </div>
               <span
@@ -2392,21 +2384,37 @@ exports[`EC - Site Header Core Default with missing input data and degug enabled
                       xlink:href="#general--search"
                     />
                   </svg>
+                  <!-- ecl2-compliance: icon -->
+                  <div
+                    class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-red ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+                  >
+                    <p
+                      class="ecl-u-type-color-grey ecl-u-ml-m ecl-u-type-xs"
+                    >
+                      [icon] - {{ icon.name }} and {{ icon.path }} properties need to set and filled in.
+                    </p>
+                  </div>
                 </span>
               </button>
+              <!-- ecl2-compliance: button--search -->
+              <div
+                class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-red ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+              >
+                <p
+                  class="ecl-u-type-color-grey ecl-u-ml-m ecl-u-type-xs"
+                >
+                  [button--search] - {{ label }} property needs to set and filled in.
+                </p>
+              </div>
             </form>
-            <!-- ################################################################################################################
-    ecl2-compliance -->
+            <!-- ecl2-compliance: search-form -->
             <div
               class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-red ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
             >
               <p
                 class="ecl-u-type-color-grey ecl-u-ml-m ecl-u-type-xs"
               >
-                <b>
-                  [search-form]
-                </b>
-                 "button.label" is mandatory. "button.icon_path" is mandatory to render the search button icon.
+                [search-form] -  {{ button.label }} needs to be set and filled in. {{ button.icon_path }} needs to be set and filled in to render the search button icon.
               </p>
             </div>
           </div>
@@ -2454,34 +2462,26 @@ exports[`EC - Site Header Core Default with missing input data and degug enabled
                     xlink:href="#ui--close"
                   />
                 </svg>
-                <!-- ################################################################################################################
-    ecl2-compliance -->
+                <!-- ecl2-compliance: icon -->
                 <div
                   class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-red ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
                 >
                   <p
                     class="ecl-u-type-color-grey ecl-u-ml-m ecl-u-type-xs"
                   >
-                    <b>
-                      [icon]
-                    </b>
-                     icon.name and icon.path cannot be empty.
+                    [icon] - {{ icon.name }} and {{ icon.path }} properties need to set and filled in.
                   </p>
                 </div>
               </span>
             </button>
-            <!-- ################################################################################################################
-    ecl2-compliance -->
+            <!-- ecl2-compliance: button--ghost -->
             <div
               class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
             >
               <p
                 class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
               >
-                <b>
-                  [button--ghost]
-                </b>
-                 - ecl compliant.
+                [button--ghost] - ecl compliant
               </p>
             </div>
           </div>
@@ -2513,18 +2513,14 @@ exports[`EC - Site Header Core Default with missing input data and degug enabled
                 >
                   български
                 </a>
-                <!-- ################################################################################################################
-    ecl2-compliance -->
+                <!-- ecl2-compliance: link--standalone -->
                 <div
                   class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
                 >
                   <p
                     class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
                   >
-                    <b>
-                      [link--standalone]
-                    </b>
-                     - ecl compliant.
+                    [link--standalone] - ecl compliant
                   </p>
                 </div>
               </li>
@@ -2540,18 +2536,14 @@ exports[`EC - Site Header Core Default with missing input data and degug enabled
                 >
                   español
                 </a>
-                <!-- ################################################################################################################
-    ecl2-compliance -->
+                <!-- ecl2-compliance: link--standalone -->
                 <div
                   class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
                 >
                   <p
                     class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
                   >
-                    <b>
-                      [link--standalone]
-                    </b>
-                     - ecl compliant.
+                    [link--standalone] - ecl compliant
                   </p>
                 </div>
               </li>
@@ -2567,18 +2559,14 @@ exports[`EC - Site Header Core Default with missing input data and degug enabled
                 >
                   čeština
                 </a>
-                <!-- ################################################################################################################
-    ecl2-compliance -->
+                <!-- ecl2-compliance: link--standalone -->
                 <div
                   class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
                 >
                   <p
                     class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
                   >
-                    <b>
-                      [link--standalone]
-                    </b>
-                     - ecl compliant.
+                    [link--standalone] - ecl compliant
                   </p>
                 </div>
               </li>
@@ -2594,18 +2582,14 @@ exports[`EC - Site Header Core Default with missing input data and degug enabled
                 >
                   dansk
                 </a>
-                <!-- ################################################################################################################
-    ecl2-compliance -->
+                <!-- ecl2-compliance: link--standalone -->
                 <div
                   class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
                 >
                   <p
                     class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
                   >
-                    <b>
-                      [link--standalone]
-                    </b>
-                     - ecl compliant.
+                    [link--standalone] - ecl compliant
                   </p>
                 </div>
               </li>
@@ -2621,18 +2605,14 @@ exports[`EC - Site Header Core Default with missing input data and degug enabled
                 >
                   Deutsch
                 </a>
-                <!-- ################################################################################################################
-    ecl2-compliance -->
+                <!-- ecl2-compliance: link--standalone -->
                 <div
                   class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
                 >
                   <p
                     class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
                   >
-                    <b>
-                      [link--standalone]
-                    </b>
-                     - ecl compliant.
+                    [link--standalone] - ecl compliant
                   </p>
                 </div>
               </li>
@@ -2648,18 +2628,14 @@ exports[`EC - Site Header Core Default with missing input data and degug enabled
                 >
                   eesti
                 </a>
-                <!-- ################################################################################################################
-    ecl2-compliance -->
+                <!-- ecl2-compliance: link--standalone -->
                 <div
                   class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
                 >
                   <p
                     class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
                   >
-                    <b>
-                      [link--standalone]
-                    </b>
-                     - ecl compliant.
+                    [link--standalone] - ecl compliant
                   </p>
                 </div>
               </li>
@@ -2675,18 +2651,14 @@ exports[`EC - Site Header Core Default with missing input data and degug enabled
                 >
                   ελληνικά
                 </a>
-                <!-- ################################################################################################################
-    ecl2-compliance -->
+                <!-- ecl2-compliance: link--standalone -->
                 <div
                   class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
                 >
                   <p
                     class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
                   >
-                    <b>
-                      [link--standalone]
-                    </b>
-                     - ecl compliant.
+                    [link--standalone] - ecl compliant
                   </p>
                 </div>
               </li>
@@ -2715,33 +2687,25 @@ exports[`EC - Site Header Core Default with missing input data and degug enabled
                       xlink:href="#ui--check"
                     />
                   </svg>
-                  <!-- ################################################################################################################
-    ecl2-compliance -->
+                  <!-- ecl2-compliance: icon -->
                   <div
                     class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-red ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
                   >
                     <p
                       class="ecl-u-type-color-grey ecl-u-ml-m ecl-u-type-xs"
                     >
-                      <b>
-                        [icon]
-                      </b>
-                       icon.name and icon.path cannot be empty.
+                      [icon] - {{ icon.name }} and {{ icon.path }} properties need to set and filled in.
                     </p>
                   </div>
                 </a>
-                <!-- ################################################################################################################
-    ecl2-compliance -->
+                <!-- ecl2-compliance: link--standalone -->
                 <div
                   class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
                 >
                   <p
                     class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
                   >
-                    <b>
-                      [link--standalone]
-                    </b>
-                     - ecl compliant.
+                    [link--standalone] - ecl compliant
                   </p>
                 </div>
               </li>
@@ -2757,18 +2721,14 @@ exports[`EC - Site Header Core Default with missing input data and degug enabled
                 >
                   français
                 </a>
-                <!-- ################################################################################################################
-    ecl2-compliance -->
+                <!-- ecl2-compliance: link--standalone -->
                 <div
                   class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
                 >
                   <p
                     class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
                   >
-                    <b>
-                      [link--standalone]
-                    </b>
-                     - ecl compliant.
+                    [link--standalone] - ecl compliant
                   </p>
                 </div>
               </li>
@@ -2784,18 +2744,14 @@ exports[`EC - Site Header Core Default with missing input data and degug enabled
                 >
                   Gaeilge
                 </a>
-                <!-- ################################################################################################################
-    ecl2-compliance -->
+                <!-- ecl2-compliance: link--standalone -->
                 <div
                   class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
                 >
                   <p
                     class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
                   >
-                    <b>
-                      [link--standalone]
-                    </b>
-                     - ecl compliant.
+                    [link--standalone] - ecl compliant
                   </p>
                 </div>
               </li>
@@ -2811,18 +2767,14 @@ exports[`EC - Site Header Core Default with missing input data and degug enabled
                 >
                   hrvatski
                 </a>
-                <!-- ################################################################################################################
-    ecl2-compliance -->
+                <!-- ecl2-compliance: link--standalone -->
                 <div
                   class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
                 >
                   <p
                     class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
                   >
-                    <b>
-                      [link--standalone]
-                    </b>
-                     - ecl compliant.
+                    [link--standalone] - ecl compliant
                   </p>
                 </div>
               </li>
@@ -2838,18 +2790,14 @@ exports[`EC - Site Header Core Default with missing input data and degug enabled
                 >
                   italiano
                 </a>
-                <!-- ################################################################################################################
-    ecl2-compliance -->
+                <!-- ecl2-compliance: link--standalone -->
                 <div
                   class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
                 >
                   <p
                     class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
                   >
-                    <b>
-                      [link--standalone]
-                    </b>
-                     - ecl compliant.
+                    [link--standalone] - ecl compliant
                   </p>
                 </div>
               </li>
@@ -2873,18 +2821,14 @@ exports[`EC - Site Header Core Default with missing input data and degug enabled
                 >
                   latviešu
                 </a>
-                <!-- ################################################################################################################
-    ecl2-compliance -->
+                <!-- ecl2-compliance: link--standalone -->
                 <div
                   class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
                 >
                   <p
                     class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
                   >
-                    <b>
-                      [link--standalone]
-                    </b>
-                     - ecl compliant.
+                    [link--standalone] - ecl compliant
                   </p>
                 </div>
               </li>
@@ -2900,18 +2844,14 @@ exports[`EC - Site Header Core Default with missing input data and degug enabled
                 >
                   lietuvių
                 </a>
-                <!-- ################################################################################################################
-    ecl2-compliance -->
+                <!-- ecl2-compliance: link--standalone -->
                 <div
                   class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
                 >
                   <p
                     class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
                   >
-                    <b>
-                      [link--standalone]
-                    </b>
-                     - ecl compliant.
+                    [link--standalone] - ecl compliant
                   </p>
                 </div>
               </li>
@@ -2927,18 +2867,14 @@ exports[`EC - Site Header Core Default with missing input data and degug enabled
                 >
                   magyar
                 </a>
-                <!-- ################################################################################################################
-    ecl2-compliance -->
+                <!-- ecl2-compliance: link--standalone -->
                 <div
                   class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
                 >
                   <p
                     class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
                   >
-                    <b>
-                      [link--standalone]
-                    </b>
-                     - ecl compliant.
+                    [link--standalone] - ecl compliant
                   </p>
                 </div>
               </li>
@@ -2954,18 +2890,14 @@ exports[`EC - Site Header Core Default with missing input data and degug enabled
                 >
                   Malti
                 </a>
-                <!-- ################################################################################################################
-    ecl2-compliance -->
+                <!-- ecl2-compliance: link--standalone -->
                 <div
                   class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
                 >
                   <p
                     class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
                   >
-                    <b>
-                      [link--standalone]
-                    </b>
-                     - ecl compliant.
+                    [link--standalone] - ecl compliant
                   </p>
                 </div>
               </li>
@@ -2981,18 +2913,14 @@ exports[`EC - Site Header Core Default with missing input data and degug enabled
                 >
                   Nederlands
                 </a>
-                <!-- ################################################################################################################
-    ecl2-compliance -->
+                <!-- ecl2-compliance: link--standalone -->
                 <div
                   class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
                 >
                   <p
                     class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
                   >
-                    <b>
-                      [link--standalone]
-                    </b>
-                     - ecl compliant.
+                    [link--standalone] - ecl compliant
                   </p>
                 </div>
               </li>
@@ -3008,18 +2936,14 @@ exports[`EC - Site Header Core Default with missing input data and degug enabled
                 >
                   polski
                 </a>
-                <!-- ################################################################################################################
-    ecl2-compliance -->
+                <!-- ecl2-compliance: link--standalone -->
                 <div
                   class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
                 >
                   <p
                     class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
                   >
-                    <b>
-                      [link--standalone]
-                    </b>
-                     - ecl compliant.
+                    [link--standalone] - ecl compliant
                   </p>
                 </div>
               </li>
@@ -3035,18 +2959,14 @@ exports[`EC - Site Header Core Default with missing input data and degug enabled
                 >
                   português
                 </a>
-                <!-- ################################################################################################################
-    ecl2-compliance -->
+                <!-- ecl2-compliance: link--standalone -->
                 <div
                   class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
                 >
                   <p
                     class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
                   >
-                    <b>
-                      [link--standalone]
-                    </b>
-                     - ecl compliant.
+                    [link--standalone] - ecl compliant
                   </p>
                 </div>
               </li>
@@ -3062,18 +2982,14 @@ exports[`EC - Site Header Core Default with missing input data and degug enabled
                 >
                   română
                 </a>
-                <!-- ################################################################################################################
-    ecl2-compliance -->
+                <!-- ecl2-compliance: link--standalone -->
                 <div
                   class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
                 >
                   <p
                     class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
                   >
-                    <b>
-                      [link--standalone]
-                    </b>
-                     - ecl compliant.
+                    [link--standalone] - ecl compliant
                   </p>
                 </div>
               </li>
@@ -3089,18 +3005,14 @@ exports[`EC - Site Header Core Default with missing input data and degug enabled
                 >
                   slovenčina
                 </a>
-                <!-- ################################################################################################################
-    ecl2-compliance -->
+                <!-- ecl2-compliance: link--standalone -->
                 <div
                   class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
                 >
                   <p
                     class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
                   >
-                    <b>
-                      [link--standalone]
-                    </b>
-                     - ecl compliant.
+                    [link--standalone] - ecl compliant
                   </p>
                 </div>
               </li>
@@ -3116,18 +3028,14 @@ exports[`EC - Site Header Core Default with missing input data and degug enabled
                 >
                   slovenščina
                 </a>
-                <!-- ################################################################################################################
-    ecl2-compliance -->
+                <!-- ecl2-compliance: link--standalone -->
                 <div
                   class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
                 >
                   <p
                     class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
                   >
-                    <b>
-                      [link--standalone]
-                    </b>
-                     - ecl compliant.
+                    [link--standalone] - ecl compliant
                   </p>
                 </div>
               </li>
@@ -3143,18 +3051,14 @@ exports[`EC - Site Header Core Default with missing input data and degug enabled
                 >
                   suomi
                 </a>
-                <!-- ################################################################################################################
-    ecl2-compliance -->
+                <!-- ecl2-compliance: link--standalone -->
                 <div
                   class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
                 >
                   <p
                     class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
                   >
-                    <b>
-                      [link--standalone]
-                    </b>
-                     - ecl compliant.
+                    [link--standalone] - ecl compliant
                   </p>
                 </div>
               </li>
@@ -3170,18 +3074,14 @@ exports[`EC - Site Header Core Default with missing input data and degug enabled
                 >
                   svenska
                 </a>
-                <!-- ################################################################################################################
-    ecl2-compliance -->
+                <!-- ecl2-compliance: link--standalone -->
                 <div
                   class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
                 >
                   <p
                     class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
                   >
-                    <b>
-                      [link--standalone]
-                    </b>
-                     - ecl compliant.
+                    [link--standalone] - ecl compliant
                   </p>
                 </div>
               </li>
@@ -3190,33 +3090,25 @@ exports[`EC - Site Header Core Default with missing input data and degug enabled
         </div>
       </div>
     </div>
-    <!-- ################################################################################################################
-    ecl2-compliance -->
+    <!-- ecl2-compliance: language-list -->
     <div
       class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-red ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
     >
       <p
         class="ecl-u-type-color-grey ecl-u-ml-m ecl-u-type-xs"
       >
-        <b>
-          [language-list]
-        </b>
-          In the overlay the close icon is mandatory, "icon_path" needs to set and filled in.
+        [language-list] -  When {{ overlay }} is set to true the close icon is mandatory, {{ icon_path }} needs to set and filled in. The active selection is mandatory, the {{ active }} item needs the {{ icon_path }} property to be set and filled in.
       </p>
     </div>
   </header>
-  <!-- ################################################################################################################
-    ecl2-compliance -->
+  <!-- ecl2-compliance: site-header-core -->
   <div
     class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-red ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
   >
     <p
       class="ecl-u-type-color-grey ecl-u-ml-m ecl-u-type-xs"
     >
-      <b>
-        [site-header-core]
-      </b>
-        "logo" needs to contain an "alt", a "src", an "href", a "language" and a "title" properties set and filled in. "icon_file_path" is needed to retrieve the icons sprite. "language_selector" needs to contain a "code" and a "label" properties set and filled in. "search_toggle" needs to contain a "label" and an "href" properties set and filled in. If the login box is present, when the user is logged out, the "login_toggle.label_not_logged" and "login_toggle.href_not_logged" properties need to be set and filled in. The "button" object inside the "search_form" needs to contain a non empty "label" property.
+      [site-header-core] -  {{ logo }} needs to contain an {{ alt }], a {{ src }}, an {{ href }}, a {{ language }} and a {{ title }} properties set and filled in. {{ icon_file_path }} needs to set and filled in to retrieve the icons file. {{ language_selector }} object needs to contain a {{ code }} and a {{ label }} properties set and filled in. {{ search_toggle }} object needs to contain a {{ label }} and an {{ href }} properties set and filled in. If the login box is present, when the user is logged out, the {{ login_toggle.label_not_logged }} and {{ login_toggle.href_not_logged }} properties need to be set and filled in. The {{ button }} object inside the {{ search_form }} one needs to contain a {{ label }} property set and filled in.
     </p>
   </div>
 </test>

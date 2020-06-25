@@ -25,17 +25,17 @@
 %}
 
 {% if no_id_case %}
-  {% set message = message ~ ' "id" is needed to make the component work.' %}
+  {% set message = message ~ ' {{ id }} property needs to set and filled in to make the component work.' %}
 {% endif %}
 {% if no_content_case %}
-  {% set message = message ~ ' "content" is needed ot make the component work.' %}
+  {% set message = message ~ ' {{ content }} property needs to be set and filled in to make the component work.' %}
 {% endif %}
 {% if no_label_collapsed_case %}
-  {% set message = message ~ ' "label_collapsed" is mandatory.' %}
+  {% set message = message ~ ' {{ label_collapsed }} property needs to be set and filled in.' %}
 {% endif %}
 {% if no_label_expanded_case %}
-  {% set message = message ~ ' "label_expanded" is mandatory.' %}
+  {% set message = message ~ ' {{ label_expanded }} property needs to be set and filled in.' %}
 {% endif %}
 {% if no_icon_path_case %}
-  {% set message = message ~ ' "button.icon.path" is needed to retrieve the icons file.' %}
+  {% set message = message ~ ' {{ button.icon.path }} property needs to be set and filled in to be able to retrieve the icons file.' %}
 {% endif %}

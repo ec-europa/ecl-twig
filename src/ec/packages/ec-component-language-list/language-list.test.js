@@ -45,6 +45,7 @@ describe('EC - Language List', () => {
       dataCompliance.logo.path = '';
       dataCompliance.logo.alt = 'European Commission logo';
       dataCompliance.items[0].label = '';
+      dataCompliance.items[2].href = '';
 
       return expect(render(dataCompliance)).resolves.toMatchSnapshot();
     });
@@ -87,8 +88,11 @@ describe('EC - Language List', () => {
       expect.assertions(1);
 
       const dataCompliance = { ...dataOverlay, _compliance_: true };
-      dataCompliance.icon_path = '';
       dataCompliance.items[0].label = '';
+      dataCompliance.items[7].active = false;
+      dataCompliance.items[2].lang = '';
+      dataCompliance.close_label = '';
+      dataCompliance.title = '';
 
       return expect(render(dataCompliance)).resolves.toMatchSnapshot();
     });

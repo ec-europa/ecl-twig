@@ -15,14 +15,17 @@
 #}
 
 {% extends "@ecl-twig/ec-component-ecl-compliance/ecl-compliance.html.twig" %}
-
+{% set component = 'language-list' %}
 {% set message = '' %}
+
 {% set no_logo_path_case = false %}
 {% set no_logo_alt_case = false %}
 {% set no_item_label_case = false %}
 {% set no_item_path_case = false %}
 {% set no_item_lang_case = false %}
-{% set component = 'language-list' %}
+{% set no_active_item_case = true %}
+{% set no_active_item_icon_case = false %}
+
 {% set no_items_case = items is not defined or items is empty or items is not iterable %}
 {% set no_close_label_case =
   (overlay is defined and overlay is not empty) and
@@ -55,6 +58,12 @@
     {% if item.lang is not defined or item.lang is empty %}
       {% set no_item_lang_case = true %}
     {% endif %}
+    {% if item.active is defined and item.active == true %}
+      {% set no_active_item_case = false %}
+      {% if (icon_path is not defined or icon_path is empty) %}
+        {% set no_active_item_icon_case = true %}
+      {% endif %}
+    {% endif %}
   {% endfor %}
 {% endif %}
 
@@ -68,36 +77,44 @@
   no_logo_alt_case or
   no_item_path_case or
   no_item_lang_case or
-  no_item_label_case
+  no_item_label_case or
+  no_active_item_case or
+  no_active_item_icon_case
 %}
 
 {% if no_items_case %}
-  {% set message = message ~ '"items" cannot be empty.' %}
+  {% set message = message ~ ' {{ items }} cannot be empty.' %}
 {% endif %}
 {% if no_close_label_case %}
-  {% set message = message ~ ' In the overlay the "close_label" needs to set and filled in.' %}
+  {% set message = message ~ ' When {{ overlay }} is set to true the {{ close_label }} property needs to set and filled in.' %}
 {% endif %}
 {% if no_title_case %}
-  {% set message = message ~ ' In the overlay the "title" needs to set and filled in.' %}
+  {% set message = message ~ ' When {{ overlay }} is set to true the {{ title }} needs to set and filled in.' %}
 {% endif %}
 {% if no_icon_path_case %}
-  {% set message = message ~ ' In the overlay the close icon is mandatory, "icon_path" needs to set and filled in.' %}
+  {% set message = message ~ ' When {{ overlay }} is set to true the close icon is mandatory, {{ icon_path }} needs to set and filled in.' %}
 {% endif %}
 {% if no_logo_case %}
-  {% set message = message ~ ' In the splash the "logo" needs to set.' %}
+  {% set message = message ~ ' In the splash the {{ logo }} object needs to set.' %}
 {% endif %}
 {% if no_logo_path_case %}
-  {% set message = message ~ ' To render the logo we need the "logo.path" to be set and filled in.' %}
+  {% set message = message ~ ' To render the {{ logo }}, {{ logo.path }} needs to be set and filled in.' %}
 {% endif %}
 {% if no_logo_alt_case %}
-  {% set message = message ~ ' Since the logo is an image the "logo.alt" is required.' %}
+  {% set message = message ~ ' Since the {{ logo }} is an image the {{ logo.alt }] property needs to set and filled in.' %}
 {% endif %}
 {% if no_item_label_case %}
-  {% set message = message ~ ' Each item needs to contain a "label".' %}
+  {% set message = message ~ ' Each item needs to contain a {{ label }} property set and filled in.' %}
 {% endif %}
 {% if no_item_path_case %}
-  {% set message = message ~ ' Each item needs to contain a "path".' %}
+  {% set message = message ~ ' Each item needs to contain a {{ path }} property set and filled in.' %}
 {% endif %}
 {% if no_item_lang_case %}
-  {% set message = message ~ ' Each item needs to contain a "lang".' %}
+  {% set message = message ~ ' Each item needs to contain a {{ lang }} property set and filled in.' %}
+{% endif %}
+{% if no_active_item_case %}
+  {% set message = message ~ ' The active selection is mandatory, one of the items needs to have the {{ active }} property set to true.' %}
+{% endif %}
+{% if no_active_item_icon_case %}
+  {% set message = message ~ ' The active selection is mandatory, the {{ active }} item needs the {{ icon_path }} property to be set and filled in.' %}
 {% endif %}

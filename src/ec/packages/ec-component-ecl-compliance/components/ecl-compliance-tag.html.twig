@@ -25,18 +25,18 @@
 {% set not_compliant = no_tag_case or (no_path_case or no_label_case or no_icon_path_case or no_aria_label_case) %}
 
 {% if no_tag_case %}
-  {% set message = 'No "tag" has been provided.' %}
+  {% set message = 'No tag has been provided.' %}
 {% endif %}
 {% if no_label_case %}
-  {% set message = message ~ ' "tag.label" is mandatory.' %}
+  {% set message = message ~ ' {{ tag.label }} needs to set and filled inis mandatory.' %}
 {% endif %}
 {% if no_path_case %}
-  {% set message = message ~ ' When the tag is a link the "tag.path" is needed.' %}
+  {% set message = message ~ ' When the tag is a link the {{ tag.path }} property need to be set and filled in.' %}
 {% endif %}
 {% if no_icon_path_case %}
-  {% set message = message ~ ' "default_icon_path" is needed for rendering the icon.' %}
+  {% set message = message ~ ' {{ default_icon_path }} needs to be set and filled in.' %}
 {% endif %}
 {% if no_aria_label_case %}
-  {% set message = message ~ ' "aria_label" is needed for accessibility reasons.' %}
+  {% set message = message ~ ' {{ aria_label }} needs to be set and filled in for accessibility reasons.' %}
 {% endif %}
 

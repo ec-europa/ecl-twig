@@ -162,12 +162,18 @@
     extra_attributes: _search_button_extra_attributes,
   },
   extra_attributes: _search_form_extra_attributes,
-  extra_classes: _search_form_extra_classes,
-  _compliance_: _compliance,
+  extra_classes: _search_form_extra_classes
   }
 %}
 
 {# Internal logic - Process properties #}
+
+{% if _compliance %}
+  {% set _search_form = _search_form|merge({
+    _compliance_: _compliance,
+    _compliance_inner_check_: true
+  }) %}
+{% endif %}
 
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
@@ -230,7 +236,8 @@
                 size: 'xs'
               },
               extra_classes: 'ecl-site-header-standardised__login-arrow',
-               _compliance_: _compliance
+               _compliance_: _compliance,
+               _compliance_inner_check_: true
             } only %}
           </a>
           <div
@@ -248,7 +255,8 @@
                 path: _login_box.href,
                 type: 'standalone'
               },
-               _compliance_: _compliance
+               _compliance_: _compliance,
+               _compliance_inner_check_: true
             } only %}
           </div>
         {% else %}
@@ -264,7 +272,8 @@
                 size: 's'
               },
               extra_classes: 'ecl-site-header-standardised__icon',
-               _compliance_: _compliance
+               _compliance_: _compliance,
+               _compliance_inner_check_: true
             } only %}
             {{- login_toggle.label_not_logged -}}
           </a>
@@ -290,7 +299,8 @@
                 size: 's'
               },
               extra_classes: 'ecl-site-header-standardised__icon',
-              _compliance_: _compliance
+              _compliance_: _compliance,
+              _compliance_inner_check_: true
             } only %}
             <span class="ecl-site-header-standardised__language-code">{{ _language_selector.code }}</span>
           </span>
@@ -315,7 +325,8 @@
               extra_attributes: [
                { name: 'aria-hidden', value: true }
               ],
-              _compliance_: _compliance
+              _compliance_: _compliance,
+              _compliance_inner_check_: true
             }
           } only -%}
           {{- _search_toggle.label -}}
@@ -332,7 +343,9 @@
     {%- if banner_top.link is defined and banner_top.link is not empty %}
       {% include '@ecl-twig/ec-component-link/ecl-link.html.twig' with banner_top|merge({
         link: banner_top.link|merge({ type: 'standalone'}),
-         _compliance_: _compliance
+         _compliance_: _compliance,
+         _compliance_inner_check_: true,
+         icon_path: _icon_file_path
       }) only %}
     {% else %}
       {{ banner_top|raw }}
@@ -343,7 +356,8 @@
 {% if _menu is defined and _menu is not empty %}
   {% include '@ecl-twig/ec-component-menu/ecl-menu.html.twig' with _menu|merge({
     icon_path: _icon_file_path,
-     _compliance_: _compliance
+     _compliance_: _compliance,
+     _compliance_inner_check_: true
   }) only %}
 {% endif %}
 {% if _has_overlay is defined %}
@@ -357,7 +371,8 @@
       { name: 'hidden' },
       { name: 'id', value: 'language-list-overlay' }
     ],
-     _compliance_: _compliance
+     _compliance_: _compliance,
+     _compliance_inner_check_: true
   } only %}
 {% endif %}
 </header>

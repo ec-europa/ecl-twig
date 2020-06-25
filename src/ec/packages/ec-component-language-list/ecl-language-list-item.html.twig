@@ -35,7 +35,7 @@
 {% if _item.label is defined and item.label is not empty and
   _item.path is defined and _item.path is not empty %}
   {% set _item_icon = {} %}
-  {% if _item.active is defined %}
+  {% if _item.active is defined and item.active == true %}
     {% set _item_icon = {
       path: _icon_path,
       type: 'ui',
@@ -43,7 +43,6 @@
       size: 'xs'
     } %}
   {% endif %}
-
   {% include '@ecl-twig/ec-component-link/ecl-link.html.twig' with {
     link: {
       type: 'standalone',
@@ -54,7 +53,9 @@
     icon: _item_icon,
     extra_classes: 'ecl-language-list__link',
     extra_attributes: _item_attribute,
-    _compliance_: _compliance
+    _compliance_: _compliance,
+    _compliance_inner_check_: true,
+    icon_path: _icon_path
   } only %}
 {% endif %}
 

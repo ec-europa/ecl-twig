@@ -12,5 +12,8 @@
 
 {% set not_compliant = label is empty %}
 {% set component = 'button' %}
+{% if icon is defined and icon is not empty %}
+  {% set icon_path = icon.path|default('') %}
+{% endif %}
 
-{% set message = '"label" is mandatory' %}
+{% set message = '{{ label }} property needs to set and filled in.' %}

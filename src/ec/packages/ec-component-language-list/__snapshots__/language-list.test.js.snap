@@ -1236,9 +1236,7 @@ exports[`EC - Language List Overlay with validation enabled and missing input da
               <span
                 class="ecl-button__label"
                 data-ecl-label="true"
-              >
-                Close
-              </span>
+              />
               <svg
                 aria-hidden="true"
                 class="ecl-icon ecl-icon--s ecl-button__icon ecl-button__icon--after"
@@ -1246,46 +1244,44 @@ exports[`EC - Language List Overlay with validation enabled and missing input da
                 focusable="false"
               >
                 <use
-                  xlink:href="#ui--close"
+                  xlink:href="/icons.svg#ui--close"
                 />
               </svg>
-              <!-- ################################################################################################################
-    ecl2-compliance -->
-              <div
-                class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-red ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+              <span
+                class="ecl-u-type-color-green ecl-compliance-inner ecl-compliance-success ecl-u-ma-2xs"
+                title="[icon] - ecl compliant"
               >
-                <p
-                  class="ecl-u-type-color-grey ecl-u-ml-m ecl-u-type-xs"
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--xs"
+                  focusable="false"
                 >
-                  <b>
-                    [icon]
-                  </b>
-                   icon.name and icon.path cannot be empty.
-                </p>
-              </div>
+                  <use
+                    xlink:href="/icons.svg#notifications--success"
+                  />
+                </svg>
+              </span>
             </span>
           </button>
-          <!-- ################################################################################################################
-    ecl2-compliance -->
-          <div
-            class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+          <span
+            class="ecl-u-type-color-red ecl-compliance-inner ecl-compliance-failure ecl-u-ma-2xs"
+            title="[button--ghost] - {{ label }} property needs to set and filled in."
           >
-            <p
-              class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--xs"
+              focusable="false"
             >
-              <b>
-                [button--ghost]
-              </b>
-               - ecl compliant.
-            </p>
-          </div>
+              <use
+                xlink:href="/icons.svg#notifications--error"
+              />
+            </svg>
+          </span>
         </div>
         <div
           class="ecl-language-list__title ecl-col-12 ecl-col-lg-8 ecl-offset-lg-2"
           id="ecl-language-list__title"
-        >
-          Select your language
-        </div>
+        />
       </div>
       <div
         class="ecl-row"
@@ -1311,20 +1307,20 @@ exports[`EC - Language List Overlay with validation enabled and missing input da
               >
                 español
               </a>
-              <!-- ################################################################################################################
-    ecl2-compliance -->
-              <div
-                class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+              <span
+                class="ecl-u-type-color-green ecl-compliance-inner ecl-compliance-success ecl-u-ma-2xs"
+                title="[link--standalone] - ecl compliant"
               >
-                <p
-                  class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--xs"
+                  focusable="false"
                 >
-                  <b>
-                    [link--standalone]
-                  </b>
-                   - ecl compliant.
-                </p>
-              </div>
+                  <use
+                    xlink:href="/icons.svg#notifications--success"
+                  />
+                </svg>
+              </span>
             </li>
             <li
               class="ecl-language-list__item"
@@ -1332,26 +1328,24 @@ exports[`EC - Language List Overlay with validation enabled and missing input da
               <a
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
                 href="/example#language_cs"
-                hreflang="cs"
-                lang="cs"
                 rel="alternate"
               >
                 čeština
               </a>
-              <!-- ################################################################################################################
-    ecl2-compliance -->
-              <div
-                class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+              <span
+                class="ecl-u-type-color-green ecl-compliance-inner ecl-compliance-success ecl-u-ma-2xs"
+                title="[link--standalone] - ecl compliant"
               >
-                <p
-                  class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--xs"
+                  focusable="false"
                 >
-                  <b>
-                    [link--standalone]
-                  </b>
-                   - ecl compliant.
-                </p>
-              </div>
+                  <use
+                    xlink:href="/icons.svg#notifications--success"
+                  />
+                </svg>
+              </span>
             </li>
             <li
               class="ecl-language-list__item"
@@ -1365,20 +1359,20 @@ exports[`EC - Language List Overlay with validation enabled and missing input da
               >
                 dansk
               </a>
-              <!-- ################################################################################################################
-    ecl2-compliance -->
-              <div
-                class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+              <span
+                class="ecl-u-type-color-green ecl-compliance-inner ecl-compliance-success ecl-u-ma-2xs"
+                title="[link--standalone] - ecl compliant"
               >
-                <p
-                  class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--xs"
+                  focusable="false"
                 >
-                  <b>
-                    [link--standalone]
-                  </b>
-                   - ecl compliant.
-                </p>
-              </div>
+                  <use
+                    xlink:href="/icons.svg#notifications--success"
+                  />
+                </svg>
+              </span>
             </li>
             <li
               class="ecl-language-list__item"
@@ -1392,20 +1386,20 @@ exports[`EC - Language List Overlay with validation enabled and missing input da
               >
                 Deutsch
               </a>
-              <!-- ################################################################################################################
-    ecl2-compliance -->
-              <div
-                class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+              <span
+                class="ecl-u-type-color-green ecl-compliance-inner ecl-compliance-success ecl-u-ma-2xs"
+                title="[link--standalone] - ecl compliant"
               >
-                <p
-                  class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--xs"
+                  focusable="false"
                 >
-                  <b>
-                    [link--standalone]
-                  </b>
-                   - ecl compliant.
-                </p>
-              </div>
+                  <use
+                    xlink:href="/icons.svg#notifications--success"
+                  />
+                </svg>
+              </span>
             </li>
             <li
               class="ecl-language-list__item"
@@ -1419,20 +1413,20 @@ exports[`EC - Language List Overlay with validation enabled and missing input da
               >
                 eesti
               </a>
-              <!-- ################################################################################################################
-    ecl2-compliance -->
-              <div
-                class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+              <span
+                class="ecl-u-type-color-green ecl-compliance-inner ecl-compliance-success ecl-u-ma-2xs"
+                title="[link--standalone] - ecl compliant"
               >
-                <p
-                  class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--xs"
+                  focusable="false"
                 >
-                  <b>
-                    [link--standalone]
-                  </b>
-                   - ecl compliant.
-                </p>
-              </div>
+                  <use
+                    xlink:href="/icons.svg#notifications--success"
+                  />
+                </svg>
+              </span>
             </li>
             <li
               class="ecl-language-list__item"
@@ -1446,75 +1440,47 @@ exports[`EC - Language List Overlay with validation enabled and missing input da
               >
                 ελληνικά
               </a>
-              <!-- ################################################################################################################
-    ecl2-compliance -->
-              <div
-                class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+              <span
+                class="ecl-u-type-color-green ecl-compliance-inner ecl-compliance-success ecl-u-ma-2xs"
+                title="[link--standalone] - ecl compliant"
               >
-                <p
-                  class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--xs"
+                  focusable="false"
                 >
-                  <b>
-                    [link--standalone]
-                  </b>
-                   - ecl compliant.
-                </p>
-              </div>
+                  <use
+                    xlink:href="/icons.svg#notifications--success"
+                  />
+                </svg>
+              </span>
             </li>
             <li
               class="ecl-language-list__item ecl-language-list__item--is-active"
             >
               <a
-                class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-language-list__link"
+                class="ecl-link ecl-link--standalone ecl-language-list__link"
                 href="/example#language_en"
                 hreflang="en"
                 lang="en"
                 rel="alternate"
               >
-                <span
-                  class="ecl-link__label"
-                >
-                  English
-                </span>
-                 
+                English
+              </a>
+              <span
+                class="ecl-u-type-color-green ecl-compliance-inner ecl-compliance-success ecl-u-ma-2xs"
+                title="[link--standalone] - ecl compliant"
+              >
                 <svg
                   aria-hidden="true"
-                  class="ecl-icon ecl-icon--xs ecl-link__icon"
+                  class="ecl-icon ecl-icon--xs"
                   focusable="false"
                 >
                   <use
-                    xlink:href="#ui--check"
+                    xlink:href="/icons.svg#notifications--success"
                   />
                 </svg>
-                <!-- ################################################################################################################
-    ecl2-compliance -->
-                <div
-                  class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-red ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
-                >
-                  <p
-                    class="ecl-u-type-color-grey ecl-u-ml-m ecl-u-type-xs"
-                  >
-                    <b>
-                      [icon]
-                    </b>
-                     icon.name and icon.path cannot be empty.
-                  </p>
-                </div>
-              </a>
-              <!-- ################################################################################################################
-    ecl2-compliance -->
-              <div
-                class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
-              >
-                <p
-                  class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
-                >
-                  <b>
-                    [link--standalone]
-                  </b>
-                   - ecl compliant.
-                </p>
-              </div>
+              </span>
             </li>
             <li
               class="ecl-language-list__item"
@@ -1528,20 +1494,20 @@ exports[`EC - Language List Overlay with validation enabled and missing input da
               >
                 français
               </a>
-              <!-- ################################################################################################################
-    ecl2-compliance -->
-              <div
-                class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+              <span
+                class="ecl-u-type-color-green ecl-compliance-inner ecl-compliance-success ecl-u-ma-2xs"
+                title="[link--standalone] - ecl compliant"
               >
-                <p
-                  class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--xs"
+                  focusable="false"
                 >
-                  <b>
-                    [link--standalone]
-                  </b>
-                   - ecl compliant.
-                </p>
-              </div>
+                  <use
+                    xlink:href="/icons.svg#notifications--success"
+                  />
+                </svg>
+              </span>
             </li>
             <li
               class="ecl-language-list__item"
@@ -1555,20 +1521,20 @@ exports[`EC - Language List Overlay with validation enabled and missing input da
               >
                 Gaeilge
               </a>
-              <!-- ################################################################################################################
-    ecl2-compliance -->
-              <div
-                class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+              <span
+                class="ecl-u-type-color-green ecl-compliance-inner ecl-compliance-success ecl-u-ma-2xs"
+                title="[link--standalone] - ecl compliant"
               >
-                <p
-                  class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--xs"
+                  focusable="false"
                 >
-                  <b>
-                    [link--standalone]
-                  </b>
-                   - ecl compliant.
-                </p>
-              </div>
+                  <use
+                    xlink:href="/icons.svg#notifications--success"
+                  />
+                </svg>
+              </span>
             </li>
             <li
               class="ecl-language-list__item"
@@ -1582,20 +1548,20 @@ exports[`EC - Language List Overlay with validation enabled and missing input da
               >
                 hrvatski
               </a>
-              <!-- ################################################################################################################
-    ecl2-compliance -->
-              <div
-                class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+              <span
+                class="ecl-u-type-color-green ecl-compliance-inner ecl-compliance-success ecl-u-ma-2xs"
+                title="[link--standalone] - ecl compliant"
               >
-                <p
-                  class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--xs"
+                  focusable="false"
                 >
-                  <b>
-                    [link--standalone]
-                  </b>
-                   - ecl compliant.
-                </p>
-              </div>
+                  <use
+                    xlink:href="/icons.svg#notifications--success"
+                  />
+                </svg>
+              </span>
             </li>
             <li
               class="ecl-language-list__item"
@@ -1609,20 +1575,20 @@ exports[`EC - Language List Overlay with validation enabled and missing input da
               >
                 italiano
               </a>
-              <!-- ################################################################################################################
-    ecl2-compliance -->
-              <div
-                class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+              <span
+                class="ecl-u-type-color-green ecl-compliance-inner ecl-compliance-success ecl-u-ma-2xs"
+                title="[link--standalone] - ecl compliant"
               >
-                <p
-                  class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--xs"
+                  focusable="false"
                 >
-                  <b>
-                    [link--standalone]
-                  </b>
-                   - ecl compliant.
-                </p>
-              </div>
+                  <use
+                    xlink:href="/icons.svg#notifications--success"
+                  />
+                </svg>
+              </span>
             </li>
           </ul>
         </div>
@@ -1644,20 +1610,20 @@ exports[`EC - Language List Overlay with validation enabled and missing input da
               >
                 latviešu
               </a>
-              <!-- ################################################################################################################
-    ecl2-compliance -->
-              <div
-                class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+              <span
+                class="ecl-u-type-color-green ecl-compliance-inner ecl-compliance-success ecl-u-ma-2xs"
+                title="[link--standalone] - ecl compliant"
               >
-                <p
-                  class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--xs"
+                  focusable="false"
                 >
-                  <b>
-                    [link--standalone]
-                  </b>
-                   - ecl compliant.
-                </p>
-              </div>
+                  <use
+                    xlink:href="/icons.svg#notifications--success"
+                  />
+                </svg>
+              </span>
             </li>
             <li
               class="ecl-language-list__item"
@@ -1671,20 +1637,20 @@ exports[`EC - Language List Overlay with validation enabled and missing input da
               >
                 lietuvių
               </a>
-              <!-- ################################################################################################################
-    ecl2-compliance -->
-              <div
-                class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+              <span
+                class="ecl-u-type-color-green ecl-compliance-inner ecl-compliance-success ecl-u-ma-2xs"
+                title="[link--standalone] - ecl compliant"
               >
-                <p
-                  class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--xs"
+                  focusable="false"
                 >
-                  <b>
-                    [link--standalone]
-                  </b>
-                   - ecl compliant.
-                </p>
-              </div>
+                  <use
+                    xlink:href="/icons.svg#notifications--success"
+                  />
+                </svg>
+              </span>
             </li>
             <li
               class="ecl-language-list__item"
@@ -1698,20 +1664,20 @@ exports[`EC - Language List Overlay with validation enabled and missing input da
               >
                 magyar
               </a>
-              <!-- ################################################################################################################
-    ecl2-compliance -->
-              <div
-                class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+              <span
+                class="ecl-u-type-color-green ecl-compliance-inner ecl-compliance-success ecl-u-ma-2xs"
+                title="[link--standalone] - ecl compliant"
               >
-                <p
-                  class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--xs"
+                  focusable="false"
                 >
-                  <b>
-                    [link--standalone]
-                  </b>
-                   - ecl compliant.
-                </p>
-              </div>
+                  <use
+                    xlink:href="/icons.svg#notifications--success"
+                  />
+                </svg>
+              </span>
             </li>
             <li
               class="ecl-language-list__item"
@@ -1725,20 +1691,20 @@ exports[`EC - Language List Overlay with validation enabled and missing input da
               >
                 Malti
               </a>
-              <!-- ################################################################################################################
-    ecl2-compliance -->
-              <div
-                class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+              <span
+                class="ecl-u-type-color-green ecl-compliance-inner ecl-compliance-success ecl-u-ma-2xs"
+                title="[link--standalone] - ecl compliant"
               >
-                <p
-                  class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--xs"
+                  focusable="false"
                 >
-                  <b>
-                    [link--standalone]
-                  </b>
-                   - ecl compliant.
-                </p>
-              </div>
+                  <use
+                    xlink:href="/icons.svg#notifications--success"
+                  />
+                </svg>
+              </span>
             </li>
             <li
               class="ecl-language-list__item"
@@ -1752,20 +1718,20 @@ exports[`EC - Language List Overlay with validation enabled and missing input da
               >
                 Nederlands
               </a>
-              <!-- ################################################################################################################
-    ecl2-compliance -->
-              <div
-                class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+              <span
+                class="ecl-u-type-color-green ecl-compliance-inner ecl-compliance-success ecl-u-ma-2xs"
+                title="[link--standalone] - ecl compliant"
               >
-                <p
-                  class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--xs"
+                  focusable="false"
                 >
-                  <b>
-                    [link--standalone]
-                  </b>
-                   - ecl compliant.
-                </p>
-              </div>
+                  <use
+                    xlink:href="/icons.svg#notifications--success"
+                  />
+                </svg>
+              </span>
             </li>
             <li
               class="ecl-language-list__item"
@@ -1779,20 +1745,20 @@ exports[`EC - Language List Overlay with validation enabled and missing input da
               >
                 polski
               </a>
-              <!-- ################################################################################################################
-    ecl2-compliance -->
-              <div
-                class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+              <span
+                class="ecl-u-type-color-green ecl-compliance-inner ecl-compliance-success ecl-u-ma-2xs"
+                title="[link--standalone] - ecl compliant"
               >
-                <p
-                  class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--xs"
+                  focusable="false"
                 >
-                  <b>
-                    [link--standalone]
-                  </b>
-                   - ecl compliant.
-                </p>
-              </div>
+                  <use
+                    xlink:href="/icons.svg#notifications--success"
+                  />
+                </svg>
+              </span>
             </li>
             <li
               class="ecl-language-list__item"
@@ -1806,20 +1772,20 @@ exports[`EC - Language List Overlay with validation enabled and missing input da
               >
                 português
               </a>
-              <!-- ################################################################################################################
-    ecl2-compliance -->
-              <div
-                class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+              <span
+                class="ecl-u-type-color-green ecl-compliance-inner ecl-compliance-success ecl-u-ma-2xs"
+                title="[link--standalone] - ecl compliant"
               >
-                <p
-                  class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--xs"
+                  focusable="false"
                 >
-                  <b>
-                    [link--standalone]
-                  </b>
-                   - ecl compliant.
-                </p>
-              </div>
+                  <use
+                    xlink:href="/icons.svg#notifications--success"
+                  />
+                </svg>
+              </span>
             </li>
             <li
               class="ecl-language-list__item"
@@ -1833,20 +1799,20 @@ exports[`EC - Language List Overlay with validation enabled and missing input da
               >
                 română
               </a>
-              <!-- ################################################################################################################
-    ecl2-compliance -->
-              <div
-                class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+              <span
+                class="ecl-u-type-color-green ecl-compliance-inner ecl-compliance-success ecl-u-ma-2xs"
+                title="[link--standalone] - ecl compliant"
               >
-                <p
-                  class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--xs"
+                  focusable="false"
                 >
-                  <b>
-                    [link--standalone]
-                  </b>
-                   - ecl compliant.
-                </p>
-              </div>
+                  <use
+                    xlink:href="/icons.svg#notifications--success"
+                  />
+                </svg>
+              </span>
             </li>
             <li
               class="ecl-language-list__item"
@@ -1860,20 +1826,20 @@ exports[`EC - Language List Overlay with validation enabled and missing input da
               >
                 slovenčina
               </a>
-              <!-- ################################################################################################################
-    ecl2-compliance -->
-              <div
-                class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+              <span
+                class="ecl-u-type-color-green ecl-compliance-inner ecl-compliance-success ecl-u-ma-2xs"
+                title="[link--standalone] - ecl compliant"
               >
-                <p
-                  class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--xs"
+                  focusable="false"
                 >
-                  <b>
-                    [link--standalone]
-                  </b>
-                   - ecl compliant.
-                </p>
-              </div>
+                  <use
+                    xlink:href="/icons.svg#notifications--success"
+                  />
+                </svg>
+              </span>
             </li>
             <li
               class="ecl-language-list__item"
@@ -1887,20 +1853,20 @@ exports[`EC - Language List Overlay with validation enabled and missing input da
               >
                 slovenščina
               </a>
-              <!-- ################################################################################################################
-    ecl2-compliance -->
-              <div
-                class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+              <span
+                class="ecl-u-type-color-green ecl-compliance-inner ecl-compliance-success ecl-u-ma-2xs"
+                title="[link--standalone] - ecl compliant"
               >
-                <p
-                  class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--xs"
+                  focusable="false"
                 >
-                  <b>
-                    [link--standalone]
-                  </b>
-                   - ecl compliant.
-                </p>
-              </div>
+                  <use
+                    xlink:href="/icons.svg#notifications--success"
+                  />
+                </svg>
+              </span>
             </li>
             <li
               class="ecl-language-list__item"
@@ -1914,20 +1880,20 @@ exports[`EC - Language List Overlay with validation enabled and missing input da
               >
                 suomi
               </a>
-              <!-- ################################################################################################################
-    ecl2-compliance -->
-              <div
-                class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+              <span
+                class="ecl-u-type-color-green ecl-compliance-inner ecl-compliance-success ecl-u-ma-2xs"
+                title="[link--standalone] - ecl compliant"
               >
-                <p
-                  class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--xs"
+                  focusable="false"
                 >
-                  <b>
-                    [link--standalone]
-                  </b>
-                   - ecl compliant.
-                </p>
-              </div>
+                  <use
+                    xlink:href="/icons.svg#notifications--success"
+                  />
+                </svg>
+              </span>
             </li>
             <li
               class="ecl-language-list__item"
@@ -1941,38 +1907,34 @@ exports[`EC - Language List Overlay with validation enabled and missing input da
               >
                 svenska
               </a>
-              <!-- ################################################################################################################
-    ecl2-compliance -->
-              <div
-                class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+              <span
+                class="ecl-u-type-color-green ecl-compliance-inner ecl-compliance-success ecl-u-ma-2xs"
+                title="[link--standalone] - ecl compliant"
               >
-                <p
-                  class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--xs"
+                  focusable="false"
                 >
-                  <b>
-                    [link--standalone]
-                  </b>
-                   - ecl compliant.
-                </p>
-              </div>
+                  <use
+                    xlink:href="/icons.svg#notifications--success"
+                  />
+                </svg>
+              </span>
             </li>
           </ul>
         </div>
       </div>
     </div>
   </div>
-  <!-- ################################################################################################################
-    ecl2-compliance -->
+  <!-- ecl2-compliance: language-list -->
   <div
     class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-red ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
   >
     <p
       class="ecl-u-type-color-grey ecl-u-ml-m ecl-u-type-xs"
     >
-      <b>
-        [language-list]
-      </b>
-        In the overlay the close icon is mandatory, "icon_path" needs to set and filled in. Each item needs to contain a "label".
+      [language-list] -  When {{ overlay }} is set to true the {{ close_label }} property needs to set and filled in. When {{ overlay }} is set to true the {{ title }} needs to set and filled in. Each item needs to contain a {{ label }} property set and filled in. Each item needs to contain a {{ lang }} property set and filled in. The active selection is mandatory, one of the items needs to have the {{ active }} property set to true.
     </p>
   </div>
 </test>
@@ -3046,20 +3008,20 @@ exports[`EC - Language List Splash with validation enabled and missing input dat
               >
                 español
               </a>
-              <!-- ################################################################################################################
-    ecl2-compliance -->
-              <div
-                class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+              <span
+                class="ecl-u-type-color-green ecl-compliance-inner ecl-compliance-success ecl-u-ma-2xs"
+                title="[link--standalone] - ecl compliant"
               >
-                <p
-                  class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--xs"
+                  focusable="false"
                 >
-                  <b>
-                    [link--standalone]
-                  </b>
-                   - ecl compliant.
-                </p>
-              </div>
+                  <use
+                    xlink:href="/icons.svg#notifications--success"
+                  />
+                </svg>
+              </span>
             </li>
             <li
               class="ecl-language-list__item"
@@ -3072,20 +3034,20 @@ exports[`EC - Language List Splash with validation enabled and missing input dat
               >
                 čeština
               </a>
-              <!-- ################################################################################################################
-    ecl2-compliance -->
-              <div
-                class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+              <span
+                class="ecl-u-type-color-green ecl-compliance-inner ecl-compliance-success ecl-u-ma-2xs"
+                title="[link--standalone] - ecl compliant"
               >
-                <p
-                  class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--xs"
+                  focusable="false"
                 >
-                  <b>
-                    [link--standalone]
-                  </b>
-                   - ecl compliant.
-                </p>
-              </div>
+                  <use
+                    xlink:href="/icons.svg#notifications--success"
+                  />
+                </svg>
+              </span>
             </li>
             <li
               class="ecl-language-list__item"
@@ -3098,20 +3060,20 @@ exports[`EC - Language List Splash with validation enabled and missing input dat
               >
                 dansk
               </a>
-              <!-- ################################################################################################################
-    ecl2-compliance -->
-              <div
-                class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+              <span
+                class="ecl-u-type-color-green ecl-compliance-inner ecl-compliance-success ecl-u-ma-2xs"
+                title="[link--standalone] - ecl compliant"
               >
-                <p
-                  class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--xs"
+                  focusable="false"
                 >
-                  <b>
-                    [link--standalone]
-                  </b>
-                   - ecl compliant.
-                </p>
-              </div>
+                  <use
+                    xlink:href="/icons.svg#notifications--success"
+                  />
+                </svg>
+              </span>
             </li>
             <li
               class="ecl-language-list__item"
@@ -3124,20 +3086,20 @@ exports[`EC - Language List Splash with validation enabled and missing input dat
               >
                 Deutsch
               </a>
-              <!-- ################################################################################################################
-    ecl2-compliance -->
-              <div
-                class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+              <span
+                class="ecl-u-type-color-green ecl-compliance-inner ecl-compliance-success ecl-u-ma-2xs"
+                title="[link--standalone] - ecl compliant"
               >
-                <p
-                  class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--xs"
+                  focusable="false"
                 >
-                  <b>
-                    [link--standalone]
-                  </b>
-                   - ecl compliant.
-                </p>
-              </div>
+                  <use
+                    xlink:href="/icons.svg#notifications--success"
+                  />
+                </svg>
+              </span>
             </li>
             <li
               class="ecl-language-list__item"
@@ -3150,20 +3112,20 @@ exports[`EC - Language List Splash with validation enabled and missing input dat
               >
                 eesti
               </a>
-              <!-- ################################################################################################################
-    ecl2-compliance -->
-              <div
-                class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+              <span
+                class="ecl-u-type-color-green ecl-compliance-inner ecl-compliance-success ecl-u-ma-2xs"
+                title="[link--standalone] - ecl compliant"
               >
-                <p
-                  class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--xs"
+                  focusable="false"
                 >
-                  <b>
-                    [link--standalone]
-                  </b>
-                   - ecl compliant.
-                </p>
-              </div>
+                  <use
+                    xlink:href="/icons.svg#notifications--success"
+                  />
+                </svg>
+              </span>
             </li>
             <li
               class="ecl-language-list__item"
@@ -3176,20 +3138,20 @@ exports[`EC - Language List Splash with validation enabled and missing input dat
               >
                 ελληνικά
               </a>
-              <!-- ################################################################################################################
-    ecl2-compliance -->
-              <div
-                class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+              <span
+                class="ecl-u-type-color-green ecl-compliance-inner ecl-compliance-success ecl-u-ma-2xs"
+                title="[link--standalone] - ecl compliant"
               >
-                <p
-                  class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--xs"
+                  focusable="false"
                 >
-                  <b>
-                    [link--standalone]
-                  </b>
-                   - ecl compliant.
-                </p>
-              </div>
+                  <use
+                    xlink:href="/icons.svg#notifications--success"
+                  />
+                </svg>
+              </span>
             </li>
             <li
               class="ecl-language-list__item ecl-language-list__item--is-active"
@@ -3215,35 +3177,35 @@ exports[`EC - Language List Splash with validation enabled and missing input dat
                     xlink:href="/icons.svg#ui--check"
                   />
                 </svg>
-                <!-- ################################################################################################################
-    ecl2-compliance -->
-                <div
-                  class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+                <span
+                  class="ecl-u-type-color-green ecl-compliance-inner ecl-compliance-success ecl-u-ma-2xs"
+                  title="[icon] - ecl compliant"
                 >
-                  <p
-                    class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                  <svg
+                    aria-hidden="true"
+                    class="ecl-icon ecl-icon--xs"
+                    focusable="false"
                   >
-                    <b>
-                      [icon]
-                    </b>
-                     - ecl compliant.
-                  </p>
-                </div>
+                    <use
+                      xlink:href="/icons.svg#notifications--success"
+                    />
+                  </svg>
+                </span>
               </a>
-              <!-- ################################################################################################################
-    ecl2-compliance -->
-              <div
-                class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+              <span
+                class="ecl-u-type-color-green ecl-compliance-inner ecl-compliance-success ecl-u-ma-2xs"
+                title="[link--standalone] - ecl compliant"
               >
-                <p
-                  class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--xs"
+                  focusable="false"
                 >
-                  <b>
-                    [link--standalone]
-                  </b>
-                   - ecl compliant.
-                </p>
-              </div>
+                  <use
+                    xlink:href="/icons.svg#notifications--success"
+                  />
+                </svg>
+              </span>
             </li>
             <li
               class="ecl-language-list__item"
@@ -3256,20 +3218,20 @@ exports[`EC - Language List Splash with validation enabled and missing input dat
               >
                 français
               </a>
-              <!-- ################################################################################################################
-    ecl2-compliance -->
-              <div
-                class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+              <span
+                class="ecl-u-type-color-green ecl-compliance-inner ecl-compliance-success ecl-u-ma-2xs"
+                title="[link--standalone] - ecl compliant"
               >
-                <p
-                  class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--xs"
+                  focusable="false"
                 >
-                  <b>
-                    [link--standalone]
-                  </b>
-                   - ecl compliant.
-                </p>
-              </div>
+                  <use
+                    xlink:href="/icons.svg#notifications--success"
+                  />
+                </svg>
+              </span>
             </li>
             <li
               class="ecl-language-list__item"
@@ -3282,20 +3244,20 @@ exports[`EC - Language List Splash with validation enabled and missing input dat
               >
                 Gaeilge
               </a>
-              <!-- ################################################################################################################
-    ecl2-compliance -->
-              <div
-                class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+              <span
+                class="ecl-u-type-color-green ecl-compliance-inner ecl-compliance-success ecl-u-ma-2xs"
+                title="[link--standalone] - ecl compliant"
               >
-                <p
-                  class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--xs"
+                  focusable="false"
                 >
-                  <b>
-                    [link--standalone]
-                  </b>
-                   - ecl compliant.
-                </p>
-              </div>
+                  <use
+                    xlink:href="/icons.svg#notifications--success"
+                  />
+                </svg>
+              </span>
             </li>
             <li
               class="ecl-language-list__item"
@@ -3308,20 +3270,20 @@ exports[`EC - Language List Splash with validation enabled and missing input dat
               >
                 hrvatski
               </a>
-              <!-- ################################################################################################################
-    ecl2-compliance -->
-              <div
-                class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+              <span
+                class="ecl-u-type-color-green ecl-compliance-inner ecl-compliance-success ecl-u-ma-2xs"
+                title="[link--standalone] - ecl compliant"
               >
-                <p
-                  class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--xs"
+                  focusable="false"
                 >
-                  <b>
-                    [link--standalone]
-                  </b>
-                   - ecl compliant.
-                </p>
-              </div>
+                  <use
+                    xlink:href="/icons.svg#notifications--success"
+                  />
+                </svg>
+              </span>
             </li>
             <li
               class="ecl-language-list__item"
@@ -3334,20 +3296,20 @@ exports[`EC - Language List Splash with validation enabled and missing input dat
               >
                 italiano
               </a>
-              <!-- ################################################################################################################
-    ecl2-compliance -->
-              <div
-                class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+              <span
+                class="ecl-u-type-color-green ecl-compliance-inner ecl-compliance-success ecl-u-ma-2xs"
+                title="[link--standalone] - ecl compliant"
               >
-                <p
-                  class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--xs"
+                  focusable="false"
                 >
-                  <b>
-                    [link--standalone]
-                  </b>
-                   - ecl compliant.
-                </p>
-              </div>
+                  <use
+                    xlink:href="/icons.svg#notifications--success"
+                  />
+                </svg>
+              </span>
             </li>
           </ul>
         </div>
@@ -3368,20 +3330,20 @@ exports[`EC - Language List Splash with validation enabled and missing input dat
               >
                 latviešu
               </a>
-              <!-- ################################################################################################################
-    ecl2-compliance -->
-              <div
-                class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+              <span
+                class="ecl-u-type-color-green ecl-compliance-inner ecl-compliance-success ecl-u-ma-2xs"
+                title="[link--standalone] - ecl compliant"
               >
-                <p
-                  class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--xs"
+                  focusable="false"
                 >
-                  <b>
-                    [link--standalone]
-                  </b>
-                   - ecl compliant.
-                </p>
-              </div>
+                  <use
+                    xlink:href="/icons.svg#notifications--success"
+                  />
+                </svg>
+              </span>
             </li>
             <li
               class="ecl-language-list__item"
@@ -3394,20 +3356,20 @@ exports[`EC - Language List Splash with validation enabled and missing input dat
               >
                 lietuvių
               </a>
-              <!-- ################################################################################################################
-    ecl2-compliance -->
-              <div
-                class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+              <span
+                class="ecl-u-type-color-green ecl-compliance-inner ecl-compliance-success ecl-u-ma-2xs"
+                title="[link--standalone] - ecl compliant"
               >
-                <p
-                  class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--xs"
+                  focusable="false"
                 >
-                  <b>
-                    [link--standalone]
-                  </b>
-                   - ecl compliant.
-                </p>
-              </div>
+                  <use
+                    xlink:href="/icons.svg#notifications--success"
+                  />
+                </svg>
+              </span>
             </li>
             <li
               class="ecl-language-list__item"
@@ -3420,20 +3382,20 @@ exports[`EC - Language List Splash with validation enabled and missing input dat
               >
                 magyar
               </a>
-              <!-- ################################################################################################################
-    ecl2-compliance -->
-              <div
-                class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+              <span
+                class="ecl-u-type-color-green ecl-compliance-inner ecl-compliance-success ecl-u-ma-2xs"
+                title="[link--standalone] - ecl compliant"
               >
-                <p
-                  class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--xs"
+                  focusable="false"
                 >
-                  <b>
-                    [link--standalone]
-                  </b>
-                   - ecl compliant.
-                </p>
-              </div>
+                  <use
+                    xlink:href="/icons.svg#notifications--success"
+                  />
+                </svg>
+              </span>
             </li>
             <li
               class="ecl-language-list__item"
@@ -3446,20 +3408,20 @@ exports[`EC - Language List Splash with validation enabled and missing input dat
               >
                 Malti
               </a>
-              <!-- ################################################################################################################
-    ecl2-compliance -->
-              <div
-                class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+              <span
+                class="ecl-u-type-color-green ecl-compliance-inner ecl-compliance-success ecl-u-ma-2xs"
+                title="[link--standalone] - ecl compliant"
               >
-                <p
-                  class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--xs"
+                  focusable="false"
                 >
-                  <b>
-                    [link--standalone]
-                  </b>
-                   - ecl compliant.
-                </p>
-              </div>
+                  <use
+                    xlink:href="/icons.svg#notifications--success"
+                  />
+                </svg>
+              </span>
             </li>
             <li
               class="ecl-language-list__item"
@@ -3472,20 +3434,20 @@ exports[`EC - Language List Splash with validation enabled and missing input dat
               >
                 Nederlands
               </a>
-              <!-- ################################################################################################################
-    ecl2-compliance -->
-              <div
-                class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+              <span
+                class="ecl-u-type-color-green ecl-compliance-inner ecl-compliance-success ecl-u-ma-2xs"
+                title="[link--standalone] - ecl compliant"
               >
-                <p
-                  class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--xs"
+                  focusable="false"
                 >
-                  <b>
-                    [link--standalone]
-                  </b>
-                   - ecl compliant.
-                </p>
-              </div>
+                  <use
+                    xlink:href="/icons.svg#notifications--success"
+                  />
+                </svg>
+              </span>
             </li>
             <li
               class="ecl-language-list__item"
@@ -3498,20 +3460,20 @@ exports[`EC - Language List Splash with validation enabled and missing input dat
               >
                 polski
               </a>
-              <!-- ################################################################################################################
-    ecl2-compliance -->
-              <div
-                class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+              <span
+                class="ecl-u-type-color-green ecl-compliance-inner ecl-compliance-success ecl-u-ma-2xs"
+                title="[link--standalone] - ecl compliant"
               >
-                <p
-                  class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--xs"
+                  focusable="false"
                 >
-                  <b>
-                    [link--standalone]
-                  </b>
-                   - ecl compliant.
-                </p>
-              </div>
+                  <use
+                    xlink:href="/icons.svg#notifications--success"
+                  />
+                </svg>
+              </span>
             </li>
             <li
               class="ecl-language-list__item"
@@ -3524,20 +3486,20 @@ exports[`EC - Language List Splash with validation enabled and missing input dat
               >
                 português
               </a>
-              <!-- ################################################################################################################
-    ecl2-compliance -->
-              <div
-                class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+              <span
+                class="ecl-u-type-color-green ecl-compliance-inner ecl-compliance-success ecl-u-ma-2xs"
+                title="[link--standalone] - ecl compliant"
               >
-                <p
-                  class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--xs"
+                  focusable="false"
                 >
-                  <b>
-                    [link--standalone]
-                  </b>
-                   - ecl compliant.
-                </p>
-              </div>
+                  <use
+                    xlink:href="/icons.svg#notifications--success"
+                  />
+                </svg>
+              </span>
             </li>
             <li
               class="ecl-language-list__item"
@@ -3550,20 +3512,20 @@ exports[`EC - Language List Splash with validation enabled and missing input dat
               >
                 română
               </a>
-              <!-- ################################################################################################################
-    ecl2-compliance -->
-              <div
-                class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+              <span
+                class="ecl-u-type-color-green ecl-compliance-inner ecl-compliance-success ecl-u-ma-2xs"
+                title="[link--standalone] - ecl compliant"
               >
-                <p
-                  class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--xs"
+                  focusable="false"
                 >
-                  <b>
-                    [link--standalone]
-                  </b>
-                   - ecl compliant.
-                </p>
-              </div>
+                  <use
+                    xlink:href="/icons.svg#notifications--success"
+                  />
+                </svg>
+              </span>
             </li>
             <li
               class="ecl-language-list__item"
@@ -3576,20 +3538,20 @@ exports[`EC - Language List Splash with validation enabled and missing input dat
               >
                 slovenčina
               </a>
-              <!-- ################################################################################################################
-    ecl2-compliance -->
-              <div
-                class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+              <span
+                class="ecl-u-type-color-green ecl-compliance-inner ecl-compliance-success ecl-u-ma-2xs"
+                title="[link--standalone] - ecl compliant"
               >
-                <p
-                  class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--xs"
+                  focusable="false"
                 >
-                  <b>
-                    [link--standalone]
-                  </b>
-                   - ecl compliant.
-                </p>
-              </div>
+                  <use
+                    xlink:href="/icons.svg#notifications--success"
+                  />
+                </svg>
+              </span>
             </li>
             <li
               class="ecl-language-list__item"
@@ -3602,20 +3564,20 @@ exports[`EC - Language List Splash with validation enabled and missing input dat
               >
                 slovenščina
               </a>
-              <!-- ################################################################################################################
-    ecl2-compliance -->
-              <div
-                class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+              <span
+                class="ecl-u-type-color-green ecl-compliance-inner ecl-compliance-success ecl-u-ma-2xs"
+                title="[link--standalone] - ecl compliant"
               >
-                <p
-                  class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--xs"
+                  focusable="false"
                 >
-                  <b>
-                    [link--standalone]
-                  </b>
-                   - ecl compliant.
-                </p>
-              </div>
+                  <use
+                    xlink:href="/icons.svg#notifications--success"
+                  />
+                </svg>
+              </span>
             </li>
             <li
               class="ecl-language-list__item"
@@ -3628,20 +3590,20 @@ exports[`EC - Language List Splash with validation enabled and missing input dat
               >
                 suomi
               </a>
-              <!-- ################################################################################################################
-    ecl2-compliance -->
-              <div
-                class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+              <span
+                class="ecl-u-type-color-green ecl-compliance-inner ecl-compliance-success ecl-u-ma-2xs"
+                title="[link--standalone] - ecl compliant"
               >
-                <p
-                  class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--xs"
+                  focusable="false"
                 >
-                  <b>
-                    [link--standalone]
-                  </b>
-                   - ecl compliant.
-                </p>
-              </div>
+                  <use
+                    xlink:href="/icons.svg#notifications--success"
+                  />
+                </svg>
+              </span>
             </li>
             <li
               class="ecl-language-list__item"
@@ -3654,38 +3616,34 @@ exports[`EC - Language List Splash with validation enabled and missing input dat
               >
                 svenska
               </a>
-              <!-- ################################################################################################################
-    ecl2-compliance -->
-              <div
-                class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+              <span
+                class="ecl-u-type-color-green ecl-compliance-inner ecl-compliance-success ecl-u-ma-2xs"
+                title="[link--standalone] - ecl compliant"
               >
-                <p
-                  class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--xs"
+                  focusable="false"
                 >
-                  <b>
-                    [link--standalone]
-                  </b>
-                   - ecl compliant.
-                </p>
-              </div>
+                  <use
+                    xlink:href="/icons.svg#notifications--success"
+                  />
+                </svg>
+              </span>
             </li>
           </ul>
         </div>
       </div>
     </div>
   </div>
-  <!-- ################################################################################################################
-    ecl2-compliance -->
+  <!-- ecl2-compliance: language-list -->
   <div
     class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-red ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
   >
     <p
       class="ecl-u-type-color-grey ecl-u-ml-m ecl-u-type-xs"
     >
-      <b>
-        [language-list]
-      </b>
-        To render the logo we need the "logo.path" to be set and filled in. Each item needs to contain a "label".
+      [language-list] -  To render the {{ logo }}, {{ logo.path }} needs to be set and filled in. Each item needs to contain a {{ label }} property set and filled in.
     </p>
   </div>
 </test>

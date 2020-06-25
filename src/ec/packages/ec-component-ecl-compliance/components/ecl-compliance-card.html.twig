@@ -12,4 +12,4 @@
   card.title.label is not defined or card.title.label is empty
 %}
 {% set not_compliant = no_title_case %}
-{% set message = message ~ ' "card.title.label" is mandatory.' %}
+{% set message = message ~ ' {{ card.title.label }} property needs to set and filled in.' %}

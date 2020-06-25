@@ -17,6 +17,7 @@
 {% extends "@ecl-twig/ec-component-ecl-compliance/ecl-compliance.html.twig" %}
 {% set component = 'menu-item' %}
 {% set message = '' %}
+{% set _compliance_inner_check_ = true %}
 
 {% set no_item_path_case = false %}
 {% set no_item_label_case = false %}
@@ -52,14 +53,14 @@
   {% set message = message ~ ' The menu item looks empty.' %}
 {% endif %}
 {% if no_item_path_case %}
-  {% set message = message ~ ' The "path" needs to be set for each of the "items" in the menu.' %}
+  {% set message = message ~ ' The {{ path }} property needs to be set and filled in for each of the items in the {{ items }} array.' %}
 {% endif %}
 {% if no_item_label_case %}
-  {% set message = message ~ ' The "label" needs to be set for each of the "items" in the menu.' %}
+  {% set message = message ~ ' The {{ label }} needs to be set and filled in for each of the items in the {{ items }} array.' %}
 {% endif %}
 {% if no_children_label_case %}
-  {% set message = message ~ ' The "label" needs to be set for each "children" of the item.' %}
+  {% set message = message ~ ' The {{ label }} property needs to be set and filled in for each item in the {{ children }} array.' %}
 {% endif %}
 {% if no_children_path_case %}
-  {% set message = message ~ ' The "path" needs to be set for each "children" of the item.' %}
+  {% set message = message ~ ' The {{ path }} needs to be set and filled in for each item in the {{ children }} array.' %}
 {% endif %}

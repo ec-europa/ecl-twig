@@ -30,12 +30,12 @@
 {% set not_compliant = no_items_case or no_label_case or no_nested_label_case %}
 
 {% if no_items_case %}
-  {% set message = message ~ ' The "items" property is required.' %}
+  {% set message = message ~ ' The {{ items }} property is required.' %}
 {% endif %}
 {% if no_label_case %}
-  {% set message = message ~ ' Each item should have a "label".' %}
+  {% set message = message ~ ' Each item should have a {{ label }} property set and filled in.' %}
 {% endif %}
 {% if no_nested_label_case %}
-  {% set message = message ~ ' Each sub-item in the "nested" array should have a "label" property set and filled in.' %}
+  {% set message = message ~ ' Each sub-item in the {{ nested }} array should have a {{ label }} property set and filled in.' %}
 {% endif %}
 
