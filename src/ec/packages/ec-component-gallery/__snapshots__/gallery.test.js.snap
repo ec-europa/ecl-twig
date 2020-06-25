@@ -2436,16 +2436,20 @@ exports[`EC - Gallery Default with missing input data and debug enabled it retur
                 xlink:href="/icons.svg#ui--corner-arrow"
               />
             </svg>
-            <!-- ecl2-compliance: icon -->
-            <div
-              class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+            <span
+              class="ecl-u-type-color-green ecl-compliance-inner ecl-compliance-success ecl-u-ma-2xs"
+              title="[icon] - ecl compliant"
             >
-              <p
-                class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--xs"
+                focusable="false"
               >
-                [icon] - ecl compliant
-              </p>
-            </div>
+                <use
+                  xlink:href="/icons.svg#notifications--success"
+                />
+              </svg>
+            </span>
             <span
               class="ecl-button__label"
               data-ecl-label="true"
