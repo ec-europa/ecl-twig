@@ -1,4 +1,4 @@
-# ECL Twig - EC File component
+# ECL-Twig File component
 
 npm package: `@ecl-twig/ec-component-file`
 

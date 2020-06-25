@@ -1,6 +1,6 @@
 # How to publish a new release:
 
-Today is the big day. You're about to publish a new version of ECL Twig templates. Congratulations!
+Today is the big day. You're about to publish a new version of ECL-Twig templates. Congratulations!
 
 Here are the steps to follow.
 
@@ -33,6 +33,7 @@ If you don't provide any arguments and just run `yarn update-version`, lerna wil
 ## Create a change log entry for the release:
 
 You'll need an [access token for the GitHub API](https://help.github.com/articles/creating-an-access-token-for-command-line-use/). Save it to this environment variable: `export GITHUB_AUTH="..."`
+
 - Run `npm run changelog`. The command will find all the labeled pull requests merged since the last release and create a change log entry with all the changes and links to PRs and their authors.
 - Copy and paste the output from the changelog generator to `CHANGELOG.md`.
 
@@ -44,7 +45,7 @@ At this point your release should be ready, to help you feeling comfortable with
 yarn check:release
 ```
 
-Now, commit and push your changes to the `master` branch or, if you're not sure about what you're doing, open a new PR with your changes. Please name the commit or the PR `chore: release ECL Twig x.y.z` (don't forget to replace `x.y.z` by the actual version number!)
+Now, commit and push your changes to the `master` branch or, if you're not sure about what you're doing, open a new PR with your changes. Please name the commit or the PR `chore: release ECL-Twig x.y.z` (don't forget to replace `x.y.z` by the actual version number!)
 
 ## Publish the packages:
 
@@ -66,7 +67,6 @@ Final step: create a new GitHub release from the `master` branch. The tag versio
 
 Now, enjoy a well-deserved break! :wink:
 
-
 ## Troubleshooting:
 
 In case of a failure during the release of the packages on npmjs.com which results in a subset of the packages being published, retry to publish the missing ones after clearing history:
@@ -74,13 +74,17 @@ In case of a failure during the release of the packages on npmjs.com which resul
 ```
 npm run publish
 ```
+
 then, after the failure:
+
 ```
 git reset --hard
 ```
 
 and then again.
+
 ```
 npm run publish
 ```
+
 until the whole set of packages gets published, hopefully.

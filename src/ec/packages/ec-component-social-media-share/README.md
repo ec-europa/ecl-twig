@@ -1,4 +1,4 @@
-ECL Twig - EC Social Media Share component
+ECL-Twig Social Media Share component
 
 npm package: `@ecl-twig/ec-component-social-media-share`
 

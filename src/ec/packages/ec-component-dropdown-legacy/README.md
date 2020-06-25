@@ -1,4 +1,4 @@
-# ECL Twig - EC Dropdown legacy component
+# ECL-Twig Dropdown legacy component
 
 npm package: `@ecl-twig/ec-component-drowpdown-legacy`
 

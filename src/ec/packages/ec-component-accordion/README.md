@@ -1,4 +1,4 @@
-# ECL Twig - EC Accordion component
+# ECL-Twig Accordion component
 
 npm package: `@ecl-twig/ec-component-accordion`
 

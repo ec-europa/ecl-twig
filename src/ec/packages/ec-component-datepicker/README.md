@@ -1,4 +1,4 @@
-# ECL Twig - EC Datepicker
+# ECL-Twig Datepicker
 
 npm package: `@ecl-twig/ec-component-datepicker`
 

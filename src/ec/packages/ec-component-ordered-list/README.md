@@ -1,4 +1,4 @@
-# ECL Twig - EC Ordered list component
+# ECL-Twig Ordered list component
 
 npm package: `@ecl-twig/ec-component-ordered-list`
 

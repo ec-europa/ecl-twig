@@ -1,4 +1,4 @@
-# ECL Twig - EC Page Header Standardised component
+# ECL-Twig Page Header Standardised component
 
 npm package: `@ecl-twig/ec-component-page-header-standardised`
 

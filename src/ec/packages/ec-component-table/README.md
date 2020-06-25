@@ -1,4 +1,4 @@
-# ECL Twig - EC Table component
+# ECL-Twig Table component
 
 npm package: `@ecl-twig/ec-component-table`
 

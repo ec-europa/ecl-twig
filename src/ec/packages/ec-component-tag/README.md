@@ -1,4 +1,4 @@
-# ECL Twig - EC Tag component
+# ECL-Twig Tag component
 
 npm package: `@ecl-twig/ec-component-tag`
 

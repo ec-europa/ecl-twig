@@ -1,4 +1,4 @@
-# ECL Twig Documentation
+# ECL-Twig Documentation
 
 - [Getting started](./getting-started.md)
 - [Conventions](./conventions.md)

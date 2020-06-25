@@ -1,3 +1,3 @@
-# ECL Twig - EC Components
+# ECL-Twig Components
 
-Preset package depending on every EC twig components.
+Preset package depending on every twig components.

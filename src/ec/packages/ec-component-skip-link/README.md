@@ -1,4 +1,4 @@
-# ECL Twig - EC Skip Link component
+# ECL-Twig Skip Link component
 
 npm package: `@ecl-twig/ec-component-skip-link`
 

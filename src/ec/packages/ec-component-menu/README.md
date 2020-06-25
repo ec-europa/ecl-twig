@@ -1,4 +1,4 @@
-# ECL Twig - EC Menu
+# ECL-Twig Menu
 
 npm package: `@ecl-twig/ec-component-menu`
 

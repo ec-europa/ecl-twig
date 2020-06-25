@@ -1,4 +1,4 @@
-# ECL Twig - EC Page Banner
+# ECL-Twig Page Banner
 
 npm package: `@ecl-twig/ec-component-page-banner`
 

@@ -1,4 +1,4 @@
-# ECL Twig - EC Timeline
+# ECL-Twig Timeline
 
 npm package: `@ecl-twig/ec-component-timeline`
 

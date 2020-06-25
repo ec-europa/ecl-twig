@@ -1,4 +1,4 @@
-# ECL Twig - EC Checkbox component
+# ECL-Twig Checkbox component
 
 npm package: `@ecl-twig/ec-component-checkbox`
 

@@ -1,4 +1,4 @@
-# ECL Twig - EC Search Form
+# ECL-Twig Search Form
 
 npm package: `@ecl-twig/ec-component-search-form`
 

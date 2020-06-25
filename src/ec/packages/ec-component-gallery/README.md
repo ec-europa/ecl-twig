@@ -1,4 +1,4 @@
-# ECL Twig - EC Gallery
+# ECL-Twig Gallery
 
 npm package: `@ecl-twig/ec-component-gallery`
 

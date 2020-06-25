@@ -1,4 +1,4 @@
-# ECL Twig - EC Breadcrumb Core component
+# ECL-Twig Breadcrumb Core component
 
 npm package: `@ecl-twig/ec-component-breadcrumb-core`
 

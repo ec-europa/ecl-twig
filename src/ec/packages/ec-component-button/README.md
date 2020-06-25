@@ -1,4 +1,4 @@
-# ECL Twig - EC Button component
+# ECL-Twig Button component
 
 npm package: `@ecl-twig/ec-component-button`
 

@@ -1,4 +1,4 @@
-# ECL Twig - EC Site Header component
+# ECL-Twig Site Header component
 
 npm package: `@ecl-twig/ec-component-site-header`
 

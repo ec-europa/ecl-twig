@@ -1,4 +1,4 @@
-# ECL Twig - EC Description list component
+# ECL-Twig Description list component
 
 npm package: `@ecl-twig/ec-component-description-list`
 

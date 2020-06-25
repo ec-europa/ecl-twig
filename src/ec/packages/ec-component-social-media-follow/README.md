@@ -1,4 +1,4 @@
-# ECL Twig - EC Social Media Follow component
+# ECL-Twig Social Media Follow component
 
 npm package: `@ecl-twig/ec-component-social-media-follow`
 

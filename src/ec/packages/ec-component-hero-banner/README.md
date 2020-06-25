@@ -1,4 +1,4 @@
-# ECL Twig - EC Hero Banner
+# ECL-Twig Hero Banner
 
 npm package: `@ecl-twig/ec-component-hero-banner`
 

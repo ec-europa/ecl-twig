@@ -1,4 +1,4 @@
-# ECL Twig - EC Menu Legacy
+# ECL-Twig Menu Legacy
 
 npm package: `@ecl-twig/ec-component-menu-legacy`
 

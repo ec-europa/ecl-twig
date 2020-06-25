@@ -1,4 +1,4 @@
-# ECL Twig - EC Breadcrumb Harmonised component
+# ECL-Twig Breadcrumb Harmonised component
 
 npm package: `@ecl-twig/ec-component-breadcrumb-harmonised`
 

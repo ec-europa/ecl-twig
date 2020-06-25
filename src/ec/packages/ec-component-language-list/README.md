@@ -1,4 +1,4 @@
-# ECL Twig - EC Language List component
+# ECL-Twig Language List component
 
 npm package: `@ecl-twig/ec-component-language-list`
 

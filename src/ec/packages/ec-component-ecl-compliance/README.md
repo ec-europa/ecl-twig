@@ -1,4 +1,4 @@
-# ECL Twig - EC ECL Compliance component
+# ECL-Twig ECL Compliance component
 
 npm package: `@ecl-twig/ec-component-ecl-compliance`
 

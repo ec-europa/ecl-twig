@@ -1,4 +1,4 @@
-# ECL Twig - EC File Upload component
+# ECL-Twig File Upload component
 
 npm package: `@ecl-twig/ec-component-file-upload`
 

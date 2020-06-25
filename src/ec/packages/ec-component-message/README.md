@@ -1,4 +1,4 @@
-# ECL Twig - EC Message component
+# ECL-Twig Message component
 
 npm package: `@ecl-twig/ec-component-message`
 

@@ -1,4 +1,4 @@
-# ECL Twig - EC Page Header component
+# ECL-Twig Page Header component
 
 npm package: `@ecl-twig/ec-component-page-header`
 

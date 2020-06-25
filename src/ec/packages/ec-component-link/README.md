@@ -1,4 +1,4 @@
-# ECL Twig - EC Link component
+# ECL-Twig Link component
 
 npm package: `@ecl-twig/ec-component-link`
 

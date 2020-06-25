@@ -1,4 +1,4 @@
-# ECL Twig - EC Expandable component
+# ECL-Twig Expandable component
 
 npm package: `@ecl-twig/ec-component-expandable`
 

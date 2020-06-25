@@ -1,4 +1,4 @@
-# ECL Twig - EC Card component
+# ECL-Twig Card component
 
 npm package: `@ecl-twig/ec-component-card`
 

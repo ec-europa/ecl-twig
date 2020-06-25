@@ -1,4 +1,4 @@
-# ECL Twig - EC Site Header Harmonised component
+# ECL-Twig Site Header Harmonised component
 
 npm package: `@ecl-twig/ec-component-site-header-harmonised`
 

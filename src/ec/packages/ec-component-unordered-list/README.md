@@ -1,4 +1,4 @@
-# ECL Twig - EC Unordered list component
+# ECL-Twig Unordered list component
 
 npm package: `@ecl-twig/ec-component-unordered-list`
 

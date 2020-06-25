@@ -1,4 +1,4 @@
-# ECL Twig - EC Pagination component
+# ECL-Twig Pagination component
 
 npm package: `@ecl-twig/ec-component-pagination`
 

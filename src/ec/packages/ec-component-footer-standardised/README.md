@@ -1,4 +1,4 @@
-# ECL Twig - EC Footer Standardised component
+# ECL-Twig Footer Standardised component
 
 npm package: `@ecl-twig/ec-component-footer-standardised`
 

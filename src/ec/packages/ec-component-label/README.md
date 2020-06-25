@@ -1,4 +1,4 @@
-# ECL Twig - EC Label component
+# ECL-Twig Label component
 
 npm package: `@ecl-twig/ec-component-label`
 

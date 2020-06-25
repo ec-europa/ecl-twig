@@ -1,4 +1,4 @@
-# ECL Twig - EC Media container component
+# ECL-Twig Media container component
 
 npm package: `@ecl-twig/ec-component-media-container`
 
