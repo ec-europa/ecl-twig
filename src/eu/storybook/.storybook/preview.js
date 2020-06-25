@@ -1,13 +1,13 @@
-import { configure, addParameters } from '@storybook/html';
+import { addParameters } from '@storybook/html';
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import { create } from '@storybook/theming';
-import { version } from '../../../lerna.json';
+import { version } from '../../../../lerna.json';
 
 addParameters({
   options: {
     theme: create({
       base: 'light',
-      brandTitle: `ECL Twig EC v${version}`,
+      brandTitle: `ECL Twig EU v${version}`,
       brandUrl: 'https://github.com/ec-europa/ecl-twig',
       brandImage: null,
     }),
@@ -48,17 +48,3 @@ addParameters({
     },
   },
 });
-
-const contexts = [require.context('../packages', true, /.*\.story\.js$/)];
-
-configure(() => {
-  contexts.forEach(context => {
-    context
-      .keys()
-      .filter(key => !key.includes('node_modules'))
-      // Hidden components.
-      // @see: INNO-1542
-      .filter(key => !key.includes('ec-component-contextual-navigation'))
-      .forEach(context);
-  });
-}, module);
