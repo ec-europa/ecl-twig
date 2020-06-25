@@ -1,10 +1,8 @@
-const path = require('path');
-
 const stories = ['../../packages/**/*.story.js'];
 
-const addons = ['@storybook/addon-options', '@storybook/addon-viewport'];
-
-const managerEntries = [
+const addons = [
+  '@storybook/addon-options',
+  '@storybook/addon-viewport',
   '@ecl-twig/storybook-addon-notes/src/register',
   '@ecl-twig/storybook-addon-code/src/register',
   '@ecl-twig/storybook-addon-jscode/src/register',
@@ -18,4 +16,4 @@ const managerWebpack = async baseConfig => {
   return baseConfig;
 };
 
-module.exports = { stories, addons, managerEntries, managerWebpack };
+module.exports = { stories, addons, managerWebpack };
