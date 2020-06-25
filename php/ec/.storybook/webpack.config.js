@@ -1,15 +1,12 @@
-module.exports = ({ config, mode }) => {
+module.exports = ({ config: defaultConfig, mode }) => {
   // Make it less verbose
   if (mode === 'PRODUCTION') {
-    // Remove ProgressPlugin (4th plugin)
-    const plugin = config.plugins.splice(3, 1);
-    if (!(plugin[0].constructor.name === 'ProgressPlugin')) {
-      console.error(
-        'Error: 4th plugin is not ProgressPlugin.\nCheck src/systems/ec/implementations/react/storybook/.storybook/webpack.config.js'
-      );
-      return process.exit(1);
+    // Remove ProgressPlugin (5th plugin)
+    const plugin = defaultConfig.plugins.splice(4, 1);
+    if (plugin[0].constructor.name !== 'ProgressPlugin') {
+      defaultConfig.plugins.push(plugin[0]);
     }
   }
 
-  return config;
+  return defaultConfig;
 };
