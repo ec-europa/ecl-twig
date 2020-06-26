@@ -54,7 +54,7 @@ describe('EC - Table', () => {
 
       const withRowExtraAttributes = dataDefault;
       withRowExtraAttributes.rows.forEach(row => {
-        row.extra_attributes = 'data-test data-test-another'; // eslint-disable-line no-param-reassign
+        row.extra_attributes = 'data-test data-test-another';
       });
 
       return expect(render(withRowExtraAttributes)).resolves.toMatchSnapshot();
@@ -65,7 +65,7 @@ describe('EC - Table', () => {
 
       const withRowExtraClasses = dataDefault;
       withRowExtraClasses.rows.forEach(row => {
-        row.extra_classes = 'row-extra-class'; // eslint-disable-line no-param-reassign
+        row.extra_classes = 'row-extra-class';
       });
 
       return expect(render(withRowExtraClasses)).resolves.toMatchSnapshot();

@@ -1,5 +1,4 @@
 /* eslint-disable no-shadow */
-import { storiesOf } from '@storybook/html';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import { withKnobs, button, text } from '@storybook/addon-knobs';
 import withCode from '@ecl-twig/storybook-addon-code';
@@ -450,25 +449,46 @@ const prepareFooterHarmonisedG1 = dataG1 => {
   return dataG1;
 };
 
-storiesOf('Components/Footers/Harmonised', module)
-  .addDecorator(withCode)
-  .addDecorator(withNotes)
-  .addDecorator(withKnobs)
-  .add('group 1', () => footerHarmonised(prepareFooterHarmonisedG1(dataG1)), {
+export default {
+  title: 'Components/Footers/Harmonised',
+  decorators: [withCode, withNotes, withKnobs],
+};
+
+export const Group1 = () => footerHarmonised(prepareFooterHarmonisedG1(dataG1));
+
+Group1.story = {
+  name: 'group 1',
+
+  parameters: {
     notes: {
       markdown: notes,
       json: { dataG1 },
     },
-  })
-  .add('group 2', () => footerHarmonised(prepareFooterHarmonisedG2(dataG2)), {
+  },
+};
+
+export const Group2 = () => footerHarmonised(prepareFooterHarmonisedG2(dataG2));
+
+Group2.story = {
+  name: 'group 2',
+
+  parameters: {
     notes: {
       markdown: notes,
       json: { dataG2 },
     },
-  })
-  .add('group 3', () => footerHarmonised(prepareFooterHarmonisedG3(dataG3)), {
+  },
+};
+
+export const Group3 = () => footerHarmonised(prepareFooterHarmonisedG3(dataG3));
+
+Group3.story = {
+  name: 'group 3',
+
+  parameters: {
     notes: {
       markdown: notes,
       json: { dataG3 },
     },
-  });
+  },
+};

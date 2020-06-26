@@ -1,4 +1,3 @@
-import { storiesOf } from '@storybook/html';
 import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import {
@@ -42,13 +41,27 @@ const prepareFileUpload = data => {
   return data;
 };
 
-storiesOf('Components/Forms/File Upload', module)
-  .addDecorator(withKnobs)
-  .addDecorator(withNotes)
-  .addDecorator(withCode)
-  .add('default', () => fileUpload(prepareFileUpload(dataDefault)), {
+export default {
+  title: 'Components/Forms/File Upload',
+  decorators: [withKnobs, withNotes, withCode],
+};
+
+export const Default = () => fileUpload(prepareFileUpload(dataDefault));
+
+Default.story = {
+  name: 'default',
+
+  parameters: {
     notes: { markdown: notes, json: dataDefault },
-  })
-  .add('multiple', () => fileUpload(prepareFileUpload(dataMulti)), {
+  },
+};
+
+export const Multiple = () => fileUpload(prepareFileUpload(dataMulti));
+
+Multiple.story = {
+  name: 'multiple',
+
+  parameters: {
     notes: { markdown: notes, json: dataMulti },
-  });
+  },
+};

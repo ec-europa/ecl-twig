@@ -1,4 +1,3 @@
-import { storiesOf } from '@storybook/html';
 import { withKnobs, text, select } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
@@ -49,16 +48,37 @@ const prepareTag = (data, link, aria) => {
   return data;
 };
 
-storiesOf('Components/Tag', module)
-  .addDecorator(withKnobs)
-  .addDecorator(withNotes)
-  .addDecorator(withCode)
-  .add('as a link', () => tag(prepareTag(dataLink, true)), {
+export default {
+  title: 'Components/Tag',
+  decorators: [withKnobs, withNotes, withCode],
+};
+
+export const AsALink = () => tag(prepareTag(dataLink, true));
+
+AsALink.story = {
+  name: 'as a link',
+
+  parameters: {
     notes: { markdown: notes, json: dataLink },
-  })
-  .add('as a button', () => tag(prepareTag(dataButton)), {
+  },
+};
+
+export const AsAButton = () => tag(prepareTag(dataButton));
+
+AsAButton.story = {
+  name: 'as a button',
+
+  parameters: {
     notes: { markdown: notes, json: dataButton },
-  })
-  .add('removable', () => tag(prepareTag(dataRemovable, false, true)), {
+  },
+};
+
+export const Removable = () => tag(prepareTag(dataRemovable, false, true));
+
+Removable.story = {
+  name: 'removable',
+
+  parameters: {
     notes: { markdown: notes, json: dataRemovable },
-  });
+  },
+};

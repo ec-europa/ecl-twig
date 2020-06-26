@@ -1,4 +1,3 @@
-import { storiesOf } from '@storybook/html';
 import {
   withKnobs,
   button,
@@ -218,54 +217,60 @@ const prepareSiteHeaderHarmonised = (data, variant) => {
 
   return data;
 };
-storiesOf('Components/Site Headers/Harmonised', module)
-  .addDecorator(withNotes)
-  .addDecorator(withCode)
-  .addDecorator(withKnobs)
-  .add(
-    'group 1',
-    () => {
-      button(btnLangLabel, btnLangG1Handler, tabLabels.cases);
-      button(btnLoginLabel, btnLoginHandler, tabLabels.cases);
-      button(btnMenuLabel, btnMenuG1Handler, tabLabels.cases);
-      button(btnSearchLabel, btnSearchG1Handler, tabLabels.cases);
-      button(
-        'With or without the Class name',
-        btnClassHandler,
-        tabLabels.cases
-      );
-      dataG1.logged = true;
-      const dataStory = prepareSiteHeaderHarmonised(dataG1, 'group1');
 
-      return siteHeaderHarmonised(dataStory);
-    },
-    {
-      notes: { markdown: notes, json: dataG1 },
-    }
-  )
-  .add(
-    'group 2',
-    () => {
-      button(btnLangLabel, btnLangG2Handler, tabLabels.cases);
-      button(btnSearchLabel, btnSearchG2Handler, tabLabels.cases);
-      button(btnMenuLabel, btnMenuG2Handler, tabLabels.cases);
-      const dataStory = prepareSiteHeaderHarmonised(dataG2, 'group2');
+export default {
+  title: 'Components/Site Headers/Harmonised',
+  decorators: [withNotes, withCode, withKnobs],
+};
 
-      return siteHeaderHarmonised(dataStory);
-    },
-    {
-      notes: { markdown: notes, json: dataG2 },
-    }
-  )
-  .add(
-    'group 3',
-    () => {
-      button(btnLogoLabel, btnLogoHandler, tabLabels.cases);
-      const dataStory = prepareSiteHeaderHarmonised(dataG3, 'group3');
+export const Group1 = () => {
+  button(btnLangLabel, btnLangG1Handler, tabLabels.cases);
+  button(btnLoginLabel, btnLoginHandler, tabLabels.cases);
+  button(btnMenuLabel, btnMenuG1Handler, tabLabels.cases);
+  button(btnSearchLabel, btnSearchG1Handler, tabLabels.cases);
+  button('With or without the Class name', btnClassHandler, tabLabels.cases);
+  dataG1.logged = true;
+  const dataStory = prepareSiteHeaderHarmonised(dataG1, 'group1');
 
-      return siteHeaderHarmonised(dataStory);
-    },
-    {
-      notes: { markdown: notes, json: dataGroup3 },
-    }
-  );
+  return siteHeaderHarmonised(dataStory);
+};
+
+Group1.story = {
+  name: 'group 1',
+
+  parameters: {
+    notes: { markdown: notes, json: dataG1 },
+  },
+};
+
+export const Group2 = () => {
+  button(btnLangLabel, btnLangG2Handler, tabLabels.cases);
+  button(btnSearchLabel, btnSearchG2Handler, tabLabels.cases);
+  button(btnMenuLabel, btnMenuG2Handler, tabLabels.cases);
+  const dataStory = prepareSiteHeaderHarmonised(dataG2, 'group2');
+
+  return siteHeaderHarmonised(dataStory);
+};
+
+Group2.story = {
+  name: 'group 2',
+
+  parameters: {
+    notes: { markdown: notes, json: dataG2 },
+  },
+};
+
+export const Group3 = () => {
+  button(btnLogoLabel, btnLogoHandler, tabLabels.cases);
+  const dataStory = prepareSiteHeaderHarmonised(dataG3, 'group3');
+
+  return siteHeaderHarmonised(dataStory);
+};
+
+Group3.story = {
+  name: 'group 3',
+
+  parameters: {
+    notes: { markdown: notes, json: dataGroup3 },
+  },
+};

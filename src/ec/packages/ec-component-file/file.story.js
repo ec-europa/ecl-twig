@@ -1,4 +1,3 @@
-import { storiesOf } from '@storybook/html';
 import { withKnobs, text, select } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import {
@@ -96,13 +95,28 @@ const prepareFile = data => {
   return data;
 };
 
-storiesOf('Components/File', module)
-  .addDecorator(withNotes)
-  .addDecorator(withCode)
-  .addDecorator(withKnobs)
-  .add('without translation', () => file(prepareFile(dataWithoutTranslation)), {
+export default {
+  title: 'Components/File',
+  decorators: [withNotes, withCode, withKnobs],
+};
+
+export const WithoutTranslation = () =>
+  file(prepareFile(dataWithoutTranslation));
+
+WithoutTranslation.story = {
+  name: 'without translation',
+
+  parameters: {
     notes: { markdown: notes, json: dataWithoutTranslation },
-  })
-  .add('with translation', () => file(prepareFile(dataWithTranslation)), {
+  },
+};
+
+export const WithTranslation = () => file(prepareFile(dataWithTranslation));
+
+WithTranslation.story = {
+  name: 'with translation',
+
+  parameters: {
     notes: { markdown: notes, json: dataWithTranslation },
-  });
+  },
+};

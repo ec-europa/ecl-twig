@@ -1,4 +1,3 @@
-import { storiesOf } from '@storybook/html';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
 import { withKnobs, text, select } from '@storybook/addon-knobs';
@@ -44,13 +43,27 @@ const prepareBreadcrumbHarmonised = data => {
   return data;
 };
 
-storiesOf('Components/Navigation/Breadcrumbs/Breadcrumb Harmonised', module)
-  .addDecorator(withNotes)
-  .addDecorator(withCode)
-  .addDecorator(withKnobs)
-  .add('simple', () => breadcrumb(prepareBreadcrumbHarmonised(dataSimple)), {
+export default {
+  title: 'Components/Navigation/Breadcrumbs/Breadcrumb Harmonised',
+  decorators: [withNotes, withCode, withKnobs],
+};
+
+export const Simple = () => breadcrumb(prepareBreadcrumbHarmonised(dataSimple));
+
+Simple.story = {
+  name: 'simple',
+
+  parameters: {
     notes: { markdown: notes, json: dataSimple },
-  })
-  .add('long', () => breadcrumb(prepareBreadcrumbHarmonised(dataLong)), {
+  },
+};
+
+export const Long = () => breadcrumb(prepareBreadcrumbHarmonised(dataLong));
+
+Long.story = {
+  name: 'long',
+
+  parameters: {
     notes: { markdown: notes, json: dataLong },
-  });
+  },
+};

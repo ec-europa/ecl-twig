@@ -1,4 +1,3 @@
-import { storiesOf } from '@storybook/html';
 import { withKnobs, text, boolean, select } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
@@ -95,57 +94,84 @@ const preparePageHeader = (data, variant) => {
   return data;
 };
 
-storiesOf('Components/deprecated/Page Header', module)
-  .addDecorator(withKnobs)
-  .addDecorator(withNotes)
-  .addDecorator(withCode)
-  .add(
-    'ECL < 2.14 title',
-    () => pageHeader(preparePageHeader(pageHeaderDataTitle)),
-    {
-      notes: { markdown: notes, json: pageHeaderDataTitle },
-    }
-  )
-  .add(
-    'ECL < 2.14 title-description',
-    () => pageHeader(preparePageHeader(pageHeaderDataTitleDescription)),
-    {
-      notes: { markdown: notes, json: pageHeaderDataTitleDescription },
-    }
-  )
-  .add(
-    'ECL < 2.14 meta-title',
-    () => pageHeader(preparePageHeader(pageHeaderDataMetaTitle)),
-    {
-      notes: { markdown: notes, json: pageHeaderDataMetaTitle },
-    }
-  )
-  .add(
-    'ECL < 2.14 meta-title-description',
-    () => pageHeader(preparePageHeader(pageHeaderDataMetaTitleDescription)),
-    {
-      notes: { markdown: notes, json: pageHeaderDataMetaTitleDescription },
-    }
-  )
-  .add(
-    'ECL < 2.14 events',
-    () => pageHeader(preparePageHeader(pageHeaderDataEvents, 'event')),
-    {
-      notes: { markdown: notes, json: pageHeaderDataEvents },
-    }
-  )
-  .add(
-    'ECL < 2.14 events-description',
-    () =>
-      pageHeader(preparePageHeader(pageHeaderDataEventsDescription, 'event')),
-    {
-      notes: { markdown: notes, json: pageHeaderDataEventsDescription },
-    }
-  )
-  .add(
-    'ECL < 2.14 Background image',
-    () => pageHeader(preparePageHeader(pageHeaderBackgroundImage, 'img')),
-    {
-      notes: { markdown: notes, json: pageHeaderBackgroundImage },
-    }
-  );
+export default {
+  title: 'Components/deprecated/Page Header',
+  decorators: [withKnobs, withNotes, withCode],
+};
+
+export const Ecl214Title = () =>
+  pageHeader(preparePageHeader(pageHeaderDataTitle));
+
+Ecl214Title.story = {
+  name: 'ECL < 2.14 title',
+
+  parameters: {
+    notes: { markdown: notes, json: pageHeaderDataTitle },
+  },
+};
+
+export const Ecl214TitleDescription = () =>
+  pageHeader(preparePageHeader(pageHeaderDataTitleDescription));
+
+Ecl214TitleDescription.story = {
+  name: 'ECL < 2.14 title-description',
+
+  parameters: {
+    notes: { markdown: notes, json: pageHeaderDataTitleDescription },
+  },
+};
+
+export const Ecl214MetaTitle = () =>
+  pageHeader(preparePageHeader(pageHeaderDataMetaTitle));
+
+Ecl214MetaTitle.story = {
+  name: 'ECL < 2.14 meta-title',
+
+  parameters: {
+    notes: { markdown: notes, json: pageHeaderDataMetaTitle },
+  },
+};
+
+export const Ecl214MetaTitleDescription = () =>
+  pageHeader(preparePageHeader(pageHeaderDataMetaTitleDescription));
+
+Ecl214MetaTitleDescription.story = {
+  name: 'ECL < 2.14 meta-title-description',
+
+  parameters: {
+    notes: { markdown: notes, json: pageHeaderDataMetaTitleDescription },
+  },
+};
+
+export const Ecl214Events = () =>
+  pageHeader(preparePageHeader(pageHeaderDataEvents, 'event'));
+
+Ecl214Events.story = {
+  name: 'ECL < 2.14 events',
+
+  parameters: {
+    notes: { markdown: notes, json: pageHeaderDataEvents },
+  },
+};
+
+export const Ecl214EventsDescription = () =>
+  pageHeader(preparePageHeader(pageHeaderDataEventsDescription, 'event'));
+
+Ecl214EventsDescription.story = {
+  name: 'ECL < 2.14 events-description',
+
+  parameters: {
+    notes: { markdown: notes, json: pageHeaderDataEventsDescription },
+  },
+};
+
+export const Ecl214BackgroundImage = () =>
+  pageHeader(preparePageHeader(pageHeaderBackgroundImage, 'img'));
+
+Ecl214BackgroundImage.story = {
+  name: 'ECL < 2.14 Background image',
+
+  parameters: {
+    notes: { markdown: notes, json: pageHeaderBackgroundImage },
+  },
+};
