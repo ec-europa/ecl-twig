@@ -1,5 +1,4 @@
-/* eslint-disable no-shadow, dot-notation */
-import { storiesOf } from '@storybook/html';
+/* eslint-disable no-shadow */
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
 import { withKnobs, button, text } from '@storybook/addon-knobs';
@@ -314,10 +313,18 @@ const prepareFooterStandardised = data => {
   return data;
 };
 
-storiesOf('Components/Footers/Standardised', module)
-  .addDecorator(withCode)
-  .addDecorator(withNotes)
-  .addDecorator(withKnobs)
-  .add('default', () => footerStandardised(prepareFooterStandardised(data)), {
+export default {
+  title: 'Components/Footers/Standardised',
+  decorators: [withCode, withNotes, withKnobs],
+};
+
+export const Default = () =>
+  footerStandardised(prepareFooterStandardised(data));
+
+Default.story = {
+  name: 'default',
+
+  parameters: {
     notes: { markdown: notes, json: data },
-  });
+  },
+};

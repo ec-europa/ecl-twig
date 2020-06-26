@@ -44,7 +44,7 @@ const adapter = initialData => {
     item.path = item.href;
     delete item.href;
     if (item.isActive) {
-      item.active = true; // eslint-disable-line no-param-reassign
+      item.active = true;
       delete item.isActive;
     }
   });

@@ -1,4 +1,3 @@
-import { storiesOf } from '@storybook/html';
 import { withKnobs, text, select } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
@@ -43,71 +42,80 @@ const prepareLink = data => {
   return data;
 };
 
-storiesOf('Components/Navigation/Link', module)
-  .addDecorator(withKnobs)
-  .addDecorator(withNotes)
-  .addDecorator(withCode)
-  .add(
-    'default',
-    () => {
-      const dataStory = prepareLink(dataDefault);
+export default {
+  title: 'Components/Navigation/Link',
+  decorators: [withKnobs, withNotes, withCode],
+};
 
-      const name = select('icon.name', iconsList, null, tabLabels.optional);
-      if (name !== null) {
-        getIconKnobs(dataStory, name, 'ui', 'xs');
-      } else if (name === null && dataStory.icon) {
-        delete dataStory.icon.name;
-      }
+export const Default = () => {
+  const dataStory = prepareLink(dataDefault);
 
-      const demo = document.createDocumentFragment();
-      const wrapper = document.createElement('p');
-      wrapper.className = 'ecl-u-type-paragraph';
-      wrapper.setAttribute('demo_only', true);
-      wrapper.innerHTML = link(dataStory);
-      demo.appendChild(wrapper);
+  const name = select('icon.name', iconsList, null, tabLabels.optional);
+  if (name !== null) {
+    getIconKnobs(dataStory, name, 'ui', 'xs');
+  } else if (name === null && dataStory.icon) {
+    delete dataStory.icon.name;
+  }
 
-      return demo;
-    },
-    {
-      notes: { markdown: notes, json: dataDefault },
-    }
-  )
-  .add(
-    'standalone',
-    () => {
-      const dataStory = prepareLink(dataStandalone);
-      const name = select('icon.name', iconsList, null, tabLabels.optional);
-      if (name !== null) {
-        getIconKnobs(dataStory, name, 'ui', 'xs');
-      } else if (name === null && dataStory.icon) {
-        delete dataStory.icon.name;
-      }
+  const demo = document.createDocumentFragment();
+  const wrapper = document.createElement('p');
+  wrapper.className = 'ecl-u-type-paragraph';
+  wrapper.setAttribute('demo_only', true);
+  wrapper.innerHTML = link(dataStory);
+  demo.appendChild(wrapper);
 
-      return link(dataStory);
-    },
-    {
-      notes: { markdown: notes, json: dataStandalone },
-    }
-  )
-  .add(
-    'cta',
-    () => {
-      const dataStory = prepareLink(dataCta);
-      const name = select(
-        'icon.name',
-        iconsList,
-        'rounded-arrow',
-        tabLabels.optional
-      );
-      if (name !== null) {
-        getIconKnobs(dataStory, name, 'ui', 'xs', '', 'rotate-90', true);
-      } else if (name === null && dataStory.icon) {
-        delete dataStory.icon.name;
-      }
+  return demo;
+};
 
-      return link(dataStory);
-    },
-    {
-      notes: { markdown: notes, json: dataCta },
-    }
+Default.story = {
+  name: 'default',
+
+  parameters: {
+    notes: { markdown: notes, json: dataDefault },
+  },
+};
+
+export const Standalone = () => {
+  const dataStory = prepareLink(dataStandalone);
+  const name = select('icon.name', iconsList, null, tabLabels.optional);
+  if (name !== null) {
+    getIconKnobs(dataStory, name, 'ui', 'xs');
+  } else if (name === null && dataStory.icon) {
+    delete dataStory.icon.name;
+  }
+
+  return link(dataStory);
+};
+
+Standalone.story = {
+  name: 'standalone',
+
+  parameters: {
+    notes: { markdown: notes, json: dataStandalone },
+  },
+};
+
+export const Cta = () => {
+  const dataStory = prepareLink(dataCta);
+  const name = select(
+    'icon.name',
+    iconsList,
+    'rounded-arrow',
+    tabLabels.optional
   );
+  if (name !== null) {
+    getIconKnobs(dataStory, name, 'ui', 'xs', '', 'rotate-90', true);
+  } else if (name === null && dataStory.icon) {
+    delete dataStory.icon.name;
+  }
+
+  return link(dataStory);
+};
+
+Cta.story = {
+  name: 'cta',
+
+  parameters: {
+    notes: { markdown: notes, json: dataCta },
+  },
+};

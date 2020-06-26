@@ -1,4 +1,3 @@
-import { storiesOf } from '@storybook/html';
 import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
@@ -97,13 +96,27 @@ const prepareLanguageList = data => {
   return data;
 };
 
-storiesOf('Components/Language list', module)
-  .addDecorator(withKnobs)
-  .addDecorator(withCode)
-  .addDecorator(withNotes)
-  .add('splash', () => languageList(prepareLanguageList(dataSplash)), {
+export default {
+  title: 'Components/Language list',
+  decorators: [withKnobs, withCode, withNotes],
+};
+
+export const Splash = () => languageList(prepareLanguageList(dataSplash));
+
+Splash.story = {
+  name: 'splash',
+
+  parameters: {
     notes: { markdown: notes, json: dataSplash },
-  })
-  .add('overlay', () => languageList(prepareLanguageList(dataOverlay)), {
+  },
+};
+
+export const Overlay = () => languageList(prepareLanguageList(dataOverlay));
+
+Overlay.story = {
+  name: 'overlay',
+
+  parameters: {
     notes: { markdown: notes, json: dataOverlay },
-  });
+  },
+};

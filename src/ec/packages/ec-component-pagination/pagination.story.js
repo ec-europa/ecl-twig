@@ -1,4 +1,3 @@
-import { storiesOf } from '@storybook/html';
 import { withKnobs, text, select } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
@@ -97,10 +96,17 @@ const preparePagination = data => {
   return data;
 };
 
-storiesOf('Components/Navigation/Pagination', module)
-  .addDecorator(withKnobs)
-  .addDecorator(withNotes)
-  .addDecorator(withCode)
-  .add('default', () => pagination(preparePagination(specs)), {
+export default {
+  title: 'Components/Navigation/Pagination',
+  decorators: [withKnobs, withNotes, withCode],
+};
+
+export const Default = () => pagination(preparePagination(specs));
+
+Default.story = {
+  name: 'default',
+
+  parameters: {
     notes: { markdown: notes, json: specs },
-  });
+  },
+};
