@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/html';
-import { withKnobs, text, select } from '@storybook/addon-knobs';
+import { withKnobs, text, select, optionsKnob } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import he from 'he';
 import {
@@ -73,15 +73,14 @@ const prepareGallery = data => {
       delete item.extra_attributes;
     }
     if (item.icon) {
-      item.icon.path = select(
+      item.icon.path = optionsKnob(
         `items[${i}].icon.path`,
-        ['none', defaultSprite],
+        { current: defaultSprite, 'no path': '' },
         defaultSprite,
+        { display: 'inline-radio' },
         tabLabels.required
       );
-      if (item.icon.path === 'none') {
-        item.icon.path = '';
-      } else {
+      if (data.items[i].icon.path) {
         item.icon.type = select(
           `items[${i}].icon.type`,
           [item.icon.type],
