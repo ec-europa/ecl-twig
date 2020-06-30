@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/html';
-import { withKnobs, button, select } from '@storybook/addon-knobs';
+import { withKnobs, button, optionsKnob } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
 import {
@@ -43,36 +43,34 @@ const frBtnHandler = () => {
 const prepareSiteHeader = (data, lang) => {
   if (lang === 'en') {
     button(btnLabel, enBtnHandler, tabLabels.cases);
-    data.logo.src = select(
+    data.logo.src = optionsKnob(
       'logo.src',
-      ['none', englishBanner],
+      { current: englishBanner, 'no path': '' },
       englishBanner,
+      { display: 'inline-radio' },
       tabLabels.required
     );
   } else {
     button(btnLabel, frBtnHandler, tabLabels.cases);
-    data.logo.src = select(
+    data.logo.src = optionsKnob(
       'logo.src',
-      ['none', frenchBanner],
+      { current: frenchBanner, 'no path': '' },
       frenchBanner,
+      { display: 'inline-radio' },
       tabLabels.required
     );
   }
-  if (data.logo.src === 'none') {
-    data.logo.src = '';
-  } else {
+  if (data.logo.src) {
     // Logo knobs
     getLogoKnobs(data, true);
   }
-  data.icon_file_path = select(
+  data.icon_file_path = optionsKnob(
     'icon_file_path',
-    ['none', defaultSprite],
+    { current: defaultSprite, 'no path': '' },
     defaultSprite,
+    { display: 'inline-radio' },
     tabLabels.required
   );
-  if (data.icon_file_path === 'none') {
-    data.icon_file_path = '';
-  }
   // Language selector knobs.
   if (data.language_selector) {
     getLanguageSelectorKnobs(data, false, true);

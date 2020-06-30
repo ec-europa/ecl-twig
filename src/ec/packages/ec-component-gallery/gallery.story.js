@@ -166,15 +166,14 @@ const prepareGallery = data => {
     data.overlay.close.label,
     tabLabels.required
   );
-  data.overlay.close.icon.path = select(
+  data.overlay.close.icon.path = optionsKnob(
     'overlay.close.icon.path',
-    ['none', defaultSprite],
+    { current: defaultSprite, 'no path': '' },
     defaultSprite,
+    { display: 'inline-radio' },
     tabLabels.required
   );
-  if (data.overlay.close.icon.path === 'none') {
-    data.overlay.close.icon.path = '';
-  } else {
+  if (data.overlay.close.icon.path) {
     data.overlay.close.icon.type = select(
       'overlay.close.icon.type',
       [data.overlay.close.icon.type],
@@ -193,13 +192,14 @@ const prepareGallery = data => {
     data.overlay.previous.label,
     tabLabels.required
   );
-  data.overlay.previous.icon.path = select(
+  data.overlay.previous.icon.path = optionsKnob(
     'overlay.previous.icon.path',
-    ['none', defaultSprite],
+    { current: defaultSprite, 'no path': '' },
     defaultSprite,
+    { display: 'inline-radio' },
     tabLabels.required
   );
-  if (data.overlay.previous.icon.path === 'none') {
+  if (data.overlay.previous.icon.path) {
     data.overlay.previous.icon = {};
   } else {
     data.overlay.previous.icon.type = select(
@@ -220,15 +220,14 @@ const prepareGallery = data => {
     data.overlay.next.label,
     tabLabels.required
   );
-  data.overlay.next.icon.path = select(
+  data.overlay.next.icon.path = optionsKnob(
     'overlay.next.icon.path',
-    ['none', defaultSprite],
+    { current: defaultSprite, 'no path': '' },
     defaultSprite,
+    { display: 'inline-radio' },
     tabLabels.required
   );
-  if (data.overlay.next.icon.path === 'none') {
-    data.overlay.next.icon.path = '';
-  } else {
+  if (data.overlay.next.icon.path) {
     data.overlay.next.icon.type = select(
       `overlay.next.icon.type`,
       [data.overlay.next.icon.type],
@@ -252,15 +251,13 @@ const prepareGallery = data => {
     data.overlay.download.link.path,
     tabLabels.required
   );
-  data.overlay.download.icon.path = select(
+  data.overlay.download.icon.path = optionsKnob(
     'overlay.download.icon.path',
-    ['none', defaultSprite],
+    { current: defaultSprite, 'no path': '' },
     defaultSprite,
+    { display: 'inline-radio' },
     tabLabels.required
   );
-  if (data.overlay.download.icon.path === 'none') {
-    data.overlay.download.icon.path = '';
-  }
   data.overlay.share.link.label = text(
     'overlay.share.link.label',
     data.overlay.share.link.label,
@@ -271,15 +268,13 @@ const prepareGallery = data => {
     data.overlay.share.link.path,
     tabLabels.optional
   );
-  data.overlay.share.icon.path = select(
+  data.overlay.share.icon.path = optionsKnob(
     'overlay.share.icon.path',
-    ['none', defaultSprite],
+    { current: defaultSprite, 'no path': '' },
     defaultSprite,
+    { display: 'inline-radio' },
     tabLabels.optional
   );
-  if (data.overlay.share.icon.path === 'none') {
-    data.overlay.share.icon.path = '';
-  }
 
   getExtraKnobs(data);
   getComplianceKnob(data);
