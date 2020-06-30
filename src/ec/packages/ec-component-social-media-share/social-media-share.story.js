@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/html';
-import { withKnobs, text, select } from '@storybook/addon-knobs';
+import { withKnobs, text, select, optionsKnob } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import {
   getExtraKnobs,
@@ -47,10 +47,11 @@ const prepareSocialMediaShare = data => {
           icon.name,
           label
         );
-        icon.path = select(
+        icon.path = optionsKnob(
           `links[${i}].icon[${idx}].path`,
-          [defaultSprite],
+          { current: defaultSprite, 'no path': '' },
           defaultSprite,
+          { display: 'inline-radio' },
           label
         );
         icon.size = select(
@@ -104,10 +105,11 @@ const prepareSocialMediaShare = data => {
             icon.name,
             label
           );
-          icon.path = select(
+          icon.path = optionsKnob(
             `links[${i}].icon[${idx}].path`,
-            [defaultSprite],
+            { current: defaultSprite, 'no path': '' },
             defaultSprite,
+            { display: 'inline-radio' },
             label
           );
           icon.size = select(

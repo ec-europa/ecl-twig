@@ -39,6 +39,8 @@ const adapter = initialData => {
       share: formatLink(initialData.overlay.share),
     },
   };
+  adaptedData.view_all_label = initialData.viewAllLabel;
+  adaptedData.counter_label = initialData.counterLabel;
   adaptedData.overlay.download.link.path = '/example';
   adaptedData.overlay.share.link.path = '/example';
 
