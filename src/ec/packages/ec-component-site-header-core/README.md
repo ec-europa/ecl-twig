@@ -1,4 +1,4 @@
-# ECL Twig - EC Site Header Core component
+# ECL-Twig Site Header Core component
 
 npm package: `@ecl-twig/ec-component-site-header-core`
 
@@ -43,6 +43,7 @@ npm install --save @ecl-twig/ec-component-site-header-core
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
+- **"_compliance_"** (boolean) (default: false) Activates debug
 
 ### Example :
 

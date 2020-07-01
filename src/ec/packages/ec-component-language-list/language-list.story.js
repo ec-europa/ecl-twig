@@ -1,8 +1,12 @@
 import { storiesOf } from '@storybook/html';
-import { withKnobs, text, select } from '@storybook/addon-knobs';
+import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
-import { getExtraKnobs, tabLabels } from '@ecl-twig/story-utils';
+import {
+  getExtraKnobs,
+  tabLabels,
+  getComplianceKnob,
+} from '@ecl-twig/story-utils';
 
 import logoPath from '@ecl/ec-resources-logo/logo--mute.svg';
 import iconPath from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
@@ -14,23 +18,30 @@ import notes from './README.md';
 const prepareLanguageList = data => {
   data.icon_path = select(
     'icon_path',
-    [iconPath],
+    ['none', iconPath],
     iconPath,
     tabLabels.required
   );
+  if (data.icon_path === 'none') {
+    data.icon_path = '';
+  }
   if (data.logo) {
     data.logo.path = select(
       'logo.path',
-      [logoPath],
+      ['none', logoPath],
       logoPath,
       tabLabels.required
     );
-    data.logo.alt = select(
-      'logo.alt',
-      [data.logo.alt],
-      data.logo.alt,
-      tabLabels.required
-    );
+    if (data.logo.path === 'none') {
+      data.logo.path = '';
+    } else {
+      data.logo.alt = select(
+        'logo.alt',
+        [data.logo.alt],
+        data.logo.alt,
+        tabLabels.required
+      );
+    }
   }
   if (data.overlay) {
     data.overlay = select(
@@ -52,7 +63,7 @@ const prepareLanguageList = data => {
   }
 
   data.items.forEach((item, i) => {
-    if (data.items[i].label && data.items[i].path) {
+    if (item.label && item.path) {
       item.label = select(
         `items[${i}].label`,
         ['none', item.label],
@@ -67,14 +78,21 @@ const prepareLanguageList = data => {
         tabLabels.required
       );
     }
-
-    if (data.items[i].label === 'none') {
-      data.items[i].label = '';
-      data.items[i].path = '';
+    if (item.active) {
+      item.active = boolean(
+        `items[${i}].active`,
+        item.active,
+        tabLabels.required
+      );
+    }
+    if (item.label === 'none') {
+      item.label = '';
+      item.path = '';
     }
   });
 
   getExtraKnobs(data);
+  getComplianceKnob(data);
 
   return data;
 };

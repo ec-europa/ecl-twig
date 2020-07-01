@@ -1,4 +1,4 @@
-# ECL Twig - EC Hero Banner
+# ECL-Twig Hero Banner
 
 npm package: `@ecl-twig/ec-component-hero-banner`
 
@@ -18,7 +18,9 @@ npm install --save @ecl-twig/ec-component-hero-banner
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
-  - "value" (string) Attribute value, eg: 'data-test-1'
+  - "value" (string) Attribute value, eg: 'data-test-1',
+- **"_compliance_"**: (optional) (boolean) (default: false) Activates debug
+- **"_compliance_inner_check_"** (optional) (boolean) (default: false) Inline compliance report
 
 ### Example :
 

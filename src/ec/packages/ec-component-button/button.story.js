@@ -2,7 +2,12 @@ import { storiesOf } from '@storybook/html';
 import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
-import { getExtraKnobs, tabLabels, getIconKnobs } from '@ecl-twig/story-utils';
+import {
+  getExtraKnobs,
+  tabLabels,
+  getIconKnobs,
+  getComplianceKnob,
+} from '@ecl-twig/story-utils';
 // Import data for demos
 import dataPrimary from '@ecl/ec-specs-button/demo/data--primary';
 import dataSecondary from '@ecl/ec-specs-button/demo/data--secondary';
@@ -34,6 +39,7 @@ const prepareButton = data => {
   );
 
   getExtraKnobs(data);
+  getComplianceKnob(data);
 
   return data;
 };
@@ -49,6 +55,8 @@ storiesOf('Components/Button', module)
       const name = select('icon.name', iconsList, null, tabLabels.optional);
       if (name !== null) {
         getIconKnobs(data, name, 'ui', 'xs');
+      } else if (name === null && data.icon) {
+        delete data.icon.name;
       }
 
       return button(data);
@@ -64,6 +72,8 @@ storiesOf('Components/Button', module)
       const name = select('icon.name', iconsList, null, tabLabels.optional);
       if (name !== null) {
         getIconKnobs(data, name, 'ui', 'xs');
+      } else if (name === null && data.icon) {
+        delete data.icon.name;
       }
 
       return button(data);
@@ -84,6 +94,8 @@ storiesOf('Components/Button', module)
       );
       if (name !== null) {
         getIconKnobs(data, name, 'ui', 'xs', 'default', 'rotate-90');
+      } else if (name === null && data.icon) {
+        delete data.icon.name;
       }
 
       return button(data);
@@ -99,6 +111,8 @@ storiesOf('Components/Button', module)
       const name = select('icon.name', iconsList, null, tabLabels.optional);
       if (name !== null) {
         getIconKnobs(data, name, 'ui', 'xs');
+      } else if (name === null && data.icon) {
+        delete data.icon.name;
       }
 
       return button(data);
@@ -114,6 +128,8 @@ storiesOf('Components/Button', module)
       const name = select('icon.name', iconsList, null, tabLabels.optional);
       if (name !== null) {
         getIconKnobs(data, name, 'ui', 'xs');
+      } else if (name === null && data.icon) {
+        delete data.icon.name;
       }
 
       return button(data);

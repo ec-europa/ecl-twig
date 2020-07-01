@@ -2,7 +2,12 @@ import { storiesOf } from '@storybook/html';
 import { withKnobs, text, select } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
-import { getExtraKnobs, tabLabels, getIconKnobs } from '@ecl-twig/story-utils';
+import {
+  getExtraKnobs,
+  tabLabels,
+  getIconKnobs,
+  getComplianceKnob,
+} from '@ecl-twig/story-utils';
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 // Import data for demos
 import dataInfo from './demo/data--info';
@@ -28,14 +33,19 @@ const prepareMessage = data => {
     data.icon.name,
     tabLabels.required
   );
+
   getIconKnobs(data, name, 'notifications', 'l', 'primary', 'none');
+
+  data.close.label = text('close.label', data.close.label, tabLabels.required);
   data.close.icon.path = select(
     'close.icon.path',
     [defaultSprite],
     defaultSprite,
     tabLabels.required
   );
+
   getExtraKnobs(data);
+  getComplianceKnob(data);
 
   return data;
 };

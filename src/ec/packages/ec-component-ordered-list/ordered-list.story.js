@@ -1,7 +1,11 @@
 import { storiesOf } from '@storybook/html';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import { withKnobs, text } from '@storybook/addon-knobs';
-import { getExtraKnobs, tabLabels } from '@ecl-twig/story-utils';
+import {
+  getExtraKnobs,
+  tabLabels,
+  getComplianceKnob,
+} from '@ecl-twig/story-utils';
 import withCode from '@ecl-twig/storybook-addon-code';
 
 import specs from '@ecl/ec-specs-list/demo/data--text';
@@ -25,6 +29,7 @@ const prepareOrderedList = data => {
   });
 
   getExtraKnobs(data);
+  getComplianceKnob(data);
 
   return data;
 };

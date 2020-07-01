@@ -1,7 +1,14 @@
+/* eslint-disable no-param-reassign */
 import { storiesOf } from '@storybook/html';
-import { withKnobs } from '@storybook/addon-knobs';
+import { withKnobs, select, text } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
+import {
+  getExtraKnobs,
+  tabLabels,
+  getLinkKnobs,
+  getComplianceKnob,
+} from '@ecl-twig/story-utils';
 
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import dataSimple from './demo/data--simple';
@@ -10,33 +17,41 @@ import dataLong from './demo/data';
 import breadcrumb from './ecl-breadcrumb.html.twig';
 import notes from './README.md';
 
+const prepareBreadcrumb = data => {
+  data.icon_file_path = select(
+    'icon_file_path',
+    ['none', defaultSprite],
+    defaultSprite,
+    tabLabels.required
+  );
+  if (data.icon_file_path === 'none') {
+    data.icon_file_path = '';
+  }
+  data.navigation_text = text(
+    'navigation_text',
+    data.navigation_text,
+    tabLabels.required
+  );
+  data.ellipsis_label = text(
+    'ellipsis_label',
+    data.ellipsis_label,
+    tabLabels.required
+  );
+
+  getLinkKnobs(data);
+  getExtraKnobs(data);
+  getComplianceKnob(data);
+
+  return data;
+};
+
 storiesOf('Components/Navigation/Breadcrumb', module)
   .addDecorator(withKnobs)
   .addDecorator(withNotes)
   .addDecorator(withCode)
-  .add(
-    'simple',
-    () =>
-      breadcrumb({
-        links: dataSimple.links,
-        icon_file_path: defaultSprite,
-        navigation_text: dataSimple.label,
-        ellipsis_label: dataSimple.ariaLabel,
-      }),
-    {
-      notes: { markdown: notes, json: dataSimple },
-    }
-  )
-  .add(
-    'long',
-    () =>
-      breadcrumb({
-        links: dataLong.links,
-        icon_file_path: defaultSprite,
-        navigation_text: dataLong.label,
-        ellipsis_label: dataLong.ariaLabel,
-      }),
-    {
-      notes: { markdown: notes, json: dataLong },
-    }
-  );
+  .add('simple', () => breadcrumb(prepareBreadcrumb(dataSimple)), {
+    notes: { markdown: notes, json: dataSimple },
+  })
+  .add('long', () => breadcrumb(prepareBreadcrumb(dataLong)), {
+    notes: { markdown: notes, json: dataLong },
+  });

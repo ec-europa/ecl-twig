@@ -17,10 +17,15 @@
           "name" (string) (default: ''),
           "value" (optional) (string)
         ...
-      ]
+      ],
+    - "_compliance" (boolean) (default: false) Activates debug
+    - "_compliance_inner_check_" (boolean) (default: false) Inline compliance report
 #}
 
 {# Internal properties #}
+
+{% set _compliance = _compliance_|default(false) %}
+{% set _compliance_inner_check = _compliance_inner_check_|default(false) %}
 
 {% set _icon = {
   path: '',
@@ -69,5 +74,15 @@
   {{ _extra_attributes|raw }}>
   <use xlink:href="{{ _icon.path }}#{{ _icon_type }}{{ _icon.name }}"></use>
 </svg>
+
+{# Validation #}
+
+{% if _compliance %}
+  {% include '@ecl-twig/ec-component-ecl-compliance/components/ecl-compliance-icon.html.twig' with {
+    icon: _icon,
+    icon_path: _icon.path,
+    _compliance_inner_check_: _compliance_inner_check
+  } only %}
+{% endif %}
 
 {% endspaceless %}

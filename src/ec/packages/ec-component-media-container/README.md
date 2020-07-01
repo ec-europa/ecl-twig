@@ -1,4 +1,4 @@
-# ECL Twig - EC Media container component
+# ECL-Twig Media container component
 
 npm package: `@ecl-twig/ec-component-media-container`
 
@@ -25,6 +25,7 @@ npm install --save @ecl-twig/ec-component-media-container
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'.
+- **"_compliance_"** (boolean) (default: false) Activates debug
 
 ### Blocks:
 

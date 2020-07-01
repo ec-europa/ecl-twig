@@ -2,7 +2,12 @@ import { storiesOf } from '@storybook/html';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
 import { withKnobs, text, select } from '@storybook/addon-knobs';
-import { getExtraKnobs, tabLabels, getLinkKnobs } from '@ecl-twig/story-utils';
+import {
+  getExtraKnobs,
+  tabLabels,
+  getLinkKnobs,
+  getComplianceKnob,
+} from '@ecl-twig/story-utils';
 
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import dataSimple from './demo/data--simple';
@@ -14,10 +19,13 @@ import notes from './README.md';
 const prepareBreadcrumbHarmonised = data => {
   data.icon_file_path = select(
     'icon_file_path',
-    [defaultSprite],
+    ['none', defaultSprite],
     defaultSprite,
     tabLabels.required
   );
+  if (data.icon_file_path === 'none') {
+    data.icon_file_path = '';
+  }
   data.navigation_text = text(
     'navigation_text',
     data.navigation_text,
@@ -30,8 +38,8 @@ const prepareBreadcrumbHarmonised = data => {
   );
 
   getLinkKnobs(data);
-
   getExtraKnobs(data);
+  getComplianceKnob(data);
 
   return data;
 };

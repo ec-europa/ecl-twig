@@ -5,6 +5,7 @@ import {
   getExtraKnobs,
   tabLabels,
   getBrandedIconsOptions,
+  getComplianceKnob,
 } from '@ecl-twig/story-utils';
 import withCode from '@ecl-twig/storybook-addon-code';
 
@@ -133,6 +134,7 @@ const prepareSocialMediaShare = data => {
   });
 
   getExtraKnobs(data);
+  getComplianceKnob(data);
 
   return data;
 };

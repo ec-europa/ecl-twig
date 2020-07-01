@@ -1,4 +1,4 @@
-# ECL Twig - EC Select component
+# ECL-Twig Select component
 
 npm package: `@ecl-twig/ec-component-select`
 
@@ -23,6 +23,7 @@ npm install --save @ecl-twig/ec-component-select
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
+- **"\_compliance"** (boolean) (default: false)
 
 ### Blocks:
 

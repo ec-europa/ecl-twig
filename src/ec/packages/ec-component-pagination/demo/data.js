@@ -30,6 +30,7 @@ function formatItem(i) {
 const data = {
   label: specData.label,
   items: specData.items.map(formatItem),
+  icon_path: '/icons.svg',
 };
 
 export default data;

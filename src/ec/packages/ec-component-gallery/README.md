@@ -1,4 +1,4 @@
-# ECL Twig - EC Gallery
+# ECL-Twig Gallery
 
 npm package: `@ecl-twig/ec-component-gallery`
 
@@ -29,6 +29,7 @@ npm install --save @ecl-twig/ec-component-gallery
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
+- **"_compliance_"** (boolean) (default: false) Activates debug
 
 ### Example :
 

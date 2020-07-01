@@ -1,4 +1,4 @@
-# ECL Twig - EC Pagination component
+# ECL-Twig Pagination component
 
 npm package: `@ecl-twig/ec-component-pagination`
 
@@ -18,6 +18,8 @@ npm install --save @ecl-twig/ec-component-pagination
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
+- **"_compliance_"** (optional) (boolean) (default: false): Activates the debug
+- **"_compliance_inner_check_"** (optional) (boolean) (default: false): Activates the debug
 
 ### Example:
 

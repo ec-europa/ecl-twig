@@ -1,4 +1,4 @@
-# ECL Twig - EC Site Header Harmonised component
+# ECL-Twig Site Header Harmonised component
 
 npm package: `@ecl-twig/ec-component-site-header-harmonised`
 
@@ -51,6 +51,7 @@ npm install --save @ecl-twig/ec-component-site-header-harmonised
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
+- **"_compliance_"** (boolean) (default: false) Activates debug
 
 ### Example :
 

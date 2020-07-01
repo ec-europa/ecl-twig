@@ -15,6 +15,7 @@ import {
   getLoginKnobs,
   getLanguageSelectorKnobs,
   getSearchFormKnobs,
+  getComplianceKnob,
 } from '@ecl-twig/story-utils';
 import withCode from '@ecl-twig/storybook-addon-code';
 
@@ -82,27 +83,34 @@ const prepareSiteHeaderStandardised = (data, lang) => {
   );
   data.icon_file_path = select(
     'icon_file_path',
-    [defaultSprite],
+    ['none', defaultSprite],
     defaultSprite,
     tabLabels.required
   );
+  if (data.icon_file_path === 'none') {
+    data.icon_file_path = '';
+  }
   if (lang === 'en') {
     data.logo.src = select(
       'logo.src',
-      [englishBanner],
+      ['none', englishBanner],
       englishBanner,
       tabLabels.required
     );
   } else {
     data.logo.src = select(
       'logo.src',
-      [frenchBanner],
+      ['none', frenchBanner],
       frenchBanner,
       tabLabels.required
     );
   }
-  // Logo knobs
-  getLogoKnobs(data, true);
+  if (data.logo.src === 'none') {
+    data.logo.src = '';
+  } else {
+    // Logo knobs
+    getLogoKnobs(data, true);
+  }
   // Login box and login toggle knobs.
   getLoginKnobs(data, true);
   // Search toggle.
@@ -138,6 +146,8 @@ const prepareSiteHeaderStandardised = (data, lang) => {
   getExtraKnobs(data);
   // Menu.
   data.menu = object('data.menu', data.menu, tabLabels.optional);
+  // Compliance
+  getComplianceKnob(data);
 
   return data;
 };
@@ -151,7 +161,7 @@ storiesOf('Components/Site Headers/Standardised', module)
     () => {
       button(btnLangLabel, enBtnLangHandler, tabLabels.cases);
       button(btnLoginLabel, enBtnLoginHandler, tabLabels.cases);
-      const dataStory = prepareSiteHeaderStandardised(enData);
+      const dataStory = prepareSiteHeaderStandardised(enData, 'en');
 
       return siteHeaderStandardised(dataStory);
     },
@@ -164,7 +174,7 @@ storiesOf('Components/Site Headers/Standardised', module)
     () => {
       button(btnLangLabel, enBtnLangHandler, tabLabels.cases);
       enData.logged = true;
-      const dataStory = prepareSiteHeaderStandardised(enData);
+      const dataStory = prepareSiteHeaderStandardised(enData, 'en');
 
       return siteHeaderStandardised(dataStory);
     },

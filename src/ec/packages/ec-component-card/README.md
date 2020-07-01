@@ -1,4 +1,4 @@
-# ECL Twig - EC Card component
+# ECL-Twig Card component
 
 npm package: `@ecl-twig/ec-component-card`
 
@@ -21,10 +21,13 @@ npm install --save @ecl-twig/ec-component-card
   - "links" (array) (default: []): List of links (required if Card type is a 'tile'). The format of each element in the array
     - "label" (string) (default: ''): Label of link
     - "path" (string) (default: ''): Link url (href attribute)
+- **"icon_path"** (string) (default: '') Path to icons file
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
+- **"_compliance_"** (optional) (boolean) (default: false) Activates debug
+- **"_compliance_inner_check_"** (optional) (boolean) (default: false) Inline compliance report
 
 <!-- prettier-ignore -->
 ```twig

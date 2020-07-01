@@ -1,4 +1,4 @@
-# ECL Twig - EC Unordered list component
+# ECL-Twig Unordered list component
 
 npm package: `@ecl-twig/ec-component-unordered-list`
 
@@ -16,6 +16,7 @@ npm install --save @ecl-twig/ec-component-unordered-list
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
 - **"variant"** (optional) (string) (default: '') - Name of the variant
+- **"_compliance_"** (boolean) (default: false) - Activates debug
 
 ### Example:
 

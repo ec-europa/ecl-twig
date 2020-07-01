@@ -23,6 +23,7 @@
   - "extra_attributes" (optional) (array) (default: [])
     - "name" (string) Attribute name, eg. 'data-test'
     - "value" (string) Attribute value, eg: 'data-test-1'
+  - "_compliance_" (boolean) (default: false) Activates debug
 #}
 
 {# variables #}
@@ -37,6 +38,7 @@
 {% set _extra_attributes = 'data-ecl-auto-init="Gallery"' %}
 {% set _overlay_class = '' %}
 {% set _overlay_attrs = [] %}
+{% set _compliance = _compliance_|default(false) %}
 
 {# Internal logic - Process properties #}
 
@@ -70,7 +72,8 @@
       {% include '@ecl-twig/ec-component-gallery/ecl-gallery-item.html.twig' with {
         item: _item,
         extra_attributes: _item_attrs,
-        extra_classes: _item_class
+        extra_classes: _item_class,
+        _compliance_: _compliance
       } only %}
     {% endfor %}
   </ul>
@@ -99,8 +102,17 @@
     overlay: _overlay,
     extra_attributes: _overlay_attrs,
     extra_classes: _overlay_class,
-    item: _selected_item
+    item: _selected_item,
+    _compliance_: _compliance
   } only %}
 </section>
+
+{# Validation #}
+
+{% if _compliance %}
+  {% include '@ecl-twig/ec-component-ecl-compliance/components/ecl-compliance-gallery.html.twig' with {
+    items: _items
+  } only %}
+{% endif %}
 
 {% endspaceless %}

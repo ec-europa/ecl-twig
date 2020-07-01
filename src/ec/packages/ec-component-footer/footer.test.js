@@ -35,6 +35,16 @@ describe('EC - Footer', () => {
 
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
     });
+
+    test('with missing input data and debug enabled it returns the right warning messages.', () => {
+      expect.assertions(1);
+
+      const dataCompliance = { ...dataCorporate, _compliance_: true };
+      dataCompliance.common[2].link.path = '';
+      dataCompliance.sections[1].links[1].link.path = '';
+
+      return expect(render(dataCompliance)).resolves.toMatchSnapshot();
+    });
   });
 
   describe('Custom', () => {
@@ -65,6 +75,16 @@ describe('EC - Footer', () => {
       });
 
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
+    });
+
+    test('with missing input data and debug enabled it returns the right warning messages.', () => {
+      expect.assertions(1);
+
+      const dataCompliance = { ...dataCustom, _compliance_: true };
+      dataCompliance.identity.follow.label = '';
+      dataCompliance.identity.title = '';
+
+      return expect(render(dataCompliance)).resolves.toMatchSnapshot();
     });
   });
 });

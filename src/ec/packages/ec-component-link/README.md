@@ -1,4 +1,4 @@
-# ECL Twig - EC Link component
+# ECL-Twig Link component
 
 npm package: `@ecl-twig/ec-component-link`
 
@@ -13,12 +13,14 @@ npm install --save @ecl-twig/ec-component-link
   - "label" (string) (default: '') - Content of link
   - "path" (string) (default: '') - Link url (href attribute)
   - "icon_position" (string) (default: 'after') - Position of link icon (can be 'before' or 'after') if icon is available
-- **"icon"** [optional] (associative array) OR (array) of associate arrays - Default structure of the icon component, but extra_classes is an internal key.
+- **"icon"** (optional) (associative array) OR (array) of associate arrays - Default structure of the icon component, but extra_classes is an internal key.
   The name has to be non empty for the icon to be printed.
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
-  - "value" (string) Attribute value, eg: 'data-test-1'
+  - "value" (string) Attribute value, eg: 'data-test-1',
+- **_compliance_** (optional) (boolean) (default: false) Activates debug
+- **_compliance_inner_check_** (optional) (boolean) (default: false) Inline compliance report
 
 ### Example:
 

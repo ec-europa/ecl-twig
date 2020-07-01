@@ -1,4 +1,4 @@
-# ECL Twig - EC Site Header Standardised component
+# ECL-Twig Site Header Standardised component
 
 npm package: `@ecl-twig/ec-component-site-header-standardised`
 
@@ -49,13 +49,14 @@ npm install --save @ecl-twig/ec-component-site-header-standardised
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
+- **"_compliance_"** (boolean) (default: false) Activates debug.
 
 ### Example :
 
 <!-- prettier-ignore -->
 ```twig
 {% include '@ecl-twig/ec-component-site-header-standardised/ecl-site-header-standardised.html.twig' with { 
-  bannerTop: 'Class name', 
+  banner_top: 'Class name', 
   banner: 'Site name', 
   menu: true, 
   icon_file_path: '/path-to-the-icons-file', 

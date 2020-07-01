@@ -15,6 +15,7 @@
         },
         ...
       ],
+    - "_compliance_": (boolean) (default: false) Activates debug.
   Blocks:
     - "content"
 #}
@@ -28,15 +29,14 @@
   'data-ecl-auto-init="Expandable"']|join(' ')
 %}
 {% set _css_dropdown_class = 'ecl-expandable__content' %}
-
 {% set _label_expanded = label_expanded|default('') %}
 {% set _label_collapsed = label_collapsed|default('') %}
 {% set _aria_controls = _id ~ '-content' %}
 {% set _content = content|default('') %}
 {% set _button = button|default({}) %}
-
 {% set _expanded = expanded|default(false) %}
 {% set _content_hidden_attribute = '' %}
+{% set _compliance = _compliance_|default(false) %}
 
 {# Internal logic - Process properties #}
 
@@ -82,6 +82,8 @@
     }),
     extra_classes: 'ecl-expandable__toggle',
     extra_attributes: _button_attributes,
+    _compliance_: _compliance,
+    _compliance_inner_check_: true
   }) only %}
   <div
     id="{{ _id ~ '-content' }}"
@@ -91,5 +93,17 @@
     {%- block content _content|raw -%}
   </div>
 </div>
+
+{# Validation #}
+
+{% if _compliance %}
+  {% include '@ecl-twig/ec-component-ecl-compliance/components/ecl-compliance-expandable.html.twig' with {
+    id: _id,
+    label_expanded: _label_expanded,
+    label_collapsed: _label_collapsed,
+    button: _button,
+    content: _content
+  } only %}
+{% endif %}
 
 {% endspaceless %}

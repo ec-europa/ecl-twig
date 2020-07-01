@@ -14,6 +14,7 @@
   - "extra_attributes" (optional) (array) (default: [])
     - "name" (string) Attribute name, eg. 'data-test'
     - "value" (string) Attribute value, eg: 'data-test-1'
+  - "_compliance_" (boolean) (default: false) Activates debug
 #}
 
 {# variables #}
@@ -25,6 +26,7 @@
 {% set _button_variant = 'ghost' %}
 {% set _overlay = overlay|default({}) %}
 {% set _item = item|default({}) %}
+{% set _compliance = _compliance_|default(false) %}
 
 {# Internal logic - Process properties #}
 
@@ -53,6 +55,7 @@
       extra_attributes: [
         { name: 'data-ecl-gallery-close' },
       ],
+      _compliance_: _compliance
     }) only %}
   </header>
 
@@ -73,6 +76,7 @@
         extra_attributes: [
           { name: 'data-ecl-gallery-overlay-previous' },
         ],
+        _compliance_: _compliance
       }) only %}
     {% endif %}
     {% if (_overlay.next is defined and _overlay.next is not empty) and
@@ -90,6 +94,7 @@
         extra_attributes: [
           { name: 'data-ecl-gallery-overlay-next' },
         ],
+        _compliance_: _compliance
       }) only %}
     {% endif %}
   </section>
@@ -106,9 +111,9 @@
     {% if (_overlay.download is defined and _overlay.download is not empty) and
       (_overlay.download.link is defined and _overlay.download.link is not empty) %}
       {% include '@ecl-twig/ec-component-link/ecl-link.html.twig' with _overlay.download|merge({
-        link: {
+        link: _overlay.download.link|merge({
           icon_position: 'after'
-        }|merge(_overlay.download.link),
+        }),
         icon: _overlay.download.icon|merge({
           name: 'download',
           size: 'fluid',
@@ -119,14 +124,15 @@
           { name: 'data-ecl-gallery-overlay-download' },
           { name: 'download' },
         ],
+        _compliance_: _compliance
       }) only %}
     {% endif %}
     {% if (_overlay.share is defined and _overlay.share is not empty) and
       (_overlay.share.link is defined and _overlay.share.link is not empty) %}
       {% include '@ecl-twig/ec-component-link/ecl-link.html.twig' with _overlay.share|merge({
-        link: {
-          icon_position: 'after',
-        }|merge(_overlay.share.link),
+        link: _overlay.share.link|merge({
+          icon_position: 'after'
+        }),
         icon: _overlay.share.icon|merge({
           name: 'share',
           size: 'fluid',
@@ -136,6 +142,7 @@
         extra_attributes: [
           { name: 'data-ecl-gallery-overlay-share' },
         ],
+        _compliance_: _compliance
       }) only %}
     {% endif %}
     </div>
@@ -154,5 +161,14 @@
   {% endif %}
   </footer>
 </dialog>
+
+{# Validation #}
+
+{% if _compliance %}
+  {% include '@ecl-twig/ec-component-ecl-compliance/components/ecl-compliance-gallery-overlay.html.twig' with {
+    overlay: _overlay,
+    item: _item
+  } only %}
+{% endif %}
 
 {% endspaceless %}

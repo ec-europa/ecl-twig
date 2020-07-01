@@ -1,8 +1,12 @@
 import { storiesOf } from '@storybook/html';
-import { withKnobs, select, text, object } from '@storybook/addon-knobs';
+import { withKnobs, select, text } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
-import { getExtraKnobs, tabLabels } from '@ecl-twig/story-utils';
+import {
+  getExtraKnobs,
+  tabLabels,
+  getComplianceKnob,
+} from '@ecl-twig/story-utils';
 
 import iconPath from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import enData from './demo/data--en';
@@ -16,14 +20,35 @@ const prepareMenu = data => {
   data.back = text('back', data.back, tabLabels.required);
   data.icon_path = select(
     'icon_path',
-    [iconPath],
+    ['none', iconPath],
     iconPath,
     tabLabels.required
   );
+  if (data.icon_path === 'none') {
+    data.icon_path = '';
+  }
+  data.items.forEach((item, i) => {
+    item.label = text(`items[${i}].label`, item.label, tabLabels.required);
+    item.path = text(`items[${i}].path`, item.path, tabLabels.required);
+
+    if (item.children) {
+      item.children.forEach((subitem, j) => {
+        subitem.label = text(
+          `items[${i}].children[${j}].label`,
+          subitem.label,
+          tabLabels.optional
+        );
+        subitem.path = text(
+          `items[${i}].children[${j}].path`,
+          subitem.path,
+          tabLabels.optional
+        );
+      });
+    }
+  });
 
   getExtraKnobs(data);
-
-  data.items = object('items', data.items, tabLabels.optional);
+  getComplianceKnob(data);
 
   return data;
 };

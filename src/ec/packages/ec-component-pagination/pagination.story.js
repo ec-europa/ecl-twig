@@ -2,7 +2,11 @@ import { storiesOf } from '@storybook/html';
 import { withKnobs, text, select } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
-import { getExtraKnobs, tabLabels } from '@ecl-twig/story-utils';
+import {
+  getExtraKnobs,
+  tabLabels,
+  getComplianceKnob,
+} from '@ecl-twig/story-utils';
 
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import specs from './demo/data';
@@ -12,6 +16,15 @@ import notes from './README.md';
 
 const preparePagination = data => {
   data.label = text('label', data.label, tabLabels.required);
+  data.icon_path = select(
+    'icon_path',
+    ['none', defaultSprite],
+    defaultSprite,
+    tabLabels.optional
+  );
+  if (data.icon_path === 'none') {
+    data.icon_path = '';
+  }
   data.items.forEach((item, i) => {
     if (item.type) {
       item.type = select(
@@ -79,6 +92,7 @@ const preparePagination = data => {
   });
 
   getExtraKnobs(data);
+  getComplianceKnob(data);
 
   return data;
 };

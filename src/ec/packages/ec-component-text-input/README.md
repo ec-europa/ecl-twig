@@ -1,4 +1,4 @@
-# ECL Twig - EC Text Field component
+# ECL-Twig Text Field component
 
 npm package: `@ecl-twig/ec-component-text-input`
 

@@ -7,7 +7,7 @@ addParameters({
   options: {
     theme: create({
       base: 'light',
-      brandTitle: `ECL Twig EC v${version}`,
+      brandTitle: `ECL-Twig EC v${version}`,
       brandUrl: 'https://github.com/ec-europa/ecl-twig',
       brandImage: null,
     }),
