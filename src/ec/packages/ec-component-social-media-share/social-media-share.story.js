@@ -36,32 +36,24 @@ const prepareSocialMediaShare = data => {
         link.icon_position,
         label
       );
-      link.icon.forEach((icon, idx) => {
+      link.icon.forEach((icon, j) => {
+        let knobLabel = `links[${i}].icon[${j}].name`;
         let options = getBrandedIconsOptions(false);
-        if (idx === 1) {
+        if (j === 1) {
+          knobLabel = `links[${i}].icon[${j}].name (hover icon)`;
           options = getBrandedIconsOptions(false, false, true);
         }
-        icon.name = select(
-          `links[${i}].icon[${idx}].name`,
-          options,
-          icon.name,
-          label
-        );
+        icon.name = select(knobLabel, options, icon.name, label);
         icon.path = optionsKnob(
-          `links[${i}].icon[${idx}].path`,
+          `links[${i}].icon[${j}].path`,
           { current: defaultSprite, 'no path': '' },
           defaultSprite,
           { display: 'inline-radio' },
           label
         );
-        icon.size = select(
-          `links[${i}].icon[${idx}].size`,
-          ['xl'],
-          'xl',
-          label
-        );
+        icon.size = select(`links[${i}].icon[${j}].size`, ['xl'], 'xl', label);
         icon.extra_classes = text(
-          `links[${i}].icon[${idx}].extra_classes`,
+          `links[${i}].icon[${j}].extra_classes`,
           icon.extra_classes,
           label
         );
@@ -94,32 +86,29 @@ const prepareSocialMediaShare = data => {
           link.icon_position,
           label
         );
-        link.icon.forEach((icon, idx) => {
+        link.icon.forEach((icon, k) => {
+          let knobLabel = `links[${i}].icon[${k}].name`;
           let iconOptions = getBrandedIconsOptions(false, true);
-          if (idx === 1) {
+          if (k === 1) {
+            knobLabel = `links[${i}].icon[${k}].name (hover icon)`;
             iconOptions = getBrandedIconsOptions(false, true, true);
           }
-          icon.name = select(
-            `links[${i}].icon[${idx}].name`,
-            iconOptions,
-            icon.name,
-            label
-          );
+          icon.name = select(knobLabel, iconOptions, icon.name, label);
           icon.path = optionsKnob(
-            `links[${i}].icon[${idx}].path`,
+            `links[${i}].icon[${k}].path`,
             { current: defaultSprite, 'no path': '' },
             defaultSprite,
             { display: 'inline-radio' },
             label
           );
           icon.size = select(
-            `links[${i}].icon[${idx}].size`,
+            `links[${i}].icon[${k}].size`,
             ['xl'],
             'xl',
             label
           );
           icon.extra_classes = text(
-            `links[${i}].icon[${idx}].extra_classes`,
+            `links[${i}].icon[${k}].extra_classes`,
             icon.extra_classes,
             label
           );
