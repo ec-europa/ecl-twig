@@ -1,4 +1,3 @@
-import { storiesOf } from '@storybook/html';
 import { withKnobs, text, select } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
@@ -44,10 +43,17 @@ const prepareSelect = data => {
   return data;
 };
 
-storiesOf('Components/Forms/Select', module)
-  .addDecorator(withKnobs)
-  .addDecorator(withNotes)
-  .addDecorator(withCode)
-  .add('default', () => selectBox(prepareSelect(specData)), {
+export default {
+  title: 'Components/Forms/Select',
+  decorators: [withKnobs, withNotes, withCode],
+};
+
+export const Default = () => selectBox(prepareSelect(specData));
+
+Default.story = {
+  name: 'default',
+
+  parameters: {
     notes: { markdown: notes, json: specData },
-  });
+  },
+};

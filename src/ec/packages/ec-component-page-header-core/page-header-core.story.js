@@ -1,4 +1,3 @@
-import { storiesOf } from '@storybook/html';
 import { withKnobs, text, object } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
@@ -38,31 +37,45 @@ const preparePageHeaderCore = (data, desc, meta) => {
   return data;
 };
 
-storiesOf('Components/Page Headers/Page Header Core', module)
-  .addDecorator(withNotes)
-  .addDecorator(withCode)
-  .addDecorator(withKnobs)
-  .add('title', () => pageHeaderCore(preparePageHeaderCore(demoTitleContent)), {
+export default {
+  title: 'Components/Page Headers/Page Header Core',
+  decorators: [withNotes, withCode, withKnobs],
+};
+
+export const Title = () =>
+  pageHeaderCore(preparePageHeaderCore(demoTitleContent));
+
+Title.story = {
+  name: 'title',
+
+  parameters: {
     notes: { markdown: notes, json: demoTitleContent },
-  })
-  .add(
-    'meta-title',
-    () =>
-      pageHeaderCore(preparePageHeaderCore(demoMetaTitleContent, false, true)),
-    {
-      notes: { markdown: notes, json: demoMetaTitleContent },
-    }
-  )
-  .add(
-    'meta-title-description',
-    () =>
-      pageHeaderCore(
-        preparePageHeaderCore(demoMetaTitleDescriptionContent, true, true)
-      ),
-    {
-      notes: {
-        markdown: notes,
-        json: demoMetaTitleDescriptionContent,
-      },
-    }
+  },
+};
+
+export const MetaTitle = () =>
+  pageHeaderCore(preparePageHeaderCore(demoMetaTitleContent, false, true));
+
+MetaTitle.story = {
+  name: 'meta-title',
+
+  parameters: {
+    notes: { markdown: notes, json: demoMetaTitleContent },
+  },
+};
+
+export const MetaTitleDescription = () =>
+  pageHeaderCore(
+    preparePageHeaderCore(demoMetaTitleDescriptionContent, true, true)
   );
+
+MetaTitleDescription.story = {
+  name: 'meta-title-description',
+
+  parameters: {
+    notes: {
+      markdown: notes,
+      json: demoMetaTitleDescriptionContent,
+    },
+  },
+};

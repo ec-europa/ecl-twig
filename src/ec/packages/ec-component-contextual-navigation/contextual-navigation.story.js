@@ -1,4 +1,3 @@
-import { storiesOf } from '@storybook/html';
 import { withKnobs, text, number } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
@@ -9,27 +8,30 @@ import demoData from './demo/data';
 import contextualNavigation from './ecl-contextual-navigation.html.twig';
 import notes from './README.md';
 
-storiesOf('Components/Navigation/Contextual Navigation', module)
-  .addDecorator(withKnobs)
-  .addDecorator(withCode)
-  .addDecorator(withNotes)
-  .add(
-    'default',
-    () => {
-      demoData.item_more.icon.path = defaultSprite;
+export default {
+  title: 'Components/Navigation/Contextual Navigation',
+  decorators: [withKnobs, withCode, withNotes],
+};
 
-      demoData.items_limit = number('Number of items:', demoData.items_limit);
-      demoData.label = text('Label:', demoData.label);
+export const Default = () => {
+  demoData.item_more.icon.path = defaultSprite;
 
-      // This needs to be in the scope of this function.
-      // Called on knob's change of value.
-      demoData.items.forEach((item, key) => {
-        item.label = text(`Item ${key} label:`, item.label);
-      });
+  demoData.items_limit = number('Number of items:', demoData.items_limit);
+  demoData.label = text('Label:', demoData.label);
 
-      return contextualNavigation(demoData);
-    },
-    {
-      notes: { markdown: notes },
-    }
-  );
+  // This needs to be in the scope of this function.
+  // Called on knob's change of value.
+  demoData.items.forEach((item, key) => {
+    item.label = text(`Item ${key} label:`, item.label);
+  });
+
+  return contextualNavigation(demoData);
+};
+
+Default.story = {
+  name: 'default',
+
+  parameters: {
+    notes: { markdown: notes },
+  },
+};
