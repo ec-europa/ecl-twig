@@ -99,10 +99,9 @@ export default {
   decorators: [withKnobs, withNotes, withCode],
 };
 
-export const Ecl214Title = () =>
-  pageHeader(preparePageHeader(pageHeaderDataTitle));
+export const Title = () => pageHeader(preparePageHeader(pageHeaderDataTitle));
 
-Ecl214Title.story = {
+Title.story = {
   name: 'ECL < 2.14 title',
 
   parameters: {
@@ -110,10 +109,10 @@ Ecl214Title.story = {
   },
 };
 
-export const Ecl214TitleDescription = () =>
+export const TitleDescription = () =>
   pageHeader(preparePageHeader(pageHeaderDataTitleDescription));
 
-Ecl214TitleDescription.story = {
+TitleDescription.story = {
   name: 'ECL < 2.14 title-description',
 
   parameters: {
@@ -121,10 +120,10 @@ Ecl214TitleDescription.story = {
   },
 };
 
-export const Ecl214MetaTitle = () =>
+export const MetaTitle = () =>
   pageHeader(preparePageHeader(pageHeaderDataMetaTitle));
 
-Ecl214MetaTitle.story = {
+MetaTitle.story = {
   name: 'ECL < 2.14 meta-title',
 
   parameters: {
@@ -132,10 +131,10 @@ Ecl214MetaTitle.story = {
   },
 };
 
-export const Ecl214MetaTitleDescription = () =>
+export const MetaTitleDescription = () =>
   pageHeader(preparePageHeader(pageHeaderDataMetaTitleDescription));
 
-Ecl214MetaTitleDescription.story = {
+MetaTitleDescription.story = {
   name: 'ECL < 2.14 meta-title-description',
 
   parameters: {
@@ -143,10 +142,10 @@ Ecl214MetaTitleDescription.story = {
   },
 };
 
-export const Ecl214Events = () =>
+export const Events = () =>
   pageHeader(preparePageHeader(pageHeaderDataEvents, 'event'));
 
-Ecl214Events.story = {
+Events.story = {
   name: 'ECL < 2.14 events',
 
   parameters: {
@@ -154,10 +153,10 @@ Ecl214Events.story = {
   },
 };
 
-export const Ecl214EventsDescription = () =>
+export const EventsDescription = () =>
   pageHeader(preparePageHeader(pageHeaderDataEventsDescription, 'event'));
 
-Ecl214EventsDescription.story = {
+EventsDescription.story = {
   name: 'ECL < 2.14 events-description',
 
   parameters: {
@@ -165,10 +164,10 @@ Ecl214EventsDescription.story = {
   },
 };
 
-export const Ecl214BackgroundImage = () =>
+export const BackgroundImage = () =>
   pageHeader(preparePageHeader(pageHeaderBackgroundImage, 'img'));
 
-Ecl214BackgroundImage.story = {
+BackgroundImage.story = {
   name: 'ECL < 2.14 Background image',
 
   parameters: {

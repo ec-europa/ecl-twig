@@ -53,9 +53,9 @@ export default {
   decorators: [withKnobs, withNotes, withCode],
 };
 
-export const AsALink = () => tag(prepareTag(dataLink, true));
+export const Link = () => tag(prepareTag(dataLink, true));
 
-AsALink.story = {
+Link.story = {
   name: 'as a link',
 
   parameters: {
@@ -63,9 +63,9 @@ AsALink.story = {
   },
 };
 
-export const AsAButton = () => tag(prepareTag(dataButton));
+export const Button = () => tag(prepareTag(dataButton));
 
-AsAButton.story = {
+Button.story = {
   name: 'as a button',
 
   parameters: {

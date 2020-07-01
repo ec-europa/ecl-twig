@@ -60,10 +60,10 @@ Default.story = {
   },
 };
 
-export const WithDivider = () =>
+export const Divider = () =>
   unorderedList(prepareUnorderedList(dataLinkDivider));
 
-WithDivider.story = {
+Divider.story = {
   name: 'with divider',
 
   parameters: {
@@ -71,9 +71,9 @@ WithDivider.story = {
   },
 };
 
-export const WithLinks = () => unorderedList(prepareUnorderedList(dataLink));
+export const Links = () => unorderedList(prepareUnorderedList(dataLink));
 
-WithLinks.story = {
+Links.story = {
   name: 'with links',
 
   parameters: {

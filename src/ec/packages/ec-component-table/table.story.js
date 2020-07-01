@@ -92,10 +92,10 @@ Default.story = {
   },
 };
 
-export const DefaultWithRowExtraAttributes = () =>
+export const WithRowExtraAttributes = () =>
   table(prepareTable(dataDefault, true));
 
-DefaultWithRowExtraAttributes.story = {
+WithRowExtraAttributes.story = {
   name: 'default with row extra attributes',
 
   parameters: {

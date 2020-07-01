@@ -91,9 +91,9 @@ export default {
   decorators: [withKnobs, withNotes, withCode],
 };
 
-export const Ecl212Default = () => siteHeader(prepareSiteHeader(enData, 'en'));
+export const Default = () => siteHeader(prepareSiteHeader(enData, 'en'));
 
-Ecl212Default.story = {
+Default.story = {
   name: 'ECL < 2.12 - default',
 
   parameters: {
@@ -101,10 +101,9 @@ Ecl212Default.story = {
   },
 };
 
-export const Ecl212Translated = () =>
-  siteHeader(prepareSiteHeader(frData, 'fr'));
+export const Translated = () => siteHeader(prepareSiteHeader(frData, 'fr'));
 
-Ecl212Translated.story = {
+Translated.story = {
   name: 'ECL < 2.12 - translated',
 
   parameters: {

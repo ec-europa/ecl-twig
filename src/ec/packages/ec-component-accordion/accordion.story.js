@@ -59,9 +59,9 @@ export default {
   decorators: [withKnobs, withCode, withNotes],
 };
 
-export const Ecl260Default = () => accordion(preprareAccordion(demoData));
+export const Default = () => accordion(preprareAccordion(demoData));
 
-Ecl260Default.story = {
+Default.story = {
   name: 'ECL < 2.6.0 - default',
 
   parameters: {
