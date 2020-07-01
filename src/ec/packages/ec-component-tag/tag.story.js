@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/html';
-import { withKnobs, text, select } from '@storybook/addon-knobs';
+import { withKnobs, text, select, optionsKnob } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
 import {
@@ -35,10 +35,11 @@ const prepareTag = (data, link, aria) => {
     );
   }
   if (data.default_icon_path) {
-    data.default_icon_path = select(
+    data.default_icon_path = optionsKnob(
       'default_icon_path',
-      [defaultSprite],
+      { current: defaultSprite, 'no path': '' },
       defaultSprite,
+      { display: 'inline-radio' },
       tabLabels.required
     );
   }

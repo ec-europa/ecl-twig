@@ -17,13 +17,7 @@ const prepareAccordion2 = data => {
   data.items.forEach((item, index) => {
     const levels = [1, 2, 3, 4, 5, 6];
     const { id, level, toggle, content } = item;
-    item.id = optionsKnob(
-      `items[${index}].id`,
-      { current: item.id, 'no id': '' },
-      id,
-      { display: 'inline-radio' },
-      tabLabels.required
-    );
+    item.id = text(`items[${index}].id`, id, tabLabels.required);
     item.content = text(`items[${index}].content`, content, tabLabels.required);
     item.toggle.label = text(
       `items[${index}].toggle.label`,

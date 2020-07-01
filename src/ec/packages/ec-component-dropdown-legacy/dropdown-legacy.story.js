@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/html';
-import { withKnobs, text, select } from '@storybook/addon-knobs';
+import { withKnobs, text, optionsKnob } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
 import he from 'he';
@@ -21,10 +21,11 @@ const prepareDropdown = data => {
     data.button.label,
     tabLabels.required
   );
-  data.button.icon.path = select(
+  data.button.icon.path = optionsKnob(
     'button.icon.path',
-    [defaultSprite],
+    { current: defaultSprite, 'no path': '' },
     defaultSprite,
+    { display: 'inline-radio' },
     tabLabels.required
   );
   data.list.items.forEach((item, i) => {

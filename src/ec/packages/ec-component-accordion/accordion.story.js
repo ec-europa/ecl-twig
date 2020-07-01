@@ -16,13 +16,7 @@ import notes from './README.md';
 const prepareAccordion = data => {
   data.items.forEach((item, index) => {
     const { id, level, toggle, content } = item;
-    item.id = optionsKnob(
-      `items[${index}].id`,
-      { current: item.id, 'no id': '' },
-      id,
-      { display: 'inline-radio' },
-      tabLabels.required
-    );
+    item.id = text(`items[${index}].id`, id, tabLabels.required);
     item.content = text(`items[${index}].content`, content, tabLabels.required);
     item.toggle.label = text(
       `items[${index}].toggle.label`,
