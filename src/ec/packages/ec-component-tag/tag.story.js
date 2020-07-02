@@ -34,7 +34,7 @@ const prepareTag = (data, link, aria) => {
       tabLabels.required
     );
   }
-  if (data.default_icon_path) {
+  if (aria) {
     data.default_icon_path = optionsKnob(
       'default_icon_path',
       { current: defaultSprite, 'no path': '' },
