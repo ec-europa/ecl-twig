@@ -139,12 +139,12 @@
       <ul class="ecl-card__info-container">
         {% for info in _card.infos %}
           {% if info.icon is defined and info.icon is not empty %}
+            {% set _icon = info.icon|merge({ size: 'xs' }) %}
             {% if _icon_path is not empty %}
-              {% set _icon = info.icon|merge({ path: icon_path }) %}
+              {% set _icon = info.icon|merge({ path: _icon_path }) %}
             {% else %}
               {% set _icon_path = _icon.path|default('') %}
             {% endif %}
-            {% set _icon = info.icon|merge({ size: 'xs' }) %}
           {% endif %}
           <li class="ecl-card__info-item">
             {% include '@ecl-twig/ec-component-icon/ecl-icon.html.twig' with {

@@ -1,6 +1,5 @@
-/* eslint-disable no-param-reassign */
 import { storiesOf } from '@storybook/html';
-import { withKnobs, select, text } from '@storybook/addon-knobs';
+import { withKnobs, text, optionsKnob } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
 import {
@@ -18,15 +17,13 @@ import breadcrumb from './ecl-breadcrumb.html.twig';
 import notes from './README.md';
 
 const prepareBreadcrumb = data => {
-  data.icon_file_path = select(
+  data.icon_file_path = optionsKnob(
     'icon_file_path',
-    ['none', defaultSprite],
+    { current: defaultSprite, 'no path': '' },
     defaultSprite,
+    { display: 'inline-radio' },
     tabLabels.required
   );
-  if (data.icon_file_path === 'none') {
-    data.icon_file_path = '';
-  }
   data.navigation_text = text(
     'navigation_text',
     data.navigation_text,

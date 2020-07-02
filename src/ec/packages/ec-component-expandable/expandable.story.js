@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/html';
-import { withKnobs, text, select } from '@storybook/addon-knobs';
+import { withKnobs, text, select, optionsKnob } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import {
   getExtraKnobs,
@@ -28,15 +28,13 @@ const prepareExpandable = data => {
     tabLabels.required
   );
   data.content = he.decode(text('content', data.content, tabLabels.required));
-  data.button.icon.path = select(
+  data.button.icon.path = optionsKnob(
     'button.icon.path',
-    ['none', defaultSprite],
+    { current: defaultSprite, 'no path': '' },
     defaultSprite,
+    { display: 'inline-radio' },
     tabLabels.required
   );
-  if (data.button.icon.path === 'none') {
-    data.button.icon.path = '';
-  }
 
   getExtraKnobs(data);
   getComplianceKnob(data);

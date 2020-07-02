@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/html';
-import { withKnobs, text, select } from '@storybook/addon-knobs';
+import { withKnobs, text, select, optionsKnob } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import {
   getExtraKnobs,
@@ -17,30 +17,20 @@ const prepareAccordion2 = data => {
   data.items.forEach((item, index) => {
     const levels = [1, 2, 3, 4, 5, 6];
     const { id, level, toggle, content } = item;
-    item.id = select(
-      `items[${index}].id`,
-      ['none', id],
-      id,
-      tabLabels.required
-    );
-    if (item.id === 'none') {
-      item.id = '';
-    }
+    item.id = text(`items[${index}].id`, id, tabLabels.required);
     item.content = text(`items[${index}].content`, content, tabLabels.required);
     item.toggle.label = text(
       `items[${index}].toggle.label`,
       toggle.label,
       tabLabels.required
     );
-    item.toggle.icon.path = select(
+    item.toggle.icon.path = optionsKnob(
       `items[${index}].toggle.icon.path`,
-      ['none', defaultSprite],
+      { current: defaultSprite, 'no path': '' },
       defaultSprite,
+      { display: 'inline-radio' },
       tabLabels.required
     );
-    if (item.toggle.icon.path === 'none') {
-      item.toggle.icon.path = '';
-    }
     item.level = select(
       `items[${index}].level`,
       levels,
