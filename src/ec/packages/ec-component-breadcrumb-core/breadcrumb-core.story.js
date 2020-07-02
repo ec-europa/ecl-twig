@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/html';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
-import { withKnobs, text, select } from '@storybook/addon-knobs';
+import { withKnobs, text, optionsKnob } from '@storybook/addon-knobs';
 import withCode from '@ecl-twig/storybook-addon-code';
 import {
   getExtraKnobs,
@@ -17,15 +17,13 @@ import breadcrumb from './ecl-breadcrumb-core.html.twig';
 import notes from './README.md';
 
 const prepareBreadcrumbCore = data => {
-  data.icon_file_path = select(
+  data.icon_file_path = optionsKnob(
     'icon_file_path',
-    ['none', defaultSprite],
+    { current: defaultSprite, 'no path': '' },
     defaultSprite,
+    { display: 'inline-radio' },
     tabLabels.required
   );
-  if (data.icon_file_path === 'none') {
-    data.icon_file_path = '';
-  }
   data.navigation_text = text(
     'navigation_text',
     data.navigation_text,

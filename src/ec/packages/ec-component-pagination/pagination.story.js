@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/html';
-import { withKnobs, text, select } from '@storybook/addon-knobs';
+import { withKnobs, text, select, optionsKnob } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
 import {
@@ -16,15 +16,13 @@ import notes from './README.md';
 
 const preparePagination = data => {
   data.label = text('label', data.label, tabLabels.required);
-  data.icon_path = select(
+  data.icon_path = optionsKnob(
     'icon_path',
-    ['none', defaultSprite],
+    { current: defaultSprite, 'no path': '' },
     defaultSprite,
+    { display: 'inline-radio' },
     tabLabels.optional
   );
-  if (data.icon_path === 'none') {
-    data.icon_path = '';
-  }
   data.items.forEach((item, i) => {
     if (item.type) {
       item.type = select(
@@ -81,10 +79,11 @@ const preparePagination = data => {
           item.link.icon.transform,
           tabLabels.required
         );
-        item.link.icon.path = select(
-          `items[${i}].link.icon.path`,
-          [defaultSprite],
+        item.link.icon.path = optionsKnob(
+          `items[${i}].link.icon.path (only needed if icon_path is not set)`,
+          { current: defaultSprite, 'no path': '' },
           defaultSprite,
+          { display: 'inline-radio' },
           tabLabels.required
         );
       }

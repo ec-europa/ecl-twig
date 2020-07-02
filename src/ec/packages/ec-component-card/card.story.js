@@ -1,6 +1,12 @@
 import { storiesOf } from '@storybook/html';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
-import { withKnobs, text, array, select } from '@storybook/addon-knobs';
+import {
+  withKnobs,
+  text,
+  array,
+  select,
+  optionsKnob,
+} from '@storybook/addon-knobs';
 import withCode from '@ecl-twig/storybook-addon-code';
 import generalIcons from '@ecl/ec-resources-icons/dist/lists/general.json';
 import {
@@ -29,6 +35,13 @@ const prepareCard = data => {
     data.card.title.label,
     tabLabels.required
   );
+  data.icon_path = optionsKnob(
+    'icon_path',
+    { current: defaultSprite, 'no path': '' },
+    defaultSprite,
+    { display: 'inline-radio' },
+    tabLabels.optional
+  );
   if (data.card.title.type) {
     data.card.title.type = text(
       'card.title.type',
@@ -54,15 +67,14 @@ const prepareCard = data => {
         info.label,
         tabLabels.optional
       );
-      info.icon.path = select(
+      info.icon.path = optionsKnob(
         `infos[${i}].icon.path`,
-        ['none', defaultSprite],
+        { current: defaultSprite, 'no path': '' },
         defaultSprite,
+        { display: 'inline-radio' },
         tabLabels.optional
       );
-      if (info.icon_path === 'none') {
-        info.icon.path = '';
-      } else {
+      if (data.card.infos[i].icon.path || data.icon_path) {
         info.icon.name = select(
           `infos[${i}].icon.name`,
           [...iconsList],
@@ -99,12 +111,6 @@ const prepareCard = data => {
       tabLabels.optional
     );
   }
-  data.icon_path = select(
-    'icon_path',
-    ['none', defaultSprite],
-    defaultSprite,
-    tabLabels.optional
-  );
 
   getExtraKnobs(data);
   getComplianceKnob(data);

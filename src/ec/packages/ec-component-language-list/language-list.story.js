@@ -1,5 +1,11 @@
 import { storiesOf } from '@storybook/html';
-import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
+import {
+  withKnobs,
+  text,
+  select,
+  boolean,
+  optionsKnob,
+} from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
 import {
@@ -9,32 +15,29 @@ import {
 } from '@ecl-twig/story-utils';
 
 import logoPath from '@ecl/ec-resources-logo/logo--mute.svg';
-import iconPath from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
+import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import dataSplash from './demo/data--splash';
 import dataOverlay from './demo/data--overlay';
 import languageList from './ecl-language-list.html.twig';
 import notes from './README.md';
 
 const prepareLanguageList = data => {
-  data.icon_path = select(
+  data.icon_path = optionsKnob(
     'icon_path',
-    ['none', iconPath],
-    iconPath,
+    { current: defaultSprite, 'no path': '' },
+    defaultSprite,
+    { display: 'inline-radio' },
     tabLabels.required
   );
-  if (data.icon_path === 'none') {
-    data.icon_path = '';
-  }
   if (data.logo) {
-    data.logo.path = select(
+    data.logo.path = optionsKnob(
       'logo.path',
-      ['none', logoPath],
+      { current: logoPath, 'no path': '' },
       logoPath,
+      { display: 'inline-radio' },
       tabLabels.required
     );
-    if (data.logo.path === 'none') {
-      data.logo.path = '';
-    } else {
+    if (data.logo.path) {
       data.logo.alt = select(
         'logo.alt',
         [data.logo.alt],
