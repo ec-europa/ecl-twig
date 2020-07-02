@@ -26,12 +26,14 @@ pipeline:
   deploy-twigjs-preview:
     group: previews
     image: node:dubnium
-    secrets: [gh_token, netlify_auth_token, netlify_site_id]
+    secrets: [gh_token, ecl_twig_auth_token, ecl_twig_js_site_id]
     commands:
       - yarn twing:clean
       - yarn twing:dist
       - 'yarn netlify deploy --site $${NETLIFY_SITE_ID} --alias ${DRONE_COMMIT_BRANCH} --message "Drone build: ${CI_BUILD_NUMBER}"'
       - node scripts/set-netlify-deployment-status.js
+    environment:
+      - DEPLOY_CONTEXT=preview/twig-js
     when:
       event: push
       status: [success, failure]
@@ -39,14 +41,33 @@ pipeline:
         exclude:
           - master
 
-  deploy-prod:
+  deploy-prod-js:
     image: node:dubnium
-    secrets: [gh_token, netlify_auth_token, netlify_site_id]
+    secrets: [gh_token, ecl_twig_auth_token, ecl_twig_js_site_id]
     commands:
       - yarn twing:clean
       - yarn twing:dist
-      - 'yarn netlify deploy --prod --site $${NETLIFY_SITE_ID} --message "Drone build: ${CI_BUILD_NUMBER}"'
+      - 'yarn netlify deploy --prod --site $${ECL_TWIG_JS_SITE_ID} --message "Drone build: ${CI_BUILD_NUMBER}"'
       - node scripts/set-netlify-deployment-status.js
+    environment:
+      - DEPLOY_CONTEXT=preview/twig-js
+    when:
+      branch: master
+      event: push
+
+  deploy-prod-php:
+    image: roelofr/php-node
+    secrets: [gh_token, ecl_twig_auth_token, ecl_twig_php_site_id]
+    commands:
+      - npm install -g n && n stable
+      - yarn install
+      - rm -rf netlify.toml
+      - yarn php:install
+      - yarn php:dist
+      - 'yarn netlify deploy --prod --site $${ECL_TWIG_PHP_SITE_ID} --message "Drone build: ${CI_BUILD_NUMBER}"'
+      - node scripts/set-netlify-deployment-status.js
+    environment:
+      - DEPLOY_CONTEXT=preview/twig-php
     when:
       branch: master
       event: push
@@ -54,7 +75,7 @@ pipeline:
   deploy-twigphp-preview:
     group: previews
     image: roelofr/php-node
-    secrets: [gh_token, netlify_auth_token, netlify_site_id]
+    secrets: [gh_token, ecl_twig_auth_token, ecl_twig_php_site_id]
     commands:
       - npm install -g n && n stable
       - yarn install

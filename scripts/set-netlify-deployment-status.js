@@ -35,7 +35,7 @@ const run = async () => {
     return;
   }
 
-  const context = DEPLOY_CONTEXT || 'preview/twig-js';
+  const context = DEPLOY_CONTEXT;
   let payload = {};
 
   try {
