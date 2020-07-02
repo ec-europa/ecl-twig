@@ -45,12 +45,7 @@
     "twing:copy": "ncp static build",
     "twing:clean": "rimraf build dist",
     "twing:dist": "npm-run-all twing:clean storybook-build-twing:* twing:copy",
-    "update-version": "lerna version --no-push --no-git-tag-version",
-    "clean": "yarn twing:clean",
-    "copy": "yarn twing:copy",
-    "dist": "yarn twing:dist",
-    "dist:php": "yarn php:dist",
-    "setupPhp": "yarn php:install"
+    "update-version": "lerna version --no-push --no-git-tag-version"
   },
   "devDependencies": {
     "@babel/core": "7.10.2",
