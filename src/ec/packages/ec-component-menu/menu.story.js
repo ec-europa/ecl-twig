@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/html';
-import { withKnobs, select, text } from '@storybook/addon-knobs';
+import { withKnobs, text, optionsKnob } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
 import {
@@ -8,7 +8,7 @@ import {
   getComplianceKnob,
 } from '@ecl-twig/story-utils';
 
-import iconPath from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
+import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import enData from './demo/data--en';
 import frData from './demo/data--fr';
 import menu from './ecl-menu.html.twig';
@@ -18,15 +18,13 @@ const prepareMenu = data => {
   data.title = text('title', data.title, tabLabels.required);
   data.close = text('close', data.close, tabLabels.required);
   data.back = text('back', data.back, tabLabels.required);
-  data.icon_path = select(
+  data.icon_path = optionsKnob(
     'icon_path',
-    ['none', iconPath],
-    iconPath,
+    { current: defaultSprite, 'no path': '' },
+    defaultSprite,
+    { display: 'inline-radio' },
     tabLabels.required
   );
-  if (data.icon_path === 'none') {
-    data.icon_path = '';
-  }
   data.items.forEach((item, i) => {
     item.label = text(`items[${i}].label`, item.label, tabLabels.required);
     item.path = text(`items[${i}].path`, item.path, tabLabels.required);
