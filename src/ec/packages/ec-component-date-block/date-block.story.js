@@ -1,5 +1,3 @@
-/* eslint-disable no-shadow */
-import { storiesOf } from '@storybook/html';
 import { withKnobs, text, select } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
@@ -33,23 +31,50 @@ const prepareDateBlock = (data, variant) => {
   return data;
 };
 
-storiesOf('Components/Date block', module)
-  .addDecorator(withKnobs)
-  .addDecorator(withNotes)
-  .addDecorator(withCode)
-  .add('default', () => dateBlock(prepareDateBlock(dataDefault, 'default')), {
+export default {
+  title: 'Components/Date block',
+  decorators: [withKnobs, withNotes, withCode],
+};
+
+export const Default = () =>
+  dateBlock(prepareDateBlock(dataDefault, 'default'));
+
+Default.story = {
+  name: 'default',
+
+  parameters: {
     notes: { markdown: notes, json: dataDefault },
-  })
-  .add('ongoing', () => dateBlock(prepareDateBlock(dataOngoing, 'ongoing')), {
+  },
+};
+
+export const Ongoing = () =>
+  dateBlock(prepareDateBlock(dataOngoing, 'ongoing'));
+
+Ongoing.story = {
+  name: 'ongoing',
+
+  parameters: {
     notes: { markdown: notes, json: dataOngoing },
-  })
-  .add(
-    'canceled',
-    () => dateBlock(prepareDateBlock(dataCanceled, 'canceled')),
-    {
-      notes: { markdown: notes, json: dataCanceled },
-    }
-  )
-  .add('past', () => dateBlock(prepareDateBlock(dataPast, 'past')), {
+  },
+};
+
+export const Canceled = () =>
+  dateBlock(prepareDateBlock(dataCanceled, 'canceled'));
+
+Canceled.story = {
+  name: 'canceled',
+
+  parameters: {
+    notes: { markdown: notes, json: dataCanceled },
+  },
+};
+
+export const Past = () => dateBlock(prepareDateBlock(dataPast, 'past'));
+
+Past.story = {
+  name: 'past',
+
+  parameters: {
     notes: { markdown: notes, json: dataPast },
-  });
+  },
+};

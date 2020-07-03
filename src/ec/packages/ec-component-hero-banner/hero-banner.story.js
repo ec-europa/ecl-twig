@@ -1,4 +1,3 @@
-import { storiesOf } from '@storybook/html';
 import { withKnobs, text, boolean, select } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import {
@@ -66,22 +65,58 @@ const prepareBanner = (data, variant) => {
   return data;
 };
 
-storiesOf('Components/Banners/Hero Banner', module)
-  .addDecorator(withKnobs)
-  .addDecorator(withNotes)
-  .addDecorator(withCode)
-  .add('image', () => heroBanner(prepareBanner(dataImage, 'img')), {
+export default {
+  title: 'Components/Banners/Hero Banner',
+  decorators: [withKnobs, withNotes, withCode],
+};
+
+export const Image = () => heroBanner(prepareBanner(dataImage, 'img'));
+
+Image.story = {
+  name: 'image',
+
+  parameters: {
     notes: { markdown: notes, json: dataImage },
-  })
-  .add('image-shade', () => heroBanner(prepareBanner(dataImageShade, 'img')), {
+  },
+};
+
+export const ImageShade = () =>
+  heroBanner(prepareBanner(dataImageShade, 'img'));
+
+ImageShade.story = {
+  name: 'image-shade',
+
+  parameters: {
     notes: { markdown: notes, json: dataImageShade },
-  })
-  .add('primary', () => heroBanner(prepareBanner(dataPrimary)), {
+  },
+};
+
+export const Primary = () => heroBanner(prepareBanner(dataPrimary));
+
+Primary.story = {
+  name: 'primary',
+
+  parameters: {
     notes: { markdown: notes, json: dataPrimary },
-  })
-  .add('default', () => heroBanner(prepareBanner(dataDefault)), {
+  },
+};
+
+export const Default = () => heroBanner(prepareBanner(dataDefault));
+
+Default.story = {
+  name: 'default',
+
+  parameters: {
     notes: { markdown: notes, json: dataDefault },
-  })
-  .add('align-left', () => heroBanner(prepareBanner(dataLeft)), {
+  },
+};
+
+export const AlignLeft = () => heroBanner(prepareBanner(dataLeft));
+
+AlignLeft.story = {
+  name: 'align-left',
+
+  parameters: {
     notes: { markdown: notes, json: dataLeft },
-  });
+  },
+};

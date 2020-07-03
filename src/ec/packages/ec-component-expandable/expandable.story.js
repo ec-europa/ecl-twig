@@ -1,4 +1,3 @@
-import { storiesOf } from '@storybook/html';
 import { withKnobs, text, select, optionsKnob } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import {
@@ -42,10 +41,17 @@ const prepareExpandable = data => {
   return data;
 };
 
-storiesOf('Components/Expandables', module)
-  .addDecorator(withKnobs)
-  .addDecorator(withCode)
-  .addDecorator(withNotes)
-  .add('default', () => expandable(prepareExpandable(demoData)), {
+export default {
+  title: 'Components/Expandables',
+  decorators: [withKnobs, withCode, withNotes],
+};
+
+export const Default = () => expandable(prepareExpandable(demoData));
+
+Default.story = {
+  name: 'default',
+
+  parameters: {
     notes: { markdown: notes, json: demoData },
-  });
+  },
+};

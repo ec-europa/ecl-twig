@@ -1,4 +1,3 @@
-import { storiesOf } from '@storybook/html';
 import {
   withKnobs,
   button,
@@ -107,44 +106,53 @@ const prepareSiteHeaderCore = (data, lang) => {
   return data;
 };
 
-storiesOf('Components/Site Headers/Core', module)
-  .addDecorator(withKnobs)
-  .addDecorator(withNotes)
-  .addDecorator(withCode)
-  .add(
-    'default',
-    () => {
-      button(btnLabel, enBtnHandler, tabLabels.cases);
-      const dataStory = prepareSiteHeaderCore(enData, 'en');
+export default {
+  title: 'Components/Site Headers/Core',
+  decorators: [withKnobs, withNotes, withCode],
+};
 
-      return siteHeaderCore(dataStory);
-    },
-    {
-      notes: { markdown: notes, json: enData },
-    }
-  )
-  .add(
-    'logged in',
-    () => {
-      enData.logged = true;
-      button(btnLabel, enBtnHandler, tabLabels.cases);
-      const dataStory = prepareSiteHeaderCore(enData, 'en');
+export const Default = () => {
+  button(btnLabel, enBtnHandler, tabLabels.cases);
+  const dataStory = prepareSiteHeaderCore(enData, 'en');
 
-      return siteHeaderCore(dataStory);
-    },
-    {
-      notes: { markdown: notes, json: englishData },
-    }
-  )
-  .add(
-    'translated',
-    () => {
-      button(btnLabel, frBtnHandler, tabLabels.cases);
-      const dataStory = prepareSiteHeaderCore(frData, 'fr');
+  return siteHeaderCore(dataStory);
+};
 
-      return siteHeaderCore(dataStory);
-    },
-    {
-      notes: { markdown: notes, json: frData },
-    }
-  );
+Default.story = {
+  name: 'default',
+
+  parameters: {
+    notes: { markdown: notes, json: enData },
+  },
+};
+
+export const LoggedIn = () => {
+  enData.logged = true;
+  button(btnLabel, enBtnHandler, tabLabels.cases);
+  const dataStory = prepareSiteHeaderCore(enData, 'en');
+
+  return siteHeaderCore(dataStory);
+};
+
+LoggedIn.story = {
+  name: 'logged in',
+
+  parameters: {
+    notes: { markdown: notes, json: englishData },
+  },
+};
+
+export const Translated = () => {
+  button(btnLabel, frBtnHandler, tabLabels.cases);
+  const dataStory = prepareSiteHeaderCore(frData, 'fr');
+
+  return siteHeaderCore(dataStory);
+};
+
+Translated.story = {
+  name: 'translated',
+
+  parameters: {
+    notes: { markdown: notes, json: frData },
+  },
+};

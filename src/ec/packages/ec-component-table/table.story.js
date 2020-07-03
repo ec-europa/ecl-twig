@@ -1,4 +1,3 @@
-import { storiesOf } from '@storybook/html';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import {
   getExtraKnobs,
@@ -78,23 +77,44 @@ const prepareTable = (data, attr) => {
   return data;
 };
 
-storiesOf('Components/Table', module)
-  .addDecorator(withNotes)
-  .addDecorator(withCode)
-  .addDecorator(withKnobs)
-  .add('default', () => table(prepareTable(dataDefault)), {
+export default {
+  title: 'Components/Table',
+  decorators: [withNotes, withCode, withKnobs],
+};
+
+export const Default = () => table(prepareTable(dataDefault));
+
+Default.story = {
+  name: 'default',
+
+  parameters: {
     notes: { markdown: notes, json: dataDefault },
-  })
-  .add(
-    'default with row extra attributes',
-    () => table(prepareTable(dataDefault, true)),
-    {
-      notes: { markdown: notes, json: dataDefault },
-    }
-  )
-  .add('Zebra', () => table(prepareTable(dataZebra)), {
+  },
+};
+
+export const WithRowExtraAttributes = () =>
+  table(prepareTable(dataDefault, true));
+
+WithRowExtraAttributes.story = {
+  name: 'default with row extra attributes',
+
+  parameters: {
+    notes: { markdown: notes, json: dataDefault },
+  },
+};
+
+export const Zebra = () => table(prepareTable(dataZebra));
+
+Zebra.story = {
+  parameters: {
     notes: { markdown: notes, json: dataZebra },
-  })
-  .add('Multi', () => table(prepareTable(dataMulti)), {
+  },
+};
+
+export const Multi = () => table(prepareTable(dataMulti));
+
+Multi.story = {
+  parameters: {
     notes: { markdown: notes, json: dataMulti },
-  });
+  },
+};

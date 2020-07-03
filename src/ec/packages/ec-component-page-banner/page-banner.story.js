@@ -1,4 +1,3 @@
-import { storiesOf } from '@storybook/html';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import {
   withKnobs,
@@ -209,113 +208,104 @@ const preparePageBanner = (data, variant) => {
   return data;
 };
 
-storiesOf('Components/Banners/Page Banner', module)
-  .addDecorator(withNotes)
-  .addDecorator(withCode)
-  .addDecorator(withKnobs)
-  .add(
-    'image',
-    () => {
-      button('With or without title', imageTitleBtnToggler, tabLabels.cases);
-      button('With or without baseline', imageDescBtnToggler, tabLabels.cases);
-      button(
-        'With or without call to action',
-        imageCtaBtnToggler,
-        tabLabels.cases
-      );
-      button('Reset the layout', imageResetBtnToggler, tabLabels.cases);
+export default {
+  title: 'Components/Banners/Page Banner',
+  decorators: [withNotes, withCode, withKnobs],
+};
 
-      return pageBanner(preparePageBanner(imageData, 'img'));
-    },
-    {
-      notes: { markdown: notes, json: imageData },
-    }
-  )
-  .add(
-    'image-shade',
-    () => {
-      button(
-        'With or without title',
-        imageShadeTitleBtnToggler,
-        tabLabels.cases
-      );
-      button(
-        'With or without baseline',
-        imageShadeDescBtnToggler,
-        tabLabels.cases
-      );
-      button(
-        'With or without call to action',
-        imageShadeCtaBtnToggler,
-        tabLabels.cases
-      );
-      button('Reset the layout', imageShadeResetBtnToggler, tabLabels.cases);
+export const Image = () => {
+  button('With or without title', imageTitleBtnToggler, tabLabels.cases);
+  button('With or without baseline', imageDescBtnToggler, tabLabels.cases);
+  button('With or without call to action', imageCtaBtnToggler, tabLabels.cases);
+  button('Reset the layout', imageResetBtnToggler, tabLabels.cases);
 
-      return pageBanner(preparePageBanner(imageShadeData, 'img'));
-    },
-    {
-      notes: { markdown: notes, json: imageShadeData },
-    }
-  )
-  .add(
-    'primary',
-    () => {
-      button('With or without title', primaryTitleBtnToggler, tabLabels.cases);
-      button(
-        'With or without baseline',
-        primaryDescBtnToggler,
-        tabLabels.cases
-      );
-      button(
-        'With or without call to action',
-        primaryCtaBtnToggler,
-        tabLabels.cases
-      );
-      button('Reset the layout', primaryResetBtnToggler, tabLabels.cases);
+  return pageBanner(preparePageBanner(imageData, 'img'));
+};
 
-      return pageBanner(preparePageBanner(primaryData));
-    },
-    {
-      notes: { markdown: notes, json: primaryData },
-    }
-  )
-  .add(
-    'default',
-    () => {
-      button('With or without title', defaultTitleBtnToggler, tabLabels.cases);
-      button(
-        'With or without baseline',
-        defaultDescBtnToggler,
-        tabLabels.cases
-      );
-      button(
-        'With or without call to action',
-        defaultCtaBtnToggler,
-        tabLabels.cases
-      );
-      button('Reset the layout', defaultResetBtnToggler, tabLabels.cases);
+Image.story = {
+  name: 'image',
 
-      return pageBanner(preparePageBanner(defaultData));
-    },
-    {
-      notes: { markdown: notes, json: defaultData },
-    }
-  )
-  .add(
-    'align-left',
-    () => {
-      button('With or without title', leftTitleBtnToggler, tabLabels.cases);
-      button('With or without baseline', leftDescBtnToggler, tabLabels.cases);
-      button(
-        'With or without call to action',
-        leftCtaBtnToggler,
-        tabLabels.cases
-      );
-      button('Reset the layout', leftResetBtnToggler, tabLabels.cases);
+  parameters: {
+    notes: { markdown: notes, json: imageData },
+  },
+};
 
-      return pageBanner(preparePageBanner(leftData));
-    },
-    {
-      notes: { markdown: notes, json: leftData },
-    }
+export const ImageShade = () => {
+  button('With or without title', imageShadeTitleBtnToggler, tabLabels.cases);
+  button('With or without baseline', imageShadeDescBtnToggler, tabLabels.cases);
+  button(
+    'With or without call to action',
+    imageShadeCtaBtnToggler,
+    tabLabels.cases
   );
+  button('Reset the layout', imageShadeResetBtnToggler, tabLabels.cases);
+
+  return pageBanner(preparePageBanner(imageShadeData, 'img'));
+};
+
+ImageShade.story = {
+  name: 'image-shade',
+
+  parameters: {
+    notes: { markdown: notes, json: imageShadeData },
+  },
+};
+
+export const Primary = () => {
+  button('With or without title', primaryTitleBtnToggler, tabLabels.cases);
+  button('With or without baseline', primaryDescBtnToggler, tabLabels.cases);
+  button(
+    'With or without call to action',
+    primaryCtaBtnToggler,
+    tabLabels.cases
+  );
+  button('Reset the layout', primaryResetBtnToggler, tabLabels.cases);
+
+  return pageBanner(preparePageBanner(primaryData));
+};
+
+Primary.story = {
+  name: 'primary',
+
+  parameters: {
+    notes: { markdown: notes, json: primaryData },
+  },
+};
+
+export const Default = () => {
+  button('With or without title', defaultTitleBtnToggler, tabLabels.cases);
+  button('With or without baseline', defaultDescBtnToggler, tabLabels.cases);
+  button(
+    'With or without call to action',
+    defaultCtaBtnToggler,
+    tabLabels.cases
+  );
+  button('Reset the layout', defaultResetBtnToggler, tabLabels.cases);
+
+  return pageBanner(preparePageBanner(defaultData));
+};
+
+Default.story = {
+  name: 'default',
+
+  parameters: {
+    notes: { markdown: notes, json: defaultData },
+  },
+};
+
+export const AlignLeft = () => {
+  button('With or without title', leftTitleBtnToggler, tabLabels.cases);
+  button('With or without baseline', leftDescBtnToggler, tabLabels.cases);
+  button('With or without call to action', leftCtaBtnToggler, tabLabels.cases);
+  button('Reset the layout', leftResetBtnToggler, tabLabels.cases);
+
+  return pageBanner(preparePageBanner(leftData));
+};
+
+AlignLeft.story = {
+  name: 'align-left',
+
+  parameters: {
+    notes: { markdown: notes, json: leftData },
+  },
+};

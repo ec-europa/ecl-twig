@@ -1,4 +1,3 @@
-import { storiesOf } from '@storybook/html';
 import {
   withKnobs,
   button,
@@ -150,46 +149,55 @@ const prepareSiteHeaderStandardised = (data, lang) => {
   return data;
 };
 
-storiesOf('Components/Site Headers/Standardised', module)
-  .addDecorator(withNotes)
-  .addDecorator(withCode)
-  .addDecorator(withKnobs)
-  .add(
-    'default',
-    () => {
-      button(btnLangLabel, enBtnLangHandler, tabLabels.cases);
-      button(btnLoginLabel, enBtnLoginHandler, tabLabels.cases);
-      const dataStory = prepareSiteHeaderStandardised(enData, 'en');
+export default {
+  title: 'Components/Site Headers/Standardised',
+  decorators: [withNotes, withCode, withKnobs],
+};
 
-      return siteHeaderStandardised(dataStory);
-    },
-    {
-      notes: { markdown: notes, json: enData },
-    }
-  )
-  .add(
-    'logged in',
-    () => {
-      button(btnLangLabel, enBtnLangHandler, tabLabels.cases);
-      enData.logged = true;
-      const dataStory = prepareSiteHeaderStandardised(enData, 'en');
+export const Default = () => {
+  button(btnLangLabel, enBtnLangHandler, tabLabels.cases);
+  button(btnLoginLabel, enBtnLoginHandler, tabLabels.cases);
+  const dataStory = prepareSiteHeaderStandardised(enData, 'en');
 
-      return siteHeaderStandardised(dataStory);
-    },
-    {
-      notes: { markdown: notes, json: enData },
-    }
-  )
-  .add(
-    'translated',
-    () => {
-      button(btnLangLabel, frBtnLangHandler, tabLabels.cases);
-      button(btnLoginLabel, frBtnLoginHandler, tabLabels.cases);
-      const dataStory = prepareSiteHeaderStandardised(frData);
+  return siteHeaderStandardised(dataStory);
+};
 
-      return siteHeaderStandardised(dataStory);
-    },
-    {
-      notes: { markdown: notes, json: frData },
-    }
-  );
+Default.story = {
+  name: 'default',
+
+  parameters: {
+    notes: { markdown: notes, json: enData },
+  },
+};
+
+export const LoggedIn = () => {
+  button(btnLangLabel, enBtnLangHandler, tabLabels.cases);
+  enData.logged = true;
+  const dataStory = prepareSiteHeaderStandardised(enData, 'en');
+
+  return siteHeaderStandardised(dataStory);
+};
+
+LoggedIn.story = {
+  name: 'logged in',
+
+  parameters: {
+    notes: { markdown: notes, json: enData },
+  },
+};
+
+export const Translated = () => {
+  button(btnLangLabel, frBtnLangHandler, tabLabels.cases);
+  button(btnLoginLabel, frBtnLoginHandler, tabLabels.cases);
+  const dataStory = prepareSiteHeaderStandardised(frData);
+
+  return siteHeaderStandardised(dataStory);
+};
+
+Translated.story = {
+  name: 'translated',
+
+  parameters: {
+    notes: { markdown: notes, json: frData },
+  },
+};
