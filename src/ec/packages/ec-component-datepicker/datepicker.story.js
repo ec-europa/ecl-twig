@@ -1,4 +1,3 @@
-import { storiesOf } from '@storybook/html';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import { withKnobs, text, optionsKnob } from '@storybook/addon-knobs';
 import withCode from '@ecl-twig/storybook-addon-code';
@@ -34,16 +33,19 @@ const prepareDatePicker = data => {
   return data;
 };
 
-storiesOf('Components/Forms/Datepicker', module)
-  .addDecorator(withNotes)
-  .addDecorator(withCode)
-  .addDecorator(withKnobs)
-  .add(
-    'default',
-    () => {
-      return datepicker(prepareDatePicker(dataDefault));
-    },
-    {
-      notes: { markdown: notes, json: dataDefault },
-    }
-  );
+export default {
+  title: 'Components/Forms/Datepicker',
+  decorators: [withNotes, withCode, withKnobs],
+};
+
+export const Default = () => {
+  return datepicker(prepareDatePicker(dataDefault));
+};
+
+Default.story = {
+  name: 'default',
+
+  parameters: {
+    notes: { markdown: notes, json: dataDefault },
+  },
+};

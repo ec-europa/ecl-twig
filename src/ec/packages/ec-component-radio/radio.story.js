@@ -1,4 +1,3 @@
-import { storiesOf } from '@storybook/html';
 import { withKnobs, boolean } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import {
@@ -31,13 +30,27 @@ const prepareRadio = (data, binary) => {
   return data;
 };
 
-storiesOf('Components/Forms/Radio', module)
-  .addDecorator(withKnobs)
-  .addDecorator(withNotes)
-  .addDecorator(withCode)
-  .add('default', () => radioGroup(prepareRadio(dataDefault)), {
+export default {
+  title: 'Components/Forms/Radio',
+  decorators: [withKnobs, withNotes, withCode],
+};
+
+export const Default = () => radioGroup(prepareRadio(dataDefault));
+
+Default.story = {
+  name: 'default',
+
+  parameters: {
     notes: { markdown: notes, json: dataDefault },
-  })
-  .add('binary', () => radioGroup(prepareRadio(dataBinary, true)), {
+  },
+};
+
+export const Binary = () => radioGroup(prepareRadio(dataBinary, true));
+
+Binary.story = {
+  name: 'binary',
+
+  parameters: {
     notes: { markdown: notes, json: dataBinary },
-  });
+  },
+};

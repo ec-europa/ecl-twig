@@ -1,4 +1,3 @@
-import { storiesOf } from '@storybook/html';
 import { withKnobs, button } from '@storybook/addon-knobs';
 import { loremIpsum } from 'lorem-ipsum';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
@@ -73,45 +72,48 @@ const btnIdHandler = () => {
   return false;
 };
 
-storiesOf('Components/Navigation/Inpage navigation', module)
-  .addDecorator(withNotes)
-  .addDecorator(withKnobs)
-  .addDecorator(withCode)
-  .add(
-    'default',
-    () => {
-      // Buttons for the demo.
-      button(btnLeftLabel, btnLeftHandler, tabLabels.cases);
-      button(btnMainLabel, btnMainHandler, tabLabels.cases);
-      button(btnIdLabel, btnIdHandler, tabLabels.cases);
-      button(btnIdRemoveLabel, btnIdRemoveHandler, tabLabels.cases);
+export default {
+  title: 'Components/Navigation/Inpage navigation',
+  decorators: [withNotes, withKnobs, withCode],
+};
 
-      let pageFillerHtml = '';
-      demoData.links.forEach(content => {
-        pageFillerHtml += content.item;
-      });
+export const Default = () => {
+  // Buttons for the demo.
+  button(btnLeftLabel, btnLeftHandler, tabLabels.cases);
+  button(btnMainLabel, btnMainHandler, tabLabels.cases);
+  button(btnIdLabel, btnIdHandler, tabLabels.cases);
+  button(btnIdRemoveLabel, btnIdRemoveHandler, tabLabels.cases);
 
-      const fullDemoData = { ...demoData, icon_path: iconPath };
-      const html = inpageNavigation(fullDemoData);
-      const demo = document.createDocumentFragment();
-      const htmlElement = document.createElement('div');
-      htmlElement.innerHTML = `<div class="ecl-container">
-                                <div class="ecl-row ecl-u-mt-l" data-ecl-inpage-navigation-container>
-                                  <div class="ecl-col-lg-3">
-                                    <div class="inPageDemoSidebar"></div>
-                                    ${html}
-                                  </div>
-                                  <div class="ecl-col-lg-9">
-                                    <div class="inPageDemoContent"></div>
-                                    ${pageFillerHtml}
-                                  </div>
-                                </div>
-                              </div>`;
-      demo.appendChild(htmlElement.firstChild);
+  let pageFillerHtml = '';
+  demoData.links.forEach(content => {
+    pageFillerHtml += content.item;
+  });
 
-      return demo;
-    },
-    {
-      notes: { markdown: notes },
-    }
-  );
+  const fullDemoData = { ...demoData, icon_path: iconPath };
+  const html = inpageNavigation(fullDemoData);
+  const demo = document.createDocumentFragment();
+  const htmlElement = document.createElement('div');
+  htmlElement.innerHTML = `<div class="ecl-container">
+                            <div class="ecl-row ecl-u-mt-l" data-ecl-inpage-navigation-container>
+                              <div class="ecl-col-lg-3">
+                                <div class="inPageDemoSidebar"></div>
+                                ${html}
+                              </div>
+                              <div class="ecl-col-lg-9">
+                                <div class="inPageDemoContent"></div>
+                                ${pageFillerHtml}
+                              </div>
+                            </div>
+                          </div>`;
+  demo.appendChild(htmlElement.firstChild);
+
+  return demo;
+};
+
+Default.story = {
+  name: 'default',
+
+  parameters: {
+    notes: { markdown: notes },
+  },
+};

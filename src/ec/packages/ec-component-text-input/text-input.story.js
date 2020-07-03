@@ -1,4 +1,3 @@
-import { storiesOf } from '@storybook/html';
 import { withKnobs } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import {
@@ -20,18 +19,21 @@ const prepareTextInput = data => {
   return data;
 };
 
-storiesOf('Components/Forms/Text field', module)
-  .addDecorator(withKnobs)
-  .addDecorator(withNotes)
-  .addDecorator(withCode)
-  .add(
-    'default',
-    () => {
-      const data = prepareTextInput(dataDefault);
+export default {
+  title: 'Components/Forms/Text field',
+  decorators: [withKnobs, withNotes, withCode],
+};
 
-      return textInput(data);
-    },
-    {
-      notes: { markdown: notes, json: dataDefault },
-    }
-  );
+export const Default = () => {
+  const data = prepareTextInput(dataDefault);
+
+  return textInput(data);
+};
+
+Default.story = {
+  name: 'default',
+
+  parameters: {
+    notes: { markdown: notes, json: dataDefault },
+  },
+};

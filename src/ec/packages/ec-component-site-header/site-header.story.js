@@ -1,4 +1,3 @@
-import { storiesOf } from '@storybook/html';
 import { withKnobs, button, optionsKnob } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
@@ -85,21 +84,27 @@ const prepareSiteHeader = (data, lang) => {
   return data;
 };
 
-storiesOf('Components/deprecated/Site Header', module)
-  .addDecorator(withKnobs)
-  .addDecorator(withNotes)
-  .addDecorator(withCode)
-  .add(
-    'ECL < 2.12 - default',
-    () => siteHeader(prepareSiteHeader(enData, 'en')),
-    {
-      notes: { markdown: notes, json: enData },
-    }
-  )
-  .add(
-    'ECL < 2.12 - translated',
-    () => siteHeader(prepareSiteHeader(frData, 'fr')),
-    {
-      notes: { markdown: notes, json: frData },
-    }
-  );
+export default {
+  title: 'Components/deprecated/Site Header',
+  decorators: [withKnobs, withNotes, withCode],
+};
+
+export const Default = () => siteHeader(prepareSiteHeader(enData, 'en'));
+
+Default.story = {
+  name: 'ECL < 2.12 - default',
+
+  parameters: {
+    notes: { markdown: notes, json: enData },
+  },
+};
+
+export const Translated = () => siteHeader(prepareSiteHeader(frData, 'fr'));
+
+Translated.story = {
+  name: 'ECL < 2.12 - translated',
+
+  parameters: {
+    notes: { markdown: notes, json: frData },
+  },
+};

@@ -1,5 +1,4 @@
 import he from 'he';
-import { storiesOf } from '@storybook/html';
 import { withKnobs, text, select } from '@storybook/addon-knobs';
 import {
   getExtraKnobs,
@@ -34,10 +33,17 @@ const prepareLabel = data => {
   return data;
 };
 
-storiesOf('Components/Label', module)
-  .addDecorator(withKnobs)
-  .addDecorator(withNotes)
-  .addDecorator(withCode)
-  .add('default', () => label(prepareLabel(dataDefault)), {
+export default {
+  title: 'Components/Label',
+  decorators: [withKnobs, withNotes, withCode],
+};
+
+export const Default = () => label(prepareLabel(dataDefault));
+
+Default.story = {
+  name: 'default',
+
+  parameters: {
     notes: { markdown: notes, json: dataDefault },
-  });
+  },
+};
