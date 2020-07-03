@@ -7,7 +7,7 @@ const path = require('path');
 const twing = require('@ecl-twig/ec-storybook/.storybook/environment.js');
 
 const extension = 'html.twig';
-const rootFolder = process.cwd();
+const rootFolder = path.resolve(__dirname, '../../../');
 const distFolder = `${rootFolder}/php`;
 const args = process.argv.slice(2);
 const system = args[0] ? args[0] : 'ec';
