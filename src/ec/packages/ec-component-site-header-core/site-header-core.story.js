@@ -1,10 +1,10 @@
 import {
   withKnobs,
   button,
-  select,
   text,
   boolean,
   object,
+  optionsKnob,
 } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import {
@@ -47,33 +47,31 @@ const frBtnHandler = () => {
 
 const prepareSiteHeaderCore = (data, lang) => {
   data.logged = boolean('logged', data.logged, tabLabels.states);
-  data.icon_file_path = select(
+  data.icon_file_path = optionsKnob(
     'icon_file_path',
-    ['none', defaultSprite],
+    { current: defaultSprite, 'no path': '' },
     defaultSprite,
+    { display: 'inline-radio' },
     tabLabels.required
   );
-  if (data.icon_file_path === 'none') {
-    data.icon_file_path = '';
-  }
   if (lang === 'en') {
-    data.logo.src = select(
+    data.logo.src = optionsKnob(
       'logo.src',
-      ['none', englishBanner],
+      { current: englishBanner, 'no path': '' },
       englishBanner,
+      { display: 'inline-radio' },
       tabLabels.required
     );
   } else {
-    data.logo.src = select(
+    data.logo.src = optionsKnob(
       'logo.src',
-      ['none', frenchBanner],
+      { current: frenchBanner, 'no path': '' },
       frenchBanner,
+      { display: 'inline-radio' },
       tabLabels.required
     );
   }
-  if (data.logo.src === 'none') {
-    data.logo.src = '';
-  } else {
+  if (data.logo.src) {
     // Logo knobs
     getLogoKnobs(data, true);
   }

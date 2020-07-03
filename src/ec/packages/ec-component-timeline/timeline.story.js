@@ -1,4 +1,4 @@
-import { withKnobs, number, text, select } from '@storybook/addon-knobs';
+import { withKnobs, number, text, optionsKnob } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import {
   getExtraKnobs,
@@ -31,15 +31,13 @@ const prepareTimeline = data => {
     `Hide ${hiddenCount} items`,
     tabLabels.required
   );
-  data.icon_path = select(
+  data.icon_path = optionsKnob(
     'icon_path',
-    ['none', defaultSprite],
+    { current: defaultSprite, 'no path': '' },
     defaultSprite,
+    { display: 'inline-radio' },
     tabLabels.required
   );
-  if (data.icon_path === 'none') {
-    data.icon_path = '';
-  }
 
   data.hide.from = number('hide.from', data.hide.from, {}, tabLabels.optional);
   data.hide.to = number('hide.to', data.hide.to, {}, tabLabels.optional);

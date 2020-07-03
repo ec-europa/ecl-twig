@@ -1,7 +1,7 @@
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
 import he from 'he';
-import { withKnobs, text, select } from '@storybook/addon-knobs';
+import { withKnobs, text, select, optionsKnob } from '@storybook/addon-knobs';
 import {
   getExtraKnobs,
   tabLabels,
@@ -45,15 +45,14 @@ const prepareFooter = data => {
       );
 
       if (linkItem.icon) {
-        linkItem.icon.path = select(
+        linkItem.icon.path = optionsKnob(
           `identity.follow.links[${i}].icon.path`,
-          ['none', defaultSprite],
+          { current: defaultSprite, 'no path': '' },
           defaultSprite,
+          { display: 'inline-radio' },
           tabLabels.required
         );
-        if (linkItem.icon.path === 'none') {
-          linkItem.icon.path = '';
-        } else {
+        if (data.identity.follow.links[i].icon.path) {
           linkItem.icon.name = select(
             `identity.follow.links[${i}].icon.name`,
             [...iconsList],
@@ -78,15 +77,14 @@ const prepareFooter = data => {
         tabLabels.required
       );
       if (linkItem.icon) {
-        linkItem.icon.path = select(
+        linkItem.icon.path = optionsKnob(
           `sections[${i}].links[${j}].icon.path`,
-          ['none', defaultSprite],
+          { current: defaultSprite, 'no path': '' },
           defaultSprite,
+          { display: 'inline-radio' },
           tabLabels.required
         );
-        if (linkItem.icon.path === 'none') {
-          linkItem.icon.path = '';
-        } else {
+        if (data.sections[i].links[j].icon.path) {
           linkItem.icon.name = select(
             `sections[${i}].links[${j}].icon.name`,
             [...iconsList],

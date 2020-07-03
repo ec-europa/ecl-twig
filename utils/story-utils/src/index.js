@@ -1,6 +1,6 @@
 /* eslint-disable no-param-reassign, dot-notation */
 import he from 'he';
-import { text, select, boolean } from '@storybook/addon-knobs';
+import { text, select, boolean, optionsKnob } from '@storybook/addon-knobs';
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import brandedIcons from '@ecl/ec-resources-icons/dist/lists/branded.json';
 
@@ -179,10 +179,11 @@ export const getIconKnobs = (
     defaultType,
     tabLabels.required
   );
-  icon.path = select(
+  icon.path = optionsKnob(
     `${pref}icon.path`,
-    [defaultSprite],
+    { current: defaultSprite, 'no path': '' },
     defaultSprite,
+    { display: 'inline-radio' },
     tabLabels.required
   );
   icon.size = select(

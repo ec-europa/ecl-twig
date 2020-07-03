@@ -1,9 +1,10 @@
 import {
   withKnobs,
   button,
-  select,
+  optionsKnob,
   text,
   boolean,
+  select,
   object,
 } from '@storybook/addon-knobs';
 import {
@@ -114,15 +115,13 @@ const prepareSiteHeaderHarmonised = (data, variant) => {
     data.logged = boolean('logged', data.logged, tabLabels.states);
   }
   if (data.group !== 'group3') {
-    data.icon_file_path = select(
+    data.icon_file_path = optionsKnob(
       'icon_file_path',
-      ['none', defaultSprite],
+      { current: defaultSprite, 'no path': '' },
       defaultSprite,
+      { display: 'inline-radio' },
       tabLabels.required
     );
-    if (data.icon_file_path === 'none') {
-      data.icon_file_path = '';
-    }
   }
   if (variant === 'group3') {
     data.site_name = text('site_name', data.site_name, tabLabels.required);
@@ -156,15 +155,14 @@ const prepareSiteHeaderHarmonised = (data, variant) => {
       logoDefault = data.logo.src;
       required = false;
     }
-    data.logo.src = select(
+    data.logo.src = optionsKnob(
       'logo.src',
-      ['none', logoDefault],
+      { current: logoDefault, 'no path': '' },
       logoDefault,
+      { display: 'inline-radio' },
       label
     );
-    if (data.logo.src === 'none') {
-      data.logo.src = '';
-    } else {
+    if (data.logo.src) {
       getLogoKnobs(data, required);
     }
   }

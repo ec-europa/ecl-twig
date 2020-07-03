@@ -1,4 +1,4 @@
-import { withKnobs, text, select } from '@storybook/addon-knobs';
+import { withKnobs, text, select, optionsKnob } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
 import {
@@ -36,10 +36,11 @@ const prepareMessage = data => {
   getIconKnobs(data, name, 'notifications', 'l', 'primary', 'none');
 
   data.close.label = text('close.label', data.close.label, tabLabels.required);
-  data.close.icon.path = select(
+  data.close.icon.path = optionsKnob(
     'close.icon.path',
-    [defaultSprite],
+    { current: defaultSprite, 'no path': '' },
     defaultSprite,
+    { display: 'inline-radio' },
     tabLabels.required
   );
 

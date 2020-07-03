@@ -1,5 +1,5 @@
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
-import { withKnobs, text, select } from '@storybook/addon-knobs';
+import { withKnobs, text, optionsKnob } from '@storybook/addon-knobs';
 import withCode from '@ecl-twig/storybook-addon-code';
 import {
   getExtraKnobs,
@@ -17,15 +17,14 @@ const prepareDatePicker = data => {
   getFormKnobs(data);
 
   data.label = text('label', data.label, tabLabels.required);
-  data.icons_path = select(
+  data.icons_path = optionsKnob(
     'icons_path',
-    ['none', defaultSprite],
+    { current: defaultSprite, 'no path': '' },
     defaultSprite,
+    { display: 'inline-radio' },
     tabLabels.required
   );
-  if (data.icons_path === 'none') {
-    data.icons_path = false;
-  }
+
   data.placeholder = text('placeholder', data.placeholder, tabLabels.required);
 
   getExtraKnobs(data);

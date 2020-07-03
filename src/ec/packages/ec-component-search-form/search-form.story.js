@@ -1,4 +1,4 @@
-import { withKnobs, text, select } from '@storybook/addon-knobs';
+import { withKnobs, text, optionsKnob } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import {
   getExtraKnobs,
@@ -18,15 +18,13 @@ const prepareSearchForm = data => {
     data.button.label,
     tabLabels.required
   );
-  data.button.icon.path = select(
+  data.button.icon.path = optionsKnob(
     'button.icon.path',
-    ['none', defaultSprite],
+    { current: defaultSprite, 'no path': '' },
     defaultSprite,
+    { display: 'inline-radio' },
     tabLabels.required
   );
-  if (data.button.icon.path === 'none') {
-    data.button.icon.path = '';
-  }
 
   getExtraKnobs(data);
   getComplianceKnob(data);

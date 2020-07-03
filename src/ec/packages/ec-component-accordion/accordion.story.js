@@ -1,4 +1,4 @@
-import { withKnobs, text, select } from '@storybook/addon-knobs';
+import { withKnobs, text, select, optionsKnob } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import {
   getExtraKnobs,
@@ -12,33 +12,24 @@ import demoData from './demo/data';
 import accordion from './ecl-accordion.html.twig';
 import notes from './README.md';
 
-const preprareAccordion = data => {
+const prepareAccordion = data => {
   data.items.forEach((item, index) => {
     const { id, level, toggle, content } = item;
-    item.id = select(
-      `items[${index}].id`,
-      ['none', id],
-      id,
-      tabLabels.required
-    );
-    if (item.id === 'none') {
-      item.id = '';
-    }
+    item.id = text(`items[${index}].id`, id, tabLabels.required);
     item.content = text(`items[${index}].content`, content, tabLabels.required);
     item.toggle.label = text(
       `items[${index}].toggle.label`,
       toggle.label,
       tabLabels.required
     );
-    item.toggle.icon.path = select(
+
+    item.toggle.icon.path = optionsKnob(
       `items[${index}].toggle.icon.path`,
-      ['none', defaultSprite],
+      { current: defaultSprite, 'no path': '' },
       defaultSprite,
+      { display: 'inline-radio' },
       tabLabels.required
     );
-    if (item.toggle.icon.path === 'none') {
-      item.toggle.icon.path = '';
-    }
     const levels = [1, 2, 3, 4, 5, 6];
     item.level = select(
       `items[${index}].level`,
@@ -59,7 +50,7 @@ export default {
   decorators: [withKnobs, withCode, withNotes],
 };
 
-export const Default = () => accordion(preprareAccordion(demoData));
+export const Default = () => accordion(prepareAccordion(demoData));
 
 Default.story = {
   name: 'ECL < 2.6.0 - default',
