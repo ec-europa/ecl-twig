@@ -5,7 +5,7 @@
     "check:release": "scripts/check-packages.sh",
     "check:component": "run-s php:clean \"render:* {1} {2}\" php:pretty \"diff {1} {2}\" --",
     "diff": "node_modules/@ecl-twig/php-storybook/scripts/diff.js",
-    "ecl-diff": "node_modules/@ecl-twig/php-storybook/scripts/ecl-diff.js --interactive",
+    "diff:ecl": "node_modules/@ecl-twig/php-storybook/scripts/ecl-diff.js --interactive",
     "grump-dis": "./scripts/grump-dis.js",
     "grump-en": "./scripts/grump-en.js",
     "jest": "jest",
