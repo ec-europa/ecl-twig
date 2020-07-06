@@ -1,4 +1,3 @@
-import { storiesOf } from '@storybook/html';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
 import he from 'he';
@@ -114,13 +113,27 @@ const prepareFooter = data => {
   return data;
 };
 
-storiesOf('Components/deprecated/Footer', module)
-  .addDecorator(withCode)
-  .addDecorator(withNotes)
-  .addDecorator(withKnobs)
-  .add('ECL < 2.12.0 - corporate', () => footer(prepareFooter(dataCorporate)), {
+export default {
+  title: 'Components/deprecated/Footer',
+  decorators: [withCode, withNotes, withKnobs],
+};
+
+export const Ecl2120Corporate = () => footer(prepareFooter(dataCorporate));
+
+Ecl2120Corporate.story = {
+  name: 'ECL < 2.12.0 - corporate',
+
+  parameters: {
     notes: { markdown: notes, json: dataCorporate },
-  })
-  .add('ECL < 2.12.0 - custom', () => footer(prepareFooter(dataCustom)), {
+  },
+};
+
+export const Ecl2120Custom = () => footer(prepareFooter(dataCustom));
+
+Ecl2120Custom.story = {
+  name: 'ECL < 2.12.0 - custom',
+
+  parameters: {
     notes: { markdown: notes, json: dataCustom },
-  });
+  },
+};

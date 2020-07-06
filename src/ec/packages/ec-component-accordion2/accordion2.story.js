@@ -1,4 +1,3 @@
-import { storiesOf } from '@storybook/html';
 import { withKnobs, text, select, optionsKnob } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import {
@@ -45,10 +44,17 @@ const prepareAccordion2 = data => {
   return data;
 };
 
-storiesOf('Components/Accordion2', module)
-  .addDecorator(withKnobs)
-  .addDecorator(withCode)
-  .addDecorator(withNotes)
-  .add('default', () => accordion2(prepareAccordion2(demoData)), {
+export default {
+  title: 'Components/Accordion2',
+  decorators: [withKnobs, withCode, withNotes],
+};
+
+export const Default = () => accordion2(prepareAccordion2(demoData));
+
+Default.story = {
+  name: 'default',
+
+  parameters: {
     notes: { markdown: notes, json: demoData },
-  });
+  },
+};

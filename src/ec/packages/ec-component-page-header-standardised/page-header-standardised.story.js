@@ -1,4 +1,3 @@
-import { storiesOf } from '@storybook/html';
 import { withKnobs, text, object } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
@@ -37,42 +36,47 @@ const preparePageHeaderStandardised = (data, desc, meta) => {
   return data;
 };
 
-storiesOf('Components/Page Headers/Page Header Standardised', module)
-  .addDecorator(withNotes)
-  .addDecorator(withCode)
-  .addDecorator(withKnobs)
-  .add(
-    'title',
-    () =>
-      pageHeaderStandardised(preparePageHeaderStandardised(demoTitleContent)),
-    {
-      notes: { markdown: notes, json: demoTitleContent },
-    }
-  )
-  .add(
-    'meta-title',
-    () =>
-      pageHeaderStandardised(
-        preparePageHeaderStandardised(demoMetaTitleContent, false, true)
-      ),
-    {
-      notes: { markdown: notes, json: demoMetaTitleContent },
-    }
-  )
-  .add(
-    'meta-title-description',
-    () =>
-      pageHeaderStandardised(
-        preparePageHeaderStandardised(
-          demoMetaTitleDescriptionContent,
-          true,
-          true
-        )
-      ),
-    {
-      notes: {
-        markdown: notes,
-        json: demoMetaTitleDescriptionContent,
-      },
-    }
+export default {
+  title: 'Components/Page Headers/Page Header Standardised',
+  decorators: [withNotes, withCode, withKnobs],
+};
+
+export const Title = () =>
+  pageHeaderStandardised(preparePageHeaderStandardised(demoTitleContent));
+
+Title.story = {
+  name: 'title',
+
+  parameters: {
+    notes: { markdown: notes, json: demoTitleContent },
+  },
+};
+
+export const MetaTitle = () =>
+  pageHeaderStandardised(
+    preparePageHeaderStandardised(demoMetaTitleContent, false, true)
   );
+
+MetaTitle.story = {
+  name: 'meta-title',
+
+  parameters: {
+    notes: { markdown: notes, json: demoMetaTitleContent },
+  },
+};
+
+export const MetaTitleDescription = () =>
+  pageHeaderStandardised(
+    preparePageHeaderStandardised(demoMetaTitleDescriptionContent, true, true)
+  );
+
+MetaTitleDescription.story = {
+  name: 'meta-title-description',
+
+  parameters: {
+    notes: {
+      markdown: notes,
+      json: demoMetaTitleDescriptionContent,
+    },
+  },
+};

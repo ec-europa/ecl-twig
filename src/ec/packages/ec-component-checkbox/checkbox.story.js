@@ -1,4 +1,3 @@
-import { storiesOf } from '@storybook/html';
 import { withKnobs, select } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import {
@@ -35,18 +34,21 @@ const prepareCheckbox = data => {
   return data;
 };
 
-storiesOf('Components/Forms/Checkbox', module)
-  .addDecorator(withKnobs)
-  .addDecorator(withNotes)
-  .addDecorator(withCode)
-  .add(
-    'default',
-    () => {
-      const data = prepareCheckbox(dataDefault);
+export default {
+  title: 'Components/Forms/Checkbox',
+  decorators: [withKnobs, withNotes, withCode],
+};
 
-      return checkboxGroup(data);
-    },
-    {
-      notes: { markdown: notes, json: dataDefault },
-    }
-  );
+export const Default = () => {
+  const data = prepareCheckbox(dataDefault);
+
+  return checkboxGroup(data);
+};
+
+Default.story = {
+  name: 'default',
+
+  parameters: {
+    notes: { markdown: notes, json: dataDefault },
+  },
+};

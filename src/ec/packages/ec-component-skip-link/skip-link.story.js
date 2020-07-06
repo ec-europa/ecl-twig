@@ -1,4 +1,3 @@
-import { storiesOf } from '@storybook/html';
 import { withKnobs, text, button } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
@@ -34,10 +33,17 @@ const prepareSkipLink = data => {
   return data;
 };
 
-storiesOf('Components/Navigation/Skip Link', module)
-  .addDecorator(withKnobs)
-  .addDecorator(withNotes)
-  .addDecorator(withCode)
-  .add('default', () => skipLink(prepareSkipLink(specs)), {
+export default {
+  title: 'Components/Navigation/Skip Link',
+  decorators: [withKnobs, withNotes, withCode],
+};
+
+export const Default = () => skipLink(prepareSkipLink(specs));
+
+Default.story = {
+  name: 'default',
+
+  parameters: {
     notes: { markdown: notes, json: specs },
-  });
+  },
+};

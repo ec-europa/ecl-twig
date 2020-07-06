@@ -1,4 +1,3 @@
-import { storiesOf } from '@storybook/html';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import { withKnobs, text } from '@storybook/addon-knobs';
 import {
@@ -34,10 +33,17 @@ const prepareOrderedList = data => {
   return data;
 };
 
-storiesOf('Components/List/Ordered list', module)
-  .addDecorator(withNotes)
-  .addDecorator(withCode)
-  .addDecorator(withKnobs)
-  .add('default', () => orderedList(prepareOrderedList(specs)), {
+export default {
+  title: 'Components/List/Ordered list',
+  decorators: [withNotes, withCode, withKnobs],
+};
+
+export const Default = () => orderedList(prepareOrderedList(specs));
+
+Default.story = {
+  name: 'default',
+
+  parameters: {
     notes: { markdown: notes, json: specs },
-  });
+  },
+};

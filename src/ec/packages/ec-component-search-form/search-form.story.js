@@ -1,4 +1,3 @@
-import { storiesOf } from '@storybook/html';
 import { withKnobs, text, optionsKnob } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import {
@@ -33,10 +32,17 @@ const prepareSearchForm = data => {
   return data;
 };
 
-storiesOf('Components/Forms/Search Form', module)
-  .addDecorator(withKnobs)
-  .addDecorator(withNotes)
-  .addDecorator(withCode)
-  .add('default', () => searchForm(prepareSearchForm(dataDefault)), {
+export default {
+  title: 'Components/Forms/Search Form',
+  decorators: [withKnobs, withNotes, withCode],
+};
+
+export const Default = () => searchForm(prepareSearchForm(dataDefault));
+
+Default.story = {
+  name: 'default',
+
+  parameters: {
     notes: { markdown: notes, json: dataDefault },
-  });
+  },
+};

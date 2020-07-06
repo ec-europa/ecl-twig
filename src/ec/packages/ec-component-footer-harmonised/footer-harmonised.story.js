@@ -1,8 +1,7 @@
-/* eslint-disable no-shadow */
-import { storiesOf } from '@storybook/html';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import { withKnobs, button, text } from '@storybook/addon-knobs';
 import withCode from '@ecl-twig/storybook-addon-code';
+import he from 'he';
 import {
   getExtraKnobs,
   tabLabels,
@@ -183,7 +182,7 @@ const resetBtnToggler = () => {
 };
 
 // Prepare the knobs for group3.
-const prepareFooterHarmonisedG3 = dataG3 => {
+const prepareFooterHarmonisedG3 = data => {
   button(
     'With or without first "Partnership logo"',
     partnershipLogoBtnToggler,
@@ -233,14 +232,14 @@ const prepareFooterHarmonisedG3 = dataG3 => {
     }
   });
 
-  getExtraKnobs(dataG3);
-  getComplianceKnob(dataG3);
+  getExtraKnobs(data);
+  getComplianceKnob(data);
   // Return the full specs.
-  return dataG3;
+  return data;
 };
 
 // Prepare the knobs for group2.
-const prepareFooterHarmonisedG2 = dataG2 => {
+const prepareFooterHarmonisedG2 = data => {
   dataG2.sections.forEach((section, i) => {
     if (section.title) {
       section.title.link = {
@@ -275,11 +274,11 @@ const prepareFooterHarmonisedG2 = dataG2 => {
   getExtraKnobs(dataG2);
   getComplianceKnob(dataG2);
   // Return the full specs.
-  return dataG2;
+  return data;
 };
 
 // Prepare the knobs for group1
-const prepareFooterHarmonisedG1 = dataG1 => {
+const prepareFooterHarmonisedG1 = data => {
   button('With our without class names', classBtnToggler, tabLabels.cases);
   button(
     'With our without DG-related service navigation (contact us)',
@@ -337,10 +336,8 @@ const prepareFooterHarmonisedG1 = dataG1 => {
         };
       }
       if (section.description) {
-        section.description = text(
-          `sections[${i}].description`,
-          section.description,
-          label
+        section.description = he.decode(
+          text(`sections[${i}].description`, section.description, label)
         );
       }
       if (section.content_before) {
@@ -447,28 +444,49 @@ const prepareFooterHarmonisedG1 = dataG1 => {
   getExtraKnobs(dataG1);
   getComplianceKnob(dataG1);
   // Return the full specs.
-  return dataG1;
+  return data;
 };
 
-storiesOf('Components/Footers/Harmonised', module)
-  .addDecorator(withCode)
-  .addDecorator(withNotes)
-  .addDecorator(withKnobs)
-  .add('group 1', () => footerHarmonised(prepareFooterHarmonisedG1(dataG1)), {
+export default {
+  title: 'Components/Footers/Harmonised',
+  decorators: [withCode, withNotes, withKnobs],
+};
+
+export const Group1 = () => footerHarmonised(prepareFooterHarmonisedG1(dataG1));
+
+Group1.story = {
+  name: 'group 1',
+
+  parameters: {
     notes: {
       markdown: notes,
       json: { dataG1 },
     },
-  })
-  .add('group 2', () => footerHarmonised(prepareFooterHarmonisedG2(dataG2)), {
+  },
+};
+
+export const Group2 = () => footerHarmonised(prepareFooterHarmonisedG2(dataG2));
+
+Group2.story = {
+  name: 'group 2',
+
+  parameters: {
     notes: {
       markdown: notes,
       json: { dataG2 },
     },
-  })
-  .add('group 3', () => footerHarmonised(prepareFooterHarmonisedG3(dataG3)), {
+  },
+};
+
+export const Group3 = () => footerHarmonised(prepareFooterHarmonisedG3(dataG3));
+
+Group3.story = {
+  name: 'group 3',
+
+  parameters: {
     notes: {
       markdown: notes,
       json: { dataG3 },
     },
-  });
+  },
+};

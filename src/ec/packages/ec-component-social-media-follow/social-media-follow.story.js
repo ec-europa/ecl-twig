@@ -1,5 +1,4 @@
 /* eslint-disable dot-notation */
-import { storiesOf } from '@storybook/html';
 import { withKnobs, text, select, optionsKnob } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import {
@@ -140,21 +139,29 @@ const prepareSocialMediaFollow = (data, vertical) => {
   return data;
 };
 
-storiesOf('Components/Social Media Follow', module)
-  .addDecorator(withKnobs)
-  .addDecorator(withCode)
-  .addDecorator(withNotes)
-  .add(
-    'horizontal',
-    () => SocialMediaFollow(prepareSocialMediaFollow(demoData)),
-    {
-      notes: { markdown: notes, json: demoData },
-    }
-  )
-  .add(
-    'vertical',
-    () => SocialMediaFollow(prepareSocialMediaFollow(demoData, 'vertical')),
-    {
-      notes: { markdown: notes, json: demoData },
-    }
-  );
+export default {
+  title: 'Components/Social Media Follow',
+  decorators: [withKnobs, withCode, withNotes],
+};
+
+export const Horizontal = () =>
+  SocialMediaFollow(prepareSocialMediaFollow(demoData));
+
+Horizontal.story = {
+  name: 'horizontal',
+
+  parameters: {
+    notes: { markdown: notes, json: demoData },
+  },
+};
+
+export const Vertical = () =>
+  SocialMediaFollow(prepareSocialMediaFollow(demoData, 'vertical'));
+
+Vertical.story = {
+  name: 'vertical',
+
+  parameters: {
+    notes: { markdown: notes, json: demoData },
+  },
+};

@@ -1,4 +1,3 @@
-import { storiesOf } from '@storybook/html';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import {
   withKnobs,
@@ -118,19 +117,47 @@ const prepareCard = data => {
   return data;
 };
 
-storiesOf('Components/Card', module)
-  .addDecorator(withCode)
-  .addDecorator(withNotes)
-  .addDecorator(withKnobs)
-  .add('card', () => card(prepareCard(dataCard)), {
+export default {
+  title: 'Components/Card',
+  decorators: [withCode, withNotes, withKnobs],
+};
+
+export const Card = () => card(prepareCard(dataCard));
+
+Card.story = {
+  name: 'card',
+
+  parameters: {
     notes: { markdown: notes, json: dataCard },
-  })
-  .add('tile', () => card(prepareCard(dataCardTile)), {
+  },
+};
+
+export const Tile = () => card(prepareCard(dataCardTile));
+
+Tile.story = {
+  name: 'tile',
+
+  parameters: {
     notes: { markdown: notes, json: dataCardTile },
-  })
-  .add('tag', () => card(prepareCard(dataCardTag)), {
+  },
+};
+
+export const Tag = () => card(prepareCard(dataCardTag));
+
+Tag.story = {
+  name: 'tag',
+
+  parameters: {
     notes: { markdown: notes, json: dataCardTag },
-  })
-  .add('event', () => card(prepareCard(dataCardEvent)), {
+  },
+};
+
+export const Event = () => card(prepareCard(dataCardEvent));
+
+Event.story = {
+  name: 'event',
+
+  parameters: {
     notes: { markdown: notes, json: dataCardEvent },
-  });
+  },
+};

@@ -1,5 +1,4 @@
 import he from 'he';
-import { storiesOf } from '@storybook/html';
 import { withKnobs, text, select, object } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
@@ -53,24 +52,40 @@ const prepareMediaContainer = (data, media) => {
   return data;
 };
 
-storiesOf('Components/Media container', module)
-  .addDecorator(withKnobs)
-  .addDecorator(withNotes)
-  .addDecorator(withCode)
-  .add('image', () => mediaContainer(prepareMediaContainer(demoImg, 'image')), {
+export default {
+  title: 'Components/Media container',
+  decorators: [withKnobs, withNotes, withCode],
+};
+
+export const Image = () =>
+  mediaContainer(prepareMediaContainer(demoImg, 'image'));
+
+Image.story = {
+  name: 'image',
+
+  parameters: {
     notes: { markdown: notes, json: demoImg },
-  })
-  .add(
-    'video',
-    () => mediaContainer(prepareMediaContainer(demoVideo, 'video')),
-    {
-      notes: { markdown: notes, json: demoVideo },
-    }
-  )
-  .add(
-    'embedded video',
-    () => mediaContainer(prepareMediaContainer(demoEmbed, 'embed')),
-    {
-      notes: { markdown: notes, json: demoEmbed },
-    }
-  );
+  },
+};
+
+export const Video = () =>
+  mediaContainer(prepareMediaContainer(demoVideo, 'video'));
+
+Video.story = {
+  name: 'video',
+
+  parameters: {
+    notes: { markdown: notes, json: demoVideo },
+  },
+};
+
+export const EmbeddedVideo = () =>
+  mediaContainer(prepareMediaContainer(demoEmbed, 'embed'));
+
+EmbeddedVideo.story = {
+  name: 'embedded video',
+
+  parameters: {
+    notes: { markdown: notes, json: demoEmbed },
+  },
+};

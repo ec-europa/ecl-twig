@@ -1,5 +1,3 @@
-/* eslint-disable prefer-destructuring */
-import { storiesOf } from '@storybook/html';
 import { withKnobs, number, text, optionsKnob } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import {
@@ -16,8 +14,7 @@ import timeline from './ecl-timeline.html.twig';
 import notes from './README.md';
 
 const prepareTimeline = data => {
-  const from = data.hide.from;
-  const to = data.hide.to;
+  const { from, to } = data.hide;
   let hiddenCount = 0;
   if (to > 0) {
     hiddenCount = to - from;
@@ -61,10 +58,17 @@ const prepareTimeline = data => {
   return data;
 };
 
-storiesOf('Components/Timeline', module)
-  .addDecorator(withKnobs)
-  .addDecorator(withCode)
-  .addDecorator(withNotes)
-  .add('default', () => timeline(prepareTimeline(demoData)), {
+export default {
+  title: 'Components/Timeline',
+  decorators: [withKnobs, withCode, withNotes],
+};
+
+export const Default = () => timeline(prepareTimeline(demoData));
+
+Default.story = {
+  name: 'default',
+
+  parameters: {
     notes: { markdown: notes, json: demoData },
-  });
+  },
+};
