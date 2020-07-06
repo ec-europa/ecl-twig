@@ -1,4 +1,4 @@
-import { withKnobs, text, select } from '@storybook/addon-knobs';
+import { withKnobs, text, optionsKnob, boolean } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
 import {
@@ -9,20 +9,42 @@ import {
 } from '@ecl-twig/story-utils';
 
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
-import specData from './demo/data';
-
+import dataSingle from './demo/data--single';
+import dataMultiple from './demo/data--multiple';
 import selectBox from './ecl-select.html.twig';
 import notes from './README.md';
 
-const prepareSelect = data => {
-  getFormKnobs(data);
+const prepareSelect = (data, multi) => {
+  getFormKnobs(data, true);
 
-  data.icon_path = select(
+  data.id = text('id', data.id, tabLabels.optional);
+  data.icon_path = optionsKnob(
     'icon_path',
-    [defaultSprite],
+    { current: defaultSprite, 'no path': '' },
     defaultSprite,
+    { display: 'inline-radio' },
     tabLabels.required
   );
+  if (multi) {
+    data.multiple = boolean('multiple', data.multiple, tabLabels.optional);
+  }
+  if (data.multiple) {
+    data.multiple_all_text = text(
+      'multiple_all_text',
+      data.multiple_all_text,
+      tabLabels.required
+    );
+    data.multiple_search_text = text(
+      'multiple_search_text',
+      data.multiple_search_text,
+      tabLabels.required
+    );
+    data.multiple_placeholder = text(
+      'multiple_placeholder',
+      data.multiple_placeholder,
+      tabLabels.required
+    );
+  }
 
   data.options.forEach((option, i) => {
     option.label = text(
@@ -48,12 +70,22 @@ export default {
   decorators: [withKnobs, withNotes, withCode],
 };
 
-export const Default = () => selectBox(prepareSelect(specData));
+export const Single = () => selectBox(prepareSelect(dataSingle));
 
-Default.story = {
+Single.story = {
   name: 'default',
 
   parameters: {
-    notes: { markdown: notes, json: specData },
+    notes: { markdown: notes, json: dataSingle },
+  },
+};
+
+export const Multiple = () => selectBox(prepareSelect(dataMultiple));
+
+Multiple.story = {
+  name: 'Multiple',
+
+  parameters: {
+    notes: { markdown: notes, json: dataMultiple },
   },
 };
