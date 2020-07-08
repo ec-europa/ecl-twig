@@ -7,7 +7,10 @@
   "private": true,
   "scripts": {
     "setup": "composer run setup",
-    "render": "composer run render"
+    "render-php": "composer run render",
+    "render-js": "scripts/render.js",
+    "copy": "resources/get-assets.js",
+    "fix-build": "resources/fix-build.js"
   },
   "repository": {
     "type": "git",
