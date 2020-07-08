@@ -10,7 +10,11 @@
     invalid_text: (string),
     required_text: (string),
     optional_text: (string),
-    label: (string)
+    label: (string),
+    multiple (boolean),
+    multiple_all_text (string),
+    multiple_placeholder (string),
+    multiple_search_text (string)
 #}
 
 {% extends "@ecl-twig/ec-component-ecl-compliance/ecl-compliance.html.twig" %}
@@ -41,7 +45,20 @@
   {% endfor %}
 {% endif %}
 
-{% set not_compliant = no_options_case or invalid_option_case or no_icon_path_case %}
+{% if multiple %}
+  {% set no_multiple_all_text_case = multiple_all_text is empty %}
+  {% set no_multiple_search_text_case = multiple_search_text is empty %}
+  {% set no_multiple_placeholder_case = multiple_placeholder is empty %}
+{% endif %}
+
+{% set not_compliant =
+  no_options_case or
+  invalid_option_case or
+  no_icon_path_case or
+  no_multiple_all_text_case or
+  no_multiple_search_text_case or
+  no_multiple_placeholder_case
+%}
 
 {% if no_options_case %}
   {% set message = '{{ options }} needs to contain at least one valid option with a {{ label }} and a {{ value }} properties set and filled in.' %}
@@ -52,4 +69,12 @@
 {% if no_icon_path_case %}
   {% set message = message ~ ' {{ icon_path }} needs to be set and filled in in order to retrieve the icons sprite.' %}
 {% endif %}
-
+{% if no_multiple_placeholder_case %}
+  {% set message = message ~ ' When the select is multiple the {{ multiple_placeholder }} property needs to be set and filled.' %}
+{% endif %}
+{% if no_multiple_search_text_case %}
+  {% set message = message ~ ' When the select is multiple the {{ multiple_search_text }} property needs to be set and filled.' %}
+{% endif %}
+{% if no_multiple_all_text_case %}
+  {% set message = message ~ ' When the select is multiple the {{ multiple_all_text }} property needs to be set and filled.' %}
+{% endif %}
