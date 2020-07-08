@@ -132,7 +132,7 @@ Diff a component rendered via php with the ECL markup
 (interactive script that fetches the html from the ECl storybook and matches that with the right variant rendered via php)
 
 ```bash
-yarn ecl-diff "ec or eu"
+yarn diff:ecl "ec or eu"
 ```
 
 ## Dist

@@ -1,7 +1,7 @@
 const path = require('path');
 const { TwingEnvironment, TwingLoaderFilesystem } = require('twing');
 
-const ecAbsPath = path.resolve('src/ec/packages');
+const ecAbsPath = path.resolve(__dirname, '../../packages');
 const loader = new TwingLoaderFilesystem(ecAbsPath);
 
 // In storybook we get this returned as an instance of
