@@ -14,7 +14,8 @@ const run = async () => {
     DRONE_BUILD_LINK,
     DRONE_BUILD_NUMBER,
     DEPLOY_CONTEXT,
-    NETLIFY_SITE_ID,
+    NETLIFY_PHP_SITE_ID,
+    NETLIFY_JS_SITE_ID,
     NETLIFY_AUTH_TOKEN,
   } = process.env;
 
@@ -35,7 +36,9 @@ const run = async () => {
     return;
   }
 
-  const context = DEPLOY_CONTEXT || 'preview/twig-js';
+  const context = DEPLOY_CONTEXT;
+  const NETLIFY_SITE_ID =
+    context === 'preview/twig-js' ? NETLIFY_JS_SITE_ID : NETLIFY_PHP_SITE_ID;
   let payload = {};
 
   try {
@@ -96,17 +99,14 @@ const run = async () => {
       context,
     };
   }
-
   // @see https://developer.github.com/v3/repos/statuses
   await fetch(
     `https://api.github.com/repos/${DRONE_REPO}/statuses/${DRONE_COMMIT_SHA}`,
     {
       method: 'POST',
       headers: {
-        Accept: 'application/json',
-        'Accept-Charset': 'utf-8',
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${GH_TOKEN}`,
+        Accept: 'application/vnd.github.v3+json',
+        Authorization: `token ${GH_TOKEN}`,
       },
       body: JSON.stringify(payload),
     }
