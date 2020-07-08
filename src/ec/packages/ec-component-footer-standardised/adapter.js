@@ -1,10 +1,18 @@
-/* eslint-disable import/no-extraneous-dependencies, no-param-reassign, default-case */
+/* eslint-disable default-case */
 import { formatLink } from '@ecl-twig/data-utils';
 
+let system = false;
+if (process.env.STORYBOOK_SYSTEM === 'EU') {
+  system = 'EU';
+}
 const formatSection = (section, name) => {
   const sections = [];
+  let innerSections = false;
+  let innerSectionsArray = [];
   if (!Array.isArray(section)) {
     section = [section];
+  } else {
+    innerSections = true;
   }
 
   section.forEach((s, i) => {
@@ -12,21 +20,26 @@ const formatSection = (section, name) => {
       case 'siteName':
         s.section_id = '1';
         s.type = 'site_name';
+
         break;
       case 'dgServices':
         s.section_id = '2';
-        s.demo_id = 'contact_us';
         s.type = 'dg_services_navigation';
-        if (i === 1) {
-          s.demo_id = 'follow_us';
+        if (!system) {
+          s.demo_id = 'contact_us';
+          if (i === 1) {
+            s.demo_id = 'follow_us';
+          }
         }
         break;
       case 'dgNavigations':
         s.section_id = '3';
-        s.demo_id = 'about_us';
-        s.type = 'dg_related_navigation';
-        if (i === 1) {
-          s.demo_id = 'related';
+        if (!system) {
+          s.demo_id = 'about_us';
+          s.type = 'dg_related_navigation';
+          if (i === 1) {
+            s.demo_id = 'related';
+          }
         }
         break;
       case 'classes':
@@ -63,22 +76,29 @@ const formatSection = (section, name) => {
       s.content_after = s.contentAfter;
       delete s.contentAfter;
     }
-    if (s.title && s.title instanceof Object) {
+    if (s.title && s.title instanceof Object && !s.title.link) {
       s.title = formatLink(s.title);
       if (s.title.icon) {
         s.title.icon.path = '/icons.svg';
       }
     }
     if (s.links && Array.isArray(s.links)) {
-      s.links = s.links.map(formatLink);
-      s.links.forEach(l => {
-        if (l.icon) {
-          l.icon.path = '/icons.svg';
+      s.links.forEach((l, j) => {
+        if (!l.link) {
+          s.links[j] = formatLink(l);
+          if (l.icon) {
+            l.icon.path = '/icons.svg';
+          }
         }
       });
     }
-    sections.push(s);
+    if (innerSections) {
+      innerSectionsArray.push(s);
+    } else {
+      innerSectionsArray = s;
+    }
   });
+  sections.push(innerSectionsArray);
 
   return sections;
 };
@@ -94,12 +114,12 @@ const adapter = initialData => {
     }
     if (section === 'dgServices') {
       adaptedData.sections.push(
-        formatSection(initialData.sections.dgServices, section)
+        ...formatSection(initialData.sections.dgServices, section)
       );
     }
     if (section === 'dgNavigations') {
       adaptedData.sections.push(
-        formatSection(initialData.sections.dgNavigations, section)
+        ...formatSection(initialData.sections.dgNavigations, section)
       );
     }
     if (section === 'classes') {
@@ -108,9 +128,24 @@ const adapter = initialData => {
       );
     }
     if (section === 'corporateName') {
-      adaptedData.sections.push(
-        ...formatSection(initialData.sections.corporateName, section)
-      );
+      if (initialData.logo) {
+        const logo = {
+          ...initialData.logo,
+          path: initialData.logo.href,
+          src_mobile: './logo--en.svg',
+          src_desktop: './logo--en.svg',
+        };
+        delete logo.href;
+        adaptedData.sections.push({
+          logo,
+          ...initialData.sections.corporateName,
+          section_id: '7',
+        });
+      } else {
+        adaptedData.sections.push(
+          ...formatSection(initialData.sections.corporateName, section)
+        );
+      }
     }
     if (section === 'serviceNavigation') {
       adaptedData.sections.push(
@@ -123,6 +158,10 @@ const adapter = initialData => {
       );
     }
   });
+
+  if (system) {
+    adaptedData.sections.splice(3, 0, { section_id: 6 });
+  }
 
   return adaptedData;
 };

@@ -1,17 +1,28 @@
-/* eslint-disable no-shadow */
+/* eslint-disable no-shadow, no-unused-vars, no-undef */
+import he from 'he';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
-import { withKnobs, button, text } from '@storybook/addon-knobs';
+import { withKnobs, button, text, optionsKnob } from '@storybook/addon-knobs';
 import {
   getExtraKnobs,
   tabLabels,
   getComplianceKnob,
 } from '@ecl-twig/story-utils';
 
+import euLogoMobile from '@ecl/eu-resources-logo/condensed-version/positive/en.svg';
+import euLogoDesktop from '@ecl/eu-resources-logo/standard-version/positive/en.svg';
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import specs from './demo/data';
+import euSpecs from './demo/eu-data';
 import footerStandardised from './ecl-footer-standardised.html.twig';
 import notes from './README.md';
+
+// Handle the EU demo.
+let systemSpec = specs;
+if (process.env.STORYBOOK_SYSTEM === 'EU') {
+  systemSpec = euSpecs;
+  euSpecs.system = 'EU';
+}
 
 // Icons.
 specs.sections.forEach(section => {
@@ -32,159 +43,163 @@ specs.sections.forEach(section => {
     }
   });
 });
-
-const contactUs = JSON.parse(JSON.stringify(specs.sections[1][0]));
-const followUs = JSON.parse(JSON.stringify(specs.sections[1][1]));
-const aboutUs = JSON.parse(JSON.stringify(specs.sections[2][0]));
-const related = JSON.parse(JSON.stringify(specs.sections[2][1]));
-
 // Preserve the original data.
-const data = { ...specs };
-
-// Buttons callbacks.
-// Dg related service navigation (contact us)
-const serviceBtnToggler = () => {
-  // If it's where is supposed to be, hide it
-  if (data.sections[1][0].demo_id === 'contact_us') {
-    data.sections[1][0] = { section_id: 2 };
-  } else {
-    // Two blocks might have taken its place.
-    if (data.sections[1][1].demo_id === 'related') {
-      data.sections[1][1] = { section_id: 2 };
-      data.sections[2][1] = related;
-      data.sections[2][1].section_id = 3;
-    }
-    if (data.sections[1][0].demo_id === 'about_us') {
+const data = { ...systemSpec };
+// Not in EU.
+if (!data.system) {
+  const contactUs = JSON.parse(JSON.stringify(specs.sections[1][0]));
+  const followUs = JSON.parse(JSON.stringify(specs.sections[1][1]));
+  const aboutUs = JSON.parse(JSON.stringify(specs.sections[2][0]));
+  const related = JSON.parse(JSON.stringify(specs.sections[2][1]));
+  // Buttons callbacks.
+  // Dg related service navigation (contact us)
+  const serviceBtnToggler = () => {
+    // If it's where is supposed to be, hide it
+    if (data.sections[1][0].demo_id === 'contact_us') {
       data.sections[1][0] = { section_id: 2 };
+    } else {
+      // Two blocks might have taken its place.
+      if (data.sections[1][1].demo_id === 'related') {
+        data.sections[1][1] = { section_id: 2 };
+        data.sections[2][1] = related;
+        data.sections[2][1].section_id = 3;
+      }
+      if (data.sections[1][0].demo_id === 'about_us') {
+        data.sections[1][0] = { section_id: 2 };
+        data.sections[2][0] = aboutUs;
+        data.sections[2][0].section_id = 3;
+      }
+      // Show it.
+      data.sections[1][0] = contactUs;
+      data.sections[1][0].section_id = 2;
+    }
+  };
+  // Dg related service navigation. (follow us)
+  const socialBtnToggler = () => {
+    // If it's where is supposed to be, hide it
+    if (data.sections[1][1].demo_id === 'follow_us') {
+      data.sections[1][1] = { section_id: 2 };
+    } else {
+      // Two blocks might have taken its place.
+      if (data.sections[1][1].demo_id === 'related') {
+        data.sections[1][1] = { section_id: 2 };
+        data.sections[2][1] = related;
+        data.sections[2][1].section_id = 3;
+      }
+      if (data.sections[1][0].demo_id === 'about_us') {
+        data.sections[1][0] = { section_id: 2 };
+        data.sections[2][0] = aboutUs;
+        data.sections[2][0].section_id = 3;
+      }
+      // Show it.
+      data.sections[1][1] = followUs;
+      data.sections[1][1].section_id = 2;
+    }
+  };
+  // Dg related navigation. (About us)
+  const aboutBtnToggler = () => {
+    // No optional section is rendered.
+    const emptyOptional =
+      !data.sections[1][0].demo_id &&
+      !data.sections[1][1].demo_id &&
+      !data.sections[2][1].demo_id &&
+      !data.sections[2][0].demo_id;
+    // If it's where is supposed to be, hide it.
+    if (data.sections[2][0].demo_id === 'about_us') {
+      data.sections[2][0] = { section_id: 3 };
+      // If it's in the other column, we hide it.
+    } else if (data.sections[1][0].demo_id === 'about_us') {
+      data.sections[1][0] = { section_id: 2 };
+      // If no block is present or we have only one column.
+    } else if (emptyOptional || data.sections[1][1].demo_id === 'related') {
+      data.sections[1][0] = aboutUs;
+      data.sections[1][0].section_id = 2;
+      // We show it.
+    } else {
       data.sections[2][0] = aboutUs;
       data.sections[2][0].section_id = 3;
     }
-    // Show it.
+  };
+  // Dg related navigation. (Related sites)
+  const relatedBtnToggler = () => {
+    // No optional section is rendered.
+    const emptyOptional =
+      !data.sections[1][0].demo_id &&
+      !data.sections[1][1].demo_id &&
+      !data.sections[2][1].demo_id &&
+      !data.sections[2][0].demo_id;
+    // If it's where is supposed to be, hide it.
+    if (data.sections[2][1].demo_id === 'related') {
+      data.sections[2][1] = { section_id: 3 };
+      // If it's in the other column, we hide it.
+    } else if (data.sections[1][1].demo_id === 'related') {
+      data.sections[1][1] = { section_id: 2 };
+      // If no block is present or we have only one column.
+    } else if (emptyOptional || data.sections[1][0].demo_id === 'about_us') {
+      data.sections[1][1] = related;
+      data.sections[1][1].section_id = 2;
+      // We show it.
+    } else {
+      data.sections[2][1] = related;
+      data.sections[2][1].section_id = 3;
+    }
+  };
+  // Reset button.
+  const resetBtnToggler = () => {
     data.sections[1][0] = contactUs;
-    data.sections[1][0].section_id = 2;
-  }
-};
-// Dg related service navigation. (follow us)
-const socialBtnToggler = () => {
-  // If it's where is supposed to be, hide it
-  if (data.sections[1][1].demo_id === 'follow_us') {
-    data.sections[1][1] = { section_id: 2 };
-  } else {
-    // Two blocks might have taken its place.
-    if (data.sections[1][1].demo_id === 'related') {
-      data.sections[1][1] = { section_id: 2 };
-      data.sections[2][1] = related;
-      data.sections[2][1].section_id = 3;
-    }
-    if (data.sections[1][0].demo_id === 'about_us') {
-      data.sections[1][0] = { section_id: 2 };
-      data.sections[2][0] = aboutUs;
-      data.sections[2][0].section_id = 3;
-    }
-    // Show it.
     data.sections[1][1] = followUs;
-    data.sections[1][1].section_id = 2;
-  }
-};
-// Dg related navigation. (About us)
-const aboutBtnToggler = () => {
-  // No optional section is rendered.
-  const emptyOptional =
-    !data.sections[1][0].demo_id &&
-    !data.sections[1][1].demo_id &&
-    !data.sections[2][1].demo_id &&
-    !data.sections[2][0].demo_id;
-  // If it's where is supposed to be, hide it.
-  if (data.sections[2][0].demo_id === 'about_us') {
-    data.sections[2][0] = { section_id: 3 };
-    // If it's in the other column, we hide it.
-  } else if (data.sections[1][0].demo_id === 'about_us') {
-    data.sections[1][0] = { section_id: 2 };
-    // If no block is present or we have only one column.
-  } else if (emptyOptional || data.sections[1][1].demo_id === 'related') {
-    data.sections[1][0] = aboutUs;
-    data.sections[1][0].section_id = 2;
-    // We show it.
-  } else {
     data.sections[2][0] = aboutUs;
-    data.sections[2][0].section_id = 3;
-  }
-};
-// Dg related navigation. (Related sites)
-const relatedBtnToggler = () => {
-  // No optional section is rendered.
-  const emptyOptional =
-    !data.sections[1][0].demo_id &&
-    !data.sections[1][1].demo_id &&
-    !data.sections[2][1].demo_id &&
-    !data.sections[2][0].demo_id;
-  // If it's where is supposed to be, hide it.
-  if (data.sections[2][1].demo_id === 'related') {
-    data.sections[2][1] = { section_id: 3 };
-    // If it's in the other column, we hide it.
-  } else if (data.sections[1][1].demo_id === 'related') {
-    data.sections[1][1] = { section_id: 2 };
-    // If no block is present or we have only one column.
-  } else if (emptyOptional || data.sections[1][0].demo_id === 'about_us') {
-    data.sections[1][1] = related;
-    data.sections[1][1].section_id = 2;
-    // We show it.
-  } else {
     data.sections[2][1] = related;
+    data.sections[1][0].section_id = 2;
+    data.sections[1][1].section_id = 2;
+    data.sections[2][0].section_id = 3;
     data.sections[2][1].section_id = 3;
-  }
-};
-// Reset button.
-const resetBtnToggler = () => {
-  data.sections[1][0] = contactUs;
-  data.sections[1][1] = followUs;
-  data.sections[2][0] = aboutUs;
-  data.sections[2][1] = related;
-  data.sections[1][0].section_id = 2;
-  data.sections[1][1].section_id = 2;
-  data.sections[2][0].section_id = 3;
-  data.sections[2][1].section_id = 3;
-};
+  };
+}
+
 // Prepare the knobs for group1
 const prepareFooterStandardised = data => {
-  button(
-    'With or without DG-related service navigation (contact us)',
-    serviceBtnToggler,
-    tabLabels.cases
-  );
-  button(
-    'With or without DG-related service navigation (Follow us)',
-    socialBtnToggler,
-    tabLabels.cases
-  );
-  button(
-    'With or without DG-related navigation (About us)',
-    aboutBtnToggler,
-    tabLabels.cases
-  );
-  button(
-    'With or without DG-related navigation (Related sites)',
-    relatedBtnToggler,
-    tabLabels.cases
-  );
-  button('Reset the layout', resetBtnToggler, tabLabels.cases);
-  // Swap the columns when needed.
-  if (!data.sections[1][0].title && !data.sections[1][1].title) {
-    data.sections[1][0] = data.sections[2][0].title
-      ? aboutUs
-      : { section_id: 2 };
-    data.sections[1][1] = data.sections[2][1].title
-      ? related
-      : { section_id: 2 };
-    data.sections[1][0].section_id = 2;
-    data.sections[1][1].section_id = 2;
-    data.sections[2][0] = { section_id: 3 };
-    data.sections[2][1] = { section_id: 3 };
+  if (!data.system) {
+    button(
+      'With or without DG-related service navigation (contact us)',
+      serviceBtnToggler,
+      tabLabels.cases
+    );
+    button(
+      'With or without DG-related service navigation (Follow us)',
+      socialBtnToggler,
+      tabLabels.cases
+    );
+    button(
+      'With or without DG-related navigation (About us)',
+      aboutBtnToggler,
+      tabLabels.cases
+    );
+    button(
+      'With or without DG-related navigation (Related sites)',
+      relatedBtnToggler,
+      tabLabels.cases
+    );
+    button('Reset the layout', resetBtnToggler, tabLabels.cases);
+
+    // Swap the columns when needed.
+    if (!data.sections[1][0].title && !data.sections[1][1].title) {
+      data.sections[1][0] = data.sections[2][0].title
+        ? aboutUs
+        : { section_id: 2 };
+      data.sections[1][1] = data.sections[2][1].title
+        ? related
+        : { section_id: 2 };
+      data.sections[1][0].section_id = 2;
+      data.sections[1][1].section_id = 2;
+      data.sections[2][0] = { section_id: 3 };
+      data.sections[2][1] = { section_id: 3 };
+    }
   }
 
   data.sections.forEach((section, i) => {
     if (!Array.isArray(section)) {
-      if (section.title && section.title.link) {
+      if (section.title && typeof section.title === 'object') {
         section.title.link = {
           label: text(
             `sections[${i}].title.link.label`,
@@ -198,12 +213,45 @@ const prepareFooterStandardised = data => {
           ),
         };
       }
+      if (section.logo) {
+        section.logo.path = text(
+          `sections[${i}].logo.path`,
+          section.logo.path,
+          tabLabels.required
+        );
+        section.logo.title = text(
+          `sections[${i}].logo.title`,
+          section.logo.title,
+          tabLabels.required
+        );
+        section.logo.alt = text(
+          `sections[${i}].logo.alt`,
+          section.logo.alt,
+          tabLabels.required
+        );
+        section.logo.src_mobile = optionsKnob(
+          `sections[${i}].logo.src_mobile`,
+          { current: euLogoMobile, 'no path': '' },
+          euLogoMobile,
+          { display: 'inline-radio' },
+          tabLabels.required
+        );
+        section.logo.src_desktop = optionsKnob(
+          `sections[${i}].logo.src_desktop`,
+          { current: euLogoDesktop, 'no path': '' },
+          euLogoDesktop,
+          { display: 'inline-radio' },
+          tabLabels.required
+        );
+      }
       // Site name & content owner details.
       if (section.description) {
-        section.description = text(
-          `sections[${i}].description`,
-          section.description,
-          tabLabels.required
+        section.description = he.decode(
+          text(
+            `sections[${i}].description`,
+            section.description,
+            tabLabels.required
+          )
         );
       }
       if (section.content_before) {
@@ -308,7 +356,10 @@ const prepareFooterStandardised = data => {
   });
 
   getExtraKnobs(data);
-  getComplianceKnob(data);
+  // Not in EU.
+  if (!data.system) {
+    getComplianceKnob(data);
+  }
   // Return the full specs.
   return data;
 };

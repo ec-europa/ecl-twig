@@ -1,6 +1,7 @@
 import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
 import sections from './demo/data';
+import euSections from './demo/eu-data';
 
 describe('EC - Footer Standardised', () => {
   const template =
@@ -36,6 +37,12 @@ describe('EC - Footer Standardised', () => {
       });
 
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly in EU', () => {
+      expect.assertions(1);
+
+      return expect(render(euSections)).resolves.toMatchSnapshot();
     });
 
     test('with missing input data and debug enabled it returns the right warning messages', () => {
