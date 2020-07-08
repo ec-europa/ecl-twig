@@ -12,6 +12,10 @@
   - "name" (string) (default: '')
   - "width" (string) (default: '')
   - "icon_path" (string) (default: ''): file containing the svg icons
+  - "multiple" (boolean) (optional) (default: false) For the multiple select
+  - "multiple_placeholder" (string)(default: '') Label for the multiple select placeholder
+  - "multiple_all_text" (string)(default: '') Label for the select all option
+  - "multiple_search_text" (string)(default: '') Label for the search box inside the multiple select
   - "extra_group_classes" (optional) (string) (default: '') Extra classes (space separated) for the select group
   - "extra_classes" (optional) (string) (default: '') Extra classes (space separated) for the select
   - "extra_attributes" (optional) (array) (default: []) Extra attributes for select
@@ -42,6 +46,10 @@
 {% set _required_text = required_text|default('') %}
 {% set _optional_text = optional_text|default('') %}
 {% set _label = label|default('') %}
+{% set _multiple = multiple|default(false) %}
+{% set _multiple_placeholder = multiple_placeholder|default('') %}
+{% set _multiple_all_text = multiple_all_text|default('') %}
+{% set _multiple_search_text = multiple_search_text|default('') %}
 {% set _compliance = _compliance_|default(false) %}
 
 {% set _css_group_class = 'ecl-form-group' %}
@@ -53,6 +61,16 @@
 {% set _css_class = _css_class|join(' ') %}
 
 {% set _extra_attributes = '' %}
+{% if _multiple %}
+  {% set extra_attributes = [
+    { name: 'multiple' },
+    { name: 'data-ecl-auto-init', value: 'Select' },
+    { name: 'data-ecl-select-multiple'},
+    { name: 'data-ecl-select-default', value: _multiple_placeholder },
+    { name: 'data-ecl-select-search', value: _multiple_search_text },
+    { name: 'data-ecl-select-all', value: _multiple_all_text }
+  ]|merge(extra_attributes|default([])) %}
+{% endif %}
 
 {# Internal logic - Process properties #}
 
@@ -162,7 +180,11 @@
     invalid_text: _invalid_text,
     required_text: _required_text,
     label: _label,
-    optional_text: _optional_text
+    optional_text: _optional_text,
+    multiple: _multiple,
+    multiple_search_text: _multiple_search_text,
+    multiple_all_text: _multiple_all_text,
+    multiple_placeholder: _multiple_placeholder
   } only %}
 {% endif %}
 

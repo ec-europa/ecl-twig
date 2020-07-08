@@ -1,6 +1,7 @@
 import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
-import specData from './demo/data';
+import dataSingle from './demo/data--single';
+import dataMultiple from './demo/data--multiple';
 
 describe('EC - Select', () => {
   const template = '@ecl-twig/ec-component-select/ecl-select.html.twig';
@@ -12,7 +13,7 @@ describe('EC - Select', () => {
 
       return expect(
         render(
-          merge(specData, {
+          merge(dataSingle, {
             required: false,
           })
         )
@@ -22,7 +23,7 @@ describe('EC - Select', () => {
     test('renders correctly with extra class names', () => {
       expect.assertions(1);
 
-      const optionsWithExtraClasses = merge(specData, {
+      const optionsWithExtraClasses = merge(dataSingle, {
         extra_classes: 'custom-class custom-class--test',
       });
 
@@ -32,7 +33,7 @@ describe('EC - Select', () => {
     test('renders correctly with extra attributes', () => {
       expect.assertions(1);
 
-      const optionsWithExtraAttributes = merge(specData, {
+      const optionsWithExtraAttributes = merge(dataSingle, {
         extra_attributes: [
           { name: 'data-test', value: 'data-test-value' },
           { name: 'data-test-1', value: 'data-test-value-1' },
@@ -47,7 +48,7 @@ describe('EC - Select', () => {
     test('with missing input data and debug enabled returns the right warning message', () => {
       expect.assertions(1);
 
-      const dataCompliance = { ...specData, _compliance_: true };
+      const dataCompliance = { ...dataSingle, _compliance_: true };
       dataCompliance.options[0].value = '';
 
       return expect(render(dataCompliance)).resolves.toMatchSnapshot();
@@ -58,7 +59,7 @@ describe('EC - Select', () => {
     test('renders correctly', () => {
       expect.assertions(1);
 
-      return expect(render(specData)).resolves.toMatchSnapshot();
+      return expect(render(dataSingle)).resolves.toMatchSnapshot();
     });
   });
 
@@ -68,7 +69,7 @@ describe('EC - Select', () => {
 
       return expect(
         render(
-          merge(specData, {
+          merge(dataSingle, {
             disabled: true,
             required: false,
           })
@@ -78,7 +79,7 @@ describe('EC - Select', () => {
   });
 
   describe('With error', () => {
-    const options = merge(specData, {
+    const options = merge(dataSingle, {
       invalid: true,
       required: false,
     });
@@ -87,6 +88,25 @@ describe('EC - Select', () => {
       expect.assertions(1);
 
       return expect(render(options)).resolves.toMatchSnapshot();
+    });
+  });
+
+  describe('Multiple', () => {
+    test('renders correctly', () => {
+      expect.assertions(1);
+
+      return expect(render(dataMultiple)).resolves.toMatchSnapshot();
+    });
+
+    test('with missing input data and debug enabled returns the right warning message', () => {
+      expect.assertions(1);
+
+      const dataCompliance = { ...dataMultiple, _compliance_: true };
+      dataCompliance.multiple_all_text = '';
+      dataCompliance.multiple_search_text = '';
+      dataCompliance.multiple_placeholder = '';
+
+      return expect(render(dataCompliance)).resolves.toMatchSnapshot();
     });
   });
 });
