@@ -31,6 +31,7 @@ const formatLink = l => {
   if (l.hreflang) {
     link.link.hreflang = l.hreflang;
   }
+
   return link;
 };
 
