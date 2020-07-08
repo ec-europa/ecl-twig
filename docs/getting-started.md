@@ -132,15 +132,27 @@ Diff a component rendered via php with the ECL markup
 (interactive script that fetches the html from the ECl storybook and matches that with the right variant rendered via php)
 
 ```bash
-yarn ecl-diff "ec or eu"
+yarn diff:ecl "ec or eu"
 ```
 
 ## Dist
 
-Build the dist:
+Build the dist for the twing based storybook:
 
 ```bash
 yarn twing:dist
+```
+
+Build the dist for the php based storybook:
+
+```bash
+yarn php:dist
+```
+
+Build both:
+
+```bash
+yarn dist
 ```
 
 Test the dist:
@@ -204,23 +216,6 @@ yarn start:php-eu
 ```
 
 All output files are stored in `./php/packages/ec` folder.
-
-## Deployment of the PHP Twig Storybook
-
-We host the php/js storybook on github: https://ec-europa.github.io/ecl-twig
-To be able to deploy a new version on github there are scripts you can execute:
-
-```bash
-yarn php:dist
-```
-
-It will create the bundle and place it in php/dist
-
-```bash
-yarn php:deploy
-```
-
-It uses the npm package https://www.npmjs.com/package/gh-pages to quickly deploy the php/dist folder on github.
 
 ## Libraries update
 
