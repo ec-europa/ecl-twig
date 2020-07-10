@@ -13,6 +13,7 @@ import logoEC from '@ecl/ec-resources-logo/logo--en.svg';
 import dataGroup1 from './demo/data--group1';
 import dataGroup2 from './demo/data--group2';
 import dataGroup3 from './demo/data--group3';
+import dataEu from './demo/data--eu';
 import footerHarmonised from './ecl-footer-harmonised.html.twig';
 import notes from './README.md';
 
