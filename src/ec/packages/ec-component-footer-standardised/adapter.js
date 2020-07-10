@@ -3,8 +3,9 @@ import { formatLink } from '@ecl-twig/data-utils';
 
 let system = false;
 if (process.env.STORYBOOK_SYSTEM === 'EU') {
-  system = 'EU';
+  system = 'eu';
 }
+
 const formatSection = (section, name) => {
   const sections = [];
   let innerSections = false;
@@ -132,8 +133,8 @@ const adapter = initialData => {
         const logo = {
           ...initialData.logo,
           path: initialData.logo.href,
-          src_mobile: './logo--en.svg',
-          src_desktop: './logo--en.svg',
+          src_mobile: '/logo--en.svg',
+          src_desktop: '/logo--en.svg',
         };
         delete logo.href;
         adaptedData.sections.push({
@@ -158,10 +159,6 @@ const adapter = initialData => {
       );
     }
   });
-
-  if (system) {
-    adaptedData.sections.splice(3, 0, { section_id: 6 });
-  }
 
   return adaptedData;
 };

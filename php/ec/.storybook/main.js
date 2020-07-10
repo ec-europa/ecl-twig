@@ -1,4 +1,8 @@
-const stories = ['../../packages/**/*.story.js'];
+let system = 'ec';
+if (process.env.STORYBOOK_SYSTEM === 'EU') {
+  system = 'eu';
+}
+const stories = [`../../packages/${system}/**/*.story.js`];
 
 const addons = [
   '@storybook/addon-options',

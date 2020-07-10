@@ -13,7 +13,7 @@ import euLogoMobile from '@ecl/eu-resources-logo/condensed-version/positive/en.s
 import euLogoDesktop from '@ecl/eu-resources-logo/standard-version/positive/en.svg';
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import specs from './demo/data';
-import euSpecs from './demo/eu-data';
+import euSpecs from './demo/data--eu';
 import footerStandardised from './ecl-footer-standardised.html.twig';
 import notes from './README.md';
 
@@ -280,6 +280,11 @@ const prepareFooterStandardised = data => {
             linkItem.link.path,
             tabLabels.required
           );
+          linkItem.link.aria_label = text(
+            `sections[${i}].links[${j}].link.aria_label`,
+            linkItem.link.aria_label,
+            tabLabels.optional
+          );
           if (linkItem.icon) {
             linkItem.icon.name = text(
               `sections[${i}].links[${j}].icon.name`,
@@ -330,6 +335,11 @@ const prepareFooterStandardised = data => {
             linkItem.link.path = text(
               `sections[${i}][${j}].links[${k}].link.path`,
               linkItem.link.path,
+              tabLabels.optional
+            );
+            linkItem.link.aria_label = text(
+              `sections[${i}][${j}].links[${k}].link.aria_label`,
+              linkItem.link.aria_label,
               tabLabels.optional
             );
             if (linkItem.icon) {

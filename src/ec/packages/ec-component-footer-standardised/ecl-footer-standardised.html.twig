@@ -92,10 +92,10 @@
         link: {
           path: _section.logo.path,
           label: _label,
-          type: 'standalone'
+          type: 'standalone',
+          aria_label: _section.logo.title
         },
-        extra_classes: 'ecl-footer-standardised__logo-link',
-        extra_attributes: [{ name: 'title', value: _section.logo.title }]
+        extra_classes: 'ecl-footer-standardised__logo-link'
       } only %}
     {% endif %}
     {# content before #}

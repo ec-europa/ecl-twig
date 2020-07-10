@@ -38,7 +38,7 @@
     "storybook-start-twing:ec": "start-storybook -p 9001 -c src/ec/storybook/.storybook",
     "storybook-start-twing:eu": "STORYBOOK_SYSTEM=EU start-storybook -p 9001 -c src/eu/storybook/.storybook",
     "storybook-start-php:ec": "start-storybook -s ./static/images -p 9002 -c php/ec/.storybook",
-    "storybook-start-php:eu": "start-storybook -s ./static/images -p 9002 -c php/eu/.storybook",
+    "storybook-start-php:eu": "STORYBOOK_SYSTEM=EU start-storybook -s ./static/images -p 9002 -c php/eu/.storybook",
     "test": "npm run jest",
     "twing:copy": "ncp static build",
     "twing:clean": "rimraf build dist",
