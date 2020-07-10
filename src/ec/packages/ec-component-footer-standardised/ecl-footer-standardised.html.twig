@@ -59,10 +59,8 @@
   {% if _full_section[1] is defined and _full_section[1] is not empty %}
     {% set _grouped_section = _full_section %}
     {% set _internal_wrapper = true %}
-    {# The wrapper of a section containing sub-sections is a div #}
-    <div class="{{ 'ecl-footer-standardised__section' ~ _full_section[0].section_id }}">
+    <section class="{{ 'ecl-footer-standardised__section ecl-footer-standardised__section' ~ _full_section[0].section_id }}">
   {% else %}
-    {# The wrapper of a section without sub-section is a section #}
     <section class="ecl-footer-standardised__section {{ 'ecl-footer-standardised__section' ~ _full_section.section_id }}">
     {% set _grouped_section = [_full_section] %}
   {% endif %}
@@ -150,7 +148,7 @@
     {% endif %}
   {% endfor %}
   {% if _internal_wrapper %}
-    </div>
+    </section>
   {% else %}
     </section>
   {% endif %}

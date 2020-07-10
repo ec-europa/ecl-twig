@@ -13,6 +13,12 @@ npm install --save @ecl-twig/ec-component-footer-standardised
     (site_name, service_navigation, legal_navigation, corporate_name, dg_related_navigation,
     dg_services_navigation, class_names)
   - "section_id" (integer) (default: '') The id will be used to form the class name
+  - "logo" (EU only)
+    - "alt" (string) alt attribute for the logo link
+    - "path" (string) logo link path
+    - "language" (string) Language code
+    - "src_mobile" (string) Path the mobile logo
+    - "src-desktop" (string) Path to the desktop logo
   - "title" (optional) (string) OR (object with Link component in property)
   - "title_class_name" (optional) (string) (default: '')
   - "description" (optional) (string) (default: '')

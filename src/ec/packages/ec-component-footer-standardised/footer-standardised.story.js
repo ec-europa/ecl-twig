@@ -19,9 +19,10 @@ import notes from './README.md';
 
 // Handle the EU demo.
 let systemSpec = specs;
+let system = false;
 if (process.env.STORYBOOK_SYSTEM === 'EU') {
   systemSpec = euSpecs;
-  euSpecs.system = 'EU';
+  system = 'EU';
 }
 
 // Icons.
@@ -46,7 +47,7 @@ specs.sections.forEach(section => {
 // Preserve the original data.
 const data = { ...systemSpec };
 // Not in EU.
-if (!data.system) {
+if (!system) {
   const contactUs = JSON.parse(JSON.stringify(specs.sections[1][0]));
   const followUs = JSON.parse(JSON.stringify(specs.sections[1][1]));
   const aboutUs = JSON.parse(JSON.stringify(specs.sections[2][0]));
@@ -159,7 +160,7 @@ if (!data.system) {
 
 // Prepare the knobs for group1
 const prepareFooterStandardised = data => {
-  if (!data.system) {
+  if (!system) {
     button(
       'With or without DG-related service navigation (contact us)',
       serviceBtnToggler,
@@ -367,7 +368,7 @@ const prepareFooterStandardised = data => {
 
   getExtraKnobs(data);
   // Not in EU.
-  if (!data.system) {
+  if (!system) {
     getComplianceKnob(data);
   }
   // Return the full specs.

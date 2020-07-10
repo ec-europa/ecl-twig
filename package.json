@@ -21,7 +21,7 @@
     "postinstall": "lerna run postinstall && lerna run prepublish && patch-package",
     "pretty:check": "prettier --check \"src/**/*.{md,mdx,html,json,yml,js}\"",
     "pretty:fix": "prettier --write \"src/**/*.{md,mdx,html,json,yml,js}\"",
-    "pretty:php": "prettier --write \"php/**/*.{html,js}\"",
+    "pretty:php": "prettier --write \"php/*/!(php_storybook)/**/!(.storybook)/*.{html,js}\"",
     "publish": "scripts/publish.sh",
     "render:dataGen": "babel-node ./node_modules/@ecl-twig/php-storybook/scripts/generate-data-files.js",
     "render:php": "lerna --scope \"@ecl-twig/php-storybook\" run render-php --",
