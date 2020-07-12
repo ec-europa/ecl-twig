@@ -59,12 +59,12 @@
   {% if _full_section[1] is defined and _full_section[1] is not empty %}
     {% set _grouped_section = _full_section %}
     {% set _internal_wrapper = true %}
-    <section class="{{ 'ecl-footer-standardised__section ecl-footer-standardised__section' ~ _full_section[0].section_id }}">
+    {% set _section_id = _full_section[0].section_id %}
   {% else %}
-    <section class="ecl-footer-standardised__section {{ 'ecl-footer-standardised__section' ~ _full_section.section_id }}">
+    {% set _section_id = _full_section.section_id %}
     {% set _grouped_section = [_full_section] %}
   {% endif %}
-  {# Starts looping #}
+  <section class="ecl-footer-standardised__section {{ 'ecl-footer-standardised__section' ~ _section_id }}">
   {% for _section in _grouped_section %}
     {# Sub-section wrapper #}
     {% if _internal_wrapper and _section.title is defined %}
@@ -143,16 +143,12 @@
         {% endfor %}
       </ul>
     {% endif %}
-    {% if _internal_wrapper %}
+    {% if _internal_wrapper and _section.title is defined %}
       </section>
     {% endif %}
   {% endfor %}
-  {% if _internal_wrapper %}
     </section>
-  {% else %}
-    </section>
-  {% endif %}
-{% endfor %}
+  {% endfor %}
   </div>
 </footer>
 

@@ -17,14 +17,6 @@ import euSpecs from './demo/data--eu';
 import footerStandardised from './ecl-footer-standardised.html.twig';
 import notes from './README.md';
 
-// Handle the EU demo.
-let systemSpec = specs;
-let system = false;
-if (process.env.STORYBOOK_SYSTEM === 'EU') {
-  systemSpec = euSpecs;
-  system = 'EU';
-}
-
 // Icons.
 specs.sections.forEach(section => {
   if (!Array.isArray(section)) {
@@ -44,119 +36,115 @@ specs.sections.forEach(section => {
     }
   });
 });
+
+// Handle the EU demo.
+const system = process.env.STORYBOOK_SYSTEM
+  ? process.env.STORYBOOK_SYSTEM
+  : false;
+const contactUs = JSON.parse(JSON.stringify(specs.sections[1][0]));
+const followUs = JSON.parse(JSON.stringify(specs.sections[1][1]));
+const aboutUs = JSON.parse(JSON.stringify(specs.sections[2][0]));
+const related = JSON.parse(JSON.stringify(specs.sections[2][1]));
+
 // Preserve the original data.
-const data = { ...systemSpec };
-// Not in EU.
-if (!system) {
-  const contactUs = JSON.parse(JSON.stringify(specs.sections[1][0]));
-  const followUs = JSON.parse(JSON.stringify(specs.sections[1][1]));
-  const aboutUs = JSON.parse(JSON.stringify(specs.sections[2][0]));
-  const related = JSON.parse(JSON.stringify(specs.sections[2][1]));
-  // Buttons callbacks.
-  // Dg related service navigation (contact us)
-  const serviceBtnToggler = () => {
-    // If it's where is supposed to be, hide it
-    if (data.sections[1][0].demo_id === 'contact_us') {
-      data.sections[1][0] = { section_id: 2 };
-    } else {
-      // Two blocks might have taken its place.
-      if (data.sections[1][1].demo_id === 'related') {
-        data.sections[1][1] = { section_id: 2 };
-        data.sections[2][1] = related;
-        data.sections[2][1].section_id = 3;
-      }
-      if (data.sections[1][0].demo_id === 'about_us') {
-        data.sections[1][0] = { section_id: 2 };
-        data.sections[2][0] = aboutUs;
-        data.sections[2][0].section_id = 3;
-      }
-      // Show it.
-      data.sections[1][0] = contactUs;
-      data.sections[1][0].section_id = 2;
-    }
-  };
-  // Dg related service navigation. (follow us)
-  const socialBtnToggler = () => {
-    // If it's where is supposed to be, hide it
-    if (data.sections[1][1].demo_id === 'follow_us') {
+const data = system ? euSpecs : { ...specs };
+
+// Buttons callbacks.
+// Dg related service navigation (contact us)
+const serviceBtnToggler = () => {
+  // If it's where is supposed to be, hide it
+  if (data.sections[1][0].demo_id === 'contact_us') {
+    data.sections[1][0] = { section_id: 2 };
+  } else {
+    // Two blocks might have taken its place.
+    if (data.sections[1][1].demo_id === 'related') {
       data.sections[1][1] = { section_id: 2 };
-    } else {
-      // Two blocks might have taken its place.
-      if (data.sections[1][1].demo_id === 'related') {
-        data.sections[1][1] = { section_id: 2 };
-        data.sections[2][1] = related;
-        data.sections[2][1].section_id = 3;
-      }
-      if (data.sections[1][0].demo_id === 'about_us') {
-        data.sections[1][0] = { section_id: 2 };
-        data.sections[2][0] = aboutUs;
-        data.sections[2][0].section_id = 3;
-      }
-      // Show it.
-      data.sections[1][1] = followUs;
-      data.sections[1][1].section_id = 2;
-    }
-  };
-  // Dg related navigation. (About us)
-  const aboutBtnToggler = () => {
-    // No optional section is rendered.
-    const emptyOptional =
-      !data.sections[1][0].demo_id &&
-      !data.sections[1][1].demo_id &&
-      !data.sections[2][1].demo_id &&
-      !data.sections[2][0].demo_id;
-    // If it's where is supposed to be, hide it.
-    if (data.sections[2][0].demo_id === 'about_us') {
-      data.sections[2][0] = { section_id: 3 };
-      // If it's in the other column, we hide it.
-    } else if (data.sections[1][0].demo_id === 'about_us') {
-      data.sections[1][0] = { section_id: 2 };
-      // If no block is present or we have only one column.
-    } else if (emptyOptional || data.sections[1][1].demo_id === 'related') {
-      data.sections[1][0] = aboutUs;
-      data.sections[1][0].section_id = 2;
-      // We show it.
-    } else {
-      data.sections[2][0] = aboutUs;
-      data.sections[2][0].section_id = 3;
-    }
-  };
-  // Dg related navigation. (Related sites)
-  const relatedBtnToggler = () => {
-    // No optional section is rendered.
-    const emptyOptional =
-      !data.sections[1][0].demo_id &&
-      !data.sections[1][1].demo_id &&
-      !data.sections[2][1].demo_id &&
-      !data.sections[2][0].demo_id;
-    // If it's where is supposed to be, hide it.
-    if (data.sections[2][1].demo_id === 'related') {
-      data.sections[2][1] = { section_id: 3 };
-      // If it's in the other column, we hide it.
-    } else if (data.sections[1][1].demo_id === 'related') {
-      data.sections[1][1] = { section_id: 2 };
-      // If no block is present or we have only one column.
-    } else if (emptyOptional || data.sections[1][0].demo_id === 'about_us') {
-      data.sections[1][1] = related;
-      data.sections[1][1].section_id = 2;
-      // We show it.
-    } else {
       data.sections[2][1] = related;
       data.sections[2][1].section_id = 3;
     }
-  };
-  // Reset button.
-  const resetBtnToggler = () => {
+    if (data.sections[1][0].demo_id === 'about_us') {
+      data.sections[1][0] = { section_id: 2 };
+      data.sections[2][0] = aboutUs;
+      data.sections[2][0].section_id = 3;
+    }
+    // Show it.
     data.sections[1][0] = contactUs;
-    data.sections[1][1] = followUs;
-    data.sections[2][0] = aboutUs;
-    data.sections[2][1] = related;
     data.sections[1][0].section_id = 2;
+  }
+};
+
+// Dg related service navigation. (follow us)
+const socialBtnToggler = () => {
+  // If it's where is supposed to be, hide it
+  if (data.sections[1][1].demo_id === 'follow_us') {
+    data.sections[1][1] = { section_id: 2 };
+  } else {
+    // Two blocks might have taken its place.
+    if (data.sections[1][1].demo_id === 'related') {
+      data.sections[1][1] = { section_id: 2 };
+      data.sections[2][1] = related;
+      data.sections[2][1].section_id = 3;
+    }
+    if (data.sections[1][0].demo_id === 'about_us') {
+      data.sections[1][0] = { section_id: 2 };
+      data.sections[2][0] = aboutUs;
+      data.sections[2][0].section_id = 3;
+    }
+    // Show it.
+    data.sections[1][1] = followUs;
     data.sections[1][1].section_id = 2;
+  }
+};
+// Reset button.
+const resetBtnToggler = () => {
+  data.sections[1][0] = contactUs;
+  data.sections[1][1] = followUs;
+  data.sections[2][0] = aboutUs;
+  data.sections[2][1] = related;
+  data.sections[1][0].section_id = 2;
+  data.sections[1][1].section_id = 2;
+  data.sections[2][0].section_id = 3;
+  data.sections[2][1].section_id = 3;
+};
+// Dg related navigation. (About us)
+const aboutBtnToggler = () => {
+  // No optional section is rendered.
+  const emptyOptional =
+    !data.sections[1][0].demo_id &&
+    !data.sections[1][1].demo_id &&
+    !data.sections[2][1].demo_id &&
+    !data.sections[2][0].demo_id;
+  // If it's where is supposed to be, hide it.
+  if (data.sections[2][0].demo_id === 'about_us') {
+    data.sections[2][0] = { section_id: 3 };
+  } else if (data.swap) {
+    resetBtnToggler();
+    // We show it.
+  } else {
+    data.sections[2][0] = aboutUs;
     data.sections[2][0].section_id = 3;
+  }
+};
+// Dg related navigation. (Related sites)
+const relatedBtnToggler = () => {
+  // No optional section is rendered.
+  const emptyOptional =
+    !data.sections[1][0].demo_id &&
+    !data.sections[1][1].demo_id &&
+    !data.sections[2][1].demo_id &&
+    !data.sections[2][0].demo_id;
+  // If it's where is supposed to be, hide it.
+  if (data.sections[2][1].demo_id === 'related') {
+    data.sections[2][1] = { section_id: 3 };
+    // If it's in the other column, we hide it.
+  } else if (data.swap) {
+    resetBtnToggler();
+    // We show it.
+  } else {
+    data.sections[2][1] = related;
     data.sections[2][1].section_id = 3;
-  };
-}
+  }
+};
 
 // Prepare the knobs for group1
 const prepareFooterStandardised = data => {
@@ -182,20 +170,6 @@ const prepareFooterStandardised = data => {
       tabLabels.cases
     );
     button('Reset the layout', resetBtnToggler, tabLabels.cases);
-
-    // Swap the columns when needed.
-    if (!data.sections[1][0].title && !data.sections[1][1].title) {
-      data.sections[1][0] = data.sections[2][0].title
-        ? aboutUs
-        : { section_id: 2 };
-      data.sections[1][1] = data.sections[2][1].title
-        ? related
-        : { section_id: 2 };
-      data.sections[1][0].section_id = 2;
-      data.sections[1][1].section_id = 2;
-      data.sections[2][0] = { section_id: 3 };
-      data.sections[2][1] = { section_id: 3 };
-    }
   }
 
   data.sections.forEach((section, i) => {
@@ -365,6 +339,33 @@ const prepareFooterStandardised = data => {
       });
     }
   });
+  // Swap the columns when needed.
+  if (
+    !system &&
+    !data.sections[1][0].title &&
+    !data.sections[1][1].title &&
+    (data.sections[2][0].title || data.sections[2][1].title)
+  ) {
+    if (data.sections[2][0].demo_id === 'about_us') {
+      data.sections[1][0].title = data.sections[2][0].title;
+      data.sections[1][0].links = [];
+      data.sections[1][0].links = data.sections[2][0].links;
+      data.sections[1][0].demo_id = 'about_us';
+      data.sections[1][0].title_class_name =
+        'ecl-footer-standardised__title--separator';
+    }
+    if (data.sections[2][1].demo_id === 'related') {
+      data.sections[1][1].links = [];
+      data.sections[1][1].title = data.sections[2][1].title;
+      data.sections[1][1].links = data.sections[2][1].links;
+      data.sections[1][1].demo_id = 'related';
+      data.sections[1][1].title_class_name =
+        'ecl-footer-standardised__title--separator';
+    }
+    data.sections[2][0] = { section_id: 3 };
+    data.sections[2][1] = { section_id: 3 };
+    data.swap = true;
+  }
 
   getExtraKnobs(data);
   // Not in EU.
@@ -377,7 +378,7 @@ const prepareFooterStandardised = data => {
 
 export default {
   title: 'Components/Footers/Standardised',
-  decorators: [withCode, withNotes, withKnobs],
+  decorators: [withNotes, withCode, withKnobs],
 };
 
 export const Default = () =>
