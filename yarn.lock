@@ -1684,6 +1684,13 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
+"@ecl-twig/ec-component-footer-harmonised@2.29.0":
+  version "2.29.0"
+  resolved "https://registry.yarnpkg.com/@ecl-twig/ec-component-footer-harmonised/-/ec-component-footer-harmonised-2.29.0.tgz#9751b4b8dcabc9c603c14facbd2302943c477165"
+  integrity sha512-qxxaXwb/3pZHXPHDDp3wS8AUw6sLtokmMVyujWdxLiXfjZcMGox0gVA1ei6Xp95DbuEun/tHagbAP/dO3iQO/A==
+  dependencies:
+    "@ecl-twig/ec-component-link" "2.29.0"
+
 "@ecl-twig/ec-component-inpage-navigation@2.29.0":
   version "2.29.0"
   resolved "https://registry.yarnpkg.com/@ecl-twig/ec-component-inpage-navigation/-/ec-component-inpage-navigation-2.29.0.tgz#02e7a594470bca08753559aa5eee0e12fa119dc5"
@@ -2263,6 +2270,11 @@
   resolved "https://registry.yarnpkg.com/@ecl/ec-resources-logo/-/ec-resources-logo-2.29.0.tgz#e0562de02718f6b64778d22c798d7778c1f4e9ed"
   integrity sha512-r1M+rEzDt+gOrpB+lvWhrGP5vpz5WFztovj2/hAL8d7WJoUfheNayGPrdXxEEX/qYO1THCSdLSQSkIiDUXBDsg==
 
+"@ecl/ec-resources-logo@2.30.0":
+  version "2.30.0"
+  resolved "https://registry.yarnpkg.com/@ecl/ec-resources-logo/-/ec-resources-logo-2.30.0.tgz#6595f8aebc8586f377d6123141c7e887cf84dee9"
+  integrity sha512-DqzfzNChDli0mH43l6WAWpbDoMeIuogdkhL9xFsaoAat6MJmj1HSeZZKdvoTdFhCHC5i6H9rmGS2iOK9fkQ+cw==
+
 "@ecl/ec-resources-social-icons@2.29.0":
   version "2.29.0"
   resolved "https://registry.yarnpkg.com/@ecl/ec-resources-social-icons/-/ec-resources-social-icons-2.29.0.tgz#76e3029f8b090c8bc9cafbec7feb9a7562723beb"
@@ -2549,6 +2561,52 @@
   integrity sha512-n3mF849hls8DdQiLprthk0LPyJAPD8xuZPUPrK+mV6YTDgzn2hHmxBy0AdCf2q2D5pLyt+jkrgngahLB/JgPcA==
   dependencies:
     "@ecl/ec-base" "^2.29.0"
+
+"@ecl/eu-base@^2.30.0":
+  version "2.30.0"
+  resolved "https://registry.yarnpkg.com/@ecl/eu-base/-/eu-base-2.30.0.tgz#f3a38b460ea0a98504bc25242c1bbe627dd6f436"
+  integrity sha512-IcUFKL95GInIUBsZ+RiTsv0WRZTalSCuUL3LzI+lcJpEm77bT0eiHOoy+oSAWNBD6q6raXSuG06G1pEvneZx9g==
+
+"@ecl/eu-component-footer-harmonised@2.30.0":
+  version "2.30.0"
+  resolved "https://registry.yarnpkg.com/@ecl/eu-component-footer-harmonised/-/eu-component-footer-harmonised-2.30.0.tgz#1cf4b5e1df54ded5938fe65de5a3dfb9541afbd6"
+  integrity sha512-i+WQbKNXT9mVdkrfd8wXpuVdR/WUl7DUP0Y77lEo3I4+VzJ2isErbh+Wqin1g1D91NtVMwPzKalbGMMnqC2C2Q==
+  dependencies:
+    "@ecl/eu-base" "^2.30.0"
+    "@ecl/eu-component-link" "^2.30.0"
+    "@ecl/eu-layout-grid" "^2.30.0"
+
+"@ecl/eu-component-icon@^2.30.0":
+  version "2.30.0"
+  resolved "https://registry.yarnpkg.com/@ecl/eu-component-icon/-/eu-component-icon-2.30.0.tgz#2048e04026e3ca57dfe25cd78ba78710efe10de3"
+  integrity sha512-WGwiCgi3q5j9CJj78fux20uxKKU4APED8bbqbjsV0//EL44s9b7sYmTLz4spPtZsDrmRfgB4g5YtwlMtQmETtA==
+  dependencies:
+    "@ecl/eu-base" "^2.30.0"
+
+"@ecl/eu-component-link@^2.30.0":
+  version "2.30.0"
+  resolved "https://registry.yarnpkg.com/@ecl/eu-component-link/-/eu-component-link-2.30.0.tgz#03d050c7290adf4f12d221571cfd8fbe1576f888"
+  integrity sha512-i6tykrxHGJy6jWPqMcSSGT4hcS2QGkvRpP3Vr4i3c4aVTZfUAdQgrwtpKyRkAfmdIksbzvtOp/ZsWuERO5m3lA==
+  dependencies:
+    "@ecl/eu-base" "^2.30.0"
+    "@ecl/eu-component-icon" "^2.30.0"
+
+"@ecl/eu-layout-grid@^2.30.0":
+  version "2.30.0"
+  resolved "https://registry.yarnpkg.com/@ecl/eu-layout-grid/-/eu-layout-grid-2.30.0.tgz#e4209e04ddbe053c039af89d3a56c1808523b918"
+  integrity sha512-VC6gz/6bCeiHVbvXt7/0iQcwcpPYSMW+ZR8ZFzjvteDA3YCYZJiYo5EScwXHxo/pttZcGhQKEQPw1QoUjwqiDg==
+  dependencies:
+    "@ecl/eu-base" "^2.30.0"
+
+"@ecl/eu-resources-icons@2.30.0":
+  version "2.30.0"
+  resolved "https://registry.yarnpkg.com/@ecl/eu-resources-icons/-/eu-resources-icons-2.30.0.tgz#14fd1d52b6251a799a7dae315a80b5e28fdcbebd"
+  integrity sha512-jcTh433JKArjJc9z+j3dxxbEVOLjxrmWw+NvGZQomHz/i+Kn+Rzo4caiQLHfgo0nBMC1LAaEKXTxzGb1pegWOQ==
+
+"@ecl/eu-resources-logo@2.30.0":
+  version "2.30.0"
+  resolved "https://registry.yarnpkg.com/@ecl/eu-resources-logo/-/eu-resources-logo-2.30.0.tgz#db37dcc271dead520e4e56fa1471221c2b6dec97"
+  integrity sha512-TcomOVoM/2+eZue3HM/lelrO7/J7YyvIMDZ34/qyaMd1wgWWplW3bLq90BPiIamP6JQlGcFHS8LB8sxgEjZv3Q==
 
 "@ecl/eu-specs-footer-harmonised@2.30.0":
   version "2.30.0"
