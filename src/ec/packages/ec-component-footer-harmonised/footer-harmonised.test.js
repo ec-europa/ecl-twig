@@ -3,6 +3,7 @@ import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 import dataGroup1 from './demo/data--group1';
 import dataGroup2 from './demo/data--group2';
 import dataGroup3 from './demo/data--group3';
+import dataEu from './demo/data--eu';
 
 describe('EC - Footer Harmonised', () => {
   const template =
@@ -128,6 +129,14 @@ describe('EC - Footer Harmonised', () => {
       dataCompliance.sections[0].title.link.label = '';
 
       return expect(render(dataCompliance)).resolves.toMatchSnapshot();
+    });
+  });
+
+  describe('EU version', () => {
+    test('renders correctly', () => {
+      expect.assertions(1);
+
+      return expect(render(dataEu)).resolves.toMatchSnapshot();
     });
   });
 });

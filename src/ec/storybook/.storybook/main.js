@@ -1,4 +1,4 @@
-const stories = ['../../packages/**/!(*contextual-navigation).story.js'];
+const stories = ['../../packages/**/!(*contextual-navigation|eu*).story.js'];
 
 const addons = [
   '@ecl-twig/storybook-addon-notes/src/register',
