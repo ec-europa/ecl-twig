@@ -39,9 +39,10 @@ const rootFolder = process.cwd();
 const distFolder = `${rootFolder}/php`;
 const systemFolder = `${distFolder}/packages/${system}`;
 const getBase = element => {
-  [, element] = element.split(`${system}-component-`);
+  [, element] = element.split(`ec-component-`);
   return element;
 };
+
 // We build a list of components by their root name.
 packages = packages.map(getBase);
 packages.pop();

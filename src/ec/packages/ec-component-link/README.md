@@ -12,6 +12,7 @@ npm install --save @ecl-twig/ec-component-link
   - "type" (string) (default: '') - type of link. Available types are 'default' or standalone
   - "label" (string) (default: '') - Content of link
   - "path" (string) (default: '') - Link url (href attribute)
+  - "aria_label" (string) Aria label attribute value
   - "icon_position" (string) (default: 'after') - Position of link icon (can be 'before' or 'after') if icon is available
 - **"icon"** (optional) (associative array) OR (array) of associate arrays - Default structure of the icon component, but extra_classes is an internal key.
   The name has to be non empty for the icon to be printed.
@@ -32,6 +33,7 @@ npm install --save @ecl-twig/ec-component-link
     label: 'Standalone link', 
     path: 'http://google.com', 
     icon_position: 'after' 
+    aria_label: 'An aria label' 
   }, 
   icon: { 
     path: '/path-to-the-icon-file', 
