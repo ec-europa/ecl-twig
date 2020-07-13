@@ -7,6 +7,7 @@
         type: 'default' (can be 'default', 'standalone')
         label: '' (string),
         path: '', (string) (Link url)
+        aria_label: '' (string) Aria label attribute value
         icon_position: 'after' (string) (Can be 'before' or 'after'. Is required only if Icon is specified)
       }
     - "icon" (associative array) OR (array) of associative arrays : format
@@ -82,6 +83,10 @@
 
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if _link.aria_label is defined and _link.aria_label is not empty %}
+  {% set extra_attributes = extra_attributes|default([])|merge([{ name: 'aria-label', value: _link.aria_label }]) %}
 {% endif %}
 
 {% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}

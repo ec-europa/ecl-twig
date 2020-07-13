@@ -1,15 +1,19 @@
-/* eslint-disable no-shadow */
+/* eslint-disable no-shadow, no-unused-vars, no-undef */
+import he from 'he';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
-import { withKnobs, button, text } from '@storybook/addon-knobs';
+import { withKnobs, button, text, optionsKnob } from '@storybook/addon-knobs';
 import {
   getExtraKnobs,
   tabLabels,
   getComplianceKnob,
 } from '@ecl-twig/story-utils';
 
+import euLogoMobile from '@ecl/eu-resources-logo/condensed-version/positive/en.svg';
+import euLogoDesktop from '@ecl/eu-resources-logo/standard-version/positive/en.svg';
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import specs from './demo/data';
+import euSpecs from './demo/data--eu';
 import footerStandardised from './ecl-footer-standardised.html.twig';
 import notes from './README.md';
 
@@ -33,13 +37,17 @@ specs.sections.forEach(section => {
   });
 });
 
+// Handle the EU demo.
+const system = process.env.STORYBOOK_SYSTEM
+  ? process.env.STORYBOOK_SYSTEM
+  : false;
 const contactUs = JSON.parse(JSON.stringify(specs.sections[1][0]));
 const followUs = JSON.parse(JSON.stringify(specs.sections[1][1]));
 const aboutUs = JSON.parse(JSON.stringify(specs.sections[2][0]));
 const related = JSON.parse(JSON.stringify(specs.sections[2][1]));
 
 // Preserve the original data.
-const data = { ...specs };
+const data = system ? euSpecs : { ...specs };
 
 // Buttons callbacks.
 // Dg related service navigation (contact us)
@@ -64,6 +72,7 @@ const serviceBtnToggler = () => {
     data.sections[1][0].section_id = 2;
   }
 };
+
 // Dg related service navigation. (follow us)
 const socialBtnToggler = () => {
   // If it's where is supposed to be, hide it
@@ -86,6 +95,17 @@ const socialBtnToggler = () => {
     data.sections[1][1].section_id = 2;
   }
 };
+// Reset button.
+const resetBtnToggler = () => {
+  data.sections[1][0] = contactUs;
+  data.sections[1][1] = followUs;
+  data.sections[2][0] = aboutUs;
+  data.sections[2][1] = related;
+  data.sections[1][0].section_id = 2;
+  data.sections[1][1].section_id = 2;
+  data.sections[2][0].section_id = 3;
+  data.sections[2][1].section_id = 3;
+};
 // Dg related navigation. (About us)
 const aboutBtnToggler = () => {
   // No optional section is rendered.
@@ -97,13 +117,8 @@ const aboutBtnToggler = () => {
   // If it's where is supposed to be, hide it.
   if (data.sections[2][0].demo_id === 'about_us') {
     data.sections[2][0] = { section_id: 3 };
-    // If it's in the other column, we hide it.
-  } else if (data.sections[1][0].demo_id === 'about_us') {
-    data.sections[1][0] = { section_id: 2 };
-    // If no block is present or we have only one column.
-  } else if (emptyOptional || data.sections[1][1].demo_id === 'related') {
-    data.sections[1][0] = aboutUs;
-    data.sections[1][0].section_id = 2;
+  } else if (data.swap) {
+    resetBtnToggler();
     // We show it.
   } else {
     data.sections[2][0] = aboutUs;
@@ -122,69 +137,44 @@ const relatedBtnToggler = () => {
   if (data.sections[2][1].demo_id === 'related') {
     data.sections[2][1] = { section_id: 3 };
     // If it's in the other column, we hide it.
-  } else if (data.sections[1][1].demo_id === 'related') {
-    data.sections[1][1] = { section_id: 2 };
-    // If no block is present or we have only one column.
-  } else if (emptyOptional || data.sections[1][0].demo_id === 'about_us') {
-    data.sections[1][1] = related;
-    data.sections[1][1].section_id = 2;
+  } else if (data.swap) {
+    resetBtnToggler();
     // We show it.
   } else {
     data.sections[2][1] = related;
     data.sections[2][1].section_id = 3;
   }
 };
-// Reset button.
-const resetBtnToggler = () => {
-  data.sections[1][0] = contactUs;
-  data.sections[1][1] = followUs;
-  data.sections[2][0] = aboutUs;
-  data.sections[2][1] = related;
-  data.sections[1][0].section_id = 2;
-  data.sections[1][1].section_id = 2;
-  data.sections[2][0].section_id = 3;
-  data.sections[2][1].section_id = 3;
-};
+
 // Prepare the knobs for group1
 const prepareFooterStandardised = data => {
-  button(
-    'With or without DG-related service navigation (contact us)',
-    serviceBtnToggler,
-    tabLabels.cases
-  );
-  button(
-    'With or without DG-related service navigation (Follow us)',
-    socialBtnToggler,
-    tabLabels.cases
-  );
-  button(
-    'With or without DG-related navigation (About us)',
-    aboutBtnToggler,
-    tabLabels.cases
-  );
-  button(
-    'With or without DG-related navigation (Related sites)',
-    relatedBtnToggler,
-    tabLabels.cases
-  );
-  button('Reset the layout', resetBtnToggler, tabLabels.cases);
-  // Swap the columns when needed.
-  if (!data.sections[1][0].title && !data.sections[1][1].title) {
-    data.sections[1][0] = data.sections[2][0].title
-      ? aboutUs
-      : { section_id: 2 };
-    data.sections[1][1] = data.sections[2][1].title
-      ? related
-      : { section_id: 2 };
-    data.sections[1][0].section_id = 2;
-    data.sections[1][1].section_id = 2;
-    data.sections[2][0] = { section_id: 3 };
-    data.sections[2][1] = { section_id: 3 };
+  if (!system) {
+    button(
+      'With or without DG-related service navigation (contact us)',
+      serviceBtnToggler,
+      tabLabels.cases
+    );
+    button(
+      'With or without DG-related service navigation (Follow us)',
+      socialBtnToggler,
+      tabLabels.cases
+    );
+    button(
+      'With or without DG-related navigation (About us)',
+      aboutBtnToggler,
+      tabLabels.cases
+    );
+    button(
+      'With or without DG-related navigation (Related sites)',
+      relatedBtnToggler,
+      tabLabels.cases
+    );
+    button('Reset the layout', resetBtnToggler, tabLabels.cases);
   }
 
   data.sections.forEach((section, i) => {
     if (!Array.isArray(section)) {
-      if (section.title && section.title.link) {
+      if (section.title && typeof section.title === 'object') {
         section.title.link = {
           label: text(
             `sections[${i}].title.link.label`,
@@ -198,12 +188,45 @@ const prepareFooterStandardised = data => {
           ),
         };
       }
+      if (section.logo) {
+        section.logo.path = text(
+          `sections[${i}].logo.path`,
+          section.logo.path,
+          tabLabels.required
+        );
+        section.logo.title = text(
+          `sections[${i}].logo.title`,
+          section.logo.title,
+          tabLabels.required
+        );
+        section.logo.alt = text(
+          `sections[${i}].logo.alt`,
+          section.logo.alt,
+          tabLabels.required
+        );
+        section.logo.src_mobile = optionsKnob(
+          `sections[${i}].logo.src_mobile`,
+          { current: euLogoMobile, 'no path': '' },
+          euLogoMobile,
+          { display: 'inline-radio' },
+          tabLabels.required
+        );
+        section.logo.src_desktop = optionsKnob(
+          `sections[${i}].logo.src_desktop`,
+          { current: euLogoDesktop, 'no path': '' },
+          euLogoDesktop,
+          { display: 'inline-radio' },
+          tabLabels.required
+        );
+      }
       // Site name & content owner details.
       if (section.description) {
-        section.description = text(
-          `sections[${i}].description`,
-          section.description,
-          tabLabels.required
+        section.description = he.decode(
+          text(
+            `sections[${i}].description`,
+            section.description,
+            tabLabels.required
+          )
         );
       }
       if (section.content_before) {
@@ -231,6 +254,11 @@ const prepareFooterStandardised = data => {
             `sections[${i}].links[${j}].link.path`,
             linkItem.link.path,
             tabLabels.required
+          );
+          linkItem.link.aria_label = text(
+            `sections[${i}].links[${j}].link.aria_label`,
+            linkItem.link.aria_label,
+            tabLabels.optional
           );
           if (linkItem.icon) {
             linkItem.icon.name = text(
@@ -284,6 +312,11 @@ const prepareFooterStandardised = data => {
               linkItem.link.path,
               tabLabels.optional
             );
+            linkItem.link.aria_label = text(
+              `sections[${i}][${j}].links[${k}].link.aria_label`,
+              linkItem.link.aria_label,
+              tabLabels.optional
+            );
             if (linkItem.icon) {
               linkItem.icon.name = text(
                 `sections[${i}][${j}].links[${k}].icon.name`,
@@ -306,16 +339,46 @@ const prepareFooterStandardised = data => {
       });
     }
   });
+  // Swap the columns when needed.
+  if (
+    !system &&
+    !data.sections[1][0].title &&
+    !data.sections[1][1].title &&
+    (data.sections[2][0].title || data.sections[2][1].title)
+  ) {
+    if (data.sections[2][0].demo_id === 'about_us') {
+      data.sections[1][0].title = data.sections[2][0].title;
+      data.sections[1][0].links = [];
+      data.sections[1][0].links = data.sections[2][0].links;
+      data.sections[1][0].demo_id = 'about_us';
+      data.sections[1][0].title_class_name =
+        'ecl-footer-standardised__title--separator';
+    }
+    if (data.sections[2][1].demo_id === 'related') {
+      data.sections[1][1].links = [];
+      data.sections[1][1].title = data.sections[2][1].title;
+      data.sections[1][1].links = data.sections[2][1].links;
+      data.sections[1][1].demo_id = 'related';
+      data.sections[1][1].title_class_name =
+        'ecl-footer-standardised__title--separator';
+    }
+    data.sections[2][0] = { section_id: 3 };
+    data.sections[2][1] = { section_id: 3 };
+    data.swap = true;
+  }
 
   getExtraKnobs(data);
-  getComplianceKnob(data);
+  // Not in EU.
+  if (!system) {
+    getComplianceKnob(data);
+  }
   // Return the full specs.
   return data;
 };
 
 export default {
   title: 'Components/Footers/Standardised',
-  decorators: [withCode, withNotes, withKnobs],
+  decorators: [withNotes, withCode, withKnobs],
 };
 
 export const Default = () =>
