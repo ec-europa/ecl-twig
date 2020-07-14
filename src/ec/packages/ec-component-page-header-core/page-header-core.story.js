@@ -1,4 +1,4 @@
-import { withKnobs, text, object } from '@storybook/addon-knobs';
+import { withKnobs, text, optionsKnob } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
 import {
@@ -16,10 +16,7 @@ import pageHeaderCore from './ecl-page-header-core.html.twig';
 import notes from './README.md';
 
 const preparePageHeaderCore = (data, desc, meta) => {
-  data.breadcrumb.icon_file_path = defaultSprite;
   data.title = text('title', data.title, tabLabels.required);
-  data.breadcrumb = object('breadcrumb', data.breadcrumb, tabLabels.required);
-
   if (meta) {
     data.meta = text('meta', data.meta, tabLabels.optional);
   }
@@ -30,7 +27,35 @@ const preparePageHeaderCore = (data, desc, meta) => {
       tabLabels.optional
     );
   }
-
+  data.breadcrumb.icon_file_path = optionsKnob(
+    'breadcrumb.icon_file_path',
+    { current: defaultSprite, 'no path': '' },
+    defaultSprite,
+    { display: 'inline-radio' },
+    tabLabels.required
+  );
+  data.breadcrumb.ellipsis_label = text(
+    'breadcrumb.ellipsis_label',
+    data.breadcrumb.ellipsis_label,
+    tabLabels.required
+  );
+  data.breadcrumb.navigation_text = text(
+    'breadcrumb.navigation_text',
+    data.breadcrumb.navigation_text,
+    tabLabels.required
+  );
+  data.breadcrumb.links.forEach((item, i) => {
+    item.label = text(
+      `data.breadcrumb.links[${i}].label`,
+      item.label,
+      tabLabels.required
+    );
+    item.path = text(
+      `data.breadcrumb.links[${i}].path`,
+      item.path,
+      tabLabels.required
+    );
+  });
   getExtraKnobs(data);
   getComplianceKnob(data);
 

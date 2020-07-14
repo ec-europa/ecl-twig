@@ -12,6 +12,9 @@
         },
         ...
         ],
+    - "slogan" (string) (default: '') Slogan for the EU homepage variant
+    - "variant" (string) (default: '') Name of the variant
+    - "title_wrapper" (boolean) (default: false) For EU it needs to be set to TRUE
     - "background_image" (boolean) (default: false) With or without header background
     - "background_image_url (string) (default: '') Background image url
     - "breadcrumb" (associative array) (default: '') Predefined structure compatible with EC Breadcrumb
@@ -29,9 +32,12 @@
 {% set _title = title|default('') %}
 {% set _meta = meta|default('') %}
 {% set _description = description|default('') %}
+{% set _variant = variant|default('') %}
+{% set _title_wrapper = title_wrapper|default(false) %}
 {% set _background_image = background_image|default(false) %}
 {% set _background_image_url = background_image_url|default('') %}
 {% set _breadcrumb = breadcrumb|default({}) %}
+{% set _slogan = slogan|default('') %}
 {% set _compliance = _compliance_|default(false) %}
 
 {% set _css_class = 'ecl-page-header' %}
@@ -39,8 +45,12 @@
 
 {# Internal logic - Process properties #}
 
+{% if _variant %}
+  {% set _css_class = _css_class ~ ' ecl-page-header--' ~ _variant %}
+{% endif %}
+
 {% if _background_image %}
-  {% set _css_class = _css_class ~ ' ' ~ _css_class ~ '--background-image' %}
+  {% set _css_class = _css_class ~ ' ecl-page-header--background-image ecl-page-header--image' %}
 {% endif %}
 
 {% if _background_image and _background_image_url is not empty %}
@@ -74,14 +84,22 @@
   {% if composition is defined and composition is not empty %}
     {{- composition|raw -}}
   {% endif %}
+  {% if _meta is not empty %}
+    <div class="ecl-page-header__meta-list">{{ _meta }}</div>
+  {% endif %}
+  {% if _title_wrapper %}
     <div class="ecl-page-header__title-wrapper">
-    {% if _meta is not empty %}
-      <div class="ecl-page-header__meta-list">{{ _meta }}</div>
+  {% endif %}
+      <h1 class="ecl-page-header__title">{{ _title }}</h1>
+    {% if _slogan is not empty %}
+      <p class="ecl-page-header__slogan">{{ _slogan|raw }}</p>
     {% endif %}
-    <h1 class="ecl-page-header__title">{{ _title }}</h1>
     {% if _description is not empty %}
-      <p class="ecl-page-header__description">{{ _description }}</p>
+      <p class="ecl-page-header__description">{{ _description|raw }}</p>
     {% endif %}
+  {% if _title_wrapper %}
+    </div>
+  {% endif %}
     {% if infos is defined and infos is not empty and infos is iterable %}
       <ul class="ecl-page-header__info-list">
         {% for info in infos %}
@@ -99,7 +117,6 @@
         {% endfor %}
       </ul>
     {% endif %}
-    </div>
   </div>
 </div>
 
