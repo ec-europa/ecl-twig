@@ -51,6 +51,7 @@ export const Simple = () => {
   const demoSimple = document.createDocumentFragment();
   const simpleHtmlElement = document.createElement('div');
   simpleHtmlElement.style.background = '#004494';
+  simpleHtmlElement.setAttribute('demo_only', true);
   simpleHtmlElement.innerHTML = simpleHtml;
   demoSimple.appendChild(simpleHtmlElement);
 
@@ -70,6 +71,7 @@ export const Long = () => {
   const demoLong = document.createDocumentFragment();
   const longHtmlElement = document.createElement('div');
   longHtmlElement.style.background = '#004494';
+  longHtmlElement.setAttribute('demo_only', true);
   longHtmlElement.innerHTML = longHtml;
   demoLong.appendChild(longHtmlElement);
 
