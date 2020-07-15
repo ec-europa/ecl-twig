@@ -1,12 +1,12 @@
 import dataLong from '../ec-component-breadcrumb-harmonised/demo/data';
-// import dataLongEu from '../ec-component-breadcrumb-core/demo/data--eu';
+import dataLongEu from '../ec-component-breadcrumb-core/demo/data--eu';
 
 // Handle the EU demo.
 const system = process.env.STORYBOOK_SYSTEM
   ? process.env.STORYBOOK_SYSTEM
   : false;
 
-const breadcrumb = system ? dataLong : dataLong;
+const breadcrumb = system ? dataLongEu : dataLong;
 
 const adapter = initialData => {
   // Copy reference specification demo adaptedData.

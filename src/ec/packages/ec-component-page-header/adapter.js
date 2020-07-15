@@ -1,12 +1,12 @@
 import breadcrumbData from '../ec-component-breadcrumb/demo/data--simple';
-// import breadcrumbDataEu from '../ec-component-breadcrumb/demo/data--simple--eu';
+import breadcrumbDataEu from '../ec-component-breadcrumb/demo/data--simple--eu';
 
 // Handle the EU demo.
 const system = process.env.STORYBOOK_SYSTEM
   ? process.env.STORYBOOK_SYSTEM
   : false;
 
-const breadcrumb = system ? breadcrumbData : breadcrumbData; // eslint-disable-line no-unused-vars
+const breadcrumb = system ? breadcrumbDataEu : breadcrumbData; // eslint-disable-line no-unused-vars
 
 function formatPageHeaderInfo(i) {
   const iconType = i.icon.name.split('--');
