@@ -7,11 +7,41 @@ import pageHeaderDataMetaTitleDescription from './demo/data--meta-title-descript
 import pageHeaderDataEvents from './demo/data--events';
 import pageHeaderDataEventsDescription from './demo/data--events-description';
 import pageHeaderDataBackgroundImage from './demo/data--background-image';
+import pageHeaderDataBrandedEU from './demo/data--branded-homepage--eu';
+import pageHeaderDataBasicEU from './demo/data--basic--eu';
+import pageHeaderDataEventsEU from './demo/data--events--eu';
+import pageHeaderHomepageEU from './demo/data--homepage--eu';
 
-describe('EC - Page Header', () => {
+describe('Page Header', () => {
   const template =
     '@ecl-twig/ec-component-page-header/ecl-page-header.html.twig';
   const render = params => renderTwigFileAsNode(template, params);
+
+  describe('EU', () => {
+    test('branded homepage renders correctly', () => {
+      expect.assertions(1);
+
+      return expect(render(pageHeaderDataBrandedEU)).resolves.toMatchSnapshot();
+    });
+
+    test('basic renders correctly', () => {
+      expect.assertions(1);
+
+      return expect(render(pageHeaderDataBasicEU)).resolves.toMatchSnapshot();
+    });
+
+    test('events renders correctly', () => {
+      expect.assertions(1);
+
+      return expect(render(pageHeaderDataEventsEU)).resolves.toMatchSnapshot();
+    });
+
+    test('homepage renders correctly', () => {
+      expect.assertions(1);
+
+      return expect(render(pageHeaderHomepageEU)).resolves.toMatchSnapshot();
+    });
+  });
 
   describe('title', () => {
     test(`- renders correctly`, () => {

@@ -12,6 +12,9 @@ npm install --save @ecl-twig/ec-component-page-header
 - **"description"** (string) (default: '') Description of header
 - **"meta"** (string) (default: '') Meta of header
 - **"composition"** (string) (default: '') Room for the language switcher
+- **"slogan"** (string) (default: '') Slogan for EU homepage variants
+- **"variant"** (string) (default: '') Available variants are homepage, branded-homepage
+- **"title_wrapper"** (boolean) (default: false) In Eu it needs to be set to TRUE
 - **"infos"** (array) (default: []) Array of infos. format:
   - "text" (string) Label of info
   - "icon" (associative array) Predefined structure compatible with EC Icon
