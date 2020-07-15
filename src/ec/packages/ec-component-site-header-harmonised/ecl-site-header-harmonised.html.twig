@@ -14,7 +14,8 @@
           "title": (string) (default: ''): Logo title attribute.
           "alt": (string) (default: ''): Logo alt attribute.
           "href": (string) (default: ''): Logo URL.
-          "src": (string) (default: ''): Logo image file path, eg. dist/images/logo--en.svg.
+          "src_mobile" (string) Path the mobile logo
+          "src_desktop" (string) Path to the desktop logo
         },
     - "language_selector" (associative array) (default: predefined structure): Language switcher settings. format:
         {
@@ -67,7 +68,7 @@
 
 {# Default variables #}
 
-{% set _group = group|default('group1') %}
+{% set _group = group|default('') %}
 {% set _logo = logo|default({}) %}
 {% set _language_selector = language_selector|default({}) %}
 {% set _login_box = login_box|default({}) %}
@@ -77,7 +78,6 @@
 {% set _logged = logged|default(false) %}
 {% set _menu = menu|default(false) %}
 {% set _extra_attributes = '' %}
-{% set _css_class = 'ecl-site-header-harmonised ecl-site-header-harmonised--' ~ _group %}
 {% set _compliance = _compliance_|default(false) %}
 {% set _search_form_extra_attributes = [{ name: 'data-ecl-search-form' }] %}
 {% set _search_input_extra_classes = 'ecl-search-form__text-input' %}
@@ -86,6 +86,7 @@
 {% set _search_button_extra_attributes = [] %}
 {% set _search_button_label = '' %}
 {% set _site_name = site_name|default('') %}
+{% set _css_class = 'ecl-site-header-harmonised' %}
 
 {# Merge options #}
 
@@ -178,8 +179,16 @@
 
 {# Internal logic - Process properties #}
 
+{% if _group is not empty %}
+  {% set _css_class = 'ecl-site-header-harmonised ecl-site-header-harmonised--' ~ _group %}
+{% endif %}
+
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if _menu is not empty %}
+  {% set extra_attributes = extra_attributes|default([])|merge([{ name: 'data-ecl-has-menu' }]) %}
 {% endif %}
 
 {% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
@@ -198,18 +207,33 @@
   <div class="ecl-site-header-harmonised__container ecl-container">
     <div class="ecl-site-header-harmonised__top">
     {% if _logo is not empty %}
-      <a
-        class="ecl-link ecl-link--standalone ecl-site-header-harmonised__logo-link"
-        href="{{ _logo.href }}"
-        aria-label="{{ _logo.title }}"
-      >
-        <img
-          alt="{{ _logo.alt }}"
-          title="{{ _logo.title }}"
-          class="ecl-site-header-harmonised__logo-image"
-          src="{{ _logo.src }}"
-        />
-      </a>
+      {% set _label %}
+      {% if _logo.src_mobile is defined and _logo.src_mobile is not empty %}
+      <img
+        alt="{{ _logo.alt }}"
+        title="{{ _logo.title }}"
+        class="ecl-site-header-harmonised__logo-image-mobile"
+        src="{{ _logo.src_mobile }}"
+      />
+      {% endif %}
+      {% if _logo.src_desktop is defined and _logo.src_desktop is not empty %}
+      <img
+        alt="{{ _logo.alt }}"
+        title="{{ _logo.title }}"
+        class="ecl-site-header-harmonised__logo-image ecl-site-header-harmonised__logo-image-desktop"
+        src="{{ _logo.src_desktop }}"
+      />
+      {% endif %}
+      {% endset %}
+      {% include '@ecl-twig/ec-component-link/ecl-link.html.twig' with {
+        link: {
+          path: _logo.path,
+          label: _label,
+          type: 'standalone',
+          aria_label: _logo.title
+        },
+        extra_classes: 'ecl-site-header-harmonised__logo-link'
+      } only %}
     {% endif %}
     {% if _site_name is not empty and _group == 'group3' %}
       <div class="ecl-site-header-harmonised__site-name">{{ _site_name }}</div>
@@ -279,7 +303,7 @@
                 path: _icon_file_path,
                 type: 'general',
                 name: 'log-in',
-                size: 'm'
+                size: 's'
               },
                 extra_classes: 'ecl-site-header-harmonised__icon',
                 _compliance_: _compliance,
@@ -306,7 +330,7 @@
               path: _icon_file_path,
               type: 'general',
               name: 'language',
-              size: 'm'
+              size: 's'
             },
             extra_classes: 'ecl-site-header-harmonised__icon',
             _compliance_: _compliance,

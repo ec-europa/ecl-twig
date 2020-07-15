@@ -14,7 +14,8 @@ npm install --save @ecl-twig/ec-component-site-header-core
   - "title" (string) (default: ''): Logo title attribute.
   - "alt" (string) (default: ''): Logo alt attribute.
   - "href" (string) (default: ''): Logo URL.
-  - "src" (string) (default: ''): Logo image file path, eg. dist/images/logo--en.svg.
+  - "src_desktop": (string) (default: ''): Desktop logo image file path
+  - "src_mobile": (string) (default: ''): Mobile logo image file path
 - **"login_box"** (associative array) format:
   - "id" (string) Id of the box
   - "description" (string) Label for the logged in users

@@ -30,7 +30,7 @@ const adapter = initialData => {
     );
   }
   // Language selector.
-  adaptedData.logo.src = logo;
+  adaptedData.logo.src_desktop = logo;
 
   adaptedData.language_selector = adaptedData.languageSelector;
   delete adaptedData.languageSelector;
