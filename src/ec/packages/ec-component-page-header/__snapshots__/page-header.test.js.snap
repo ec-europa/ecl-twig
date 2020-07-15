@@ -1,9 +1,347 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`EC - Page Header background image - renders correctly 1`] = `
+exports[`Page Header EU basic renders correctly 1`] = `
 <test>
   <div
-    class="ecl-page-header ecl-page-header--background-image"
+    class="ecl-page-header"
+  >
+    <div
+      class="ecl-container"
+    >
+      <nav
+        aria-label="You are here:"
+        class="ecl-breadcrumb ecl-page-header__breadcrumb"
+        data-ecl-auto-init="Breadcrumb"
+        data-ecl-breadcrumb="true"
+      >
+        <ol
+          class="ecl-breadcrumb__container"
+        >
+          <li
+            aria-hidden="false"
+            class="ecl-breadcrumb__segment"
+            data-ecl-breadcrumb-item="static"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
+              href="/example"
+            >
+              Home
+            </a>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-breadcrumb__icon"
+              focusable="false"
+              role="presentation"
+            >
+              <use
+                xlink:href="/icons.svg#ui--corner-arrow"
+              />
+            </svg>
+          </li>
+          <li
+            aria-hidden="false"
+            class="ecl-breadcrumb__segment"
+            data-ecl-breadcrumb-item="static"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
+              href="/example"
+            >
+              About the European Commission
+            </a>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-breadcrumb__icon"
+              focusable="false"
+              role="presentation"
+            >
+              <use
+                xlink:href="/icons.svg#ui--corner-arrow"
+              />
+            </svg>
+          </li>
+          <li
+            aria-current="page"
+            aria-hidden="false"
+            class="ecl-breadcrumb__segment ecl-breadcrumb__current-page"
+            data-ecl-breadcrumb-item="static"
+          >
+            News
+          </li>
+        </ol>
+      </nav>
+      <div
+        class="ecl-page-header__title-wrapper"
+      >
+        <h1
+          class="ecl-page-header__title"
+        >
+          Page title
+        </h1>
+      </div>
+    </div>
+  </div>
+</test>
+`;
+
+exports[`Page Header EU branded homepage renders correctly 1`] = `
+<test>
+  <div
+    class="ecl-page-header ecl-page-header--branded-homepage"
+  >
+    <div
+      class="ecl-container"
+    >
+      <nav
+        aria-label="You are here:"
+        class="ecl-breadcrumb ecl-page-header__breadcrumb"
+        data-ecl-auto-init="Breadcrumb"
+        data-ecl-breadcrumb="true"
+      >
+        <ol
+          class="ecl-breadcrumb__container"
+        >
+          <li
+            aria-hidden="false"
+            class="ecl-breadcrumb__segment"
+            data-ecl-breadcrumb-item="static"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
+              href="/example"
+            >
+              Home
+            </a>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-breadcrumb__icon"
+              focusable="false"
+              role="presentation"
+            >
+              <use
+                xlink:href="/icons.svg#ui--corner-arrow"
+              />
+            </svg>
+          </li>
+          <li
+            aria-hidden="false"
+            class="ecl-breadcrumb__segment"
+            data-ecl-breadcrumb-item="static"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
+              href="/example"
+            >
+              About the European Commission
+            </a>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-breadcrumb__icon"
+              focusable="false"
+              role="presentation"
+            >
+              <use
+                xlink:href="/icons.svg#ui--corner-arrow"
+              />
+            </svg>
+          </li>
+          <li
+            aria-current="page"
+            aria-hidden="false"
+            class="ecl-breadcrumb__segment ecl-breadcrumb__current-page"
+            data-ecl-breadcrumb-item="static"
+          >
+            News
+          </li>
+        </ol>
+      </nav>
+      <div
+        class="ecl-page-header__title-wrapper"
+      >
+        <h1
+          class="ecl-page-header__title"
+        >
+          Page title
+        </h1>
+        <p
+          class="ecl-page-header__slogan"
+        >
+          Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium
+        </p>
+      </div>
+    </div>
+  </div>
+</test>
+`;
+
+exports[`Page Header EU events renders correctly 1`] = `
+<test>
+  <div
+    class="ecl-page-header"
+  >
+    <div
+      class="ecl-container"
+    >
+      <nav
+        aria-label="You are here:"
+        class="ecl-breadcrumb ecl-page-header__breadcrumb"
+        data-ecl-auto-init="Breadcrumb"
+        data-ecl-breadcrumb="true"
+      >
+        <ol
+          class="ecl-breadcrumb__container"
+        >
+          <li
+            aria-hidden="false"
+            class="ecl-breadcrumb__segment"
+            data-ecl-breadcrumb-item="static"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
+              href="/example"
+            >
+              Home
+            </a>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-breadcrumb__icon"
+              focusable="false"
+              role="presentation"
+            >
+              <use
+                xlink:href="/icons.svg#ui--corner-arrow"
+              />
+            </svg>
+          </li>
+          <li
+            aria-hidden="false"
+            class="ecl-breadcrumb__segment"
+            data-ecl-breadcrumb-item="static"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
+              href="/example"
+            >
+              About the European Commission
+            </a>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-breadcrumb__icon"
+              focusable="false"
+              role="presentation"
+            >
+              <use
+                xlink:href="/icons.svg#ui--corner-arrow"
+              />
+            </svg>
+          </li>
+          <li
+            aria-current="page"
+            aria-hidden="false"
+            class="ecl-breadcrumb__segment ecl-breadcrumb__current-page"
+            data-ecl-breadcrumb-item="static"
+          >
+            News
+          </li>
+        </ol>
+      </nav>
+      <div
+        class="ecl-page-header__meta-list"
+      >
+        News article | 17 October 2015
+      </div>
+      <div
+        class="ecl-page-header__title-wrapper"
+      >
+        <h1
+          class="ecl-page-header__title"
+        >
+          Page title
+        </h1>
+      </div>
+      <ul
+        class="ecl-page-header__info-list"
+      >
+        <li
+          class="ecl-page-header__info-item"
+        >
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--s ecl-page-header__info-icon"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#general--calendar"
+            />
+          </svg>
+          Monday 8 February
+        </li>
+        <li
+          class="ecl-page-header__info-item"
+        >
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--s ecl-page-header__info-icon"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#general--location"
+            />
+          </svg>
+          Munich, Germany
+        </li>
+        <li
+          class="ecl-page-header__info-item"
+        >
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--s ecl-page-header__info-icon"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#general--livestreaming"
+            />
+          </svg>
+          Live streaming available
+        </li>
+      </ul>
+    </div>
+  </div>
+</test>
+`;
+
+exports[`Page Header EU homepage renders correctly 1`] = `
+<test>
+  <div
+    class="ecl-page-header ecl-page-header--homepage"
+  >
+    <div
+      class="ecl-container"
+    >
+      <div
+        class="ecl-page-header__title-wrapper"
+      >
+        <h1
+          class="ecl-page-header__title"
+        >
+          Page title
+        </h1>
+        <p
+          class="ecl-page-header__slogan"
+        >
+          Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium
+        </p>
+      </div>
+    </div>
+  </div>
+</test>
+`;
+
+exports[`Page Header background image - renders correctly 1`] = `
+<test>
+  <div
+    class="ecl-page-header ecl-page-header--background-image ecl-page-header--image"
     style="background-image: url(https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg)"
   >
     <div
@@ -73,33 +411,29 @@ exports[`EC - Page Header background image - renders correctly 1`] = `
         </ol>
       </nav>
       <div
-        class="ecl-page-header__title-wrapper"
+        class="ecl-page-header__meta-list"
       >
-        <div
-          class="ecl-page-header__meta-list"
-        >
-          News article | 17 October 2015
-        </div>
-        <h1
-          class="ecl-page-header__title"
-        >
-          Page title
-        </h1>
-        <p
-          class="ecl-page-header__description"
-        >
-          Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium
-        </p>
+        News article | 17 October 2015
       </div>
+      <h1
+        class="ecl-page-header__title"
+      >
+        Page title
+      </h1>
+      <p
+        class="ecl-page-header__description"
+      >
+        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium
+      </p>
     </div>
   </div>
 </test>
 `;
 
-exports[`EC - Page Header background image renders correctly with extra attributes 1`] = `
+exports[`Page Header background image renders correctly with extra attributes 1`] = `
 <test>
   <div
-    class="ecl-page-header ecl-page-header--background-image"
+    class="ecl-page-header ecl-page-header--background-image ecl-page-header--image"
     data-test="data-test-value"
     data-test-1="data-test-value-1"
     style="background-image: url(https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg)"
@@ -171,33 +505,29 @@ exports[`EC - Page Header background image renders correctly with extra attribut
         </ol>
       </nav>
       <div
-        class="ecl-page-header__title-wrapper"
+        class="ecl-page-header__meta-list"
       >
-        <div
-          class="ecl-page-header__meta-list"
-        >
-          News article | 17 October 2015
-        </div>
-        <h1
-          class="ecl-page-header__title"
-        >
-          Page title
-        </h1>
-        <p
-          class="ecl-page-header__description"
-        >
-          Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium
-        </p>
+        News article | 17 October 2015
       </div>
+      <h1
+        class="ecl-page-header__title"
+      >
+        Page title
+      </h1>
+      <p
+        class="ecl-page-header__description"
+      >
+        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium
+      </p>
     </div>
   </div>
 </test>
 `;
 
-exports[`EC - Page Header background image renders correctly with extra class names 1`] = `
+exports[`Page Header background image renders correctly with extra class names 1`] = `
 <test>
   <div
-    class="ecl-page-header ecl-page-header--background-image custom-class custom-class--test"
+    class="ecl-page-header ecl-page-header--background-image ecl-page-header--image custom-class custom-class--test"
     style="background-image: url(https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg)"
   >
     <div
@@ -267,30 +597,26 @@ exports[`EC - Page Header background image renders correctly with extra class na
         </ol>
       </nav>
       <div
-        class="ecl-page-header__title-wrapper"
+        class="ecl-page-header__meta-list"
       >
-        <div
-          class="ecl-page-header__meta-list"
-        >
-          News article | 17 October 2015
-        </div>
-        <h1
-          class="ecl-page-header__title"
-        >
-          Page title
-        </h1>
-        <p
-          class="ecl-page-header__description"
-        >
-          Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium
-        </p>
+        News article | 17 October 2015
       </div>
+      <h1
+        class="ecl-page-header__title"
+      >
+        Page title
+      </h1>
+      <p
+        class="ecl-page-header__description"
+      >
+        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium
+      </p>
     </div>
   </div>
 </test>
 `;
 
-exports[`EC - Page Header events - renders correctly 1`] = `
+exports[`Page Header events - renders correctly 1`] = `
 <test>
   <div
     class="ecl-page-header"
@@ -362,71 +688,67 @@ exports[`EC - Page Header events - renders correctly 1`] = `
         </ol>
       </nav>
       <div
-        class="ecl-page-header__title-wrapper"
+        class="ecl-page-header__meta-list"
       >
-        <div
-          class="ecl-page-header__meta-list"
-        >
-          News article | 17 October 2015
-        </div>
-        <h1
-          class="ecl-page-header__title"
-        >
-          Page title
-        </h1>
-        <ul
-          class="ecl-page-header__info-list"
-        >
-          <li
-            class="ecl-page-header__info-item"
-          >
-            <svg
-              aria-hidden="true"
-              class="ecl-icon ecl-icon--s ecl-page-header__info-icon"
-              focusable="false"
-            >
-              <use
-                xlink:href="/icons.svg#general--calendar"
-              />
-            </svg>
-            Monday 8 February
-          </li>
-          <li
-            class="ecl-page-header__info-item"
-          >
-            <svg
-              aria-hidden="true"
-              class="ecl-icon ecl-icon--s ecl-page-header__info-icon"
-              focusable="false"
-            >
-              <use
-                xlink:href="/icons.svg#general--location"
-              />
-            </svg>
-            Munich, Germany
-          </li>
-          <li
-            class="ecl-page-header__info-item"
-          >
-            <svg
-              aria-hidden="true"
-              class="ecl-icon ecl-icon--s ecl-page-header__info-icon"
-              focusable="false"
-            >
-              <use
-                xlink:href="/icons.svg#general--livestreaming"
-              />
-            </svg>
-            Live streaming available
-          </li>
-        </ul>
+        News article | 17 October 2015
       </div>
+      <h1
+        class="ecl-page-header__title"
+      >
+        Page title
+      </h1>
+      <ul
+        class="ecl-page-header__info-list"
+      >
+        <li
+          class="ecl-page-header__info-item"
+        >
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--s ecl-page-header__info-icon"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#general--calendar"
+            />
+          </svg>
+          Monday 8 February
+        </li>
+        <li
+          class="ecl-page-header__info-item"
+        >
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--s ecl-page-header__info-icon"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#general--location"
+            />
+          </svg>
+          Munich, Germany
+        </li>
+        <li
+          class="ecl-page-header__info-item"
+        >
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--s ecl-page-header__info-icon"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#general--livestreaming"
+            />
+          </svg>
+          Live streaming available
+        </li>
+      </ul>
     </div>
   </div>
 </test>
 `;
 
-exports[`EC - Page Header events renders correctly with extra attributes 1`] = `
+exports[`Page Header events renders correctly with extra attributes 1`] = `
 <test>
   <div
     class="ecl-page-header"
@@ -500,71 +822,67 @@ exports[`EC - Page Header events renders correctly with extra attributes 1`] = `
         </ol>
       </nav>
       <div
-        class="ecl-page-header__title-wrapper"
+        class="ecl-page-header__meta-list"
       >
-        <div
-          class="ecl-page-header__meta-list"
-        >
-          News article | 17 October 2015
-        </div>
-        <h1
-          class="ecl-page-header__title"
-        >
-          Page title
-        </h1>
-        <ul
-          class="ecl-page-header__info-list"
-        >
-          <li
-            class="ecl-page-header__info-item"
-          >
-            <svg
-              aria-hidden="true"
-              class="ecl-icon ecl-icon--s ecl-page-header__info-icon"
-              focusable="false"
-            >
-              <use
-                xlink:href="/icons.svg#general--calendar"
-              />
-            </svg>
-            Monday 8 February
-          </li>
-          <li
-            class="ecl-page-header__info-item"
-          >
-            <svg
-              aria-hidden="true"
-              class="ecl-icon ecl-icon--s ecl-page-header__info-icon"
-              focusable="false"
-            >
-              <use
-                xlink:href="/icons.svg#general--location"
-              />
-            </svg>
-            Munich, Germany
-          </li>
-          <li
-            class="ecl-page-header__info-item"
-          >
-            <svg
-              aria-hidden="true"
-              class="ecl-icon ecl-icon--s ecl-page-header__info-icon"
-              focusable="false"
-            >
-              <use
-                xlink:href="/icons.svg#general--livestreaming"
-              />
-            </svg>
-            Live streaming available
-          </li>
-        </ul>
+        News article | 17 October 2015
       </div>
+      <h1
+        class="ecl-page-header__title"
+      >
+        Page title
+      </h1>
+      <ul
+        class="ecl-page-header__info-list"
+      >
+        <li
+          class="ecl-page-header__info-item"
+        >
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--s ecl-page-header__info-icon"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#general--calendar"
+            />
+          </svg>
+          Monday 8 February
+        </li>
+        <li
+          class="ecl-page-header__info-item"
+        >
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--s ecl-page-header__info-icon"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#general--location"
+            />
+          </svg>
+          Munich, Germany
+        </li>
+        <li
+          class="ecl-page-header__info-item"
+        >
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--s ecl-page-header__info-icon"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#general--livestreaming"
+            />
+          </svg>
+          Live streaming available
+        </li>
+      </ul>
     </div>
   </div>
 </test>
 `;
 
-exports[`EC - Page Header events renders correctly with extra class names 1`] = `
+exports[`Page Header events renders correctly with extra class names 1`] = `
 <test>
   <div
     class="ecl-page-header custom-class custom-class--test"
@@ -636,71 +954,67 @@ exports[`EC - Page Header events renders correctly with extra class names 1`] = 
         </ol>
       </nav>
       <div
-        class="ecl-page-header__title-wrapper"
+        class="ecl-page-header__meta-list"
       >
-        <div
-          class="ecl-page-header__meta-list"
-        >
-          News article | 17 October 2015
-        </div>
-        <h1
-          class="ecl-page-header__title"
-        >
-          Page title
-        </h1>
-        <ul
-          class="ecl-page-header__info-list"
-        >
-          <li
-            class="ecl-page-header__info-item"
-          >
-            <svg
-              aria-hidden="true"
-              class="ecl-icon ecl-icon--s ecl-page-header__info-icon"
-              focusable="false"
-            >
-              <use
-                xlink:href="/icons.svg#general--calendar"
-              />
-            </svg>
-            Monday 8 February
-          </li>
-          <li
-            class="ecl-page-header__info-item"
-          >
-            <svg
-              aria-hidden="true"
-              class="ecl-icon ecl-icon--s ecl-page-header__info-icon"
-              focusable="false"
-            >
-              <use
-                xlink:href="/icons.svg#general--location"
-              />
-            </svg>
-            Munich, Germany
-          </li>
-          <li
-            class="ecl-page-header__info-item"
-          >
-            <svg
-              aria-hidden="true"
-              class="ecl-icon ecl-icon--s ecl-page-header__info-icon"
-              focusable="false"
-            >
-              <use
-                xlink:href="/icons.svg#general--livestreaming"
-              />
-            </svg>
-            Live streaming available
-          </li>
-        </ul>
+        News article | 17 October 2015
       </div>
+      <h1
+        class="ecl-page-header__title"
+      >
+        Page title
+      </h1>
+      <ul
+        class="ecl-page-header__info-list"
+      >
+        <li
+          class="ecl-page-header__info-item"
+        >
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--s ecl-page-header__info-icon"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#general--calendar"
+            />
+          </svg>
+          Monday 8 February
+        </li>
+        <li
+          class="ecl-page-header__info-item"
+        >
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--s ecl-page-header__info-icon"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#general--location"
+            />
+          </svg>
+          Munich, Germany
+        </li>
+        <li
+          class="ecl-page-header__info-item"
+        >
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--s ecl-page-header__info-icon"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#general--livestreaming"
+            />
+          </svg>
+          Live streaming available
+        </li>
+      </ul>
     </div>
   </div>
 </test>
 `;
 
-exports[`EC - Page Header events-description - renders correctly 1`] = `
+exports[`Page Header events-description - renders correctly 1`] = `
 <test>
   <div
     class="ecl-page-header"
@@ -772,76 +1086,72 @@ exports[`EC - Page Header events-description - renders correctly 1`] = `
         </ol>
       </nav>
       <div
-        class="ecl-page-header__title-wrapper"
+        class="ecl-page-header__meta-list"
       >
-        <div
-          class="ecl-page-header__meta-list"
-        >
-          News article | 17 October 2015
-        </div>
-        <h1
-          class="ecl-page-header__title"
-        >
-          Page title
-        </h1>
-        <p
-          class="ecl-page-header__description"
-        >
-          Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium
-        </p>
-        <ul
-          class="ecl-page-header__info-list"
-        >
-          <li
-            class="ecl-page-header__info-item"
-          >
-            <svg
-              aria-hidden="true"
-              class="ecl-icon ecl-icon--s ecl-page-header__info-icon"
-              focusable="false"
-            >
-              <use
-                xlink:href="/icons.svg#general--calendar"
-              />
-            </svg>
-            Monday 8 February
-          </li>
-          <li
-            class="ecl-page-header__info-item"
-          >
-            <svg
-              aria-hidden="true"
-              class="ecl-icon ecl-icon--s ecl-page-header__info-icon"
-              focusable="false"
-            >
-              <use
-                xlink:href="/icons.svg#general--location"
-              />
-            </svg>
-            Munich, Germany
-          </li>
-          <li
-            class="ecl-page-header__info-item"
-          >
-            <svg
-              aria-hidden="true"
-              class="ecl-icon ecl-icon--s ecl-page-header__info-icon"
-              focusable="false"
-            >
-              <use
-                xlink:href="/icons.svg#general--livestreaming"
-              />
-            </svg>
-            Live streaming available
-          </li>
-        </ul>
+        News article | 17 October 2015
       </div>
+      <h1
+        class="ecl-page-header__title"
+      >
+        Page title
+      </h1>
+      <p
+        class="ecl-page-header__description"
+      >
+        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium
+      </p>
+      <ul
+        class="ecl-page-header__info-list"
+      >
+        <li
+          class="ecl-page-header__info-item"
+        >
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--s ecl-page-header__info-icon"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#general--calendar"
+            />
+          </svg>
+          Monday 8 February
+        </li>
+        <li
+          class="ecl-page-header__info-item"
+        >
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--s ecl-page-header__info-icon"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#general--location"
+            />
+          </svg>
+          Munich, Germany
+        </li>
+        <li
+          class="ecl-page-header__info-item"
+        >
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--s ecl-page-header__info-icon"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#general--livestreaming"
+            />
+          </svg>
+          Live streaming available
+        </li>
+      </ul>
     </div>
   </div>
 </test>
 `;
 
-exports[`EC - Page Header events-description renders correctly with extra attributes 1`] = `
+exports[`Page Header events-description renders correctly with extra attributes 1`] = `
 <test>
   <div
     class="ecl-page-header"
@@ -915,76 +1225,72 @@ exports[`EC - Page Header events-description renders correctly with extra attrib
         </ol>
       </nav>
       <div
-        class="ecl-page-header__title-wrapper"
+        class="ecl-page-header__meta-list"
       >
-        <div
-          class="ecl-page-header__meta-list"
-        >
-          News article | 17 October 2015
-        </div>
-        <h1
-          class="ecl-page-header__title"
-        >
-          Page title
-        </h1>
-        <p
-          class="ecl-page-header__description"
-        >
-          Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium
-        </p>
-        <ul
-          class="ecl-page-header__info-list"
-        >
-          <li
-            class="ecl-page-header__info-item"
-          >
-            <svg
-              aria-hidden="true"
-              class="ecl-icon ecl-icon--s ecl-page-header__info-icon"
-              focusable="false"
-            >
-              <use
-                xlink:href="/icons.svg#general--calendar"
-              />
-            </svg>
-            Monday 8 February
-          </li>
-          <li
-            class="ecl-page-header__info-item"
-          >
-            <svg
-              aria-hidden="true"
-              class="ecl-icon ecl-icon--s ecl-page-header__info-icon"
-              focusable="false"
-            >
-              <use
-                xlink:href="/icons.svg#general--location"
-              />
-            </svg>
-            Munich, Germany
-          </li>
-          <li
-            class="ecl-page-header__info-item"
-          >
-            <svg
-              aria-hidden="true"
-              class="ecl-icon ecl-icon--s ecl-page-header__info-icon"
-              focusable="false"
-            >
-              <use
-                xlink:href="/icons.svg#general--livestreaming"
-              />
-            </svg>
-            Live streaming available
-          </li>
-        </ul>
+        News article | 17 October 2015
       </div>
+      <h1
+        class="ecl-page-header__title"
+      >
+        Page title
+      </h1>
+      <p
+        class="ecl-page-header__description"
+      >
+        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium
+      </p>
+      <ul
+        class="ecl-page-header__info-list"
+      >
+        <li
+          class="ecl-page-header__info-item"
+        >
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--s ecl-page-header__info-icon"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#general--calendar"
+            />
+          </svg>
+          Monday 8 February
+        </li>
+        <li
+          class="ecl-page-header__info-item"
+        >
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--s ecl-page-header__info-icon"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#general--location"
+            />
+          </svg>
+          Munich, Germany
+        </li>
+        <li
+          class="ecl-page-header__info-item"
+        >
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--s ecl-page-header__info-icon"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#general--livestreaming"
+            />
+          </svg>
+          Live streaming available
+        </li>
+      </ul>
     </div>
   </div>
 </test>
 `;
 
-exports[`EC - Page Header events-description renders correctly with extra class names 1`] = `
+exports[`Page Header events-description renders correctly with extra class names 1`] = `
 <test>
   <div
     class="ecl-page-header custom-class custom-class--test"
@@ -1056,76 +1362,72 @@ exports[`EC - Page Header events-description renders correctly with extra class 
         </ol>
       </nav>
       <div
-        class="ecl-page-header__title-wrapper"
+        class="ecl-page-header__meta-list"
       >
-        <div
-          class="ecl-page-header__meta-list"
-        >
-          News article | 17 October 2015
-        </div>
-        <h1
-          class="ecl-page-header__title"
-        >
-          Page title
-        </h1>
-        <p
-          class="ecl-page-header__description"
-        >
-          Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium
-        </p>
-        <ul
-          class="ecl-page-header__info-list"
-        >
-          <li
-            class="ecl-page-header__info-item"
-          >
-            <svg
-              aria-hidden="true"
-              class="ecl-icon ecl-icon--s ecl-page-header__info-icon"
-              focusable="false"
-            >
-              <use
-                xlink:href="/icons.svg#general--calendar"
-              />
-            </svg>
-            Monday 8 February
-          </li>
-          <li
-            class="ecl-page-header__info-item"
-          >
-            <svg
-              aria-hidden="true"
-              class="ecl-icon ecl-icon--s ecl-page-header__info-icon"
-              focusable="false"
-            >
-              <use
-                xlink:href="/icons.svg#general--location"
-              />
-            </svg>
-            Munich, Germany
-          </li>
-          <li
-            class="ecl-page-header__info-item"
-          >
-            <svg
-              aria-hidden="true"
-              class="ecl-icon ecl-icon--s ecl-page-header__info-icon"
-              focusable="false"
-            >
-              <use
-                xlink:href="/icons.svg#general--livestreaming"
-              />
-            </svg>
-            Live streaming available
-          </li>
-        </ul>
+        News article | 17 October 2015
       </div>
+      <h1
+        class="ecl-page-header__title"
+      >
+        Page title
+      </h1>
+      <p
+        class="ecl-page-header__description"
+      >
+        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium
+      </p>
+      <ul
+        class="ecl-page-header__info-list"
+      >
+        <li
+          class="ecl-page-header__info-item"
+        >
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--s ecl-page-header__info-icon"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#general--calendar"
+            />
+          </svg>
+          Monday 8 February
+        </li>
+        <li
+          class="ecl-page-header__info-item"
+        >
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--s ecl-page-header__info-icon"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#general--location"
+            />
+          </svg>
+          Munich, Germany
+        </li>
+        <li
+          class="ecl-page-header__info-item"
+        >
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--s ecl-page-header__info-icon"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#general--livestreaming"
+            />
+          </svg>
+          Live streaming available
+        </li>
+      </ul>
     </div>
   </div>
 </test>
 `;
 
-exports[`EC - Page Header meta-title - renders correctly 1`] = `
+exports[`Page Header meta-title - renders correctly 1`] = `
 <test>
   <div
     class="ecl-page-header"
@@ -1197,25 +1499,21 @@ exports[`EC - Page Header meta-title - renders correctly 1`] = `
         </ol>
       </nav>
       <div
-        class="ecl-page-header__title-wrapper"
+        class="ecl-page-header__meta-list"
       >
-        <div
-          class="ecl-page-header__meta-list"
-        >
-          News article | 17 October 2015
-        </div>
-        <h1
-          class="ecl-page-header__title"
-        >
-          Page title
-        </h1>
+        News article | 17 October 2015
       </div>
+      <h1
+        class="ecl-page-header__title"
+      >
+        Page title
+      </h1>
     </div>
   </div>
 </test>
 `;
 
-exports[`EC - Page Header meta-title renders correctly with extra attributes 1`] = `
+exports[`Page Header meta-title renders correctly with extra attributes 1`] = `
 <test>
   <div
     class="ecl-page-header"
@@ -1289,25 +1587,21 @@ exports[`EC - Page Header meta-title renders correctly with extra attributes 1`]
         </ol>
       </nav>
       <div
-        class="ecl-page-header__title-wrapper"
+        class="ecl-page-header__meta-list"
       >
-        <div
-          class="ecl-page-header__meta-list"
-        >
-          News article | 17 October 2015
-        </div>
-        <h1
-          class="ecl-page-header__title"
-        >
-          Page title
-        </h1>
+        News article | 17 October 2015
       </div>
+      <h1
+        class="ecl-page-header__title"
+      >
+        Page title
+      </h1>
     </div>
   </div>
 </test>
 `;
 
-exports[`EC - Page Header meta-title renders correctly with extra class names 1`] = `
+exports[`Page Header meta-title renders correctly with extra class names 1`] = `
 <test>
   <div
     class="ecl-page-header custom-class custom-class--test"
@@ -1379,25 +1673,21 @@ exports[`EC - Page Header meta-title renders correctly with extra class names 1`
         </ol>
       </nav>
       <div
-        class="ecl-page-header__title-wrapper"
+        class="ecl-page-header__meta-list"
       >
-        <div
-          class="ecl-page-header__meta-list"
-        >
-          News article | 17 October 2015
-        </div>
-        <h1
-          class="ecl-page-header__title"
-        >
-          Page title
-        </h1>
+        News article | 17 October 2015
       </div>
+      <h1
+        class="ecl-page-header__title"
+      >
+        Page title
+      </h1>
     </div>
   </div>
 </test>
 `;
 
-exports[`EC - Page Header meta-title-description - renders correctly 1`] = `
+exports[`Page Header meta-title-description - renders correctly 1`] = `
 <test>
   <div
     class="ecl-page-header"
@@ -1469,30 +1759,26 @@ exports[`EC - Page Header meta-title-description - renders correctly 1`] = `
         </ol>
       </nav>
       <div
-        class="ecl-page-header__title-wrapper"
+        class="ecl-page-header__meta-list"
       >
-        <div
-          class="ecl-page-header__meta-list"
-        >
-          News article | 17 October 2015
-        </div>
-        <h1
-          class="ecl-page-header__title"
-        >
-          Page title
-        </h1>
-        <p
-          class="ecl-page-header__description"
-        >
-          Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium
-        </p>
+        News article | 17 October 2015
       </div>
+      <h1
+        class="ecl-page-header__title"
+      >
+        Page title
+      </h1>
+      <p
+        class="ecl-page-header__description"
+      >
+        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium
+      </p>
     </div>
   </div>
 </test>
 `;
 
-exports[`EC - Page Header meta-title-description renders correctly with extra attributes 1`] = `
+exports[`Page Header meta-title-description renders correctly with extra attributes 1`] = `
 <test>
   <div
     class="ecl-page-header"
@@ -1566,30 +1852,26 @@ exports[`EC - Page Header meta-title-description renders correctly with extra at
         </ol>
       </nav>
       <div
-        class="ecl-page-header__title-wrapper"
+        class="ecl-page-header__meta-list"
       >
-        <div
-          class="ecl-page-header__meta-list"
-        >
-          News article | 17 October 2015
-        </div>
-        <h1
-          class="ecl-page-header__title"
-        >
-          Page title
-        </h1>
-        <p
-          class="ecl-page-header__description"
-        >
-          Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium
-        </p>
+        News article | 17 October 2015
       </div>
+      <h1
+        class="ecl-page-header__title"
+      >
+        Page title
+      </h1>
+      <p
+        class="ecl-page-header__description"
+      >
+        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium
+      </p>
     </div>
   </div>
 </test>
 `;
 
-exports[`EC - Page Header meta-title-description renders correctly with extra class names 1`] = `
+exports[`Page Header meta-title-description renders correctly with extra class names 1`] = `
 <test>
   <div
     class="ecl-page-header custom-class custom-class--test"
@@ -1661,30 +1943,26 @@ exports[`EC - Page Header meta-title-description renders correctly with extra cl
         </ol>
       </nav>
       <div
-        class="ecl-page-header__title-wrapper"
+        class="ecl-page-header__meta-list"
       >
-        <div
-          class="ecl-page-header__meta-list"
-        >
-          News article | 17 October 2015
-        </div>
-        <h1
-          class="ecl-page-header__title"
-        >
-          Page title
-        </h1>
-        <p
-          class="ecl-page-header__description"
-        >
-          Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium
-        </p>
+        News article | 17 October 2015
       </div>
+      <h1
+        class="ecl-page-header__title"
+      >
+        Page title
+      </h1>
+      <p
+        class="ecl-page-header__description"
+      >
+        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium
+      </p>
     </div>
   </div>
 </test>
 `;
 
-exports[`EC - Page Header title - renders correctly 1`] = `
+exports[`Page Header title - renders correctly 1`] = `
 <test>
   <div
     class="ecl-page-header"
@@ -1755,21 +2033,17 @@ exports[`EC - Page Header title - renders correctly 1`] = `
           </li>
         </ol>
       </nav>
-      <div
-        class="ecl-page-header__title-wrapper"
+      <h1
+        class="ecl-page-header__title"
       >
-        <h1
-          class="ecl-page-header__title"
-        >
-          Page title
-        </h1>
-      </div>
+        Page title
+      </h1>
     </div>
   </div>
 </test>
 `;
 
-exports[`EC - Page Header title renders correctly with extra attributes 1`] = `
+exports[`Page Header title renders correctly with extra attributes 1`] = `
 <test>
   <div
     class="ecl-page-header"
@@ -1842,21 +2116,17 @@ exports[`EC - Page Header title renders correctly with extra attributes 1`] = `
           </li>
         </ol>
       </nav>
-      <div
-        class="ecl-page-header__title-wrapper"
+      <h1
+        class="ecl-page-header__title"
       >
-        <h1
-          class="ecl-page-header__title"
-        >
-          Page title
-        </h1>
-      </div>
+        Page title
+      </h1>
     </div>
   </div>
 </test>
 `;
 
-exports[`EC - Page Header title renders correctly with extra class names 1`] = `
+exports[`Page Header title renders correctly with extra class names 1`] = `
 <test>
   <div
     class="ecl-page-header custom-class custom-class--test"
@@ -1927,21 +2197,17 @@ exports[`EC - Page Header title renders correctly with extra class names 1`] = `
           </li>
         </ol>
       </nav>
-      <div
-        class="ecl-page-header__title-wrapper"
+      <h1
+        class="ecl-page-header__title"
       >
-        <h1
-          class="ecl-page-header__title"
-        >
-          Page title
-        </h1>
-      </div>
+        Page title
+      </h1>
     </div>
   </div>
 </test>
 `;
 
-exports[`EC - Page Header title with missing input data and debug enabled it returns the right warning messages 1`] = `
+exports[`Page Header title with missing input data and debug enabled it returns the right warning messages 1`] = `
 <test>
   <div
     class="ecl-page-header"
@@ -1949,13 +2215,9 @@ exports[`EC - Page Header title with missing input data and debug enabled it ret
     <div
       class="ecl-container"
     >
-      <div
-        class="ecl-page-header__title-wrapper"
-      >
-        <h1
-          class="ecl-page-header__title"
-        />
-      </div>
+      <h1
+        class="ecl-page-header__title"
+      />
     </div>
   </div>
   <!-- ecl2-compliance: page-header -->
@@ -1971,7 +2233,7 @@ exports[`EC - Page Header title with missing input data and debug enabled it ret
 </test>
 `;
 
-exports[`EC - Page Header title-description - renders correctly 1`] = `
+exports[`Page Header title-description - renders correctly 1`] = `
 <test>
   <div
     class="ecl-page-header"
@@ -2042,26 +2304,22 @@ exports[`EC - Page Header title-description - renders correctly 1`] = `
           </li>
         </ol>
       </nav>
-      <div
-        class="ecl-page-header__title-wrapper"
+      <h1
+        class="ecl-page-header__title"
       >
-        <h1
-          class="ecl-page-header__title"
-        >
-          Page title
-        </h1>
-        <p
-          class="ecl-page-header__description"
-        >
-          Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium
-        </p>
-      </div>
+        Page title
+      </h1>
+      <p
+        class="ecl-page-header__description"
+      >
+        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium
+      </p>
     </div>
   </div>
 </test>
 `;
 
-exports[`EC - Page Header title-description renders correctly with extra attributes 1`] = `
+exports[`Page Header title-description renders correctly with extra attributes 1`] = `
 <test>
   <div
     class="ecl-page-header"
@@ -2134,26 +2392,22 @@ exports[`EC - Page Header title-description renders correctly with extra attribu
           </li>
         </ol>
       </nav>
-      <div
-        class="ecl-page-header__title-wrapper"
+      <h1
+        class="ecl-page-header__title"
       >
-        <h1
-          class="ecl-page-header__title"
-        >
-          Page title
-        </h1>
-        <p
-          class="ecl-page-header__description"
-        >
-          Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium
-        </p>
-      </div>
+        Page title
+      </h1>
+      <p
+        class="ecl-page-header__description"
+      >
+        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium
+      </p>
     </div>
   </div>
 </test>
 `;
 
-exports[`EC - Page Header title-description renders correctly with extra class names 1`] = `
+exports[`Page Header title-description renders correctly with extra class names 1`] = `
 <test>
   <div
     class="ecl-page-header custom-class custom-class--test"
@@ -2224,20 +2478,16 @@ exports[`EC - Page Header title-description renders correctly with extra class n
           </li>
         </ol>
       </nav>
-      <div
-        class="ecl-page-header__title-wrapper"
+      <h1
+        class="ecl-page-header__title"
       >
-        <h1
-          class="ecl-page-header__title"
-        >
-          Page title
-        </h1>
-        <p
-          class="ecl-page-header__description"
-        >
-          Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium
-        </p>
-      </div>
+        Page title
+      </h1>
+      <p
+        class="ecl-page-header__description"
+      >
+        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium
+      </p>
     </div>
   </div>
 </test>
