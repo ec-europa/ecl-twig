@@ -31,6 +31,8 @@
               ],
             },
         },
+    - "menu" (boolean): Whether the component includes a menu
+    - "menu_label" (string) Menu toggler label
     - "search_toggle" (associate array) (default: {})
     - "login_box" (associate array) (default: {}) format:
         {
@@ -70,6 +72,7 @@
 {% set _extra_attributes = '' %}
 {% set _css_class = 'ecl-site-header-core' %}
 {% set _compliance = _compliance_|default(false) %}
+{% set _menu = menu|default(false) %}
 {% set _search_form_extra_attributes = [{ name: 'data-ecl-search-form' }] %}
 {% set _search_input_extra_classes = 'ecl-search-form__text-input' %}
 {% set _search_form_extra_classes = 'ecl-site-header-core__search' %}
@@ -346,6 +349,13 @@
       </div>
     </div>
   </div>
+{% if _menu is defined and _menu is not empty %}
+  {% include '@ecl-twig/ec-component-menu/ecl-menu.html.twig' with _menu|merge({
+    icon_path: _icon_file_path,
+     _compliance_: _compliance,
+     _compliance_inner_check_: true
+  }) only %}
+{% endif %}
 {% if _has_overlay is defined %}
   {% include '@ecl-twig/ec-component-language-list/ecl-language-list.html.twig' with {
     overlay: true,
@@ -361,6 +371,7 @@
     _compliance_inner_check_: true
   } only %}
 {% endif %}
+
 </header>
 
 {# Validation #}

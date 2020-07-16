@@ -22,8 +22,8 @@ import logoEnMobile from '@ecl/eu-resources-logo/condensed-version/positive/en.s
 import logoFr from '@ecl/eu-resources-logo/logo--fr.svg';
 import logoFrMobile from '@ecl/eu-resources-logo/condensed-version/positive/fr.svg';
 import siteHeaderHarmonised from './ecl-site-header-harmonised.html.twig';
-import enSpecs from './demo/data--eu';
-import frSpecs from './demo/data-fr--eu';
+import enSpecs from './demo/eu-data--en';
+import frSpecs from './demo/eu-data--fr';
 import notes from './README.md';
 
 const prepareSiteHeaderHarmonised = (data, lang, logged) => {

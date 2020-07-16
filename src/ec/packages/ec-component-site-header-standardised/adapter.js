@@ -65,6 +65,7 @@ const adapter = initialData => {
   };
   delete adaptedData.searchForm;
   adaptedData.menu_label = 'Menu';
+  adaptedData.site_name = 'Site name';
   adaptedData.icon_file_path = defaultSprite;
 
   return adaptedData;

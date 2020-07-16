@@ -27,15 +27,18 @@ import euFrenchMobileBanner from '@ecl/eu-resources-logo/condensed-version/posit
 import siteHeaderCore from './ecl-site-header-core.html.twig';
 import englishData from './demo/data--en';
 import frenchData from './demo/data--fr';
+import euEnglishData from './demo/eu-data--en';
+import euFrenchData from './demo/eu-data--fr';
 import notes from './README.md';
-
-const enData = { ...englishData };
-const frData = { ...frenchData };
 
 let system = false;
 if (process.env.STORYBOOK_SYSTEM === 'EU') {
   system = 'eu';
 }
+
+const enData = system ? { ...euEnglishData } : { ...englishData };
+const frData = system ? { ...euFrenchData } : { ...frenchData };
+
 // Show/hide buttons for the language switcher.
 const btnLabel = 'With or without the login box';
 const enBtnHandler = () => {

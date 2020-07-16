@@ -11,9 +11,9 @@ npm install --save @ecl-twig/ec-component-site-header-standardised
 - **"logged"** (boolean) (default: false): Whether the user is logged in or not
 - **"menu"** (boolean) (default: false): Whether the component includes a menu or not
 - **"menu_label"** (string): Menu toggler label
-- **"banner"** (string): The site name
 - **"banner_top"** (string) OR (object with Link component in property): Class name
 - **"icon_file_path"** (string) (default: ''): file containing the svg icons
+- **"site_name"** (string) (default: '') Site name
 - **"logo"** (associative array) (default: predefined structure): Logo image settings. format:
   - "title" (string) (default: ''): Logo title attribute.
   - "alt" (string) (default: ''): Logo alt attribute.
@@ -58,8 +58,9 @@ npm install --save @ecl-twig/ec-component-site-header-standardised
 ```twig
 {% include '@ecl-twig/ec-component-site-header-standardised/ecl-site-header-standardised.html.twig' with { 
   banner_top: 'Class name', 
-  banner: 'Site name', 
+  banner: 'Class name', 
   menu: true, 
+  site_name: 'This site name'
   icon_file_path: '/path-to-the-icons-file', 
   logo: { 
     title: 'European Commission', 

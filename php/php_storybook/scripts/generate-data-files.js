@@ -22,14 +22,14 @@ const createDataFiles = ({
   // Only one spec in EU.
   if (system === 'eu') {
     const euSpecs = files.find(file => {
-      return file.endsWith('--eu.js');
+      return file.startsWith('eu-');
     });
     if (euSpecs) {
       files = [euSpecs];
     }
   } else {
     files = files.filter(file => {
-      return !file.endsWith('--eu.js');
+      return !file.startsWith('eu-');
     });
   }
 
@@ -39,7 +39,7 @@ const createDataFiles = ({
     const dataImport = require(`${readLocation}/${file}`);
     // Normalize the difference of module systems.
     const data = dataImport.default ? dataImport.default : dataImport;
-    const fileName = file.replace('js', 'json');
+    const fileName = file.replace('js', 'json').replace('eu-', '');
     const filePath = path.resolve(`${saveLocation}/${fileName}`);
 
     fse.outputFileSync(filePath, JSON.stringify(data));

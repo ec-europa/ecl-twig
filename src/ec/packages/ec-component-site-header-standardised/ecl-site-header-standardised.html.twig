@@ -7,6 +7,7 @@
     - "logged" (boolean): Whether the user is logged in or not
     - "menu" (boolean): Whether the component includes a menu
     - "menu_label" (string) Menu toggler label
+    - "site_name" (string) Site name
     - "logo" (associative array) (default: predefined structure): Logo image settings. format:
         {
           "title": (string) (default: ''): Logo title attribute.
@@ -74,6 +75,7 @@
 {% set _search_toggle = search_toggle|default({}) %}
 {% set _icon_file_path = icon_file_path|default('') %}
 {% set _menu = menu|default(false) %}
+{% set _site_name = site_name|default('') %}
 {% set _extra_attributes = '' %}
 {% set _css_class = 'ecl-site-header-standardised' %}
 {% set _compliance = _compliance_|default(false) %}
@@ -377,6 +379,7 @@
 {% endif %}
 {% if _menu is defined and _menu is not empty %}
   {% include '@ecl-twig/ec-component-menu/ecl-menu.html.twig' with _menu|merge({
+    site_name: _site_name,
     icon_path: _icon_file_path,
      _compliance_: _compliance,
      _compliance_inner_check_: true
