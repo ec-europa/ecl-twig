@@ -14,13 +14,20 @@ import {
 } from '@ecl-twig/story-utils';
 
 import logoPath from '@ecl/ec-resources-logo/logo--mute.svg';
+import euLogoPath from '@ecl/eu-resources-logo/logo--mute.svg';
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import dataSplash from './demo/data--splash';
 import dataOverlay from './demo/data--overlay';
 import languageList from './ecl-language-list.html.twig';
 import notes from './README.md';
 
+// Handle the EU demo.
+const system = process.env.STORYBOOK_SYSTEM
+  ? process.env.STORYBOOK_SYSTEM
+  : false;
+
 const prepareLanguageList = data => {
+  let logoImg = logoPath;
   data.icon_path = optionsKnob(
     'icon_path',
     { current: defaultSprite, 'no path': '' },
@@ -28,11 +35,14 @@ const prepareLanguageList = data => {
     { display: 'inline-radio' },
     tabLabels.required
   );
+  if (system) {
+    logoImg = euLogoPath;
+  }
   if (data.logo) {
     data.logo.path = optionsKnob(
       'logo.path',
-      { current: logoPath, 'no path': '' },
-      logoPath,
+      { current: logoImg, 'no path': '' },
+      logoImg,
       { display: 'inline-radio' },
       tabLabels.required
     );
