@@ -21,7 +21,7 @@ npm install --save @ecl-twig/ec-component-site-header-harmonised
   - "alt" (string) (default: ''): Logo alt attribute.
   - "href" (string) (default: ''): Logo URL.
   - "src_desktop" (string) (default: ''): Desktop logo image file path
-  - "src_mobile" (string) (default: ''): Mobile logo image file path.
+  - "src_mobile" (string) (default: ''): Mobile logo image file path for EU only
 - **"login_box"** (associative array) format:
   - "id": (string) Id of the box
   - "description" (string) Label for the logged in users
