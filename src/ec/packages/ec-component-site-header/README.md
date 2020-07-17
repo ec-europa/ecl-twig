@@ -13,8 +13,7 @@ npm install --save @ecl-twig/ec-component-site-header
   - "title" (string) (default: ''): Logo title attribute.
   - "alt" (string) (default: ''): Logo alt attribute.
   - "href" (string) (default: ''): Logo URL.
-  - "src_desktop" (string) (default: ''): Desktop logo image file path.
-  - "src_mobile" (string) (default: ''): Mobile logo image file path
+  - "src" (string) (default: ''): Logo image file path.
 - **"language_selector"** (associative array) (default: predefined structure): Language switcher settings. format:
   - "href" (string) (default: ''): URL for switcher
   - "name" (string) (default: ''): Switcher language label, eg. 'English', 'Français', etc.
