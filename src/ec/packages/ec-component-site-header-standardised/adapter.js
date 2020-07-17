@@ -6,9 +6,6 @@ const adapter = initialData => {
   const adaptedData = JSON.parse(JSON.stringify(initialData));
 
   const defaultSprite = '/icons.svg';
-  const englishBanner = '/logo--en.svg';
-  const frenchBanner = '/logo--fr.svg';
-
   adaptedData.banner_top = adaptedData.bannerTop;
   if (adaptedData.banner_top instanceof Object) {
     adaptedData.banner_top = formatLink(adaptedData.banner_top);
@@ -31,8 +28,6 @@ const adapter = initialData => {
     );
   }
   // Language selector.
-  const lng = adaptedData.logo.language;
-  adaptedData.logo.src_desktop = lng === 'en' ? englishBanner : frenchBanner;
   adaptedData.language_selector = adaptedData.languageSelector;
   delete adaptedData.languageSelector;
 

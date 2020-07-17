@@ -4,5 +4,6 @@ import adapter from '../adapter';
 
 specs.group = 'group1';
 specs.menu = dataMenu;
+specs.logo.src_desktop = '/logo--en.svg';
 
 export default adapter(specs);

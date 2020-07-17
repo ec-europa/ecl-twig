@@ -2,7 +2,7 @@ import he from 'he';
 
 const adapter = initialData => {
   const adaptedData = JSON.parse(JSON.stringify(initialData));
-
+  const defaultSprite = '/icons.svg';
   if (adaptedData.loginToggle) {
     adaptedData.login_toggle = {
       label_not_logged: adaptedData.loginToggle.labelNotLogged,
@@ -20,12 +20,6 @@ const adapter = initialData => {
       adaptedData.login_box.description
     );
   }
-
-  const lng = adaptedData.logo.language;
-  const defaultSprite = '/icons.svg';
-  const englishBanner = '/logo--en.svg';
-  const frenchBanner = '/logo--fr.svg';
-  adaptedData.logo.src_desktop = lng === 'en' ? englishBanner : frenchBanner;
 
   adaptedData.language_selector = adaptedData.languageSelector;
   delete adaptedData.languageSelector;

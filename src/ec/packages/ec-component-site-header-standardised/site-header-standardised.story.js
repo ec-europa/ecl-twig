@@ -27,7 +27,6 @@ import euFrenchMobileBanner from '@ecl/eu-resources-logo/condensed-version/posit
 import euFrenchBanner from '@ecl/eu-resources-logo/logo--fr.svg';
 import englishData from './demo/data--en';
 import frenchData from './demo/data--fr';
-
 import siteHeaderStandardised from './ecl-site-header-standardised.html.twig';
 import notes from './README.md';
 
