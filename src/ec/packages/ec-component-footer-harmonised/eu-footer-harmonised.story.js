@@ -7,7 +7,7 @@ import { getExtraKnobs } from '@ecl-twig/story-utils';
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import euLogoMobile from '@ecl/eu-resources-logo/condensed-version/positive/en.svg';
 import euLogoDesktop from '@ecl/eu-resources-logo/standard-version/positive/en.svg';
-import dataEu from './demo/data--eu';
+import dataEu from './demo/eu-data';
 import footerHarmonised from './ecl-footer-harmonised.html.twig';
 import notes from './README.md';
 

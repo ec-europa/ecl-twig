@@ -152,17 +152,17 @@ const prepareSiteHeaderHarmonised = (data, variant) => {
     let required = true;
     if (data.group === 'group3') {
       label = tabLabels.optional;
-      logoDefault = data.logo.src;
+      logoDefault = data.logo.src_desktop;
       required = false;
     }
-    data.logo.src = optionsKnob(
-      'logo.src',
+    data.logo.src_desktop = optionsKnob(
+      'logo.src_desktop',
       { current: logoDefault, 'no path': '' },
       logoDefault,
       { display: 'inline-radio' },
       label
     );
-    if (data.logo.src) {
+    if (data.logo.src_desktop) {
       getLogoKnobs(data, required);
     }
   }

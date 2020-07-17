@@ -4,8 +4,6 @@ import he from 'he';
 const adapter = initialData => {
   const adaptedData = JSON.parse(JSON.stringify(initialData));
   const defaultSprite = '/icons.svg';
-  const logo = '/logo--en.svg';
-
   adaptedData.banner_top = adaptedData.bannerTop;
   if (adaptedData.banner_top instanceof Object) {
     adaptedData.banner_top = formatLink(adaptedData.banner_top);
@@ -29,8 +27,6 @@ const adapter = initialData => {
       adaptedData.login_box.description
     );
   }
-  // Language selector.
-  adaptedData.logo.src = logo;
 
   adaptedData.language_selector = adaptedData.languageSelector;
   delete adaptedData.languageSelector;

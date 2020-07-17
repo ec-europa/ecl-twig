@@ -94,7 +94,7 @@ describe('EC - Site Header Harmonised', () => {
       expect.assertions(1);
 
       const dataCompliance = { ...dataGroup2, _compliance_: true };
-      dataCompliance.logo.src = '';
+      dataCompliance.logo.src_desktop = '';
 
       return expect(render(dataCompliance)).resolves.toMatchSnapshot();
     });

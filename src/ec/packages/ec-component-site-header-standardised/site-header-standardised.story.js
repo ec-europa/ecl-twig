@@ -21,20 +21,22 @@ import withCode from '@ecl-twig/storybook-addon-code';
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import englishBanner from '@ecl/ec-resources-logo/logo--en.svg';
 import frenchBanner from '@ecl/ec-resources-logo/logo--fr.svg';
-
+import euEnglishBanner from '@ecl/eu-resources-logo/logo--en.svg';
+import euEnglishMobileBanner from '@ecl/eu-resources-logo/condensed-version/positive/en.svg';
+import euFrenchMobileBanner from '@ecl/eu-resources-logo/condensed-version/positive/fr.svg';
+import euFrenchBanner from '@ecl/eu-resources-logo/logo--fr.svg';
 import englishData from './demo/data--en';
 import frenchData from './demo/data--fr';
-
 import siteHeaderStandardised from './ecl-site-header-standardised.html.twig';
 import notes from './README.md';
 
-frenchData.icon_file_path = defaultSprite;
-frenchData.logo.src = frenchBanner;
-englishData.icon_file_path = defaultSprite;
-englishData.logo.src = englishBanner;
-
 const enData = { ...englishData };
 const frData = { ...frenchData };
+let system = false;
+if (process.env.STORYBOOK_SYSTEM === 'EU') {
+  system = 'eu';
+}
+
 // Show/hide buttons for the login box.
 const btnLoginLabel = 'With or without the login box';
 const enBtnLoginHandler = () => {
@@ -70,16 +72,20 @@ const frBtnLangHandler = () => {
 
 const prepareSiteHeaderStandardised = (data, lang) => {
   data.logged = boolean('logged', data.logged, tabLabels.states);
-  data.banner_top.link.label = text(
-    'banner_top.link.label',
-    data.banner_top.link.label,
-    tabLabels.required
-  );
-  data.banner_top.link.path = text(
-    'banner_top.link.path',
-    data.banner_top.link.path,
-    tabLabels.required
-  );
+  if (!system) {
+    data.banner_top.link.label = text(
+      'banner_top.link.label',
+      data.banner_top.link.label,
+      tabLabels.required
+    );
+    data.banner_top.link.path = text(
+      'banner_top.link.path',
+      data.banner_top.link.path,
+      tabLabels.required
+    );
+  } else {
+    delete data.banner_top;
+  }
   data.icon_file_path = optionsKnob(
     'icon_file_path',
     { current: defaultSprite, 'no path': '' },
@@ -87,19 +93,27 @@ const prepareSiteHeaderStandardised = (data, lang) => {
     { display: 'inline-radio' },
     tabLabels.required
   );
+  let banner = '';
+  let mobileBanner = '';
   if (lang === 'en') {
-    data.logo.src = optionsKnob(
-      'logo.src',
-      { current: englishBanner, 'no path': '' },
-      englishBanner,
-      { display: 'inline-radio' },
-      tabLabels.required
-    );
+    banner = system ? euEnglishBanner : englishBanner;
+    mobileBanner = system ? euEnglishMobileBanner : '';
   } else {
-    data.logo.src = optionsKnob(
-      'logo.src',
-      { current: frenchBanner, 'no path': '' },
-      frenchBanner,
+    banner = system ? euFrenchBanner : frenchBanner;
+    mobileBanner = system ? euFrenchMobileBanner : '';
+  }
+  data.logo.src_desktop = optionsKnob(
+    'logo.src_desktop',
+    { current: banner, 'no path': '' },
+    banner,
+    { display: 'inline-radio' },
+    tabLabels.required
+  );
+  if (system) {
+    data.logo.src_mobile = optionsKnob(
+      'logo.src_mobile',
+      { current: mobileBanner, 'no path': '' },
+      mobileBanner,
       { display: 'inline-radio' },
       tabLabels.required
     );
@@ -189,7 +203,7 @@ LoggedIn.story = {
 export const Translated = () => {
   button(btnLangLabel, frBtnLangHandler, tabLabels.cases);
   button(btnLoginLabel, frBtnLoginHandler, tabLabels.cases);
-  const dataStory = prepareSiteHeaderStandardised(frData);
+  const dataStory = prepareSiteHeaderStandardised(frData, 'fr');
 
   return siteHeaderStandardised(dataStory);
 };
