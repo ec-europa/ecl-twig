@@ -222,10 +222,10 @@
     {% endset %}
     {% include '@ecl-twig/ec-component-link/ecl-link.html.twig' with {
       link: {
-        path: _section.logo.path,
+        path: _logo.href,
         label: _label,
         type: 'standalone',
-        aria_label: _section.logo.title
+        aria_label: _logo.title
       },
       extra_classes: 'ecl-site-header-standardised__logo-link'
     } only %}
