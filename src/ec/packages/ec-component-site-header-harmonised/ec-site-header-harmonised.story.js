@@ -156,7 +156,7 @@ const prepareSiteHeaderHarmonised = (data, variant) => {
       required = false;
     }
     data.logo.src_desktop = optionsKnob(
-      'logo.src',
+      'logo.src_desktop',
       { current: logoDefault, 'no path': '' },
       logoDefault,
       { display: 'inline-radio' },
