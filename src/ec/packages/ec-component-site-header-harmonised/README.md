@@ -8,7 +8,7 @@ npm install --save @ecl-twig/ec-component-site-header-harmonised
 
 ### Parameters
 
-- **"group"** (string) (default: 'group1'): 'group1', 'group2' or 'group3'
+- **"group"** (string) (default: ''): 'group1', 'group2' or 'group3'
 - **"logged"** (boolean) (default: false): Whether the user is logged in or not
 - **"menu"** (boolean) (default: false): Whether the component includes a menu or not
 - **"menu_label"** (string) (default: false): The menu toggler label
@@ -20,7 +20,8 @@ npm install --save @ecl-twig/ec-component-site-header-harmonised
   - "title" (string) (default: ''): Logo title attribute.
   - "alt" (string) (default: ''): Logo alt attribute.
   - "href" (string) (default: ''): Logo URL.
-  - "src" (string) (default: ''): Logo image file path, eg. dist/images/logo--en.svg.
+  - "src_desktop" (string) (default: ''): Desktop logo image file path
+  - "src_mobile" (string) (default: ''): Mobile logo image file path for EU only
 - **"login_box"** (associative array) format:
   - "id": (string) Id of the box
   - "description" (string) Label for the logged in users

@@ -14,7 +14,8 @@ npm install --save @ecl-twig/ec-component-site-header-core
   - "title" (string) (default: ''): Logo title attribute.
   - "alt" (string) (default: ''): Logo alt attribute.
   - "href" (string) (default: ''): Logo URL.
-  - "src" (string) (default: ''): Logo image file path, eg. dist/images/logo--en.svg.
+  - "src_desktop": (string) (default: ''): Desktop logo image file path
+  - "src_mobile": (string) (default: ''): Mobile logo image file path for EU only
 - **"login_box"** (associative array) format:
   - "id" (string) Id of the box
   - "description" (string) Label for the logged in users
@@ -37,6 +38,8 @@ npm install --save @ecl-twig/ec-component-site-header-core
       - "label" (string) (default: '') Item language label, eg. 'English', 'Français', etc.
       - "path" (string) (default: '') Item language URL eg. '/example#language_en'.
       - "active" (boolean) (default: false) define if item is the active language.
+  - **"menu"** (boolean): Whether the component includes a menu
+  - **"menu_label"** (string) Menu toggler label
 - **"search_toggle"** (associative array) (default: { label: 'Search', href: '/example' }),
 - **"search_form"** (associative array) (default: predefined structure): EC Search Form component structure
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)

@@ -8,7 +8,8 @@
           "title": (string) (default: ''): Logo title attribute.
           "alt": (string) (default: ''): Logo alt attribute.
           "href": (string) (default: ''): Logo URL.
-          "src": (string) (default: ''): Logo image file path, eg. dist/images/logo--en.svg.
+          "src_desktop": (string) (default: ''): Desktop logo image file path
+          "src_mobile": (string) (default: ''): Mobile logo image file path for EU only
         },
     - "logged" (boolean): Whether the user is logged in or not
     - "language_selector" (associative array) (default: predefined structure): Language switcher settings. format:
@@ -30,6 +31,8 @@
               ],
             },
         },
+    - "menu" (boolean): Whether the component includes a menu
+    - "menu_label" (string) Menu toggler label
     - "search_toggle" (associate array) (default: {})
     - "login_box" (associate array) (default: {}) format:
         {
@@ -69,6 +72,7 @@
 {% set _extra_attributes = '' %}
 {% set _css_class = 'ecl-site-header-core' %}
 {% set _compliance = _compliance_|default(false) %}
+{% set _menu = menu|default(false) %}
 {% set _search_form_extra_attributes = [{ name: 'data-ecl-search-form' }] %}
 {% set _search_input_extra_classes = 'ecl-search-form__text-input' %}
 {% set _search_form_extra_classes = 'ecl-site-header-core__search' %}
@@ -82,6 +86,10 @@
   { name: 'data-ecl-auto-init', value: 'SiteHeaderCore' }
   ]|merge(extra_attributes|default([]))
 %}
+
+{% if _menu is not empty %}
+  {% set extra_attributes = extra_attributes|merge([{ name: 'data-ecl-has-menu' }]) %}
+{% endif %}
 
 {% if login_toggle is defined and login_toggle is not empty %}
   {% set _login_toggle = _login_toggle|merge(login_toggle) %}
@@ -182,18 +190,35 @@
 <header class="{{ _css_class }}"{{ _extra_attributes|raw }}>
   <div class="ecl-site-header-core__container ecl-container">
     <div class="ecl-site-header-core__top">
-      <a
-        class="ecl-link ecl-link--standalone ecl-site-header-core__logo-link"
-        href="{{ _logo.href }}"
-        aria-label="{{ _logo.title }}"
-      >
-        <img
-          alt="{{ _logo.alt }}"
-          title="{{ _logo.title }}"
-          class="ecl-site-header-core__logo-image"
-          src="{{ _logo.src }}"
-        />
-      </a>
+    {% if _logo is not empty %}
+      {% set _label %}
+      {% if _logo.src_mobile is defined and _logo.src_mobile is not empty %}
+      <img
+        alt="{{ _logo.alt }}"
+        title="{{ _logo.title }}"
+        class="ecl-site-header-core__logo-image-mobile"
+        src="{{ _logo.src_mobile }}"
+      />
+      {% endif %}
+      {% if _logo.src_desktop is defined and _logo.src_desktop is not empty %}
+      <img
+        alt="{{ _logo.alt }}"
+        title="{{ _logo.title }}"
+        class="ecl-site-header-core__logo-image ecl-site-header-core__logo-image-desktop"
+        src="{{ _logo.src_desktop }}"
+      />
+      {% endif %}
+      {% endset %}
+      {% include '@ecl-twig/ec-component-link/ecl-link.html.twig' with {
+        link: {
+          path: _logo.path,
+          label: _label,
+          type: 'standalone',
+          aria_label: _logo.title
+        },
+        extra_classes: 'ecl-site-header-core__logo-link'
+      } only %}
+    {% endif %}
       <div class="ecl-site-header-core__action">
       {% if _login_toggle is not empty and _login_box is not empty %}
         <div class="ecl-site-header-core__login-container">
@@ -324,6 +349,13 @@
       </div>
     </div>
   </div>
+{% if _menu is defined and _menu is not empty %}
+  {% include '@ecl-twig/ec-component-menu/ecl-menu.html.twig' with _menu|merge({
+    icon_path: _icon_file_path,
+     _compliance_: _compliance,
+     _compliance_inner_check_: true
+  }) only %}
+{% endif %}
 {% if _has_overlay is defined %}
   {% include '@ecl-twig/ec-component-language-list/ecl-language-list.html.twig' with {
     overlay: true,
@@ -339,6 +371,7 @@
     _compliance_inner_check_: true
   } only %}
 {% endif %}
+
 </header>
 
 {# Validation #}

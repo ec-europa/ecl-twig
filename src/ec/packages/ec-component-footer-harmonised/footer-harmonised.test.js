@@ -3,7 +3,7 @@ import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 import dataGroup1 from './demo/data--group1';
 import dataGroup2 from './demo/data--group2';
 import dataGroup3 from './demo/data--group3';
-import dataEu from './demo/data--eu';
+import dataEu from './demo/eu-data';
 
 describe('EC - Footer Harmonised', () => {
   const template =

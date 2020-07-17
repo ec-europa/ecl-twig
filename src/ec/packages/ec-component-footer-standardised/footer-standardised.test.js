@@ -1,7 +1,7 @@
 import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
 import sections from './demo/data';
-import euSections from './demo/data--eu';
+import euSections from './demo/eu-data';
 
 describe('EC - Footer Standardised', () => {
   const template =

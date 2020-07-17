@@ -60,6 +60,8 @@ const formatLinkAlt = a => {
     link.hreflang = a.hreflang;
   }
 
+  link.aria_label = a.aria_label ? a.aria_label : 'Aria label default';
+
   return link;
 };
 

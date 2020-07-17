@@ -94,7 +94,9 @@
       } only %}
       {{- _title -}}
     </a>
+    {% if _site_name is not empty %}
     <div class="ecl-menu__site-name">{{ _site_name }}</div>
+    {% endif %}
     <section class="ecl-menu__inner" data-ecl-menu-inner>
       <header class="ecl-menu__inner-header">
         <button

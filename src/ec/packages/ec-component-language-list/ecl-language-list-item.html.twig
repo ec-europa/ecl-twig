@@ -44,12 +44,10 @@
     } %}
   {% endif %}
   {% include '@ecl-twig/ec-component-link/ecl-link.html.twig' with {
-    link: {
+    link: _item|merge({
       type: 'standalone',
-      label: _item.label,
-      path: _item.path,
       icon_position: 'after'
-    },
+    }),
     icon: _item_icon,
     extra_classes: 'ecl-language-list__link',
     extra_attributes: _item_attribute,

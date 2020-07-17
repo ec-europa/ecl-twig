@@ -5,6 +5,7 @@ exports[`EC - Site Header Standardised Default renders correctly 1`] = `
   <header
     class="ecl-site-header-standardised"
     data-ecl-auto-init="SiteHeaderStandardised"
+    data-ecl-has-menu=""
   >
     <div
       class="ecl-site-header-standardised__container ecl-container"
@@ -19,7 +20,7 @@ exports[`EC - Site Header Standardised Default renders correctly 1`] = `
         >
           <img
             alt="European Commission logo"
-            class="ecl-site-header-standardised__logo-image"
+            class="ecl-site-header-standardised__logo-image ecl-site-header-standardised__logo-image-desktop"
             src="/logo--en.svg"
             title="European Commission"
           />
@@ -1599,6 +1600,7 @@ exports[`EC - Site Header Standardised Default renders correctly when logged in 
   <header
     class="ecl-site-header-standardised"
     data-ecl-auto-init="SiteHeaderStandardised"
+    data-ecl-has-menu=""
   >
     <div
       class="ecl-site-header-standardised__container ecl-container"
@@ -1613,7 +1615,7 @@ exports[`EC - Site Header Standardised Default renders correctly when logged in 
         >
           <img
             alt="European Commission logo"
-            class="ecl-site-header-standardised__logo-image"
+            class="ecl-site-header-standardised__logo-image ecl-site-header-standardised__logo-image-desktop"
             src="/logo--en.svg"
             title="European Commission"
           />
@@ -3225,6 +3227,7 @@ exports[`EC - Site Header Standardised Default renders correctly with extra attr
   <header
     class="ecl-site-header-standardised"
     data-ecl-auto-init="SiteHeaderStandardised"
+    data-ecl-has-menu=""
     data-test="data-test-value"
     data-test-1="data-test-value-1"
   >
@@ -3241,7 +3244,7 @@ exports[`EC - Site Header Standardised Default renders correctly with extra attr
         >
           <img
             alt="European Commission logo"
-            class="ecl-site-header-standardised__logo-image"
+            class="ecl-site-header-standardised__logo-image ecl-site-header-standardised__logo-image-desktop"
             src="/logo--en.svg"
             title="European Commission"
           />
@@ -4821,6 +4824,7 @@ exports[`EC - Site Header Standardised Default renders correctly with extra clas
   <header
     class="ecl-site-header-standardised custom-class custom-class--test"
     data-ecl-auto-init="SiteHeaderStandardised"
+    data-ecl-has-menu=""
   >
     <div
       class="ecl-site-header-standardised__container ecl-container"
@@ -4835,7 +4839,7 @@ exports[`EC - Site Header Standardised Default renders correctly with extra clas
         >
           <img
             alt="European Commission logo"
-            class="ecl-site-header-standardised__logo-image"
+            class="ecl-site-header-standardised__logo-image ecl-site-header-standardised__logo-image-desktop"
             src="/logo--en.svg"
             title="European Commission"
           />
@@ -6415,6 +6419,7 @@ exports[`EC - Site Header Standardised Default with missing input data and debug
   <header
     class="ecl-site-header-standardised"
     data-ecl-auto-init="SiteHeaderStandardised"
+    data-ecl-has-menu=""
   >
     <div
       class="ecl-site-header-standardised__container ecl-container"
@@ -6429,7 +6434,7 @@ exports[`EC - Site Header Standardised Default with missing input data and debug
         >
           <img
             alt=""
-            class="ecl-site-header-standardised__logo-image"
+            class="ecl-site-header-standardised__logo-image ecl-site-header-standardised__logo-image-desktop"
             src="/logo--en.svg"
             title="European Commission"
           />
@@ -8700,6 +8705,7 @@ exports[`EC - Site Header Standardised Translated renders correctly 1`] = `
   <header
     class="ecl-site-header-standardised"
     data-ecl-auto-init="SiteHeaderStandardised"
+    data-ecl-has-menu=""
   >
     <div
       class="ecl-site-header-standardised__container ecl-container"
@@ -8714,7 +8720,7 @@ exports[`EC - Site Header Standardised Translated renders correctly 1`] = `
         >
           <img
             alt="Logo Commmission Européenne"
-            class="ecl-site-header-standardised__logo-image"
+            class="ecl-site-header-standardised__logo-image ecl-site-header-standardised__logo-image-desktop"
             src="/logo--fr.svg"
             title="Commmission Européenne"
           />
@@ -8888,7 +8894,7 @@ exports[`EC - Site Header Standardised Translated renders correctly 1`] = `
         <div
           class="ecl-menu__site-name"
         >
-          Nom du site
+          Site name
         </div>
         <section
           class="ecl-menu__inner"
@@ -10294,6 +10300,7 @@ exports[`EC - Site Header Standardised Translated renders correctly with extra a
   <header
     class="ecl-site-header-standardised"
     data-ecl-auto-init="SiteHeaderStandardised"
+    data-ecl-has-menu=""
     data-test="data-test-value"
     data-test-1="data-test-value-1"
   >
@@ -10310,7 +10317,7 @@ exports[`EC - Site Header Standardised Translated renders correctly with extra a
         >
           <img
             alt="Logo Commmission Européenne"
-            class="ecl-site-header-standardised__logo-image"
+            class="ecl-site-header-standardised__logo-image ecl-site-header-standardised__logo-image-desktop"
             src="/logo--fr.svg"
             title="Commmission Européenne"
           />
@@ -10484,7 +10491,7 @@ exports[`EC - Site Header Standardised Translated renders correctly with extra a
         <div
           class="ecl-menu__site-name"
         >
-          Nom du site
+          Site name
         </div>
         <section
           class="ecl-menu__inner"
@@ -11890,6 +11897,7 @@ exports[`EC - Site Header Standardised Translated renders correctly with extra c
   <header
     class="ecl-site-header-standardised custom-class custom-class--test"
     data-ecl-auto-init="SiteHeaderStandardised"
+    data-ecl-has-menu=""
   >
     <div
       class="ecl-site-header-standardised__container ecl-container"
@@ -11904,7 +11912,7 @@ exports[`EC - Site Header Standardised Translated renders correctly with extra c
         >
           <img
             alt="Logo Commmission Européenne"
-            class="ecl-site-header-standardised__logo-image"
+            class="ecl-site-header-standardised__logo-image ecl-site-header-standardised__logo-image-desktop"
             src="/logo--fr.svg"
             title="Commmission Européenne"
           />
@@ -12078,7 +12086,7 @@ exports[`EC - Site Header Standardised Translated renders correctly with extra c
         <div
           class="ecl-menu__site-name"
         >
-          Nom du site
+          Site name
         </div>
         <section
           class="ecl-menu__inner"

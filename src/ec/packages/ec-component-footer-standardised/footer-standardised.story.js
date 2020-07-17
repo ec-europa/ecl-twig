@@ -13,7 +13,7 @@ import euLogoMobile from '@ecl/eu-resources-logo/condensed-version/positive/en.s
 import euLogoDesktop from '@ecl/eu-resources-logo/standard-version/positive/en.svg';
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import specs from './demo/data';
-import euSpecs from './demo/data--eu';
+import euSpecs from './demo/eu-data';
 import footerStandardised from './ecl-footer-standardised.html.twig';
 import notes from './README.md';
 
