@@ -1,5 +1,5 @@
-import specs from '@ecl/eu-specs-site-header-standardised/demo/data--fr';
-import dataMenu from '../../ec-component-menu/demo/data--fr';
+import specs from '@ecl/eu-specs-site-header-standardised/demo/data--en';
+import dataMenu from '../../ec-component-menu/demo/data--en';
 import adapter from '../adapter';
 
 specs.menu = dataMenu;

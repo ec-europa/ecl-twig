@@ -18,19 +18,21 @@ const createDataFiles = ({
   componentRootName,
   system,
 }) => {
-  let files = fs.readdirSync(readLocation);
+  const allFiles = fs.readdirSync(readLocation);
+  let euFiles = [];
+  let files = [];
   // Only one spec in EU.
   if (system === 'eu') {
-    const euSpecs = files.find(file => {
+    euFiles = allFiles.filter(file => {
       return file.startsWith('eu-');
     });
-    if (euSpecs) {
-      files = [euSpecs];
-    }
-  } else {
-    files = files.filter(file => {
+  }
+  if (euFiles.length !== 0) {
+    files = allFiles.filter(file => {
       return !file.startsWith('eu-');
     });
+  } else {
+    files = euFiles;
   }
 
   files.forEach(file => {
@@ -70,7 +72,9 @@ systems.forEach(system => {
     const componentRootName = pkg.split(`@ecl-twig/ec-component-`)[1];
     const packageLocation = `${nodeModules}/${pkg}`;
     let specLocation = '';
-
+    if (componentRootName === 'ecl-compliance') {
+      return;
+    }
     if (
       componentRootName === 'ordered-list' ||
       componentRootName === 'unordered-list'
