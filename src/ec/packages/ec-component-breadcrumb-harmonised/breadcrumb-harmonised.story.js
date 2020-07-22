@@ -11,8 +11,8 @@ import {
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import dataSimple from './demo/data--simple';
 import dataLong from './demo/data';
-import dataSimpleEu from './demo/data--simple--eu';
-import dataLongEu from './demo/data--eu';
+import dataSimpleEu from './demo/eu-data--simple';
+import dataLongEu from './demo/eu-data';
 
 import breadcrumb from './ecl-breadcrumb-harmonised.html.twig';
 import notes from './README.md';

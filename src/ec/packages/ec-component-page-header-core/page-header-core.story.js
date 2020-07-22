@@ -11,9 +11,23 @@ import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import demoTitleContent from './demo/data--title';
 import demoMetaTitleContent from './demo/data--meta-title';
 import demoMetaTitleDescriptionContent from './demo/data--meta-title-description';
+import euDemoTitleContent from './demo/eu-data--title';
+import euDemoMetaTitleContent from './demo/eu-data--meta-title';
+import euDemoMetaTitleDescriptionContent from './demo/eu-data--meta-title-description';
 
 import pageHeaderCore from './ecl-page-header-core.html.twig';
 import notes from './README.md';
+
+// Handle the EU demo.
+const system = process.env.STORYBOOK_SYSTEM
+  ? process.env.STORYBOOK_SYSTEM
+  : false;
+
+const dataTitle = system ? euDemoTitleContent : demoTitleContent;
+const dataMetaTitle = system ? euDemoMetaTitleContent : demoMetaTitleContent;
+const dataMetaTitleDescription = system
+  ? euDemoMetaTitleDescriptionContent
+  : demoMetaTitleDescriptionContent;
 
 const preparePageHeaderCore = (data, desc, meta) => {
   data.title = text('title', data.title, tabLabels.required);
@@ -67,32 +81,29 @@ export default {
   decorators: [withNotes, withCode, withKnobs],
 };
 
-export const Title = () =>
-  pageHeaderCore(preparePageHeaderCore(demoTitleContent));
+export const Title = () => pageHeaderCore(preparePageHeaderCore(dataTitle));
 
 Title.story = {
   name: 'title',
 
   parameters: {
-    notes: { markdown: notes, json: demoTitleContent },
+    notes: { markdown: notes, json: dataTitle },
   },
 };
 
 export const MetaTitle = () =>
-  pageHeaderCore(preparePageHeaderCore(demoMetaTitleContent, false, true));
+  pageHeaderCore(preparePageHeaderCore(dataMetaTitle, false, true));
 
 MetaTitle.story = {
   name: 'meta-title',
 
   parameters: {
-    notes: { markdown: notes, json: demoMetaTitleContent },
+    notes: { markdown: notes, json: dataMetaTitle },
   },
 };
 
 export const MetaTitleDescription = () =>
-  pageHeaderCore(
-    preparePageHeaderCore(demoMetaTitleDescriptionContent, true, true)
-  );
+  pageHeaderCore(preparePageHeaderCore(dataMetaTitleDescription, true, true));
 
 MetaTitleDescription.story = {
   name: 'meta-title-description',
@@ -100,7 +111,7 @@ MetaTitleDescription.story = {
   parameters: {
     notes: {
       markdown: notes,
-      json: demoMetaTitleDescriptionContent,
+      json: dataMetaTitleDescription,
     },
   },
 };

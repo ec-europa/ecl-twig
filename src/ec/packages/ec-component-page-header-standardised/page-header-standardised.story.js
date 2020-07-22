@@ -11,8 +11,22 @@ import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import demoTitleContent from './demo/data--title';
 import demoMetaTitleContent from './demo/data--meta-title';
 import demoMetaTitleDescriptionContent from './demo/data--meta-title-description';
+import euDemoTitleContent from './demo/eu-data--title';
+import euDemoMetaTitleContent from './demo/eu-data--meta-title';
+import euDemoMetaTitleDescriptionContent from './demo/eu-data--meta-title-description';
 import pageHeaderStandardised from './ecl-page-header-standardised.html.twig';
 import notes from './README.md';
+
+// Handle the EU demo.
+const system = process.env.STORYBOOK_SYSTEM
+  ? process.env.STORYBOOK_SYSTEM
+  : false;
+
+const dataTitle = system ? euDemoTitleContent : demoTitleContent;
+const dataMetaTitle = system ? euDemoMetaTitleContent : demoMetaTitleContent;
+const dataMetaTitleDescription = system
+  ? euDemoMetaTitleDescriptionContent
+  : demoMetaTitleDescriptionContent;
 
 const preparePageHeaderStandardised = (data, desc, meta) => {
   data.title = text('title', data.title, tabLabels.required);
@@ -57,7 +71,9 @@ const preparePageHeaderStandardised = (data, desc, meta) => {
   });
 
   getExtraKnobs(data);
-  getComplianceKnob(data);
+  if (!system) {
+    getComplianceKnob(data);
+  }
 
   return data;
 };
@@ -68,32 +84,32 @@ export default {
 };
 
 export const Title = () =>
-  pageHeaderStandardised(preparePageHeaderStandardised(demoTitleContent));
+  pageHeaderStandardised(preparePageHeaderStandardised(dataTitle));
 
 Title.story = {
   name: 'title',
 
   parameters: {
-    notes: { markdown: notes, json: demoTitleContent },
+    notes: { markdown: notes, json: dataTitle },
   },
 };
 
 export const MetaTitle = () =>
   pageHeaderStandardised(
-    preparePageHeaderStandardised(demoMetaTitleContent, false, true)
+    preparePageHeaderStandardised(dataMetaTitle, false, true)
   );
 
 MetaTitle.story = {
   name: 'meta-title',
 
   parameters: {
-    notes: { markdown: notes, json: demoMetaTitleContent },
+    notes: { markdown: notes, json: dataMetaTitle },
   },
 };
 
 export const MetaTitleDescription = () =>
   pageHeaderStandardised(
-    preparePageHeaderStandardised(demoMetaTitleDescriptionContent, true, true)
+    preparePageHeaderStandardised(dataMetaTitleDescription, true, true)
   );
 
 MetaTitleDescription.story = {
@@ -102,7 +118,7 @@ MetaTitleDescription.story = {
   parameters: {
     notes: {
       markdown: notes,
-      json: demoMetaTitleDescriptionContent,
+      json: dataMetaTitleDescription,
     },
   },
 };

@@ -1,13 +1,3 @@
-import breadcrumbData from '../ec-component-breadcrumb/demo/data--simple';
-import breadcrumbDataEu from '../ec-component-breadcrumb/demo/data--simple--eu';
-
-// Handle the EU demo.
-const system = process.env.STORYBOOK_SYSTEM
-  ? process.env.STORYBOOK_SYSTEM
-  : false;
-
-const breadcrumb = system ? breadcrumbDataEu : breadcrumbData; // eslint-disable-line no-unused-vars
-
 function formatPageHeaderInfo(i) {
   const iconType = i.icon.name.split('--');
   const info = {
@@ -54,10 +44,6 @@ const adapter = initialData => {
     adaptedData.background_image = true;
     adaptedData.background_image_url = adaptedData.image;
     delete adaptedData.image;
-  }
-
-  if (!adaptedData.variant || adaptedData.variant !== 'homepage') {
-    adaptedData.breadcrumb = breadcrumbData;
   }
 
   if (adaptedData.infos) {

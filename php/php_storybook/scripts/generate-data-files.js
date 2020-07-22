@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-/* eslint-disable global-require, no-unused-vars, import/no-dynamic-require, import/no-extraneous-dependencies */
+/* eslint-disable global-require, unicorn/explicit-length-check, no-unused-vars, import/no-dynamic-require, import/no-extraneous-dependencies */
 
 const fs = require('fs');
 const fse = require('fs-extra');
@@ -18,19 +18,20 @@ const createDataFiles = ({
   componentRootName,
   system,
 }) => {
-  let files = fs.readdirSync(readLocation);
-  // Only one spec in EU.
+  const allFiles = fs.readdirSync(readLocation);
+  let euFiles = [];
+  let files = [];
   if (system === 'eu') {
-    const euSpecs = files.find(file => {
+    euFiles = allFiles.filter(file => {
       return file.startsWith('eu-');
     });
-    if (euSpecs) {
-      files = [euSpecs];
-    }
-  } else {
-    files = files.filter(file => {
+  }
+  if (euFiles.length < 1) {
+    files = allFiles.filter(file => {
       return !file.startsWith('eu-');
     });
+  } else {
+    files = euFiles;
   }
 
   files.forEach(file => {
@@ -70,7 +71,9 @@ systems.forEach(system => {
     const componentRootName = pkg.split(`@ecl-twig/ec-component-`)[1];
     const packageLocation = `${nodeModules}/${pkg}`;
     let specLocation = '';
-
+    if (componentRootName === 'ecl-compliance') {
+      return;
+    }
     if (
       componentRootName === 'ordered-list' ||
       componentRootName === 'unordered-list'

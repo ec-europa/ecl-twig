@@ -7,10 +7,10 @@ import pageHeaderDataMetaTitleDescription from './demo/data--meta-title-descript
 import pageHeaderDataEvents from './demo/data--events';
 import pageHeaderDataEventsDescription from './demo/data--events-description';
 import pageHeaderDataBackgroundImage from './demo/data--background-image';
-import pageHeaderDataBrandedEU from './demo/data--branded-homepage--eu';
-import pageHeaderDataBasicEU from './demo/data--basic--eu';
-import pageHeaderDataEventsEU from './demo/data--events--eu';
-import pageHeaderHomepageEU from './demo/data--homepage--eu';
+import pageHeaderDataBrandedEU from './demo/eu-data--branded-homepage';
+import pageHeaderDataBasicEU from './demo/eu-data--basic';
+import pageHeaderDataEventsEU from './demo/eu-data--events';
+import pageHeaderHomepageEU from './demo/eu-data--homepage';
 
 describe('Page Header', () => {
   const template =

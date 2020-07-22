@@ -12,6 +12,7 @@ const options = {
     /\/logo--en.svg/g,
     /\/logo--fr.svg/g,
     /\/logo--mute.svg/g,
+    /\/eu-logo--mute.svg/g,
   ],
   to: [
     'icons.svg',
