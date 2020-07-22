@@ -1,4 +1,4 @@
-# ECL Twig - EC Select component
+# ECL-Twig Select component
 
 npm package: `@ecl-twig/ec-component-select`
 
@@ -18,11 +18,16 @@ npm install --save @ecl-twig/ec-component-select
 - **"name"** (string) (default: '')
 - **"width"** (string) (default: '') Input width size (s, m or l)
 - **"icon_path"** (string) (default: ''): file containing the svg icons
+- **"multiple"** (bolean) (default: false): For the multiple select
+- **"multiple_placeholder"** (string) (default: '') Placeholder for the multiple select
+- **"multiple_all_text"** (string) (default: '') Text for the select all option
+- **"multiple_search_text"** (string) (default: '') Text for the search box inside the multiple select
 - **"extra_group_classes"** (optional) (string) (default: '') Extra classes (space separated) for the select group
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
+- **"\_compliance"** (boolean) (default: false)
 
 ### Blocks:
 

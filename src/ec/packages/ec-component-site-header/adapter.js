@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies, no-param-reassign */
 const adapter = initialData => {
   const adaptedData = JSON.parse(JSON.stringify(initialData));
 
@@ -7,7 +6,7 @@ const adapter = initialData => {
   const frenchBanner = '/logo--fr.svg';
 
   const lng = adaptedData.logo.language;
-  adaptedData.logo.src = lng === 'en' ? englishBanner : frenchBanner;
+  adaptedData.logo.src_desktop = lng === 'en' ? englishBanner : frenchBanner;
 
   adaptedData.language_selector = adaptedData.languageSelector;
   delete adaptedData.languageSelector;

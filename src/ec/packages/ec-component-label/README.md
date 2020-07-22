@@ -1,4 +1,4 @@
-# ECL Twig - EC Label component
+# ECL-Twig Label component
 
 npm package: `@ecl-twig/ec-component-label`
 
@@ -14,6 +14,7 @@ npm install --save @ecl-twig/ec-component-label
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
+- **_compliance_** (optional) (boolean) (default: false) Activates debug
 
 ### Example:
 

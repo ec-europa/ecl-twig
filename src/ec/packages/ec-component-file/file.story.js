@@ -1,7 +1,10 @@
-import { storiesOf } from '@storybook/html';
-import { withKnobs, text, select } from '@storybook/addon-knobs';
+import { withKnobs, text, optionsKnob } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
-import { getExtraKnobs, tabLabels } from '@ecl-twig/story-utils';
+import {
+  getExtraKnobs,
+  tabLabels,
+  getComplianceKnob,
+} from '@ecl-twig/story-utils';
 import withCode from '@ecl-twig/storybook-addon-code';
 
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
@@ -15,10 +18,11 @@ const prepareFile = data => {
   data.title = text('title', data.title, tabLabels.required);
   data.language = text('language', data.language, tabLabels.required);
   data.meta = text('meta', data.meta, tabLabels.required);
-  data.icon.path = select(
+  data.icon.path = optionsKnob(
     'icon.path',
-    [defaultSprite],
+    { current: defaultSprite, 'no path': '' },
     defaultSprite,
+    { display: 'inline-radio' },
     tabLabels.required
   );
   data.download.link.label = text(
@@ -26,10 +30,11 @@ const prepareFile = data => {
     data.download.link.label,
     tabLabels.required
   );
-  data.download.icon.path = select(
+  data.download.icon.path = optionsKnob(
     'download.icon.path',
-    [defaultSprite],
+    { current: defaultSprite, 'no path': '' },
     defaultSprite,
+    { display: 'inline-radio' },
     tabLabels.required
   );
 
@@ -44,10 +49,11 @@ const prepareFile = data => {
       data.translation.toggle.label,
       tabLabels.required
     );
-    data.translation.toggle.icon.path = select(
+    data.translation.toggle.icon.path = optionsKnob(
       'translation.toggle.icon.path',
-      [defaultSprite],
+      { current: defaultSprite, 'no path': '' },
       defaultSprite,
+      { display: 'inline-radio' },
       tabLabels.required
     );
 
@@ -77,43 +83,44 @@ const prepareFile = data => {
         data.translation.items[i].download.link.path,
         tabLabels.required
       );
-      data.translation.items[i].download.icon.path = select(
+      data.translation.items[i].download.icon.path = optionsKnob(
         `data.translation.items[${i}].download.icon.path`,
-        [defaultSprite],
+        { current: defaultSprite, 'no path': '' },
         defaultSprite,
+        { display: 'inline-radio' },
         tabLabels.required
       );
     });
   }
 
   getExtraKnobs(data);
+  getComplianceKnob(data);
 
   return data;
 };
 
-storiesOf('Components/File', module)
-  .addDecorator(withNotes)
-  .addDecorator(withCode)
-  .addDecorator(withKnobs)
-  .add(
-    'without translation',
-    () => {
-      const data = prepareFile(dataWithoutTranslation);
+export default {
+  title: 'Components/File',
+  decorators: [withNotes, withCode, withKnobs],
+};
 
-      return file(data);
-    },
-    {
-      notes: { markdown: notes, json: dataWithoutTranslation },
-    }
-  )
-  .add(
-    'with translation',
-    () => {
-      const data = prepareFile(dataWithTranslation);
+export const WithoutTranslation = () =>
+  file(prepareFile(dataWithoutTranslation));
 
-      return file(data);
-    },
-    {
-      notes: { markdown: notes, json: dataWithTranslation },
-    }
-  );
+WithoutTranslation.story = {
+  name: 'without translation',
+
+  parameters: {
+    notes: { markdown: notes, json: dataWithoutTranslation },
+  },
+};
+
+export const WithTranslation = () => file(prepareFile(dataWithTranslation));
+
+WithTranslation.story = {
+  name: 'with translation',
+
+  parameters: {
+    notes: { markdown: notes, json: dataWithTranslation },
+  },
+};

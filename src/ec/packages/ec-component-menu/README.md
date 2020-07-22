@@ -1,4 +1,4 @@
-# ECL Twig - EC Menu
+# ECL-Twig Menu
 
 npm package: `@ecl-twig/ec-component-menu`
 
@@ -26,6 +26,7 @@ npm install --save @ecl-twig/ec-component-menu
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes for the nav element
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (optional) (string) Attribute value, eg: 'data-test-1'
+- **"_compliance_"** (boolean) (default: false) Activates debug
 
 ### Example:
 

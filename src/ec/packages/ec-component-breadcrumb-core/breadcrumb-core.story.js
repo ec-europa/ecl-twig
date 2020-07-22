@@ -1,21 +1,36 @@
-import { storiesOf } from '@storybook/html';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
-import { withKnobs, text, select } from '@storybook/addon-knobs';
+import { withKnobs, text, optionsKnob } from '@storybook/addon-knobs';
 import withCode from '@ecl-twig/storybook-addon-code';
-import { getExtraKnobs, tabLabels, getLinkKnobs } from '@ecl-twig/story-utils';
+import {
+  getExtraKnobs,
+  tabLabels,
+  getLinkKnobs,
+  getComplianceKnob,
+} from '@ecl-twig/story-utils';
 
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import dataSimple from './demo/data--simple';
 import dataLong from './demo/data';
+import dataSimpleEu from './demo/eu-data--simple';
+import dataLongEu from './demo/eu-data';
 
 import breadcrumb from './ecl-breadcrumb-core.html.twig';
 import notes from './README.md';
 
+// Handle the EU demo.
+const system = process.env.STORYBOOK_SYSTEM
+  ? process.env.STORYBOOK_SYSTEM
+  : false;
+
+const simpleData = system ? dataSimpleEu : dataSimple;
+const longData = system ? dataLongEu : dataLong;
+
 const prepareBreadcrumbCore = data => {
-  data.icon_file_path = select(
+  data.icon_file_path = optionsKnob(
     'icon_file_path',
-    [defaultSprite],
+    { current: defaultSprite, 'no path': '' },
     defaultSprite,
+    { display: 'inline-radio' },
     tabLabels.required
   );
   data.navigation_text = text(
@@ -30,19 +45,33 @@ const prepareBreadcrumbCore = data => {
   );
 
   getLinkKnobs(data);
-
   getExtraKnobs(data);
+  getComplianceKnob(data);
 
   return data;
 };
 
-storiesOf('Components/Navigation/Breadcrumbs/Breadcrumb Core', module)
-  .addDecorator(withNotes)
-  .addDecorator(withCode)
-  .addDecorator(withKnobs)
-  .add('simple', () => breadcrumb(prepareBreadcrumbCore(dataSimple)), {
-    notes: { markdown: notes, json: dataSimple },
-  })
-  .add('long', () => breadcrumb(prepareBreadcrumbCore(dataLong)), {
-    notes: { markdown: notes, json: dataLong },
-  });
+export default {
+  title: 'Components/Navigation/Breadcrumbs/Breadcrumb Core',
+  decorators: [withNotes, withCode, withKnobs],
+};
+
+export const Simple = () => breadcrumb(prepareBreadcrumbCore(simpleData));
+
+Simple.story = {
+  name: 'simple',
+
+  parameters: {
+    notes: { markdown: notes, json: simpleData },
+  },
+};
+
+export const Long = () => breadcrumb(prepareBreadcrumbCore(longData));
+
+Long.story = {
+  name: 'long',
+
+  parameters: {
+    notes: { markdown: notes, json: longData },
+  },
+};

@@ -1,11 +1,10 @@
-import { storiesOf } from '@storybook/html';
 import {
   withKnobs,
   button,
-  select,
   text,
   boolean,
   object,
+  optionsKnob,
 } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import {
@@ -15,19 +14,31 @@ import {
   getLoginKnobs,
   getLanguageSelectorKnobs,
   getSearchFormKnobs,
+  getComplianceKnob,
 } from '@ecl-twig/story-utils';
 import withCode from '@ecl-twig/storybook-addon-code';
 
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import englishBanner from '@ecl/ec-resources-logo/logo--en.svg';
 import frenchBanner from '@ecl/ec-resources-logo/logo--fr.svg';
+import euEnglishBanner from '@ecl/eu-resources-logo/logo--en.svg';
+import euFrenchBanner from '@ecl/eu-resources-logo/logo--fr.svg';
+import euFrenchMobileBanner from '@ecl/eu-resources-logo/condensed-version/positive/fr.svg';
 import siteHeaderCore from './ecl-site-header-core.html.twig';
 import englishData from './demo/data--en';
 import frenchData from './demo/data--fr';
+import euEnglishData from './demo/eu-data--en';
+import euFrenchData from './demo/eu-data--fr';
 import notes from './README.md';
 
-const enData = { ...englishData };
-const frData = { ...frenchData };
+let system = false;
+if (process.env.STORYBOOK_SYSTEM === 'EU') {
+  system = 'eu';
+}
+
+const enData = system ? { ...euEnglishData } : { ...englishData };
+const frData = system ? { ...euFrenchData } : { ...frenchData };
+
 // Show/hide buttons for the language switcher.
 const btnLabel = 'With or without the login box';
 const enBtnHandler = () => {
@@ -47,29 +58,39 @@ const frBtnHandler = () => {
 
 const prepareSiteHeaderCore = (data, lang) => {
   data.logged = boolean('logged', data.logged, tabLabels.states);
-  data.icon_file_path = select(
+  data.icon_file_path = optionsKnob(
     'icon_file_path',
-    [defaultSprite],
+    { current: defaultSprite, 'no path': '' },
     defaultSprite,
+    { display: 'inline-radio' },
     tabLabels.required
   );
+  let banner = '';
   if (lang === 'en') {
-    data.logo.src = select(
-      'logo.src',
-      [englishBanner],
-      englishBanner,
-      tabLabels.required
-    );
+    banner = system ? euEnglishBanner : englishBanner;
   } else {
-    data.logo.src = select(
-      'logo.src',
-      [frenchBanner],
-      frenchBanner,
+    banner = system ? euFrenchBanner : frenchBanner;
+  }
+  data.logo.src_desktop = optionsKnob(
+    'logo.src_desktop',
+    { current: banner, 'no path': '' },
+    banner,
+    { display: 'inline-radio' },
+    tabLabels.required
+  );
+  if (system) {
+    data.logo.src_mobile = optionsKnob(
+      'logo.src_mobile',
+      { current: euFrenchMobileBanner, 'no path': '' },
+      euFrenchMobileBanner,
+      { display: 'inline-radio' },
       tabLabels.required
     );
   }
-  // Logo knobs
-  getLogoKnobs(data, true);
+  if (data.logo.src) {
+    // Logo knobs
+    getLogoKnobs(data, true);
+  }
   // Login box and login toggle knobs.
   getLoginKnobs(data, true);
   // Language selector knobs.
@@ -95,48 +116,59 @@ const prepareSiteHeaderCore = (data, lang) => {
   );
   // Extra classes and extra attributes.
   getExtraKnobs(data);
+  // Compliance.
+  getComplianceKnob(data);
 
   return data;
 };
 
-storiesOf('Components/Site Headers/Core', module)
-  .addDecorator(withKnobs)
-  .addDecorator(withNotes)
-  .addDecorator(withCode)
-  .add(
-    'default',
-    () => {
-      button(btnLabel, enBtnHandler, tabLabels.cases);
-      const dataStory = prepareSiteHeaderCore(enData, 'en');
+export default {
+  title: 'Components/Site Headers/Core',
+  decorators: [withKnobs, withNotes, withCode],
+};
 
-      return siteHeaderCore(dataStory);
-    },
-    {
-      notes: { markdown: notes, json: enData },
-    }
-  )
-  .add(
-    'logged in',
-    () => {
-      enData.logged = true;
-      button(btnLabel, enBtnHandler, tabLabels.cases);
-      const dataStory = prepareSiteHeaderCore(enData, 'en');
+export const Default = () => {
+  button(btnLabel, enBtnHandler, tabLabels.cases);
+  const dataStory = prepareSiteHeaderCore(enData, 'en');
 
-      return siteHeaderCore(dataStory);
-    },
-    {
-      notes: { markdown: notes, json: englishData },
-    }
-  )
-  .add(
-    'translated',
-    () => {
-      button(btnLabel, frBtnHandler, tabLabels.cases);
-      const dataStory = prepareSiteHeaderCore(frData, 'en');
+  return siteHeaderCore(dataStory);
+};
 
-      return siteHeaderCore(dataStory);
-    },
-    {
-      notes: { markdown: notes, json: frData },
-    }
-  );
+Default.story = {
+  name: 'default',
+
+  parameters: {
+    notes: { markdown: notes, json: enData },
+  },
+};
+
+export const LoggedIn = () => {
+  enData.logged = true;
+  button(btnLabel, enBtnHandler, tabLabels.cases);
+  const dataStory = prepareSiteHeaderCore(enData, 'en');
+
+  return siteHeaderCore(dataStory);
+};
+
+LoggedIn.story = {
+  name: 'logged in',
+
+  parameters: {
+    notes: { markdown: notes, json: englishData },
+  },
+};
+
+export const Translated = () => {
+  button(btnLabel, frBtnHandler, tabLabels.cases);
+  const dataStory = prepareSiteHeaderCore(frData, 'fr');
+
+  return siteHeaderCore(dataStory);
+};
+
+Translated.story = {
+  name: 'translated',
+
+  parameters: {
+    notes: { markdown: notes, json: frData },
+  },
+};

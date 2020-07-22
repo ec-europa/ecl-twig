@@ -13,7 +13,9 @@
           "name" (string) (default: ''),
           "value" (optional) (string)
         ...
-      ]
+      ],
+    - "_compliance_" (boolean) (default: false): Activates debug
+    - "_compliance_inner_check_" (boolean) (default: false): Inline compliance report
   Blocks:
     - "label"
 #}
@@ -28,6 +30,8 @@
 {% set _icon = icon|default({}) %}
 {% set _icon_position = icon_position|default('after') %}
 {% set _disabled = disabled|default(false) %}
+{% set _compliance = _compliance_|default(false) %}
+{% set _compliance_inner_check = _compliance_inner_check_|default(false) %}
 
 {# Internal logic - Process properties #}
 
@@ -64,7 +68,9 @@
           extra_classes: 'ecl-button__icon ecl-button__icon--before',
           extra_attributes: [
             { name: 'data-ecl-icon' }
-          ]
+          ],
+          _compliance_: _compliance,
+          _compliance_inner_check_: true
         } only %}
       {% endif %}
       <span class="ecl-button__label" data-ecl-label="true">{% block label _label|raw %}</span>
@@ -74,7 +80,9 @@
           extra_classes: 'ecl-button__icon ecl-button__icon--after',
           extra_attributes: [
             { name: 'data-ecl-icon' }
-          ]
+          ],
+          _compliance_: _compliance,
+          _compliance_inner_check_: true
         } only %}
       {% endif %}
     </span>
@@ -82,5 +90,19 @@
     {{- block('label') -}}
   {% endif -%}
 </button>
+
+{# Validation #}
+
+{% if _compliance %}
+  {% include '@ecl-twig/ec-component-ecl-compliance/components/ecl-compliance-button.html.twig' with {
+    label: _label,
+    variant: _variant,
+    type: _type,
+    icon: _icon,
+    icon_position: _icon_position,
+    disabled: _disabled,
+    _compliance_inner_check_: _compliance_inner_check
+  } only %}
+{% endif %}
 
 {% endspaceless %}

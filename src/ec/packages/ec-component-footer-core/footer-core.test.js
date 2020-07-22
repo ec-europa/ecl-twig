@@ -1,6 +1,7 @@
 import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
 import sections from './demo/data';
+import euSections from './demo/eu-data';
 
 describe('EC - Footer Core', () => {
   const template =
@@ -36,6 +37,25 @@ describe('EC - Footer Core', () => {
       });
 
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly in EU', () => {
+      expect.assertions(1);
+
+      return expect(render(euSections)).resolves.toMatchSnapshot();
+    });
+
+    test('with missing input data and debug enabled it returns the right warning messages', () => {
+      expect.assertions(1);
+
+      const dataCompliance = { ...options, _compliance_: true };
+      dataCompliance.sections[0].description = '';
+      dataCompliance.sections[0].title.link.label = '';
+      dataCompliance.sections[1].links = [];
+      dataCompliance.sections[2].links = [];
+      dataCompliance.sections[3].links = [];
+
+      return expect(render(dataCompliance)).resolves.toMatchSnapshot();
     });
   });
 });

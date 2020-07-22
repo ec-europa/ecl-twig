@@ -1,41 +1,38 @@
-import { storiesOf } from '@storybook/html';
 import { withKnobs, text } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
-import data from '@ecl/ec-specs-blockquote/demo/data';
+import {
+  getExtraKnobs,
+  tabLabels,
+  getComplianceKnob,
+} from '@ecl-twig/story-utils';
+
+import defaultData from '@ecl/ec-specs-blockquote/demo/data';
 import blockquote from './ecl-blockquote.html.twig';
 import notes from './README.md';
-// Labels for the group ids
-const optionalGroupId = 'Optional elements';
-const requiredGroupId = 'Mandatory elements';
 
-const prepareQuote = prepareData => {
-  prepareData.citation = text(
-    'citation',
-    prepareData.citation,
-    requiredGroupId
-  );
-  prepareData.author = text('author', prepareData.author, requiredGroupId);
-  return prepareData;
+const prepareQuote = data => {
+  data.citation = text('citation', data.citation, tabLabels.required);
+
+  data.author = text('author', data.author, tabLabels.required);
+
+  getExtraKnobs(data);
+  getComplianceKnob(data);
+
+  return data;
 };
 
-storiesOf('Components/Blockquote', module)
-  .addDecorator(withKnobs)
-  .addDecorator(withCode)
-  .addDecorator(withNotes)
-  .add(
-    'default',
-    () => {
-      const preparedData = { ...data };
-      const storyData = prepareQuote(preparedData);
-      storyData.demo = text(
-        'optional elements',
-        'No optional element in this story',
-        optionalGroupId
-      );
-      return blockquote(storyData);
-    },
-    {
-      notes: { markdown: notes, json: data },
-    }
-  );
+export default {
+  title: 'Components/Blockquote',
+  decorators: [withKnobs, withCode, withNotes],
+};
+
+export const Default = () => blockquote(prepareQuote(defaultData));
+
+Default.story = {
+  name: 'default',
+
+  parameters: {
+    notes: { markdown: notes, json: defaultData },
+  },
+};

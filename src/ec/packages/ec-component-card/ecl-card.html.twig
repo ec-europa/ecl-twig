@@ -24,14 +24,17 @@
             },
             ...
           ]
-        }
+        },
+    - "icon_path" (string) (default: '') Path to the icons file
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
         {
           "name" (string) (default: ''),
           "value" (optional) (string)
         ...
-      ]
+      ],
+    - "_compliance_": (boolean) (default: false) Activates debug
+    - "_compliance_inner_check_": (boolean) (default: false) Inline compliance report
 #}
 
 {# Internal properties #}
@@ -51,8 +54,11 @@
   {% set _card = _card|merge(card) %}
 {% endif %}
 
+{% set _compliance = _compliance_|default(false) %}
+{% set _compliance_inner_check = _compliance_inner_check_|default(false) %}
 {% set _css_class = 'ecl-card' %}
 {% set _extra_attributes = '' %}
+{% set _icon_path = icon_path|default('') %}
 
 {# Set class for card different than default #}
 
@@ -90,7 +96,10 @@
     <h1 class="ecl-card__title">
       {%- if _card.title.path %}
         {% include '@ecl-twig/ec-component-link/ecl-link.html.twig' with {
-          link: _card.title
+          link: _card.title,
+          _compliance_: _compliance,
+          _compliance_inner_check_: true,
+          icon_path: _icon_path
         } only %}
       {% else %}
         {{- _card.title.label }}
@@ -110,7 +119,10 @@
         <li class="ecl-card__link-item">
           {% include '@ecl-twig/ec-component-link/ecl-link.html.twig' with {
             link: link|merge({ type: 'standalone' }),
-            extra_classes: 'ecl-card__link'
+            extra_classes: 'ecl-card__link',
+            _compliance_: _compliance,
+            _compliance_inner_check_: true,
+            icon_path: _icon_path
           } only %}
         </li>
       {% endfor %}
@@ -126,9 +138,19 @@
     {% if _card.infos is defined and _card.infos is not empty and _card.infos is iterable %}
       <ul class="ecl-card__info-container">
         {% for info in _card.infos %}
+          {% if info.icon is defined and info.icon is not empty %}
+            {% set _icon = info.icon|merge({ size: 'xs' }) %}
+            {% if _icon_path is not empty %}
+              {% set _icon = info.icon|merge({ path: _icon_path }) %}
+            {% else %}
+              {% set _icon_path = _icon.path|default('') %}
+            {% endif %}
+          {% endif %}
           <li class="ecl-card__info-item">
             {% include '@ecl-twig/ec-component-icon/ecl-icon.html.twig' with {
-              icon: info.icon|merge({ size: 'xs' })
+              icon: _icon|default({}),
+              _compliance_: _compliance,
+              _compliance_inner_check_: true
             } only %}
             <span class="ecl-card__info-label">{{ info.label }}</span>
           </li>
@@ -141,7 +163,10 @@
           <li class="ecl-card__tag-item">
             {% include '@ecl-twig/ec-component-tag/ecl-tag.html.twig' with {
               tag: tag,
-              extra_classes: 'ecl-card__tag'
+              extra_classes: 'ecl-card__tag',
+              _compliance_: _compliance,
+              _compliance_inner_check_: true,
+              icon_path: _icon_path
             } only %}
           </li>
         {% endfor %}
@@ -151,5 +176,15 @@
   </footer>
   {% endif %}
 </article>
+
+{# Validation #}
+
+{% if _compliance %}
+  {% include '@ecl-twig/ec-component-ecl-compliance/components/ecl-compliance-card.html.twig' with {
+    card: _card,
+    _compliance_inner_check_: _compliance_inner_check,
+    icon_path: _icon_path
+   } only %}
+{% endif %}
 
 {% endspaceless %}

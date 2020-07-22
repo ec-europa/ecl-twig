@@ -1,7 +1,10 @@
-import { storiesOf } from '@storybook/html';
-import { withKnobs, text, select } from '@storybook/addon-knobs';
+import { withKnobs, text, select, optionsKnob } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
-import { getExtraKnobs, tabLabels } from '@ecl-twig/story-utils';
+import {
+  getExtraKnobs,
+  tabLabels,
+  getComplianceKnob,
+} from '@ecl-twig/story-utils';
 import withCode from '@ecl-twig/storybook-addon-code';
 import he from 'he';
 
@@ -24,22 +27,31 @@ const prepareExpandable = data => {
     tabLabels.required
   );
   data.content = he.decode(text('content', data.content, tabLabels.required));
-  data.button.icon.path = select(
+  data.button.icon.path = optionsKnob(
     'button.icon.path',
-    [defaultSprite],
+    { current: defaultSprite, 'no path': '' },
     defaultSprite,
+    { display: 'inline-radio' },
     tabLabels.required
   );
 
   getExtraKnobs(data);
+  getComplianceKnob(data);
 
   return data;
 };
 
-storiesOf('Components/Expandables', module)
-  .addDecorator(withKnobs)
-  .addDecorator(withCode)
-  .addDecorator(withNotes)
-  .add('default', () => expandable(prepareExpandable(demoData)), {
+export default {
+  title: 'Components/Expandables',
+  decorators: [withKnobs, withCode, withNotes],
+};
+
+export const Default = () => expandable(prepareExpandable(demoData));
+
+Default.story = {
+  name: 'default',
+
+  parameters: {
     notes: { markdown: notes, json: demoData },
-  });
+  },
+};

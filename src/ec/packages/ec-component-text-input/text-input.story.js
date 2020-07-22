@@ -1,7 +1,10 @@
-import { storiesOf } from '@storybook/html';
 import { withKnobs } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
-import { getExtraKnobs, getFormKnobs } from '@ecl-twig/story-utils';
+import {
+  getExtraKnobs,
+  getFormKnobs,
+  getComplianceKnob,
+} from '@ecl-twig/story-utils';
 import withCode from '@ecl-twig/storybook-addon-code';
 
 import dataDefault from './demo/data--default';
@@ -11,22 +14,26 @@ import notes from './README.md';
 const prepareTextInput = data => {
   getFormKnobs(data);
   getExtraKnobs(data);
+  getComplianceKnob(data);
 
   return data;
 };
 
-storiesOf('Components/Forms/Text field', module)
-  .addDecorator(withKnobs)
-  .addDecorator(withNotes)
-  .addDecorator(withCode)
-  .add(
-    'default',
-    () => {
-      const data = prepareTextInput(dataDefault);
+export default {
+  title: 'Components/Forms/Text field',
+  decorators: [withKnobs, withNotes, withCode],
+};
 
-      return textInput(data);
-    },
-    {
-      notes: { markdown: notes, json: dataDefault },
-    }
-  );
+export const Default = () => {
+  const data = prepareTextInput(dataDefault);
+
+  return textInput(data);
+};
+
+Default.story = {
+  name: 'default',
+
+  parameters: {
+    notes: { markdown: notes, json: dataDefault },
+  },
+};

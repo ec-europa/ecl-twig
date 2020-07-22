@@ -31,6 +31,9 @@ const formatLink = l => {
   if (l.hreflang) {
     link.link.hreflang = l.hreflang;
   }
+
+  link.link.aria_label = l.aria_label ? l.aria_label : 'Aria label default';
+
   return link;
 };
 
@@ -57,6 +60,8 @@ const formatLinkAlt = a => {
     link.hreflang = a.hreflang;
   }
 
+  link.aria_label = a.aria_label ? a.aria_label : 'Aria label default';
+
   return link;
 };
 
@@ -74,18 +79,9 @@ const formatButton = b => {
   return button;
 };
 
-const escapeHTML = str => {
-  return str
-    .replace(/&/g, '&amp;')
-    .replace(/"/g, '&quot;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;');
-};
-
 module.exports = {
   formatIcon,
   formatLink,
   formatLinkAlt,
   formatButton,
-  escapeHTML,
 };

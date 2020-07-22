@@ -16,9 +16,13 @@
       - "download" (object) (default to the parent download property) object of type Link
     - "description (string) (default:'')
   - "extra_classes" (optional) (string) (default: '')
-  - "extra_attributes" (optional) (array) (default: [])
+  - "extra_attributes" (optional) (array) (default: []) [{
     - "name" (string) Attribute name, eg. 'data-test'
     - "value" (string) Attribute value, eg: 'data-test-1'
+    },
+    ...
+  ],
+  - "_compliance_" (boolean) (default: false)
 #}
 
 {# Internal properties #}
@@ -31,6 +35,7 @@
 {% set _translation = translation|default([]) %}
 {% set _css_class = 'ecl-file' %}
 {% set _extra_attributes = 'data-ecl-file' %}
+{% set _compliance = _compliance_|default(false) %}
 
 {% if _translation is not empty and _translation.items is not empty and _translation.items is iterable %}
   {% set _extra_attributes = _extra_attributes ~ ' ' ~ 'data-ecl-auto-init="FileDownload"' %}
@@ -58,7 +63,9 @@
   <div class="ecl-file__container">
     {% include '@ecl-twig/ec-component-icon/ecl-icon.html.twig' with {
       icon: _icon,
-      extra_classes: 'ecl-file__icon'
+      extra_classes: 'ecl-file__icon',
+      _compliance_: _compliance,
+      _compliance_inner_check_: true
     } only %}
   {% if _title is not empty or language is not empty or meta is not empty %}
     <div class="ecl-file__info">
@@ -84,7 +91,9 @@
         size: 'fluid'
       }),
       extra_classes: 'ecl-file__download',
-      extra_attributes: [{ name: 'download' }]
+      extra_attributes: [{ name: 'download' }],
+      _compliance_: _compliance,
+      _compliance_inner_check_: true
     }) only %}
   </div>
 
@@ -103,7 +112,9 @@
           transform: 'rotate-180'
         }),
         extra_classes: 'ecl-file__translation-toggle',
-        extra_attributes: [{ name: 'data-ecl-file-translation-toggle' }]
+        extra_attributes: [{ name: 'data-ecl-file-translation-toggle' }],
+        _compliance_: _compliance,
+        _compliance_inner_check_: true
       }) only %}
 
       <ul class="ecl-file__translation-list">
@@ -138,7 +149,9 @@
               extra_attributes: [
                 { name: 'download' },
                 { name: 'hreflang', value: _item.lang }
-              ]
+              ],
+              _compliance_: _compliance,
+              _compliance_inner_check_: true
             }) only %}
           </li>
         {% endfor %}
@@ -149,5 +162,19 @@
     </div>
   {% endif %}
 </div>
+
+{# Validation #}
+
+{% if _compliance %}
+  {% include '@ecl-twig/ec-component-ecl-compliance/components/ecl-compliance-file.html.twig' with {
+    icon: _icon,
+    title: _title,
+    language: _language,
+    meta: _meta,
+    download: _download,
+    translation: _translation,
+    description: _description
+  } only %}
+{% endif %}
 
 {% endspaceless %}

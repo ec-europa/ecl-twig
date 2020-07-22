@@ -1,11 +1,10 @@
-import { storiesOf } from '@storybook/html';
 import {
   withKnobs,
   button,
-  select,
   text,
   boolean,
   object,
+  optionsKnob,
 } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import {
@@ -15,26 +14,29 @@ import {
   getLoginKnobs,
   getLanguageSelectorKnobs,
   getSearchFormKnobs,
+  getComplianceKnob,
 } from '@ecl-twig/story-utils';
 import withCode from '@ecl-twig/storybook-addon-code';
 
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import englishBanner from '@ecl/ec-resources-logo/logo--en.svg';
 import frenchBanner from '@ecl/ec-resources-logo/logo--fr.svg';
-
+import euEnglishBanner from '@ecl/eu-resources-logo/logo--en.svg';
+import euEnglishMobileBanner from '@ecl/eu-resources-logo/condensed-version/positive/en.svg';
+import euFrenchMobileBanner from '@ecl/eu-resources-logo/condensed-version/positive/fr.svg';
+import euFrenchBanner from '@ecl/eu-resources-logo/logo--fr.svg';
 import englishData from './demo/data--en';
 import frenchData from './demo/data--fr';
-
 import siteHeaderStandardised from './ecl-site-header-standardised.html.twig';
 import notes from './README.md';
 
-frenchData.icon_file_path = defaultSprite;
-frenchData.logo.src = frenchBanner;
-englishData.icon_file_path = defaultSprite;
-englishData.logo.src = englishBanner;
-
 const enData = { ...englishData };
 const frData = { ...frenchData };
+let system = false;
+if (process.env.STORYBOOK_SYSTEM === 'EU') {
+  system = 'eu';
+}
+
 // Show/hide buttons for the login box.
 const btnLoginLabel = 'With or without the login box';
 const enBtnLoginHandler = () => {
@@ -70,39 +72,56 @@ const frBtnLangHandler = () => {
 
 const prepareSiteHeaderStandardised = (data, lang) => {
   data.logged = boolean('logged', data.logged, tabLabels.states);
-  data.banner_top.link.label = text(
-    'banner_top.link.label',
-    data.banner_top.link.label,
-    tabLabels.required
-  );
-  data.banner_top.link.path = text(
-    'banner_top.link.path',
-    data.banner_top.link.path,
-    tabLabels.required
-  );
-  data.icon_file_path = select(
-    'icon_file_path',
-    [defaultSprite],
-    defaultSprite,
-    tabLabels.required
-  );
-  if (lang === 'en') {
-    data.logo.src = select(
-      'logo.src',
-      [englishBanner],
-      englishBanner,
+  if (!system) {
+    data.banner_top.link.label = text(
+      'banner_top.link.label',
+      data.banner_top.link.label,
+      tabLabels.required
+    );
+    data.banner_top.link.path = text(
+      'banner_top.link.path',
+      data.banner_top.link.path,
       tabLabels.required
     );
   } else {
-    data.logo.src = select(
-      'logo.src',
-      [frenchBanner],
-      frenchBanner,
+    delete data.banner_top;
+  }
+  data.icon_file_path = optionsKnob(
+    'icon_file_path',
+    { current: defaultSprite, 'no path': '' },
+    defaultSprite,
+    { display: 'inline-radio' },
+    tabLabels.required
+  );
+  let banner = '';
+  let mobileBanner = '';
+  if (lang === 'en') {
+    banner = system ? euEnglishBanner : englishBanner;
+    mobileBanner = system ? euEnglishMobileBanner : '';
+  } else {
+    banner = system ? euFrenchBanner : frenchBanner;
+    mobileBanner = system ? euFrenchMobileBanner : '';
+  }
+  data.logo.src_desktop = optionsKnob(
+    'logo.src_desktop',
+    { current: banner, 'no path': '' },
+    banner,
+    { display: 'inline-radio' },
+    tabLabels.required
+  );
+  if (system) {
+    data.logo.src_mobile = optionsKnob(
+      'logo.src_mobile',
+      { current: mobileBanner, 'no path': '' },
+      mobileBanner,
+      { display: 'inline-radio' },
       tabLabels.required
     );
   }
-  // Logo knobs
-  getLogoKnobs(data, true);
+  if (data.logo.src) {
+    // Logo knobs
+    getLogoKnobs(data, true);
+  }
   // Login box and login toggle knobs.
   getLoginKnobs(data, true);
   // Search toggle.
@@ -138,50 +157,61 @@ const prepareSiteHeaderStandardised = (data, lang) => {
   getExtraKnobs(data);
   // Menu.
   data.menu = object('data.menu', data.menu, tabLabels.optional);
+  // Compliance
+  getComplianceKnob(data);
 
   return data;
 };
 
-storiesOf('Components/Site Headers/Standardised', module)
-  .addDecorator(withNotes)
-  .addDecorator(withCode)
-  .addDecorator(withKnobs)
-  .add(
-    'default',
-    () => {
-      button(btnLangLabel, enBtnLangHandler, tabLabels.cases);
-      button(btnLoginLabel, enBtnLoginHandler, tabLabels.cases);
-      const dataStory = prepareSiteHeaderStandardised(enData);
+export default {
+  title: 'Components/Site Headers/Standardised',
+  decorators: [withNotes, withCode, withKnobs],
+};
 
-      return siteHeaderStandardised(dataStory);
-    },
-    {
-      notes: { markdown: notes, json: enData },
-    }
-  )
-  .add(
-    'logged in',
-    () => {
-      button(btnLangLabel, enBtnLangHandler, tabLabels.cases);
-      enData.logged = true;
-      const dataStory = prepareSiteHeaderStandardised(enData);
+export const Default = () => {
+  button(btnLangLabel, enBtnLangHandler, tabLabels.cases);
+  button(btnLoginLabel, enBtnLoginHandler, tabLabels.cases);
+  const dataStory = prepareSiteHeaderStandardised(enData, 'en');
 
-      return siteHeaderStandardised(dataStory);
-    },
-    {
-      notes: { markdown: notes, json: enData },
-    }
-  )
-  .add(
-    'translated',
-    () => {
-      button(btnLangLabel, frBtnLangHandler, tabLabels.cases);
-      button(btnLoginLabel, frBtnLoginHandler, tabLabels.cases);
-      const dataStory = prepareSiteHeaderStandardised(frData);
+  return siteHeaderStandardised(dataStory);
+};
 
-      return siteHeaderStandardised(dataStory);
-    },
-    {
-      notes: { markdown: notes, json: frData },
-    }
-  );
+Default.story = {
+  name: 'default',
+
+  parameters: {
+    notes: { markdown: notes, json: enData },
+  },
+};
+
+export const LoggedIn = () => {
+  button(btnLangLabel, enBtnLangHandler, tabLabels.cases);
+  enData.logged = true;
+  const dataStory = prepareSiteHeaderStandardised(enData, 'en');
+
+  return siteHeaderStandardised(dataStory);
+};
+
+LoggedIn.story = {
+  name: 'logged in',
+
+  parameters: {
+    notes: { markdown: notes, json: enData },
+  },
+};
+
+export const Translated = () => {
+  button(btnLangLabel, frBtnLangHandler, tabLabels.cases);
+  button(btnLoginLabel, frBtnLoginHandler, tabLabels.cases);
+  const dataStory = prepareSiteHeaderStandardised(frData, 'fr');
+
+  return siteHeaderStandardised(dataStory);
+};
+
+Translated.story = {
+  name: 'translated',
+
+  parameters: {
+    notes: { markdown: notes, json: frData },
+  },
+};

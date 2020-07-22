@@ -1,7 +1,11 @@
-import { storiesOf } from '@storybook/html';
-import { withKnobs, text, select } from '@storybook/addon-knobs';
+import { withKnobs, text, select, optionsKnob } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
-import { getExtraKnobs, tabLabels } from '@ecl-twig/story-utils';
+import he from 'he';
+import {
+  getExtraKnobs,
+  tabLabels,
+  getComplianceKnob,
+} from '@ecl-twig/story-utils';
 import withCode from '@ecl-twig/storybook-addon-code';
 
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
@@ -12,19 +16,37 @@ import notes from './README.md';
 
 const prepareGallery = data => {
   data.items.forEach((item, i) => {
+    if (item.image) {
+      item.image.src = text(
+        `items[${i}].image.src`,
+        item.image.src,
+        tabLabels.required
+      );
+      item.image.alt = text(
+        `items[${i}].image.alt`,
+        item.image.alt,
+        tabLabels.required
+      );
+    }
+    if (
+      (item.image && !item.image.alt) ||
+      (item.path && !item.video && !item.image)
+    ) {
+      item.alt = text(`items[${i}].alt`, item.alt, tabLabels.required);
+    }
+    if ((item.image && !item.image.src) || (!item.video && !item.image)) {
+      item.path = text(`items[${i}].path`, item.path, tabLabels.required);
+    }
     item.share_path = select(
       `items[${i}].share_path`,
       [item.share_path],
       item.share_path,
-      tabLabels.required
-    );
-    item.description = text(
-      `items[${i}].description`,
-      item.description,
       tabLabels.optional
     );
+    item.description = he.decode(
+      text(`items[${i}].description`, item.description, tabLabels.optional)
+    );
     item.meta = text(`items[${i}].meta`, item.meta, tabLabels.optional);
-    item.alt = text(`items[${i}].alt`, item.alt, tabLabels.optional);
     item.extra_classes = text(
       `items[${i}].extra_classes`,
       item.extra_classes,
@@ -50,33 +72,70 @@ const prepareGallery = data => {
       delete item.extra_attributes;
     }
     if (item.icon) {
-      item.icon.path = select(
+      item.icon.path = optionsKnob(
         `items[${i}].icon.path`,
-        [defaultSprite],
+        { current: defaultSprite, 'no path': '' },
         defaultSprite,
+        { display: 'inline-radio' },
         tabLabels.required
       );
+      if (data.items[i].icon.path) {
+        item.icon.type = select(
+          `items[${i}].icon.type`,
+          [item.icon.type],
+          item.icon.type,
+          tabLabels.required
+        );
+        item.icon.name = select(
+          `items[${i}].icon.name`,
+          [item.icon.name],
+          item.icon.name,
+          tabLabels.required
+        );
+      }
     }
     if (item.video) {
-      item.video.sources[0].src = select(
-        `items[${i}].video.sources[0].src`,
-        [item.video.sources[0].src],
-        item.video.sources[0].src,
-        tabLabels.required
+      item.video.poster = text(
+        `items[${i}].video.poster`,
+        item.video.poster,
+        tabLabels.optional
       );
+      item.video.sources.forEach((source, j) => {
+        source.src = text(
+          `items[${i}].video.sources[${j}].src`,
+          source.src,
+          tabLabels.required
+        );
+        source.type = text(
+          `items[${i}].video.sources[${j}].type`,
+          source.type,
+          tabLabels.required
+        );
+      });
+      item.video.tracks.forEach((track, k) => {
+        track.src = text(
+          `items[${i}].video.tracks[${k}].src`,
+          track.src,
+          tabLabels.optional
+        );
+        track.src_lang = text(
+          `items[${i}].video.tracks[${k}].src_lang`,
+          track.src_lang,
+          tabLabels.optional
+        );
+        track.label = text(
+          `items[${i}].video.tracks[${k}].label`,
+          track.label,
+          tabLabels.optional
+        );
+        track.kind = text(
+          `items[${i}].video.tracks[${k}].kind`,
+          track.kind,
+          tabLabels.optional
+        );
+      });
     }
   });
-  data.items.selected_item_id = text(
-    'items.selected_item_id',
-    data.items.selected_item_id,
-    tabLabels.optional
-  );
-  // Overlay knobs.
-  data.overlay.counter_separator = text(
-    'overlay.counter_separator',
-    data.overlay.counter_separator,
-    tabLabels.required
-  );
   data.overlay.extra_classes = text(
     'data.overlay.extra_classes',
     '',
@@ -106,34 +165,81 @@ const prepareGallery = data => {
     data.overlay.close.label,
     tabLabels.required
   );
-  data.overlay.close.icon.path = select(
+  data.overlay.close.icon.path = optionsKnob(
     'overlay.close.icon.path',
-    [defaultSprite],
+    { current: defaultSprite, 'no path': '' },
     defaultSprite,
+    { display: 'inline-radio' },
     tabLabels.required
   );
+  if (data.overlay.close.icon.path) {
+    data.overlay.close.icon.type = select(
+      'overlay.close.icon.type',
+      [data.overlay.close.icon.type],
+      data.overlay.close.icon.type,
+      tabLabels.required
+    );
+    data.overlay.close.icon.name = select(
+      'overlay.close.icon.name',
+      [data.overlay.close.icon.name],
+      data.overlay.close.icon.name,
+      tabLabels.required
+    );
+  }
   data.overlay.previous.label = text(
     'overlay.previous.label',
     data.overlay.previous.label,
     tabLabels.required
   );
-  data.overlay.previous.icon.path = select(
+  data.overlay.previous.icon.path = optionsKnob(
     'overlay.previous.icon.path',
-    [defaultSprite],
+    { current: defaultSprite, 'no path': '' },
     defaultSprite,
+    { display: 'inline-radio' },
     tabLabels.required
   );
+  if (data.overlay.previous.icon.path) {
+    data.overlay.previous.icon = {};
+  } else {
+    data.overlay.previous.icon.type = select(
+      'overlay.previous.icon.type',
+      [data.overlay.previous.icon.type],
+      data.overlay.previous.icon.type,
+      tabLabels.required
+    );
+    data.overlay.previous.icon.name = select(
+      'overlay.previous.icon.name',
+      [data.overlay.previous.icon.name],
+      data.overlay.previous.icon.name,
+      tabLabels.required
+    );
+  }
   data.overlay.next.label = text(
     'overlay.next.label',
     data.overlay.next.label,
     tabLabels.required
   );
-  data.overlay.next.icon.path = select(
+  data.overlay.next.icon.path = optionsKnob(
     'overlay.next.icon.path',
-    [defaultSprite],
+    { current: defaultSprite, 'no path': '' },
     defaultSprite,
+    { display: 'inline-radio' },
     tabLabels.required
   );
+  if (data.overlay.next.icon.path) {
+    data.overlay.next.icon.type = select(
+      `overlay.next.icon.type`,
+      [data.overlay.next.icon.type],
+      data.overlay.next.icon.type,
+      tabLabels.required
+    );
+    data.overlay.next.icon.name = select(
+      `overlay.next.icon.name`,
+      [data.overlay.next.icon.name],
+      data.overlay.next.icon.name,
+      tabLabels.required
+    );
+  }
   data.overlay.download.link.label = text(
     'overlay.download.link.label',
     data.overlay.download.link.label,
@@ -144,28 +250,48 @@ const prepareGallery = data => {
     data.overlay.download.link.path,
     tabLabels.required
   );
-  data.overlay.download.icon.path = select(
+  data.overlay.download.icon.path = optionsKnob(
     'overlay.download.icon.path',
-    [defaultSprite],
+    { current: defaultSprite, 'no path': '' },
     defaultSprite,
+    { display: 'inline-radio' },
     tabLabels.required
   );
-  data.overlay.share.icon.path = select(
+  data.overlay.share.link.label = text(
+    'overlay.share.link.label',
+    data.overlay.share.link.label,
+    tabLabels.optional
+  );
+  data.overlay.share.link.path = text(
+    'overlay.share.link.path',
+    data.overlay.share.link.path,
+    tabLabels.optional
+  );
+  data.overlay.share.icon.path = optionsKnob(
     'overlay.share.icon.path',
-    [defaultSprite],
+    { current: defaultSprite, 'no path': '' },
     defaultSprite,
-    tabLabels.required
+    { display: 'inline-radio' },
+    tabLabels.optional
   );
 
   getExtraKnobs(data);
+  getComplianceKnob(data);
 
   return data;
 };
 
-storiesOf('Components/Gallery', module)
-  .addDecorator(withKnobs)
-  .addDecorator(withCode)
-  .addDecorator(withNotes)
-  .add('default', () => gallery(prepareGallery(dataDefault)), {
+export default {
+  title: 'Components/Gallery',
+  decorators: [withKnobs, withCode, withNotes],
+};
+
+export const Default = () => gallery(prepareGallery(dataDefault));
+
+Default.story = {
+  name: 'default',
+
+  parameters: {
     notes: { markdown: notes, json: dataDefault },
-  });
+  },
+};

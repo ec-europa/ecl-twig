@@ -3,7 +3,14 @@
 {#
   Parameters:
   - "sections" (array of objects) (default: [])
+    - "type" (string) (can be: site_name, service_navigation, legal_navigation, corporate_name, dg_related_navigation, dg_services_navigation, class_names)
     - "section_id" (integer) (default: '') The id will be used to form the class name
+     - "logo" (EU only)
+      - "alt" (string) alt attribute for the logo link
+      - "path" (string) logo link path
+      - "language" (string) Language code
+      - "src_mobile" (string) Path the mobile logo
+      - "src-desktop" (string) Path to the desktop logo
     - "title" (optional) (string) OR (object with Link component in property)
     - "title_class_name" (optional) (string) (default: '')
     - "description" (optional) (string) (default: '')
@@ -14,6 +21,7 @@
   - "extra_attributes" (optional) (array) (default: []) Extra attributes for icon
     - "name" (string) Attribute name, eg. 'data-test'
     - "value" (string) Attribute value, eg: 'data-test-1'
+  - "_compliance_" (boolean) (default: false) Activates debug
 #}
 
 {# Internal properties #}
@@ -22,6 +30,7 @@
 {% set _css_class = 'ecl-footer-standardised' %}
 {% set _extra_attributes = '' %}
 {% set _internal_wrapper = false %}
+{% set _compliance = _compliance_|default(false) %}
 
 {# Internal logic - Process properties #}
 
@@ -50,18 +59,42 @@
   {% if _full_section[1] is defined and _full_section[1] is not empty %}
     {% set _grouped_section = _full_section %}
     {% set _internal_wrapper = true %}
-    {# The wrapper of a section containing sub-sections is a div #}
-    <div class="{{ 'ecl-footer-standardised__section' ~ _full_section[0].section_id }}">
+    {% set _section_id = _full_section[0].section_id %}
   {% else %}
-    {# The wrapper of a section without sub-section is a section #}
-    <section class="ecl-footer-standardised__section {{ 'ecl-footer-standardised__section' ~ _full_section.section_id }}">
+    {% set _section_id = _full_section.section_id %}
     {% set _grouped_section = [_full_section] %}
   {% endif %}
-  {# Starts looping #}
+  <section class="ecl-footer-standardised__section {{ 'ecl-footer-standardised__section' ~ _section_id }}">
   {% for _section in _grouped_section %}
     {# Sub-section wrapper #}
     {% if _internal_wrapper and _section.title is defined %}
       <section class="ecl-footer-standardised__section">
+    {% endif %}
+    {# logo (EU) #}
+    {% if _section.logo is defined and _section.logo is not empty %}
+      {% set _label %}
+        <img
+          alt="{{ _section.logo.alt }}"
+          title="{{ _section.logo.title }}"
+          class="ecl-footer-standardised__logo-image-mobile"
+          src="{{ _section.logo.src_mobile }}"
+        />
+        <img
+          alt="{{ _section.logo.alt }}"
+          title="{{ _section.logo.title }}"
+          class="ecl-footer-standardised__logo-image-desktop"
+          src="{{ _section.logo.src_desktop }}"
+        />
+      {% endset %}
+      {% include '@ecl-twig/ec-component-link/ecl-link.html.twig' with {
+        link: {
+          path: _section.logo.path,
+          label: _label,
+          type: 'standalone',
+          aria_label: _section.logo.title
+        },
+        extra_classes: 'ecl-footer-standardised__logo-link'
+      } only %}
     {% endif %}
     {# content before #}
     {% if _section.content_before is defined and _section.content_before is not empty %}
@@ -78,6 +111,8 @@
           link: _section.title.link|merge({ type: 'standalone'}),
           extra_classes: _title_class_name,
           icon: _section.title.icon|default({}),
+          _compliance_: _compliance,
+          _compliance_inner_check_: true
         }) only %}
       {% else %}
         <div class="{{ _title_class_name }}">
@@ -101,22 +136,28 @@
              {% include '@ecl-twig/ec-component-link/ecl-link.html.twig' with _item|merge({
                 link: _item.link|default({})|merge({ type: 'standalone' }),
                 extra_classes: 'ecl-footer-standardised__link',
+                _compliance_: _compliance,
+                _compliance_inner_check_: true
               }) only %}
           </li>
         {% endfor %}
       </ul>
     {% endif %}
-    {% if _internal_wrapper %}
+    {% if _internal_wrapper and _section.title is defined %}
       </section>
     {% endif %}
   {% endfor %}
-  {% if _internal_wrapper %}
-    </div>
-  {% else %}
     </section>
-  {% endif %}
-{% endfor %}
+  {% endfor %}
   </div>
 </footer>
+
+{# Validation #}
+
+{% if _compliance %}
+  {% include '@ecl-twig/ec-component-ecl-compliance/components/ecl-compliance-footer-standardised.html.twig' with {
+    sections: _sections
+  } only %}
+{% endif %}
 
 {% endspaceless %}

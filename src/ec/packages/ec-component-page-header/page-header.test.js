@@ -7,11 +7,41 @@ import pageHeaderDataMetaTitleDescription from './demo/data--meta-title-descript
 import pageHeaderDataEvents from './demo/data--events';
 import pageHeaderDataEventsDescription from './demo/data--events-description';
 import pageHeaderDataBackgroundImage from './demo/data--background-image';
+import pageHeaderDataBrandedEU from './demo/eu-data--branded-homepage';
+import pageHeaderDataBasicEU from './demo/eu-data--basic';
+import pageHeaderDataEventsEU from './demo/eu-data--events';
+import pageHeaderHomepageEU from './demo/eu-data--homepage';
 
-describe('EC - Page Header', () => {
+describe('Page Header', () => {
   const template =
     '@ecl-twig/ec-component-page-header/ecl-page-header.html.twig';
   const render = params => renderTwigFileAsNode(template, params);
+
+  describe('EU', () => {
+    test('branded homepage renders correctly', () => {
+      expect.assertions(1);
+
+      return expect(render(pageHeaderDataBrandedEU)).resolves.toMatchSnapshot();
+    });
+
+    test('basic renders correctly', () => {
+      expect.assertions(1);
+
+      return expect(render(pageHeaderDataBasicEU)).resolves.toMatchSnapshot();
+    });
+
+    test('events renders correctly', () => {
+      expect.assertions(1);
+
+      return expect(render(pageHeaderDataEventsEU)).resolves.toMatchSnapshot();
+    });
+
+    test('homepage renders correctly', () => {
+      expect.assertions(1);
+
+      return expect(render(pageHeaderHomepageEU)).resolves.toMatchSnapshot();
+    });
+  });
 
   describe('title', () => {
     test(`- renders correctly`, () => {
@@ -41,6 +71,16 @@ describe('EC - Page Header', () => {
       });
 
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
+    });
+
+    test('with missing input data and debug enabled it returns the right warning messages', () => {
+      expect.assertions(1);
+
+      const dataCompliance = { ...pageHeaderDataTitle, _compliance_: true };
+      dataCompliance.title = '';
+      dataCompliance.breadcrumb = '';
+
+      return expect(render(dataCompliance)).resolves.toMatchSnapshot();
     });
   });
 

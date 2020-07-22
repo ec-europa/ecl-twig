@@ -1,13 +1,11 @@
 /* eslint-disable import/no-extraneous-dependencies, no-param-reassign */
-import { formatLink, escapeHTML } from '@ecl-twig/data-utils';
+import { formatLink } from '@ecl-twig/data-utils';
+import he from 'he';
 
 const adapter = initialData => {
   const adaptedData = JSON.parse(JSON.stringify(initialData));
 
   const defaultSprite = '/icons.svg';
-  const englishBanner = '/logo--en.svg';
-  const frenchBanner = '/logo--fr.svg';
-
   adaptedData.banner_top = adaptedData.bannerTop;
   if (adaptedData.banner_top instanceof Object) {
     adaptedData.banner_top = formatLink(adaptedData.banner_top);
@@ -25,13 +23,11 @@ const adapter = initialData => {
   adaptedData.login_box = adaptedData.loginBox;
   delete adaptedData.loginBox;
   if (adaptedData.login_box) {
-    adaptedData.login_box.description = escapeHTML(
+    adaptedData.login_box.description = he.escape(
       adaptedData.login_box.description
     );
   }
   // Language selector.
-  const lng = adaptedData.logo.language;
-  adaptedData.logo.src = lng === 'en' ? englishBanner : frenchBanner;
   adaptedData.language_selector = adaptedData.languageSelector;
   delete adaptedData.languageSelector;
 
@@ -53,18 +49,18 @@ const adapter = initialData => {
 
   // Search form.
   adaptedData.search_form = {
-    extra_attributes: [{ name: 'id', value: adaptedData.searchForm.id }],
     text_input: {
       id: adaptedData.searchForm.textInputId,
-      name: adaptedData.searchForm.inputLabel,
       label: adaptedData.searchForm.inputLabel,
     },
     button: {
       label: adaptedData.searchForm.buttonLabel,
     },
+    extra_attributes: [{ name: 'id', value: adaptedData.searchForm.id }],
   };
   delete adaptedData.searchForm;
   adaptedData.menu_label = 'Menu';
+  adaptedData.site_name = 'Site name';
   adaptedData.icon_file_path = defaultSprite;
 
   return adaptedData;

@@ -1,4 +1,4 @@
-# ECL Twig - EC Checkbox component
+# ECL-Twig Checkbox component
 
 npm package: `@ecl-twig/ec-component-checkbox`
 
@@ -24,6 +24,7 @@ npm install --save @ecl-twig/ec-component-checkbox
 - **"helper_id"** (string) (default: '')
 - **"invalid"** (boolean) (default: false)
 - **"required"** (boolean) (default: false)
+- **_compliance_** (boolean) (default: false)
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'

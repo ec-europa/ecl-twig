@@ -1,7 +1,10 @@
-/* eslint-disable no-param-reassign */
-import { storiesOf } from '@storybook/html';
+import he from 'he';
 import { withKnobs, text, select } from '@storybook/addon-knobs';
-import { getExtraKnobs, tabLabels } from '@ecl-twig/story-utils';
+import {
+  getExtraKnobs,
+  tabLabels,
+  getComplianceKnob,
+} from '@ecl-twig/story-utils';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
 
@@ -16,7 +19,7 @@ const options = {
 };
 
 const prepareLabel = data => {
-  data.label = text('label', data.label, tabLabels.required);
+  data.label = he.decode(text('label', data.label, tabLabels.required));
   data.variant = select(
     'variant',
     options,
@@ -25,14 +28,22 @@ const prepareLabel = data => {
   );
 
   getExtraKnobs(data);
+  getComplianceKnob(data);
 
   return data;
 };
 
-storiesOf('Components/Label', module)
-  .addDecorator(withKnobs)
-  .addDecorator(withNotes)
-  .addDecorator(withCode)
-  .add('default', () => label(prepareLabel(dataDefault)), {
+export default {
+  title: 'Components/Label',
+  decorators: [withKnobs, withNotes, withCode],
+};
+
+export const Default = () => label(prepareLabel(dataDefault));
+
+Default.story = {
+  name: 'default',
+
+  parameters: {
     notes: { markdown: notes, json: dataDefault },
-  });
+  },
+};

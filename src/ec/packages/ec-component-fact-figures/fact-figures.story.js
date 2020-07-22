@@ -1,19 +1,31 @@
-/* eslint-disable camelcase */
-import { storiesOf } from '@storybook/html';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
-import { withKnobs, boolean, text, button } from '@storybook/addon-knobs';
+import {
+  withKnobs,
+  boolean,
+  text,
+  button,
+  select,
+} from '@storybook/addon-knobs';
 import withCode from '@ecl-twig/storybook-addon-code';
+import {
+  getExtraKnobs,
+  tabLabels,
+  getComplianceKnob,
+} from '@ecl-twig/story-utils';
 
+import generalIcons from '@ecl/ec-resources-icons/dist/lists/general.json';
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import data3Col from './demo/data--3-col';
 import data4Col from './demo/data--4-col';
 
 import factFigures from './ecl-fact-figures.html.twig';
 import notes from './README.md';
-// Labels for the groupids.
-const requiredGroupId = 'Mandatory elements';
-const optionalGroupId = 'Optional elements';
-const useCasesGroup = 'Use cases';
+
+const iconsList = [];
+generalIcons.forEach(icon => {
+  iconsList.push(icon);
+});
+
 // Preserve original data.
 const items3 = JSON.parse(JSON.stringify(data3Col.items));
 const items4 = JSON.parse(JSON.stringify(data4Col.items));
@@ -50,77 +62,85 @@ const desc4Toggler = () => {
 };
 // Knobs for the items.
 const formatItem = (item, index) => {
-  item.value = text(`items[${index}].statistic`, item.value, requiredGroupId);
-  item.title = text(`items[${index}].title`, item.title, requiredGroupId);
+  item.value = text(`items[${index}].value`, item.value, tabLabels.required);
+  item.title = text(`items[${index}].title`, item.title, tabLabels.required);
   if (item.description) {
     item.description = text(
       `items[${index}].description`,
       item.description,
-      optionalGroupId
+      tabLabels.optional
     );
   }
-  if (item.icon) {
-    item.icon.path = text(
-      `items[${index}].icon.path`,
-      defaultSprite,
-      optionalGroupId
-    );
-  }
+  item.icon.name = select(
+    `items[${index}].icon.name`,
+    [...iconsList],
+    'digital',
+    tabLabels.optional
+  );
+  item.icon.path = text(
+    `items[${index}].icon.path`,
+    defaultSprite,
+    tabLabels.optional
+  );
 
   return item;
 };
 // prepare the knobs for the stories.
-const prepareFactFigures = p => {
-  const column = text('column', p.column, requiredGroupId);
-  const display_icons = p.display_icons
-    ? boolean('display_icons', true, optionalGroupId)
-    : false;
-  const view_all = p.view_all.link
+const prepareFactFigures = data => {
+  data.column = text('column', data.column, tabLabels.required);
+  data.display_icons = boolean('display_icons', true, tabLabels.optional);
+  data.view_all = data.view_all.link
     ? {
         link: {
           label: text(
             'view_all.link.label',
-            p.view_all.link.label,
-            optionalGroupId
+            data.view_all.link.label,
+            tabLabels.optional
           ),
           path: text(
             'view_all.link.path',
-            p.view_all.link.path,
-            optionalGroupId
+            data.view_all.link.path,
+            tabLabels.optional
           ),
         },
       }
     : false;
-  const items = p.items.map(formatItem);
 
-  return { column, items, display_icons, view_all };
+  data.items = data.items.map(formatItem);
+
+  getExtraKnobs(data);
+  getComplianceKnob(data);
+
+  return data;
 };
 
-storiesOf('Components/Fact figures', module)
-  .addDecorator(withNotes)
-  .addDecorator(withKnobs)
-  .addDecorator(withCode)
-  .add(
-    '3 Columns',
-    () => {
-      button('With or without view_links', viewAll3Toggler, useCasesGroup);
-      button('With or without description', desc3Toggler, useCasesGroup);
+export default {
+  title: 'Components/Fact figures',
+  decorators: [withNotes, withKnobs, withCode],
+};
 
-      return factFigures(prepareFactFigures(data3));
-    },
-    {
-      notes: { markdown: notes, json: data3 },
-    }
-  )
-  .add(
-    '4 Columns',
-    () => {
-      button('With or without view_links', viewAll4Toggler, useCasesGroup);
-      button('With or without description', desc4Toggler, useCasesGroup);
+export const Columns3 = () => {
+  button('With or without view_links', viewAll3Toggler, tabLabels.cases);
+  button('With or without description', desc3Toggler, tabLabels.cases);
 
-      return factFigures(prepareFactFigures(data4));
-    },
-    {
-      notes: { markdown: notes, json: data4 },
-    }
-  );
+  return factFigures(prepareFactFigures(data3));
+};
+
+Columns3.story = {
+  parameters: {
+    notes: { markdown: notes, json: data3 },
+  },
+};
+
+export const Columns4 = () => {
+  button('With or without view_links', viewAll4Toggler, tabLabels.cases);
+  button('With or without description', desc4Toggler, tabLabels.cases);
+
+  return factFigures(prepareFactFigures(data4));
+};
+
+Columns4.story = {
+  parameters: {
+    notes: { markdown: notes, json: data4 },
+  },
+};

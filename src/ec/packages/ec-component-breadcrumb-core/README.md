@@ -1,4 +1,4 @@
-# ECL Twig - EC Breadcrumb Core component
+# ECL-Twig Breadcrumb Core component
 
 npm package: `@ecl-twig/ec-component-breadcrumb-core`
 
@@ -19,6 +19,8 @@ npm install --save @ecl-twig/ec-component-breadcrumb-core
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
+- **"_compliance_"** (optional) (boolean) (default: false) Activates debug
+- **"_compliance_inner_check_"** (optional) (boolean) (default: false) Inline copliance reports
 
 ### Example :
 

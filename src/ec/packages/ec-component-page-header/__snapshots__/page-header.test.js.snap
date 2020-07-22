@@ -1,79 +1,415 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`EC - Page Header background image - renders correctly 1`] = `
-<div
-  class="ecl-page-header ecl-page-header--background-image"
-  style="background-image: url(https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg)"
->
+exports[`Page Header EU basic renders correctly 1`] = `
+<test>
   <div
-    class="ecl-container"
+    class="ecl-page-header"
   >
-    <nav
-      aria-label="You are here:"
-      class="ecl-breadcrumb ecl-page-header__breadcrumb"
-      data-ecl-auto-init="Breadcrumb"
-      data-ecl-breadcrumb="true"
+    <div
+      class="ecl-container"
     >
-      <ol
-        class="ecl-breadcrumb__container"
+      <nav
+        aria-label="You are here:"
+        class="ecl-breadcrumb ecl-page-header__breadcrumb"
+        data-ecl-auto-init="Breadcrumb"
+        data-ecl-breadcrumb="true"
+      >
+        <ol
+          class="ecl-breadcrumb__container"
+        >
+          <li
+            aria-hidden="false"
+            class="ecl-breadcrumb__segment"
+            data-ecl-breadcrumb-item="static"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
+              href="/example"
+            >
+              European Union
+            </a>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-breadcrumb__icon"
+              focusable="false"
+              role="presentation"
+            >
+              <use
+                xlink:href="/icons.svg#ui--corner-arrow"
+              />
+            </svg>
+          </li>
+          <li
+            aria-hidden="false"
+            class="ecl-breadcrumb__segment"
+            data-ecl-breadcrumb-item="static"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
+              href="/example"
+            >
+              About the European Union
+            </a>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-breadcrumb__icon"
+              focusable="false"
+              role="presentation"
+            >
+              <use
+                xlink:href="/icons.svg#ui--corner-arrow"
+              />
+            </svg>
+          </li>
+          <li
+            aria-current="page"
+            aria-hidden="false"
+            class="ecl-breadcrumb__segment ecl-breadcrumb__current-page"
+            data-ecl-breadcrumb-item="static"
+          >
+            News
+          </li>
+        </ol>
+      </nav>
+      <div
+        class="ecl-page-header__title-wrapper"
+      >
+        <h1
+          class="ecl-page-header__title"
+        >
+          Page title
+        </h1>
+      </div>
+    </div>
+  </div>
+</test>
+`;
+
+exports[`Page Header EU branded homepage renders correctly 1`] = `
+<test>
+  <div
+    class="ecl-page-header ecl-page-header--branded-homepage"
+  >
+    <div
+      class="ecl-container"
+    >
+      <nav
+        aria-label="You are here:"
+        class="ecl-breadcrumb ecl-page-header__breadcrumb"
+        data-ecl-auto-init="Breadcrumb"
+        data-ecl-breadcrumb="true"
+      >
+        <ol
+          class="ecl-breadcrumb__container"
+        >
+          <li
+            aria-hidden="false"
+            class="ecl-breadcrumb__segment"
+            data-ecl-breadcrumb-item="static"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
+              href="/example"
+            >
+              European Union
+            </a>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-breadcrumb__icon"
+              focusable="false"
+              role="presentation"
+            >
+              <use
+                xlink:href="/icons.svg#ui--corner-arrow"
+              />
+            </svg>
+          </li>
+          <li
+            aria-hidden="false"
+            class="ecl-breadcrumb__segment"
+            data-ecl-breadcrumb-item="static"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
+              href="/example"
+            >
+              About the European Union
+            </a>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-breadcrumb__icon"
+              focusable="false"
+              role="presentation"
+            >
+              <use
+                xlink:href="/icons.svg#ui--corner-arrow"
+              />
+            </svg>
+          </li>
+          <li
+            aria-current="page"
+            aria-hidden="false"
+            class="ecl-breadcrumb__segment ecl-breadcrumb__current-page"
+            data-ecl-breadcrumb-item="static"
+          >
+            News
+          </li>
+        </ol>
+      </nav>
+      <div
+        class="ecl-page-header__title-wrapper"
+      >
+        <h1
+          class="ecl-page-header__title"
+        >
+          Page title
+        </h1>
+        <p
+          class="ecl-page-header__slogan"
+        >
+          Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium
+        </p>
+      </div>
+    </div>
+  </div>
+</test>
+`;
+
+exports[`Page Header EU events renders correctly 1`] = `
+<test>
+  <div
+    class="ecl-page-header"
+  >
+    <div
+      class="ecl-container"
+    >
+      <nav
+        aria-label="You are here:"
+        class="ecl-breadcrumb ecl-page-header__breadcrumb"
+        data-ecl-auto-init="Breadcrumb"
+        data-ecl-breadcrumb="true"
+      >
+        <ol
+          class="ecl-breadcrumb__container"
+        >
+          <li
+            aria-hidden="false"
+            class="ecl-breadcrumb__segment"
+            data-ecl-breadcrumb-item="static"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
+              href="/example"
+            >
+              European Union
+            </a>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-breadcrumb__icon"
+              focusable="false"
+              role="presentation"
+            >
+              <use
+                xlink:href="/icons.svg#ui--corner-arrow"
+              />
+            </svg>
+          </li>
+          <li
+            aria-hidden="false"
+            class="ecl-breadcrumb__segment"
+            data-ecl-breadcrumb-item="static"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
+              href="/example"
+            >
+              About the European Union
+            </a>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-breadcrumb__icon"
+              focusable="false"
+              role="presentation"
+            >
+              <use
+                xlink:href="/icons.svg#ui--corner-arrow"
+              />
+            </svg>
+          </li>
+          <li
+            aria-current="page"
+            aria-hidden="false"
+            class="ecl-breadcrumb__segment ecl-breadcrumb__current-page"
+            data-ecl-breadcrumb-item="static"
+          >
+            News
+          </li>
+        </ol>
+      </nav>
+      <div
+        class="ecl-page-header__meta-list"
+      >
+        News article | 17 October 2015
+      </div>
+      <div
+        class="ecl-page-header__title-wrapper"
+      >
+        <h1
+          class="ecl-page-header__title"
+        >
+          Page title
+        </h1>
+      </div>
+      <ul
+        class="ecl-page-header__info-list"
       >
         <li
-          aria-hidden="false"
-          class="ecl-breadcrumb__segment"
-          data-ecl-breadcrumb-item="static"
+          class="ecl-page-header__info-item"
         >
-          <a
-            class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
-            href="/example"
-          >
-            Home
-          </a>
           <svg
             aria-hidden="true"
-            class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-breadcrumb__icon"
+            class="ecl-icon ecl-icon--s ecl-page-header__info-icon"
             focusable="false"
-            role="presentation"
           >
             <use
-              xlink:href="/icons.svg#ui--corner-arrow"
+              xlink:href="/icons.svg#general--calendar"
             />
           </svg>
+          Monday 8 February
         </li>
         <li
-          aria-hidden="false"
-          class="ecl-breadcrumb__segment"
-          data-ecl-breadcrumb-item="static"
+          class="ecl-page-header__info-item"
         >
-          <a
-            class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
-            href="/example"
-          >
-            About the European Commission
-          </a>
           <svg
             aria-hidden="true"
-            class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-breadcrumb__icon"
+            class="ecl-icon ecl-icon--s ecl-page-header__info-icon"
             focusable="false"
-            role="presentation"
           >
             <use
-              xlink:href="/icons.svg#ui--corner-arrow"
+              xlink:href="/icons.svg#general--location"
             />
           </svg>
+          Munich, Germany
         </li>
         <li
-          aria-current="page"
-          aria-hidden="false"
-          class="ecl-breadcrumb__segment ecl-breadcrumb__current-page"
-          data-ecl-breadcrumb-item="static"
+          class="ecl-page-header__info-item"
         >
-          News
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--s ecl-page-header__info-icon"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#general--livestreaming"
+            />
+          </svg>
+          Live streaming available
         </li>
-      </ol>
-    </nav>
+      </ul>
+    </div>
+  </div>
+</test>
+`;
+
+exports[`Page Header EU homepage renders correctly 1`] = `
+<test>
+  <div
+    class="ecl-page-header ecl-page-header--homepage"
+  >
     <div
-      class="ecl-page-header__title-wrapper"
+      class="ecl-container"
     >
+      <div
+        class="ecl-page-header__title-wrapper"
+      >
+        <h1
+          class="ecl-page-header__title"
+        >
+          Page title
+        </h1>
+        <p
+          class="ecl-page-header__slogan"
+        >
+          Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium
+        </p>
+      </div>
+    </div>
+  </div>
+</test>
+`;
+
+exports[`Page Header background image - renders correctly 1`] = `
+<test>
+  <div
+    class="ecl-page-header ecl-page-header--background-image ecl-page-header--image"
+    style="background-image: url(https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg)"
+  >
+    <div
+      class="ecl-container"
+    >
+      <nav
+        aria-label="You are here:"
+        class="ecl-breadcrumb ecl-page-header__breadcrumb"
+        data-ecl-auto-init="Breadcrumb"
+        data-ecl-breadcrumb="true"
+      >
+        <ol
+          class="ecl-breadcrumb__container"
+        >
+          <li
+            aria-hidden="false"
+            class="ecl-breadcrumb__segment"
+            data-ecl-breadcrumb-item="static"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
+              href="/example"
+            >
+              Home
+            </a>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-breadcrumb__icon"
+              focusable="false"
+              role="presentation"
+            >
+              <use
+                xlink:href="/icons.svg#ui--corner-arrow"
+              />
+            </svg>
+          </li>
+          <li
+            aria-hidden="false"
+            class="ecl-breadcrumb__segment"
+            data-ecl-breadcrumb-item="static"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
+              href="/example"
+            >
+              About the European Commission
+            </a>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-breadcrumb__icon"
+              focusable="false"
+              role="presentation"
+            >
+              <use
+                xlink:href="/icons.svg#ui--corner-arrow"
+              />
+            </svg>
+          </li>
+          <li
+            aria-current="page"
+            aria-hidden="false"
+            class="ecl-breadcrumb__segment ecl-breadcrumb__current-page"
+            data-ecl-breadcrumb-item="static"
+          >
+            News
+          </li>
+        </ol>
+      </nav>
       <div
         class="ecl-page-header__meta-list"
       >
@@ -91,85 +427,83 @@ exports[`EC - Page Header background image - renders correctly 1`] = `
       </p>
     </div>
   </div>
-</div>
+</test>
 `;
 
-exports[`EC - Page Header background image renders correctly with extra attributes 1`] = `
-<div
-  class="ecl-page-header ecl-page-header--background-image"
-  data-test="data-test-value"
-  data-test-1="data-test-value-1"
-  style="background-image: url(https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg)"
->
+exports[`Page Header background image renders correctly with extra attributes 1`] = `
+<test>
   <div
-    class="ecl-container"
+    class="ecl-page-header ecl-page-header--background-image ecl-page-header--image"
+    data-test="data-test-value"
+    data-test-1="data-test-value-1"
+    style="background-image: url(https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg)"
   >
-    <nav
-      aria-label="You are here:"
-      class="ecl-breadcrumb ecl-page-header__breadcrumb"
-      data-ecl-auto-init="Breadcrumb"
-      data-ecl-breadcrumb="true"
-    >
-      <ol
-        class="ecl-breadcrumb__container"
-      >
-        <li
-          aria-hidden="false"
-          class="ecl-breadcrumb__segment"
-          data-ecl-breadcrumb-item="static"
-        >
-          <a
-            class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
-            href="/example"
-          >
-            Home
-          </a>
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-breadcrumb__icon"
-            focusable="false"
-            role="presentation"
-          >
-            <use
-              xlink:href="/icons.svg#ui--corner-arrow"
-            />
-          </svg>
-        </li>
-        <li
-          aria-hidden="false"
-          class="ecl-breadcrumb__segment"
-          data-ecl-breadcrumb-item="static"
-        >
-          <a
-            class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
-            href="/example"
-          >
-            About the European Commission
-          </a>
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-breadcrumb__icon"
-            focusable="false"
-            role="presentation"
-          >
-            <use
-              xlink:href="/icons.svg#ui--corner-arrow"
-            />
-          </svg>
-        </li>
-        <li
-          aria-current="page"
-          aria-hidden="false"
-          class="ecl-breadcrumb__segment ecl-breadcrumb__current-page"
-          data-ecl-breadcrumb-item="static"
-        >
-          News
-        </li>
-      </ol>
-    </nav>
     <div
-      class="ecl-page-header__title-wrapper"
+      class="ecl-container"
     >
+      <nav
+        aria-label="You are here:"
+        class="ecl-breadcrumb ecl-page-header__breadcrumb"
+        data-ecl-auto-init="Breadcrumb"
+        data-ecl-breadcrumb="true"
+      >
+        <ol
+          class="ecl-breadcrumb__container"
+        >
+          <li
+            aria-hidden="false"
+            class="ecl-breadcrumb__segment"
+            data-ecl-breadcrumb-item="static"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
+              href="/example"
+            >
+              Home
+            </a>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-breadcrumb__icon"
+              focusable="false"
+              role="presentation"
+            >
+              <use
+                xlink:href="/icons.svg#ui--corner-arrow"
+              />
+            </svg>
+          </li>
+          <li
+            aria-hidden="false"
+            class="ecl-breadcrumb__segment"
+            data-ecl-breadcrumb-item="static"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
+              href="/example"
+            >
+              About the European Commission
+            </a>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-breadcrumb__icon"
+              focusable="false"
+              role="presentation"
+            >
+              <use
+                xlink:href="/icons.svg#ui--corner-arrow"
+              />
+            </svg>
+          </li>
+          <li
+            aria-current="page"
+            aria-hidden="false"
+            class="ecl-breadcrumb__segment ecl-breadcrumb__current-page"
+            data-ecl-breadcrumb-item="static"
+          >
+            News
+          </li>
+        </ol>
+      </nav>
       <div
         class="ecl-page-header__meta-list"
       >
@@ -187,83 +521,81 @@ exports[`EC - Page Header background image renders correctly with extra attribut
       </p>
     </div>
   </div>
-</div>
+</test>
 `;
 
-exports[`EC - Page Header background image renders correctly with extra class names 1`] = `
-<div
-  class="ecl-page-header ecl-page-header--background-image custom-class custom-class--test"
-  style="background-image: url(https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg)"
->
+exports[`Page Header background image renders correctly with extra class names 1`] = `
+<test>
   <div
-    class="ecl-container"
+    class="ecl-page-header ecl-page-header--background-image ecl-page-header--image custom-class custom-class--test"
+    style="background-image: url(https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg)"
   >
-    <nav
-      aria-label="You are here:"
-      class="ecl-breadcrumb ecl-page-header__breadcrumb"
-      data-ecl-auto-init="Breadcrumb"
-      data-ecl-breadcrumb="true"
-    >
-      <ol
-        class="ecl-breadcrumb__container"
-      >
-        <li
-          aria-hidden="false"
-          class="ecl-breadcrumb__segment"
-          data-ecl-breadcrumb-item="static"
-        >
-          <a
-            class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
-            href="/example"
-          >
-            Home
-          </a>
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-breadcrumb__icon"
-            focusable="false"
-            role="presentation"
-          >
-            <use
-              xlink:href="/icons.svg#ui--corner-arrow"
-            />
-          </svg>
-        </li>
-        <li
-          aria-hidden="false"
-          class="ecl-breadcrumb__segment"
-          data-ecl-breadcrumb-item="static"
-        >
-          <a
-            class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
-            href="/example"
-          >
-            About the European Commission
-          </a>
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-breadcrumb__icon"
-            focusable="false"
-            role="presentation"
-          >
-            <use
-              xlink:href="/icons.svg#ui--corner-arrow"
-            />
-          </svg>
-        </li>
-        <li
-          aria-current="page"
-          aria-hidden="false"
-          class="ecl-breadcrumb__segment ecl-breadcrumb__current-page"
-          data-ecl-breadcrumb-item="static"
-        >
-          News
-        </li>
-      </ol>
-    </nav>
     <div
-      class="ecl-page-header__title-wrapper"
+      class="ecl-container"
     >
+      <nav
+        aria-label="You are here:"
+        class="ecl-breadcrumb ecl-page-header__breadcrumb"
+        data-ecl-auto-init="Breadcrumb"
+        data-ecl-breadcrumb="true"
+      >
+        <ol
+          class="ecl-breadcrumb__container"
+        >
+          <li
+            aria-hidden="false"
+            class="ecl-breadcrumb__segment"
+            data-ecl-breadcrumb-item="static"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
+              href="/example"
+            >
+              Home
+            </a>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-breadcrumb__icon"
+              focusable="false"
+              role="presentation"
+            >
+              <use
+                xlink:href="/icons.svg#ui--corner-arrow"
+              />
+            </svg>
+          </li>
+          <li
+            aria-hidden="false"
+            class="ecl-breadcrumb__segment"
+            data-ecl-breadcrumb-item="static"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
+              href="/example"
+            >
+              About the European Commission
+            </a>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-breadcrumb__icon"
+              focusable="false"
+              role="presentation"
+            >
+              <use
+                xlink:href="/icons.svg#ui--corner-arrow"
+              />
+            </svg>
+          </li>
+          <li
+            aria-current="page"
+            aria-hidden="false"
+            class="ecl-breadcrumb__segment ecl-breadcrumb__current-page"
+            data-ecl-breadcrumb-item="static"
+          >
+            News
+          </li>
+        </ol>
+      </nav>
       <div
         class="ecl-page-header__meta-list"
       >
@@ -281,82 +613,80 @@ exports[`EC - Page Header background image renders correctly with extra class na
       </p>
     </div>
   </div>
-</div>
+</test>
 `;
 
-exports[`EC - Page Header events - renders correctly 1`] = `
-<div
-  class="ecl-page-header"
->
+exports[`Page Header events - renders correctly 1`] = `
+<test>
   <div
-    class="ecl-container"
+    class="ecl-page-header"
   >
-    <nav
-      aria-label="You are here:"
-      class="ecl-breadcrumb ecl-page-header__breadcrumb"
-      data-ecl-auto-init="Breadcrumb"
-      data-ecl-breadcrumb="true"
-    >
-      <ol
-        class="ecl-breadcrumb__container"
-      >
-        <li
-          aria-hidden="false"
-          class="ecl-breadcrumb__segment"
-          data-ecl-breadcrumb-item="static"
-        >
-          <a
-            class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
-            href="/example"
-          >
-            Home
-          </a>
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-breadcrumb__icon"
-            focusable="false"
-            role="presentation"
-          >
-            <use
-              xlink:href="/icons.svg#ui--corner-arrow"
-            />
-          </svg>
-        </li>
-        <li
-          aria-hidden="false"
-          class="ecl-breadcrumb__segment"
-          data-ecl-breadcrumb-item="static"
-        >
-          <a
-            class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
-            href="/example"
-          >
-            About the European Commission
-          </a>
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-breadcrumb__icon"
-            focusable="false"
-            role="presentation"
-          >
-            <use
-              xlink:href="/icons.svg#ui--corner-arrow"
-            />
-          </svg>
-        </li>
-        <li
-          aria-current="page"
-          aria-hidden="false"
-          class="ecl-breadcrumb__segment ecl-breadcrumb__current-page"
-          data-ecl-breadcrumb-item="static"
-        >
-          News
-        </li>
-      </ol>
-    </nav>
     <div
-      class="ecl-page-header__title-wrapper"
+      class="ecl-container"
     >
+      <nav
+        aria-label="You are here:"
+        class="ecl-breadcrumb ecl-page-header__breadcrumb"
+        data-ecl-auto-init="Breadcrumb"
+        data-ecl-breadcrumb="true"
+      >
+        <ol
+          class="ecl-breadcrumb__container"
+        >
+          <li
+            aria-hidden="false"
+            class="ecl-breadcrumb__segment"
+            data-ecl-breadcrumb-item="static"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
+              href="/example"
+            >
+              Home
+            </a>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-breadcrumb__icon"
+              focusable="false"
+              role="presentation"
+            >
+              <use
+                xlink:href="/icons.svg#ui--corner-arrow"
+              />
+            </svg>
+          </li>
+          <li
+            aria-hidden="false"
+            class="ecl-breadcrumb__segment"
+            data-ecl-breadcrumb-item="static"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
+              href="/example"
+            >
+              About the European Commission
+            </a>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-breadcrumb__icon"
+              focusable="false"
+              role="presentation"
+            >
+              <use
+                xlink:href="/icons.svg#ui--corner-arrow"
+              />
+            </svg>
+          </li>
+          <li
+            aria-current="page"
+            aria-hidden="false"
+            class="ecl-breadcrumb__segment ecl-breadcrumb__current-page"
+            data-ecl-breadcrumb-item="static"
+          >
+            News
+          </li>
+        </ol>
+      </nav>
       <div
         class="ecl-page-header__meta-list"
       >
@@ -415,84 +745,82 @@ exports[`EC - Page Header events - renders correctly 1`] = `
       </ul>
     </div>
   </div>
-</div>
+</test>
 `;
 
-exports[`EC - Page Header events renders correctly with extra attributes 1`] = `
-<div
-  class="ecl-page-header"
-  data-test="data-test-value"
-  data-test-1="data-test-value-1"
->
+exports[`Page Header events renders correctly with extra attributes 1`] = `
+<test>
   <div
-    class="ecl-container"
+    class="ecl-page-header"
+    data-test="data-test-value"
+    data-test-1="data-test-value-1"
   >
-    <nav
-      aria-label="You are here:"
-      class="ecl-breadcrumb ecl-page-header__breadcrumb"
-      data-ecl-auto-init="Breadcrumb"
-      data-ecl-breadcrumb="true"
-    >
-      <ol
-        class="ecl-breadcrumb__container"
-      >
-        <li
-          aria-hidden="false"
-          class="ecl-breadcrumb__segment"
-          data-ecl-breadcrumb-item="static"
-        >
-          <a
-            class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
-            href="/example"
-          >
-            Home
-          </a>
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-breadcrumb__icon"
-            focusable="false"
-            role="presentation"
-          >
-            <use
-              xlink:href="/icons.svg#ui--corner-arrow"
-            />
-          </svg>
-        </li>
-        <li
-          aria-hidden="false"
-          class="ecl-breadcrumb__segment"
-          data-ecl-breadcrumb-item="static"
-        >
-          <a
-            class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
-            href="/example"
-          >
-            About the European Commission
-          </a>
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-breadcrumb__icon"
-            focusable="false"
-            role="presentation"
-          >
-            <use
-              xlink:href="/icons.svg#ui--corner-arrow"
-            />
-          </svg>
-        </li>
-        <li
-          aria-current="page"
-          aria-hidden="false"
-          class="ecl-breadcrumb__segment ecl-breadcrumb__current-page"
-          data-ecl-breadcrumb-item="static"
-        >
-          News
-        </li>
-      </ol>
-    </nav>
     <div
-      class="ecl-page-header__title-wrapper"
+      class="ecl-container"
     >
+      <nav
+        aria-label="You are here:"
+        class="ecl-breadcrumb ecl-page-header__breadcrumb"
+        data-ecl-auto-init="Breadcrumb"
+        data-ecl-breadcrumb="true"
+      >
+        <ol
+          class="ecl-breadcrumb__container"
+        >
+          <li
+            aria-hidden="false"
+            class="ecl-breadcrumb__segment"
+            data-ecl-breadcrumb-item="static"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
+              href="/example"
+            >
+              Home
+            </a>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-breadcrumb__icon"
+              focusable="false"
+              role="presentation"
+            >
+              <use
+                xlink:href="/icons.svg#ui--corner-arrow"
+              />
+            </svg>
+          </li>
+          <li
+            aria-hidden="false"
+            class="ecl-breadcrumb__segment"
+            data-ecl-breadcrumb-item="static"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
+              href="/example"
+            >
+              About the European Commission
+            </a>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-breadcrumb__icon"
+              focusable="false"
+              role="presentation"
+            >
+              <use
+                xlink:href="/icons.svg#ui--corner-arrow"
+              />
+            </svg>
+          </li>
+          <li
+            aria-current="page"
+            aria-hidden="false"
+            class="ecl-breadcrumb__segment ecl-breadcrumb__current-page"
+            data-ecl-breadcrumb-item="static"
+          >
+            News
+          </li>
+        </ol>
+      </nav>
       <div
         class="ecl-page-header__meta-list"
       >
@@ -551,82 +879,80 @@ exports[`EC - Page Header events renders correctly with extra attributes 1`] = `
       </ul>
     </div>
   </div>
-</div>
+</test>
 `;
 
-exports[`EC - Page Header events renders correctly with extra class names 1`] = `
-<div
-  class="ecl-page-header custom-class custom-class--test"
->
+exports[`Page Header events renders correctly with extra class names 1`] = `
+<test>
   <div
-    class="ecl-container"
+    class="ecl-page-header custom-class custom-class--test"
   >
-    <nav
-      aria-label="You are here:"
-      class="ecl-breadcrumb ecl-page-header__breadcrumb"
-      data-ecl-auto-init="Breadcrumb"
-      data-ecl-breadcrumb="true"
-    >
-      <ol
-        class="ecl-breadcrumb__container"
-      >
-        <li
-          aria-hidden="false"
-          class="ecl-breadcrumb__segment"
-          data-ecl-breadcrumb-item="static"
-        >
-          <a
-            class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
-            href="/example"
-          >
-            Home
-          </a>
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-breadcrumb__icon"
-            focusable="false"
-            role="presentation"
-          >
-            <use
-              xlink:href="/icons.svg#ui--corner-arrow"
-            />
-          </svg>
-        </li>
-        <li
-          aria-hidden="false"
-          class="ecl-breadcrumb__segment"
-          data-ecl-breadcrumb-item="static"
-        >
-          <a
-            class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
-            href="/example"
-          >
-            About the European Commission
-          </a>
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-breadcrumb__icon"
-            focusable="false"
-            role="presentation"
-          >
-            <use
-              xlink:href="/icons.svg#ui--corner-arrow"
-            />
-          </svg>
-        </li>
-        <li
-          aria-current="page"
-          aria-hidden="false"
-          class="ecl-breadcrumb__segment ecl-breadcrumb__current-page"
-          data-ecl-breadcrumb-item="static"
-        >
-          News
-        </li>
-      </ol>
-    </nav>
     <div
-      class="ecl-page-header__title-wrapper"
+      class="ecl-container"
     >
+      <nav
+        aria-label="You are here:"
+        class="ecl-breadcrumb ecl-page-header__breadcrumb"
+        data-ecl-auto-init="Breadcrumb"
+        data-ecl-breadcrumb="true"
+      >
+        <ol
+          class="ecl-breadcrumb__container"
+        >
+          <li
+            aria-hidden="false"
+            class="ecl-breadcrumb__segment"
+            data-ecl-breadcrumb-item="static"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
+              href="/example"
+            >
+              Home
+            </a>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-breadcrumb__icon"
+              focusable="false"
+              role="presentation"
+            >
+              <use
+                xlink:href="/icons.svg#ui--corner-arrow"
+              />
+            </svg>
+          </li>
+          <li
+            aria-hidden="false"
+            class="ecl-breadcrumb__segment"
+            data-ecl-breadcrumb-item="static"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
+              href="/example"
+            >
+              About the European Commission
+            </a>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-breadcrumb__icon"
+              focusable="false"
+              role="presentation"
+            >
+              <use
+                xlink:href="/icons.svg#ui--corner-arrow"
+              />
+            </svg>
+          </li>
+          <li
+            aria-current="page"
+            aria-hidden="false"
+            class="ecl-breadcrumb__segment ecl-breadcrumb__current-page"
+            data-ecl-breadcrumb-item="static"
+          >
+            News
+          </li>
+        </ol>
+      </nav>
       <div
         class="ecl-page-header__meta-list"
       >
@@ -685,223 +1011,80 @@ exports[`EC - Page Header events renders correctly with extra class names 1`] = 
       </ul>
     </div>
   </div>
-</div>
+</test>
 `;
 
-exports[`EC - Page Header events-description - renders correctly 1`] = `
-<div
-  class="ecl-page-header"
->
+exports[`Page Header events-description - renders correctly 1`] = `
+<test>
   <div
-    class="ecl-container"
+    class="ecl-page-header"
   >
-    <nav
-      aria-label="You are here:"
-      class="ecl-breadcrumb ecl-page-header__breadcrumb"
-      data-ecl-auto-init="Breadcrumb"
-      data-ecl-breadcrumb="true"
-    >
-      <ol
-        class="ecl-breadcrumb__container"
-      >
-        <li
-          aria-hidden="false"
-          class="ecl-breadcrumb__segment"
-          data-ecl-breadcrumb-item="static"
-        >
-          <a
-            class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
-            href="/example"
-          >
-            Home
-          </a>
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-breadcrumb__icon"
-            focusable="false"
-            role="presentation"
-          >
-            <use
-              xlink:href="/icons.svg#ui--corner-arrow"
-            />
-          </svg>
-        </li>
-        <li
-          aria-hidden="false"
-          class="ecl-breadcrumb__segment"
-          data-ecl-breadcrumb-item="static"
-        >
-          <a
-            class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
-            href="/example"
-          >
-            About the European Commission
-          </a>
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-breadcrumb__icon"
-            focusable="false"
-            role="presentation"
-          >
-            <use
-              xlink:href="/icons.svg#ui--corner-arrow"
-            />
-          </svg>
-        </li>
-        <li
-          aria-current="page"
-          aria-hidden="false"
-          class="ecl-breadcrumb__segment ecl-breadcrumb__current-page"
-          data-ecl-breadcrumb-item="static"
-        >
-          News
-        </li>
-      </ol>
-    </nav>
     <div
-      class="ecl-page-header__title-wrapper"
+      class="ecl-container"
     >
-      <div
-        class="ecl-page-header__meta-list"
+      <nav
+        aria-label="You are here:"
+        class="ecl-breadcrumb ecl-page-header__breadcrumb"
+        data-ecl-auto-init="Breadcrumb"
+        data-ecl-breadcrumb="true"
       >
-        News article | 17 October 2015
-      </div>
-      <h1
-        class="ecl-page-header__title"
-      >
-        Page title
-      </h1>
-      <p
-        class="ecl-page-header__description"
-      >
-        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium
-      </p>
-      <ul
-        class="ecl-page-header__info-list"
-      >
-        <li
-          class="ecl-page-header__info-item"
+        <ol
+          class="ecl-breadcrumb__container"
         >
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--s ecl-page-header__info-icon"
-            focusable="false"
+          <li
+            aria-hidden="false"
+            class="ecl-breadcrumb__segment"
+            data-ecl-breadcrumb-item="static"
           >
-            <use
-              xlink:href="/icons.svg#general--calendar"
-            />
-          </svg>
-          Monday 8 February
-        </li>
-        <li
-          class="ecl-page-header__info-item"
-        >
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--s ecl-page-header__info-icon"
-            focusable="false"
+            <a
+              class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
+              href="/example"
+            >
+              Home
+            </a>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-breadcrumb__icon"
+              focusable="false"
+              role="presentation"
+            >
+              <use
+                xlink:href="/icons.svg#ui--corner-arrow"
+              />
+            </svg>
+          </li>
+          <li
+            aria-hidden="false"
+            class="ecl-breadcrumb__segment"
+            data-ecl-breadcrumb-item="static"
           >
-            <use
-              xlink:href="/icons.svg#general--location"
-            />
-          </svg>
-          Munich, Germany
-        </li>
-        <li
-          class="ecl-page-header__info-item"
-        >
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--s ecl-page-header__info-icon"
-            focusable="false"
+            <a
+              class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
+              href="/example"
+            >
+              About the European Commission
+            </a>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-breadcrumb__icon"
+              focusable="false"
+              role="presentation"
+            >
+              <use
+                xlink:href="/icons.svg#ui--corner-arrow"
+              />
+            </svg>
+          </li>
+          <li
+            aria-current="page"
+            aria-hidden="false"
+            class="ecl-breadcrumb__segment ecl-breadcrumb__current-page"
+            data-ecl-breadcrumb-item="static"
           >
-            <use
-              xlink:href="/icons.svg#general--livestreaming"
-            />
-          </svg>
-          Live streaming available
-        </li>
-      </ul>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`EC - Page Header events-description renders correctly with extra attributes 1`] = `
-<div
-  class="ecl-page-header"
-  data-test="data-test-value"
-  data-test-1="data-test-value-1"
->
-  <div
-    class="ecl-container"
-  >
-    <nav
-      aria-label="You are here:"
-      class="ecl-breadcrumb ecl-page-header__breadcrumb"
-      data-ecl-auto-init="Breadcrumb"
-      data-ecl-breadcrumb="true"
-    >
-      <ol
-        class="ecl-breadcrumb__container"
-      >
-        <li
-          aria-hidden="false"
-          class="ecl-breadcrumb__segment"
-          data-ecl-breadcrumb-item="static"
-        >
-          <a
-            class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
-            href="/example"
-          >
-            Home
-          </a>
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-breadcrumb__icon"
-            focusable="false"
-            role="presentation"
-          >
-            <use
-              xlink:href="/icons.svg#ui--corner-arrow"
-            />
-          </svg>
-        </li>
-        <li
-          aria-hidden="false"
-          class="ecl-breadcrumb__segment"
-          data-ecl-breadcrumb-item="static"
-        >
-          <a
-            class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
-            href="/example"
-          >
-            About the European Commission
-          </a>
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-breadcrumb__icon"
-            focusable="false"
-            role="presentation"
-          >
-            <use
-              xlink:href="/icons.svg#ui--corner-arrow"
-            />
-          </svg>
-        </li>
-        <li
-          aria-current="page"
-          aria-hidden="false"
-          class="ecl-breadcrumb__segment ecl-breadcrumb__current-page"
-          data-ecl-breadcrumb-item="static"
-        >
-          News
-        </li>
-      </ol>
-    </nav>
-    <div
-      class="ecl-page-header__title-wrapper"
-    >
+            News
+          </li>
+        </ol>
+      </nav>
       <div
         class="ecl-page-header__meta-list"
       >
@@ -965,82 +1148,82 @@ exports[`EC - Page Header events-description renders correctly with extra attrib
       </ul>
     </div>
   </div>
-</div>
+</test>
 `;
 
-exports[`EC - Page Header events-description renders correctly with extra class names 1`] = `
-<div
-  class="ecl-page-header custom-class custom-class--test"
->
+exports[`Page Header events-description renders correctly with extra attributes 1`] = `
+<test>
   <div
-    class="ecl-container"
+    class="ecl-page-header"
+    data-test="data-test-value"
+    data-test-1="data-test-value-1"
   >
-    <nav
-      aria-label="You are here:"
-      class="ecl-breadcrumb ecl-page-header__breadcrumb"
-      data-ecl-auto-init="Breadcrumb"
-      data-ecl-breadcrumb="true"
-    >
-      <ol
-        class="ecl-breadcrumb__container"
-      >
-        <li
-          aria-hidden="false"
-          class="ecl-breadcrumb__segment"
-          data-ecl-breadcrumb-item="static"
-        >
-          <a
-            class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
-            href="/example"
-          >
-            Home
-          </a>
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-breadcrumb__icon"
-            focusable="false"
-            role="presentation"
-          >
-            <use
-              xlink:href="/icons.svg#ui--corner-arrow"
-            />
-          </svg>
-        </li>
-        <li
-          aria-hidden="false"
-          class="ecl-breadcrumb__segment"
-          data-ecl-breadcrumb-item="static"
-        >
-          <a
-            class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
-            href="/example"
-          >
-            About the European Commission
-          </a>
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-breadcrumb__icon"
-            focusable="false"
-            role="presentation"
-          >
-            <use
-              xlink:href="/icons.svg#ui--corner-arrow"
-            />
-          </svg>
-        </li>
-        <li
-          aria-current="page"
-          aria-hidden="false"
-          class="ecl-breadcrumb__segment ecl-breadcrumb__current-page"
-          data-ecl-breadcrumb-item="static"
-        >
-          News
-        </li>
-      </ol>
-    </nav>
     <div
-      class="ecl-page-header__title-wrapper"
+      class="ecl-container"
     >
+      <nav
+        aria-label="You are here:"
+        class="ecl-breadcrumb ecl-page-header__breadcrumb"
+        data-ecl-auto-init="Breadcrumb"
+        data-ecl-breadcrumb="true"
+      >
+        <ol
+          class="ecl-breadcrumb__container"
+        >
+          <li
+            aria-hidden="false"
+            class="ecl-breadcrumb__segment"
+            data-ecl-breadcrumb-item="static"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
+              href="/example"
+            >
+              Home
+            </a>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-breadcrumb__icon"
+              focusable="false"
+              role="presentation"
+            >
+              <use
+                xlink:href="/icons.svg#ui--corner-arrow"
+              />
+            </svg>
+          </li>
+          <li
+            aria-hidden="false"
+            class="ecl-breadcrumb__segment"
+            data-ecl-breadcrumb-item="static"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
+              href="/example"
+            >
+              About the European Commission
+            </a>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-breadcrumb__icon"
+              focusable="false"
+              role="presentation"
+            >
+              <use
+                xlink:href="/icons.svg#ui--corner-arrow"
+              />
+            </svg>
+          </li>
+          <li
+            aria-current="page"
+            aria-hidden="false"
+            class="ecl-breadcrumb__segment ecl-breadcrumb__current-page"
+            data-ecl-breadcrumb-item="static"
+          >
+            News
+          </li>
+        </ol>
+      </nav>
       <div
         class="ecl-page-header__meta-list"
       >
@@ -1104,348 +1287,80 @@ exports[`EC - Page Header events-description renders correctly with extra class 
       </ul>
     </div>
   </div>
-</div>
+</test>
 `;
 
-exports[`EC - Page Header meta-title - renders correctly 1`] = `
-<div
-  class="ecl-page-header"
->
+exports[`Page Header events-description renders correctly with extra class names 1`] = `
+<test>
   <div
-    class="ecl-container"
+    class="ecl-page-header custom-class custom-class--test"
   >
-    <nav
-      aria-label="You are here:"
-      class="ecl-breadcrumb ecl-page-header__breadcrumb"
-      data-ecl-auto-init="Breadcrumb"
-      data-ecl-breadcrumb="true"
-    >
-      <ol
-        class="ecl-breadcrumb__container"
-      >
-        <li
-          aria-hidden="false"
-          class="ecl-breadcrumb__segment"
-          data-ecl-breadcrumb-item="static"
-        >
-          <a
-            class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
-            href="/example"
-          >
-            Home
-          </a>
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-breadcrumb__icon"
-            focusable="false"
-            role="presentation"
-          >
-            <use
-              xlink:href="/icons.svg#ui--corner-arrow"
-            />
-          </svg>
-        </li>
-        <li
-          aria-hidden="false"
-          class="ecl-breadcrumb__segment"
-          data-ecl-breadcrumb-item="static"
-        >
-          <a
-            class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
-            href="/example"
-          >
-            About the European Commission
-          </a>
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-breadcrumb__icon"
-            focusable="false"
-            role="presentation"
-          >
-            <use
-              xlink:href="/icons.svg#ui--corner-arrow"
-            />
-          </svg>
-        </li>
-        <li
-          aria-current="page"
-          aria-hidden="false"
-          class="ecl-breadcrumb__segment ecl-breadcrumb__current-page"
-          data-ecl-breadcrumb-item="static"
-        >
-          News
-        </li>
-      </ol>
-    </nav>
     <div
-      class="ecl-page-header__title-wrapper"
+      class="ecl-container"
     >
-      <div
-        class="ecl-page-header__meta-list"
+      <nav
+        aria-label="You are here:"
+        class="ecl-breadcrumb ecl-page-header__breadcrumb"
+        data-ecl-auto-init="Breadcrumb"
+        data-ecl-breadcrumb="true"
       >
-        News article | 17 October 2015
-      </div>
-      <h1
-        class="ecl-page-header__title"
-      >
-        Page title
-      </h1>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`EC - Page Header meta-title renders correctly with extra attributes 1`] = `
-<div
-  class="ecl-page-header"
-  data-test="data-test-value"
-  data-test-1="data-test-value-1"
->
-  <div
-    class="ecl-container"
-  >
-    <nav
-      aria-label="You are here:"
-      class="ecl-breadcrumb ecl-page-header__breadcrumb"
-      data-ecl-auto-init="Breadcrumb"
-      data-ecl-breadcrumb="true"
-    >
-      <ol
-        class="ecl-breadcrumb__container"
-      >
-        <li
-          aria-hidden="false"
-          class="ecl-breadcrumb__segment"
-          data-ecl-breadcrumb-item="static"
+        <ol
+          class="ecl-breadcrumb__container"
         >
-          <a
-            class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
-            href="/example"
+          <li
+            aria-hidden="false"
+            class="ecl-breadcrumb__segment"
+            data-ecl-breadcrumb-item="static"
           >
-            Home
-          </a>
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-breadcrumb__icon"
-            focusable="false"
-            role="presentation"
+            <a
+              class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
+              href="/example"
+            >
+              Home
+            </a>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-breadcrumb__icon"
+              focusable="false"
+              role="presentation"
+            >
+              <use
+                xlink:href="/icons.svg#ui--corner-arrow"
+              />
+            </svg>
+          </li>
+          <li
+            aria-hidden="false"
+            class="ecl-breadcrumb__segment"
+            data-ecl-breadcrumb-item="static"
           >
-            <use
-              xlink:href="/icons.svg#ui--corner-arrow"
-            />
-          </svg>
-        </li>
-        <li
-          aria-hidden="false"
-          class="ecl-breadcrumb__segment"
-          data-ecl-breadcrumb-item="static"
-        >
-          <a
-            class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
-            href="/example"
+            <a
+              class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
+              href="/example"
+            >
+              About the European Commission
+            </a>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-breadcrumb__icon"
+              focusable="false"
+              role="presentation"
+            >
+              <use
+                xlink:href="/icons.svg#ui--corner-arrow"
+              />
+            </svg>
+          </li>
+          <li
+            aria-current="page"
+            aria-hidden="false"
+            class="ecl-breadcrumb__segment ecl-breadcrumb__current-page"
+            data-ecl-breadcrumb-item="static"
           >
-            About the European Commission
-          </a>
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-breadcrumb__icon"
-            focusable="false"
-            role="presentation"
-          >
-            <use
-              xlink:href="/icons.svg#ui--corner-arrow"
-            />
-          </svg>
-        </li>
-        <li
-          aria-current="page"
-          aria-hidden="false"
-          class="ecl-breadcrumb__segment ecl-breadcrumb__current-page"
-          data-ecl-breadcrumb-item="static"
-        >
-          News
-        </li>
-      </ol>
-    </nav>
-    <div
-      class="ecl-page-header__title-wrapper"
-    >
-      <div
-        class="ecl-page-header__meta-list"
-      >
-        News article | 17 October 2015
-      </div>
-      <h1
-        class="ecl-page-header__title"
-      >
-        Page title
-      </h1>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`EC - Page Header meta-title renders correctly with extra class names 1`] = `
-<div
-  class="ecl-page-header custom-class custom-class--test"
->
-  <div
-    class="ecl-container"
-  >
-    <nav
-      aria-label="You are here:"
-      class="ecl-breadcrumb ecl-page-header__breadcrumb"
-      data-ecl-auto-init="Breadcrumb"
-      data-ecl-breadcrumb="true"
-    >
-      <ol
-        class="ecl-breadcrumb__container"
-      >
-        <li
-          aria-hidden="false"
-          class="ecl-breadcrumb__segment"
-          data-ecl-breadcrumb-item="static"
-        >
-          <a
-            class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
-            href="/example"
-          >
-            Home
-          </a>
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-breadcrumb__icon"
-            focusable="false"
-            role="presentation"
-          >
-            <use
-              xlink:href="/icons.svg#ui--corner-arrow"
-            />
-          </svg>
-        </li>
-        <li
-          aria-hidden="false"
-          class="ecl-breadcrumb__segment"
-          data-ecl-breadcrumb-item="static"
-        >
-          <a
-            class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
-            href="/example"
-          >
-            About the European Commission
-          </a>
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-breadcrumb__icon"
-            focusable="false"
-            role="presentation"
-          >
-            <use
-              xlink:href="/icons.svg#ui--corner-arrow"
-            />
-          </svg>
-        </li>
-        <li
-          aria-current="page"
-          aria-hidden="false"
-          class="ecl-breadcrumb__segment ecl-breadcrumb__current-page"
-          data-ecl-breadcrumb-item="static"
-        >
-          News
-        </li>
-      </ol>
-    </nav>
-    <div
-      class="ecl-page-header__title-wrapper"
-    >
-      <div
-        class="ecl-page-header__meta-list"
-      >
-        News article | 17 October 2015
-      </div>
-      <h1
-        class="ecl-page-header__title"
-      >
-        Page title
-      </h1>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`EC - Page Header meta-title-description - renders correctly 1`] = `
-<div
-  class="ecl-page-header"
->
-  <div
-    class="ecl-container"
-  >
-    <nav
-      aria-label="You are here:"
-      class="ecl-breadcrumb ecl-page-header__breadcrumb"
-      data-ecl-auto-init="Breadcrumb"
-      data-ecl-breadcrumb="true"
-    >
-      <ol
-        class="ecl-breadcrumb__container"
-      >
-        <li
-          aria-hidden="false"
-          class="ecl-breadcrumb__segment"
-          data-ecl-breadcrumb-item="static"
-        >
-          <a
-            class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
-            href="/example"
-          >
-            Home
-          </a>
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-breadcrumb__icon"
-            focusable="false"
-            role="presentation"
-          >
-            <use
-              xlink:href="/icons.svg#ui--corner-arrow"
-            />
-          </svg>
-        </li>
-        <li
-          aria-hidden="false"
-          class="ecl-breadcrumb__segment"
-          data-ecl-breadcrumb-item="static"
-        >
-          <a
-            class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
-            href="/example"
-          >
-            About the European Commission
-          </a>
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-breadcrumb__icon"
-            focusable="false"
-            role="presentation"
-          >
-            <use
-              xlink:href="/icons.svg#ui--corner-arrow"
-            />
-          </svg>
-        </li>
-        <li
-          aria-current="page"
-          aria-hidden="false"
-          class="ecl-breadcrumb__segment ecl-breadcrumb__current-page"
-          data-ecl-breadcrumb-item="static"
-        >
-          News
-        </li>
-      </ol>
-    </nav>
-    <div
-      class="ecl-page-header__title-wrapper"
-    >
+            News
+          </li>
+        </ol>
+      </nav>
       <div
         class="ecl-page-header__meta-list"
       >
@@ -1461,86 +1376,128 @@ exports[`EC - Page Header meta-title-description - renders correctly 1`] = `
       >
         Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium
       </p>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`EC - Page Header meta-title-description renders correctly with extra attributes 1`] = `
-<div
-  class="ecl-page-header"
-  data-test="data-test-value"
-  data-test-1="data-test-value-1"
->
-  <div
-    class="ecl-container"
-  >
-    <nav
-      aria-label="You are here:"
-      class="ecl-breadcrumb ecl-page-header__breadcrumb"
-      data-ecl-auto-init="Breadcrumb"
-      data-ecl-breadcrumb="true"
-    >
-      <ol
-        class="ecl-breadcrumb__container"
+      <ul
+        class="ecl-page-header__info-list"
       >
         <li
-          aria-hidden="false"
-          class="ecl-breadcrumb__segment"
-          data-ecl-breadcrumb-item="static"
+          class="ecl-page-header__info-item"
         >
-          <a
-            class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
-            href="/example"
-          >
-            Home
-          </a>
           <svg
             aria-hidden="true"
-            class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-breadcrumb__icon"
+            class="ecl-icon ecl-icon--s ecl-page-header__info-icon"
             focusable="false"
-            role="presentation"
           >
             <use
-              xlink:href="/icons.svg#ui--corner-arrow"
+              xlink:href="/icons.svg#general--calendar"
             />
           </svg>
+          Monday 8 February
         </li>
         <li
-          aria-hidden="false"
-          class="ecl-breadcrumb__segment"
-          data-ecl-breadcrumb-item="static"
+          class="ecl-page-header__info-item"
         >
-          <a
-            class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
-            href="/example"
-          >
-            About the European Commission
-          </a>
           <svg
             aria-hidden="true"
-            class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-breadcrumb__icon"
+            class="ecl-icon ecl-icon--s ecl-page-header__info-icon"
             focusable="false"
-            role="presentation"
           >
             <use
-              xlink:href="/icons.svg#ui--corner-arrow"
+              xlink:href="/icons.svg#general--location"
             />
           </svg>
+          Munich, Germany
         </li>
         <li
-          aria-current="page"
-          aria-hidden="false"
-          class="ecl-breadcrumb__segment ecl-breadcrumb__current-page"
-          data-ecl-breadcrumb-item="static"
+          class="ecl-page-header__info-item"
         >
-          News
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--s ecl-page-header__info-icon"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#general--livestreaming"
+            />
+          </svg>
+          Live streaming available
         </li>
-      </ol>
-    </nav>
+      </ul>
+    </div>
+  </div>
+</test>
+`;
+
+exports[`Page Header meta-title - renders correctly 1`] = `
+<test>
+  <div
+    class="ecl-page-header"
+  >
     <div
-      class="ecl-page-header__title-wrapper"
+      class="ecl-container"
     >
+      <nav
+        aria-label="You are here:"
+        class="ecl-breadcrumb ecl-page-header__breadcrumb"
+        data-ecl-auto-init="Breadcrumb"
+        data-ecl-breadcrumb="true"
+      >
+        <ol
+          class="ecl-breadcrumb__container"
+        >
+          <li
+            aria-hidden="false"
+            class="ecl-breadcrumb__segment"
+            data-ecl-breadcrumb-item="static"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
+              href="/example"
+            >
+              Home
+            </a>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-breadcrumb__icon"
+              focusable="false"
+              role="presentation"
+            >
+              <use
+                xlink:href="/icons.svg#ui--corner-arrow"
+              />
+            </svg>
+          </li>
+          <li
+            aria-hidden="false"
+            class="ecl-breadcrumb__segment"
+            data-ecl-breadcrumb-item="static"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
+              href="/example"
+            >
+              About the European Commission
+            </a>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-breadcrumb__icon"
+              focusable="false"
+              role="presentation"
+            >
+              <use
+                xlink:href="/icons.svg#ui--corner-arrow"
+              />
+            </svg>
+          </li>
+          <li
+            aria-current="page"
+            aria-hidden="false"
+            class="ecl-breadcrumb__segment ecl-breadcrumb__current-page"
+            data-ecl-breadcrumb-item="static"
+          >
+            News
+          </li>
+        </ol>
+      </nav>
       <div
         class="ecl-page-header__meta-list"
       >
@@ -1551,89 +1508,256 @@ exports[`EC - Page Header meta-title-description renders correctly with extra at
       >
         Page title
       </h1>
-      <p
-        class="ecl-page-header__description"
-      >
-        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium
-      </p>
     </div>
   </div>
-</div>
+</test>
 `;
 
-exports[`EC - Page Header meta-title-description renders correctly with extra class names 1`] = `
-<div
-  class="ecl-page-header custom-class custom-class--test"
->
+exports[`Page Header meta-title renders correctly with extra attributes 1`] = `
+<test>
   <div
-    class="ecl-container"
+    class="ecl-page-header"
+    data-test="data-test-value"
+    data-test-1="data-test-value-1"
   >
-    <nav
-      aria-label="You are here:"
-      class="ecl-breadcrumb ecl-page-header__breadcrumb"
-      data-ecl-auto-init="Breadcrumb"
-      data-ecl-breadcrumb="true"
-    >
-      <ol
-        class="ecl-breadcrumb__container"
-      >
-        <li
-          aria-hidden="false"
-          class="ecl-breadcrumb__segment"
-          data-ecl-breadcrumb-item="static"
-        >
-          <a
-            class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
-            href="/example"
-          >
-            Home
-          </a>
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-breadcrumb__icon"
-            focusable="false"
-            role="presentation"
-          >
-            <use
-              xlink:href="/icons.svg#ui--corner-arrow"
-            />
-          </svg>
-        </li>
-        <li
-          aria-hidden="false"
-          class="ecl-breadcrumb__segment"
-          data-ecl-breadcrumb-item="static"
-        >
-          <a
-            class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
-            href="/example"
-          >
-            About the European Commission
-          </a>
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-breadcrumb__icon"
-            focusable="false"
-            role="presentation"
-          >
-            <use
-              xlink:href="/icons.svg#ui--corner-arrow"
-            />
-          </svg>
-        </li>
-        <li
-          aria-current="page"
-          aria-hidden="false"
-          class="ecl-breadcrumb__segment ecl-breadcrumb__current-page"
-          data-ecl-breadcrumb-item="static"
-        >
-          News
-        </li>
-      </ol>
-    </nav>
     <div
-      class="ecl-page-header__title-wrapper"
+      class="ecl-container"
     >
+      <nav
+        aria-label="You are here:"
+        class="ecl-breadcrumb ecl-page-header__breadcrumb"
+        data-ecl-auto-init="Breadcrumb"
+        data-ecl-breadcrumb="true"
+      >
+        <ol
+          class="ecl-breadcrumb__container"
+        >
+          <li
+            aria-hidden="false"
+            class="ecl-breadcrumb__segment"
+            data-ecl-breadcrumb-item="static"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
+              href="/example"
+            >
+              Home
+            </a>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-breadcrumb__icon"
+              focusable="false"
+              role="presentation"
+            >
+              <use
+                xlink:href="/icons.svg#ui--corner-arrow"
+              />
+            </svg>
+          </li>
+          <li
+            aria-hidden="false"
+            class="ecl-breadcrumb__segment"
+            data-ecl-breadcrumb-item="static"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
+              href="/example"
+            >
+              About the European Commission
+            </a>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-breadcrumb__icon"
+              focusable="false"
+              role="presentation"
+            >
+              <use
+                xlink:href="/icons.svg#ui--corner-arrow"
+              />
+            </svg>
+          </li>
+          <li
+            aria-current="page"
+            aria-hidden="false"
+            class="ecl-breadcrumb__segment ecl-breadcrumb__current-page"
+            data-ecl-breadcrumb-item="static"
+          >
+            News
+          </li>
+        </ol>
+      </nav>
+      <div
+        class="ecl-page-header__meta-list"
+      >
+        News article | 17 October 2015
+      </div>
+      <h1
+        class="ecl-page-header__title"
+      >
+        Page title
+      </h1>
+    </div>
+  </div>
+</test>
+`;
+
+exports[`Page Header meta-title renders correctly with extra class names 1`] = `
+<test>
+  <div
+    class="ecl-page-header custom-class custom-class--test"
+  >
+    <div
+      class="ecl-container"
+    >
+      <nav
+        aria-label="You are here:"
+        class="ecl-breadcrumb ecl-page-header__breadcrumb"
+        data-ecl-auto-init="Breadcrumb"
+        data-ecl-breadcrumb="true"
+      >
+        <ol
+          class="ecl-breadcrumb__container"
+        >
+          <li
+            aria-hidden="false"
+            class="ecl-breadcrumb__segment"
+            data-ecl-breadcrumb-item="static"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
+              href="/example"
+            >
+              Home
+            </a>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-breadcrumb__icon"
+              focusable="false"
+              role="presentation"
+            >
+              <use
+                xlink:href="/icons.svg#ui--corner-arrow"
+              />
+            </svg>
+          </li>
+          <li
+            aria-hidden="false"
+            class="ecl-breadcrumb__segment"
+            data-ecl-breadcrumb-item="static"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
+              href="/example"
+            >
+              About the European Commission
+            </a>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-breadcrumb__icon"
+              focusable="false"
+              role="presentation"
+            >
+              <use
+                xlink:href="/icons.svg#ui--corner-arrow"
+              />
+            </svg>
+          </li>
+          <li
+            aria-current="page"
+            aria-hidden="false"
+            class="ecl-breadcrumb__segment ecl-breadcrumb__current-page"
+            data-ecl-breadcrumb-item="static"
+          >
+            News
+          </li>
+        </ol>
+      </nav>
+      <div
+        class="ecl-page-header__meta-list"
+      >
+        News article | 17 October 2015
+      </div>
+      <h1
+        class="ecl-page-header__title"
+      >
+        Page title
+      </h1>
+    </div>
+  </div>
+</test>
+`;
+
+exports[`Page Header meta-title-description - renders correctly 1`] = `
+<test>
+  <div
+    class="ecl-page-header"
+  >
+    <div
+      class="ecl-container"
+    >
+      <nav
+        aria-label="You are here:"
+        class="ecl-breadcrumb ecl-page-header__breadcrumb"
+        data-ecl-auto-init="Breadcrumb"
+        data-ecl-breadcrumb="true"
+      >
+        <ol
+          class="ecl-breadcrumb__container"
+        >
+          <li
+            aria-hidden="false"
+            class="ecl-breadcrumb__segment"
+            data-ecl-breadcrumb-item="static"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
+              href="/example"
+            >
+              Home
+            </a>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-breadcrumb__icon"
+              focusable="false"
+              role="presentation"
+            >
+              <use
+                xlink:href="/icons.svg#ui--corner-arrow"
+              />
+            </svg>
+          </li>
+          <li
+            aria-hidden="false"
+            class="ecl-breadcrumb__segment"
+            data-ecl-breadcrumb-item="static"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
+              href="/example"
+            >
+              About the European Commission
+            </a>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-breadcrumb__icon"
+              focusable="false"
+              role="presentation"
+            >
+              <use
+                xlink:href="/icons.svg#ui--corner-arrow"
+              />
+            </svg>
+          </li>
+          <li
+            aria-current="page"
+            aria-hidden="false"
+            class="ecl-breadcrumb__segment ecl-breadcrumb__current-page"
+            data-ecl-breadcrumb-item="static"
+          >
+            News
+          </li>
+        </ol>
+      </nav>
       <div
         class="ecl-page-header__meta-list"
       >
@@ -1651,333 +1775,87 @@ exports[`EC - Page Header meta-title-description renders correctly with extra cl
       </p>
     </div>
   </div>
-</div>
+</test>
 `;
 
-exports[`EC - Page Header title - renders correctly 1`] = `
-<div
-  class="ecl-page-header"
->
+exports[`Page Header meta-title-description renders correctly with extra attributes 1`] = `
+<test>
   <div
-    class="ecl-container"
+    class="ecl-page-header"
+    data-test="data-test-value"
+    data-test-1="data-test-value-1"
   >
-    <nav
-      aria-label="You are here:"
-      class="ecl-breadcrumb ecl-page-header__breadcrumb"
-      data-ecl-auto-init="Breadcrumb"
-      data-ecl-breadcrumb="true"
-    >
-      <ol
-        class="ecl-breadcrumb__container"
-      >
-        <li
-          aria-hidden="false"
-          class="ecl-breadcrumb__segment"
-          data-ecl-breadcrumb-item="static"
-        >
-          <a
-            class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
-            href="/example"
-          >
-            Home
-          </a>
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-breadcrumb__icon"
-            focusable="false"
-            role="presentation"
-          >
-            <use
-              xlink:href="/icons.svg#ui--corner-arrow"
-            />
-          </svg>
-        </li>
-        <li
-          aria-hidden="false"
-          class="ecl-breadcrumb__segment"
-          data-ecl-breadcrumb-item="static"
-        >
-          <a
-            class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
-            href="/example"
-          >
-            About the European Commission
-          </a>
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-breadcrumb__icon"
-            focusable="false"
-            role="presentation"
-          >
-            <use
-              xlink:href="/icons.svg#ui--corner-arrow"
-            />
-          </svg>
-        </li>
-        <li
-          aria-current="page"
-          aria-hidden="false"
-          class="ecl-breadcrumb__segment ecl-breadcrumb__current-page"
-          data-ecl-breadcrumb-item="static"
-        >
-          News
-        </li>
-      </ol>
-    </nav>
     <div
-      class="ecl-page-header__title-wrapper"
+      class="ecl-container"
     >
-      <h1
-        class="ecl-page-header__title"
+      <nav
+        aria-label="You are here:"
+        class="ecl-breadcrumb ecl-page-header__breadcrumb"
+        data-ecl-auto-init="Breadcrumb"
+        data-ecl-breadcrumb="true"
       >
-        Page title
-      </h1>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`EC - Page Header title renders correctly with extra attributes 1`] = `
-<div
-  class="ecl-page-header"
-  data-test="data-test-value"
-  data-test-1="data-test-value-1"
->
-  <div
-    class="ecl-container"
-  >
-    <nav
-      aria-label="You are here:"
-      class="ecl-breadcrumb ecl-page-header__breadcrumb"
-      data-ecl-auto-init="Breadcrumb"
-      data-ecl-breadcrumb="true"
-    >
-      <ol
-        class="ecl-breadcrumb__container"
+        <ol
+          class="ecl-breadcrumb__container"
+        >
+          <li
+            aria-hidden="false"
+            class="ecl-breadcrumb__segment"
+            data-ecl-breadcrumb-item="static"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
+              href="/example"
+            >
+              Home
+            </a>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-breadcrumb__icon"
+              focusable="false"
+              role="presentation"
+            >
+              <use
+                xlink:href="/icons.svg#ui--corner-arrow"
+              />
+            </svg>
+          </li>
+          <li
+            aria-hidden="false"
+            class="ecl-breadcrumb__segment"
+            data-ecl-breadcrumb-item="static"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
+              href="/example"
+            >
+              About the European Commission
+            </a>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-breadcrumb__icon"
+              focusable="false"
+              role="presentation"
+            >
+              <use
+                xlink:href="/icons.svg#ui--corner-arrow"
+              />
+            </svg>
+          </li>
+          <li
+            aria-current="page"
+            aria-hidden="false"
+            class="ecl-breadcrumb__segment ecl-breadcrumb__current-page"
+            data-ecl-breadcrumb-item="static"
+          >
+            News
+          </li>
+        </ol>
+      </nav>
+      <div
+        class="ecl-page-header__meta-list"
       >
-        <li
-          aria-hidden="false"
-          class="ecl-breadcrumb__segment"
-          data-ecl-breadcrumb-item="static"
-        >
-          <a
-            class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
-            href="/example"
-          >
-            Home
-          </a>
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-breadcrumb__icon"
-            focusable="false"
-            role="presentation"
-          >
-            <use
-              xlink:href="/icons.svg#ui--corner-arrow"
-            />
-          </svg>
-        </li>
-        <li
-          aria-hidden="false"
-          class="ecl-breadcrumb__segment"
-          data-ecl-breadcrumb-item="static"
-        >
-          <a
-            class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
-            href="/example"
-          >
-            About the European Commission
-          </a>
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-breadcrumb__icon"
-            focusable="false"
-            role="presentation"
-          >
-            <use
-              xlink:href="/icons.svg#ui--corner-arrow"
-            />
-          </svg>
-        </li>
-        <li
-          aria-current="page"
-          aria-hidden="false"
-          class="ecl-breadcrumb__segment ecl-breadcrumb__current-page"
-          data-ecl-breadcrumb-item="static"
-        >
-          News
-        </li>
-      </ol>
-    </nav>
-    <div
-      class="ecl-page-header__title-wrapper"
-    >
-      <h1
-        class="ecl-page-header__title"
-      >
-        Page title
-      </h1>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`EC - Page Header title renders correctly with extra class names 1`] = `
-<div
-  class="ecl-page-header custom-class custom-class--test"
->
-  <div
-    class="ecl-container"
-  >
-    <nav
-      aria-label="You are here:"
-      class="ecl-breadcrumb ecl-page-header__breadcrumb"
-      data-ecl-auto-init="Breadcrumb"
-      data-ecl-breadcrumb="true"
-    >
-      <ol
-        class="ecl-breadcrumb__container"
-      >
-        <li
-          aria-hidden="false"
-          class="ecl-breadcrumb__segment"
-          data-ecl-breadcrumb-item="static"
-        >
-          <a
-            class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
-            href="/example"
-          >
-            Home
-          </a>
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-breadcrumb__icon"
-            focusable="false"
-            role="presentation"
-          >
-            <use
-              xlink:href="/icons.svg#ui--corner-arrow"
-            />
-          </svg>
-        </li>
-        <li
-          aria-hidden="false"
-          class="ecl-breadcrumb__segment"
-          data-ecl-breadcrumb-item="static"
-        >
-          <a
-            class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
-            href="/example"
-          >
-            About the European Commission
-          </a>
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-breadcrumb__icon"
-            focusable="false"
-            role="presentation"
-          >
-            <use
-              xlink:href="/icons.svg#ui--corner-arrow"
-            />
-          </svg>
-        </li>
-        <li
-          aria-current="page"
-          aria-hidden="false"
-          class="ecl-breadcrumb__segment ecl-breadcrumb__current-page"
-          data-ecl-breadcrumb-item="static"
-        >
-          News
-        </li>
-      </ol>
-    </nav>
-    <div
-      class="ecl-page-header__title-wrapper"
-    >
-      <h1
-        class="ecl-page-header__title"
-      >
-        Page title
-      </h1>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`EC - Page Header title-description - renders correctly 1`] = `
-<div
-  class="ecl-page-header"
->
-  <div
-    class="ecl-container"
-  >
-    <nav
-      aria-label="You are here:"
-      class="ecl-breadcrumb ecl-page-header__breadcrumb"
-      data-ecl-auto-init="Breadcrumb"
-      data-ecl-breadcrumb="true"
-    >
-      <ol
-        class="ecl-breadcrumb__container"
-      >
-        <li
-          aria-hidden="false"
-          class="ecl-breadcrumb__segment"
-          data-ecl-breadcrumb-item="static"
-        >
-          <a
-            class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
-            href="/example"
-          >
-            Home
-          </a>
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-breadcrumb__icon"
-            focusable="false"
-            role="presentation"
-          >
-            <use
-              xlink:href="/icons.svg#ui--corner-arrow"
-            />
-          </svg>
-        </li>
-        <li
-          aria-hidden="false"
-          class="ecl-breadcrumb__segment"
-          data-ecl-breadcrumb-item="static"
-        >
-          <a
-            class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
-            href="/example"
-          >
-            About the European Commission
-          </a>
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-breadcrumb__icon"
-            focusable="false"
-            role="presentation"
-          >
-            <use
-              xlink:href="/icons.svg#ui--corner-arrow"
-            />
-          </svg>
-        </li>
-        <li
-          aria-current="page"
-          aria-hidden="false"
-          class="ecl-breadcrumb__segment ecl-breadcrumb__current-page"
-          data-ecl-breadcrumb-item="static"
-        >
-          News
-        </li>
-      </ol>
-    </nav>
-    <div
-      class="ecl-page-header__title-wrapper"
-    >
+        News article | 17 October 2015
+      </div>
       <h1
         class="ecl-page-header__title"
       >
@@ -1990,84 +1868,85 @@ exports[`EC - Page Header title-description - renders correctly 1`] = `
       </p>
     </div>
   </div>
-</div>
+</test>
 `;
 
-exports[`EC - Page Header title-description renders correctly with extra attributes 1`] = `
-<div
-  class="ecl-page-header"
-  data-test="data-test-value"
-  data-test-1="data-test-value-1"
->
+exports[`Page Header meta-title-description renders correctly with extra class names 1`] = `
+<test>
   <div
-    class="ecl-container"
+    class="ecl-page-header custom-class custom-class--test"
   >
-    <nav
-      aria-label="You are here:"
-      class="ecl-breadcrumb ecl-page-header__breadcrumb"
-      data-ecl-auto-init="Breadcrumb"
-      data-ecl-breadcrumb="true"
-    >
-      <ol
-        class="ecl-breadcrumb__container"
-      >
-        <li
-          aria-hidden="false"
-          class="ecl-breadcrumb__segment"
-          data-ecl-breadcrumb-item="static"
-        >
-          <a
-            class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
-            href="/example"
-          >
-            Home
-          </a>
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-breadcrumb__icon"
-            focusable="false"
-            role="presentation"
-          >
-            <use
-              xlink:href="/icons.svg#ui--corner-arrow"
-            />
-          </svg>
-        </li>
-        <li
-          aria-hidden="false"
-          class="ecl-breadcrumb__segment"
-          data-ecl-breadcrumb-item="static"
-        >
-          <a
-            class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
-            href="/example"
-          >
-            About the European Commission
-          </a>
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-breadcrumb__icon"
-            focusable="false"
-            role="presentation"
-          >
-            <use
-              xlink:href="/icons.svg#ui--corner-arrow"
-            />
-          </svg>
-        </li>
-        <li
-          aria-current="page"
-          aria-hidden="false"
-          class="ecl-breadcrumb__segment ecl-breadcrumb__current-page"
-          data-ecl-breadcrumb-item="static"
-        >
-          News
-        </li>
-      </ol>
-    </nav>
     <div
-      class="ecl-page-header__title-wrapper"
+      class="ecl-container"
     >
+      <nav
+        aria-label="You are here:"
+        class="ecl-breadcrumb ecl-page-header__breadcrumb"
+        data-ecl-auto-init="Breadcrumb"
+        data-ecl-breadcrumb="true"
+      >
+        <ol
+          class="ecl-breadcrumb__container"
+        >
+          <li
+            aria-hidden="false"
+            class="ecl-breadcrumb__segment"
+            data-ecl-breadcrumb-item="static"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
+              href="/example"
+            >
+              Home
+            </a>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-breadcrumb__icon"
+              focusable="false"
+              role="presentation"
+            >
+              <use
+                xlink:href="/icons.svg#ui--corner-arrow"
+              />
+            </svg>
+          </li>
+          <li
+            aria-hidden="false"
+            class="ecl-breadcrumb__segment"
+            data-ecl-breadcrumb-item="static"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
+              href="/example"
+            >
+              About the European Commission
+            </a>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-breadcrumb__icon"
+              focusable="false"
+              role="presentation"
+            >
+              <use
+                xlink:href="/icons.svg#ui--corner-arrow"
+              />
+            </svg>
+          </li>
+          <li
+            aria-current="page"
+            aria-hidden="false"
+            class="ecl-breadcrumb__segment ecl-breadcrumb__current-page"
+            data-ecl-breadcrumb-item="static"
+          >
+            News
+          </li>
+        </ol>
+      </nav>
+      <div
+        class="ecl-page-header__meta-list"
+      >
+        News article | 17 October 2015
+      </div>
       <h1
         class="ecl-page-header__title"
       >
@@ -2080,82 +1959,351 @@ exports[`EC - Page Header title-description renders correctly with extra attribu
       </p>
     </div>
   </div>
-</div>
+</test>
 `;
 
-exports[`EC - Page Header title-description renders correctly with extra class names 1`] = `
-<div
-  class="ecl-page-header custom-class custom-class--test"
->
+exports[`Page Header title - renders correctly 1`] = `
+<test>
   <div
-    class="ecl-container"
+    class="ecl-page-header"
   >
-    <nav
-      aria-label="You are here:"
-      class="ecl-breadcrumb ecl-page-header__breadcrumb"
-      data-ecl-auto-init="Breadcrumb"
-      data-ecl-breadcrumb="true"
-    >
-      <ol
-        class="ecl-breadcrumb__container"
-      >
-        <li
-          aria-hidden="false"
-          class="ecl-breadcrumb__segment"
-          data-ecl-breadcrumb-item="static"
-        >
-          <a
-            class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
-            href="/example"
-          >
-            Home
-          </a>
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-breadcrumb__icon"
-            focusable="false"
-            role="presentation"
-          >
-            <use
-              xlink:href="/icons.svg#ui--corner-arrow"
-            />
-          </svg>
-        </li>
-        <li
-          aria-hidden="false"
-          class="ecl-breadcrumb__segment"
-          data-ecl-breadcrumb-item="static"
-        >
-          <a
-            class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
-            href="/example"
-          >
-            About the European Commission
-          </a>
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-breadcrumb__icon"
-            focusable="false"
-            role="presentation"
-          >
-            <use
-              xlink:href="/icons.svg#ui--corner-arrow"
-            />
-          </svg>
-        </li>
-        <li
-          aria-current="page"
-          aria-hidden="false"
-          class="ecl-breadcrumb__segment ecl-breadcrumb__current-page"
-          data-ecl-breadcrumb-item="static"
-        >
-          News
-        </li>
-      </ol>
-    </nav>
     <div
-      class="ecl-page-header__title-wrapper"
+      class="ecl-container"
     >
+      <nav
+        aria-label="You are here:"
+        class="ecl-breadcrumb ecl-page-header__breadcrumb"
+        data-ecl-auto-init="Breadcrumb"
+        data-ecl-breadcrumb="true"
+      >
+        <ol
+          class="ecl-breadcrumb__container"
+        >
+          <li
+            aria-hidden="false"
+            class="ecl-breadcrumb__segment"
+            data-ecl-breadcrumb-item="static"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
+              href="/example"
+            >
+              Home
+            </a>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-breadcrumb__icon"
+              focusable="false"
+              role="presentation"
+            >
+              <use
+                xlink:href="/icons.svg#ui--corner-arrow"
+              />
+            </svg>
+          </li>
+          <li
+            aria-hidden="false"
+            class="ecl-breadcrumb__segment"
+            data-ecl-breadcrumb-item="static"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
+              href="/example"
+            >
+              About the European Commission
+            </a>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-breadcrumb__icon"
+              focusable="false"
+              role="presentation"
+            >
+              <use
+                xlink:href="/icons.svg#ui--corner-arrow"
+              />
+            </svg>
+          </li>
+          <li
+            aria-current="page"
+            aria-hidden="false"
+            class="ecl-breadcrumb__segment ecl-breadcrumb__current-page"
+            data-ecl-breadcrumb-item="static"
+          >
+            News
+          </li>
+        </ol>
+      </nav>
+      <h1
+        class="ecl-page-header__title"
+      >
+        Page title
+      </h1>
+    </div>
+  </div>
+</test>
+`;
+
+exports[`Page Header title renders correctly with extra attributes 1`] = `
+<test>
+  <div
+    class="ecl-page-header"
+    data-test="data-test-value"
+    data-test-1="data-test-value-1"
+  >
+    <div
+      class="ecl-container"
+    >
+      <nav
+        aria-label="You are here:"
+        class="ecl-breadcrumb ecl-page-header__breadcrumb"
+        data-ecl-auto-init="Breadcrumb"
+        data-ecl-breadcrumb="true"
+      >
+        <ol
+          class="ecl-breadcrumb__container"
+        >
+          <li
+            aria-hidden="false"
+            class="ecl-breadcrumb__segment"
+            data-ecl-breadcrumb-item="static"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
+              href="/example"
+            >
+              Home
+            </a>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-breadcrumb__icon"
+              focusable="false"
+              role="presentation"
+            >
+              <use
+                xlink:href="/icons.svg#ui--corner-arrow"
+              />
+            </svg>
+          </li>
+          <li
+            aria-hidden="false"
+            class="ecl-breadcrumb__segment"
+            data-ecl-breadcrumb-item="static"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
+              href="/example"
+            >
+              About the European Commission
+            </a>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-breadcrumb__icon"
+              focusable="false"
+              role="presentation"
+            >
+              <use
+                xlink:href="/icons.svg#ui--corner-arrow"
+              />
+            </svg>
+          </li>
+          <li
+            aria-current="page"
+            aria-hidden="false"
+            class="ecl-breadcrumb__segment ecl-breadcrumb__current-page"
+            data-ecl-breadcrumb-item="static"
+          >
+            News
+          </li>
+        </ol>
+      </nav>
+      <h1
+        class="ecl-page-header__title"
+      >
+        Page title
+      </h1>
+    </div>
+  </div>
+</test>
+`;
+
+exports[`Page Header title renders correctly with extra class names 1`] = `
+<test>
+  <div
+    class="ecl-page-header custom-class custom-class--test"
+  >
+    <div
+      class="ecl-container"
+    >
+      <nav
+        aria-label="You are here:"
+        class="ecl-breadcrumb ecl-page-header__breadcrumb"
+        data-ecl-auto-init="Breadcrumb"
+        data-ecl-breadcrumb="true"
+      >
+        <ol
+          class="ecl-breadcrumb__container"
+        >
+          <li
+            aria-hidden="false"
+            class="ecl-breadcrumb__segment"
+            data-ecl-breadcrumb-item="static"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
+              href="/example"
+            >
+              Home
+            </a>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-breadcrumb__icon"
+              focusable="false"
+              role="presentation"
+            >
+              <use
+                xlink:href="/icons.svg#ui--corner-arrow"
+              />
+            </svg>
+          </li>
+          <li
+            aria-hidden="false"
+            class="ecl-breadcrumb__segment"
+            data-ecl-breadcrumb-item="static"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
+              href="/example"
+            >
+              About the European Commission
+            </a>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-breadcrumb__icon"
+              focusable="false"
+              role="presentation"
+            >
+              <use
+                xlink:href="/icons.svg#ui--corner-arrow"
+              />
+            </svg>
+          </li>
+          <li
+            aria-current="page"
+            aria-hidden="false"
+            class="ecl-breadcrumb__segment ecl-breadcrumb__current-page"
+            data-ecl-breadcrumb-item="static"
+          >
+            News
+          </li>
+        </ol>
+      </nav>
+      <h1
+        class="ecl-page-header__title"
+      >
+        Page title
+      </h1>
+    </div>
+  </div>
+</test>
+`;
+
+exports[`Page Header title with missing input data and debug enabled it returns the right warning messages 1`] = `
+<test>
+  <div
+    class="ecl-page-header"
+  >
+    <div
+      class="ecl-container"
+    >
+      <h1
+        class="ecl-page-header__title"
+      />
+    </div>
+  </div>
+  <!-- ecl2-compliance: page-header -->
+  <div
+    class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-red ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+  >
+    <p
+      class="ecl-u-type-color-grey ecl-u-ml-m ecl-u-type-xs"
+    >
+      [page-header] -  {{ title }} needs to set and filled in. {{ breadcrumb }} is mandatory, it should contain a breadcrumb object.
+    </p>
+  </div>
+</test>
+`;
+
+exports[`Page Header title-description - renders correctly 1`] = `
+<test>
+  <div
+    class="ecl-page-header"
+  >
+    <div
+      class="ecl-container"
+    >
+      <nav
+        aria-label="You are here:"
+        class="ecl-breadcrumb ecl-page-header__breadcrumb"
+        data-ecl-auto-init="Breadcrumb"
+        data-ecl-breadcrumb="true"
+      >
+        <ol
+          class="ecl-breadcrumb__container"
+        >
+          <li
+            aria-hidden="false"
+            class="ecl-breadcrumb__segment"
+            data-ecl-breadcrumb-item="static"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
+              href="/example"
+            >
+              Home
+            </a>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-breadcrumb__icon"
+              focusable="false"
+              role="presentation"
+            >
+              <use
+                xlink:href="/icons.svg#ui--corner-arrow"
+              />
+            </svg>
+          </li>
+          <li
+            aria-hidden="false"
+            class="ecl-breadcrumb__segment"
+            data-ecl-breadcrumb-item="static"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
+              href="/example"
+            >
+              About the European Commission
+            </a>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-breadcrumb__icon"
+              focusable="false"
+              role="presentation"
+            >
+              <use
+                xlink:href="/icons.svg#ui--corner-arrow"
+              />
+            </svg>
+          </li>
+          <li
+            aria-current="page"
+            aria-hidden="false"
+            class="ecl-breadcrumb__segment ecl-breadcrumb__current-page"
+            data-ecl-breadcrumb-item="static"
+          >
+            News
+          </li>
+        </ol>
+      </nav>
       <h1
         class="ecl-page-header__title"
       >
@@ -2168,5 +2316,179 @@ exports[`EC - Page Header title-description renders correctly with extra class n
       </p>
     </div>
   </div>
-</div>
+</test>
+`;
+
+exports[`Page Header title-description renders correctly with extra attributes 1`] = `
+<test>
+  <div
+    class="ecl-page-header"
+    data-test="data-test-value"
+    data-test-1="data-test-value-1"
+  >
+    <div
+      class="ecl-container"
+    >
+      <nav
+        aria-label="You are here:"
+        class="ecl-breadcrumb ecl-page-header__breadcrumb"
+        data-ecl-auto-init="Breadcrumb"
+        data-ecl-breadcrumb="true"
+      >
+        <ol
+          class="ecl-breadcrumb__container"
+        >
+          <li
+            aria-hidden="false"
+            class="ecl-breadcrumb__segment"
+            data-ecl-breadcrumb-item="static"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
+              href="/example"
+            >
+              Home
+            </a>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-breadcrumb__icon"
+              focusable="false"
+              role="presentation"
+            >
+              <use
+                xlink:href="/icons.svg#ui--corner-arrow"
+              />
+            </svg>
+          </li>
+          <li
+            aria-hidden="false"
+            class="ecl-breadcrumb__segment"
+            data-ecl-breadcrumb-item="static"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
+              href="/example"
+            >
+              About the European Commission
+            </a>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-breadcrumb__icon"
+              focusable="false"
+              role="presentation"
+            >
+              <use
+                xlink:href="/icons.svg#ui--corner-arrow"
+              />
+            </svg>
+          </li>
+          <li
+            aria-current="page"
+            aria-hidden="false"
+            class="ecl-breadcrumb__segment ecl-breadcrumb__current-page"
+            data-ecl-breadcrumb-item="static"
+          >
+            News
+          </li>
+        </ol>
+      </nav>
+      <h1
+        class="ecl-page-header__title"
+      >
+        Page title
+      </h1>
+      <p
+        class="ecl-page-header__description"
+      >
+        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium
+      </p>
+    </div>
+  </div>
+</test>
+`;
+
+exports[`Page Header title-description renders correctly with extra class names 1`] = `
+<test>
+  <div
+    class="ecl-page-header custom-class custom-class--test"
+  >
+    <div
+      class="ecl-container"
+    >
+      <nav
+        aria-label="You are here:"
+        class="ecl-breadcrumb ecl-page-header__breadcrumb"
+        data-ecl-auto-init="Breadcrumb"
+        data-ecl-breadcrumb="true"
+      >
+        <ol
+          class="ecl-breadcrumb__container"
+        >
+          <li
+            aria-hidden="false"
+            class="ecl-breadcrumb__segment"
+            data-ecl-breadcrumb-item="static"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
+              href="/example"
+            >
+              Home
+            </a>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-breadcrumb__icon"
+              focusable="false"
+              role="presentation"
+            >
+              <use
+                xlink:href="/icons.svg#ui--corner-arrow"
+              />
+            </svg>
+          </li>
+          <li
+            aria-hidden="false"
+            class="ecl-breadcrumb__segment"
+            data-ecl-breadcrumb-item="static"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-breadcrumb__link"
+              href="/example"
+            >
+              About the European Commission
+            </a>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-breadcrumb__icon"
+              focusable="false"
+              role="presentation"
+            >
+              <use
+                xlink:href="/icons.svg#ui--corner-arrow"
+              />
+            </svg>
+          </li>
+          <li
+            aria-current="page"
+            aria-hidden="false"
+            class="ecl-breadcrumb__segment ecl-breadcrumb__current-page"
+            data-ecl-breadcrumb-item="static"
+          >
+            News
+          </li>
+        </ol>
+      </nav>
+      <h1
+        class="ecl-page-header__title"
+      >
+        Page title
+      </h1>
+      <p
+        class="ecl-page-header__description"
+      >
+        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium
+      </p>
+    </div>
+  </div>
+</test>
 `;

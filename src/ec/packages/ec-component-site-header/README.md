@@ -1,4 +1,4 @@
-# ECL Twig - EC Site Header component
+# ECL-Twig Site Header component
 
 npm package: `@ecl-twig/ec-component-site-header`
 
@@ -13,7 +13,7 @@ npm install --save @ecl-twig/ec-component-site-header
   - "title" (string) (default: ''): Logo title attribute.
   - "alt" (string) (default: ''): Logo alt attribute.
   - "href" (string) (default: ''): Logo URL.
-  - "src" (string) (default: ''): Logo image file path, eg. dist/images/logo--en.svg.
+  - "src" (string) (default: ''): Logo image file path.
 - **"language_selector"** (associative array) (default: predefined structure): Language switcher settings. format:
   - "href" (string) (default: ''): URL for switcher
   - "name" (string) (default: ''): Switcher language label, eg. 'English', 'Français', etc.
@@ -32,6 +32,7 @@ npm install --save @ecl-twig/ec-component-site-header
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
+- **"_compliance_"** (boolean) (default: false) Activates debug
 
 ### Example :
 

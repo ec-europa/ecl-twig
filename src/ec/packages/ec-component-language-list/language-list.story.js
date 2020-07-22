@@ -1,36 +1,59 @@
-import { storiesOf } from '@storybook/html';
-import { withKnobs, text, select } from '@storybook/addon-knobs';
+import {
+  withKnobs,
+  text,
+  select,
+  boolean,
+  optionsKnob,
+} from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
-import { getExtraKnobs, tabLabels } from '@ecl-twig/story-utils';
+import {
+  getExtraKnobs,
+  tabLabels,
+  getComplianceKnob,
+} from '@ecl-twig/story-utils';
 
 import logoPath from '@ecl/ec-resources-logo/logo--mute.svg';
-import iconPath from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
+import euLogoPath from '@ecl/eu-resources-logo/logo--mute.svg';
+import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import dataSplash from './demo/data--splash';
 import dataOverlay from './demo/data--overlay';
 import languageList from './ecl-language-list.html.twig';
 import notes from './README.md';
 
+// Handle the EU demo.
+const system = process.env.STORYBOOK_SYSTEM
+  ? process.env.STORYBOOK_SYSTEM
+  : false;
+
 const prepareLanguageList = data => {
-  data.icon_path = select(
+  let logoImg = logoPath;
+  data.icon_path = optionsKnob(
     'icon_path',
-    [iconPath],
-    iconPath,
+    { current: defaultSprite, 'no path': '' },
+    defaultSprite,
+    { display: 'inline-radio' },
     tabLabels.required
   );
+  if (system) {
+    logoImg = euLogoPath;
+  }
   if (data.logo) {
-    data.logo.path = select(
+    data.logo.path = optionsKnob(
       'logo.path',
-      [logoPath],
-      logoPath,
+      { current: logoImg, 'no path': '' },
+      logoImg,
+      { display: 'inline-radio' },
       tabLabels.required
     );
-    data.logo.alt = select(
-      'logo.alt',
-      [data.logo.alt],
-      data.logo.alt,
-      tabLabels.required
-    );
+    if (data.logo.path) {
+      data.logo.alt = select(
+        'logo.alt',
+        [data.logo.alt],
+        data.logo.alt,
+        tabLabels.required
+      );
+    }
   }
   if (data.overlay) {
     data.overlay = select(
@@ -52,7 +75,7 @@ const prepareLanguageList = data => {
   }
 
   data.items.forEach((item, i) => {
-    if (data.items[i].label && data.items[i].path) {
+    if (item.label && item.path) {
       item.label = select(
         `items[${i}].label`,
         ['none', item.label],
@@ -67,25 +90,46 @@ const prepareLanguageList = data => {
         tabLabels.required
       );
     }
-
-    if (data.items[i].label === 'none') {
-      data.items[i].label = '';
-      data.items[i].path = '';
+    if (item.active) {
+      item.active = boolean(
+        `items[${i}].active`,
+        item.active,
+        tabLabels.required
+      );
+    }
+    if (item.label === 'none') {
+      item.label = '';
+      item.path = '';
     }
   });
 
   getExtraKnobs(data);
+  getComplianceKnob(data);
 
   return data;
 };
 
-storiesOf('Components/Language list', module)
-  .addDecorator(withKnobs)
-  .addDecorator(withCode)
-  .addDecorator(withNotes)
-  .add('splash', () => languageList(prepareLanguageList(dataSplash)), {
+export default {
+  title: 'Components/Language list',
+  decorators: [withKnobs, withCode, withNotes],
+};
+
+export const Splash = () => languageList(prepareLanguageList(dataSplash));
+
+Splash.story = {
+  name: 'splash',
+
+  parameters: {
     notes: { markdown: notes, json: dataSplash },
-  })
-  .add('overlay', () => languageList(prepareLanguageList(dataOverlay)), {
+  },
+};
+
+export const Overlay = () => languageList(prepareLanguageList(dataOverlay));
+
+Overlay.story = {
+  name: 'overlay',
+
+  parameters: {
     notes: { markdown: notes, json: dataOverlay },
-  });
+  },
+};

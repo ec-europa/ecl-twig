@@ -1,9 +1,9 @@
-# ECL Twig - EC Expandable component
+# ECL-Twig Dropdown legacy component
 
-npm package: `@ecl-twig/ec-component-expandable`
+npm package: `@ecl-twig/ec-component-drowpdown-legacy`
 
 ```shell
-npm install --save @ecl-twig/ec-component-expandable
+npm install --save @ecl-twig/ec-component-dropdown-legacy
 ```
 
 ### Parameters:
@@ -16,7 +16,8 @@ npm install --save @ecl-twig/ec-component-expandable
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
-  - "value" (string) Attribute value, eg: 'data-test-1'
+  - "value" (string) Attribute value, eg: 'data-test-1',
+- **"_compliance_"** (boolean) (default: false) Activates debug
 
 ### Example:
 

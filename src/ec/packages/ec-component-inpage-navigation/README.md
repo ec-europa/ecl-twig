@@ -1,4 +1,4 @@
-# ECL Twig - EC Inpage navigation
+# ECL-Twig Inpage navigation
 
 npm package: `@ecl-twig/ec-component-inpage-navigation`
 

@@ -2,12 +2,15 @@
   "name": "@ecl-twig/php-storybook",
   "author": "European Commission",
   "license": "EUPL-1.1",
-  "version": "0.0.1-alpha",
+  "version": "2.29.0",
   "description": "ECL Twig - Package to build a storybook instance on the fly for both js and php rendered components",
   "private": true,
   "scripts": {
-    "render": "composer run render",
-    "setup": "composer run setup"
+    "setup": "composer run setup",
+    "render-php": "composer run render",
+    "render-js": "scripts/render.js",
+    "copy": "resources/get-assets.js",
+    "fix-build": "resources/fix-build.js"
   },
   "repository": {
     "type": "git",
@@ -23,5 +26,10 @@
     "design-system",
     "twig"
   ],
-  "dependencies": {}
+  "devDependencies": {
+    "replace-in-file": "4.2.0",
+    "html-differ": "1.4.0",
+    "puppeteer": "2.1.1",
+    "yargs-interactive": "3.0.0"
+  }
 }

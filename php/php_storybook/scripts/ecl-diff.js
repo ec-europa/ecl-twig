@@ -31,7 +31,7 @@ const diffOptions = {
 };
 
 const htmlDiffer = new HtmlDiffer(diffOptions);
-let packages = require(`../../../../src/${system}/.storybook/${system}-packages.js`)
+let packages = require(`@ecl-twig/${system}-storybook/.storybook/packages.js`)
   .list;
 
 const domain = 'https://ec.europa.eu';
@@ -39,9 +39,10 @@ const rootFolder = process.cwd();
 const distFolder = `${rootFolder}/php`;
 const systemFolder = `${distFolder}/packages/${system}`;
 const getBase = element => {
-  [, element] = element.split(`${system}-component-`);
+  [, element] = element.split(`ec-component-`);
   return element;
 };
+
 // We build a list of components by their root name.
 packages = packages.map(getBase);
 packages.pop();
@@ -154,7 +155,7 @@ yargsInteractive()
 
         if (!fs.existsSync(twigFullPath)) {
           console.error(
-            `It seems that "${component}" has not been rendered yet, please run yarn check:component ${component} ${system}`
+            `It seems that "${component}" has not been rendered yet, please run yarn check:component ${system} ${component}`
           );
           process.exit(1);
         } else if (!fs.existsSync(`${twigFullPath}/${fileName}`)) {

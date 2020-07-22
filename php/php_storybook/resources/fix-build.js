@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-/* eslint-disable no-console, import/no-extraneous-dependencies */
+/* eslint-disable no-console */
 
 const replace = require('replace-in-file');
 
@@ -12,6 +12,7 @@ const options = {
     /\/logo--en.svg/g,
     /\/logo--fr.svg/g,
     /\/logo--mute.svg/g,
+    /\/eu-logo--mute.svg/g,
   ],
   to: [
     'icons.svg',

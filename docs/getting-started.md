@@ -31,9 +31,9 @@ There's also an extra package: `@ecl-twig/{ec,eu}-components` which is used to a
 
 Each component comes with a story `*.story.js` which is consumed by [Storybook](https://storybook.js.org/). In this story file, you import the main Twig template and you pass data to it. That's it!
 
-You can use knobs to make the showcase more dynamic and interactive.
+### ECL Compliance
 
-More features will come in the near future...
+The ecl-twig library comes with a special component named `ecl-compliance`, which defines a parent template for the ecl compliance checks to be performed.
 
 ### EC system
 
@@ -132,12 +132,24 @@ Diff a component rendered via php with the ECL markup
 (interactive script that fetches the html from the ECl storybook and matches that with the right variant rendered via php)
 
 ```bash
-yarn ecl-diff "ec or eu"
+yarn diff:ecl "ec or eu"
 ```
 
 ## Dist
 
-Build the dist:
+Build the dist for the twing based storybook:
+
+```bash
+yarn twing:dist
+```
+
+Build the dist for the php based storybook:
+
+```bash
+yarn php:dist
+```
+
+Build both:
 
 ```bash
 yarn dist
@@ -160,13 +172,13 @@ The following commands are available from the project root: (please ensure data 
 Get dependencies.
 
 ```bash
-yarn setupPhp
+yarn php:install
 ```
 
 Remove files and folders from previous builds.
 
 ```bash
-yarn clean:php
+yarn php:clean
 ```
 
 Generate data from specification files.
@@ -199,30 +211,11 @@ The whole process of installing the dependencies, generating the needed files, t
 yarn start:php-ec
 ```
 
-All output files are stored in `./php/packages/ec` folder.
-
 ```bash
 yarn start:php-eu
 ```
 
-All output files are stored in `./php/packages/eu` folder.
-
-## Deployment of the PHP Twig Storybook
-
-We host the php/js storybook on github: https://ec-europa.github.io/ecl-twig
-To be able to deploy a new version on github there are scripts you can execute:
-
-```bash
-yarn dist:php
-```
-
-It will create the bundle and place it in php/dist
-
-```bash
-yarn deploy:php
-```
-
-It uses the npm package https://www.npmjs.com/package/gh-pages to quickly deploy the php/dist folder on github.
+All output files are stored in `./php/packages/ec` folder.
 
 ## Libraries update
 

@@ -1,6 +1,6 @@
-/* eslint-disable no-param-reassign */
+/* eslint-disable no-param-reassign, dot-notation */
 import he from 'he';
-import { text, select, boolean } from '@storybook/addon-knobs';
+import { text, select, boolean, optionsKnob } from '@storybook/addon-knobs';
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import brandedIcons from '@ecl/ec-resources-icons/dist/lists/branded.json';
 
@@ -9,6 +9,7 @@ export const tabLabels = {
   optional: 'Optional elements',
   states: 'States',
   cases: 'Use cases',
+  checks: 'Validation',
 };
 
 export const getExtraKnobs = (data, nested) => {
@@ -178,10 +179,11 @@ export const getIconKnobs = (
     defaultType,
     tabLabels.required
   );
-  icon.path = select(
+  icon.path = optionsKnob(
     `${pref}icon.path`,
-    [defaultSprite],
+    { current: defaultSprite, 'no path': '' },
     defaultSprite,
+    { display: 'inline-radio' },
     tabLabels.required
   );
   icon.size = select(
@@ -207,21 +209,21 @@ export const getIconKnobs = (
       data.link.icon = icon;
     } else {
       data.icon = icon;
-      if (data.link) {
-        data.icon_position = select(
-          'icon_position',
-          iconPositionSettings,
-          'after',
-          tabLabels.optional
-        );
-      }
+    }
+    if (data.link) {
+      data.link.icon_position = select(
+        'icon_position',
+        iconPositionSettings,
+        'after',
+        tabLabels.optional
+      );
     }
   }
 
   return data;
 };
 
-export const getFormKnobs = data => {
+export const getFormKnobs = (data, required) => {
   let helperTextDefault = '';
   if (data.helper_text) {
     helperTextDefault = data.helper_text;
@@ -233,7 +235,7 @@ export const getFormKnobs = data => {
   };
   data.invalid = boolean('invalid', false, tabLabels.states);
   data.disabled = boolean('disabled', false, tabLabels.states);
-  data.required = boolean('required', false, tabLabels.states);
+  data.required = boolean('required', required, tabLabels.states);
   data.label = text('label', data.label, tabLabels.required);
   if (data.invalid) {
     data.invalid_text = text(
@@ -255,7 +257,7 @@ export const getFormKnobs = data => {
       tabLabels.required
     );
     data.optional_text = text(
-      'optional text',
+      'optional_text',
       data.optional_text,
       tabLabels.optional
     );
@@ -425,7 +427,7 @@ export const getLoginKnobs = (data, required) => {
   return data;
 };
 
-export const getLanguageSelectorKnobs = (data, required) => {
+export const getLanguageSelectorKnobs = (data, required, deprecated) => {
   let label = tabLabels.optional;
   if (required) {
     label = tabLabels.required;
@@ -435,11 +437,19 @@ export const getLanguageSelectorKnobs = (data, required) => {
     data.language_selector.href,
     label
   );
-  data.language_selector.label = text(
-    'language_selector.label',
-    data.language_selector.label,
-    label
-  );
+  if (deprecated) {
+    data.language_selector.name = text(
+      'language_selector.name',
+      data.language_selector.name,
+      label
+    );
+  } else {
+    data.language_selector.label = text(
+      'language_selector.label',
+      data.language_selector.label,
+      label
+    );
+  }
   data.language_selector.code = text(
     'language_selector.code',
     data.language_selector.code,
@@ -500,6 +510,16 @@ export const getLinkKnobs = data => {
     link.label = text(`links[${i}].label`, link.label, tabLabels.required);
     link.path = text(`links[${i}].path`, link.path, tabLabels.required);
   });
+
+  return data;
+};
+
+export const getComplianceKnob = data => {
+  data['_compliance_'] = boolean(
+    '_compliance_',
+    data['_compliance_'],
+    tabLabels.checks
+  );
 
   return data;
 };

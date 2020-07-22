@@ -1,8 +1,12 @@
-import { storiesOf } from '@storybook/html';
 import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
-import { getExtraKnobs, tabLabels, getIconKnobs } from '@ecl-twig/story-utils';
+import {
+  getExtraKnobs,
+  tabLabels,
+  getIconKnobs,
+  getComplianceKnob,
+} from '@ecl-twig/story-utils';
 // Import data for demos
 import dataPrimary from '@ecl/ec-specs-button/demo/data--primary';
 import dataSecondary from '@ecl/ec-specs-button/demo/data--secondary';
@@ -34,91 +38,117 @@ const prepareButton = data => {
   );
 
   getExtraKnobs(data);
+  getComplianceKnob(data);
 
   return data;
 };
 
-storiesOf('Components/Button', module)
-  .addDecorator(withKnobs)
-  .addDecorator(withCode)
-  .addDecorator(withNotes)
-  .add(
-    'primary',
-    () => {
-      const data = prepareButton(dataPrimary);
-      const name = select('icon.name', iconsList, null, tabLabels.optional);
-      if (name !== null) {
-        getIconKnobs(data, name, 'ui', 'xs');
-      }
+export default {
+  title: 'Components/Button',
+  decorators: [withKnobs, withCode, withNotes],
+};
 
-      return button(data);
-    },
-    {
-      notes: { markdown: notes, json: dataPrimary },
-    }
-  )
-  .add(
-    'secondary',
-    () => {
-      const data = prepareButton(dataSecondary);
-      const name = select('icon.name', iconsList, null, tabLabels.optional);
-      if (name !== null) {
-        getIconKnobs(data, name, 'ui', 'xs');
-      }
+export const Primary = () => {
+  const data = prepareButton(dataPrimary);
+  const name = select('icon.name', iconsList, null, tabLabels.optional);
+  if (name !== null) {
+    getIconKnobs(data, name, 'ui', 'xs');
+  } else if (name === null && data.icon) {
+    delete data.icon.name;
+  }
 
-      return button(data);
-    },
-    {
-      notes: { markdown: notes, json: dataSecondary },
-    }
-  )
-  .add(
-    'call to action',
-    () => {
-      const data = prepareButton(dataCall);
-      const name = select(
-        'icon.name',
-        iconsList,
-        'corner-arrow',
-        tabLabels.optional
-      );
-      if (name !== null) {
-        getIconKnobs(data, name, 'ui', 'xs', 'default', 'rotate-90');
-      }
+  return button(data);
+};
 
-      return button(data);
-    },
-    {
-      notes: { markdown: notes, json: dataCall },
-    }
-  )
-  .add(
-    'text',
-    () => {
-      const data = prepareButton(dataGhost);
-      const name = select('icon.name', iconsList, null, tabLabels.optional);
-      if (name !== null) {
-        getIconKnobs(data, name, 'ui', 'xs');
-      }
+Primary.story = {
+  name: 'primary',
 
-      return button(data);
-    },
-    {
-      notes: { markdown: notes, json: dataGhost },
-    }
-  )
-  .add(
-    'search',
-    () => {
-      const data = prepareButton(dataSearch);
-      const name = select('icon.name', iconsList, null, tabLabels.optional);
-      if (name !== null) {
-        getIconKnobs(data, name, 'ui', 'xs');
-      }
+  parameters: {
+    notes: { markdown: notes, json: dataPrimary },
+  },
+};
 
-      return button(data);
-    },
-    {
-      notes: { markdown: notes, json: dataSearch },
-    }
+export const Secondary = () => {
+  const data = prepareButton(dataSecondary);
+  const name = select('icon.name', iconsList, null, tabLabels.optional);
+  if (name !== null) {
+    getIconKnobs(data, name, 'ui', 'xs');
+  } else if (name === null && data.icon) {
+    delete data.icon.name;
+  }
+
+  return button(data);
+};
+
+Secondary.story = {
+  name: 'secondary',
+
+  parameters: {
+    notes: { markdown: notes, json: dataSecondary },
+  },
+};
+
+export const CallToAction = () => {
+  const data = prepareButton(dataCall);
+  const name = select(
+    'icon.name',
+    iconsList,
+    'corner-arrow',
+    tabLabels.optional
   );
+  if (name !== null) {
+    getIconKnobs(data, name, 'ui', 'xs', 'default', 'rotate-90');
+  } else if (name === null && data.icon) {
+    delete data.icon.name;
+  }
+
+  return button(data);
+};
+
+CallToAction.story = {
+  name: 'call to action',
+
+  parameters: {
+    notes: { markdown: notes, json: dataCall },
+  },
+};
+
+export const Text = () => {
+  const data = prepareButton(dataGhost);
+  const name = select('icon.name', iconsList, null, tabLabels.optional);
+  if (name !== null) {
+    getIconKnobs(data, name, 'ui', 'xs');
+  } else if (name === null && data.icon) {
+    delete data.icon.name;
+  }
+
+  return button(data);
+};
+
+Text.story = {
+  name: 'text',
+
+  parameters: {
+    notes: { markdown: notes, json: dataGhost },
+  },
+};
+
+export const Search = () => {
+  const data = prepareButton(dataSearch);
+  const name = select('icon.name', iconsList, null, tabLabels.optional);
+  if (name !== null) {
+    getIconKnobs(data, name, 'ui', 'xs');
+  } else if (name === null && data.icon) {
+    delete data.icon.name;
+  }
+
+  return button(data);
+};
+
+Search.story = {
+  name: 'search',
+
+  parameters: {
+    notes: { markdown: notes, json: dataSearch },
+  },
+};

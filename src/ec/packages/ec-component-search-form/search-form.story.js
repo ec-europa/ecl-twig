@@ -1,7 +1,10 @@
-import { storiesOf } from '@storybook/html';
-import { withKnobs, text, select } from '@storybook/addon-knobs';
+import { withKnobs, text, optionsKnob } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
-import { getExtraKnobs, tabLabels } from '@ecl-twig/story-utils';
+import {
+  getExtraKnobs,
+  tabLabels,
+  getComplianceKnob,
+} from '@ecl-twig/story-utils';
 import withCode from '@ecl-twig/storybook-addon-code';
 
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
@@ -15,30 +18,31 @@ const prepareSearchForm = data => {
     data.button.label,
     tabLabels.required
   );
-  data.button.icon.path = select(
+  data.button.icon.path = optionsKnob(
     'button.icon.path',
-    [defaultSprite],
+    { current: defaultSprite, 'no path': '' },
     defaultSprite,
+    { display: 'inline-radio' },
     tabLabels.required
   );
 
   getExtraKnobs(data);
+  getComplianceKnob(data);
 
   return data;
 };
 
-storiesOf('Components/Forms/Search Form', module)
-  .addDecorator(withKnobs)
-  .addDecorator(withNotes)
-  .addDecorator(withCode)
-  .add(
-    'default',
-    () => {
-      const dataStory = prepareSearchForm(dataDefault);
+export default {
+  title: 'Components/Forms/Search Form',
+  decorators: [withKnobs, withNotes, withCode],
+};
 
-      return searchForm(dataStory);
-    },
-    {
-      notes: { markdown: notes, json: dataDefault },
-    }
-  );
+export const Default = () => searchForm(prepareSearchForm(dataDefault));
+
+Default.story = {
+  name: 'default',
+
+  parameters: {
+    notes: { markdown: notes, json: dataDefault },
+  },
+};

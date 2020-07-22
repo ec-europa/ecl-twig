@@ -1,0 +1,95 @@
+<link
+  rel="stylesheet"
+  href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v2.30.0/ec-preset-legacy-website/styles/ecl-ec-preset-legacy-website.css"
+  integrity="sha256-YtKmi78I95+bJmh4dOQFZ5aQtoXxaRbbu7lTiGuvYjk=
+  sha384-DKiVqIQc5dL8J1MJMYUVz+2tSPeNsa2ovdabDfyNetd20VpEV83rNzxjCuo+l3mE
+  sha512-stZig2ZjNQf4q5S8tRDKJ6ovIpVg2eqAQRD2MLM7fnW5WyzfB0Z/JzQl6IQqVgq+ZfxEmeGDD1WxfB+ePEWMtg=="
+  crossorigin="anonymous"
+  media="screen"
+/>
+<link
+  rel="stylesheet"
+  href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v2.30.0/ec-preset-legacy-website/styles/ecl-ec-preset-legacy-website-print.css"
+  integrity="sha256-dwNu+ZXAU2yycbh+DWkfMgH34jB106Z8oYB/2WKM2hI=
+  sha384-F2XMMem6TTm6T43Up5YsI/VV5mIxzoNz4w9uFBBcKQN0vLAj153Z98cafq2NAtMG
+  sha512-kGob7or+jWnFffJKjP3I51Df59oFLwPQT/DlEGTr3EqzhwYJ3T8rFG9RCXqxx4A+25qdknM5H3GrYwK5/27dhQ=="
+  crossorigin="anonymous"
+  media="print"
+/>
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/tippy.js@6/animations/scale-extreme.css"
+/>
+<link rel="stylesheet" href="https://unpkg.com/tippy.js@6/dist/svg-arrow.css" />
+<script
+  src="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v2.30.0/ec-preset-legacy-website/scripts/ecl-ec-preset-legacy-website.js"
+  integrity="sha256-AE9L8C5fKz9BOf7miZ0QIAELQ1fEBwbyl3SED2fcQB0=
+  sha384-pmvmpr60vD00IYw/M7evM33HlhdPB0kPrCfx4Jki2+7WGv6jScUES0q6AEg+r62N
+  sha512-bzK1E/+zWtmzXLTe0siLdDLYfO00cChGlQ1a9gSx6R5AbCKW1fCi4niJQ1/10qz9jtbNBQyRMJWJSqq7PBLMlQ=="
+  crossorigin="anonymous"
+></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/7.8.3/polyfill.min.js"></script>
+<script src="https://unpkg.com/svg4everybody@2.1.9/dist/svg4everybody.min.js"></script>
+<script src="https://unpkg.com/@popperjs/core@2"></script>
+<script src="https://unpkg.com/tippy.js@6"></script>
+<style>
+  .tippy-box {
+    color: white;
+    font-family: arial, sans-serif;
+    padding: 0.25rem;
+    font-weight: 600;
+  }
+  .tippy-box[data-theme~='ecl-compliance-success'] {
+    background-color: #467a39;
+  }
+  .tippy-box[data-theme~='ecl-compliance-success'] > .tippy-svg-arrow {
+    fill: #467a39;
+  }
+  .tippy-box[data-theme~='ecl-compliance-failure'] {
+    background-color: #da2131;
+  }
+  .tippy-box[data-theme~='ecl-compliance-failure'] > .tippy-svg-arrow {
+    fill: #da2131;
+  }
+</style>
+<script>
+  // https://github.com/storybookjs/storybook/issues/6113#issuecomment-473965255
+  function runOnPageChange() {
+    ECL.autoInit();
+
+    if ((complianceReps = document.querySelectorAll('.ecl-compliance-inner'))) {
+      tippy.setDefaultProps({
+        interactive: true,
+        animation: 'scale-extreme',
+        arrow: tippy.roundArrow,
+      });
+      complianceReps.forEach(e => {
+        if (e.hasAttribute('title')) {
+          e.setAttribute('data-tippy-content', e.getAttribute('title'));
+          e.removeAttribute('title');
+        }
+      });
+      tippy('.ecl-compliance-success', { theme: 'ecl-compliance-success' });
+      tippy('.ecl-compliance-failure', { theme: 'ecl-compliance-failure' });
+    }
+  }
+
+  document.addEventListener(
+    'DOMContentLoaded',
+    function() {
+      const callback = function(mutationsList) {
+        for (let i = 0, len = mutationsList.length; i < len; i++) {
+          if (mutationsList[i].type == 'childList') {
+            runOnPageChange();
+            break;
+          }
+        }
+      };
+      const observer = new MutationObserver(callback);
+      const config = { childList: true, subtree: false };
+      observer.observe(document.getElementById('root'), config);
+    },
+    false
+  );
+  svg4everybody();
+</script>

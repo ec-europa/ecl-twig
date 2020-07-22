@@ -1,8 +1,12 @@
-import { storiesOf } from '@storybook/html';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
-import { withKnobs, text, select } from '@storybook/addon-knobs';
+import { withKnobs, text, optionsKnob } from '@storybook/addon-knobs';
 import withCode from '@ecl-twig/storybook-addon-code';
-import { getExtraKnobs, tabLabels, getFormKnobs } from '@ecl-twig/story-utils';
+import {
+  getExtraKnobs,
+  tabLabels,
+  getFormKnobs,
+  getComplianceKnob,
+} from '@ecl-twig/story-utils';
 
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import dataDefault from './demo/data';
@@ -11,31 +15,37 @@ import notes from './README.md';
 
 const prepareDatePicker = data => {
   getFormKnobs(data);
+
   data.label = text('label', data.label, tabLabels.required);
-  data.icons_path = select(
+  data.icons_path = optionsKnob(
     'icons_path',
-    [defaultSprite],
+    { current: defaultSprite, 'no path': '' },
     defaultSprite,
+    { display: 'inline-radio' },
     tabLabels.required
   );
 
   data.placeholder = text('placeholder', data.placeholder, tabLabels.required);
 
   getExtraKnobs(data);
+  getComplianceKnob(data);
 
   return data;
 };
 
-storiesOf('Components/Forms/Datepicker', module)
-  .addDecorator(withNotes)
-  .addDecorator(withCode)
-  .addDecorator(withKnobs)
-  .add(
-    'default',
-    () => {
-      return datepicker(prepareDatePicker(dataDefault));
-    },
-    {
-      notes: { markdown: notes, json: dataDefault },
-    }
-  );
+export default {
+  title: 'Components/Forms/Datepicker',
+  decorators: [withNotes, withCode, withKnobs],
+};
+
+export const Default = () => {
+  return datepicker(prepareDatePicker(dataDefault));
+};
+
+Default.story = {
+  name: 'default',
+
+  parameters: {
+    notes: { markdown: notes, json: dataDefault },
+  },
+};

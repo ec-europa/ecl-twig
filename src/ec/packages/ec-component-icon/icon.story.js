@@ -1,7 +1,11 @@
-import { storiesOf } from '@storybook/html';
 import { withKnobs, select } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
-import { getExtraKnobs, getIconKnobs, tabLabels } from '@ecl-twig/story-utils';
+import {
+  getExtraKnobs,
+  getIconKnobs,
+  tabLabels,
+  getComplianceKnob,
+} from '@ecl-twig/story-utils';
 import withCode from '@ecl-twig/storybook-addon-code';
 
 import brandedIcons from '@ecl/ec-resources-icons/dist/lists/branded.json';
@@ -19,79 +23,87 @@ import notes from './README.md';
 const prepareIcon = (data, name) => {
   getIconKnobs(data, name, data.icon.type);
   getExtraKnobs(data);
+  getComplianceKnob(data);
 
   return data;
 };
 
-storiesOf('Components/Icon', module)
-  .addDecorator(withKnobs)
-  .addDecorator(withNotes)
-  .addDecorator(withCode)
-  .add(
-    'branded',
-    () => {
-      const iconName = select(
-        'icon.name',
-        brandedIcons,
-        brandedIcons[0],
-        tabLabels.required
-      );
-      const dataStory = prepareIcon(dataBranded, iconName);
+export default {
+  title: 'Components/Icon',
+  decorators: [withKnobs, withNotes, withCode],
+};
 
-      return icon(dataStory);
-    },
-    {
-      notes: { markdown: notes, json: dataBranded },
-    }
-  )
-  .add(
-    'general',
-    () => {
-      const iconName = select(
-        'icon.name',
-        generalIcons,
-        generalIcons[0],
-        tabLabels.required
-      );
-      const dataStory = prepareIcon(dataGeneral, iconName);
-
-      return icon(dataStory);
-    },
-    {
-      notes: { markdown: notes, json: dataGeneral },
-    }
-  )
-  .add(
-    'notifications',
-    () => {
-      const iconName = select(
-        'icon.name',
-        notificationsIcons,
-        notificationsIcons[0],
-        tabLabels.required
-      );
-      const dataStory = prepareIcon(dataNotifications, iconName);
-
-      return icon(dataStory);
-    },
-    {
-      notes: { markdown: notes, json: dataNotifications },
-    }
-  )
-  .add(
-    'ui',
-    () => {
-      const iconName = select(
-        'icon.name',
-        uiIcons,
-        uiIcons[0],
-        tabLabels.required
-      );
-      const dataStory = prepareIcon(dataUi, iconName);
-
-      return icon(dataStory);
-    },
-    {
-      notes: { markdown: notes, json: dataUi },
-    }
+export const Branded = () => {
+  const iconName = select(
+    'icon.name',
+    brandedIcons,
+    brandedIcons[0],
+    tabLabels.required
   );
+  const dataStory = prepareIcon(dataBranded, iconName);
+
+  return icon(dataStory);
+};
+
+Branded.story = {
+  name: 'branded',
+
+  parameters: {
+    notes: { markdown: notes, json: dataBranded },
+  },
+};
+
+export const General = () => {
+  const iconName = select(
+    'icon.name',
+    generalIcons,
+    generalIcons[0],
+    tabLabels.required
+  );
+  const dataStory = prepareIcon(dataGeneral, iconName);
+
+  return icon(dataStory);
+};
+
+General.story = {
+  name: 'general',
+
+  parameters: {
+    notes: { markdown: notes, json: dataGeneral },
+  },
+};
+
+export const Notifications = () => {
+  const iconName = select(
+    'icon.name',
+    notificationsIcons,
+    notificationsIcons[0],
+    tabLabels.required
+  );
+  const dataStory = prepareIcon(dataNotifications, iconName);
+
+  return icon(dataStory);
+};
+
+Notifications.story = {
+  name: 'notifications',
+
+  parameters: {
+    notes: { markdown: notes, json: dataNotifications },
+  },
+};
+
+export const Ui = () => {
+  const iconName = select('icon.name', uiIcons, uiIcons[0], tabLabels.required);
+  const dataStory = prepareIcon(dataUi, iconName);
+
+  return icon(dataStory);
+};
+
+Ui.story = {
+  name: 'ui',
+
+  parameters: {
+    notes: { markdown: notes, json: dataUi },
+  },
+};
