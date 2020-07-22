@@ -3,6 +3,46 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.30.0](https://github.com/ec-europa/ecl-twig/compare/v2.29.0...v2.30.0) (2020-07-22)
+
+#### :rocket: New Feature
+
+- [#499](https://github.com/ec-europa/ecl-twig/pull/499) feat(site-headers): EU, adapting templates, adding demos - front-1285 ([@planctus](https://github.com/planctus))
+- [#498](https://github.com/ec-europa/ecl-twig/pull/498) feat(page-headers): EU adaptations, adding EU demos - FRONT-1268 ([@planctus](https://github.com/planctus))
+- [#497](https://github.com/ec-europa/ecl-twig/pull/497) feat(breadcrumbs): Adding EU demo for all the breadcrumbs - FRONT-1266 ([@planctus](https://github.com/planctus))
+- [#496](https://github.com/ec-europa/ecl-twig/pull/496) feat(footer-harmonised): Adapting template for EU, adding EU demo - FRONT-1263 ([@planctus](https://github.com/planctus))
+- [#494](https://github.com/ec-europa/ecl-twig/pull/494) feat(footer-core): Adding EU version - FRONT-1262 ([@planctus](https://github.com/planctus))
+- [#495](https://github.com/ec-europa/ecl-twig/pull/495) feat(footer-standardised): Adding EU version - FRONT-1264 ([@planctus](https://github.com/planctus))
+- [#492](https://github.com/ec-europa/ecl-twig/pull/492) feat(select): Adding multiple select - FRONT-1261 ([@planctus](https://github.com/planctus))
+- [#481](https://github.com/ec-europa/ecl-twig/pull/481) feat(ecl-compliance): ECL-compliance tool implementation ([@planctus](https://github.com/planctus))
+
+#### :bug: Bug Fix
+
+- [#493](https://github.com/ec-europa/ecl-twig/pull/493) fix(inpage-navigation): removing hidden attribute - FRONT-1265 ([@planctus](https://github.com/planctus))
+
+#### :nail_care: Enhancement
+
+- [#503](https://github.com/ec-europa/ecl-twig/pull/503) feat(EU): Aligning component involving EU data - front-1260 ([@planctus](https://github.com/planctus))
+- [#502](https://github.com/ec-europa/ecl-twig/pull/502) feat(language-list): Eu version - FRONT-1296 ([@planctus](https://github.com/planctus))
+- [#501](https://github.com/ec-europa/ecl-twig/pull/501) feat(hero-banner): Making everything optional, fixing icon knob behaviour - front-1282 ([@planctus](https://github.com/planctus))
+- [#489](https://github.com/ec-europa/ecl-twig/pull/489) feat(stories): Migration to CSF format - FRONT-1117 ([@planctus](https://github.com/planctus))
+- [#485](https://github.com/ec-europa/ecl-twig/pull/485) feat(knobs): Replacing select elements with optionsKnob in multiple stories - FRONT-1253 ([@planctus](https://github.com/planctus))
+- [#480](https://github.com/ec-europa/ecl-twig/pull/480) refactor(storybook): Private packages for storybook, EC and EU - FRONT-1115 ([@planctus](https://github.com/planctus))
+- [#474](https://github.com/ec-europa/ecl-twig/pull/474) refactor(private_packages): Moving utils and php_storybook into yarn/lerna workspaces - FRONT-1114 ([@planctus](https://github.com/planctus))
+
+#### :house: Internal
+
+- [#491](https://github.com/ec-europa/ecl-twig/pull/491) feat(ci): Deploying both js and php storybook(s) on netlify - FRONT-1236 ([@planctus](https://github.com/planctus))
+- [#490](https://github.com/ec-europa/ecl-twig/pull/490) feat(scripts): Removing legacy scripts from package.json - FRONT-1257 ([@planctus](https://github.com/planctus))
+- [#488](https://github.com/ec-europa/ecl-twig/pull/488) chore: update drone pipeline - FRONT-1255 ([@planctus](https://github.com/planctus))
+- [#483](https://github.com/ec-europa/ecl-twig/pull/483) feat(webpack): Alternative way to disable progressPlugin - FRONT-1251 ([@planctus](https://github.com/planctus))
+- [#479](https://github.com/ec-europa/ecl-twig/pull/479) fix(menu): Adding .npmignore file - FRONT-1227 ([@planctus](https://github.com/planctus))
+- [#476](https://github.com/ec-europa/ecl-twig/pull/476) refactor(ci): Branch name in the preview url - FRONT-1209 ([@planctus](https://github.com/planctus))
+
+#### Committers: 1
+
+- [@planctus](https://github.com/planctus)
+
 ## [2.29.0](https://github.com/ec-europa/ecl-twig/compare/v2.28.1...v2.29.0) (2020-06-16)
 
 #### :nail_care: Enhancement
