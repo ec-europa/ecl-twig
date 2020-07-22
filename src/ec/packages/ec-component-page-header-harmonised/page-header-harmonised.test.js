@@ -3,13 +3,16 @@ import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 import demoTitleContent from './demo/data--title';
 import demoMetaTitleContent from './demo/data--meta-title';
 import demoMetaTitleDescriptionContent from './demo/data--meta-title-description';
+import euDemoTitleContent from './demo/eu-data--title';
+import euDemoMetaTitleContent from './demo/eu-data--meta-title';
+import euDemoMetaTitleDescriptionContent from './demo/eu-data--meta-title-description';
 
-describe('EC - Page Header Harmonised', () => {
+describe('Page Header Harmonised', () => {
   const template =
     '@ecl-twig/ec-component-page-header-harmonised/ecl-page-header-harmonised.html.twig';
   const render = params => renderTwigFileAsNode(template, params);
 
-  describe('title', () => {
+  describe('EC - Title', () => {
     test(`- renders correctly`, () => {
       expect.assertions(1);
       return expect(render(demoTitleContent)).resolves.toMatchSnapshot();
@@ -48,7 +51,7 @@ describe('EC - Page Header Harmonised', () => {
     });
   });
 
-  describe('meta-title', () => {
+  describe('EC - meta-title', () => {
     test(`- renders correctly`, () => {
       expect.assertions(1);
       return expect(render(demoMetaTitleContent)).resolves.toMatchSnapshot();
@@ -78,7 +81,7 @@ describe('EC - Page Header Harmonised', () => {
     });
   });
 
-  describe('meta-title-description', () => {
+  describe('EC - meta-title-description', () => {
     test(`- renders correctly`, () => {
       expect.assertions(1);
       return expect(
@@ -107,6 +110,28 @@ describe('EC - Page Header Harmonised', () => {
       });
 
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
+    });
+  });
+
+  describe('EU content', () => {
+    test('Title', () => {
+      expect.assertions(1);
+
+      return expect(render(euDemoTitleContent)).resolves.toMatchSnapshot();
+    });
+
+    test('Meta Title', () => {
+      expect.assertions(1);
+
+      return expect(render(euDemoMetaTitleContent)).resolves.toMatchSnapshot();
+    });
+
+    test('Meta Title Description', () => {
+      expect.assertions(1);
+
+      return expect(
+        render(euDemoMetaTitleDescriptionContent)
+      ).resolves.toMatchSnapshot();
     });
   });
 });

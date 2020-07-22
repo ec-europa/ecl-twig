@@ -10,13 +10,13 @@ import withCode from '@ecl-twig/storybook-addon-code';
 import { getExtraKnobs, tabLabels } from '@ecl-twig/story-utils';
 
 import defaultSprite from '@ecl/eu-resources-icons/dist/sprites/icons.svg';
-import dataBasic from './demo/data--basic--eu';
-import dataHomepage from './demo/data--homepage--eu';
-import dataEvents from './demo/data--events--eu';
-import dataBrandedHomepage from './demo/data--branded-homepage--eu';
-import dataBrandedHomepageImage from './demo/data--branded-homepage-image--eu';
-import dataEventsDescription from './demo/data--events-description--eu';
-import dataHomepageImage from './demo/data--homepage-image--eu';
+import dataBasic from './demo/eu-data--basic';
+import dataHomepage from './demo/eu-data--homepage';
+import dataEvents from './demo/eu-data--events';
+import dataBrandedHomepage from './demo/eu-data--branded-homepage';
+import dataBrandedHomepageImage from './demo/eu-data--branded-homepage-image';
+import dataEventsDescription from './demo/eu-data--events-description';
+import dataHomepageImage from './demo/eu-data--homepage-image';
 import pageHeader from './ecl-page-header.html.twig';
 import notes from './README.md';
 

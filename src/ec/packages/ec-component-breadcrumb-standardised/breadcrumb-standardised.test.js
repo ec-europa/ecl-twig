@@ -2,8 +2,8 @@ import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
 import dataSimple from './demo/data--simple';
 import dataLong from './demo/data';
-import dataSimpleEu from './demo/data--simple--eu';
-import dataLongEu from './demo/data--eu';
+import dataSimpleEu from './demo/eu-data--simple';
+import dataLongEu from './demo/eu-data';
 
 describe('EC - Breadcrumb Standardised', () => {
   const template =
