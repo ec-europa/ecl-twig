@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-/* eslint-disable global-require, no-unused-vars, import/no-dynamic-require, import/no-extraneous-dependencies */
+/* eslint-disable global-require, unicorn/explicit-length-check, no-unused-vars, import/no-dynamic-require, import/no-extraneous-dependencies */
 
 const fs = require('fs');
 const fse = require('fs-extra');
@@ -21,13 +21,12 @@ const createDataFiles = ({
   const allFiles = fs.readdirSync(readLocation);
   let euFiles = [];
   let files = [];
-  // Only one spec in EU.
   if (system === 'eu') {
     euFiles = allFiles.filter(file => {
       return file.startsWith('eu-');
     });
   }
-  if (euFiles.length !== 0) {
+  if (euFiles.length < 1) {
     files = allFiles.filter(file => {
       return !file.startsWith('eu-');
     });
