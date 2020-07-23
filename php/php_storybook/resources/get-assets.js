@@ -12,7 +12,7 @@ ncp('static/images/', 'php/dist/ec/', options, err => {
   if (err) {
     return console.error(err);
   }
-  return console.log('Assets copied in the php/dist folder');
+  return console.log('Assets copied in the php/dist/ec folder');
 });
 
 if (fs.existsSync('php/dist/eu/')) {
@@ -20,7 +20,7 @@ if (fs.existsSync('php/dist/eu/')) {
     if (err) {
       return console.error(err);
     }
-    return console.log('Assets copied in the php/dist folder');
+    return console.log('Assets copied in the php/dist/eu folder');
   });
 }
 ncp('static/index.html', 'php/dist/index.html', {}, err => {
