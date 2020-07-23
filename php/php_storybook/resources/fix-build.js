@@ -13,6 +13,12 @@ const options = {
     /\/logo--fr.svg/g,
     /\/logo--mute.svg/g,
     /\/eu-logo--mute.svg/g,
+    /\/eu-logo--en.svg/g,
+    /\/eu-logo--fr.svg/g,
+    /\/eu-logo-mobile-en.svg/g,
+    /\/eu-logo-mobile-fr.svg/g,
+    /\/en.svg/g,
+    /\/fr.svg/g,
   ],
   to: [
     'icons.svg',
@@ -20,6 +26,13 @@ const options = {
     'logo--en.svg',
     'logo--fr.svg',
     'logo--mute.svg',
+    'eu-logo--mute.svg',
+    'eu-logo--en.svg',
+    'eu-logo--fr.svg',
+    'eu-logo-mobile-en.svg',
+    'eu-logo-mobile-fr.svg',
+    'en.svg',
+    'fr.svg',
   ],
 };
 
