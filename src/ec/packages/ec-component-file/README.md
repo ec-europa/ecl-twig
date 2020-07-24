@@ -14,7 +14,7 @@ npm install --save @ecl-twig/ec-component-file
 - **"description"** (string) (default: '')
 - **"language"** (string) (default: '')
 - **"meta"** (string) (default: '')
-- **"detail_meta"** (string) (default: '') for the thumbnail variant
+- **"detail_meta"** (array) (default: []) Meta element for the thumbnail variant
 - **"download"** (object) (default: {}): object of type Link
 - **"translation"** (array) (default: []):
   - "toggle" (object) (default: {}): object of type Button
