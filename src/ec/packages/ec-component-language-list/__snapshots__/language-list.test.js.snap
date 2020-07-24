@@ -2330,9 +2330,7 @@ exports[`EC - Language List Overlay with validation enabled and missing input da
       >
         <div
           class="ecl-language-list__category ecl-col-12 ecl-col-lg-8 ecl-offset-lg-2"
-        >
-          Non-EU languages
-        </div>
+        />
         <div
           class="ecl-language-list__column ecl-col-12 ecl-col-lg-4 ecl-offset-lg-2"
         >
@@ -2499,7 +2497,7 @@ exports[`EC - Language List Overlay with validation enabled and missing input da
     <p
       class="ecl-u-type-color-grey ecl-u-ml-m ecl-u-type-xs"
     >
-      [language-list] -  When {{ overlay }} is set to true the {{ close_label }} property needs to set and filled in. When {{ overlay }} is set to true the {{ title }} needs to set and filled in. Each item needs to contain a {{ label }} property set and filled in. Each item needs to contain a {{ lang }} property set and filled in. The active selection is mandatory, one of the items needs to have the {{ active }} property set to true.
+      [language-list] -  When {{ overlay }} is set to true the {{ close_label }} property needs to set and filled in. When {{ overlay }} is set to true the {{ title }} needs to set and filled in. Each item needs to contain a {{ label }} property set and filled in. Each item needs to contain a {{ lang }} property set and filled in. The active selection is mandatory, one of the items needs to have the {{ active }} property set to true. The {{ non_eu_category }} property needs to be filled in when you list non european languages.
     </p>
   </div>
 </test>
