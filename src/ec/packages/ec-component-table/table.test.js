@@ -71,14 +71,15 @@ describe('EC - Table', () => {
       return expect(render(withRowExtraClasses)).resolves.toMatchSnapshot();
     });
 
-    test('with missing input data and debug enabled shows the right warning message.', () => {
+    test('with missing input data and debug enabled shows the right warning message.', async () => {
       expect.assertions(1);
 
       const dataCompliance = { ...dataDefault, _compliance_: true };
       dataCompliance.headers[0].label = '';
       dataCompliance.rows = [];
 
-      return expect(render(dataCompliance)).resolves.toMatchSnapshot();
+      const result = await render(dataCompliance);
+      expect(result).toMatchSnapshot();
     });
   });
 
