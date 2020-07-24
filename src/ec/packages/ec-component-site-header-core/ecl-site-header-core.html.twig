@@ -360,9 +360,12 @@
   {% include '@ecl-twig/ec-component-language-list/ecl-language-list.html.twig' with {
     overlay: true,
     items: _language_selector.overlay.items,
+    non_eu_items: _language_selector.overlay.non_eu_items,
     close_label: _language_selector.overlay.close_label,
     title: _language_selector.overlay.title,
     icon_path: _icon_file_path,
+    eu_category: _language_selector.eu_category,
+    non_eu_category: _language_selector.non_eu_category,
     extra_attributes: [
       { name: 'hidden' },
       { name: 'id', value: 'language-list-overlay' }
