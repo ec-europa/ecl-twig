@@ -1,4 +1,4 @@
-import { withKnobs, text, optionsKnob } from '@storybook/addon-knobs';
+import { withKnobs, text, optionsKnob, array } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import {
   getExtraKnobs,
@@ -10,14 +10,30 @@ import withCode from '@ecl-twig/storybook-addon-code';
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import dataWithTranslation from './demo/data--with-translation';
 import dataWithoutTranslation from './demo/data--without-translation';
+import dataThumbnail from './demo/data--thumbnail';
 
 import file from './ecl-file.html.twig';
 import notes from './README.md';
 
-const prepareFile = data => {
+const prepareFile = (data, variant) => {
   data.title = text('title', data.title, tabLabels.required);
   data.language = text('language', data.language, tabLabels.required);
   data.meta = text('meta', data.meta, tabLabels.required);
+  if (variant) {
+    data.description = text(
+      'description',
+      data.description,
+      tabLabels.optional
+    );
+    data.image.src = text('image.src', data.image.src, tabLabels.optional);
+    data.image.alt = text('image.alt', data.image.alt, tabLabels.optional);
+    data.detail_meta = array(
+      'detail_meta (array)',
+      data.detail_meta,
+      '|',
+      tabLabels.optional
+    );
+  }
   data.icon.path = optionsKnob(
     'icon.path',
     { current: defaultSprite, 'no path': '' },
@@ -122,5 +138,15 @@ WithTranslation.story = {
 
   parameters: {
     notes: { markdown: notes, json: dataWithTranslation },
+  },
+};
+
+export const Thumbnail = () => file(prepareFile(dataThumbnail, 'thumbnail'));
+
+Thumbnail.story = {
+  name: 'thumbnail',
+
+  parameters: {
+    notes: { markdown: notes, json: dataThumbnail },
   },
 };
