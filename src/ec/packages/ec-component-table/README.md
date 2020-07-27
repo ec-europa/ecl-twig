@@ -9,6 +9,7 @@ npm install --save @ecl-twig/ec-component-table
 ### Parameters:
 
 - **"zebra"** (boolean) (default: false))
+- **"sortable"** (boolean) (default: false)
 - **"headers"** (array) (default: [])
   - "label" (string or array of string)
   - "colspan" (string) (default: ''),
