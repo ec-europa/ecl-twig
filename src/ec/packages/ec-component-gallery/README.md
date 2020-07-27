@@ -22,6 +22,7 @@ npm install --save @ecl-twig/ec-component-gallery
   - "meta" (string) (default: '')
   - "icon" (object) (default: {}): object of type icon
   - "share_path" (string) (default: '')
+- **"footer"** (object) (default: {}) Footer link
 - **"view_all_label"** (string) (default: '') Label of the view all button
 - **"counter_label"** (string) (default: '') Label of the counter
 - **"selected_item_id"** (int) (default: 0)
@@ -61,6 +62,19 @@ npm install --save @ecl-twig/ec-component-gallery
     }, 
     ... 
   ], 
+  footer: { 
+    link: { 
+      label: "Link to further media items", 
+      path: "/example", 
+      aria_label: "View all link aria-label value" 
+    }, 
+    icon: { 
+      path: "/icons.svg", 
+      type: "ui", 
+      name: "external", 
+      size: "s" 
+    } 
+  },
   overlay: { 
     close: { 
       variant: 'ghost', 

@@ -28,8 +28,11 @@ function formatItem(i) {
 }
 
 const adapter = initialData => {
+  const footer = formatLink(initialData.footerLink);
+  footer.icon.path = '/icons.svg';
   const adaptedData = {
     items: initialData.items.map(formatItem),
+    footer,
     overlay: {
       close: formatButton(initialData.overlay.close),
       previous: formatButton(initialData.overlay.previous),

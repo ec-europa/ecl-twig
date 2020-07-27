@@ -11,6 +11,7 @@
     - "counter_separator" (string) (default: '')
     - "download" (object) (default: {}): object of type link
     - "share" (object) (default: {}): object of type link
+  - "footer" (object) (default: {}): object 0f type link
   - "items" (array) (default: [])
     - "path" (string) (default: '')
     - "alt" (string) (default: '')
@@ -34,6 +35,7 @@
 {% set _counter_label = counter_label|default('') %}
 {% set _view_all_label = view_all_label|default('') %}
 {% set _items = items|default([]) %}
+{% set _footer = footer|default({}) %}
 {% set _selected_item_id = selected_item_id|default(0) %}
 {% set _extra_attributes = 'data-ecl-auto-init="Gallery"' %}
 {% set _overlay_class = '' %}
@@ -88,6 +90,17 @@
     extra_attributes: [{ name: 'data-ecl-gallery-all' }]
   } only %}
 
+{% if _footer is not empty and _footer.link is defined and _footer.link is not empty %}
+  <div class="ecl-gallery__footer">
+    {% include '@ecl-twig/ec-component-link/ecl-link.html.twig' with {
+      link: _footer.link|merge({
+        type: 'standalone',
+        icon_position: 'after',
+      }),
+      icon: _footer.icon
+    } only %}
+  </div>
+{% endif %}
   {% set _selected_item = {} %}
   {% if _items[_selected_item_id] is defined and _items[_selected_item_id] is not empty %}
     {% set _selected_item = _items[_selected_item_id] %}

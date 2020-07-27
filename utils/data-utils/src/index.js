@@ -32,7 +32,7 @@ const formatLink = l => {
     link.link.hreflang = l.hreflang;
   }
 
-  link.link.aria_label = l.aria_label ? l.aria_label : 'Aria label default';
+  link.link.aria_label = l.ariaLabel ? l.ariaLabel : 'Aria label default';
 
   return link;
 };
