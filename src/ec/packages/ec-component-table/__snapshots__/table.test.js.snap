@@ -1240,7 +1240,7 @@ exports[`EC - Table Multi renders correctly 1`] = `
           European Commission
         </td>
         <td
-          class="ecl-table__cell"
+          class="ecl-table__cell ecl-table__cell--group"
           data-ecl-table-header="Type of contract"
         >
           Permanent official
@@ -1275,7 +1275,7 @@ exports[`EC - Table Multi renders correctly 1`] = `
           European Commission
         </td>
         <td
-          class="ecl-table__cell"
+          class="ecl-table__cell ecl-table__cell--group"
           data-ecl-table-header="Type of contract"
         >
           Permanent official
@@ -1310,7 +1310,7 @@ exports[`EC - Table Multi renders correctly 1`] = `
           European Commission
         </td>
         <td
-          class="ecl-table__cell"
+          class="ecl-table__cell ecl-table__cell--group"
           data-ecl-table-header="Type of contract"
         >
           Permanent official
@@ -1345,7 +1345,7 @@ exports[`EC - Table Multi renders correctly 1`] = `
           European Commission
         </td>
         <td
-          class="ecl-table__cell"
+          class="ecl-table__cell ecl-table__cell--group"
           data-ecl-table-header="Type of contract"
         >
           Permanent official
@@ -1380,7 +1380,254 @@ exports[`EC - Table Multi renders correctly 1`] = `
           EU-LISA
         </td>
         <td
+          class="ecl-table__cell ecl-table__cell--group"
+          data-ecl-table-header="Type of contract"
+        >
+          Seconded National Expert (SNE)
+        </td>
+        <td
           class="ecl-table__cell"
+          data-ecl-table-header="Location"
+        >
+          Vigo (Spain)
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</test>
+`;
+
+exports[`EC - Table Sort table renders correctly 1`] = `
+<test>
+  <table
+    class="ecl-table"
+    data-ecl-auto-init="Table"
+    data-ecl-table=""
+  >
+    <thead
+      class="ecl-table__head"
+    >
+      <tr
+        class="ecl-table__row"
+      >
+        <th
+          class="ecl-table__header"
+          data-ecl-table-sort-toggle=""
+        >
+          Job title
+        </th>
+        <th
+          class="ecl-table__header"
+          data-ecl-table-sort-toggle=""
+        >
+          EFSI finance approved by EIB
+        </th>
+        <th
+          class="ecl-table__header"
+          colspan="2"
+        >
+          Extra information
+        </th>
+        <th
+          class="ecl-table__header"
+          data-ecl-table-sort-toggle=""
+        >
+          Location
+        </th>
+      </tr>
+      <tr
+        class="ecl-table__row"
+      >
+        <th
+          class="ecl-table__header"
+        />
+        <th
+          class="ecl-table__header"
+        />
+        <th
+          class="ecl-table__header"
+          data-ecl-table-sort-toggle=""
+        >
+          Organization
+        </th>
+        <th
+          class="ecl-table__header"
+          data-ecl-table-sort-toggle=""
+        >
+          Type of contract
+        </th>
+        <th
+          class="ecl-table__header"
+        />
+      </tr>
+    </thead>
+    <tbody
+      class="ecl-table__body"
+    >
+      <tr
+        class="ecl-table__row"
+      >
+        <td
+          class="ecl-table__cell"
+          data-ecl-table-header="Job title"
+        >
+          Administators in Competition Law
+        </td>
+        <td
+          class="ecl-table__cell"
+          data-ecl-table-header="EFSI finance approved by EIB"
+        >
+          AD7
+        </td>
+        <td
+          class="ecl-table__cell ecl-table__cell--group"
+          data-ecl-table-header="Organization"
+          data-ecl-table-header-group="Extra information"
+        >
+          European Commission
+        </td>
+        <td
+          class="ecl-table__cell ecl-table__cell--group"
+          data-ecl-table-header="Type of contract"
+        >
+          Permanent official
+        </td>
+        <td
+          class="ecl-table__cell"
+          data-ecl-table-header="Location"
+        >
+          Brussels (Belgium), Luxembourg (Luxembourg), Strasbourg (France)
+        </td>
+      </tr>
+      <tr
+        class="ecl-table__row"
+      >
+        <td
+          class="ecl-table__cell"
+          data-ecl-table-header="Job title"
+        >
+          Administators in Economic and Monetary Union Law
+        </td>
+        <td
+          class="ecl-table__cell"
+          data-ecl-table-header="EFSI finance approved by EIB"
+        >
+          AD7
+        </td>
+        <td
+          class="ecl-table__cell ecl-table__cell--group"
+          data-ecl-table-header="Organization"
+          data-ecl-table-header-group="Extra information"
+        >
+          European Commission
+        </td>
+        <td
+          class="ecl-table__cell ecl-table__cell--group"
+          data-ecl-table-header="Type of contract"
+        >
+          Permanent official
+        </td>
+        <td
+          class="ecl-table__cell"
+          data-ecl-table-header="Location"
+        >
+          Brussels (Belgium), Luxembourg (Luxembourg), Strasbourg (France)
+        </td>
+      </tr>
+      <tr
+        class="ecl-table__row"
+      >
+        <td
+          class="ecl-table__cell"
+          data-ecl-table-header="Job title"
+        >
+          Administators in Financial rules appliable to the EU budget
+        </td>
+        <td
+          class="ecl-table__cell"
+          data-ecl-table-header="EFSI finance approved by EIB"
+        >
+          AD7
+        </td>
+        <td
+          class="ecl-table__cell ecl-table__cell--group"
+          data-ecl-table-header="Organization"
+          data-ecl-table-header-group="Extra information"
+        >
+          European Commission
+        </td>
+        <td
+          class="ecl-table__cell ecl-table__cell--group"
+          data-ecl-table-header="Type of contract"
+        >
+          Permanent official
+        </td>
+        <td
+          class="ecl-table__cell"
+          data-ecl-table-header="Location"
+        >
+          Brussels (Belgium), Luxembourg (Luxembourg), Strasbourg (France)
+        </td>
+      </tr>
+      <tr
+        class="ecl-table__row"
+      >
+        <td
+          class="ecl-table__cell"
+          data-ecl-table-header="Job title"
+        >
+          Corporate Support Officer
+        </td>
+        <td
+          class="ecl-table__cell"
+          data-ecl-table-header="EFSI finance approved by EIB"
+        >
+          FG IV
+        </td>
+        <td
+          class="ecl-table__cell ecl-table__cell--group"
+          data-ecl-table-header="Organization"
+          data-ecl-table-header-group="Extra information"
+        >
+          European Commission
+        </td>
+        <td
+          class="ecl-table__cell ecl-table__cell--group"
+          data-ecl-table-header="Type of contract"
+        >
+          Permanent official
+        </td>
+        <td
+          class="ecl-table__cell"
+          data-ecl-table-header="Location"
+        >
+          Prague (Czech Republic)
+        </td>
+      </tr>
+      <tr
+        class="ecl-table__row"
+      >
+        <td
+          class="ecl-table__cell"
+          data-ecl-table-header="Job title"
+        >
+          Policy Officer - Clean Energy For All Europeans
+        </td>
+        <td
+          class="ecl-table__cell"
+          data-ecl-table-header="EFSI finance approved by EIB"
+        >
+          FG II, FG III, FG IV
+        </td>
+        <td
+          class="ecl-table__cell ecl-table__cell--group"
+          data-ecl-table-header="Organization"
+          data-ecl-table-header-group="Extra information"
+        >
+          EU-LISA
+        </td>
+        <td
+          class="ecl-table__cell ecl-table__cell--group"
           data-ecl-table-header="Type of contract"
         >
           Seconded National Expert (SNE)
