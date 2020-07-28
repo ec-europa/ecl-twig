@@ -73,7 +73,12 @@ const prepareLanguageList = data => {
   if (data.title) {
     data.title = text('title', data.title, tabLabels.required);
   }
-
+  data.eu_category = text('eu_category', data.eu_category, tabLabels.optional);
+  data.non_eu_category = text(
+    'non_eu_category',
+    data.non_eu_category,
+    tabLabels.optional
+  );
   data.items.forEach((item, i) => {
     if (item.label && item.path) {
       item.label = select(
@@ -95,6 +100,35 @@ const prepareLanguageList = data => {
         `items[${i}].active`,
         item.active,
         tabLabels.required
+      );
+    }
+    if (item.label === 'none') {
+      item.label = '';
+      item.path = '';
+    }
+  });
+
+  data.non_eu_items.forEach((item, i) => {
+    if (item.label && item.path) {
+      item.label = select(
+        `non_eu_items[${i}].label`,
+        ['none', item.label],
+        item.label,
+        tabLabels.optional
+      );
+      item.path = text(`items[${i}].path`, item.path, tabLabels.optional);
+      item.lang = select(
+        `non_eu_items[${i}].lang`,
+        [item.lang],
+        item.lang,
+        tabLabels.optional
+      );
+    }
+    if (item.active) {
+      item.active = boolean(
+        `non_eu_items[${i}].active`,
+        item.active,
+        tabLabels.optional
       );
     }
     if (item.label === 'none') {

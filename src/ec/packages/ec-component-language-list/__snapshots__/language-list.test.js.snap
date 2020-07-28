@@ -52,8 +52,13 @@ exports[`EC - Language List Overlay renders correctly 1`] = `
         </div>
       </div>
       <div
-        class="ecl-row"
+        class="ecl-row ecl-language-list__eu"
       >
+        <div
+          class="ecl-language-list__category ecl-col-12 ecl-col-lg-8 ecl-offset-lg-2"
+        >
+          EU official languages
+        </div>
         <div
           class="ecl-language-list__column ecl-col-12 ecl-col-lg-4 ecl-offset-lg-2"
         >
@@ -416,6 +421,101 @@ exports[`EC - Language List Overlay renders correctly 1`] = `
                 rel="alternate"
               >
                 svenska
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div
+        class="ecl-row ecl-language-list__non-eu"
+      >
+        <div
+          class="ecl-language-list__category ecl-col-12 ecl-col-lg-8 ecl-offset-lg-2"
+        >
+          Non-EU languages
+        </div>
+        <div
+          class="ecl-language-list__column ecl-col-12 ecl-col-lg-4 ecl-offset-lg-2"
+        >
+          <ul
+            class="ecl-language-list__list"
+          >
+            <li
+              class="ecl-language-list__item"
+            >
+              <a
+                aria-label="Aria label default"
+                class="ecl-link ecl-link--standalone ecl-language-list__link"
+                href="/example"
+                hreflang="zh"
+                lang="zh"
+                rel="alternate"
+              >
+                中文
+              </a>
+            </li>
+            <li
+              class="ecl-language-list__item"
+            >
+              <a
+                aria-label="Aria label default"
+                class="ecl-link ecl-link--standalone ecl-language-list__link"
+                href="/example"
+                hreflang="tr"
+                lang="tr"
+                rel="alternate"
+              >
+                Türk
+              </a>
+            </li>
+            <li
+              class="ecl-language-list__item"
+            >
+              <a
+                aria-label="Aria label default"
+                class="ecl-link ecl-link--standalone ecl-language-list__link"
+                href="/example"
+                hreflang="ru"
+                lang="ru"
+                rel="alternate"
+              >
+                pусский
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div
+          class="ecl-language-list__column ecl-col-12 ecl-col-lg-4"
+        >
+          <ul
+            class="ecl-language-list__list"
+          >
+            <li
+              class="ecl-language-list__item"
+            >
+              <a
+                aria-label="Aria label default"
+                class="ecl-link ecl-link--standalone ecl-language-list__link"
+                href="/example"
+                hreflang="ca"
+                lang="ca"
+                rel="alternate"
+              >
+                Català
+              </a>
+            </li>
+            <li
+              class="ecl-language-list__item"
+            >
+              <a
+                aria-label="Aria label default"
+                class="ecl-link ecl-link--standalone ecl-language-list__link"
+                href="/example"
+                hreflang="ar"
+                lang="ar"
+                rel="alternate"
+              >
+                عَرَبِيّ
               </a>
             </li>
           </ul>
@@ -480,8 +580,13 @@ exports[`EC - Language List Overlay renders correctly with extra attributes 1`] 
         </div>
       </div>
       <div
-        class="ecl-row"
+        class="ecl-row ecl-language-list__eu"
       >
+        <div
+          class="ecl-language-list__category ecl-col-12 ecl-col-lg-8 ecl-offset-lg-2"
+        >
+          EU official languages
+        </div>
         <div
           class="ecl-language-list__column ecl-col-12 ecl-col-lg-4 ecl-offset-lg-2"
         >
@@ -844,6 +949,101 @@ exports[`EC - Language List Overlay renders correctly with extra attributes 1`] 
                 rel="alternate"
               >
                 svenska
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div
+        class="ecl-row ecl-language-list__non-eu"
+      >
+        <div
+          class="ecl-language-list__category ecl-col-12 ecl-col-lg-8 ecl-offset-lg-2"
+        >
+          Non-EU languages
+        </div>
+        <div
+          class="ecl-language-list__column ecl-col-12 ecl-col-lg-4 ecl-offset-lg-2"
+        >
+          <ul
+            class="ecl-language-list__list"
+          >
+            <li
+              class="ecl-language-list__item"
+            >
+              <a
+                aria-label="Aria label default"
+                class="ecl-link ecl-link--standalone ecl-language-list__link"
+                href="/example"
+                hreflang="zh"
+                lang="zh"
+                rel="alternate"
+              >
+                中文
+              </a>
+            </li>
+            <li
+              class="ecl-language-list__item"
+            >
+              <a
+                aria-label="Aria label default"
+                class="ecl-link ecl-link--standalone ecl-language-list__link"
+                href="/example"
+                hreflang="tr"
+                lang="tr"
+                rel="alternate"
+              >
+                Türk
+              </a>
+            </li>
+            <li
+              class="ecl-language-list__item"
+            >
+              <a
+                aria-label="Aria label default"
+                class="ecl-link ecl-link--standalone ecl-language-list__link"
+                href="/example"
+                hreflang="ru"
+                lang="ru"
+                rel="alternate"
+              >
+                pусский
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div
+          class="ecl-language-list__column ecl-col-12 ecl-col-lg-4"
+        >
+          <ul
+            class="ecl-language-list__list"
+          >
+            <li
+              class="ecl-language-list__item"
+            >
+              <a
+                aria-label="Aria label default"
+                class="ecl-link ecl-link--standalone ecl-language-list__link"
+                href="/example"
+                hreflang="ca"
+                lang="ca"
+                rel="alternate"
+              >
+                Català
+              </a>
+            </li>
+            <li
+              class="ecl-language-list__item"
+            >
+              <a
+                aria-label="Aria label default"
+                class="ecl-link ecl-link--standalone ecl-language-list__link"
+                href="/example"
+                hreflang="ar"
+                lang="ar"
+                rel="alternate"
+              >
+                عَرَبِيّ
               </a>
             </li>
           </ul>
@@ -906,8 +1106,13 @@ exports[`EC - Language List Overlay renders correctly with extra class names 1`]
         </div>
       </div>
       <div
-        class="ecl-row"
+        class="ecl-row ecl-language-list__eu"
       >
+        <div
+          class="ecl-language-list__category ecl-col-12 ecl-col-lg-8 ecl-offset-lg-2"
+        >
+          EU official languages
+        </div>
         <div
           class="ecl-language-list__column ecl-col-12 ecl-col-lg-4 ecl-offset-lg-2"
         >
@@ -1270,6 +1475,101 @@ exports[`EC - Language List Overlay renders correctly with extra class names 1`]
                 rel="alternate"
               >
                 svenska
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div
+        class="ecl-row ecl-language-list__non-eu"
+      >
+        <div
+          class="ecl-language-list__category ecl-col-12 ecl-col-lg-8 ecl-offset-lg-2"
+        >
+          Non-EU languages
+        </div>
+        <div
+          class="ecl-language-list__column ecl-col-12 ecl-col-lg-4 ecl-offset-lg-2"
+        >
+          <ul
+            class="ecl-language-list__list"
+          >
+            <li
+              class="ecl-language-list__item"
+            >
+              <a
+                aria-label="Aria label default"
+                class="ecl-link ecl-link--standalone ecl-language-list__link"
+                href="/example"
+                hreflang="zh"
+                lang="zh"
+                rel="alternate"
+              >
+                中文
+              </a>
+            </li>
+            <li
+              class="ecl-language-list__item"
+            >
+              <a
+                aria-label="Aria label default"
+                class="ecl-link ecl-link--standalone ecl-language-list__link"
+                href="/example"
+                hreflang="tr"
+                lang="tr"
+                rel="alternate"
+              >
+                Türk
+              </a>
+            </li>
+            <li
+              class="ecl-language-list__item"
+            >
+              <a
+                aria-label="Aria label default"
+                class="ecl-link ecl-link--standalone ecl-language-list__link"
+                href="/example"
+                hreflang="ru"
+                lang="ru"
+                rel="alternate"
+              >
+                pусский
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div
+          class="ecl-language-list__column ecl-col-12 ecl-col-lg-4"
+        >
+          <ul
+            class="ecl-language-list__list"
+          >
+            <li
+              class="ecl-language-list__item"
+            >
+              <a
+                aria-label="Aria label default"
+                class="ecl-link ecl-link--standalone ecl-language-list__link"
+                href="/example"
+                hreflang="ca"
+                lang="ca"
+                rel="alternate"
+              >
+                Català
+              </a>
+            </li>
+            <li
+              class="ecl-language-list__item"
+            >
+              <a
+                aria-label="Aria label default"
+                class="ecl-link ecl-link--standalone ecl-language-list__link"
+                href="/example"
+                hreflang="ar"
+                lang="ar"
+                rel="alternate"
+              >
+                عَرَبِيّ
               </a>
             </li>
           </ul>
@@ -1356,8 +1656,13 @@ exports[`EC - Language List Overlay with validation enabled and missing input da
         />
       </div>
       <div
-        class="ecl-row"
+        class="ecl-row ecl-language-list__eu"
       >
+        <div
+          class="ecl-language-list__category ecl-col-12 ecl-col-lg-8 ecl-offset-lg-2"
+        >
+          EU official languages
+        </div>
         <div
           class="ecl-language-list__column ecl-col-12 ecl-col-lg-4 ecl-offset-lg-2"
         >
@@ -2020,6 +2325,169 @@ exports[`EC - Language List Overlay with validation enabled and missing input da
           </ul>
         </div>
       </div>
+      <div
+        class="ecl-row ecl-language-list__non-eu"
+      >
+        <div
+          class="ecl-language-list__category ecl-col-12 ecl-col-lg-8 ecl-offset-lg-2"
+        />
+        <div
+          class="ecl-language-list__column ecl-col-12 ecl-col-lg-4 ecl-offset-lg-2"
+        >
+          <ul
+            class="ecl-language-list__list"
+          >
+            <li
+              class="ecl-language-list__item"
+            >
+              <a
+                aria-label="Aria label default"
+                class="ecl-link ecl-link--standalone ecl-language-list__link"
+                href="/example"
+                hreflang="zh"
+                lang="zh"
+                rel="alternate"
+              >
+                中文
+              </a>
+              <span
+                class="ecl-u-type-color-green ecl-compliance-inner ecl-compliance-success ecl-u-ma-2xs"
+                title="[link--standalone] - ecl compliant"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--xs"
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#notifications--success"
+                  />
+                </svg>
+              </span>
+            </li>
+            <li
+              class="ecl-language-list__item"
+            >
+              <a
+                aria-label="Aria label default"
+                class="ecl-link ecl-link--standalone ecl-language-list__link"
+                href="/example"
+                hreflang="tr"
+                lang="tr"
+                rel="alternate"
+              >
+                Türk
+              </a>
+              <span
+                class="ecl-u-type-color-green ecl-compliance-inner ecl-compliance-success ecl-u-ma-2xs"
+                title="[link--standalone] - ecl compliant"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--xs"
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#notifications--success"
+                  />
+                </svg>
+              </span>
+            </li>
+            <li
+              class="ecl-language-list__item"
+            >
+              <a
+                aria-label="Aria label default"
+                class="ecl-link ecl-link--standalone ecl-language-list__link"
+                href="/example"
+                hreflang="ru"
+                lang="ru"
+                rel="alternate"
+              >
+                pусский
+              </a>
+              <span
+                class="ecl-u-type-color-green ecl-compliance-inner ecl-compliance-success ecl-u-ma-2xs"
+                title="[link--standalone] - ecl compliant"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--xs"
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#notifications--success"
+                  />
+                </svg>
+              </span>
+            </li>
+          </ul>
+        </div>
+        <div
+          class="ecl-language-list__column ecl-col-12 ecl-col-lg-4"
+        >
+          <ul
+            class="ecl-language-list__list"
+          >
+            <li
+              class="ecl-language-list__item"
+            >
+              <a
+                aria-label="Aria label default"
+                class="ecl-link ecl-link--standalone ecl-language-list__link"
+                href="/example"
+                hreflang="ca"
+                lang="ca"
+                rel="alternate"
+              >
+                Català
+              </a>
+              <span
+                class="ecl-u-type-color-green ecl-compliance-inner ecl-compliance-success ecl-u-ma-2xs"
+                title="[link--standalone] - ecl compliant"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--xs"
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#notifications--success"
+                  />
+                </svg>
+              </span>
+            </li>
+            <li
+              class="ecl-language-list__item"
+            >
+              <a
+                aria-label="Aria label default"
+                class="ecl-link ecl-link--standalone ecl-language-list__link"
+                href="/example"
+                hreflang="ar"
+                lang="ar"
+                rel="alternate"
+              >
+                عَرَبِيّ
+              </a>
+              <span
+                class="ecl-u-type-color-green ecl-compliance-inner ecl-compliance-success ecl-u-ma-2xs"
+                title="[link--standalone] - ecl compliant"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--xs"
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#notifications--success"
+                  />
+                </svg>
+              </span>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
   <!-- ecl2-compliance: language-list -->
@@ -2029,7 +2497,7 @@ exports[`EC - Language List Overlay with validation enabled and missing input da
     <p
       class="ecl-u-type-color-grey ecl-u-ml-m ecl-u-type-xs"
     >
-      [language-list] -  When {{ overlay }} is set to true the {{ close_label }} property needs to set and filled in. When {{ overlay }} is set to true the {{ title }} needs to set and filled in. Each item needs to contain a {{ label }} property set and filled in. Each item needs to contain a {{ lang }} property set and filled in. The active selection is mandatory, one of the items needs to have the {{ active }} property set to true.
+      [language-list] -  When {{ overlay }} is set to true the {{ close_label }} property needs to set and filled in. When {{ overlay }} is set to true the {{ title }} needs to set and filled in. Each item needs to contain a {{ label }} property set and filled in. Each item needs to contain a {{ lang }} property set and filled in. The active selection is mandatory, one of the items needs to have the {{ active }} property set to true. The {{ non_eu_category }} property needs to be filled in when you list non european languages.
     </p>
   </div>
 </test>
@@ -2053,8 +2521,13 @@ exports[`EC - Language List Splash renders correctly 1`] = `
       class="ecl-language-list__container ecl-container"
     >
       <div
-        class="ecl-row"
+        class="ecl-row ecl-language-list__eu"
       >
+        <div
+          class="ecl-language-list__category ecl-col-12 ecl-col-lg-8 ecl-offset-lg-2"
+        >
+          EU official languages
+        </div>
         <div
           class="ecl-language-list__column ecl-col-12 ecl-col-lg-4 ecl-offset-lg-2"
         >
@@ -2067,7 +2540,7 @@ exports[`EC - Language List Splash renders correctly 1`] = `
               <a
                 aria-label="Aria label default"
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
-                href="/example#language_bg"
+                href="/example"
                 hreflang="bg"
                 lang="bg"
               >
@@ -2080,7 +2553,7 @@ exports[`EC - Language List Splash renders correctly 1`] = `
               <a
                 aria-label="Aria label default"
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
-                href="/example#language_es"
+                href="/example"
                 hreflang="es"
                 lang="es"
               >
@@ -2093,7 +2566,7 @@ exports[`EC - Language List Splash renders correctly 1`] = `
               <a
                 aria-label="Aria label default"
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
-                href="/example#language_cs"
+                href="/example"
                 hreflang="cs"
                 lang="cs"
               >
@@ -2106,7 +2579,7 @@ exports[`EC - Language List Splash renders correctly 1`] = `
               <a
                 aria-label="Aria label default"
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
-                href="/example#language_da"
+                href="/example"
                 hreflang="da"
                 lang="da"
               >
@@ -2119,7 +2592,7 @@ exports[`EC - Language List Splash renders correctly 1`] = `
               <a
                 aria-label="Aria label default"
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
-                href="/example#language_de"
+                href="/example"
                 hreflang="de"
                 lang="de"
               >
@@ -2132,7 +2605,7 @@ exports[`EC - Language List Splash renders correctly 1`] = `
               <a
                 aria-label="Aria label default"
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
-                href="/example#language_et"
+                href="/example"
                 hreflang="et"
                 lang="et"
               >
@@ -2145,7 +2618,7 @@ exports[`EC - Language List Splash renders correctly 1`] = `
               <a
                 aria-label="Aria label default"
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
-                href="/example#language_el"
+                href="/example"
                 hreflang="el"
                 lang="el"
               >
@@ -2158,7 +2631,7 @@ exports[`EC - Language List Splash renders correctly 1`] = `
               <a
                 aria-label="Aria label default"
                 class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-language-list__link"
-                href="/example#language_en"
+                href="/example"
                 hreflang="en"
                 lang="en"
               >
@@ -2185,7 +2658,7 @@ exports[`EC - Language List Splash renders correctly 1`] = `
               <a
                 aria-label="Aria label default"
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
-                href="/example#language_fr"
+                href="/example"
                 hreflang="fr"
                 lang="fr"
               >
@@ -2198,7 +2671,7 @@ exports[`EC - Language List Splash renders correctly 1`] = `
               <a
                 aria-label="Aria label default"
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
-                href="/example#language_ga"
+                href="/example"
                 hreflang="ga"
                 lang="ga"
               >
@@ -2211,7 +2684,7 @@ exports[`EC - Language List Splash renders correctly 1`] = `
               <a
                 aria-label="Aria label default"
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
-                href="/example#language_hr"
+                href="/example"
                 hreflang="hr"
                 lang="hr"
               >
@@ -2224,7 +2697,7 @@ exports[`EC - Language List Splash renders correctly 1`] = `
               <a
                 aria-label="Aria label default"
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
-                href="/example#language_it"
+                href="/example"
                 hreflang="it"
                 lang="it"
               >
@@ -2245,7 +2718,7 @@ exports[`EC - Language List Splash renders correctly 1`] = `
               <a
                 aria-label="Aria label default"
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
-                href="/example#language_lv"
+                href="/example"
                 hreflang="lv"
                 lang="lv"
               >
@@ -2258,7 +2731,7 @@ exports[`EC - Language List Splash renders correctly 1`] = `
               <a
                 aria-label="Aria label default"
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
-                href="/example#language_lt"
+                href="/example"
                 hreflang="lt"
                 lang="lt"
               >
@@ -2271,7 +2744,7 @@ exports[`EC - Language List Splash renders correctly 1`] = `
               <a
                 aria-label="Aria label default"
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
-                href="/example#language_hu"
+                href="/example"
                 hreflang="hu"
                 lang="hu"
               >
@@ -2284,7 +2757,7 @@ exports[`EC - Language List Splash renders correctly 1`] = `
               <a
                 aria-label="Aria label default"
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
-                href="/example#language_mt"
+                href="/example"
                 hreflang="mt"
                 lang="mt"
               >
@@ -2297,7 +2770,7 @@ exports[`EC - Language List Splash renders correctly 1`] = `
               <a
                 aria-label="Aria label default"
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
-                href="/example#language_nl"
+                href="/example"
                 hreflang="nl"
                 lang="nl"
               >
@@ -2310,7 +2783,7 @@ exports[`EC - Language List Splash renders correctly 1`] = `
               <a
                 aria-label="Aria label default"
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
-                href="/example#language_pl"
+                href="/example"
                 hreflang="pl"
                 lang="pl"
               >
@@ -2323,7 +2796,7 @@ exports[`EC - Language List Splash renders correctly 1`] = `
               <a
                 aria-label="Aria label default"
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
-                href="/example#language_pt"
+                href="/example"
                 hreflang="pt"
                 lang="pt"
               >
@@ -2336,7 +2809,7 @@ exports[`EC - Language List Splash renders correctly 1`] = `
               <a
                 aria-label="Aria label default"
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
-                href="/example#language_ro"
+                href="/example"
                 hreflang="ro"
                 lang="ro"
               >
@@ -2349,7 +2822,7 @@ exports[`EC - Language List Splash renders correctly 1`] = `
               <a
                 aria-label="Aria label default"
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
-                href="/example#language_sk"
+                href="/example"
                 hreflang="sk"
                 lang="sk"
               >
@@ -2362,7 +2835,7 @@ exports[`EC - Language List Splash renders correctly 1`] = `
               <a
                 aria-label="Aria label default"
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
-                href="/example#language_sl"
+                href="/example"
                 hreflang="sl"
                 lang="sl"
               >
@@ -2375,7 +2848,7 @@ exports[`EC - Language List Splash renders correctly 1`] = `
               <a
                 aria-label="Aria label default"
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
-                href="/example#language_fi"
+                href="/example"
                 hreflang="fi"
                 lang="fi"
               >
@@ -2388,11 +2861,101 @@ exports[`EC - Language List Splash renders correctly 1`] = `
               <a
                 aria-label="Aria label default"
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
-                href="/example#language_sv"
+                href="/example"
                 hreflang="sv"
                 lang="sv"
               >
                 svenska
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div
+        class="ecl-row ecl-language-list__non-eu"
+      >
+        <div
+          class="ecl-language-list__category ecl-col-12 ecl-col-lg-8 ecl-offset-lg-2"
+        >
+          Non-EU languages
+        </div>
+        <div
+          class="ecl-language-list__column ecl-col-12 ecl-col-lg-4 ecl-offset-lg-2"
+        >
+          <ul
+            class="ecl-language-list__list"
+          >
+            <li
+              class="ecl-language-list__item"
+            >
+              <a
+                aria-label="Aria label default"
+                class="ecl-link ecl-link--standalone ecl-language-list__link"
+                href="/example"
+                hreflang="zh"
+                lang="zh"
+              >
+                中文
+              </a>
+            </li>
+            <li
+              class="ecl-language-list__item"
+            >
+              <a
+                aria-label="Aria label default"
+                class="ecl-link ecl-link--standalone ecl-language-list__link"
+                href="/example"
+                hreflang="tr"
+                lang="tr"
+              >
+                Türk
+              </a>
+            </li>
+            <li
+              class="ecl-language-list__item"
+            >
+              <a
+                aria-label="Aria label default"
+                class="ecl-link ecl-link--standalone ecl-language-list__link"
+                href="/example"
+                hreflang="ru"
+                lang="ru"
+              >
+                pусский
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div
+          class="ecl-language-list__column ecl-col-12 ecl-col-lg-4"
+        >
+          <ul
+            class="ecl-language-list__list"
+          >
+            <li
+              class="ecl-language-list__item"
+            >
+              <a
+                aria-label="Aria label default"
+                class="ecl-link ecl-link--standalone ecl-language-list__link"
+                href="/example"
+                hreflang="ca"
+                lang="ca"
+              >
+                Català
+              </a>
+            </li>
+            <li
+              class="ecl-language-list__item"
+            >
+              <a
+                aria-label="Aria label default"
+                class="ecl-link ecl-link--standalone ecl-language-list__link"
+                href="/example"
+                hreflang="ar"
+                lang="ar"
+              >
+                عَرَبِيّ
               </a>
             </li>
           </ul>
@@ -2423,8 +2986,13 @@ exports[`EC - Language List Splash renders correctly with extra attributes 1`] =
       class="ecl-language-list__container ecl-container"
     >
       <div
-        class="ecl-row"
+        class="ecl-row ecl-language-list__eu"
       >
+        <div
+          class="ecl-language-list__category ecl-col-12 ecl-col-lg-8 ecl-offset-lg-2"
+        >
+          EU official languages
+        </div>
         <div
           class="ecl-language-list__column ecl-col-12 ecl-col-lg-4 ecl-offset-lg-2"
         >
@@ -2437,7 +3005,7 @@ exports[`EC - Language List Splash renders correctly with extra attributes 1`] =
               <a
                 aria-label="Aria label default"
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
-                href="/example#language_bg"
+                href="/example"
                 hreflang="bg"
                 lang="bg"
               >
@@ -2450,7 +3018,7 @@ exports[`EC - Language List Splash renders correctly with extra attributes 1`] =
               <a
                 aria-label="Aria label default"
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
-                href="/example#language_es"
+                href="/example"
                 hreflang="es"
                 lang="es"
               >
@@ -2463,7 +3031,7 @@ exports[`EC - Language List Splash renders correctly with extra attributes 1`] =
               <a
                 aria-label="Aria label default"
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
-                href="/example#language_cs"
+                href="/example"
                 hreflang="cs"
                 lang="cs"
               >
@@ -2476,7 +3044,7 @@ exports[`EC - Language List Splash renders correctly with extra attributes 1`] =
               <a
                 aria-label="Aria label default"
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
-                href="/example#language_da"
+                href="/example"
                 hreflang="da"
                 lang="da"
               >
@@ -2489,7 +3057,7 @@ exports[`EC - Language List Splash renders correctly with extra attributes 1`] =
               <a
                 aria-label="Aria label default"
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
-                href="/example#language_de"
+                href="/example"
                 hreflang="de"
                 lang="de"
               >
@@ -2502,7 +3070,7 @@ exports[`EC - Language List Splash renders correctly with extra attributes 1`] =
               <a
                 aria-label="Aria label default"
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
-                href="/example#language_et"
+                href="/example"
                 hreflang="et"
                 lang="et"
               >
@@ -2515,7 +3083,7 @@ exports[`EC - Language List Splash renders correctly with extra attributes 1`] =
               <a
                 aria-label="Aria label default"
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
-                href="/example#language_el"
+                href="/example"
                 hreflang="el"
                 lang="el"
               >
@@ -2528,7 +3096,7 @@ exports[`EC - Language List Splash renders correctly with extra attributes 1`] =
               <a
                 aria-label="Aria label default"
                 class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-language-list__link"
-                href="/example#language_en"
+                href="/example"
                 hreflang="en"
                 lang="en"
               >
@@ -2555,7 +3123,7 @@ exports[`EC - Language List Splash renders correctly with extra attributes 1`] =
               <a
                 aria-label="Aria label default"
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
-                href="/example#language_fr"
+                href="/example"
                 hreflang="fr"
                 lang="fr"
               >
@@ -2568,7 +3136,7 @@ exports[`EC - Language List Splash renders correctly with extra attributes 1`] =
               <a
                 aria-label="Aria label default"
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
-                href="/example#language_ga"
+                href="/example"
                 hreflang="ga"
                 lang="ga"
               >
@@ -2581,7 +3149,7 @@ exports[`EC - Language List Splash renders correctly with extra attributes 1`] =
               <a
                 aria-label="Aria label default"
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
-                href="/example#language_hr"
+                href="/example"
                 hreflang="hr"
                 lang="hr"
               >
@@ -2594,7 +3162,7 @@ exports[`EC - Language List Splash renders correctly with extra attributes 1`] =
               <a
                 aria-label="Aria label default"
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
-                href="/example#language_it"
+                href="/example"
                 hreflang="it"
                 lang="it"
               >
@@ -2615,7 +3183,7 @@ exports[`EC - Language List Splash renders correctly with extra attributes 1`] =
               <a
                 aria-label="Aria label default"
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
-                href="/example#language_lv"
+                href="/example"
                 hreflang="lv"
                 lang="lv"
               >
@@ -2628,7 +3196,7 @@ exports[`EC - Language List Splash renders correctly with extra attributes 1`] =
               <a
                 aria-label="Aria label default"
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
-                href="/example#language_lt"
+                href="/example"
                 hreflang="lt"
                 lang="lt"
               >
@@ -2641,7 +3209,7 @@ exports[`EC - Language List Splash renders correctly with extra attributes 1`] =
               <a
                 aria-label="Aria label default"
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
-                href="/example#language_hu"
+                href="/example"
                 hreflang="hu"
                 lang="hu"
               >
@@ -2654,7 +3222,7 @@ exports[`EC - Language List Splash renders correctly with extra attributes 1`] =
               <a
                 aria-label="Aria label default"
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
-                href="/example#language_mt"
+                href="/example"
                 hreflang="mt"
                 lang="mt"
               >
@@ -2667,7 +3235,7 @@ exports[`EC - Language List Splash renders correctly with extra attributes 1`] =
               <a
                 aria-label="Aria label default"
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
-                href="/example#language_nl"
+                href="/example"
                 hreflang="nl"
                 lang="nl"
               >
@@ -2680,7 +3248,7 @@ exports[`EC - Language List Splash renders correctly with extra attributes 1`] =
               <a
                 aria-label="Aria label default"
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
-                href="/example#language_pl"
+                href="/example"
                 hreflang="pl"
                 lang="pl"
               >
@@ -2693,7 +3261,7 @@ exports[`EC - Language List Splash renders correctly with extra attributes 1`] =
               <a
                 aria-label="Aria label default"
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
-                href="/example#language_pt"
+                href="/example"
                 hreflang="pt"
                 lang="pt"
               >
@@ -2706,7 +3274,7 @@ exports[`EC - Language List Splash renders correctly with extra attributes 1`] =
               <a
                 aria-label="Aria label default"
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
-                href="/example#language_ro"
+                href="/example"
                 hreflang="ro"
                 lang="ro"
               >
@@ -2719,7 +3287,7 @@ exports[`EC - Language List Splash renders correctly with extra attributes 1`] =
               <a
                 aria-label="Aria label default"
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
-                href="/example#language_sk"
+                href="/example"
                 hreflang="sk"
                 lang="sk"
               >
@@ -2732,7 +3300,7 @@ exports[`EC - Language List Splash renders correctly with extra attributes 1`] =
               <a
                 aria-label="Aria label default"
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
-                href="/example#language_sl"
+                href="/example"
                 hreflang="sl"
                 lang="sl"
               >
@@ -2745,7 +3313,7 @@ exports[`EC - Language List Splash renders correctly with extra attributes 1`] =
               <a
                 aria-label="Aria label default"
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
-                href="/example#language_fi"
+                href="/example"
                 hreflang="fi"
                 lang="fi"
               >
@@ -2758,11 +3326,101 @@ exports[`EC - Language List Splash renders correctly with extra attributes 1`] =
               <a
                 aria-label="Aria label default"
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
-                href="/example#language_sv"
+                href="/example"
                 hreflang="sv"
                 lang="sv"
               >
                 svenska
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div
+        class="ecl-row ecl-language-list__non-eu"
+      >
+        <div
+          class="ecl-language-list__category ecl-col-12 ecl-col-lg-8 ecl-offset-lg-2"
+        >
+          Non-EU languages
+        </div>
+        <div
+          class="ecl-language-list__column ecl-col-12 ecl-col-lg-4 ecl-offset-lg-2"
+        >
+          <ul
+            class="ecl-language-list__list"
+          >
+            <li
+              class="ecl-language-list__item"
+            >
+              <a
+                aria-label="Aria label default"
+                class="ecl-link ecl-link--standalone ecl-language-list__link"
+                href="/example"
+                hreflang="zh"
+                lang="zh"
+              >
+                中文
+              </a>
+            </li>
+            <li
+              class="ecl-language-list__item"
+            >
+              <a
+                aria-label="Aria label default"
+                class="ecl-link ecl-link--standalone ecl-language-list__link"
+                href="/example"
+                hreflang="tr"
+                lang="tr"
+              >
+                Türk
+              </a>
+            </li>
+            <li
+              class="ecl-language-list__item"
+            >
+              <a
+                aria-label="Aria label default"
+                class="ecl-link ecl-link--standalone ecl-language-list__link"
+                href="/example"
+                hreflang="ru"
+                lang="ru"
+              >
+                pусский
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div
+          class="ecl-language-list__column ecl-col-12 ecl-col-lg-4"
+        >
+          <ul
+            class="ecl-language-list__list"
+          >
+            <li
+              class="ecl-language-list__item"
+            >
+              <a
+                aria-label="Aria label default"
+                class="ecl-link ecl-link--standalone ecl-language-list__link"
+                href="/example"
+                hreflang="ca"
+                lang="ca"
+              >
+                Català
+              </a>
+            </li>
+            <li
+              class="ecl-language-list__item"
+            >
+              <a
+                aria-label="Aria label default"
+                class="ecl-link ecl-link--standalone ecl-language-list__link"
+                href="/example"
+                hreflang="ar"
+                lang="ar"
+              >
+                عَرَبِيّ
               </a>
             </li>
           </ul>
@@ -2791,8 +3449,13 @@ exports[`EC - Language List Splash renders correctly with extra class names 1`] 
       class="ecl-language-list__container ecl-container"
     >
       <div
-        class="ecl-row"
+        class="ecl-row ecl-language-list__eu"
       >
+        <div
+          class="ecl-language-list__category ecl-col-12 ecl-col-lg-8 ecl-offset-lg-2"
+        >
+          EU official languages
+        </div>
         <div
           class="ecl-language-list__column ecl-col-12 ecl-col-lg-4 ecl-offset-lg-2"
         >
@@ -2805,7 +3468,7 @@ exports[`EC - Language List Splash renders correctly with extra class names 1`] 
               <a
                 aria-label="Aria label default"
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
-                href="/example#language_bg"
+                href="/example"
                 hreflang="bg"
                 lang="bg"
               >
@@ -2818,7 +3481,7 @@ exports[`EC - Language List Splash renders correctly with extra class names 1`] 
               <a
                 aria-label="Aria label default"
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
-                href="/example#language_es"
+                href="/example"
                 hreflang="es"
                 lang="es"
               >
@@ -2831,7 +3494,7 @@ exports[`EC - Language List Splash renders correctly with extra class names 1`] 
               <a
                 aria-label="Aria label default"
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
-                href="/example#language_cs"
+                href="/example"
                 hreflang="cs"
                 lang="cs"
               >
@@ -2844,7 +3507,7 @@ exports[`EC - Language List Splash renders correctly with extra class names 1`] 
               <a
                 aria-label="Aria label default"
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
-                href="/example#language_da"
+                href="/example"
                 hreflang="da"
                 lang="da"
               >
@@ -2857,7 +3520,7 @@ exports[`EC - Language List Splash renders correctly with extra class names 1`] 
               <a
                 aria-label="Aria label default"
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
-                href="/example#language_de"
+                href="/example"
                 hreflang="de"
                 lang="de"
               >
@@ -2870,7 +3533,7 @@ exports[`EC - Language List Splash renders correctly with extra class names 1`] 
               <a
                 aria-label="Aria label default"
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
-                href="/example#language_et"
+                href="/example"
                 hreflang="et"
                 lang="et"
               >
@@ -2883,7 +3546,7 @@ exports[`EC - Language List Splash renders correctly with extra class names 1`] 
               <a
                 aria-label="Aria label default"
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
-                href="/example#language_el"
+                href="/example"
                 hreflang="el"
                 lang="el"
               >
@@ -2896,7 +3559,7 @@ exports[`EC - Language List Splash renders correctly with extra class names 1`] 
               <a
                 aria-label="Aria label default"
                 class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-language-list__link"
-                href="/example#language_en"
+                href="/example"
                 hreflang="en"
                 lang="en"
               >
@@ -2923,7 +3586,7 @@ exports[`EC - Language List Splash renders correctly with extra class names 1`] 
               <a
                 aria-label="Aria label default"
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
-                href="/example#language_fr"
+                href="/example"
                 hreflang="fr"
                 lang="fr"
               >
@@ -2936,7 +3599,7 @@ exports[`EC - Language List Splash renders correctly with extra class names 1`] 
               <a
                 aria-label="Aria label default"
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
-                href="/example#language_ga"
+                href="/example"
                 hreflang="ga"
                 lang="ga"
               >
@@ -2949,7 +3612,7 @@ exports[`EC - Language List Splash renders correctly with extra class names 1`] 
               <a
                 aria-label="Aria label default"
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
-                href="/example#language_hr"
+                href="/example"
                 hreflang="hr"
                 lang="hr"
               >
@@ -2962,7 +3625,7 @@ exports[`EC - Language List Splash renders correctly with extra class names 1`] 
               <a
                 aria-label="Aria label default"
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
-                href="/example#language_it"
+                href="/example"
                 hreflang="it"
                 lang="it"
               >
@@ -2983,7 +3646,7 @@ exports[`EC - Language List Splash renders correctly with extra class names 1`] 
               <a
                 aria-label="Aria label default"
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
-                href="/example#language_lv"
+                href="/example"
                 hreflang="lv"
                 lang="lv"
               >
@@ -2996,7 +3659,7 @@ exports[`EC - Language List Splash renders correctly with extra class names 1`] 
               <a
                 aria-label="Aria label default"
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
-                href="/example#language_lt"
+                href="/example"
                 hreflang="lt"
                 lang="lt"
               >
@@ -3009,7 +3672,7 @@ exports[`EC - Language List Splash renders correctly with extra class names 1`] 
               <a
                 aria-label="Aria label default"
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
-                href="/example#language_hu"
+                href="/example"
                 hreflang="hu"
                 lang="hu"
               >
@@ -3022,7 +3685,7 @@ exports[`EC - Language List Splash renders correctly with extra class names 1`] 
               <a
                 aria-label="Aria label default"
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
-                href="/example#language_mt"
+                href="/example"
                 hreflang="mt"
                 lang="mt"
               >
@@ -3035,7 +3698,7 @@ exports[`EC - Language List Splash renders correctly with extra class names 1`] 
               <a
                 aria-label="Aria label default"
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
-                href="/example#language_nl"
+                href="/example"
                 hreflang="nl"
                 lang="nl"
               >
@@ -3048,7 +3711,7 @@ exports[`EC - Language List Splash renders correctly with extra class names 1`] 
               <a
                 aria-label="Aria label default"
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
-                href="/example#language_pl"
+                href="/example"
                 hreflang="pl"
                 lang="pl"
               >
@@ -3061,7 +3724,7 @@ exports[`EC - Language List Splash renders correctly with extra class names 1`] 
               <a
                 aria-label="Aria label default"
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
-                href="/example#language_pt"
+                href="/example"
                 hreflang="pt"
                 lang="pt"
               >
@@ -3074,7 +3737,7 @@ exports[`EC - Language List Splash renders correctly with extra class names 1`] 
               <a
                 aria-label="Aria label default"
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
-                href="/example#language_ro"
+                href="/example"
                 hreflang="ro"
                 lang="ro"
               >
@@ -3087,7 +3750,7 @@ exports[`EC - Language List Splash renders correctly with extra class names 1`] 
               <a
                 aria-label="Aria label default"
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
-                href="/example#language_sk"
+                href="/example"
                 hreflang="sk"
                 lang="sk"
               >
@@ -3100,7 +3763,7 @@ exports[`EC - Language List Splash renders correctly with extra class names 1`] 
               <a
                 aria-label="Aria label default"
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
-                href="/example#language_sl"
+                href="/example"
                 hreflang="sl"
                 lang="sl"
               >
@@ -3113,7 +3776,7 @@ exports[`EC - Language List Splash renders correctly with extra class names 1`] 
               <a
                 aria-label="Aria label default"
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
-                href="/example#language_fi"
+                href="/example"
                 hreflang="fi"
                 lang="fi"
               >
@@ -3126,11 +3789,101 @@ exports[`EC - Language List Splash renders correctly with extra class names 1`] 
               <a
                 aria-label="Aria label default"
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
-                href="/example#language_sv"
+                href="/example"
                 hreflang="sv"
                 lang="sv"
               >
                 svenska
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div
+        class="ecl-row ecl-language-list__non-eu"
+      >
+        <div
+          class="ecl-language-list__category ecl-col-12 ecl-col-lg-8 ecl-offset-lg-2"
+        >
+          Non-EU languages
+        </div>
+        <div
+          class="ecl-language-list__column ecl-col-12 ecl-col-lg-4 ecl-offset-lg-2"
+        >
+          <ul
+            class="ecl-language-list__list"
+          >
+            <li
+              class="ecl-language-list__item"
+            >
+              <a
+                aria-label="Aria label default"
+                class="ecl-link ecl-link--standalone ecl-language-list__link"
+                href="/example"
+                hreflang="zh"
+                lang="zh"
+              >
+                中文
+              </a>
+            </li>
+            <li
+              class="ecl-language-list__item"
+            >
+              <a
+                aria-label="Aria label default"
+                class="ecl-link ecl-link--standalone ecl-language-list__link"
+                href="/example"
+                hreflang="tr"
+                lang="tr"
+              >
+                Türk
+              </a>
+            </li>
+            <li
+              class="ecl-language-list__item"
+            >
+              <a
+                aria-label="Aria label default"
+                class="ecl-link ecl-link--standalone ecl-language-list__link"
+                href="/example"
+                hreflang="ru"
+                lang="ru"
+              >
+                pусский
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div
+          class="ecl-language-list__column ecl-col-12 ecl-col-lg-4"
+        >
+          <ul
+            class="ecl-language-list__list"
+          >
+            <li
+              class="ecl-language-list__item"
+            >
+              <a
+                aria-label="Aria label default"
+                class="ecl-link ecl-link--standalone ecl-language-list__link"
+                href="/example"
+                hreflang="ca"
+                lang="ca"
+              >
+                Català
+              </a>
+            </li>
+            <li
+              class="ecl-language-list__item"
+            >
+              <a
+                aria-label="Aria label default"
+                class="ecl-link ecl-link--standalone ecl-language-list__link"
+                href="/example"
+                hreflang="ar"
+                lang="ar"
+              >
+                عَرَبِيّ
               </a>
             </li>
           </ul>
@@ -3153,8 +3906,13 @@ exports[`EC - Language List Splash with validation enabled and missing input dat
       class="ecl-language-list__container ecl-container"
     >
       <div
-        class="ecl-row"
+        class="ecl-row ecl-language-list__eu"
       >
+        <div
+          class="ecl-language-list__category ecl-col-12 ecl-col-lg-8 ecl-offset-lg-2"
+        >
+          EU official languages
+        </div>
         <div
           class="ecl-language-list__column ecl-col-12 ecl-col-lg-4 ecl-offset-lg-2"
         >
@@ -3170,7 +3928,7 @@ exports[`EC - Language List Splash with validation enabled and missing input dat
               <a
                 aria-label="Aria label default"
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
-                href="/example#language_es"
+                href="/example"
                 hreflang="es"
                 lang="es"
               >
@@ -3197,7 +3955,7 @@ exports[`EC - Language List Splash with validation enabled and missing input dat
               <a
                 aria-label="Aria label default"
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
-                href="/example#language_cs"
+                href="/example"
                 hreflang="cs"
                 lang="cs"
               >
@@ -3224,7 +3982,7 @@ exports[`EC - Language List Splash with validation enabled and missing input dat
               <a
                 aria-label="Aria label default"
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
-                href="/example#language_da"
+                href="/example"
                 hreflang="da"
                 lang="da"
               >
@@ -3251,7 +4009,7 @@ exports[`EC - Language List Splash with validation enabled and missing input dat
               <a
                 aria-label="Aria label default"
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
-                href="/example#language_de"
+                href="/example"
                 hreflang="de"
                 lang="de"
               >
@@ -3278,7 +4036,7 @@ exports[`EC - Language List Splash with validation enabled and missing input dat
               <a
                 aria-label="Aria label default"
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
-                href="/example#language_et"
+                href="/example"
                 hreflang="et"
                 lang="et"
               >
@@ -3305,7 +4063,7 @@ exports[`EC - Language List Splash with validation enabled and missing input dat
               <a
                 aria-label="Aria label default"
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
-                href="/example#language_el"
+                href="/example"
                 hreflang="el"
                 lang="el"
               >
@@ -3332,7 +4090,7 @@ exports[`EC - Language List Splash with validation enabled and missing input dat
               <a
                 aria-label="Aria label default"
                 class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-language-list__link"
-                href="/example#language_en"
+                href="/example"
                 hreflang="en"
                 lang="en"
               >
@@ -3387,7 +4145,7 @@ exports[`EC - Language List Splash with validation enabled and missing input dat
               <a
                 aria-label="Aria label default"
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
-                href="/example#language_fr"
+                href="/example"
                 hreflang="fr"
                 lang="fr"
               >
@@ -3414,7 +4172,7 @@ exports[`EC - Language List Splash with validation enabled and missing input dat
               <a
                 aria-label="Aria label default"
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
-                href="/example#language_ga"
+                href="/example"
                 hreflang="ga"
                 lang="ga"
               >
@@ -3441,7 +4199,7 @@ exports[`EC - Language List Splash with validation enabled and missing input dat
               <a
                 aria-label="Aria label default"
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
-                href="/example#language_hr"
+                href="/example"
                 hreflang="hr"
                 lang="hr"
               >
@@ -3468,7 +4226,7 @@ exports[`EC - Language List Splash with validation enabled and missing input dat
               <a
                 aria-label="Aria label default"
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
-                href="/example#language_it"
+                href="/example"
                 hreflang="it"
                 lang="it"
               >
@@ -3503,7 +4261,7 @@ exports[`EC - Language List Splash with validation enabled and missing input dat
               <a
                 aria-label="Aria label default"
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
-                href="/example#language_lv"
+                href="/example"
                 hreflang="lv"
                 lang="lv"
               >
@@ -3530,7 +4288,7 @@ exports[`EC - Language List Splash with validation enabled and missing input dat
               <a
                 aria-label="Aria label default"
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
-                href="/example#language_lt"
+                href="/example"
                 hreflang="lt"
                 lang="lt"
               >
@@ -3557,7 +4315,7 @@ exports[`EC - Language List Splash with validation enabled and missing input dat
               <a
                 aria-label="Aria label default"
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
-                href="/example#language_hu"
+                href="/example"
                 hreflang="hu"
                 lang="hu"
               >
@@ -3584,7 +4342,7 @@ exports[`EC - Language List Splash with validation enabled and missing input dat
               <a
                 aria-label="Aria label default"
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
-                href="/example#language_mt"
+                href="/example"
                 hreflang="mt"
                 lang="mt"
               >
@@ -3611,7 +4369,7 @@ exports[`EC - Language List Splash with validation enabled and missing input dat
               <a
                 aria-label="Aria label default"
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
-                href="/example#language_nl"
+                href="/example"
                 hreflang="nl"
                 lang="nl"
               >
@@ -3638,7 +4396,7 @@ exports[`EC - Language List Splash with validation enabled and missing input dat
               <a
                 aria-label="Aria label default"
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
-                href="/example#language_pl"
+                href="/example"
                 hreflang="pl"
                 lang="pl"
               >
@@ -3665,7 +4423,7 @@ exports[`EC - Language List Splash with validation enabled and missing input dat
               <a
                 aria-label="Aria label default"
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
-                href="/example#language_pt"
+                href="/example"
                 hreflang="pt"
                 lang="pt"
               >
@@ -3692,7 +4450,7 @@ exports[`EC - Language List Splash with validation enabled and missing input dat
               <a
                 aria-label="Aria label default"
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
-                href="/example#language_ro"
+                href="/example"
                 hreflang="ro"
                 lang="ro"
               >
@@ -3719,7 +4477,7 @@ exports[`EC - Language List Splash with validation enabled and missing input dat
               <a
                 aria-label="Aria label default"
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
-                href="/example#language_sk"
+                href="/example"
                 hreflang="sk"
                 lang="sk"
               >
@@ -3746,7 +4504,7 @@ exports[`EC - Language List Splash with validation enabled and missing input dat
               <a
                 aria-label="Aria label default"
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
-                href="/example#language_sl"
+                href="/example"
                 hreflang="sl"
                 lang="sl"
               >
@@ -3773,7 +4531,7 @@ exports[`EC - Language List Splash with validation enabled and missing input dat
               <a
                 aria-label="Aria label default"
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
-                href="/example#language_fi"
+                href="/example"
                 hreflang="fi"
                 lang="fi"
               >
@@ -3800,11 +4558,171 @@ exports[`EC - Language List Splash with validation enabled and missing input dat
               <a
                 aria-label="Aria label default"
                 class="ecl-link ecl-link--standalone ecl-language-list__link"
-                href="/example#language_sv"
+                href="/example"
                 hreflang="sv"
                 lang="sv"
               >
                 svenska
+              </a>
+              <span
+                class="ecl-u-type-color-green ecl-compliance-inner ecl-compliance-success ecl-u-ma-2xs"
+                title="[link--standalone] - ecl compliant"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--xs"
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#notifications--success"
+                  />
+                </svg>
+              </span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div
+        class="ecl-row ecl-language-list__non-eu"
+      >
+        <div
+          class="ecl-language-list__category ecl-col-12 ecl-col-lg-8 ecl-offset-lg-2"
+        >
+          Non-EU languages
+        </div>
+        <div
+          class="ecl-language-list__column ecl-col-12 ecl-col-lg-4 ecl-offset-lg-2"
+        >
+          <ul
+            class="ecl-language-list__list"
+          >
+            <li
+              class="ecl-language-list__item"
+            >
+              <a
+                aria-label="Aria label default"
+                class="ecl-link ecl-link--standalone ecl-language-list__link"
+                href="/example"
+                hreflang="zh"
+                lang="zh"
+              >
+                中文
+              </a>
+              <span
+                class="ecl-u-type-color-green ecl-compliance-inner ecl-compliance-success ecl-u-ma-2xs"
+                title="[link--standalone] - ecl compliant"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--xs"
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#notifications--success"
+                  />
+                </svg>
+              </span>
+            </li>
+            <li
+              class="ecl-language-list__item"
+            >
+              <a
+                aria-label="Aria label default"
+                class="ecl-link ecl-link--standalone ecl-language-list__link"
+                href="/example"
+                hreflang="tr"
+                lang="tr"
+              >
+                Türk
+              </a>
+              <span
+                class="ecl-u-type-color-green ecl-compliance-inner ecl-compliance-success ecl-u-ma-2xs"
+                title="[link--standalone] - ecl compliant"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--xs"
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#notifications--success"
+                  />
+                </svg>
+              </span>
+            </li>
+            <li
+              class="ecl-language-list__item"
+            >
+              <a
+                aria-label="Aria label default"
+                class="ecl-link ecl-link--standalone ecl-language-list__link"
+                href="/example"
+                hreflang="ru"
+                lang="ru"
+              >
+                pусский
+              </a>
+              <span
+                class="ecl-u-type-color-green ecl-compliance-inner ecl-compliance-success ecl-u-ma-2xs"
+                title="[link--standalone] - ecl compliant"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--xs"
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#notifications--success"
+                  />
+                </svg>
+              </span>
+            </li>
+          </ul>
+        </div>
+        <div
+          class="ecl-language-list__column ecl-col-12 ecl-col-lg-4"
+        >
+          <ul
+            class="ecl-language-list__list"
+          >
+            <li
+              class="ecl-language-list__item"
+            >
+              <a
+                aria-label="Aria label default"
+                class="ecl-link ecl-link--standalone ecl-language-list__link"
+                href="/example"
+                hreflang="ca"
+                lang="ca"
+              >
+                Català
+              </a>
+              <span
+                class="ecl-u-type-color-green ecl-compliance-inner ecl-compliance-success ecl-u-ma-2xs"
+                title="[link--standalone] - ecl compliant"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--xs"
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#notifications--success"
+                  />
+                </svg>
+              </span>
+            </li>
+            <li
+              class="ecl-language-list__item"
+            >
+              <a
+                aria-label="Aria label default"
+                class="ecl-link ecl-link--standalone ecl-language-list__link"
+                href="/example"
+                hreflang="ar"
+                lang="ar"
+              >
+                عَرَبِيّ
               </a>
               <span
                 class="ecl-u-type-color-green ecl-compliance-inner ecl-compliance-success ecl-u-ma-2xs"
