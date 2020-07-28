@@ -3,6 +3,7 @@ import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 // Import data for tests
 import dataWithTranslation from './demo/data--with-translation';
 import dataWithoutTranslation from './demo/data--without-translation';
+import dataThumbnail from './demo/data--thumbnail';
 
 describe('EC - File', () => {
   const template = '@ecl-twig/ec-component-file/ecl-file.html.twig';
@@ -87,6 +88,14 @@ describe('EC - File', () => {
       dataCompliance.language = '';
 
       return expect(render(dataCompliance)).resolves.toMatchSnapshot();
+    });
+  });
+
+  describe('Thumbnail', () => {
+    test('renders correctly', () => {
+      expect.assertions(1);
+
+      return expect(render(dataThumbnail)).resolves.toMatchSnapshot();
     });
   });
 });
