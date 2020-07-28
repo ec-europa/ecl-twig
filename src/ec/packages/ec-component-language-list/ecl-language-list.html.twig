@@ -4,9 +4,16 @@
   Parameters:
   - "overlay" (boolean) (default:false)
   - "data_lang_overlay" (string) (default: '')
+  - "eu_category" (string) (default: '');
+  - "non_eu_category" (string) (default: '')
   - "close_label (string) (default: ''): label of close button
   - "title" (string) (default: ''): title of the page
   - "items" (array) (default: [])
+    - "lang" (string) (default: '')
+    - "label" (string) (default: '')
+    - "path" (string) (default: '')
+    - "active (boolean) (default: false)
+  - non_eu_items (array) (default: [])
     - "lang" (string) (default: '')
     - "label" (string) (default: '')
     - "path" (string) (default: '')
@@ -29,10 +36,13 @@
 {# Internal properties #}
 
 {% set _items = items|default([]) %}
+{% set _non_eu_items = non_eu_items|default([]) %}
 {% set _icon_path = icon_path|default('') %}
 {% set _logo = logo|default({}) %}
 {% set _overlay = overlay|default(false) %}
 {% set _close_label = close_label|default('') %}
+{% set _eu_category = eu_category|default('') %}
+{% set _non_eu_category = non_eu_category|default('') %}
 {% set _title = title|default('') %}
 {% set _extra_attributes = '' %}
 {% set _compliance = _compliance_|default(false) %}
@@ -101,12 +111,26 @@
   </header>
   <div class="ecl-language-list__container ecl-container">
 {% endif %}
-  {% include '@ecl-twig/ec-component-language-list/ecl-language-list-grid.html.twig' with {
-      items: _items,
-      overlay: _overlay,
-      icon_path: _icon_path,
-      _compliance_: _compliance
-  } only %}
+  {% if _items is not empty and _items is iterable %}
+    {% include '@ecl-twig/ec-component-language-list/ecl-language-list-grid.html.twig' with {
+        items: _items,
+        overlay: _overlay,
+        icon_path: _icon_path,
+        category: eu_category,
+        section: 'eu',
+        _compliance_: _compliance
+    } only %}
+  {% endif %}
+  {% if _non_eu_items is not empty and _non_eu_items is iterable %}
+    {% include '@ecl-twig/ec-component-language-list/ecl-language-list-grid.html.twig' with {
+        items: _non_eu_items,
+        overlay: _overlay,
+        icon_path: _icon_path,
+        category: non_eu_category,
+        section: 'non-eu',
+        _compliance_: _compliance
+    } only %}
+  {% endif %}
   </div>
 </div>
 
@@ -116,6 +140,9 @@
   {% include '@ecl-twig/ec-component-ecl-compliance/components/ecl-compliance-language-list.html.twig' with {
     overlay: _overlay,
     close_label: _close_label,
+    eu_category: _eu_category,
+    non_eu_category: _non_eu_category,
+    non_eu_items: _non_eu_items,
     title: _title,
     items: _items,
     icon_path: _icon_path,

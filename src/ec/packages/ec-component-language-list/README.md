@@ -13,6 +13,13 @@ npm install --save @ecl-twig/ec-component-language-list
   - "label" (string) (default: '')
   - "path" (string) (default: '')
   - "active" (boolean) (default: false)
+- **"non_eu_items"** (array) (default: [])
+  - "lang" (string) (default: '')
+  - "label" (string) (default: '')
+  - "path" (string) (default: '')
+  - "active" (boolean) (default: false)
+- **"eu_category"** (string) (default: '')
+- **"non_eu_category"** (string) (default: '')
 - **"overlay"** (boolean) (default: false)
 - **"data_lang_overlay"** (string) (default: '')
 - **"icon_path"** (string) (default: ''): file containing the svg icons
