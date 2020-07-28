@@ -25,6 +25,8 @@
 {% set no_item_lang_case = false %}
 {% set no_active_item_case = true %}
 {% set no_active_item_icon_case = false %}
+{% set no_eu_category_case = items is not empty and eu_category is empty %}
+{% set no_non_eu_category_case = non_eu_items is not empty and non_eu_category is empty %}
 
 {% set no_items_case = items is not defined or items is empty or items is not iterable %}
 {% set no_close_label_case =
@@ -79,7 +81,9 @@
   no_item_lang_case or
   no_item_label_case or
   no_active_item_case or
-  no_active_item_icon_case
+  no_active_item_icon_case or
+  no_eu_category_case or
+  no_non_eu_category_case
 %}
 
 {% if no_items_case %}
@@ -117,4 +121,10 @@
 {% endif %}
 {% if no_active_item_icon_case %}
   {% set message = message ~ ' The active selection is mandatory, the {{ active }} item needs the {{ icon_path }} property to be set and filled in.' %}
+{% endif %}
+{% if no_eu_category_case %}
+  {% set message = message ~ ' The {{ eu_category }} property needs to be filled in when you list european official languages.' %}
+{% endif %}
+{% if no_non_eu_category_case %}
+  {% set message = message ~ ' The {{ non_eu_category }} property needs to be filled in when you list non european languages.' %}
 {% endif %}

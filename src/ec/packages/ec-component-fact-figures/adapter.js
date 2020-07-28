@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies, no-param-reassign */
 import { formatLink, formatIcon } from '@ecl-twig/data-utils';
 
 const adapter = initialData => {
