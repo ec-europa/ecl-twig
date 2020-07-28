@@ -3,6 +3,34 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.31.0](https://github.com/ec-europa/ecl-twig/compare/v2.30.0...v2.31.0) (2020-07-28)
+
+#### :rocket: New Feature
+
+- [#509](https://github.com/ec-europa/ecl-twig/pull/509) feat(table): Adding sortable demo - front-1304 ([@planctus](https://github.com/planctus))
+- [#507](https://github.com/ec-europa/ecl-twig/pull/507) feat(file): Adding thumbnail variant - front-1303 ([@planctus](https://github.com/planctus))
+- [#508](https://github.com/ec-europa/ecl-twig/pull/508) feat(language-list): Non EU languages support added - front-1302 ([@planctus](https://github.com/planctus))
+
+#### :bug: Bug Fix
+
+- [#512](https://github.com/ec-europa/ecl-twig/pull/512) fix(footers): fixing logos in EU footers for php-storybook - front-1347 ([@planctus](https://github.com/planctus))
+- [#511](https://github.com/ec-europa/ecl-twig/pull/511) fix(footer-harmonised): Fixing logo in EU for php-storybook - front-1328 ([@planctus](https://github.com/planctus))
+
+#### :nail_care: Enhancement
+
+- [#510](https://github.com/ec-europa/ecl-twig/pull/510) feat(gallery): Adding footer link - front-1313 ([@planctus](https://github.com/planctus))
+
+#### :house: Internal
+
+- [#506](https://github.com/ec-europa/ecl-twig/pull/506) chore(babel): enable async/await ([@kalinchernev](https://github.com/kalinchernev))
+- [#505](https://github.com/ec-europa/ecl-twig/pull/505) feat(ecl): Updating resources to 2.31.0 ([@planctus](https://github.com/planctus))
+- [#504](https://github.com/ec-europa/ecl-twig/pull/504) fix(php): Fixing distributed php package - front-1299 ([@planctus](https://github.com/planctus))
+
+#### Committers: 2
+
+- Kalin Chernev ([@kalinchernev](https://github.com/kalinchernev))
+- [@planctus](https://github.com/planctus)
+
 ## [2.30.0](https://github.com/ec-europa/ecl-twig/compare/v2.29.0...v2.30.0) (2020-07-22)
 
 #### :rocket: New Feature
