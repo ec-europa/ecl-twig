@@ -2,11 +2,15 @@
 
 {#
   Parameters:
+  - "variant" (string) (default: '') Name of the variant (thumbnail)
   - "icon" (object) (default: {}): object of type Icon; file type
   - "title" (string) (default: '')
+  - "description" (string) (default: '') Description text (thumbnail variant)
   - "language" (string) (default: '')
   - "meta" (string) (default: '')
+  - "detail_meta" (array) (default: []) Meta element(s) for the thumbnail variant
   - "download" (object) (default: {}): object of type Link
+  - "image" (object) (default: {}): image for the thumbnail variant
   - "translation" (array) (default: []):
     - "toggle" (object) (default: {}): object of type Button
     - "items" (array) (default: []):
@@ -30,10 +34,14 @@
 {% set _icon = icon|default({}) %}
 {% set _title = title|default('') %}
 {% set _language = language|default('') %}
-{% set _meta = meta|default('') %}
+{% set _meta = meta|default([]) %}
 {% set _download = download|default({}) %}
+{% set _detail_meta = detail_meta|default([]) %}
 {% set _translation = translation|default([]) %}
 {% set _css_class = 'ecl-file' %}
+{% set _image = image|default({}) %}
+{% set _variant = variant|default('') %}
+{% set _description = description|default('') %}
 {% set _extra_attributes = 'data-ecl-file' %}
 {% set _compliance = _compliance_|default(false) %}
 
@@ -42,6 +50,21 @@
 {% endif %}
 
 {# Internal logic - Process properties #}
+
+{% if _variant is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ _css_class ~ '--' ~ _variant %}
+    {% if _detail_meta is not empty and _detail_meta is iterable %}
+      {% for meta_detail in _detail_meta %}
+        {% if loop.first %}
+          {% set _meta_detail_string = meta_detail|upper %}
+        {% else %}
+          {% set _meta_detail_string = _meta_detail_string ~ ' | ' ~ meta_detail %}
+        {% endif %}
+      {% endfor %}
+    {% else %}
+      {% set _meta_detail_string = '' %}
+    {% endif %}
+{% endif %}
 
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
@@ -61,15 +84,36 @@
 
 <div class="{{ _css_class }}" {{ _extra_attributes|raw }}>
   <div class="ecl-file__container">
+  {% if _variant == 'thumbnail' %}
+    <div class="ecl-file__detail">
+      <div class="ecl-file__detail-info">
+      {% if _meta_detail_string is not empty %}
+        <div class="ecl-file__detail-meta">{{ _meta_detail_string }}</div>
+      {% endif %}
+        <div class="ecl-file__title">{{ _title }}</div>
+      {% if _description is not empty %}
+        <div class="ecl-file__description">{{ _description|raw }}</div>
+      {% endif %}
+      </div>
+    {% if _image is not empty and _image.src is defined and _image.src is not empty %}
+      <img
+        class="ecl-file__image"
+        src="{{ _image.src }}"
+        alt="{{ _image.alt }}"
+      />
+    </div>
+    {% endif %}
+  {% else %}
     {% include '@ecl-twig/ec-component-icon/ecl-icon.html.twig' with {
       icon: _icon,
       extra_classes: 'ecl-file__icon',
       _compliance_: _compliance,
       _compliance_inner_check_: true
     } only %}
+  {% endif %}
   {% if _title is not empty or language is not empty or meta is not empty %}
     <div class="ecl-file__info">
-    {% if _title is not empty %}
+    {% if _title is not empty and _variant != 'thumbnail' %}
       <div class="ecl-file__title">{{ _title }}</div>
     {% endif %}
     {% if _language is not empty %}
@@ -119,16 +163,42 @@
 
       <ul class="ecl-file__translation-list">
         {% for _item in _translation.items %}
+        {% set _title %}
+          <div
+              class="ecl-file__translation-title"
+            {% if _item.lang is defined and _item.lang is not empty %}
+              lang="{{ _item.lang }}"
+            {% endif %}
+            >
+              {{- _item.title -}}
+          </div>
+        {% endset %}
           <li class="ecl-file__translation-item">
-            <div class="ecl-file__translation-info">
+          {% if _variant == 'thumbnail' %}
+            <div class="ecl-file__translation-detail">
+              {{- _title -}}
+            {% if _item.description %}
               <div
-                class="ecl-file__translation-title"
+              class="ecl-file__translation-description"
               {% if _item.lang is defined and _item.lang is not empty %}
-                lang="{{ _item.lang }}"
+              lang="{{ _item.lang }}"
               {% endif %}
               >
-                {{- _item.title -}}
+                {{- _item.description -}}
               </div>
+            {% endif %}
+            </div>
+          {% endif %}
+            <div class="ecl-file__translation-info">
+            {% if _variant != 'thumbnail' %}
+              {{- _title -}}
+            {% else %}
+              {% if _item.lang_full is defined and _item.lang_full is not empty %}
+              <div class="ecl-file__translation-language">
+                {{- _item.lang_full -}}
+              </div>
+              {% endif %}
+            {% endif %}
             {% if _item.meta is defined and _item.meta is not empty %}
               <div class="ecl-file__translation-meta">
                 {{- _item.meta -}}
@@ -172,8 +242,7 @@
     language: _language,
     meta: _meta,
     download: _download,
-    translation: _translation,
-    description: _description
+    translation: _translation
   } only %}
 {% endif %}
 

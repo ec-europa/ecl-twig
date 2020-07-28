@@ -93,6 +93,7 @@ describe('EC - Language List', () => {
       dataCompliance.items[2].lang = '';
       dataCompliance.close_label = '';
       dataCompliance.title = '';
+      dataCompliance.non_eu_category = '';
 
       return expect(render(dataCompliance)).resolves.toMatchSnapshot();
     });
