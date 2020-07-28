@@ -19,6 +19,8 @@ const options = {
     /\/eu-logo-mobile-fr.svg/g,
     /\/en.svg/g,
     /\/fr.svg/g,
+    /\/eu-fr-desktop.svg/g,
+    /\/eu-en-desktop.svg/g,
   ],
   to: [
     'icons.svg',
@@ -33,6 +35,8 @@ const options = {
     'eu-logo-mobile-fr.svg',
     'en.svg',
     'fr.svg',
+    'eu-en-desktop.svg',
+    'eu-fr-desktop.svg',
   ],
 };
 
