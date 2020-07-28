@@ -7,8 +7,9 @@ import {
 import withCode from '@ecl-twig/storybook-addon-code';
 import { withKnobs, text, boolean } from '@storybook/addon-knobs';
 
-import dataDefault from '@ecl/ec-specs-table/demo/data--default';
-import dataMulti from '@ecl/ec-specs-table/demo/data--multi';
+import dataDefault from './demo/data--default';
+import dataMulti from './demo/data--multi';
+import dataSortable from './demo/data--sort-table';
 import table from './ecl-table.html.twig';
 import notes from './README.md';
 
@@ -20,7 +21,9 @@ const prepareTable = (data, attr) => {
   if (attr) {
     defaultAttr = 'data-test data-test-another';
   }
+
   data.zebra = boolean('zebra', data.zebra, tabLabels.cases);
+  data.sortable = boolean('sortable', data.sortable, tabLabels.cases);
   data.headers.forEach((headers, i) => {
     headers.forEach((header, ind) => {
       header.label = text(
@@ -116,5 +119,14 @@ export const Multi = () => table(prepareTable(dataMulti));
 Multi.story = {
   parameters: {
     notes: { markdown: notes, json: dataMulti },
+  },
+};
+
+export const Sortable = () => table(prepareTable(dataSortable));
+
+Sortable.story = {
+  name: 'sort table',
+  parameters: {
+    notes: { markdown: notes, json: dataSortable },
   },
 };

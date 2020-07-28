@@ -1,8 +1,9 @@
 import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
 // Import data for tests
-import dataDefault from '@ecl/ec-specs-table/demo/data--default';
-import dataMulti from '@ecl/ec-specs-table/demo/data--multi';
+import dataDefault from './demo/data--default';
+import dataMulti from './demo/data--multi';
+import dataSortable from './demo/data--sort-table';
 
 describe('EC - Table', () => {
   const template = '@ecl-twig/ec-component-table/ecl-table.html.twig';
@@ -88,6 +89,14 @@ describe('EC - Table', () => {
       expect.assertions(1);
 
       return expect(render(dataMulti)).resolves.toMatchSnapshot();
+    });
+  });
+
+  describe('Sort table', () => {
+    test('renders correctly', () => {
+      expect.assertions(1);
+
+      return expect(render(dataSortable)).resolves.toMatchSnapshot();
     });
   });
 });
