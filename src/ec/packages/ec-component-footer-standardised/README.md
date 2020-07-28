@@ -18,7 +18,7 @@ npm install --save @ecl-twig/ec-component-footer-standardised
     - "path" (string) logo link path
     - "language" (string) Language code
     - "src_mobile" (string) Path the mobile logo
-    - "src-desktop" (string) Path to the desktop logo
+    - "src_desktop" (string) Path to the desktop logo
   - "title" (optional) (string) OR (object with Link component in property)
   - "title_class_name" (optional) (string) (default: '')
   - "description" (optional) (string) (default: '')

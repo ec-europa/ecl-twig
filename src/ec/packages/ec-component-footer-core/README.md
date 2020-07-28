@@ -14,6 +14,12 @@ npm install --save @ecl-twig/ec-component-footer-core
   - "section_class_name" (string) (default: ''),
   - "links" (array of link objects) (default: []),
   - "list_class_name" (string) (default: []),
+  - "logo" (EU only)
+    - "alt" (string) alt attribute for the logo link
+    - "path" (string) logo link path
+    - "language" (string) Language code
+    - "src_mobile" (string) Path the mobile logo
+    - "src_desktop" (string) Path to the desktop logo
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'

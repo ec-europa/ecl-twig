@@ -133,8 +133,6 @@ const adapter = initialData => {
         const logo = {
           ...initialData.logo,
           path: initialData.logo.href,
-          src_mobile: '/logo--en.svg',
-          src_desktop: '/logo--en.svg',
         };
         delete logo.href;
         adaptedData.sections.push({

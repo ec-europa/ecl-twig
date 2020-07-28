@@ -63,8 +63,6 @@ const adapter = initialData => {
     adaptedData.sections.push({ logo: initialData.logo });
     adaptedData.sections[0].logo.path = initialData.logo.href;
     delete adaptedData.sections[0].logo.href;
-    adaptedData.sections[0].logo.src_mobile = '/logo--en.svg';
-    adaptedData.sections[0].logo.src_desktop = '/logo--en.svg';
   }
   Object.keys(initialData.sections).forEach(section => {
     if (section === 'siteName') {
