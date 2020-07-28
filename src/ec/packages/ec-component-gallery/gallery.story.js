@@ -215,9 +215,7 @@ const prepareGallery = data => {
     { display: 'inline-radio' },
     tabLabels.required
   );
-  if (!data.overlay.previous.icon.path) {
-    data.overlay.previous.icon = {};
-  } else {
+  if (data.overlay.previous.icon.path) {
     data.overlay.previous.icon.type = select(
       'overlay.previous.icon.type',
       [data.overlay.previous.icon.type],
