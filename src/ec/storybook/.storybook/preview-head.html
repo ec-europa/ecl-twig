@@ -63,7 +63,7 @@
         animation: 'scale-extreme',
         arrow: tippy.roundArrow,
       });
-      complianceReps.forEach(e => {
+      complianceReps.forEach((e) => {
         if (e.hasAttribute('title')) {
           e.setAttribute('data-tippy-content', e.getAttribute('title'));
           e.removeAttribute('title');
@@ -76,8 +76,8 @@
 
   document.addEventListener(
     'DOMContentLoaded',
-    function() {
-      const callback = function(mutationsList) {
+    function () {
+      const callback = function (mutationsList) {
         for (let i = 0, len = mutationsList.length; i < len; i++) {
           if (mutationsList[i].type == 'childList') {
             runOnPageChange();
