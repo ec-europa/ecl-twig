@@ -16,7 +16,7 @@ import dataLinkNoBullet from '@ecl/ec-specs-list/demo/data--link-no-bullet';
 import unorderedList from './ecl-unordered-list.html.twig';
 import notes from './README.md';
 
-const prepareUnorderedList = data => {
+const prepareUnorderedList = (data) => {
   if (data.variant) {
     data.variant = select(
       'variant',

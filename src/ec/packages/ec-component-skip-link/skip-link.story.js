@@ -22,7 +22,7 @@ const btnTabHandler = () => {
   return false;
 };
 
-const prepareSkipLink = data => {
+const prepareSkipLink = (data) => {
   button(btnTabLabel, btnTabHandler, tabLabels.states);
   data.label = text('label', data.label, tabLabels.required);
   data.href = text('href', data.href, tabLabels.required);

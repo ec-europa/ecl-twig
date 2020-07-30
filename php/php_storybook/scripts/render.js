@@ -12,11 +12,11 @@ const distFolder = `${rootFolder}/php`;
 const args = process.argv.slice(2);
 const systems = args[0] ? [args[0]] : ['ec', 'eu'];
 
-systems.forEach(system => {
+systems.forEach((system) => {
   const systemFolder = `${distFolder}/packages/${system}`;
   const components = args[1] ? [args[1]] : fs.readdirSync(systemFolder);
   // Loop in each component found.
-  components.forEach(component => {
+  components.forEach((component) => {
     const pkg = `ec-component-${component}`;
     let componentTemplate = component;
     // Our validation component.
@@ -31,7 +31,7 @@ systems.forEach(system => {
     const template = `@ecl-twig/${pkg}/ecl-${componentTemplate}.${extension}`;
     const dataFiles = fs.readdirSync(`${systemFolder}/${component}/specs`);
 
-    dataFiles.forEach(dataFile => {
+    dataFiles.forEach((dataFile) => {
       const variant = path
         .basename(dataFile)
         .replace(/.json/, '')
@@ -44,7 +44,7 @@ systems.forEach(system => {
 
       if (component === 'inpage-navigation') {
         let pageFillerHtml = '';
-        data.links.forEach(content => {
+        data.links.forEach((content) => {
           pageFillerHtml += content.item;
         });
         html = `<div class="ecl-container">
@@ -59,7 +59,7 @@ systems.forEach(system => {
       fs.writeFile(
         `${systemFolder}/${component}/js/${variant}.js.html`,
         html,
-        err => {
+        (err) => {
           if (err) throw err;
         }
       );

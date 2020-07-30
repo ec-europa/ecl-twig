@@ -14,7 +14,7 @@ import dataDefault from './demo/data--default';
 import checkboxGroup from './ecl-checkbox-group.html.twig';
 import notes from './README.md';
 
-const prepareCheckbox = data => {
+const prepareCheckbox = (data) => {
   getFormGroupKnobs(data);
 
   getFormItemKnobs(data, true);

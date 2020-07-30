@@ -13,7 +13,7 @@ import demoData from './demo/data';
 import timeline from './ecl-timeline.html.twig';
 import notes from './README.md';
 
-const prepareTimeline = data => {
+const prepareTimeline = (data) => {
   const { from, to } = data.hide;
   let hiddenCount = 0;
   if (to > 0) {

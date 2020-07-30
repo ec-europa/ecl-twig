@@ -6,7 +6,7 @@ import frenchData from './demo/data--fr';
 describe('EC - Site Header Standardised', () => {
   const template =
     '@ecl-twig/ec-component-site-header-standardised/ecl-site-header-standardised.html.twig';
-  const render = params => renderTwigFileAsNode(template, params);
+  const render = (params) => renderTwigFileAsNode(template, params);
 
   describe('Default', () => {
     test('renders correctly', () => {

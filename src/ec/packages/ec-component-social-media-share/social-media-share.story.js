@@ -14,7 +14,7 @@ import demoData from './demo/data';
 import SocialMediaShare from './ecl-social-media-share.html.twig';
 import notes from './README.md';
 
-const prepareSocialMediaShare = data => {
+const prepareSocialMediaShare = (data) => {
   data.description = text('description', data.description, tabLabels.required);
 
   data.links.forEach((link, i) => {

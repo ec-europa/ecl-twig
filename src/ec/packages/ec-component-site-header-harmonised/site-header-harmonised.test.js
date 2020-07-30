@@ -7,7 +7,7 @@ import dataGroup3 from './demo/data--group3';
 describe('EC - Site Header Harmonised', () => {
   const template =
     '@ecl-twig/ec-component-site-header-harmonised/ecl-site-header-harmonised.html.twig';
-  const render = params => renderTwigFileAsNode(template, params);
+  const render = (params) => renderTwigFileAsNode(template, params);
 
   describe('Group 1', () => {
     test('renders correctly', () => {

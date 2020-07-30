@@ -16,7 +16,7 @@ demoMetaTitleDescriptionContent.breadcrumb.icon_file_path = defaultSprite;
 describe('Page Header Standardised', () => {
   const template =
     '@ecl-twig/ec-component-page-header-standardised/ecl-page-header-standardised.html.twig';
-  const render = params => renderTwigFileAsNode(template, params);
+  const render = (params) => renderTwigFileAsNode(template, params);
 
   describe('EC - title', () => {
     test(`- renders correctly`, () => {

@@ -1,7 +1,6 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import { formatLink } from '@ecl-twig/data-utils';
 
-const adapter = initialData => {
+const adapter = (initialData) => {
   const adaptedData = {};
 
   if (initialData.backToTop) {
@@ -23,23 +22,25 @@ const adapter = initialData => {
       title: initialData.identity.title,
       follow: {
         label: initialData.identity.follow.label,
-        links: initialData.identity.follow.links.map(formatLink),
+        links: initialData.identity.follow.links.map((item) =>
+          formatLink(item)
+        ),
       },
-      info: initialData.identity.info.map(formatLink),
+      info: initialData.identity.info.map((item) => formatLink(item)),
     };
   }
 
   if (initialData.sections) {
-    adaptedData.sections = initialData.sections.map(s => {
+    adaptedData.sections = initialData.sections.map((s) => {
       return {
         title: s.title,
-        links: s.links.map(formatLink),
+        links: s.links.map((item) => formatLink(item)),
       };
     });
   }
 
   if (initialData.common) {
-    adaptedData.common = initialData.common.map(formatLink);
+    adaptedData.common = initialData.common.map((item) => formatLink(item));
   }
 
   return adaptedData;

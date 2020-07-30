@@ -6,7 +6,7 @@ import frenchData from './demo/data--fr';
 describe('EC - Site Header Core', () => {
   const template =
     '@ecl-twig/ec-component-site-header-core/ecl-site-header-core.html.twig';
-  const render = params => renderTwigFileAsNode(template, params);
+  const render = (params) => renderTwigFileAsNode(template, params);
 
   describe('Default', () => {
     test('renders correctly', () => {

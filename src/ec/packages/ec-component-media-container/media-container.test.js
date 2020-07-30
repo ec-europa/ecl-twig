@@ -7,7 +7,7 @@ import demoContentEmbed from './demo/data--embed';
 describe('EC Media Container', () => {
   const template =
     '@ecl-twig/ec-component-media-container/ecl-media-container.html.twig';
-  const render = params => renderTwigFileAsNode(template, params);
+  const render = (params) => renderTwigFileAsNode(template, params);
   const defaultDataStructure = demoContentImg;
 
   describe('Media Container generic tests', () => {

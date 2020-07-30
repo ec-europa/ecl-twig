@@ -16,11 +16,11 @@ import footer from './ecl-footer.html.twig';
 import notes from './README.md';
 
 const iconsList = ['external'];
-brandedIcons.forEach(icon => {
+brandedIcons.forEach((icon) => {
   iconsList.push(icon);
 });
 
-const prepareFooter = data => {
+const prepareFooter = (data) => {
   if (data.identity) {
     data.identity.title = text(
       'identity.title',
