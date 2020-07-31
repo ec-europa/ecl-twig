@@ -23,7 +23,15 @@ if (fs.existsSync('php/dist/eu/')) {
     return console.log('Assets copied in the php/dist/eu folder');
   });
 }
+
 ncp('static/index.html', 'php/dist/index.html', {}, err => {
+  if (err) {
+    return console.error(err);
+  }
+  return console.log('Index.html copied in the php/dist folder');
+});
+
+ncp('static/favicon.ico', 'php/dist/favicon.ico', {}, err => {
   if (err) {
     return console.error(err);
   }
