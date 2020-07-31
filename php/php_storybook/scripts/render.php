@@ -43,9 +43,10 @@ foreach ($systems as $system) {
     // Get the list of data files.
     // For each data file the renderer will create an HTML file.
     $files = array_slice(scandir($specs_folder), 2);
+    $data_story = $prepend = '';
 
     foreach ($files as $file_name) {
-      $data_html = $base_component = $data_story = $prepend = '';
+      $data_html = $base_component = '';
       try {
         $variant = str_replace(
           '.json',
@@ -60,61 +61,45 @@ foreach ($systems as $system) {
         $data_json = json_decode($data_string, TRUE);
 
         if (!empty($data_json)) {
-          // If it's a modifier we demo it in a folder together with the other variants.
           $base_component = $helpers->baseComponent($variant);
-          // Here we render the template with params.
-          $data_html = $twig->render($template, $data_json);
-          // But then we need to fix something...
-          $data_html = $helpers->fixHtml($data_html, $component, $data_json);
-          // Create stories files.
-          $adapted_variant = str_replace('-', '_', $variant);
-          // We try to collect all the variants in the same story, so if we find one and the story file exist we inject
-          // the additional story and we prepend the import of the component.
-          if (file_exists($folder . DIRECTORY_SEPARATOR . 'story' . DIRECTORY_SEPARATOR . $base_component . '.story.js')) {
-            $prepend = "import " . $adapted_variant . " from '../" . $variant . $result_extension . "';\n";
-            $prepend .= "import " . $adapted_variant . "Js from '../js/" . $variant . ".js.html';\n";
-            $data_story = ".add('" . $variant . "', () => { return " . $adapted_variant . "; },";
-            $data_story .= "{ notes: { markdown: docs }, diff: { jsmarkup: " . $adapted_variant . "Js }})";
-          } else {
-            // Not sure why we needed this, but it's the case.
-            if (!is_dir($folder . DIRECTORY_SEPARATOR . 'story')) {
-              mkdir($folder . DIRECTORY_SEPARATOR . 'story');
-            }
-            // Prepare a folder for the js rendered files.
-            if (!is_dir($folder . DIRECTORY_SEPARATOR . 'js')) {
-              mkdir($folder . DIRECTORY_SEPARATOR . 'js');
-            }
-            // Get the story template.
-            $data_story = file_get_contents(__DIR__ . '/../resources/story-template.txt');
-
-            // Replace the content with our variables.
-            $data_story = str_replace(
-              ['#component#', '#componentVariant#', '#phpFileName#', '#deprecated#', '#componentGroup#'],
-              [$base_component, $adapted_variant, $variant, $deprecated_component, $component_group]
-              , $data_story
-            );
-          }
-          // Here we create or update the story file.
-          file_put_contents(
-            $folder . DIRECTORY_SEPARATOR . 'story' . DIRECTORY_SEPARATOR . $base_component . '.story.js',
-            $data_story, FILE_APPEND | LOCK_EX
-          );
-          // Prepending a string in a file is a bit more clumsy in php.
-          if (!empty($prepend)) {
-            $helpers->prepend($prepend, $folder . DIRECTORY_SEPARATOR . 'story' . DIRECTORY_SEPARATOR . $base_component . '.story.js');
-          }
+          $data_html_raw = $twig->render($template, $data_json);
+          $data_html = $helpers->fixHtml($data_html_raw, $component, $data_json);
           // Save the rendered html in a file .php.html
           file_put_contents(
             $folder . DIRECTORY_SEPARATOR . $variant . $result_extension,
             $data_html
           );
-          // Symlink the docs.
-          $link = $folder . DIRECTORY_SEPARATOR . 'README.md';
-          $target = $packages_folder . DIRECTORY_SEPARATOR . 'ec-component-' . $base_component . DIRECTORY_SEPARATOR . 'README.md';
 
-          if (!file_exists($link) && file_exists($target)) {
-            symlink($target, $link);
+          $adapted_variant = str_replace('-', '_', $variant);
+          if ($pos = strpos($adapted_variant, '__')) {
+            $variant_name = ucfirst(substr($adapted_variant, $pos + 2));
+            if (ctype_digit(substr($variant_name, 0, 1))) {
+              $variant_name = substr($variant_name, 2) . '_' . substr($variant_name, 0, 1);
+            }
+          } else {
+            $variant_name = 'Default';
           }
+          // Create the story file if it doesn't exist yet and links the README file.
+          if (!file_exists($folder . DIRECTORY_SEPARATOR . 'story' . DIRECTORY_SEPARATOR . $base_component . '.story.js')) {
+            $helpers->createStoryFiles(
+              $folder,
+              $base_component,
+              $adapted_variant,
+              $variant,
+              $deprecated_component,
+              $component_group,
+              $packages_folder
+            );
+          }
+          // Prepare the data to be added to the story file.
+          $export_code = $helpers->setExportCode($variant_name, $adapted_variant);
+          $story_code = $helpers->setStoryCode($variant_name, $adapted_variant);
+          if ($variant_name === 'Default') {
+            $data_story = $export_code . $story_code . $data_story;
+          } else {
+            $data_story = $data_story . $export_code . $story_code;
+          }
+          $prepend .= $helpers->setImportCode($adapted_variant, $variant, $result_extension);
         }
       } catch (exception $e) {
         // Not throwing facilitates continuation.
@@ -123,5 +108,9 @@ foreach ($systems as $system) {
         print($e);
       }
     }
+    // Here we add the import for the rendered files to the story file.
+    $helpers->prependToStory($prepend, $folder . DIRECTORY_SEPARATOR . 'story' . DIRECTORY_SEPARATOR . $base_component . '.story.js');
+    // Here we update the story file with all the variants we've found.
+    $helpers->updateStoryFile($folder, $base_component, $data_story);
   }
 }
