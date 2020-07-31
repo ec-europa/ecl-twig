@@ -22,19 +22,19 @@ const createDataFiles = ({
   let euFiles = [];
   let files = [];
   if (system === 'eu') {
-    euFiles = allFiles.filter(file => {
+    euFiles = allFiles.filter((file) => {
       return file.startsWith('eu-');
     });
   }
   if (euFiles.length < 1) {
-    files = allFiles.filter(file => {
+    files = allFiles.filter((file) => {
       return !file.startsWith('eu-');
     });
   } else {
     files = euFiles;
   }
 
-  files.forEach(file => {
+  files.forEach((file) => {
     // require() is necessary at all cases.
     // Sometimes files contain results of adaptation.
     const dataImport = require(`${readLocation}/${file}`);
@@ -66,8 +66,8 @@ if (args[1]) {
   listRender = [`@ecl-twig/ec-component-${args[1]}`];
 }
 // Loop in the identified components.
-systems.forEach(system => {
-  listRender.forEach(pkg => {
+systems.forEach((system) => {
+  listRender.forEach((pkg) => {
     const componentRootName = pkg.split(`@ecl-twig/ec-component-`)[1];
     const packageLocation = `${nodeModules}/${pkg}`;
     let specLocation = '';

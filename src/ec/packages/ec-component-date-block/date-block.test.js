@@ -4,7 +4,7 @@ import demoData from './demo/data';
 
 describe('EC - Date Block', () => {
   const template = '@ecl-twig/ec-component-date-block/ecl-date-block.html.twig';
-  const render = params => renderTwigFileAsNode(template, params);
+  const render = (params) => renderTwigFileAsNode(template, params);
 
   test('renders correctly', () => {
     expect.assertions(1);

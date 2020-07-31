@@ -7,7 +7,7 @@ import dataLongEu from './demo/eu-data';
 
 describe('EC - Breadcrumb', () => {
   const template = '@ecl-twig/ec-component-breadcrumb/ecl-breadcrumb.html.twig';
-  const render = params => renderTwigFileAsNode(template, params);
+  const render = (params) => renderTwigFileAsNode(template, params);
 
   describe('Simple', () => {
     test(`renders correctly`, () => {

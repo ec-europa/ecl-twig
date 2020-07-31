@@ -13,7 +13,7 @@ import specs from './demo/data';
 import pagination from './ecl-pagination.html.twig';
 import notes from './README.md';
 
-const preparePagination = data => {
+const preparePagination = (data) => {
   data.label = text('label', data.label, tabLabels.required);
   data.icon_path = optionsKnob(
     'icon_path',

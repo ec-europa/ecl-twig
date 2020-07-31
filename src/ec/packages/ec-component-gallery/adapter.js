@@ -10,7 +10,7 @@ function formatItem(i) {
   };
 
   if (i.video && i.video.tracks && Array.isArray(i.video.tracks)) {
-    i.video.tracks.forEach(track => {
+    i.video.tracks.forEach((track) => {
       track.src_lang = track.srcLang;
       delete track.srcLang;
     });
@@ -27,11 +27,11 @@ function formatItem(i) {
   return item;
 }
 
-const adapter = initialData => {
+const adapter = (initialData) => {
   const footer = formatLink(initialData.footerLink);
   footer.icon.path = '/icons.svg';
   const adaptedData = {
-    items: initialData.items.map(formatItem),
+    items: initialData.items.map((item) => formatItem(item)),
     footer,
     overlay: {
       close: formatButton(initialData.overlay.close),

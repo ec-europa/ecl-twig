@@ -6,7 +6,7 @@ import euSections from './demo/eu-data';
 describe('EC - Footer Standardised', () => {
   const template =
     '@ecl-twig/ec-component-footer-standardised/ecl-footer-standardised.html.twig';
-  const render = params => renderTwigFileAsNode(template, params);
+  const render = (params) => renderTwigFileAsNode(template, params);
 
   describe('default', () => {
     const options = sections;

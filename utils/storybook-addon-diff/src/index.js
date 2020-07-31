@@ -67,7 +67,7 @@ export const withDiff = makeDecorator({
   },
 });
 
-export const withJsmarkupDiff = text =>
+export const withJsmarkupDiff = (text) =>
   withDiff({
     jsmarkup: text,
   });

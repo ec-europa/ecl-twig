@@ -12,7 +12,7 @@ import searchForm from './ecl-search-form.html.twig';
 import dataDefault from './demo/data';
 import notes from './README.md';
 
-const prepareSearchForm = data => {
+const prepareSearchForm = (data) => {
   data.button.label = text(
     'button.label',
     data.button.label,

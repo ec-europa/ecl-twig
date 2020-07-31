@@ -9,7 +9,7 @@ import bannerDataAlignLeft from './demo/data--align-left';
 describe('EC - Page Banner', () => {
   const template =
     '@ecl-twig/ec-component-page-banner/ecl-page-banner.html.twig';
-  const render = params => renderTwigFileAsNode(template, params);
+  const render = (params) => renderTwigFileAsNode(template, params);
 
   describe('default', () => {
     const data = bannerDataDefault;

@@ -5,7 +5,7 @@ import dataError from './demo/data--has-error';
 
 describe('EC - Text area', () => {
   const template = '@ecl-twig/ec-component-text-area/ecl-text-area.html.twig';
-  const render = params => renderTwigFileAsNode(template, params);
+  const render = (params) => renderTwigFileAsNode(template, params);
 
   describe('Default', () => {
     test('renders correctly', () => {

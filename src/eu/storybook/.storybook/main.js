@@ -11,7 +11,7 @@ const addons = [
   '@storybook/addon-knobs',
 ];
 
-const managerWebpack = async baseConfig => {
+const managerWebpack = async (baseConfig) => {
   // Exclude node_modules
   baseConfig.module.rules[0].exclude = /node_modules\/(?!@ecl-twig\/).*/;
 

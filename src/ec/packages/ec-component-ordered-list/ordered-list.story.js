@@ -12,7 +12,7 @@ import specs from '@ecl/ec-specs-list/demo/data--text';
 import orderedList from './ecl-ordered-list.html.twig';
 import notes from './README.md';
 
-const prepareOrderedList = data => {
+const prepareOrderedList = (data) => {
   data.items.forEach((item, i) => {
     item.label = text(`items[${i}].label`, item.label, tabLabels.required);
 

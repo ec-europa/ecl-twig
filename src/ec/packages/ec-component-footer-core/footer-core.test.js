@@ -6,7 +6,7 @@ import euSections from './demo/eu-data';
 describe('EC - Footer Core', () => {
   const template =
     '@ecl-twig/ec-component-footer-core/ecl-footer-core.html.twig';
-  const render = params => renderTwigFileAsNode(template, params);
+  const render = (params) => renderTwigFileAsNode(template, params);
 
   describe('default', () => {
     const options = sections;
