@@ -23,7 +23,7 @@ export const withJsCode = makeDecorator({
   },
 });
 
-export const withJsMarkup = text =>
+export const withJsMarkup = (text) =>
   withJsCode({
     jsmarkup: text,
   });

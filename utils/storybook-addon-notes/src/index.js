@@ -18,7 +18,7 @@ renderer.code = function customCode(code, infostring, escaped) {
   }
 
   const highlightedCode = Prism.highlight(code, Prism.languages[lang], lang);
-  if (highlightedCode != null && highlightedCode !== code) {
+  if (highlightedCode !== undefined && highlightedCode !== code) {
     escaped = true;
     code = highlightedCode;
   }
@@ -43,7 +43,7 @@ function renderMarkdown(text, options, json) {
     if (example.extra_classes === '') {
       delete example.extra_classes;
     }
-    if (example.extra_attributes === null) {
+    if (example.extra_attributes === undefined) {
       delete json.extra_attributes;
     }
     if (json.items) {
@@ -54,7 +54,7 @@ function renderMarkdown(text, options, json) {
         }
       });
       example.items = example.items.filter(
-        value => Object.keys(value).length !== 0
+        (value) => Object.keys(value).length !== 0
       );
     }
     if (json.links) {
@@ -65,17 +65,17 @@ function renderMarkdown(text, options, json) {
         }
       });
       example.links = example.links.filter(
-        value => Object.keys(value).length !== 0
+        (value) => Object.keys(value).length !== 0
       );
     }
     // Fixing the econding of ', mainly
-    Object.keys(example).forEach(e => {
+    Object.keys(example).forEach((e) => {
       if (typeof example[e] === 'string') {
         example[e] = he.decode(example[e]);
       }
     });
     // Ehm, this is the best format we could get.
-    let specs = JSON.stringify(example, null, '\n..');
+    let specs = JSON.stringify(example, undefined, '\n..');
     // We only replace the existing example.s
     specs = specs.replace(/"([^"()]+)":/g, '$1:');
     const n = specs.lastIndexOf('}');

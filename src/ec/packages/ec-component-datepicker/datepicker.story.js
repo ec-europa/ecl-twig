@@ -13,7 +13,7 @@ import dataDefault from './demo/data';
 import datepicker from './ecl-datepicker.html.twig';
 import notes from './README.md';
 
-const prepareDatePicker = data => {
+const prepareDatePicker = (data) => {
   getFormKnobs(data);
 
   data.label = text('label', data.label, tabLabels.required);

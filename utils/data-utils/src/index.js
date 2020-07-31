@@ -1,4 +1,4 @@
-const formatIcon = i => {
+const formatIcon = (i) => {
   const [type, name] = i.shape.split('--');
   const icon = {
     path: '/icons.svg',
@@ -11,7 +11,7 @@ const formatIcon = i => {
   return icon;
 };
 
-const formatLink = l => {
+const formatLink = (l) => {
   const link = {
     link: {
       label: l.label,
@@ -37,7 +37,7 @@ const formatLink = l => {
   return link;
 };
 
-const formatLinkAlt = a => {
+const formatLinkAlt = (a) => {
   const link = {
     label: a.label,
     path: a.href ? a.href : '#',
@@ -65,7 +65,7 @@ const formatLinkAlt = a => {
   return link;
 };
 
-const formatButton = b => {
+const formatButton = (b) => {
   const button = {
     variant: b.variant,
     label: b.label,

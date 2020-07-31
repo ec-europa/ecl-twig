@@ -14,7 +14,7 @@ import demoData from './demo/data';
 import dropdown from './ecl-dropdown-legacy.html.twig';
 import notes from './README.md';
 
-const prepareDropdown = data => {
+const prepareDropdown = (data) => {
   data.button.label = text(
     'button.label',
     data.button.label,

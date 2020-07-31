@@ -26,7 +26,7 @@ const system = process.env.STORYBOOK_SYSTEM
   ? process.env.STORYBOOK_SYSTEM
   : false;
 
-const prepareLanguageList = data => {
+const prepareLanguageList = (data) => {
   let logoImg = logoPath;
   data.icon_path = optionsKnob(
     'icon_path',

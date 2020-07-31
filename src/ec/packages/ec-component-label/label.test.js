@@ -3,7 +3,7 @@ import dataDefault from '@ecl/ec-specs-label/demo/data';
 
 describe('EC - Label', () => {
   const template = '@ecl-twig/ec-component-label/ecl-label.html.twig';
-  const render = params => renderTwigFileAsNode(template, params);
+  const render = (params) => renderTwigFileAsNode(template, params);
 
   test('renders correctly', () => {
     expect.assertions(1);

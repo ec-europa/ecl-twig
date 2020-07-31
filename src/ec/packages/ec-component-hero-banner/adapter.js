@@ -1,7 +1,6 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import { formatLink } from '@ecl-twig/data-utils';
 
-const adapter = initialData => {
+const adapter = (initialData) => {
   // Copy reference specification demo adaptedData.
   const adaptedData = JSON.parse(JSON.stringify(initialData));
   if (adaptedData.link) {

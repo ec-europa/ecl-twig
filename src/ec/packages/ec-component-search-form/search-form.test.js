@@ -4,7 +4,7 @@ import data from './demo/data';
 describe('EC - Search Form', () => {
   const template =
     '@ecl-twig/ec-component-search-form/ecl-search-form.html.twig';
-  const render = params => renderTwigFileAsNode(template, params);
+  const render = (params) => renderTwigFileAsNode(template, params);
 
   describe('Default', () => {
     test('renders correctly', () => {

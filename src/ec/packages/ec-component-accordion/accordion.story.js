@@ -12,7 +12,7 @@ import demoData from './demo/data';
 import accordion from './ecl-accordion.html.twig';
 import notes from './README.md';
 
-const prepareAccordion = data => {
+const prepareAccordion = (data) => {
   data.items.forEach((item, index) => {
     const { id, level, toggle, content } = item;
     item.id = text(`items[${index}].id`, id, tabLabels.required);

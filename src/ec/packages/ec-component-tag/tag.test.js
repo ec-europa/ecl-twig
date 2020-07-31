@@ -5,7 +5,7 @@ import dataRemovable from './demo/data--removable';
 
 describe('EC - Tag', () => {
   const template = '@ecl-twig/ec-component-tag/ecl-tag.html.twig';
-  const render = params => renderTwigFileAsNode(template, params);
+  const render = (params) => renderTwigFileAsNode(template, params);
 
   describe('Link', () => {
     test('renders correctly', () => {

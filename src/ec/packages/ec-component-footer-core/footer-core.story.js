@@ -25,7 +25,7 @@ if (process.env.STORYBOOK_SYSTEM === 'EU') {
 }
 
 // Prepare the knobs.
-const formatFooter = data => {
+const formatFooter = (data) => {
   data.sections.forEach((section, i) => {
     if (!Array.isArray(section)) {
       if (section.title) {

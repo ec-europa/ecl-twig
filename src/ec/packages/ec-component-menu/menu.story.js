@@ -13,7 +13,7 @@ import frData from './demo/data--fr';
 import menu from './ecl-menu.html.twig';
 import notes from './README.md';
 
-const prepareMenu = data => {
+const prepareMenu = (data) => {
   data.title = text('title', data.title, tabLabels.required);
   data.close = text('close', data.close, tabLabels.required);
   data.back = text('back', data.back, tabLabels.required);

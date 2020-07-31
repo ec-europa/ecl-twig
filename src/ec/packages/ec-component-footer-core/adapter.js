@@ -1,7 +1,7 @@
-/* eslint-disable import/no-extraneous-dependencies, no-param-reassign, default-case */
+/* eslint-disable default-case */
 import { formatLink } from '@ecl-twig/data-utils';
 
-const formatSection = section => {
+const formatSection = (section) => {
   const sections = [];
   let innerSections = false;
   let innerSectionsArray = [];
@@ -11,7 +11,7 @@ const formatSection = section => {
     innerSections = true;
   }
 
-  section.forEach(s => {
+  section.forEach((s) => {
     if (s.listClassName) {
       s.list_class_name = s.listClassName;
       delete s.listClassName;
@@ -56,7 +56,7 @@ const formatSection = section => {
   return sections;
 };
 
-const adapter = initialData => {
+const adapter = (initialData) => {
   const adaptedData = {};
   adaptedData.sections = [];
   if (initialData.logo) {
@@ -64,7 +64,7 @@ const adapter = initialData => {
     adaptedData.sections[0].logo.path = initialData.logo.href;
     delete adaptedData.sections[0].logo.href;
   }
-  Object.keys(initialData.sections).forEach(section => {
+  Object.keys(initialData.sections).forEach((section) => {
     if (section === 'siteName') {
       if (adaptedData.sections[0]) {
         adaptedData.sections[0] = {

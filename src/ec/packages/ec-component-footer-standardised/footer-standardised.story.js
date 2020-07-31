@@ -18,17 +18,17 @@ import footerStandardised from './ecl-footer-standardised.html.twig';
 import notes from './README.md';
 
 // Icons.
-specs.sections.forEach(section => {
+specs.sections.forEach((section) => {
   if (!Array.isArray(section)) {
     section = [section];
   }
 
-  section.forEach(s => {
+  section.forEach((s) => {
     if (section.title && section.title.icon) {
       section.title.icon.path = defaultSprite;
     }
     if (s.links && Array.isArray(s.links)) {
-      s.links.forEach(l => {
+      s.links.forEach((l) => {
         if (l.icon) {
           l.icon.path = defaultSprite;
         }
@@ -147,7 +147,7 @@ const relatedBtnToggler = () => {
 };
 
 // Prepare the knobs for group1
-const prepareFooterStandardised = data => {
+const prepareFooterStandardised = (data) => {
   if (!system) {
     button(
       'With or without DG-related service navigation (contact us)',

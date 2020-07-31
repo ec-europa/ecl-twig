@@ -2,13 +2,13 @@ import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
 import demoData from './demo/data';
 
-demoData.items.forEach(item => {
+demoData.items.forEach((item) => {
   item.toggle.icon.path = 'static/icons';
 });
 
 describe('EC - Accordion2', () => {
   const template = '@ecl-twig/ec-component-accordion2/ecl-accordion2.html.twig';
-  const render = params => renderTwigFileAsNode(template, params);
+  const render = (params) => renderTwigFileAsNode(template, params);
 
   test('renders correctly', () => {
     expect.assertions(1);

@@ -17,7 +17,7 @@ import dataWarning from './demo/data--warning';
 import message from './ecl-message.html.twig';
 import notes from './README.md';
 
-const prepareMessage = data => {
+const prepareMessage = (data) => {
   data.title = text('title', data.title, tabLabels.required);
   data.description = text('description', data.description, tabLabels.required);
   data.variant = select(

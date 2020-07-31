@@ -18,7 +18,7 @@ import heroBanner from './ecl-hero-banner.html.twig';
 import notes from './README.md';
 
 const icons = { none: '' };
-uiIcons.forEach(icon => {
+uiIcons.forEach((icon) => {
   icons[icon] = icon;
 });
 

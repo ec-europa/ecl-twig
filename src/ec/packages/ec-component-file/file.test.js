@@ -7,7 +7,7 @@ import dataThumbnail from './demo/data--thumbnail';
 
 describe('EC - File', () => {
   const template = '@ecl-twig/ec-component-file/ecl-file.html.twig';
-  const render = params => renderTwigFileAsNode(template, params);
+  const render = (params) => renderTwigFileAsNode(template, params);
 
   describe('With translation', () => {
     test('renders correctly', () => {

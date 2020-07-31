@@ -14,7 +14,7 @@ import demoData from './demo/data';
 import expandable from './ecl-expandable.html.twig';
 import notes from './README.md';
 
-const prepareExpandable = data => {
+const prepareExpandable = (data) => {
   data.id = select('id', [data.id], data.id, tabLabels.required);
   data.label_expanded = text(
     'label_expanded',
