@@ -16,13 +16,13 @@ import link from './ecl-link.html.twig';
 import notes from './README.md';
 
 const iconsList = {};
-iconsList.none = null;
+iconsList.none = '';
 
-uiIcons.forEach(icon => {
+uiIcons.forEach((icon) => {
   iconsList[icon] = icon;
 });
 
-const prepareLink = data => {
+const prepareLink = (data) => {
   let typeLabel = tabLabels.required;
   if (data.link.type === 'default' || data.link.label === '') {
     typeLabel = tabLabels.optional;
@@ -50,10 +50,10 @@ export default {
 export const Default = () => {
   const dataStory = prepareLink(dataDefault);
 
-  const name = select('icon.name', iconsList, null, tabLabels.optional);
-  if (name !== null) {
+  const name = select('icon.name', iconsList, '', tabLabels.optional);
+  if (name !== '') {
     getIconKnobs(dataStory, name, 'ui', 'xs');
-  } else if (name === null && dataStory.icon) {
+  } else if (name === '' && dataStory.icon) {
     delete dataStory.icon.name;
   }
 
@@ -77,10 +77,10 @@ Default.story = {
 
 export const Standalone = () => {
   const dataStory = prepareLink(dataStandalone);
-  const name = select('icon.name', iconsList, null, tabLabels.optional);
-  if (name !== null) {
+  const name = select('icon.name', iconsList, '', tabLabels.optional);
+  if (name !== '') {
     getIconKnobs(dataStory, name, 'ui', 'xs');
-  } else if (name === null && dataStory.icon) {
+  } else if (name === '' && dataStory.icon) {
     delete dataStory.icon.name;
   }
 
@@ -103,9 +103,9 @@ export const Cta = () => {
     'rounded-arrow',
     tabLabels.optional
   );
-  if (name !== null) {
+  if (name !== '') {
     getIconKnobs(dataStory, name, 'ui', 'xs', '', 'rotate-90', true);
-  } else if (name === null && dataStory.icon) {
+  } else if (name === '' && dataStory.icon) {
     delete dataStory.icon.name;
   }
 

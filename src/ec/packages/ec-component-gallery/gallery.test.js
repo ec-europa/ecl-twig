@@ -5,7 +5,7 @@ import demoData from './demo/data';
 
 describe('EC - Gallery', () => {
   const template = '@ecl-twig/ec-component-gallery/ecl-gallery.html.twig';
-  const render = params => renderTwigFileAsNode(template, params);
+  const render = (params) => renderTwigFileAsNode(template, params);
 
   describe('Default', () => {
     test('renders correctly', () => {

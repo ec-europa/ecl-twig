@@ -7,7 +7,7 @@ const { ncp } = require('ncp');
 const options = {};
 options.dereference = true;
 
-ncp('scripts/pre-commit.husky', '.git/hooks/pre-commit', options, err => {
+ncp('scripts/pre-commit.husky', '.git/hooks/pre-commit', options, (err) => {
   if (err) {
     return console.error(err);
   }

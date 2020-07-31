@@ -9,7 +9,7 @@ import dataSearch from '@ecl/ec-specs-button/demo/data--search';
 
 describe('EC - Button', () => {
   const template = '@ecl-twig/ec-component-button/ecl-button.html.twig';
-  const render = params => renderTwigFileAsNode(template, params);
+  const render = (params) => renderTwigFileAsNode(template, params);
 
   describe('Primary', () => {
     test('renders correctly', () => {

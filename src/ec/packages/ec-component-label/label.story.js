@@ -18,7 +18,7 @@ const options = {
   'high importance': 'high',
 };
 
-const prepareLabel = data => {
+const prepareLabel = (data) => {
   data.label = he.decode(text('label', data.label, tabLabels.required));
   data.variant = select(
     'variant',

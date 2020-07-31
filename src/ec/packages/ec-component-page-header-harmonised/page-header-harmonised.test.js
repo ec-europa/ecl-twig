@@ -10,7 +10,7 @@ import euDemoMetaTitleDescriptionContent from './demo/eu-data--meta-title-descri
 describe('Page Header Harmonised', () => {
   const template =
     '@ecl-twig/ec-component-page-header-harmonised/ecl-page-header-harmonised.html.twig';
-  const render = params => renderTwigFileAsNode(template, params);
+  const render = (params) => renderTwigFileAsNode(template, params);
 
   describe('EC - Title', () => {
     test(`- renders correctly`, () => {

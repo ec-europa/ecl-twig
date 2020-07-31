@@ -16,7 +16,7 @@ function formatItem(i) {
   return item;
 }
 
-const adapter = initialData => {
+const adapter = (initialData) => {
   // Copy reference specification demo adaptedData.
   const adaptedData = JSON.parse(JSON.stringify(initialData));
   adaptedData.helper_id = adaptedData.helperId;
@@ -32,7 +32,7 @@ const adapter = initialData => {
   delete adaptedData.invalidText;
   delete adaptedData.legendId;
 
-  adaptedData.items = adaptedData.items.map(formatItem);
+  adaptedData.items = adaptedData.items.map((item) => formatItem(item));
   adaptedData.items[0].checked = true;
   adaptedData.items[2].disabled = true;
 

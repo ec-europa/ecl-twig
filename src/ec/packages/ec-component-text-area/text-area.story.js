@@ -10,7 +10,7 @@ import specData from './demo/data--default';
 import textArea from './ecl-text-area.html.twig';
 import notes from './README.md';
 
-const prepareTextArea = data => {
+const prepareTextArea = (data) => {
   getFormKnobs(data);
   getExtraKnobs(data);
   getComplianceKnob(data);

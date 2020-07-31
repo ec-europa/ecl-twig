@@ -1,5 +1,4 @@
-/* eslint-disable import/no-extraneous-dependencies, no-param-reassign */
-const adapter = initialData => {
+const adapter = (initialData) => {
   const adaptedData = JSON.parse(JSON.stringify(initialData));
 
   const from = 5;

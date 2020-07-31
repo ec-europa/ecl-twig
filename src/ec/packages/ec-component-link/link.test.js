@@ -5,7 +5,7 @@ import dataStandalone from './demo/data--standalone';
 
 describe('EC - Link', () => {
   const template = '@ecl-twig/ec-component-link/ecl-link.html.twig';
-  const render = params => renderTwigFileAsNode(template, params);
+  const render = (params) => renderTwigFileAsNode(template, params);
   const defaultIconPath = 'static/icons.svg';
 
   describe('Default', () => {

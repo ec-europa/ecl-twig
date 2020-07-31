@@ -11,7 +11,7 @@ import dataDefault from './demo/data--default';
 import textInput from './ecl-text-input.html.twig';
 import notes from './README.md';
 
-const prepareTextInput = data => {
+const prepareTextInput = (data) => {
   getFormKnobs(data);
   getExtraKnobs(data);
   getComplianceKnob(data);

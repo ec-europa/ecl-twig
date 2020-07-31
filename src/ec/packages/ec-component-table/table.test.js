@@ -7,7 +7,7 @@ import dataSortable from './demo/data--sort-table';
 
 describe('EC - Table', () => {
   const template = '@ecl-twig/ec-component-table/ecl-table.html.twig';
-  const render = params => renderTwigFileAsNode(template, params);
+  const render = (params) => renderTwigFileAsNode(template, params);
 
   describe('Zebra', () => {
     test('renders correctly', () => {
@@ -54,7 +54,7 @@ describe('EC - Table', () => {
       expect.assertions(1);
 
       const withRowExtraAttributes = dataDefault;
-      withRowExtraAttributes.rows.forEach(row => {
+      withRowExtraAttributes.rows.forEach((row) => {
         row.extra_attributes = 'data-test data-test-another'; // eslint-disable-line no-param-reassign
       });
 
@@ -65,7 +65,7 @@ describe('EC - Table', () => {
       expect.assertions(1);
 
       const withRowExtraClasses = dataDefault;
-      withRowExtraClasses.rows.forEach(row => {
+      withRowExtraClasses.rows.forEach((row) => {
         row.extra_classes = 'row-extra-class'; // eslint-disable-line no-param-reassign
       });
 

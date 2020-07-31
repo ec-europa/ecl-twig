@@ -11,7 +11,7 @@ import defaultData from '@ecl/ec-specs-blockquote/demo/data';
 import blockquote from './ecl-blockquote.html.twig';
 import notes from './README.md';
 
-const prepareQuote = data => {
+const prepareQuote = (data) => {
   data.citation = text('citation', data.citation, tabLabels.required);
 
   data.author = text('author', data.author, tabLabels.required);
