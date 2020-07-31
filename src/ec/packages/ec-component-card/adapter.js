@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies, no-param-reassign */
 import { formatLinkAlt } from '@ecl-twig/data-utils';
 
-const adapter = initialData => {
+const adapter = (initialData) => {
   // Copy reference specification demo adaptedData.
   const adaptedData = JSON.parse(JSON.stringify(initialData));
   adaptedData.card = {};
@@ -19,7 +19,7 @@ const adapter = initialData => {
   }
   if (adaptedData.tags) {
     adaptedData.card.tags = adaptedData.tags;
-    adaptedData.card.tags.forEach(item => {
+    adaptedData.card.tags.forEach((item) => {
       item.path = item.href;
       delete item.href;
     });
@@ -36,7 +36,7 @@ const adapter = initialData => {
   }
   if (adaptedData.infos) {
     adaptedData.card.infos = adaptedData.infos;
-    adaptedData.card.infos.forEach(info => {
+    adaptedData.card.infos.forEach((info) => {
       info.icon.path = '/icons.svg';
       const [type, name] = info.icon.shape.split('--');
       info.icon.name = name;
@@ -47,7 +47,9 @@ const adapter = initialData => {
   }
   if (adaptedData.links) {
     adaptedData.card.links = adaptedData.links;
-    adaptedData.card.links = adaptedData.card.links.map(formatLinkAlt);
+    adaptedData.card.links = adaptedData.card.links.map((item) =>
+      formatLinkAlt(item)
+    );
     delete adaptedData.links;
   }
   delete adaptedData.title;

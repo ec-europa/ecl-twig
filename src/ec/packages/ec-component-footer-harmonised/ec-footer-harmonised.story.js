@@ -18,14 +18,14 @@ import notes from './README.md';
 
 // Icons.
 const groups = [dataGroup1, dataGroup2];
-groups.forEach(g => {
-  g.sections.forEach(section => {
+groups.forEach((g) => {
+  g.sections.forEach((section) => {
     if (!Array.isArray(section)) {
       section = [section];
     }
-    section.forEach(s => {
+    section.forEach((s) => {
       if (s.links && Array.isArray(s.links)) {
-        s.links.forEach(l => {
+        s.links.forEach((l) => {
           if (l.icon) {
             l.icon.path = defaultSprite;
           }
@@ -182,7 +182,7 @@ const resetBtnToggler = () => {
 };
 
 // Prepare the knobs for group3.
-const prepareFooterHarmonisedG3 = data => {
+const prepareFooterHarmonisedG3 = (data) => {
   button(
     'With or without first "Partnership logo"',
     partnershipLogoBtnToggler,
@@ -239,7 +239,7 @@ const prepareFooterHarmonisedG3 = data => {
 };
 
 // Prepare the knobs for group2.
-const prepareFooterHarmonisedG2 = data => {
+const prepareFooterHarmonisedG2 = (data) => {
   dataG2.sections.forEach((section, i) => {
     if (section.title) {
       section.title.link = {
@@ -278,7 +278,7 @@ const prepareFooterHarmonisedG2 = data => {
 };
 
 // Prepare the knobs for group1
-const prepareFooterHarmonisedG1 = data => {
+const prepareFooterHarmonisedG1 = (data) => {
   button('With our without class names', classBtnToggler, tabLabels.cases);
   button(
     'With our without DG-related service navigation (contact us)',

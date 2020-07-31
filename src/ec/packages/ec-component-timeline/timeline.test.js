@@ -4,7 +4,7 @@ import demoData from './demo/data';
 
 describe('EC - Timeline', () => {
   const template = '@ecl-twig/ec-component-timeline/ecl-timeline.html.twig';
-  const render = params => renderTwigFileAsNode(template, params);
+  const render = (params) => renderTwigFileAsNode(template, params);
 
   test('renders correctly without hidden items', () => {
     expect.assertions(1);

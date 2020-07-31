@@ -15,7 +15,7 @@ import dataLong from './demo/data';
 import breadcrumb from './ecl-breadcrumb.html.twig';
 import notes from './README.md';
 
-const prepareBreadcrumb = data => {
+const prepareBreadcrumb = (data) => {
   data.icon_file_path = optionsKnob(
     'icon_file_path',
     { current: defaultSprite, 'no path': '' },

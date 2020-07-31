@@ -39,8 +39,8 @@
   }
   document.addEventListener(
     'DOMContentLoaded',
-    function() {
-      const callback = function(mutationsList) {
+    function () {
+      const callback = function (mutationsList) {
         for (let i = 0, len = mutationsList.length; i < len; i++) {
           if (mutationsList[i].type == 'childList') {
             runOnPageChange();

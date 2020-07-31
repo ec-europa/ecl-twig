@@ -15,7 +15,7 @@ import dataMulti from './demo/data--multiple';
 import fileUpload from './ecl-file-upload.html.twig';
 import notes from './README.md';
 
-const prepareFileUpload = data => {
+const prepareFileUpload = (data) => {
   getFormKnobs(data);
 
   if (data.multiple) {

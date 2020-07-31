@@ -24,11 +24,11 @@ import card from './ecl-card.html.twig';
 import notes from './README.md';
 
 const iconsList = [];
-generalIcons.forEach(icon => {
+generalIcons.forEach((icon) => {
   iconsList.push(icon);
 });
 
-const prepareCard = data => {
+const prepareCard = (data) => {
   data.card.title.label = text(
     'card.title.label',
     data.card.title.label,

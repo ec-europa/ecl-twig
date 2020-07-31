@@ -14,7 +14,7 @@ import notes from './README.md';
 
 specsHorizontal.variant = 'horizontal';
 
-const prepareList = data => {
+const prepareList = (data) => {
   if (data.variant) {
     data.variant = select(
       'variant',

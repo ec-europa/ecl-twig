@@ -104,10 +104,10 @@ const formatSection = (section, name) => {
   return sections;
 };
 
-const adapter = initialData => {
+const adapter = (initialData) => {
   const adaptedData = {};
   adaptedData.sections = [];
-  Object.keys(initialData.sections).forEach(section => {
+  Object.keys(initialData.sections).forEach((section) => {
     if (section === 'siteName') {
       adaptedData.sections.push(
         ...formatSection(initialData.sections.siteName, section)

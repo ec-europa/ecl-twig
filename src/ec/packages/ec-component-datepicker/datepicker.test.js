@@ -4,7 +4,7 @@ import demoData from './demo/data';
 
 describe('EC - Datepicker', () => {
   const template = '@ecl-twig/ec-component-datepicker/ecl-datepicker.html.twig';
-  const render = params => renderTwigFileAsNode(template, params);
+  const render = (params) => renderTwigFileAsNode(template, params);
 
   test('renders correctly', () => {
     expect.assertions(1);

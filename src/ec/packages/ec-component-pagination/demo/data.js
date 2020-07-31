@@ -29,7 +29,7 @@ function formatItem(i) {
 
 const data = {
   label: specData.label,
-  items: specData.items.map(formatItem),
+  items: specData.items.map((item) => formatItem(item)),
   icon_path: '/icons.svg',
 };
 

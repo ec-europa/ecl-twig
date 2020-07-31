@@ -19,14 +19,14 @@ import button from './ecl-button.html.twig';
 import notes from './README.md';
 
 const iconsList = {};
-iconsList.none = null;
+iconsList.none = '';
 
-uiIcons.forEach(icon => {
+uiIcons.forEach((icon) => {
   iconsList[icon] = icon;
 });
 
 // Preserve the adapted specs.
-const prepareButton = data => {
+const prepareButton = (data) => {
   data.disabled = boolean('disabled', data.disabled, tabLabels.states);
   data.label = text('label', data.label, tabLabels.required);
 
@@ -50,10 +50,10 @@ export default {
 
 export const Primary = () => {
   const data = prepareButton(dataPrimary);
-  const name = select('icon.name', iconsList, null, tabLabels.optional);
-  if (name !== null) {
+  const name = select('icon.name', iconsList, '', tabLabels.optional);
+  if (name !== '') {
     getIconKnobs(data, name, 'ui', 'xs');
-  } else if (name === null && data.icon) {
+  } else if (name === '' && data.icon) {
     delete data.icon.name;
   }
 
@@ -70,10 +70,10 @@ Primary.story = {
 
 export const Secondary = () => {
   const data = prepareButton(dataSecondary);
-  const name = select('icon.name', iconsList, null, tabLabels.optional);
-  if (name !== null) {
+  const name = select('icon.name', iconsList, 'none', tabLabels.optional);
+  if (name !== 'none') {
     getIconKnobs(data, name, 'ui', 'xs');
-  } else if (name === null && data.icon) {
+  } else if (name === 'none' && data.icon) {
     delete data.icon.name;
   }
 
@@ -96,9 +96,9 @@ export const CallToAction = () => {
     'corner-arrow',
     tabLabels.optional
   );
-  if (name !== null) {
+  if (name !== '') {
     getIconKnobs(data, name, 'ui', 'xs', 'default', 'rotate-90');
-  } else if (name === null && data.icon) {
+  } else if (name === '' && data.icon) {
     delete data.icon.name;
   }
 
@@ -115,10 +115,10 @@ CallToAction.story = {
 
 export const Text = () => {
   const data = prepareButton(dataGhost);
-  const name = select('icon.name', iconsList, null, tabLabels.optional);
-  if (name !== null) {
+  const name = select('icon.name', iconsList, '', tabLabels.optional);
+  if (name !== '') {
     getIconKnobs(data, name, 'ui', 'xs');
-  } else if (name === null && data.icon) {
+  } else if (name === '' && data.icon) {
     delete data.icon.name;
   }
 
@@ -135,10 +135,10 @@ Text.story = {
 
 export const Search = () => {
   const data = prepareButton(dataSearch);
-  const name = select('icon.name', iconsList, null, tabLabels.optional);
-  if (name !== null) {
+  const name = select('icon.name', iconsList, '', tabLabels.optional);
+  if (name !== '') {
     getIconKnobs(data, name, 'ui', 'xs');
-  } else if (name === null && data.icon) {
+  } else if (name === '' && data.icon) {
     delete data.icon.name;
   }
 

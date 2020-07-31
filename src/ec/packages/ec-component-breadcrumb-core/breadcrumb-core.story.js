@@ -25,7 +25,7 @@ const system = process.env.STORYBOOK_SYSTEM
 const simpleData = system ? dataSimpleEu : dataSimple;
 const longData = system ? dataLongEu : dataLong;
 
-const prepareBreadcrumbCore = data => {
+const prepareBreadcrumbCore = (data) => {
   data.icon_file_path = optionsKnob(
     'icon_file_path',
     { current: defaultSprite, 'no path': '' },

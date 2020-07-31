@@ -5,7 +5,7 @@ import dataError from './demo/data--with-error';
 
 describe('EC - Text field', () => {
   const template = '@ecl-twig/ec-component-text-input/ecl-text-input.html.twig';
-  const render = params => renderTwigFileAsNode(template, params);
+  const render = (params) => renderTwigFileAsNode(template, params);
 
   describe('Default', () => {
     test('renders correctly', () => {
