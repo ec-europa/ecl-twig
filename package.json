@@ -94,13 +94,11 @@
   },
   "lint-staged": {
     "*.{md,mdx,html,json,yml}": [
-      "prettier --write",
-      "git add"
+      "prettier --write"
     ],
     "*.js": [
       "prettier --write",
-      "eslint",
-      "git add"
+      "eslint"
     ]
   },
   "workspaces": [
