@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-/* eslint-disable import/no-extraneous-dependencies, import/no-unresolved, no-console,
+/* eslint-disable import/no-extraneous-dependencies, import/no-unresolved, no-console, consistent-return,
 no-param-reassign, no-restricted-syntax, no-await-in-loop, import/no-dynamic-require, no-async-promise-executor */
 const fs = require('fs');
 const logger = require('html-differ/lib/logger');
@@ -37,7 +37,7 @@ const diffOptions = {
 };
 const htmlDiffer = new HtmlDiffer(diffOptions);
 
-const eclDiffVariant = data => {
+const eclDiffVariant = (data) => {
   const { component } = data;
   const { variant } = data;
   const { file } = data;
@@ -53,7 +53,7 @@ const eclDiffVariant = data => {
         'xlink:href="{{.*icons.*.svg#}}'
       )
       // Booleans.
-      .replace(/(data-ecl[-A-Za-z]+)(?=[\s/>])/g, '$1="{{true|false}}"')
+      .replace(/(data-ecl[A-Za-z-]+)(?=[\s/>])/g, '$1="{{true|false}}"')
       // aria-hidden
       .replace(/(aria-hidden)(=".+")/g, '$1="{{true|false}}"')
       // Logo
@@ -66,8 +66,7 @@ const eclDiffVariant = data => {
     if (!eclGluePath) {
       return resolve();
     }
-    else if (eclGluePath !== '') {
-      let output = '';
+    if (eclGluePath !== '') {
       const eclFinalUrl = `${domain}/component-library/v${version}/playground/ec/?path=/story/${eclGluePath}`;
       // Puppeteer will try to reach the requested component variant page.
       const browser = await puppeteer.launch();
@@ -83,7 +82,7 @@ const eclDiffVariant = data => {
         await page.click('button[title="Show HTML"]');
         if (await page.waitForSelector('code')) {
           let eclMarkup = await page.evaluate(
-            el => el.innerHTML,
+            (el) => el.innerHTML,
             await page.$('code')
           );
           await browser.close();

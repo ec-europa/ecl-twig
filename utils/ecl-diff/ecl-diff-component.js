@@ -10,10 +10,10 @@ const rootFolder = process.cwd();
 const distFolder = `${rootFolder}/php`;
 const systemFolder = `${distFolder}/packages/${system}`;
 
-const getData = component => {
+const getData = (component) => {
   const twigFullPath = `${systemFolder}/${component}`;
   const twigFilesFolder = fs.readdirSync(`${twigFullPath}`);
-  const twigFiles = twigFilesFolder.filter(elm => {
+  const twigFiles = twigFilesFolder.filter((elm) => {
     return elm.match(/.*\.(php.html)/gi);
   });
 
@@ -21,7 +21,7 @@ const getData = component => {
   console.log(`-------------------------------------------------------`);
 
   const variants = [];
-  twigFiles.forEach(async twigFile => {
+  twigFiles.forEach(async (twigFile) => {
     const variant = twigFile.includes('--')
       ? twigFile.replace(`${component}--`, '').slice(0, -9)
       : 'default';
@@ -31,8 +31,10 @@ const getData = component => {
   return variants;
 };
 
-module.exports = component => {
+module.exports = (component) => {
   const datas = getData(component);
 
-  return Promise.all(datas.map(eclDiffVariant)).then(response => console.log(`\nTask completed for component: ${component}\n`));
+  return Promise.all(datas.map((variant) => eclDiffVariant(variant))).then(() =>
+    console.log(`\nTask completed for component: ${component}\n`)
+  );
 };
