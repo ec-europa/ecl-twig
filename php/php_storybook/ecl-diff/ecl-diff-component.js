@@ -34,5 +34,5 @@ const getData = component => {
 module.exports = component => {
   const datas = getData(component);
 
-  Promise.all(datas.map(eclDiffVariant));
+  return Promise.all(datas.map(eclDiffVariant)).then(response => console.log(`\nTask completed for component: ${component}\n`));
 };

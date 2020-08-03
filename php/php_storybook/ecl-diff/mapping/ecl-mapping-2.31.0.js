@@ -62,7 +62,13 @@ const eclComponents = (component, variant) => {
     case 'datepicker':
     case 'file-upload':
     case 'select':
-      eclPath = `components-forms-${component}--${variant}`;
+      switch (variant) {
+        case 'single':
+          eclPath = `components-forms-${component}--default`;
+          break;
+        default:
+          eclPath = `components-forms-${component}--${variant}`;
+      }
       break;
     case 'blockquote':
     case 'date-block':
@@ -75,7 +81,7 @@ const eclComponents = (component, variant) => {
       eclPath = 'components-list--description';
       break;
     case 'dropdown-legacy':
-      eclPath = false;
+      eclPath = 'components-dropdown-legacy--default';
       break;
     case 'expandable':
       eclPath = 'components-expandables--default';
@@ -107,7 +113,10 @@ const eclComponents = (component, variant) => {
       eclPath = `components-banners-${component}--${variant}`;
       break;
     case 'inpage-navigation':
-      eclPath = 'components-navigation-in-page-navigation--default';
+      eclPath = 'components-navigation-in-page-navigation';
+      break;
+    case 'label':
+      eclPath = `components-${component}--${variant}`;
       break;
     case 'language-list':
       component = component.replace('-', '');
@@ -245,6 +254,9 @@ const eclComponents = (component, variant) => {
           eclPath = 'components-site-headers-harmonised--group-3';
           break;
       }
+      break;
+    case 'skip-link':
+      eclPath = 'components-navigation-skip-link--default';
       break;
     case 'social-media-follow':
       eclPath = 'components-socialmediafollow--horizontal';

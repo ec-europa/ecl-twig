@@ -63,7 +63,11 @@ const eclDiffVariant = data => {
       );
     // On the Ecl side.
     const eclGluePath = eclPath(component, variant);
-    if (eclGluePath) {
+    if (!eclGluePath) {
+      return resolve();
+    }
+    else if (eclGluePath !== '') {
+      let output = '';
       const eclFinalUrl = `${domain}/component-library/v${version}/playground/ec/?path=/story/${eclGluePath}`;
       // Puppeteer will try to reach the requested component variant page.
       const browser = await puppeteer.launch();
@@ -107,20 +111,19 @@ const eclDiffVariant = data => {
           if (successMsg) {
             console.log(successMsg);
           }
-
           resolve(matches);
         } else {
+          reject(matches);
           console.error(
             'Looks like we are not able to retrieve the html for this story...'
           );
-          reject(matches);
         }
       }
     } else {
+      reject(matches);
       console.error(
         'Looks like we are not able to retrieve the html for this story...'
       );
-      reject(matches);
     }
   });
 };

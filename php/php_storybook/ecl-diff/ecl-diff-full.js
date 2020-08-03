@@ -9,9 +9,20 @@ const getBase = element => {
   [, element] = element.split('ec-component-');
   return element;
 };
-// We build a list of components by their root name.
-packages = packages.map(getBase);
-packages.pop();
-packages = packages.slice(0, 5);
 
-Promise.all(packages.map(eclDiffComponent)).then(console.log('Finished...'));
+// We build a list of components by their root name.
+let components = [];
+packages.forEach((package) => {
+  if (
+    package !== 'ec-component-inpage-navigation' &&
+    package !== 'ec-component-ecl-compliance' &&
+    package !== 'ec-component-contextual-navigation' &&
+    package !== 'ec-components') {
+    components.push(getBase(package));
+  }
+});
+
+components.reduce((current, next) =>
+  current.then(_ => eclDiffComponent(next)),
+  Promise.resolve()
+);
