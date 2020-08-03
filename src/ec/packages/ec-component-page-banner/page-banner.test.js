@@ -9,7 +9,7 @@ import bannerDataAlignLeft from './demo/data--align-left';
 describe('EC - Page Banner', () => {
   const template =
     '@ecl-twig/ec-component-page-banner/ecl-page-banner.html.twig';
-  const render = params => renderTwigFileAsNode(template, params);
+  const render = (params) => renderTwigFileAsNode(template, params);
 
   describe('default', () => {
     const data = bannerDataDefault;
@@ -74,6 +74,15 @@ describe('EC - Page Banner', () => {
       });
 
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
+    });
+
+    test('with validation enabled and missing input data returns the right warning message', () => {
+      expect.assertions(1);
+
+      const dataCompliance = { ...data, _compliance_: true };
+      dataCompliance.image = '';
+
+      return expect(render(dataCompliance)).resolves.toMatchSnapshot();
     });
   });
 

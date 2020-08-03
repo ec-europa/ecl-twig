@@ -1,12 +1,13 @@
 import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
 // Import data for tests
-import dataDefault from '@ecl/ec-specs-table/demo/data--default';
-import dataMulti from '@ecl/ec-specs-table/demo/data--multi';
+import dataDefault from './demo/data--default';
+import dataMulti from './demo/data--multi';
+import dataSortable from './demo/data--sort-table';
 
 describe('EC - Table', () => {
   const template = '@ecl-twig/ec-component-table/ecl-table.html.twig';
-  const render = params => renderTwigFileAsNode(template, params);
+  const render = (params) => renderTwigFileAsNode(template, params);
 
   describe('Zebra', () => {
     test('renders correctly', () => {
@@ -53,7 +54,7 @@ describe('EC - Table', () => {
       expect.assertions(1);
 
       const withRowExtraAttributes = dataDefault;
-      withRowExtraAttributes.rows.forEach(row => {
+      withRowExtraAttributes.rows.forEach((row) => {
         row.extra_attributes = 'data-test data-test-another'; // eslint-disable-line no-param-reassign
       });
 
@@ -64,11 +65,22 @@ describe('EC - Table', () => {
       expect.assertions(1);
 
       const withRowExtraClasses = dataDefault;
-      withRowExtraClasses.rows.forEach(row => {
+      withRowExtraClasses.rows.forEach((row) => {
         row.extra_classes = 'row-extra-class'; // eslint-disable-line no-param-reassign
       });
 
       return expect(render(withRowExtraClasses)).resolves.toMatchSnapshot();
+    });
+
+    test('with missing input data and debug enabled shows the right warning message.', async () => {
+      expect.assertions(1);
+
+      const dataCompliance = { ...dataDefault, _compliance_: true };
+      dataCompliance.headers[0].label = '';
+      dataCompliance.rows = [];
+
+      const result = await render(dataCompliance);
+      expect(result).toMatchSnapshot();
     });
   });
 
@@ -77,6 +89,14 @@ describe('EC - Table', () => {
       expect.assertions(1);
 
       return expect(render(dataMulti)).resolves.toMatchSnapshot();
+    });
+  });
+
+  describe('Sort table', () => {
+    test('renders correctly', () => {
+      expect.assertions(1);
+
+      return expect(render(dataSortable)).resolves.toMatchSnapshot();
     });
   });
 });

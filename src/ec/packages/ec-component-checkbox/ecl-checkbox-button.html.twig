@@ -15,6 +15,8 @@
   - "extra_attributes" (optional) (array) (default: [])
     - "name" (string) Attribute name, eg. 'data-test'
     - "value" (optional) (string) Attribute value, eg: 'data-test-1'
+  - "_compliance_": (boolean) (default: false)
+
   Blocks:
   - "helper_text"
   - "label"
@@ -34,6 +36,7 @@
 {% set _box_css_class = 'ecl-checkbox__box' %}
 {% set _helper_text = helper_text|default('') %}
 {% set _label = label|default('') %}
+{% set _compliance = _compliance_|default(false) %}
 
 {% set _css_class = 'ecl-checkbox' %}
 {% set _extra_attributes = '' %}
@@ -67,13 +70,13 @@
 
 <div class="{{ _css_class }}" {{ _extra_attributes|raw }}>
   <input
-  {% if _id %}
-    id="{{ _id }}"
-  {% endif %}
     name="{{ _name }}"
     class="ecl-checkbox__input"
     type="checkbox"
     value="{{ _value }}"
+  {% if _id %}
+    id="{{ _id }}"
+  {% endif %}
   {% if _disabled %}
     disabled
   {% endif %}
@@ -84,13 +87,11 @@
     required
   {% endif %}
   />
-
   <label
     {% if _id %}
       for="{{ _id }}"
     {% endif %}
-    class="ecl-form-label ecl-checkbox__label
-    {{- _invalid ? " ecl-form-label--invalid" -}}"
+    class="ecl-checkbox__label"
   >
     <span class="{{ _box_css_class }}">
       {% include '@ecl-twig/ec-component-icon/ecl-icon.html.twig' with {
@@ -101,6 +102,8 @@
           size: "s"
         },
         extra_classes: 'ecl-checkbox__icon',
+        _compliance_: _compliance,
+        _compliance_inner_check_: true
       } only %}
     </span>
     {%- block label _label -%}
@@ -108,7 +111,7 @@
 
   {% if _helper_text is not empty %}
     <div
-      class="ecl-checkbox__help ecl-help-block{{ _disabled ? " ecl-help-block--disabled" }}"
+      class="ecl-checkbox__help{{ _disabled ? " ecl-checkbox__help--disabled" }}"
       {% if _helper_id is not empty %}
         id="{{ _helper_id }}"
       {% endif %}
@@ -117,5 +120,15 @@
     </div>
   {% endif %}
 </div>
+
+{# Validation #}
+
+{% if _compliance %}
+  {% include '@ecl-twig/ec-component-ecl-compliance/components/ecl-compliance-checkbox.html.twig' with {
+    icon_path: _icon_path,
+    label: _label,
+    _compliance_inner_check_: true
+  } only %}
+{% endif %}
 
 {% endspaceless %}

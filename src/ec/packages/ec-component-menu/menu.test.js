@@ -6,7 +6,7 @@ import frData from './demo/data--fr';
 
 describe('EC - Menu', () => {
   const template = '@ecl-twig/ec-component-menu/ecl-menu.html.twig';
-  const render = params => renderTwigFileAsNode(template, params);
+  const render = (params) => renderTwigFileAsNode(template, params);
 
   describe('Default', () => {
     test('renders correctly', () => {
@@ -36,6 +36,19 @@ describe('EC - Menu', () => {
       });
 
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
+    });
+
+    test('with missing input data and debug enabled shows the right warning messages', () => {
+      expect.assertions(1);
+
+      const dataCompliance = { ...enData, _compliance_: true };
+      dataCompliance.items[3].label = '';
+      dataCompliance.close = '';
+      dataCompliance.title = '';
+      dataCompliance.items[1].children[1].label = '';
+      dataCompliance.back = '';
+
+      return expect(render(dataCompliance)).resolves.toMatchSnapshot();
     });
   });
 

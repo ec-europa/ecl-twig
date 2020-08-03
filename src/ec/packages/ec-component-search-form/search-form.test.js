@@ -4,7 +4,7 @@ import data from './demo/data';
 describe('EC - Search Form', () => {
   const template =
     '@ecl-twig/ec-component-search-form/ecl-search-form.html.twig';
-  const render = params => renderTwigFileAsNode(template, params);
+  const render = (params) => renderTwigFileAsNode(template, params);
 
   describe('Default', () => {
     test('renders correctly', () => {
@@ -44,6 +44,24 @@ describe('EC - Search Form', () => {
       });
 
       return expect(render(withExtraFormElements)).resolves.toMatchSnapshot();
+    });
+  });
+  describe('with validation enabled and missing input data', () => {
+    test('returns the right warning message', () => {
+      expect.assertions(1);
+
+      const dataCompliance = {
+        ...data,
+        button: {
+          label: '',
+        },
+        icon: {
+          path: '',
+        },
+        _compliance_: true,
+      };
+
+      return expect(render(dataCompliance)).resolves.toMatchSnapshot();
     });
   });
 });

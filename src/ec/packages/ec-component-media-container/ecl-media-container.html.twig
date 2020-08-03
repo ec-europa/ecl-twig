@@ -28,6 +28,11 @@
       },
       ...
     ]
+  - "ratio" (string) (default: 16-9)
+  - "_compliance_" (boolean) (default: false) Activates debug
+
+  Blocks:
+    - "embedded_media"
 #}
 
 {# Internal properties #}
@@ -37,8 +42,11 @@
 {% set _description = description|default('') %}
 {% set _alt = alt|default('') %}
 {% set _extra_attributes = '' %}
+{% set _embedded_media = embedded_media|default('') %}
+{% set _ratio = ratio|default('16-9') %}
 {% set _sources = sources|default({}) %}
 {% set _tracks = tracks|default({}) %}
+{% set _compliance = _compliance_|default(false) %}
 
 {# Internal logic - Process properties #}
 
@@ -59,36 +67,54 @@
 {# Print the result #}
 
 <figure class="{{ _css_class }}"{{ _extra_attributes|raw }}>
-  {% if _sources is not empty and sources is iterable %}
-    <video
-      class="ecl-media-container__media"
-      controls
-      poster="{{ _image }}"
-    >
-    {% for source in _sources %}
-      <source type="{{ source.type }}" src="{{ source.src }}" />
-    {% endfor %}
-    {% if tracks is not empty and tracks is iterable %}
-      {% for track in _tracks %}
-        <track
-          kind="{{ track.kind }}"
-          label="{{ track.label }}"
-          src="{{ track.src }}"
-          srclang="{{ track.src_lang }}"
-        />
-      {% endfor %}
-    {% endif %}
-    </video>
-  {% else %}
-    <img
-      alt="{{ _alt }}"
-      class="ecl-media-container__media"
-      src="{{ _image }}"
+{% if _embedded_media is not empty %}
+  <div class="ecl-media-container__media ecl-media-container__media--ratio-{{ _ratio }}">
+    {%- block embedded_media _embedded_media|raw -%}
+  </div>
+{% elseif _sources is not empty and _sources is iterable %}
+  <video
+    class="ecl-media-container__media"
+    controls
+    poster="{{ _image }}"
+  >
+{% for source in _sources %}
+  <source type="{{ source.type }}" src="{{ source.src }}" />
+{% endfor %}
+  {% if _tracks is not empty and _tracks is iterable %}
+  {% for track in _tracks %}
+    <track
+      kind="{{ track.kind }}"
+      label="{{ track.label }}"
+      src="{{ track.src }}"
+      srclang="{{ track.src_lang }}"
     />
+  {% endfor %}
   {% endif %}
+  </video>
+{% else %}
+  <img
+    alt="{{ _alt }}"
+    class="ecl-media-container__media"
+    src="{{ _image }}"
+  />
+{% endif %}
+{% if _description is not empty %}
   <figcaption class="ecl-media-container__caption">
     {{- _description -}}
   </figcaption>
+{% endif %}
 </figure>
+
+{# Validation #}
+
+{% if _compliance %}
+  {% include '@ecl-twig/ec-component-ecl-compliance/components/ecl-compliance-media-container.html.twig' with {
+    alt: _alt,
+    image: _image,
+    embedded_media: _embedded_media,
+    sources: _sources,
+    tracks: _tracks
+  } only %}
+{% endif %}
 
 {% endspaceless %}

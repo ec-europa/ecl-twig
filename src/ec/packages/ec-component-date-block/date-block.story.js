@@ -1,38 +1,80 @@
-import { storiesOf } from '@storybook/html';
 import { withKnobs, text, select } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
+import {
+  getExtraKnobs,
+  tabLabels,
+  getComplianceKnob,
+} from '@ecl-twig/story-utils';
 
-import data from './demo/data';
+import specs from './demo/data';
 import dateBlock from './ecl-date-block.html.twig';
 import notes from './README.md';
 
-const options = {
-  default: '',
-  canceled: 'canceled',
-  past: 'past',
-  ongoing: 'ongoing',
-};
-const label = 'Variant';
-const defaultValue = 'default';
+// Preserve original data.
+const dataDefault = { ...specs };
+const dataOngoing = { ...specs };
+const dataCanceled = { ...specs };
+const dataPast = { ...specs };
 
-storiesOf('Components/Date block', module)
-  .addDecorator(withKnobs)
-  .addDecorator(withNotes)
-  .addDecorator(withCode)
-  .add(
-    'default',
-    () => {
-      return dateBlock({
-        variant: select(label, options, defaultValue),
-        day: text('Day', data.day),
-        year: text('Year', data.year),
-        month: text('Month', data.month),
-        month_full: text('Full month', data.month_full),
-        date_time: text('Time', data.date_time),
-      });
-    },
-    {
-      notes: { markdown: notes, json: data },
-    }
-  );
+const prepareDateBlock = (data, variant) => {
+  data.variant = select('variant', [variant], variant, tabLabels.required);
+  data.day = text('day', data.day, tabLabels.required);
+  data.year = text('year', data.year, tabLabels.required);
+  data.month = text('month', data.month, tabLabels.required);
+  data.month_full = text('month_full', data.month_full, tabLabels.required);
+  data.date_time = text('date_time', data.date_time, tabLabels.optional);
+
+  getExtraKnobs(data);
+  getComplianceKnob(data);
+
+  return data;
+};
+
+export default {
+  title: 'Components/Date block',
+  decorators: [withKnobs, withNotes, withCode],
+};
+
+export const Default = () =>
+  dateBlock(prepareDateBlock(dataDefault, 'default'));
+
+Default.story = {
+  name: 'default',
+
+  parameters: {
+    notes: { markdown: notes, json: dataDefault },
+  },
+};
+
+export const Ongoing = () =>
+  dateBlock(prepareDateBlock(dataOngoing, 'ongoing'));
+
+Ongoing.story = {
+  name: 'ongoing',
+
+  parameters: {
+    notes: { markdown: notes, json: dataOngoing },
+  },
+};
+
+export const Canceled = () =>
+  dateBlock(prepareDateBlock(dataCanceled, 'canceled'));
+
+Canceled.story = {
+  name: 'canceled',
+
+  parameters: {
+    notes: { markdown: notes, json: dataCanceled },
+  },
+};
+
+export const Past = () => dateBlock(prepareDateBlock(dataPast, 'past'));
+
+Past.story = {
+  name: 'past',
+
+  parameters: {
+    notes: { markdown: notes, json: dataPast },
+  },
+};

@@ -2,6 +2,7 @@
 import addons, { makeDecorator } from '@storybook/addons';
 import marked from 'marked';
 import Prism from 'prismjs';
+import he from 'he';
 
 // Manually import extra languages
 import 'prismjs/components/prism-bash';
@@ -17,7 +18,7 @@ renderer.code = function customCode(code, infostring, escaped) {
   }
 
   const highlightedCode = Prism.highlight(code, Prism.languages[lang], lang);
-  if (highlightedCode != null && highlightedCode !== code) {
+  if (highlightedCode !== undefined && highlightedCode !== code) {
     escaped = true;
     code = highlightedCode;
   }
@@ -38,8 +39,43 @@ renderer.code = function customCode(code, infostring, escaped) {
 
 function renderMarkdown(text, options, json) {
   if (json) {
+    const example = { ...json };
+    if (example.extra_classes === '') {
+      delete example.extra_classes;
+    }
+    if (example.extra_attributes === undefined) {
+      delete json.extra_attributes;
+    }
+    if (json.items) {
+      example.items = [...json.items];
+      example.items.forEach((item, i) => {
+        if (item.label === '' && item.path === '') {
+          example.items[i] = {};
+        }
+      });
+      example.items = example.items.filter(
+        (value) => Object.keys(value).length !== 0
+      );
+    }
+    if (json.links) {
+      example.links = [...json.links];
+      example.links.forEach((link, i) => {
+        if (link.label === '' && link.path === '') {
+          example.links[i] = {};
+        }
+      });
+      example.links = example.links.filter(
+        (value) => Object.keys(value).length !== 0
+      );
+    }
+    // Fixing the econding of ', mainly
+    Object.keys(example).forEach((e) => {
+      if (typeof example[e] === 'string') {
+        example[e] = he.decode(example[e]);
+      }
+    });
     // Ehm, this is the best format we could get.
-    let specs = JSON.stringify(json, null, '\n..');
+    let specs = JSON.stringify(example, undefined, '\n..');
     // We only replace the existing example.s
     specs = specs.replace(/"([^"()]+)":/g, '$1:');
     const n = specs.lastIndexOf('}');
@@ -60,6 +96,7 @@ export const withNotes = makeDecorator({
   allowDeprecatedUsage: true,
   wrapper: (getStory, context, { options, parameters }) => {
     const channel = addons.getChannel();
+    const story = getStory(context);
     const { json } = parameters;
     const storyOptions = parameters || options;
 
@@ -77,7 +114,7 @@ export const withNotes = makeDecorator({
       text || renderMarkdown(markdown, markdownOptions, json)
     );
 
-    return getStory(context);
+    return story;
   },
 });
 

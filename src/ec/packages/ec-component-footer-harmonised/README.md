@@ -1,4 +1,4 @@
-# ECL Twig - EC Footer Harmonised component
+# ECL-Twig Footer Harmonised component
 
 npm package: `@ecl-twig/ec-component-footer-harmonised`
 
@@ -10,6 +10,9 @@ npm install --save @ecl-twig/ec-component-footer-harmonised
 
 - **"group"** (string) (default: 'group1'): 'group1' or 'group2'
 - **"sections"** (array of objects) (default: [])
+  - "type" (string) (optional) 'dg_services_navigation, site_name, legal_navigation,
+    service_navigation, dg_related_navigation, corporate_name, partnership_logos, commission_logo'
+  - "section_id" (integer) (default: '') The id will be used to form the class name
   - "title" (optional) (string) OR (object with Link component in property)
   - "title_class_name" (optional) (string) (default: '')
   - "description" (optional) (string) (default: '')
@@ -20,10 +23,17 @@ npm install --save @ecl-twig/ec-component-footer-harmonised
     "title": (string) (default: '') Title attribute
     "alt": (string) (default: '') Alternative text
     "src": (string) (default: '') Url of the image
+  - "logo" (EU only)
+    - "alt" (string) alt attribute for the logo link
+    - "path" (string) logo link path
+    - "language" (string) Language code
+    - "src_mobile" (string) Path the mobile logo
+    - "src_desktop" (string) Path to the desktop logo
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
-  - "value" (string) Attribute value, eg: 'data-test-1'
+  - "value" (string) Attribute value, eg: 'data-test-1',
+- **_compliance_"** (boolean) (default: false) Activates debug
 
 ### Example:
 
@@ -33,6 +43,8 @@ npm install --save @ecl-twig/ec-component-footer-harmonised
   group: 'group1', 
   sections: [ 
     { 
+      type: 'site_name', 
+      section_id: 1,
       title: { 
         link: { 
           label: "Site name", 
@@ -43,8 +55,9 @@ npm install --save @ecl-twig/ec-component-footer-harmonised
         'This site is managed by the Directorate-General for "DG identification"', 
       }, 
       { 
+        section_id: 2, 
         title: 'Contact us', 
-        title_class_name: 'ecl-footer-standardised__title--separator', 
+        title_class_name: 'ecl-footer-harmonised__title--separator', 
         links: [ 
           { 
             link: { 
@@ -55,8 +68,9 @@ npm install --save @ecl-twig/ec-component-footer-harmonised
         ], 
       }, 
       { 
+        section_id: 2, 
         title: 'Follow us on', 
-        title_class_name: 'ecl-footer-standardised__title--separator', 
+        title_class_name: 'ecl-footer-harmonised__title--separator', 
         links: [ 
           { 
             link: { 
@@ -73,9 +87,10 @@ npm install --save @ecl-twig/ec-component-footer-harmonised
             ... 
           }, 
         ], 
-        list_class_name: 'ecl-footer-standardised__list--inline', 
+        list_class_name: 'ecl-footer-harmonised__list--inline', 
       }, 
       { 
+        section_id: 3,
         content_before: 'More information on:', 
         links: [ 
           { 
@@ -86,7 +101,7 @@ npm install --save @ecl-twig/ec-component-footer-harmonised
             ... 
           }, 
         ], 
-        list_class_name: 'ecl-footer-standardised__list--condensed', 
+        list_class_name: 'ecl-footer-harmonised__list--condensed', 
       }, 
       ... 
     ] 

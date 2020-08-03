@@ -28,7 +28,8 @@
           "name" (string) (default: ''),
           "value" (optional) (string)
         ...
-      ]
+      ],
+    - "_compliance_" (optional) (boolean) (default: false) Activates debug
 #}
 
 {# Internal properties #}
@@ -37,6 +38,7 @@
 {% set _extra_attributes = '' %}
 {% set _description = description|default('') %}
 {% set _links = links|default({}) %}
+{% set _compliance = _compliance_|default(false) %}
 
 {# Internal logic - Process properties #}
 
@@ -61,6 +63,7 @@
   {% if _links is not empty %}
     <ul class="ecl-social-media-share__list">
     {% for link in _links %}
+    {% if link.label is defined and link.label is not empty %}
       {% set _link_extra_classes = 'ecl-social-media-share__link' %}
       {% if link.extra_classes is not empty %}
         {% set _link_extra_classes = _link_extra_classes ~ ' ' ~ link.extra_classes %}
@@ -71,11 +74,23 @@
             type: 'standalone',
           }),
           extra_classes: _link_extra_classes,
+          _compliance_: _compliance
         }) only %}
       </li>
-      {% endfor %}
+    {% endif %}
+    {% endfor %}
     </ul>
   {% endif %}
 </div>
+
+{# Validation #}
+
+{% if _compliance %}
+  {% include '@ecl-twig/ec-component-ecl-compliance/components/ecl-compliance-social-media.html.twig' with {
+    description: _description,
+    links: _links,
+    variant: 'share'
+  } only %}
+{% endif %}
 
 {% endspaceless %}

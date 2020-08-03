@@ -12,6 +12,8 @@
   - "extra_attributes" (optional) (array) (default: [])
     - "name" (string) Attribute name, eg. 'data-test'
     - "value" (optional) (string) Attribute value, eg: 'data-test-1'
+  - "_compliance_" (boolean) (default: false) Activates debug
+
   Blocks:
   - "label"
   - "helper_text"
@@ -28,21 +30,16 @@
 {% set _invalid = invalid|default(false) %}
 {% set _required = required|default(false) %}
 {% set _binary = binary|default(false) %}
-
 {% set _helper_text = helper_text|default('') %}
 {% set _invalid_text = invalid_text|default('') %}
 {% set _required_text = required_text|default('*') %}
 {% set _optional_text = optional_text|default('') %}
 {% set _label = label|default('') %}
-
-{% set _css_class = 'ecl-form-group ecl-form-group--radio' %}
+{% set _compliance = _compliance_|default(false) %}
+{% set _css_class = 'ecl-form-group' %}
 {% set _extra_attributes = '' %}
 
 {# Internal logic - Process properties #}
-
-{% if _binary %}
-  {% set _css_class = _css_class ~ ' ecl-radio__group--binary' %}
-{% endif %}
 
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
@@ -104,10 +101,25 @@
       {% include '@ecl-twig/ec-component-radio/ecl-radio-button.html.twig' with _item|merge({
         name: _name,
         invalid: _invalid,
+        binary: _binary,
+        _compliance_: _compliance
       }) only %}
     {% endfor -%}
   {% endif %}
 
 </fieldset>
+
+{# Validation #}
+
+{% if _compliance %}
+  {% include '@ecl-twig/ec-component-ecl-compliance/components/ecl-compliance-form-group.html.twig' with {
+    label: _label,
+    invalid_text: _invalid_text,
+    optional_text: _optional_text,
+    required_text: _required_text,
+    invalid: _invalid,
+    required: _required
+  } only %}
+{% endif %}
 
 {% endspaceless %}

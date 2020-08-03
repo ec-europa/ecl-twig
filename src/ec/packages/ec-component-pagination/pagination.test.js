@@ -5,7 +5,7 @@ import data from './demo/data';
 
 describe('EC - Pagination', () => {
   const template = '@ecl-twig/ec-component-pagination/ecl-pagination.html.twig';
-  const render = params => renderTwigFileAsNode(template, params);
+  const render = (params) => renderTwigFileAsNode(template, params);
 
   describe('Default', () => {
     test('renders correctly', () => {
@@ -35,6 +35,16 @@ describe('EC - Pagination', () => {
       });
 
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
+    });
+
+    test('With missing input data returns the right warning message', () => {
+      expect.assertions(1);
+
+      const dataCompliance = { ...data, _compliance_: true };
+      dataCompliance.label = '';
+      dataCompliance.items[0].type = '';
+
+      return expect(render(dataCompliance)).resolves.toMatchSnapshot();
     });
   });
 });

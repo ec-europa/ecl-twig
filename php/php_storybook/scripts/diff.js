@@ -6,8 +6,8 @@ const fs = require('fs');
 const { HtmlDiffer } = require('html-differ');
 const logger = require('html-differ/lib/logger');
 
-const system = 'ec';
-const singleComponent = process.argv.slice(2);
+const args = process.argv.slice(2);
+const system = args[0] ? args[0] : 'ec';
 const rootFolder = process.cwd();
 const distFolder = `${rootFolder}/php`;
 const systemFolder = `${distFolder}/packages/${system}`;
@@ -21,27 +21,34 @@ const diffOptions = {
 };
 
 const htmlDiffer = new HtmlDiffer(diffOptions);
-const components = singleComponent[0]
-  ? [singleComponent[0]]
-  : fs.readdirSync(systemFolder);
+const components = args[1] ? [args[1]] : fs.readdirSync(systemFolder);
 
 let matches = 0;
 let totalComponents = 0;
 let totalVariants = 0;
 const failed = [];
 
-components.forEach(component => {
+components.forEach((component) => {
+  // Our validation component.
+  if (component === 'ecl-compliance') {
+    return;
+  }
+
   totalComponents += 1;
   console.log(`\nChecking component: ${component}:`);
   console.log(`-------------------------------------------------------`);
+  if (!fs.existsSync(`${systemFolder}/${component}/specs`)) {
+    console.error(`The ${component} has not been rendered yet, it seems...`);
+    process.exit(1);
+  }
   const dataFiles = fs.readdirSync(`${systemFolder}/${component}/specs`);
   const markup = [];
 
-  dataFiles.forEach(dataFile => {
+  dataFiles.forEach((dataFile) => {
     totalVariants += 1;
     const filenames = [];
 
-    ['js', 'php'].forEach(lang => {
+    ['js', 'php'].forEach((lang) => {
       const extension = `.${lang}.html`;
       const js = lang === 'js' ? lang : '';
       const fileName =

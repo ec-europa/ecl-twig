@@ -7,7 +7,7 @@ demoData.button.icon.path = 'example';
 
 describe('EC - Expandable', () => {
   const template = '@ecl-twig/ec-component-expandable/ecl-expandable.html.twig';
-  const render = params => renderTwigFileAsNode(template, params);
+  const render = (params) => renderTwigFileAsNode(template, params);
 
   describe('Collapsed', () => {
     test('renders correctly', () => {
@@ -36,6 +36,15 @@ describe('EC - Expandable', () => {
       });
 
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
+    });
+
+    test('with missing input data and debug enbaled returns the right warning message', () => {
+      expect.assertions(1);
+
+      const dataCompliance = { ...demoData, _compliance_: true };
+      dataCompliance.label_expanded = '';
+
+      return expect(render(dataCompliance)).resolves.toMatchSnapshot();
     });
   });
 

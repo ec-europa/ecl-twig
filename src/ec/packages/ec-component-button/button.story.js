@@ -1,9 +1,12 @@
-import merge from 'deepmerge';
-import { storiesOf } from '@storybook/html';
 import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
-
+import {
+  getExtraKnobs,
+  tabLabels,
+  getIconKnobs,
+  getComplianceKnob,
+} from '@ecl-twig/story-utils';
 // Import data for demos
 import dataPrimary from '@ecl/ec-specs-button/demo/data--primary';
 import dataSecondary from '@ecl/ec-specs-button/demo/data--secondary';
@@ -11,120 +14,141 @@ import dataCall from '@ecl/ec-specs-button/demo/data--call';
 import dataGhost from '@ecl/ec-specs-button/demo/data--ghost';
 import dataSearch from '@ecl/ec-specs-button/demo/data--search';
 
-import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import uiIcons from '@ecl/ec-resources-icons/dist/lists/ui.json';
 import button from './ecl-button.html.twig';
 import notes from './README.md';
 
-const iconPositionSettings = {
-  before: 'before',
-  after: 'after',
-};
-
 const iconsList = {};
-iconsList.none = null;
+iconsList.none = '';
 
-uiIcons.forEach(icon => {
+uiIcons.forEach((icon) => {
   iconsList[icon] = icon;
 });
 
-const prepareButton = data => {
-  const dataWithIcon = data;
-  dataWithIcon.icon = {
-    type: 'ui',
-    path: defaultSprite,
-    size: 'xs',
-  };
+// Preserve the adapted specs.
+const prepareButton = (data) => {
+  data.disabled = boolean('disabled', data.disabled, tabLabels.states);
+  data.label = text('label', data.label, tabLabels.required);
 
-  return dataWithIcon;
+  data.variant = select(
+    'variant',
+    [data.variant],
+    data.variant,
+    tabLabels.required
+  );
+
+  getExtraKnobs(data);
+  getComplianceKnob(data);
+
+  return data;
 };
 
-storiesOf('Components/Button', module)
-  .addDecorator(withKnobs)
-  .addDecorator(withCode)
-  .addDecorator(withNotes)
-  .add(
-    'primary',
-    () =>
-      button(
-        merge(prepareButton(dataPrimary), {
-          icon: {
-            name: select('Icon (sample)', iconsList, null),
-          },
-          label: text('label', dataPrimary.label),
-          icon_position: select('Icon position', iconPositionSettings, 'after'),
-          disabled: boolean('Disabled', false),
-        })
-      ),
-    {
-      notes: { markdown: notes, json: prepareButton(dataPrimary) },
-    }
-  )
-  .add(
-    'secondary',
-    () =>
-      button(
-        merge(dataSecondary, {
-          icon: {
-            name: select('Icon (sample)', iconsList, null),
-          },
-          label: text('label', dataSecondary.label),
-          icon_position: select('Icon position', iconPositionSettings, 'after'),
-          disabled: boolean('Disabled', false),
-        })
-      ),
-    {
-      notes: { markdown: notes, json: prepareButton(dataSecondary) },
-    }
-  )
-  .add(
-    'call to action',
-    () =>
-      button(
-        merge(prepareButton(dataCall), {
-          icon: {
-            name: select('Icon (sample)', iconsList, null),
-          },
-          label: text('label', dataCall.label),
-          icon_position: select('Icon position', iconPositionSettings, 'after'),
-          disabled: boolean('Disabled', false),
-        })
-      ),
-    {
-      notes: { markdown: notes, json: prepareButton(dataCall) },
-    }
-  )
-  .add(
-    'text',
-    () =>
-      button(
-        merge(prepareButton(dataGhost), {
-          icon: {
-            name: select('Icon (sample)', iconsList, null),
-          },
-          label: text('label', dataGhost.label),
-          icon_position: select('Icon position', iconPositionSettings, 'after'),
-          disabled: boolean('Disabled', false),
-        })
-      ),
-    {
-      notes: { markdown: notes, json: prepareButton(dataGhost) },
-    }
-  )
-  .add(
-    'search',
-    () =>
-      button(
-        merge(prepareButton(dataSearch), {
-          icon: {
-            name: select('Icon (sample)', iconsList, null),
-          },
-          label: text('label', dataSearch.label),
-          icon_position: select('Icon position', iconPositionSettings, 'after'),
-          disabled: boolean('Disabled', false),
-        })
-      ),
-    {
-      notes: { markdown: notes, json: prepareButton(dataSearch) },
-    }
+export default {
+  title: 'Components/Button',
+  decorators: [withKnobs, withCode, withNotes],
+};
+
+export const Primary = () => {
+  const data = prepareButton(dataPrimary);
+  const name = select('icon.name', iconsList, '', tabLabels.optional);
+  if (name !== '') {
+    getIconKnobs(data, name, 'ui', 'xs');
+  } else if (name === '' && data.icon) {
+    delete data.icon.name;
+  }
+
+  return button(data);
+};
+
+Primary.story = {
+  name: 'primary',
+
+  parameters: {
+    notes: { markdown: notes, json: dataPrimary },
+  },
+};
+
+export const Secondary = () => {
+  const data = prepareButton(dataSecondary);
+  const name = select('icon.name', iconsList, 'none', tabLabels.optional);
+  if (name !== 'none') {
+    getIconKnobs(data, name, 'ui', 'xs');
+  } else if (name === 'none' && data.icon) {
+    delete data.icon.name;
+  }
+
+  return button(data);
+};
+
+Secondary.story = {
+  name: 'secondary',
+
+  parameters: {
+    notes: { markdown: notes, json: dataSecondary },
+  },
+};
+
+export const CallToAction = () => {
+  const data = prepareButton(dataCall);
+  const name = select(
+    'icon.name',
+    iconsList,
+    'corner-arrow',
+    tabLabels.optional
   );
+  if (name !== '') {
+    getIconKnobs(data, name, 'ui', 'xs', 'default', 'rotate-90');
+  } else if (name === '' && data.icon) {
+    delete data.icon.name;
+  }
+
+  return button(data);
+};
+
+CallToAction.story = {
+  name: 'call to action',
+
+  parameters: {
+    notes: { markdown: notes, json: dataCall },
+  },
+};
+
+export const Text = () => {
+  const data = prepareButton(dataGhost);
+  const name = select('icon.name', iconsList, '', tabLabels.optional);
+  if (name !== '') {
+    getIconKnobs(data, name, 'ui', 'xs');
+  } else if (name === '' && data.icon) {
+    delete data.icon.name;
+  }
+
+  return button(data);
+};
+
+Text.story = {
+  name: 'text',
+
+  parameters: {
+    notes: { markdown: notes, json: dataGhost },
+  },
+};
+
+export const Search = () => {
+  const data = prepareButton(dataSearch);
+  const name = select('icon.name', iconsList, '', tabLabels.optional);
+  if (name !== '') {
+    getIconKnobs(data, name, 'ui', 'xs');
+  } else if (name === '' && data.icon) {
+    delete data.icon.name;
+  }
+
+  return button(data);
+};
+
+Search.story = {
+  name: 'search',
+
+  parameters: {
+    notes: { markdown: notes, json: dataSearch },
+  },
+};

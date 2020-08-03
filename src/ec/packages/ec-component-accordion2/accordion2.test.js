@@ -1,15 +1,14 @@
-/* eslint-disable no-param-reassign */
 import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
 import demoData from './demo/data';
 
-demoData.items.forEach(item => {
+demoData.items.forEach((item) => {
   item.toggle.icon.path = 'static/icons';
 });
 
 describe('EC - Accordion2', () => {
   const template = '@ecl-twig/ec-component-accordion2/ecl-accordion2.html.twig';
-  const render = params => renderTwigFileAsNode(template, params);
+  const render = (params) => renderTwigFileAsNode(template, params);
 
   test('renders correctly', () => {
     expect.assertions(1);
@@ -38,5 +37,15 @@ describe('EC - Accordion2', () => {
     });
 
     return expect(render(optionsWithExtraAttrs)).resolves.toMatchSnapshot();
+  });
+
+  test('with validation enabled and missing input data returns the right warning message', () => {
+    expect.assertions(1);
+
+    const dataCompliance = { ...demoData, _compliance_: true };
+    dataCompliance.items[0].id = '';
+    dataCompliance.items[0].toggle.label = '';
+
+    return expect(render(dataCompliance)).resolves.toMatchSnapshot();
   });
 });

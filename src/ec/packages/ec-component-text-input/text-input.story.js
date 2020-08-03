@@ -1,43 +1,39 @@
-import merge from 'deepmerge';
-import { storiesOf } from '@storybook/html';
-import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
+import { withKnobs } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
+import {
+  getExtraKnobs,
+  getFormKnobs,
+  getComplianceKnob,
+} from '@ecl-twig/story-utils';
 import withCode from '@ecl-twig/storybook-addon-code';
 
 import dataDefault from './demo/data--default';
 import textInput from './ecl-text-input.html.twig';
 import notes from './README.md';
 
-const inputWidthOptions = {
-  small: 's',
-  medium: 'm',
-  large: 'l',
+const prepareTextInput = (data) => {
+  getFormKnobs(data);
+  getExtraKnobs(data);
+  getComplianceKnob(data);
+
+  return data;
 };
 
-storiesOf('Components/Forms/Text field', module)
-  .addDecorator(withKnobs)
-  .addDecorator(withNotes)
-  .addDecorator(withCode)
-  .add(
-    'default',
-    () => {
-      const inputWidthSelect = select('Width', inputWidthOptions, 'm');
+export default {
+  title: 'Components/Forms/Text field',
+  decorators: [withKnobs, withNotes, withCode],
+};
 
-      return textInput(
-        merge(dataDefault, {
-          label: text('Label', 'Label'),
-          helper_text: text('Help message', "This is the input's helper text."),
-          invalid: boolean('Invalid', false),
-          invalid_text: text('Invalid text', 'This is the error message'),
-          disabled: boolean('Disabled', false),
-          required: boolean('Required', false),
-          required_text: text('Required Text', '*'),
-          optional_text: text('Optional text', '(optional)'),
-          width: inputWidthSelect,
-        })
-      );
-    },
-    {
-      notes: { markdown: notes, json: dataDefault },
-    }
-  );
+export const Default = () => {
+  const data = prepareTextInput(dataDefault);
+
+  return textInput(data);
+};
+
+Default.story = {
+  name: 'default',
+
+  parameters: {
+    notes: { markdown: notes, json: dataDefault },
+  },
+};

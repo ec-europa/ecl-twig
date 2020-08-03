@@ -6,7 +6,7 @@ import frenchData from './demo/data--fr';
 describe('EC - Site Header', () => {
   const template =
     '@ecl-twig/ec-component-site-header/ecl-site-header.html.twig';
-  const render = params => renderTwigFileAsNode(template, params);
+  const render = (params) => renderTwigFileAsNode(template, params);
 
   describe('Default', () => {
     test('renders correctly', () => {
@@ -35,6 +35,18 @@ describe('EC - Site Header', () => {
       });
 
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
+    });
+
+    test('with missing input data and debug enabled it returns the right warning messages', () => {
+      expect.assertions(1);
+
+      const dataCompliance = { ...englishData, _compliance_: true };
+      dataCompliance.logo.src = '';
+      dataCompliance.language_selector.code = '';
+      dataCompliance.language_selector.overlay.close_label = '';
+      dataCompliance.language_selector.overlay.title = '';
+
+      return expect(render(dataCompliance)).resolves.toMatchSnapshot();
     });
   });
 

@@ -1,13 +1,8 @@
-/* eslint-disable import/no-extraneous-dependencies, no-param-reassign */
-import { escapeHTML } from '@ecl-twig/data-utils';
+import he from 'he';
 
-const adapter = initialData => {
+const adapter = (initialData) => {
   const adaptedData = JSON.parse(JSON.stringify(initialData));
-
   const defaultSprite = '/icons.svg';
-  const englishBanner = '/logo--en.svg';
-  const frenchBanner = '/logo--fr.svg';
-
   if (adaptedData.loginToggle) {
     adaptedData.login_toggle = {
       label_not_logged: adaptedData.loginToggle.labelNotLogged,
@@ -21,13 +16,10 @@ const adapter = initialData => {
   adaptedData.login_box = adaptedData.loginBox;
   delete adaptedData.loginBox;
   if (adaptedData.login_box) {
-    adaptedData.login_box.description = escapeHTML(
+    adaptedData.login_box.description = he.escape(
       adaptedData.login_box.description
     );
   }
-
-  const lng = adaptedData.logo.language;
-  adaptedData.logo.src = lng === 'en' ? englishBanner : frenchBanner;
 
   adaptedData.language_selector = adaptedData.languageSelector;
   delete adaptedData.languageSelector;
@@ -35,8 +27,9 @@ const adapter = initialData => {
   adaptedData.language_selector.overlay.close_label =
     adaptedData.language_selector.overlay.closeLabel;
   delete adaptedData.language_selector.overlay.closeLabel;
-
-  adaptedData.language_selector.overlay.items.forEach(item => {
+  adaptedData.language_selector.eu_category = 'EU official languages';
+  adaptedData.language_selector.non_eu_category = 'Non-EU languages';
+  adaptedData.language_selector.overlay.items.forEach((item) => {
     item.path = item.href;
     delete item.href;
     if (item.isActive) {
@@ -48,12 +41,12 @@ const adapter = initialData => {
   adaptedData.search_form = {
     text_input: {
       id: adaptedData.searchForm.textInputId,
-      name: adaptedData.searchForm.inputLabel,
       label: adaptedData.searchForm.inputLabel,
     },
     button: {
       label: adaptedData.searchForm.buttonLabel,
     },
+    extra_attributes: [{ name: 'id', value: adaptedData.searchForm.id }],
   };
   delete adaptedData.searchForm;
 

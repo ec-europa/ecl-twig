@@ -7,7 +7,7 @@ import dataInvalid from './demo/data--invalid';
 describe('EC - checkbox', () => {
   const template =
     '@ecl-twig/ec-component-checkbox/ecl-checkbox-group.html.twig';
-  const render = params => renderTwigFileAsNode(template, params);
+  const render = (params) => renderTwigFileAsNode(template, params);
 
   describe('Default', () => {
     test('renders correctly', () => {
@@ -42,7 +42,7 @@ describe('EC - checkbox', () => {
     test('renders correctly when required', () => {
       expect.assertions(1);
 
-      dataDefault.items.forEach(item => {
+      dataDefault.items.forEach((item) => {
         item.required = true; // eslint-disable-line no-param-reassign
       });
 
@@ -55,6 +55,16 @@ describe('EC - checkbox', () => {
       expect.assertions(1);
 
       return expect(render(dataInvalid)).resolves.toMatchSnapshot();
+    });
+  });
+
+  describe('with validation enabled and missing input data', () => {
+    test('returns the right warning message', () => {
+      expect.assertions(1);
+      const dataCompliance = { ...dataDefault, _compliance_: true };
+      dataCompliance.items[0].label = '';
+
+      return expect(render(dataCompliance)).resolves.toMatchSnapshot();
     });
   });
 });

@@ -1,6 +1,3 @@
-/* eslint-disable no-param-reassign */
-import breadcrumbDataSimple from '../ec-component-breadcrumb/demo/data--simple';
-
 function formatPageHeaderInfo(i) {
   const iconType = i.icon.name.split('--');
   const info = {
@@ -15,11 +12,11 @@ function formatPageHeaderInfo(i) {
   return info;
 }
 
-const adapter = initialData => {
+const adapter = (initialData) => {
   // Copy reference specification demo data.
   const adaptedData = JSON.parse(JSON.stringify(initialData));
   if (adaptedData.infos && Array.isArray(adaptedData.infos)) {
-    adaptedData.infos.forEach(info => {
+    adaptedData.infos.forEach((info) => {
       const iconName = info.icon;
       info.icon = {};
       info.icon.name = iconName;
@@ -27,9 +24,32 @@ const adapter = initialData => {
     });
   }
 
-  adaptedData.breadcrumb = breadcrumbDataSimple;
+  if (adaptedData.isHomepage) {
+    adaptedData.variant = 'homepage';
+    delete adaptedData.isHomepage;
+  }
+
+  if (adaptedData.isBranded) {
+    adaptedData.variant = 'branded-homepage';
+    delete adaptedData.isBranded;
+  }
+
+  if (adaptedData.backgroundImage) {
+    adaptedData.background_image = true;
+    adaptedData.background_image_url = adaptedData.backgroundImage;
+    delete adaptedData.backgroundImage;
+  }
+
+  if (adaptedData.image) {
+    adaptedData.background_image = true;
+    adaptedData.background_image_url = adaptedData.image;
+    delete adaptedData.image;
+  }
+
   if (adaptedData.infos) {
-    adaptedData.infos = adaptedData.infos.map(formatPageHeaderInfo);
+    adaptedData.infos = adaptedData.infos.map((info) =>
+      formatPageHeaderInfo(info)
+    );
   }
 
   return adaptedData;

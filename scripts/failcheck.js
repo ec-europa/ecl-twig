@@ -38,7 +38,7 @@ const run = async () => {
       description: 'Build completed!',
       context: 'continuous-integration/drone/push',
     };
-  } catch (error) {
+  } catch {
     payloadDrone = {
       state: 'error',
       target_url: DRONE_BUILD_LINK,

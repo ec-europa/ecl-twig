@@ -16,33 +16,27 @@ module.exports = {
   rules: {
     'unicorn/prevent-abbreviations': 0,
     'unicorn/prefer-node-append': 0,
+    'import/no-extraneous-dependencies': 0,
   },
   overrides: [
     {
       files: '**/demo/*.js',
       rules: {
         'unicorn/filename-case': 'off',
-        'import/no-extraneous-dependencies': 0,
       },
     },
     {
-      files: ['src/**/*.{story,test}.js'],
+      files: ['src/**/*.{story,test}.js', 'src/**/packages/**/adapter.js'],
       rules: {
+        'no-param-reassign': 0,
         'import/no-extraneous-dependencies': 0,
       },
     },
     {
       files: ['php/**/*.story.js'],
       rules: {
-        'import/no-extraneous-dependencies': 0,
         camelcase: 0,
         'import/order': 0,
-      },
-    },
-    {
-      files: ['utils/**/*.{js,jsx}'],
-      rules: {
-        'import/no-extraneous-dependencies': 0,
       },
     },
   ],

@@ -1,4 +1,3 @@
-/* eslint-disable no-param-reassign */
 import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
 import demoData from './demo/data';
@@ -6,7 +5,7 @@ import demoData from './demo/data';
 describe('EC - Inpage navigation', () => {
   const template =
     '@ecl-twig/ec-component-inpage-navigation/ecl-inpage-navigation.html.twig';
-  const render = params => renderTwigFileAsNode(template, params);
+  const render = (params) => renderTwigFileAsNode(template, params);
 
   test('renders correctly', () => {
     expect.assertions(1);

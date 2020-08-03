@@ -1,46 +1,91 @@
-import { storiesOf } from '@storybook/html';
-import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
+import { withKnobs, text, optionsKnob, boolean } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
-import merge from 'deepmerge';
+import {
+  getExtraKnobs,
+  getFormKnobs,
+  tabLabels,
+  getComplianceKnob,
+} from '@ecl-twig/story-utils';
 
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
-import specData from './demo/data';
-
+import dataSingle from './demo/data--single';
+import dataMultiple from './demo/data--multiple';
 import selectBox from './ecl-select.html.twig';
 import notes from './README.md';
 
-const inputWidthOptions = {
-  small: 's',
-  medium: 'm',
-  large: 'l',
+const prepareSelect = (data, multi) => {
+  getFormKnobs(data, true);
+
+  data.id = text('id', data.id, tabLabels.optional);
+  data.icon_path = optionsKnob(
+    'icon_path',
+    { current: defaultSprite, 'no path': '' },
+    defaultSprite,
+    { display: 'inline-radio' },
+    tabLabels.required
+  );
+  if (multi) {
+    data.multiple = boolean('multiple', data.multiple, tabLabels.optional);
+  }
+  if (data.multiple) {
+    data.multiple_all_text = text(
+      'multiple_all_text',
+      data.multiple_all_text,
+      tabLabels.required
+    );
+    data.multiple_search_text = text(
+      'multiple_search_text',
+      data.multiple_search_text,
+      tabLabels.required
+    );
+    data.multiple_placeholder = text(
+      'multiple_placeholder',
+      data.multiple_placeholder,
+      tabLabels.required
+    );
+  }
+
+  data.options.forEach((option, i) => {
+    option.label = text(
+      `options[${i}].label`,
+      option.label,
+      tabLabels.required
+    );
+    option.value = text(
+      `options[${i}].value`,
+      option.value,
+      tabLabels.required
+    );
+  });
+
+  getExtraKnobs(data);
+  getComplianceKnob(data);
+
+  return data;
 };
 
-storiesOf('Components/Forms/Select', module)
-  .addDecorator(withKnobs)
-  .addDecorator(withNotes)
-  .addDecorator(withCode)
-  .add(
-    'default',
-    () => {
-      const inputWidthSelect = select('Width', inputWidthOptions, 'm');
+export default {
+  title: 'Components/Forms/Select',
+  decorators: [withKnobs, withNotes, withCode],
+};
 
-      return selectBox(
-        merge(specData, {
-          label: text('Label', specData.label),
-          invalid: boolean('Invalid', false),
-          invalid_text: text('Invalid text', specData.invalid_text),
-          helper_text: text('Help message', specData.helper_text),
-          disabled: boolean('Disabled', false),
-          required: boolean('Required', specData.required),
-          required_text: text('Required Text', specData.required_text),
-          optional_text: text('Optional text', specData.optional_text),
-          width: inputWidthSelect,
-          icon_path: defaultSprite,
-        })
-      );
-    },
-    {
-      notes: { markdown: notes, json: specData },
-    }
-  );
+export const Single = () => selectBox(prepareSelect(dataSingle));
+
+Single.story = {
+  name: 'default',
+
+  parameters: {
+    notes: { markdown: notes, json: dataSingle },
+  },
+};
+
+export const Multiple = () => selectBox(prepareSelect(dataMultiple));
+
+Multiple.story = {
+  name: 'Multiple',
+
+  parameters: {
+    notes: { markdown: notes, json: dataMultiple },
+  },
+};

@@ -1,42 +1,91 @@
-import { storiesOf } from '@storybook/html';
-import { withKnobs, text } from '@storybook/addon-knobs';
+import he from 'he';
+import { withKnobs, text, select, object } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
+import {
+  getExtraKnobs,
+  tabLabels,
+  getComplianceKnob,
+} from '@ecl-twig/story-utils';
 
-import imgProps from '@ecl/ec-specs-media-container/demo/data--image';
-import demoVideo from './demo/data';
-import demoImg from '../../../../static/images/example-image.jpg';
-
+import demoImg from './demo/data--image';
+import demoVideo from './demo/data--video';
+import demoEmbed from './demo/data--embed';
+import exampleImg from '../../../../static/images/example-image.jpg';
 import mediaContainer from './ecl-media-container.html.twig';
 import notes from './README.md';
 
-storiesOf('Components/Media container', module)
-  .addDecorator(withKnobs)
-  .addDecorator(withNotes)
-  .addDecorator(withCode)
-  .add(
-    'image',
-    () =>
-      mediaContainer({
-        description: text('Description', imgProps.description),
-        alt: text('Alternate text', imgProps.alt),
-        image: text('Image path', demoImg),
-      }),
-    {
-      notes: { markdown: notes },
-    }
-  )
-  .add(
-    'video',
-    () =>
-      mediaContainer({
-        description: text('Description', demoVideo.description),
-        alt: text('Alternative text', demoVideo.alt),
-        image: text('Image path', demoImg),
-        sources: demoVideo.sources,
-        tracks: demoVideo.tracks,
-      }),
-    {
-      notes: { markdown: notes },
-    }
-  );
+const prepareMediaContainer = (data, media) => {
+  if (media === 'video') {
+    data.description = text(
+      'description',
+      demoVideo.description,
+      tabLabels.optional
+    );
+    data.alt = text('alt', demoVideo.alt, tabLabels.required);
+    data.sources = object('sources', demoVideo.sources, tabLabels.required);
+    data.tracks = object('tracks', demoVideo.tracks, tabLabels.required);
+  } else if (media === 'image') {
+    data.description = text(
+      'description',
+      demoImg.description,
+      tabLabels.optional
+    );
+    data.alt = text('alt', demoImg.alt, tabLabels.required);
+    data.image = text('image', exampleImg, tabLabels.required);
+  } else {
+    const options = ['16-9', '4-3', '3-2', '1-1'];
+    data.embedded_media = he.decode(
+      text('embedded_media', data.embedded_media, tabLabels.required)
+    );
+    data.description = text(
+      'description',
+      demoVideo.description,
+      tabLabels.optional
+    );
+    data.ratio = select('ratio', options, data.ratio, tabLabels.required);
+  }
+
+  getExtraKnobs(data);
+  getComplianceKnob(data);
+
+  return data;
+};
+
+export default {
+  title: 'Components/Media container',
+  decorators: [withKnobs, withNotes, withCode],
+};
+
+export const Image = () =>
+  mediaContainer(prepareMediaContainer(demoImg, 'image'));
+
+Image.story = {
+  name: 'image',
+
+  parameters: {
+    notes: { markdown: notes, json: demoImg },
+  },
+};
+
+export const Video = () =>
+  mediaContainer(prepareMediaContainer(demoVideo, 'video'));
+
+Video.story = {
+  name: 'video',
+
+  parameters: {
+    notes: { markdown: notes, json: demoVideo },
+  },
+};
+
+export const EmbeddedVideo = () =>
+  mediaContainer(prepareMediaContainer(demoEmbed, 'embed'));
+
+EmbeddedVideo.story = {
+  name: 'embedded video',
+
+  parameters: {
+    notes: { markdown: notes, json: demoEmbed },
+  },
+};

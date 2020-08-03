@@ -11,16 +11,18 @@
           "name" (string) (default: ''),
           "value" (optional) (string)
         ...
-      ]
+      ],
+    - "_compliance_" (boolean) (default: false) Activates debug
 #}
 
 {# variables #}
 {% set _title = title|default('') %}
 {% set _meta = meta|default('') %}
 {% set _description = description|default('') %}
-
+{% set _compliance = _compliance_|default(false) %}
 {% set _css_class = 'ecl-page-header-standardised' %}
 {% set _extra_attributes = '' %}
+{% set _breadcrumb = breadcrumb|default({}) %}
 
 {# Internal logic - Process properties #}
 {% if extra_classes is defined and extra_classes is not empty %}
@@ -40,14 +42,18 @@
 {# Print the result #}
 <div class="{{ _css_class }}" {{ _extra_attributes|raw }}>
   <div class="ecl-container">
-  {% if breadcrumb is defined and breadcrumb is not empty %}
-    {% include '@ecl-twig/ec-component-breadcrumb-standardised/ecl-breadcrumb-standardised.html.twig' with breadcrumb|merge({
-      extra_classes: 'ecl-page-header-standardised__breadcrumb'
+  {% if _breadcrumb is not empty %}
+    {% include '@ecl-twig/ec-component-breadcrumb-standardised/ecl-breadcrumb-standardised.html.twig' with _breadcrumb|merge({
+      extra_classes: 'ecl-page-header-standardised__breadcrumb',
+      _compliance_: _compliance,
+      _compliance_inner_check_: true
     }) only %}
   {% endif %}
   {% if _meta is not empty %}
     <div class="ecl-page-header-standardised__meta">
-      {{- _meta|raw -}}
+      <span class="ecl-u-type-uppercase">
+        {{- _meta -}}
+      </span>
     </div>
   {% endif %}
     <h1 class="ecl-page-header-standardised__title">{{ _title }}</h1>
@@ -56,5 +62,13 @@
   {% endif %}
   </div>
 </div>
+
+{# Validation #}
+
+{% if _compliance %}
+  {% include '@ecl-twig/ec-component-ecl-compliance/components/ecl-compliance-page-header-standardised.html.twig' with {
+    title: _title
+  } only %}
+{% endif %}
 
 {% endspaceless %}

@@ -8,7 +8,7 @@ demoData.button.icon.path = 'static/icons.svg';
 describe('EC - Dropdown legacy', () => {
   const template =
     '@ecl-twig/ec-component-dropdown-legacy/ecl-dropdown-legacy.html.twig';
-  const render = params => renderTwigFileAsNode(template, params);
+  const render = (params) => renderTwigFileAsNode(template, params);
 
   describe('Default', () => {
     const expanded = { ...demoData, expanded: true };
@@ -39,6 +39,18 @@ describe('EC - Dropdown legacy', () => {
       });
 
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
+    });
+
+    test('with missing input data and debug enabled it returns the right warning messages.', () => {
+      expect.assertions(1);
+
+      const dataCompliance = { ...demoData, _compliance_: true };
+      dataCompliance.list.items[1].label = '';
+      dataCompliance.button.label = '';
+      dataCompliance.id = '';
+      dataCompliance.button.icon.path = '';
+
+      return expect(render(dataCompliance)).resolves.toMatchSnapshot();
     });
   });
 });

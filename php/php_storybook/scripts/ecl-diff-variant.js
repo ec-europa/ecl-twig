@@ -6,8 +6,8 @@ no-param-reassign, no-restricted-syntax, no-await-in-loop */
 const fs = require('fs');
 const logger = require('html-differ/lib/logger');
 const puppeteer = require('puppeteer');
-const decode = require('decode-html');
-const eclPath = require('../mapping/ecl-mapping-2.22.0.js');
+const he = require('he');
+const eclPath = require(`./mapping/ecl-mapping-${version}.js`);
 const { HtmlDiffer } = require('html-differ');
 const system = 'ec';
 const domain = 'https://ec.europa.eu';
@@ -72,7 +72,7 @@ const eclDiffVariant = (data) => {
           );
           await browser.close();
           // The html we get is enriched by a syntax highlighter.
-          eclMarkup = decode(eclMarkup.replace(/<\/?[^>]+(>|$)/g, ''));
+          eclMarkup = he.decode(eclMarkup.replace(/<\/?[^>]+(>|$)/g, ''));
           const eclMarkupMinusDiv = eclMarkup.replace(/^<div>/, '');
           if (eclMarkupMinusDiv !== eclMarkup) {
             eclMarkup = eclMarkupMinusDiv.replace(/<\/div>$/, '');

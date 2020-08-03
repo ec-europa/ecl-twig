@@ -1,8 +1,11 @@
-import merge from 'deepmerge';
-import { storiesOf } from '@storybook/html';
-import { withKnobs, text } from '@storybook/addon-knobs';
+import { withKnobs, text, select, optionsKnob } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
+import {
+  getExtraKnobs,
+  tabLabels,
+  getComplianceKnob,
+} from '@ecl-twig/story-utils';
 
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import dataLink from './demo/data--link';
@@ -11,51 +14,72 @@ import dataRemovable from './demo/data--removable';
 import tag from './ecl-tag.html.twig';
 import notes from './README.md';
 
-storiesOf('Components/Tag', module)
-  .addDecorator(withKnobs)
-  .addDecorator(withNotes)
-  .addDecorator(withCode)
-  .add(
-    'as a link',
-    () =>
-      tag(
-        merge(dataLink, {
-          tag: {
-            label: text('Label', 'Link tag'),
-            path: text('Url', '/example'),
-          },
-        })
-      ),
-    {
-      notes: { markdown: notes, json: dataLink },
-    }
-  )
-  .add(
-    'as a button',
-    () =>
-      tag(
-        merge(dataButton, {
-          tag: {
-            label: text('Label', 'Button tag'),
-          },
-        })
-      ),
-    {
-      notes: { markdown: notes, json: dataButton },
-    }
-  )
-  .add(
-    'removable',
-    () =>
-      tag(
-        merge(dataRemovable, {
-          tag: {
-            label: text('Label', 'Removable tag'),
-          },
-          default_icon_path: defaultSprite,
-        })
-      ),
-    {
-      notes: { markdown: notes, json: dataRemovable },
-    }
+// Preserve the adapted specs.
+const prepareTag = (data, link, aria) => {
+  data.tag.type = select(
+    'tag.type',
+    [data.tag.type],
+    data.tag.type,
+    tabLabels.required
   );
+  data.tag.label = text('tag.label', data.tag.label, tabLabels.required);
+  if (link) {
+    data.tag.path = text('tag.path', data.tag.path, tabLabels.required);
+  }
+  if (aria) {
+    data.tag.aria_label = text(
+      'tag.aria_label',
+      data.tag.aria_label,
+      tabLabels.required
+    );
+  }
+  if (aria) {
+    data.default_icon_path = optionsKnob(
+      'default_icon_path',
+      { current: defaultSprite, 'no path': '' },
+      defaultSprite,
+      { display: 'inline-radio' },
+      tabLabels.required
+    );
+  }
+
+  getExtraKnobs(data);
+  getComplianceKnob(data);
+
+  return data;
+};
+
+export default {
+  title: 'Components/Tag',
+  decorators: [withKnobs, withNotes, withCode],
+};
+
+export const Link = () => tag(prepareTag(dataLink, true));
+
+Link.story = {
+  name: 'as a link',
+
+  parameters: {
+    notes: { markdown: notes, json: dataLink },
+  },
+};
+
+export const Button = () => tag(prepareTag(dataButton));
+
+Button.story = {
+  name: 'as a button',
+
+  parameters: {
+    notes: { markdown: notes, json: dataButton },
+  },
+};
+
+export const Removable = () => tag(prepareTag(dataRemovable, false, true));
+
+Removable.story = {
+  name: 'removable',
+
+  parameters: {
+    notes: { markdown: notes, json: dataRemovable },
+  },
+};

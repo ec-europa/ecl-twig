@@ -1,4 +1,4 @@
-# ECL Twig - EC Gallery
+# ECL-Twig Gallery
 
 npm package: `@ecl-twig/ec-component-gallery`
 
@@ -22,17 +22,23 @@ npm install --save @ecl-twig/ec-component-gallery
   - "meta" (string) (default: '')
   - "icon" (object) (default: {}): object of type icon
   - "share_path" (string) (default: '')
+- **"footer"** (object) (default: {}) Footer link
+- **"view_all_label"** (string) (default: '') Label of the view all button
+- **"counter_label"** (string) (default: '') Label of the counter
 - **"selected_item_id"** (int) (default: 0)
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
+- **"_compliance_"** (boolean) (default: false) Activates debug
 
 ### Example :
 
 <!-- prettier-ignore -->
 ```twig
 {% include '@ecl-twig/ec-component-gallery/ecl-gallery.html.twig' with {  
+  view_all_label: 'View all', 
+  counter_label: 'Media files in this gallery' , 
   items: [ 
     { 
       path: 'path/to/image.jpg', 
@@ -56,6 +62,19 @@ npm install --save @ecl-twig/ec-component-gallery
     }, 
     ... 
   ], 
+  footer: { 
+    link: { 
+      label: "Link to further media items", 
+      path: "/example", 
+      aria_label: "View all link aria-label value" 
+    }, 
+    icon: { 
+      path: "/icons.svg", 
+      type: "ui", 
+      name: "external", 
+      size: "s" 
+    } 
+  },
   overlay: { 
     close: { 
       variant: 'ghost', 

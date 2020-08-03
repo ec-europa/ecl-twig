@@ -1,11 +1,10 @@
-/* eslint-disable no-param-reassign */
 import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
 import demoData from './demo/data';
 
 describe('EC - Timeline', () => {
   const template = '@ecl-twig/ec-component-timeline/ecl-timeline.html.twig';
-  const render = params => renderTwigFileAsNode(template, params);
+  const render = (params) => renderTwigFileAsNode(template, params);
 
   test('renders correctly without hidden items', () => {
     expect.assertions(1);
@@ -107,5 +106,17 @@ describe('EC - Timeline', () => {
     });
 
     return expect(render(optionsWithExtraClasses)).resolves.toMatchSnapshot();
+  });
+
+  test('with missing input data and debug enabled it returns the right warning messages.', () => {
+    expect.assertions(1);
+
+    const dataCompliance = { ...demoData, _compliance_: true };
+    dataCompliance.items[1].label = '';
+    dataCompliance.toggle_collapsed = '';
+    dataCompliance.toggle_expanded = '';
+    dataCompliance.icon_path = '';
+
+    return expect(render(dataCompliance)).resolves.toMatchSnapshot();
   });
 });

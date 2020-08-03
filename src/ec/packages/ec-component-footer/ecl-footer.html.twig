@@ -15,7 +15,8 @@
   - "extra_classes" (optional) (string) (default: '') Extra classes (space separated) for the icon
   - "extra_attributes" (optional) (array) (default: []) Extra attributes for icon
     - "name" (string) Attribute name, eg. 'data-test'
-    - "value" (optional) (string) Attribute value, eg: 'data-test-1'
+    - "value" (optional) (string) Attribute value, eg: 'data-test-1',
+  _ "_compliance_" (boolean) (default: false) Activates debug
 #}
 
 {# Internal properties #}
@@ -23,7 +24,7 @@
 {% set _identity = identity|default({}) %}
 {% set _sections = sections|default({}) %}
 {% set _common = common|default({}) %}
-
+{% set _compliance = _compliance_|default(false) %}
 {% set _css_class = 'ecl-footer' %}
 {% set _extra_attributes = '' %}
 
@@ -86,7 +87,9 @@
                 icon: item.icon|default({})|merge({
                   size: 'xs',
                 }),
-                extra_classes: 'ecl-footer__identity-link'
+                extra_classes: 'ecl-footer__identity-link',
+                _compliance_: _compliance,
+                _compliance_inner_check_: true
               }) only %}
             {% endfor %}
           </div>
@@ -99,7 +102,9 @@
                 icon: item.icon|default({})|merge({
                   size: 'xs',
                 }),
-                extra_classes: 'ecl-footer__identity-link'
+                extra_classes: 'ecl-footer__identity-link',
+                _compliance_: _compliance,
+                _compliance_inner_check_: true
               }) only %}
             {% endfor %}
           </div>
@@ -124,7 +129,9 @@
                   icon: item.icon|default({})|merge({
                     size: 'xs',
                   }),
-                  extra_classes: 'ecl-footer__section-link'
+                  extra_classes: 'ecl-footer__section-link',
+                  _compliance_: _compliance,
+                  _compliance_inner_check_: true
                 }) only %}
               </li>
             {% endfor %}
@@ -142,7 +149,9 @@
                   icon: item.icon|default({})|merge({
                     size: 'xs',
                   }),
-                  extra_classes: 'ecl-footer__section-link'
+                  extra_classes: 'ecl-footer__section-link',
+                  _compliance_: _compliance,
+                  _compliance_inner_check_: true
                 }) only %}
               </li>
             {% endfor %}
@@ -160,7 +169,9 @@
                   icon: item.icon|default({})|merge({
                     size: 'xs',
                   }),
-                  extra_classes: 'ecl-footer__section-link'
+                  extra_classes: 'ecl-footer__section-link',
+                  _compliance_: _compliance,
+                  _compliance_inner_check_: true
                 }) only %}
               </li>
             {% endfor %}
@@ -181,11 +192,23 @@
           icon: item.icon|default({})|merge({
             size: 'xs',
           }),
-          extra_classes: 'ecl-footer__common-link'
+          extra_classes: 'ecl-footer__common-link',
+          _compliance_: _compliance,
+          _compliance_inner_check_: true
         }) only %}
       {% endfor %}
     </div>
   </div>
 </footer>
+
+{# Validation #}
+
+{% if _compliance %}
+  {% include '@ecl-twig/ec-component-ecl-compliance/components/ecl-compliance-footer.html.twig' with {
+    identity: _identity,
+    sections: _sections,
+    common: _common
+  } only %}
+{% endif %}
 
 {% endspaceless %}

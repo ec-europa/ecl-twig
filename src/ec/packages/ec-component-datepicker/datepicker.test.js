@@ -1,11 +1,10 @@
-/* eslint-disable no-param-reassign */
 import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
 import demoData from './demo/data';
 
 describe('EC - Datepicker', () => {
   const template = '@ecl-twig/ec-component-datepicker/ecl-datepicker.html.twig';
-  const render = params => renderTwigFileAsNode(template, params);
+  const render = (params) => renderTwigFileAsNode(template, params);
 
   test('renders correctly', () => {
     expect.assertions(1);
@@ -34,5 +33,15 @@ describe('EC - Datepicker', () => {
     });
 
     return expect(render(optionsWithExtraClasses)).resolves.toMatchSnapshot();
+  });
+
+  test('with misssing input data and debug enabled it returns the right warning messages.', () => {
+    expect.assertions(1);
+
+    const dataCompliance = { ...demoData, _compliance_: true };
+    dataCompliance.label = '';
+    dataCompliance.icons_path = '';
+
+    return expect(render(dataCompliance)).resolves.toMatchSnapshot();
   });
 });

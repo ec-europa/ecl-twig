@@ -1,4 +1,4 @@
-# ECL Twig - EC File component
+# ECL-Twig File component
 
 npm package: `@ecl-twig/ec-component-file`
 
@@ -9,9 +9,12 @@ npm install --save @ecl-twig/ec-component-file
 ### Parameters
 
 - **"icon"** (object) (default: {}): object of type Icon; file type
+- **"variant"** (string) (default: '') Thumbnail
 - **"title"** (string) (default: '')
+- **"description"** (string) (default: '')
 - **"language"** (string) (default: '')
 - **"meta"** (string) (default: '')
+- **"detail_meta"** (array) (default: []) Meta element for the thumbnail variant
 - **"download"** (object) (default: {}): object of type Link
 - **"translation"** (array) (default: []):
   - "toggle" (object) (default: {}): object of type Button
@@ -25,6 +28,7 @@ npm install --save @ecl-twig/ec-component-file
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
+- **"_compliance_"** (boolean) (default: false) Activates debug
 
 ### Example:
 

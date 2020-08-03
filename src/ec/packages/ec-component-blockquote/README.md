@@ -1,4 +1,4 @@
-# ECL Twig - EC Blockquote component
+# ECL-Twig Blockquote component
 
 npm package: `@ecl-twig/ec-component-blockquote`
 

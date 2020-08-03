@@ -5,7 +5,7 @@ import dataError from './demo/data--with-error';
 
 describe('EC - Text field', () => {
   const template = '@ecl-twig/ec-component-text-input/ecl-text-input.html.twig';
-  const render = params => renderTwigFileAsNode(template, params);
+  const render = (params) => renderTwigFileAsNode(template, params);
 
   describe('Default', () => {
     test('renders correctly', () => {
@@ -152,6 +152,20 @@ describe('EC - Text field', () => {
       });
 
       return expect(render(optionsWithExtraClasses)).resolves.toMatchSnapshot();
+    });
+  });
+
+  describe('with validation enabled and missing input data', () => {
+    test('returns the right warning message', () => {
+      expect.assertions(1);
+
+      const options = {
+        ...dataDefault,
+        label: '',
+        _compliance_: true,
+      };
+
+      return expect(render(options)).resolves.toMatchSnapshot();
     });
   });
 });

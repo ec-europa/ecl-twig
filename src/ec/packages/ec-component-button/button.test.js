@@ -9,7 +9,7 @@ import dataSearch from '@ecl/ec-specs-button/demo/data--search';
 
 describe('EC - Button', () => {
   const template = '@ecl-twig/ec-component-button/ecl-button.html.twig';
-  const render = params => renderTwigFileAsNode(template, params);
+  const render = (params) => renderTwigFileAsNode(template, params);
 
   describe('Primary', () => {
     test('renders correctly', () => {
@@ -109,6 +109,20 @@ describe('EC - Button', () => {
       });
 
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
+    });
+  });
+
+  describe('with validation enabled and missing input data', () => {
+    test('returns the right warning message', () => {
+      expect.assertions(1);
+
+      const dataCompliance = {
+        ...dataPrimary,
+        label: '',
+        _compliance_: true,
+      };
+
+      return expect(render(dataCompliance)).resolves.toMatchSnapshot();
     });
   });
 });

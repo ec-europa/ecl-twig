@@ -10,10 +10,10 @@ import dataUi from './demo/data--audio';
 
 describe('EC - Icon', () => {
   const template = '@ecl-twig/ec-component-icon/ecl-icon.html.twig';
-  const render = params => renderTwigFileAsNode(template, params);
+  const render = (params) => renderTwigFileAsNode(template, params);
 
   describe('Branded', () => {
-    brandedIcons.forEach(icon => {
+    brandedIcons.forEach((icon) => {
       test(`- icon ${icon} renders correctly`, () => {
         expect.assertions(1);
 
@@ -29,7 +29,7 @@ describe('EC - Icon', () => {
   });
 
   describe('Notifications', () => {
-    notificationsIcons.forEach(icon => {
+    notificationsIcons.forEach((icon) => {
       test(`- icon ${icon} renders correctly`, () => {
         expect.assertions(1);
 
@@ -45,7 +45,7 @@ describe('EC - Icon', () => {
   });
 
   describe('General', () => {
-    generalIcons.forEach(icon => {
+    generalIcons.forEach((icon) => {
       test(`- icon ${icon} renders correctly`, () => {
         expect.assertions(1);
 
@@ -62,7 +62,7 @@ describe('EC - Icon', () => {
   });
 
   describe('UI', () => {
-    uiIcons.forEach(icon => {
+    uiIcons.forEach((icon) => {
       test(`- icon ${icon} renders correctly`, () => {
         expect.assertions(1);
 
@@ -106,6 +106,22 @@ describe('EC - Icon', () => {
       });
 
       return expect(render(optionsWithExtraClasses)).resolves.toMatchSnapshot();
+    });
+  });
+  describe('with validation enabled and missing input data', () => {
+    test('returns the right warning message', () => {
+      expect.assertions(1);
+
+      const options = {
+        icon: {
+          name: 'check-filled',
+          path: '',
+          type: '',
+        },
+        _compliance_: true,
+      };
+
+      return expect(render(options)).resolves.toMatchSnapshot();
     });
   });
 });

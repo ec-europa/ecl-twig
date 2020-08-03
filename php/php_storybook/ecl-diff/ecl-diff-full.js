@@ -3,7 +3,7 @@
 /* eslint-disable import/no-unresolved, no-console, no-param-reassign */
 
 const eclDiffComponent = require('./ecl-diff-component.js');
-let packages = require('../../../../src/ec/.storybook/ec-packages.js').list;
+let packages = require('@ecl-twig/ec-storybook/.storybook/packages.js').list;
 
 const getBase = element => {
   [, element] = element.split('ec-component-');

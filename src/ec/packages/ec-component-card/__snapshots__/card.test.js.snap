@@ -1,1029 +1,1262 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`EC - Card Default renders correctly 1`] = `
-<article
-  class="ecl-card"
->
-  <header
-    class="ecl-card__header"
+<test>
+  <article
+    class="ecl-card"
   >
-    <div
-      aria-label="card image"
-      class="ecl-card__image"
-      role="img"
-      style="background-image:url('https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg')"
-    />
-    <div
-      class="ecl-card__meta"
+    <header
+      class="ecl-card__header"
     >
-      Meta1 | Meta2
+      <div
+        aria-label="card image"
+        class="ecl-card__image"
+        role="img"
+        style="background-image:url('https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg')"
+      />
+      <div
+        class="ecl-card__meta"
+      >
+        Meta1 | Meta2
+      </div>
+      <h1
+        class="ecl-card__title"
+      >
+        <a
+          class="ecl-link ecl-link--standalone"
+          href="/example"
+        >
+          Better regulation
+        </a>
+      </h1>
+    </header>
+    <div
+      class="ecl-card__body"
+    >
+      <div
+        class="ecl-card__description"
+      >
+        Transparently designing and evaluating evidence-based EU legislation, backed by citizens views.
+      </div>
     </div>
-    <h1
-      class="ecl-card__title"
+    <footer
+      class="ecl-card__footer"
     >
-      <a
-        class="ecl-link ecl-link--standalone"
-        href="/example"
+      <ul
+        class="ecl-card__info-container"
       >
-        Better regulation
-      </a>
-    </h1>
-  </header>
-  <div
-    class="ecl-card__body"
-  >
-    <div
-      class="ecl-card__description"
-    >
-      Transparently designing and evaluating evidence-based EU legislation, backed by citizens views.
-    </div>
-  </div>
-  <footer
-    class="ecl-card__footer"
-  >
-    <ul
-      class="ecl-card__info-container"
-    >
-      <li
-        class="ecl-card__info-item"
+        <li
+          class="ecl-card__info-item"
+        >
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--xs"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#general--calendar"
+            />
+          </svg>
+          <span
+            class="ecl-card__info-label"
+          >
+            2018/10/22
+          </span>
+        </li>
+        <li
+          class="ecl-card__info-item"
+        >
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--xs"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#general--location"
+            />
+          </svg>
+          <span
+            class="ecl-card__info-label"
+          >
+            Luxembourg
+          </span>
+        </li>
+      </ul>
+      <ul
+        class="ecl-card__tag-container"
       >
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--xs"
-          focusable="false"
+        <li
+          class="ecl-card__tag-item"
         >
-          <use
-            xlink:href="/icons.svg#general--calendar"
-          />
-        </svg>
-        <span
-          class="ecl-card__info-label"
+          <a
+            class="ecl-tag ecl-card__tag"
+            href="/example"
+          >
+            tag 1
+          </a>
+        </li>
+        <li
+          class="ecl-card__tag-item"
         >
-          2018/10/22
-        </span>
-      </li>
-      <li
-        class="ecl-card__info-item"
-      >
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--xs"
-          focusable="false"
+          <a
+            class="ecl-tag ecl-card__tag"
+            href="/example"
+          >
+            tag 2
+          </a>
+        </li>
+        <li
+          class="ecl-card__tag-item"
         >
-          <use
-            xlink:href="/icons.svg#general--location"
-          />
-        </svg>
-        <span
-          class="ecl-card__info-label"
-        >
-          Luxembourg
-        </span>
-      </li>
-    </ul>
-    <ul
-      class="ecl-card__tag-container"
-    >
-      <li
-        class="ecl-card__tag-item"
-      >
-        <a
-          class="ecl-tag ecl-card__tag"
-          href="/example"
-        >
-          tag 1
-        </a>
-      </li>
-      <li
-        class="ecl-card__tag-item"
-      >
-        <a
-          class="ecl-tag ecl-card__tag"
-          href="/example"
-        >
-          tag 2
-        </a>
-      </li>
-      <li
-        class="ecl-card__tag-item"
-      >
-        <a
-          class="ecl-tag ecl-card__tag"
-          href="/example"
-        >
-          tag 3
-        </a>
-      </li>
-    </ul>
-  </footer>
-</article>
+          <a
+            class="ecl-tag ecl-card__tag"
+            href="/example"
+          >
+            tag 3
+          </a>
+        </li>
+      </ul>
+    </footer>
+  </article>
+</test>
 `;
 
 exports[`EC - Card Default renders correctly with extra attributes 1`] = `
-<article
-  class="ecl-card"
-  data-test="data-test-value"
-  data-test-1="data-test-value-1"
->
-  <header
-    class="ecl-card__header"
+<test>
+  <article
+    class="ecl-card"
+    data-test="data-test-value"
+    data-test-1="data-test-value-1"
   >
-    <div
-      aria-label="card image"
-      class="ecl-card__image"
-      role="img"
-      style="background-image:url('https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg')"
-    />
-    <div
-      class="ecl-card__meta"
+    <header
+      class="ecl-card__header"
     >
-      Meta1 | Meta2
+      <div
+        aria-label="card image"
+        class="ecl-card__image"
+        role="img"
+        style="background-image:url('https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg')"
+      />
+      <div
+        class="ecl-card__meta"
+      >
+        Meta1 | Meta2
+      </div>
+      <h1
+        class="ecl-card__title"
+      >
+        <a
+          class="ecl-link ecl-link--standalone"
+          href="/example"
+        >
+          Better regulation
+        </a>
+      </h1>
+    </header>
+    <div
+      class="ecl-card__body"
+    >
+      <div
+        class="ecl-card__description"
+      >
+        Transparently designing and evaluating evidence-based EU legislation, backed by citizens views.
+      </div>
     </div>
-    <h1
-      class="ecl-card__title"
+    <footer
+      class="ecl-card__footer"
     >
-      <a
-        class="ecl-link ecl-link--standalone"
-        href="/example"
+      <ul
+        class="ecl-card__info-container"
       >
-        Better regulation
-      </a>
-    </h1>
-  </header>
-  <div
-    class="ecl-card__body"
-  >
-    <div
-      class="ecl-card__description"
-    >
-      Transparently designing and evaluating evidence-based EU legislation, backed by citizens views.
-    </div>
-  </div>
-  <footer
-    class="ecl-card__footer"
-  >
-    <ul
-      class="ecl-card__info-container"
-    >
-      <li
-        class="ecl-card__info-item"
+        <li
+          class="ecl-card__info-item"
+        >
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--xs"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#general--calendar"
+            />
+          </svg>
+          <span
+            class="ecl-card__info-label"
+          >
+            2018/10/22
+          </span>
+        </li>
+        <li
+          class="ecl-card__info-item"
+        >
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--xs"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#general--location"
+            />
+          </svg>
+          <span
+            class="ecl-card__info-label"
+          >
+            Luxembourg
+          </span>
+        </li>
+      </ul>
+      <ul
+        class="ecl-card__tag-container"
       >
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--xs"
-          focusable="false"
+        <li
+          class="ecl-card__tag-item"
         >
-          <use
-            xlink:href="/icons.svg#general--calendar"
-          />
-        </svg>
-        <span
-          class="ecl-card__info-label"
+          <a
+            class="ecl-tag ecl-card__tag"
+            href="/example"
+          >
+            tag 1
+          </a>
+        </li>
+        <li
+          class="ecl-card__tag-item"
         >
-          2018/10/22
-        </span>
-      </li>
-      <li
-        class="ecl-card__info-item"
-      >
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--xs"
-          focusable="false"
+          <a
+            class="ecl-tag ecl-card__tag"
+            href="/example"
+          >
+            tag 2
+          </a>
+        </li>
+        <li
+          class="ecl-card__tag-item"
         >
-          <use
-            xlink:href="/icons.svg#general--location"
-          />
-        </svg>
-        <span
-          class="ecl-card__info-label"
-        >
-          Luxembourg
-        </span>
-      </li>
-    </ul>
-    <ul
-      class="ecl-card__tag-container"
-    >
-      <li
-        class="ecl-card__tag-item"
-      >
-        <a
-          class="ecl-tag ecl-card__tag"
-          href="/example"
-        >
-          tag 1
-        </a>
-      </li>
-      <li
-        class="ecl-card__tag-item"
-      >
-        <a
-          class="ecl-tag ecl-card__tag"
-          href="/example"
-        >
-          tag 2
-        </a>
-      </li>
-      <li
-        class="ecl-card__tag-item"
-      >
-        <a
-          class="ecl-tag ecl-card__tag"
-          href="/example"
-        >
-          tag 3
-        </a>
-      </li>
-    </ul>
-  </footer>
-</article>
+          <a
+            class="ecl-tag ecl-card__tag"
+            href="/example"
+          >
+            tag 3
+          </a>
+        </li>
+      </ul>
+    </footer>
+  </article>
+</test>
 `;
 
 exports[`EC - Card Default renders correctly with extra class names 1`] = `
-<article
-  class="ecl-card custom-class custom-class--test"
->
-  <header
-    class="ecl-card__header"
+<test>
+  <article
+    class="ecl-card custom-class custom-class--test"
   >
-    <div
-      aria-label="card image"
-      class="ecl-card__image"
-      role="img"
-      style="background-image:url('https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg')"
-    />
-    <div
-      class="ecl-card__meta"
+    <header
+      class="ecl-card__header"
     >
-      Meta1 | Meta2
-    </div>
-    <h1
-      class="ecl-card__title"
-    >
-      <a
-        class="ecl-link ecl-link--standalone"
-        href="/example"
+      <div
+        aria-label="card image"
+        class="ecl-card__image"
+        role="img"
+        style="background-image:url('https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg')"
+      />
+      <div
+        class="ecl-card__meta"
       >
-        Better regulation
-      </a>
-    </h1>
-  </header>
+        Meta1 | Meta2
+      </div>
+      <h1
+        class="ecl-card__title"
+      >
+        <a
+          class="ecl-link ecl-link--standalone"
+          href="/example"
+        >
+          Better regulation
+        </a>
+      </h1>
+    </header>
+    <div
+      class="ecl-card__body"
+    >
+      <div
+        class="ecl-card__description"
+      >
+        Transparently designing and evaluating evidence-based EU legislation, backed by citizens views.
+      </div>
+    </div>
+    <footer
+      class="ecl-card__footer"
+    >
+      <ul
+        class="ecl-card__info-container"
+      >
+        <li
+          class="ecl-card__info-item"
+        >
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--xs"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#general--calendar"
+            />
+          </svg>
+          <span
+            class="ecl-card__info-label"
+          >
+            2018/10/22
+          </span>
+        </li>
+        <li
+          class="ecl-card__info-item"
+        >
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--xs"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#general--location"
+            />
+          </svg>
+          <span
+            class="ecl-card__info-label"
+          >
+            Luxembourg
+          </span>
+        </li>
+      </ul>
+      <ul
+        class="ecl-card__tag-container"
+      >
+        <li
+          class="ecl-card__tag-item"
+        >
+          <a
+            class="ecl-tag ecl-card__tag"
+            href="/example"
+          >
+            tag 1
+          </a>
+        </li>
+        <li
+          class="ecl-card__tag-item"
+        >
+          <a
+            class="ecl-tag ecl-card__tag"
+            href="/example"
+          >
+            tag 2
+          </a>
+        </li>
+        <li
+          class="ecl-card__tag-item"
+        >
+          <a
+            class="ecl-tag ecl-card__tag"
+            href="/example"
+          >
+            tag 3
+          </a>
+        </li>
+      </ul>
+    </footer>
+  </article>
+</test>
+`;
+
+exports[`EC - Card Default with validation enabled and missing input data returns the right warning message 1`] = `
+<test>
+  <article
+    class="ecl-card"
+  >
+    <header
+      class="ecl-card__header"
+    >
+      <div
+        aria-label="card image"
+        class="ecl-card__image"
+        role="img"
+        style="background-image:url('https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg')"
+      />
+      <div
+        class="ecl-card__meta"
+      >
+        Meta1 | Meta2
+      </div>
+      <h1
+        class="ecl-card__title"
+      >
+        <a
+          class="ecl-link ecl-link--standalone"
+          href="/example"
+        />
+        <!-- ecl2-compliance: link--standalone -->
+        <div
+          class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-red ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+        >
+          <p
+            class="ecl-u-type-color-grey ecl-u-ml-m ecl-u-type-xs"
+          >
+            [link--standalone] - {{ link.label }} and none of {{ link.icon_position }}, {{ icon.name }}, {{ icon.path }} or {{ icon.type }} can be empty at the same time, an unusable link would be generated otherwise
+          </p>
+        </div>
+      </h1>
+    </header>
+    <div
+      class="ecl-card__body"
+    >
+      <div
+        class="ecl-card__description"
+      >
+        Transparently designing and evaluating evidence-based EU legislation, backed by citizens views.
+      </div>
+    </div>
+    <footer
+      class="ecl-card__footer"
+    >
+      <ul
+        class="ecl-card__info-container"
+      >
+        <li
+          class="ecl-card__info-item"
+        >
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--xs"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#general--calendar"
+            />
+          </svg>
+          <span
+            class="ecl-u-type-color-green ecl-compliance-inner ecl-compliance-success ecl-u-ma-2xs"
+            title="[icon] - ecl compliant"
+          >
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--xs"
+              focusable="false"
+            >
+              <use
+                xlink:href="/icons.svg#notifications--success"
+              />
+            </svg>
+          </span>
+          <span
+            class="ecl-card__info-label"
+          >
+            2018/10/22
+          </span>
+        </li>
+        <li
+          class="ecl-card__info-item"
+        >
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--xs"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#general--location"
+            />
+          </svg>
+          <span
+            class="ecl-u-type-color-green ecl-compliance-inner ecl-compliance-success ecl-u-ma-2xs"
+            title="[icon] - ecl compliant"
+          >
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--xs"
+              focusable="false"
+            >
+              <use
+                xlink:href="/icons.svg#notifications--success"
+              />
+            </svg>
+          </span>
+          <span
+            class="ecl-card__info-label"
+          >
+            Luxembourg
+          </span>
+        </li>
+      </ul>
+      <ul
+        class="ecl-card__tag-container"
+      >
+        <li
+          class="ecl-card__tag-item"
+        >
+          <a
+            class="ecl-tag ecl-card__tag"
+            href="/example"
+          >
+            tag 1
+          </a>
+          <span
+            class="ecl-u-type-color-green ecl-compliance-inner ecl-compliance-success ecl-u-ma-2xs"
+            title="[tag--link] - ecl compliant"
+          >
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--xs"
+              focusable="false"
+            >
+              <use
+                xlink:href="/icons.svg#notifications--success"
+              />
+            </svg>
+          </span>
+        </li>
+        <li
+          class="ecl-card__tag-item"
+        >
+          <a
+            class="ecl-tag ecl-card__tag"
+            href="/example"
+          >
+            tag 2
+          </a>
+          <span
+            class="ecl-u-type-color-green ecl-compliance-inner ecl-compliance-success ecl-u-ma-2xs"
+            title="[tag--link] - ecl compliant"
+          >
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--xs"
+              focusable="false"
+            >
+              <use
+                xlink:href="/icons.svg#notifications--success"
+              />
+            </svg>
+          </span>
+        </li>
+        <li
+          class="ecl-card__tag-item"
+        >
+          <a
+            class="ecl-tag ecl-card__tag"
+            href="/example"
+          >
+            tag 3
+          </a>
+          <span
+            class="ecl-u-type-color-green ecl-compliance-inner ecl-compliance-success ecl-u-ma-2xs"
+            title="[tag--link] - ecl compliant"
+          >
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--xs"
+              focusable="false"
+            >
+              <use
+                xlink:href="/icons.svg#notifications--success"
+              />
+            </svg>
+          </span>
+        </li>
+      </ul>
+    </footer>
+  </article>
+  <!-- ecl2-compliance: card -->
   <div
-    class="ecl-card__body"
+    class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-red ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
   >
-    <div
-      class="ecl-card__description"
+    <p
+      class="ecl-u-type-color-grey ecl-u-ml-m ecl-u-type-xs"
     >
-      Transparently designing and evaluating evidence-based EU legislation, backed by citizens views.
-    </div>
+      [card] -  {{ card.title.label }} property needs to set and filled in.
+    </p>
   </div>
-  <footer
-    class="ecl-card__footer"
-  >
-    <ul
-      class="ecl-card__info-container"
-    >
-      <li
-        class="ecl-card__info-item"
-      >
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--xs"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#general--calendar"
-          />
-        </svg>
-        <span
-          class="ecl-card__info-label"
-        >
-          2018/10/22
-        </span>
-      </li>
-      <li
-        class="ecl-card__info-item"
-      >
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--xs"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#general--location"
-          />
-        </svg>
-        <span
-          class="ecl-card__info-label"
-        >
-          Luxembourg
-        </span>
-      </li>
-    </ul>
-    <ul
-      class="ecl-card__tag-container"
-    >
-      <li
-        class="ecl-card__tag-item"
-      >
-        <a
-          class="ecl-tag ecl-card__tag"
-          href="/example"
-        >
-          tag 1
-        </a>
-      </li>
-      <li
-        class="ecl-card__tag-item"
-      >
-        <a
-          class="ecl-tag ecl-card__tag"
-          href="/example"
-        >
-          tag 2
-        </a>
-      </li>
-      <li
-        class="ecl-card__tag-item"
-      >
-        <a
-          class="ecl-tag ecl-card__tag"
-          href="/example"
-        >
-          tag 3
-        </a>
-      </li>
-    </ul>
-  </footer>
-</article>
+</test>
 `;
 
 exports[`EC - Card Events renders correctly 1`] = `
-<article
-  class="ecl-card"
->
-  <header
-    class="ecl-card__header"
+<test>
+  <article
+    class="ecl-card"
   >
-    <div
-      aria-label="card image"
-      class="ecl-card__image"
-      role="img"
-      style="background-image:url('https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg')"
-    />
-    <h1
-      class="ecl-card__title"
+    <header
+      class="ecl-card__header"
     >
-      <a
-        class="ecl-link ecl-link--standalone"
-        href="/example"
+      <div
+        aria-label="card image"
+        class="ecl-card__image"
+        role="img"
+        style="background-image:url('https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg')"
+      />
+      <h1
+        class="ecl-card__title"
       >
-        Better regulation
-      </a>
-    </h1>
-  </header>
-  <div
-    class="ecl-card__body"
-  >
+        <a
+          class="ecl-link ecl-link--standalone"
+          href="/example"
+        >
+          Better regulation
+        </a>
+      </h1>
+    </header>
     <div
-      class="ecl-card__description"
+      class="ecl-card__body"
     >
-      Transparently designing and evaluating evidence-based EU legislation, backed by citizens views.
+      <div
+        class="ecl-card__description"
+      >
+        Transparently designing and evaluating evidence-based EU legislation, backed by citizens views.
+      </div>
     </div>
-  </div>
-  <footer
-    class="ecl-card__footer"
-  >
-    <ul
-      class="ecl-card__info-container"
+    <footer
+      class="ecl-card__footer"
     >
-      <li
-        class="ecl-card__info-item"
+      <ul
+        class="ecl-card__info-container"
       >
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--xs"
-          focusable="false"
+        <li
+          class="ecl-card__info-item"
         >
-          <use
-            xlink:href="/icons.svg#general--calendar"
-          />
-        </svg>
-        <span
-          class="ecl-card__info-label"
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--xs"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#general--calendar"
+            />
+          </svg>
+          <span
+            class="ecl-card__info-label"
+          >
+            2018/10/22
+          </span>
+        </li>
+        <li
+          class="ecl-card__info-item"
         >
-          2018/10/22
-        </span>
-      </li>
-      <li
-        class="ecl-card__info-item"
-      >
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--xs"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#general--location"
-          />
-        </svg>
-        <span
-          class="ecl-card__info-label"
-        >
-          Luxembourg
-        </span>
-      </li>
-    </ul>
-  </footer>
-</article>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--xs"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#general--location"
+            />
+          </svg>
+          <span
+            class="ecl-card__info-label"
+          >
+            Luxembourg
+          </span>
+        </li>
+      </ul>
+    </footer>
+  </article>
+</test>
 `;
 
 exports[`EC - Card Events renders correctly with extra attributes 1`] = `
-<article
-  class="ecl-card"
-  data-test="data-test-value"
-  data-test-1="data-test-value-1"
->
-  <header
-    class="ecl-card__header"
+<test>
+  <article
+    class="ecl-card"
+    data-test="data-test-value"
+    data-test-1="data-test-value-1"
   >
-    <div
-      aria-label="card image"
-      class="ecl-card__image"
-      role="img"
-      style="background-image:url('https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg')"
-    />
-    <h1
-      class="ecl-card__title"
+    <header
+      class="ecl-card__header"
     >
-      <a
-        class="ecl-link ecl-link--standalone"
-        href="/example"
+      <div
+        aria-label="card image"
+        class="ecl-card__image"
+        role="img"
+        style="background-image:url('https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg')"
+      />
+      <h1
+        class="ecl-card__title"
       >
-        Better regulation
-      </a>
-    </h1>
-  </header>
-  <div
-    class="ecl-card__body"
-  >
+        <a
+          class="ecl-link ecl-link--standalone"
+          href="/example"
+        >
+          Better regulation
+        </a>
+      </h1>
+    </header>
     <div
-      class="ecl-card__description"
+      class="ecl-card__body"
     >
-      Transparently designing and evaluating evidence-based EU legislation, backed by citizens views.
+      <div
+        class="ecl-card__description"
+      >
+        Transparently designing and evaluating evidence-based EU legislation, backed by citizens views.
+      </div>
     </div>
-  </div>
-  <footer
-    class="ecl-card__footer"
-  >
-    <ul
-      class="ecl-card__info-container"
+    <footer
+      class="ecl-card__footer"
     >
-      <li
-        class="ecl-card__info-item"
+      <ul
+        class="ecl-card__info-container"
       >
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--xs"
-          focusable="false"
+        <li
+          class="ecl-card__info-item"
         >
-          <use
-            xlink:href="/icons.svg#general--calendar"
-          />
-        </svg>
-        <span
-          class="ecl-card__info-label"
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--xs"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#general--calendar"
+            />
+          </svg>
+          <span
+            class="ecl-card__info-label"
+          >
+            2018/10/22
+          </span>
+        </li>
+        <li
+          class="ecl-card__info-item"
         >
-          2018/10/22
-        </span>
-      </li>
-      <li
-        class="ecl-card__info-item"
-      >
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--xs"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#general--location"
-          />
-        </svg>
-        <span
-          class="ecl-card__info-label"
-        >
-          Luxembourg
-        </span>
-      </li>
-    </ul>
-  </footer>
-</article>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--xs"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#general--location"
+            />
+          </svg>
+          <span
+            class="ecl-card__info-label"
+          >
+            Luxembourg
+          </span>
+        </li>
+      </ul>
+    </footer>
+  </article>
+</test>
 `;
 
 exports[`EC - Card Events renders correctly with extra class names 1`] = `
-<article
-  class="ecl-card custom-class custom-class--test"
->
-  <header
-    class="ecl-card__header"
+<test>
+  <article
+    class="ecl-card custom-class custom-class--test"
   >
-    <div
-      aria-label="card image"
-      class="ecl-card__image"
-      role="img"
-      style="background-image:url('https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg')"
-    />
-    <h1
-      class="ecl-card__title"
+    <header
+      class="ecl-card__header"
     >
-      <a
-        class="ecl-link ecl-link--standalone"
-        href="/example"
+      <div
+        aria-label="card image"
+        class="ecl-card__image"
+        role="img"
+        style="background-image:url('https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg')"
+      />
+      <h1
+        class="ecl-card__title"
       >
-        Better regulation
-      </a>
-    </h1>
-  </header>
-  <div
-    class="ecl-card__body"
-  >
+        <a
+          class="ecl-link ecl-link--standalone"
+          href="/example"
+        >
+          Better regulation
+        </a>
+      </h1>
+    </header>
     <div
-      class="ecl-card__description"
+      class="ecl-card__body"
     >
-      Transparently designing and evaluating evidence-based EU legislation, backed by citizens views.
+      <div
+        class="ecl-card__description"
+      >
+        Transparently designing and evaluating evidence-based EU legislation, backed by citizens views.
+      </div>
     </div>
-  </div>
-  <footer
-    class="ecl-card__footer"
-  >
-    <ul
-      class="ecl-card__info-container"
+    <footer
+      class="ecl-card__footer"
     >
-      <li
-        class="ecl-card__info-item"
+      <ul
+        class="ecl-card__info-container"
       >
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--xs"
-          focusable="false"
+        <li
+          class="ecl-card__info-item"
         >
-          <use
-            xlink:href="/icons.svg#general--calendar"
-          />
-        </svg>
-        <span
-          class="ecl-card__info-label"
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--xs"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#general--calendar"
+            />
+          </svg>
+          <span
+            class="ecl-card__info-label"
+          >
+            2018/10/22
+          </span>
+        </li>
+        <li
+          class="ecl-card__info-item"
         >
-          2018/10/22
-        </span>
-      </li>
-      <li
-        class="ecl-card__info-item"
-      >
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--xs"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#general--location"
-          />
-        </svg>
-        <span
-          class="ecl-card__info-label"
-        >
-          Luxembourg
-        </span>
-      </li>
-    </ul>
-  </footer>
-</article>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--xs"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#general--location"
+            />
+          </svg>
+          <span
+            class="ecl-card__info-label"
+          >
+            Luxembourg
+          </span>
+        </li>
+      </ul>
+    </footer>
+  </article>
+</test>
 `;
 
 exports[`EC - Card Tag renders correctly 1`] = `
-<article
-  class="ecl-card"
->
-  <header
-    class="ecl-card__header"
+<test>
+  <article
+    class="ecl-card"
   >
-    <div
-      aria-label="card image"
-      class="ecl-card__image"
-      role="img"
-      style="background-image:url('https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg')"
-    />
-    <div
-      class="ecl-card__meta"
+    <header
+      class="ecl-card__header"
     >
-      Meta1 | Meta2
+      <div
+        aria-label="card image"
+        class="ecl-card__image"
+        role="img"
+        style="background-image:url('https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg')"
+      />
+      <div
+        class="ecl-card__meta"
+      >
+        Meta1 | Meta2
+      </div>
+      <h1
+        class="ecl-card__title"
+      >
+        <a
+          class="ecl-link ecl-link--standalone"
+          href="/example"
+        >
+          Better regulation
+        </a>
+      </h1>
+    </header>
+    <div
+      class="ecl-card__body"
+    >
+      <div
+        class="ecl-card__description"
+      >
+        Transparently designing and evaluating evidence-based EU legislation, backed by citizens views.
+      </div>
     </div>
-    <h1
-      class="ecl-card__title"
+    <footer
+      class="ecl-card__footer"
     >
-      <a
-        class="ecl-link ecl-link--standalone"
-        href="/example"
+      <ul
+        class="ecl-card__tag-container"
       >
-        Better regulation
-      </a>
-    </h1>
-  </header>
-  <div
-    class="ecl-card__body"
-  >
-    <div
-      class="ecl-card__description"
-    >
-      Transparently designing and evaluating evidence-based EU legislation, backed by citizens views.
-    </div>
-  </div>
-  <footer
-    class="ecl-card__footer"
-  >
-    <ul
-      class="ecl-card__tag-container"
-    >
-      <li
-        class="ecl-card__tag-item"
-      >
-        <a
-          class="ecl-tag ecl-card__tag"
-          href="/example"
+        <li
+          class="ecl-card__tag-item"
         >
-          tag 1
-        </a>
-      </li>
-      <li
-        class="ecl-card__tag-item"
-      >
-        <a
-          class="ecl-tag ecl-card__tag"
-          href="/example"
+          <a
+            class="ecl-tag ecl-card__tag"
+            href="/example"
+          >
+            tag 1
+          </a>
+        </li>
+        <li
+          class="ecl-card__tag-item"
         >
-          tag 2
-        </a>
-      </li>
-      <li
-        class="ecl-card__tag-item"
-      >
-        <a
-          class="ecl-tag ecl-card__tag"
-          href="/example"
+          <a
+            class="ecl-tag ecl-card__tag"
+            href="/example"
+          >
+            tag 2
+          </a>
+        </li>
+        <li
+          class="ecl-card__tag-item"
         >
-          tag 3
-        </a>
-      </li>
-    </ul>
-  </footer>
-</article>
+          <a
+            class="ecl-tag ecl-card__tag"
+            href="/example"
+          >
+            tag 3
+          </a>
+        </li>
+      </ul>
+    </footer>
+  </article>
+</test>
 `;
 
 exports[`EC - Card Tag renders correctly with extra attributes 1`] = `
-<article
-  class="ecl-card"
-  data-test="data-test-value"
-  data-test-1="data-test-value-1"
->
-  <header
-    class="ecl-card__header"
+<test>
+  <article
+    class="ecl-card"
+    data-test="data-test-value"
+    data-test-1="data-test-value-1"
   >
-    <div
-      aria-label="card image"
-      class="ecl-card__image"
-      role="img"
-      style="background-image:url('https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg')"
-    />
-    <div
-      class="ecl-card__meta"
+    <header
+      class="ecl-card__header"
     >
-      Meta1 | Meta2
+      <div
+        aria-label="card image"
+        class="ecl-card__image"
+        role="img"
+        style="background-image:url('https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg')"
+      />
+      <div
+        class="ecl-card__meta"
+      >
+        Meta1 | Meta2
+      </div>
+      <h1
+        class="ecl-card__title"
+      >
+        <a
+          class="ecl-link ecl-link--standalone"
+          href="/example"
+        >
+          Better regulation
+        </a>
+      </h1>
+    </header>
+    <div
+      class="ecl-card__body"
+    >
+      <div
+        class="ecl-card__description"
+      >
+        Transparently designing and evaluating evidence-based EU legislation, backed by citizens views.
+      </div>
     </div>
-    <h1
-      class="ecl-card__title"
+    <footer
+      class="ecl-card__footer"
     >
-      <a
-        class="ecl-link ecl-link--standalone"
-        href="/example"
+      <ul
+        class="ecl-card__tag-container"
       >
-        Better regulation
-      </a>
-    </h1>
-  </header>
-  <div
-    class="ecl-card__body"
-  >
-    <div
-      class="ecl-card__description"
-    >
-      Transparently designing and evaluating evidence-based EU legislation, backed by citizens views.
-    </div>
-  </div>
-  <footer
-    class="ecl-card__footer"
-  >
-    <ul
-      class="ecl-card__tag-container"
-    >
-      <li
-        class="ecl-card__tag-item"
-      >
-        <a
-          class="ecl-tag ecl-card__tag"
-          href="/example"
+        <li
+          class="ecl-card__tag-item"
         >
-          tag 1
-        </a>
-      </li>
-      <li
-        class="ecl-card__tag-item"
-      >
-        <a
-          class="ecl-tag ecl-card__tag"
-          href="/example"
+          <a
+            class="ecl-tag ecl-card__tag"
+            href="/example"
+          >
+            tag 1
+          </a>
+        </li>
+        <li
+          class="ecl-card__tag-item"
         >
-          tag 2
-        </a>
-      </li>
-      <li
-        class="ecl-card__tag-item"
-      >
-        <a
-          class="ecl-tag ecl-card__tag"
-          href="/example"
+          <a
+            class="ecl-tag ecl-card__tag"
+            href="/example"
+          >
+            tag 2
+          </a>
+        </li>
+        <li
+          class="ecl-card__tag-item"
         >
-          tag 3
-        </a>
-      </li>
-    </ul>
-  </footer>
-</article>
+          <a
+            class="ecl-tag ecl-card__tag"
+            href="/example"
+          >
+            tag 3
+          </a>
+        </li>
+      </ul>
+    </footer>
+  </article>
+</test>
 `;
 
 exports[`EC - Card Tag renders correctly with extra class names 1`] = `
-<article
-  class="ecl-card custom-class custom-class--test"
->
-  <header
-    class="ecl-card__header"
+<test>
+  <article
+    class="ecl-card custom-class custom-class--test"
   >
-    <div
-      aria-label="card image"
-      class="ecl-card__image"
-      role="img"
-      style="background-image:url('https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg')"
-    />
-    <div
-      class="ecl-card__meta"
+    <header
+      class="ecl-card__header"
     >
-      Meta1 | Meta2
+      <div
+        aria-label="card image"
+        class="ecl-card__image"
+        role="img"
+        style="background-image:url('https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg')"
+      />
+      <div
+        class="ecl-card__meta"
+      >
+        Meta1 | Meta2
+      </div>
+      <h1
+        class="ecl-card__title"
+      >
+        <a
+          class="ecl-link ecl-link--standalone"
+          href="/example"
+        >
+          Better regulation
+        </a>
+      </h1>
+    </header>
+    <div
+      class="ecl-card__body"
+    >
+      <div
+        class="ecl-card__description"
+      >
+        Transparently designing and evaluating evidence-based EU legislation, backed by citizens views.
+      </div>
     </div>
-    <h1
-      class="ecl-card__title"
+    <footer
+      class="ecl-card__footer"
     >
-      <a
-        class="ecl-link ecl-link--standalone"
-        href="/example"
+      <ul
+        class="ecl-card__tag-container"
       >
-        Better regulation
-      </a>
-    </h1>
-  </header>
-  <div
-    class="ecl-card__body"
-  >
-    <div
-      class="ecl-card__description"
-    >
-      Transparently designing and evaluating evidence-based EU legislation, backed by citizens views.
-    </div>
-  </div>
-  <footer
-    class="ecl-card__footer"
-  >
-    <ul
-      class="ecl-card__tag-container"
-    >
-      <li
-        class="ecl-card__tag-item"
-      >
-        <a
-          class="ecl-tag ecl-card__tag"
-          href="/example"
+        <li
+          class="ecl-card__tag-item"
         >
-          tag 1
-        </a>
-      </li>
-      <li
-        class="ecl-card__tag-item"
-      >
-        <a
-          class="ecl-tag ecl-card__tag"
-          href="/example"
+          <a
+            class="ecl-tag ecl-card__tag"
+            href="/example"
+          >
+            tag 1
+          </a>
+        </li>
+        <li
+          class="ecl-card__tag-item"
         >
-          tag 2
-        </a>
-      </li>
-      <li
-        class="ecl-card__tag-item"
-      >
-        <a
-          class="ecl-tag ecl-card__tag"
-          href="/example"
+          <a
+            class="ecl-tag ecl-card__tag"
+            href="/example"
+          >
+            tag 2
+          </a>
+        </li>
+        <li
+          class="ecl-card__tag-item"
         >
-          tag 3
-        </a>
-      </li>
-    </ul>
-  </footer>
-</article>
+          <a
+            class="ecl-tag ecl-card__tag"
+            href="/example"
+          >
+            tag 3
+          </a>
+        </li>
+      </ul>
+    </footer>
+  </article>
+</test>
 `;
 
 exports[`EC - Card Tile renders correctly 1`] = `
-<article
-  class="ecl-card ecl-card--tile"
->
-  <header
-    class="ecl-card__header"
+<test>
+  <article
+    class="ecl-card ecl-card--tile"
   >
-    <h1
-      class="ecl-card__title"
+    <header
+      class="ecl-card__header"
     >
-      Better regulation
-    </h1>
-  </header>
-  <div
-    class="ecl-card__body"
-  >
+      <h1
+        class="ecl-card__title"
+      >
+        Better regulation
+      </h1>
+    </header>
     <div
-      class="ecl-card__description"
+      class="ecl-card__body"
     >
-      Transparently designing and evaluating evidence-based EU legislation, backed by citizens views.
+      <div
+        class="ecl-card__description"
+      >
+        Transparently designing and evaluating evidence-based EU legislation, backed by citizens views.
+      </div>
+      <ul
+        class="ecl-card__link-container"
+      >
+        <li
+          class="ecl-card__link-item"
+        >
+          <a
+            aria-label="Aria label default"
+            class="ecl-link ecl-link--standalone ecl-card__link"
+            href="/example"
+          >
+            link 1
+          </a>
+        </li>
+        <li
+          class="ecl-card__link-item"
+        >
+          <a
+            aria-label="Aria label default"
+            class="ecl-link ecl-link--standalone ecl-card__link"
+            href="/example"
+          >
+            link 2
+          </a>
+        </li>
+        <li
+          class="ecl-card__link-item"
+        >
+          <a
+            aria-label="Aria label default"
+            class="ecl-link ecl-link--standalone ecl-card__link"
+            href="/example"
+          >
+            link 3
+          </a>
+        </li>
+      </ul>
     </div>
-    <ul
-      class="ecl-card__link-container"
-    >
-      <li
-        class="ecl-card__link-item"
-      >
-        <a
-          class="ecl-link ecl-link--standalone ecl-card__link"
-          href="/example"
-        >
-          link 1
-        </a>
-      </li>
-      <li
-        class="ecl-card__link-item"
-      >
-        <a
-          class="ecl-link ecl-link--standalone ecl-card__link"
-          href="/example"
-        >
-          link 2
-        </a>
-      </li>
-      <li
-        class="ecl-card__link-item"
-      >
-        <a
-          class="ecl-link ecl-link--standalone ecl-card__link"
-          href="/example"
-        >
-          link 3
-        </a>
-      </li>
-    </ul>
-  </div>
-  <footer
-    class="ecl-card__footer"
-  />
-</article>
+  </article>
+</test>
 `;
 
 exports[`EC - Card Tile renders correctly with extra attributes 1`] = `
-<article
-  class="ecl-card ecl-card--tile"
-  data-test="data-test-value"
-  data-test-1="data-test-value-1"
->
-  <header
-    class="ecl-card__header"
+<test>
+  <article
+    class="ecl-card ecl-card--tile"
+    data-test="data-test-value"
+    data-test-1="data-test-value-1"
   >
-    <h1
-      class="ecl-card__title"
+    <header
+      class="ecl-card__header"
     >
-      Better regulation
-    </h1>
-  </header>
-  <div
-    class="ecl-card__body"
-  >
+      <h1
+        class="ecl-card__title"
+      >
+        Better regulation
+      </h1>
+    </header>
     <div
-      class="ecl-card__description"
+      class="ecl-card__body"
     >
-      Transparently designing and evaluating evidence-based EU legislation, backed by citizens views.
+      <div
+        class="ecl-card__description"
+      >
+        Transparently designing and evaluating evidence-based EU legislation, backed by citizens views.
+      </div>
+      <ul
+        class="ecl-card__link-container"
+      >
+        <li
+          class="ecl-card__link-item"
+        >
+          <a
+            aria-label="Aria label default"
+            class="ecl-link ecl-link--standalone ecl-card__link"
+            href="/example"
+          >
+            link 1
+          </a>
+        </li>
+        <li
+          class="ecl-card__link-item"
+        >
+          <a
+            aria-label="Aria label default"
+            class="ecl-link ecl-link--standalone ecl-card__link"
+            href="/example"
+          >
+            link 2
+          </a>
+        </li>
+        <li
+          class="ecl-card__link-item"
+        >
+          <a
+            aria-label="Aria label default"
+            class="ecl-link ecl-link--standalone ecl-card__link"
+            href="/example"
+          >
+            link 3
+          </a>
+        </li>
+      </ul>
     </div>
-    <ul
-      class="ecl-card__link-container"
-    >
-      <li
-        class="ecl-card__link-item"
-      >
-        <a
-          class="ecl-link ecl-link--standalone ecl-card__link"
-          href="/example"
-        >
-          link 1
-        </a>
-      </li>
-      <li
-        class="ecl-card__link-item"
-      >
-        <a
-          class="ecl-link ecl-link--standalone ecl-card__link"
-          href="/example"
-        >
-          link 2
-        </a>
-      </li>
-      <li
-        class="ecl-card__link-item"
-      >
-        <a
-          class="ecl-link ecl-link--standalone ecl-card__link"
-          href="/example"
-        >
-          link 3
-        </a>
-      </li>
-    </ul>
-  </div>
-  <footer
-    class="ecl-card__footer"
-  />
-</article>
+  </article>
+</test>
 `;
 
 exports[`EC - Card Tile renders correctly with extra class names 1`] = `
-<article
-  class="ecl-card ecl-card--tile custom-class custom-class--test"
->
-  <header
-    class="ecl-card__header"
+<test>
+  <article
+    class="ecl-card ecl-card--tile custom-class custom-class--test"
   >
-    <h1
-      class="ecl-card__title"
+    <header
+      class="ecl-card__header"
     >
-      Better regulation
-    </h1>
-  </header>
-  <div
-    class="ecl-card__body"
-  >
+      <h1
+        class="ecl-card__title"
+      >
+        Better regulation
+      </h1>
+    </header>
     <div
-      class="ecl-card__description"
+      class="ecl-card__body"
     >
-      Transparently designing and evaluating evidence-based EU legislation, backed by citizens views.
+      <div
+        class="ecl-card__description"
+      >
+        Transparently designing and evaluating evidence-based EU legislation, backed by citizens views.
+      </div>
+      <ul
+        class="ecl-card__link-container"
+      >
+        <li
+          class="ecl-card__link-item"
+        >
+          <a
+            aria-label="Aria label default"
+            class="ecl-link ecl-link--standalone ecl-card__link"
+            href="/example"
+          >
+            link 1
+          </a>
+        </li>
+        <li
+          class="ecl-card__link-item"
+        >
+          <a
+            aria-label="Aria label default"
+            class="ecl-link ecl-link--standalone ecl-card__link"
+            href="/example"
+          >
+            link 2
+          </a>
+        </li>
+        <li
+          class="ecl-card__link-item"
+        >
+          <a
+            aria-label="Aria label default"
+            class="ecl-link ecl-link--standalone ecl-card__link"
+            href="/example"
+          >
+            link 3
+          </a>
+        </li>
+      </ul>
     </div>
-    <ul
-      class="ecl-card__link-container"
-    >
-      <li
-        class="ecl-card__link-item"
-      >
-        <a
-          class="ecl-link ecl-link--standalone ecl-card__link"
-          href="/example"
-        >
-          link 1
-        </a>
-      </li>
-      <li
-        class="ecl-card__link-item"
-      >
-        <a
-          class="ecl-link ecl-link--standalone ecl-card__link"
-          href="/example"
-        >
-          link 2
-        </a>
-      </li>
-      <li
-        class="ecl-card__link-item"
-      >
-        <a
-          class="ecl-link ecl-link--standalone ecl-card__link"
-          href="/example"
-        >
-          link 3
-        </a>
-      </li>
-    </ul>
-  </div>
-  <footer
-    class="ecl-card__footer"
-  />
-</article>
+  </article>
+</test>
 `;

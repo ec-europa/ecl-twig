@@ -1,4 +1,4 @@
-const adapter = initialData => {
+const adapter = (initialData) => {
   // Copy reference specification demo data.
   const adaptedData = JSON.parse(JSON.stringify(initialData));
   adaptedData.required_text = adaptedData.requiredText;

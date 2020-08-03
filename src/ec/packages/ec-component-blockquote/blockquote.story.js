@@ -1,25 +1,38 @@
-import { storiesOf } from '@storybook/html';
 import { withKnobs, text } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
+import {
+  getExtraKnobs,
+  tabLabels,
+  getComplianceKnob,
+} from '@ecl-twig/story-utils';
 
-import data from '@ecl/ec-specs-blockquote/demo/data';
-
+import defaultData from '@ecl/ec-specs-blockquote/demo/data';
 import blockquote from './ecl-blockquote.html.twig';
 import notes from './README.md';
 
-storiesOf('Components/Blockquote', module)
-  .addDecorator(withKnobs)
-  .addDecorator(withCode)
-  .addDecorator(withNotes)
-  .add(
-    'default',
-    () =>
-      blockquote({
-        author: text('Author name', data.author),
-        citation: text('Citation', data.citation),
-      }),
-    {
-      notes: { markdown: notes, json: data },
-    }
-  );
+const prepareQuote = (data) => {
+  data.citation = text('citation', data.citation, tabLabels.required);
+
+  data.author = text('author', data.author, tabLabels.required);
+
+  getExtraKnobs(data);
+  getComplianceKnob(data);
+
+  return data;
+};
+
+export default {
+  title: 'Components/Blockquote',
+  decorators: [withKnobs, withCode, withNotes],
+};
+
+export const Default = () => blockquote(prepareQuote(defaultData));
+
+Default.story = {
+  name: 'default',
+
+  parameters: {
+    notes: { markdown: notes, json: defaultData },
+  },
+};

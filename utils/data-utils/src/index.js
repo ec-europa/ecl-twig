@@ -1,4 +1,4 @@
-const formatIcon = i => {
+const formatIcon = (i) => {
   const [type, name] = i.shape.split('--');
   const icon = {
     path: '/icons.svg',
@@ -11,7 +11,7 @@ const formatIcon = i => {
   return icon;
 };
 
-const formatLink = l => {
+const formatLink = (l) => {
   const link = {
     link: {
       label: l.label,
@@ -31,10 +31,13 @@ const formatLink = l => {
   if (l.hreflang) {
     link.link.hreflang = l.hreflang;
   }
+
+  link.link.aria_label = l.ariaLabel ? l.ariaLabel : 'Aria label default';
+
   return link;
 };
 
-const formatLinkAlt = a => {
+const formatLinkAlt = (a) => {
   const link = {
     label: a.label,
     path: a.href ? a.href : '#',
@@ -57,10 +60,12 @@ const formatLinkAlt = a => {
     link.hreflang = a.hreflang;
   }
 
+  link.aria_label = a.aria_label ? a.aria_label : 'Aria label default';
+
   return link;
 };
 
-const formatButton = b => {
+const formatButton = (b) => {
   const button = {
     variant: b.variant,
     label: b.label,
@@ -74,18 +79,9 @@ const formatButton = b => {
   return button;
 };
 
-const escapeHTML = str => {
-  return str
-    .replace(/&/g, '&amp;')
-    .replace(/"/g, '&quot;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;');
-};
-
 module.exports = {
   formatIcon,
   formatLink,
   formatLinkAlt,
   formatButton,
-  escapeHTML,
 };

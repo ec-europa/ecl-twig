@@ -18,12 +18,15 @@
           "name" (string) (default: ''),
           "value" (optional) (string)
         ...
-      ]
+      ],
+    - "_compliance_" (boolean) (default: false) - Activates debug
+    - "_compliance_inner_check_" (boolean) (default: false) - Inline compliance report
 #}
 
 {# Internal properties #}
 
 {% set _breadcrumb_size = links|length %}
+{% set _links = links|default([]) %}
 {% set _navigation_text = navigation_text|default('') %}
 {% set _ellipsis_label = ellipsis_label|default('') %}
 {% set _ellipsis_text = ellipsis_text|default('…') %}
@@ -31,17 +34,21 @@
 {% set _breadcrumb_segment_class = 'ecl-breadcrumb-harmonised__segment' %}
 {% set _min_items_left = min_items_left|default(1) %}
 {% set _min_items_right = min_items_right|default(2) %}
+{% set _icon_file_path = icon_file_path|default('') %}
+
 {% set _nav_attributes = [
   { name: 'aria-label', value: _navigation_text },
   { name: 'data-ecl-breadcrumb-harmonised', value: 'true' }]
 %}
+{% set _compliance = _compliance_|default(false) %}
+{% set _compliance_inner_check = _compliance_inner_check_|default(false) %}
 {% set _breadcrumb_icon = {
   icon: {
     type: 'ui',
     name: 'corner-arrow',
     size: '2xs',
     transform: 'rotate-90',
-    path: icon_file_path|default(''),
+    path: _icon_file_path
   },
   extra_classes: 'ecl-breadcrumb-harmonised__icon',
   extra_attributes: [{ name: 'role', value: 'presentation' }]
@@ -53,6 +60,13 @@
 
 {% if _breadcrumb_size > (_min_items_left + _min_items_right) %}
   {% set _nav_attributes = _nav_attributes|merge([{ name: 'data-ecl-auto-init', value: 'BreadcrumbHarmonised' }]) %}
+{% endif %}
+
+{% if _compliance %}
+  {% set _breadcrumb_icon = _breadcrumb_icon|merge({
+    _compliance_: true,
+    _compliance_inner_check_: true
+  }) %}
 {% endif %}
 
 {% if extra_classes is defined and extra_classes is not empty %}
@@ -77,6 +91,7 @@
 
 <nav class="{{ _css_class }}"{{ _extra_attributes|raw }}>
   <ol class="ecl-breadcrumb-harmonised__container">
+  {% if _links is not empty %}
     {% for key, link in links %}
       {% set _breadcrumb_segment_attributes = 'data-ecl-breadcrumb-harmonised-item="static"' %}
       {# Last item is not a link. #}
@@ -113,13 +128,30 @@
             link: link|default({})|merge({
               type: 'standalone'
             }),
-            extra_classes: 'ecl-breadcrumb-harmonised__link'
+            extra_classes: 'ecl-breadcrumb-harmonised__link',
+            _compliance_: _compliance,
+            _compliance_inner_check_: true,
+            icon_path: _icon_file_path
           } only %}
           {% include '@ecl-twig/ec-component-icon/ecl-icon.html.twig' with _breadcrumb_icon only %}
         </li>
       {% endif %}
     {% endfor %}
+  {% endif %}
   </ol>
 </nav>
+
+{# Validation #}
+
+{% if _compliance %}
+  {% include '@ecl-twig/ec-component-ecl-compliance/components/ecl-compliance-breadcrumb.html.twig' with {
+    links: _links,
+    navigation_text: _navigation_text,
+    ellipsis_label: _ellipsis_label,
+    icon_file_path: _icon_file_path,
+    variant: 'harmonised',
+    _compliance_inner_check_: _compliance_inner_check
+  } only %}
+{% endif %}
 
 {% endspaceless %}

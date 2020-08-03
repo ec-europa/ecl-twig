@@ -1,23 +1,49 @@
-import { storiesOf } from '@storybook/html';
-import { withKnobs, text } from '@storybook/addon-knobs';
+import { withKnobs, text, button } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
+import {
+  getExtraKnobs,
+  tabLabels,
+  getComplianceKnob,
+} from '@ecl-twig/story-utils';
 
+import specs from '@ecl/ec-specs-skip-link/demo/data';
 import skipLink from './ecl-skip-link.html.twig';
 import notes from './README.md';
 
-storiesOf('Components/Navigation/Skip Link', module)
-  .addDecorator(withKnobs)
-  .addDecorator(withNotes)
-  .addDecorator(withCode)
-  .add(
-    'default',
-    () =>
-      skipLink({
-        label: text('Label', 'Skip to main content'),
-        href: text('Href', '#top'),
-      }),
-    {
-      notes: { markdown: notes },
-    }
-  );
+// Button for the demo.
+const btnTabLabel = 'Focus on';
+const btnTabHandler = () => {
+  const skipLinkEl = document.querySelector('.ecl-skip-link');
+  if (skipLinkEl !== document.activeElement) {
+    skipLinkEl.focus();
+  }
+  // Prevent the story from being reloaded.
+  return false;
+};
+
+const prepareSkipLink = (data) => {
+  button(btnTabLabel, btnTabHandler, tabLabels.states);
+  data.label = text('label', data.label, tabLabels.required);
+  data.href = text('href', data.href, tabLabels.required);
+
+  getExtraKnobs(data);
+  getComplianceKnob(data);
+
+  return data;
+};
+
+export default {
+  title: 'Components/Navigation/Skip Link',
+  decorators: [withKnobs, withNotes, withCode],
+};
+
+export const Default = () => skipLink(prepareSkipLink(specs));
+
+Default.story = {
+  name: 'default',
+
+  parameters: {
+    notes: { markdown: notes, json: specs },
+  },
+};

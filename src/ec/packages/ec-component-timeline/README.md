@@ -1,4 +1,4 @@
-# ECL Twig - EC Timeline
+# ECL-Twig Timeline
 
 npm package: `@ecl-twig/ec-component-timeline`
 
@@ -11,8 +11,8 @@ npm install --save @ecl-twig/ec-component-timeline
 - **"toggle_collapsed"** (string) (default: '')
 - **"toggle_expanded"** (string) (default: '')
 - **"hide"** (object): (default: undefined)
-  - "from": (integer) (default: undefined) Item index after which to start hiding timeline items
-  - "to": (integer) (default: undefined) Item index after which to resume displaying timeline items
+  - "from": (integer) (default: items.length) Item index after which to start hiding timeline items
+  - "to": (integer) (default: items.length) Item index after which to resume displaying timeline items
 - **"items"** (array) (default: []):
   - "id": (string) (default: '')
   - "label": (string) (default: '')
@@ -23,12 +23,13 @@ npm install --save @ecl-twig/ec-component-timeline
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
+- **"_compliance_"** (boolean) (default: false) Activates debug
 
 ### Example :
 
 <!-- prettier-ignore -->
 ```twig
-{% include '@ecl-twig/ec-component-timeline/ecl-timeline.html.twig' with {  
+{% include '@ecl-twig/ec-component-timeline/ecl-timeline.html.twig' with { 
   toggle_collapsed: 'Show 10 more items', 
   toggle_expanded: 'Hide 10 items', 
   hide: {from: 7, to: -2}, 

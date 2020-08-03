@@ -1,25 +1,11 @@
-import { storiesOf } from '@storybook/html';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
 import { withDiff } from '@ecl-twig/storybook-addon-diff';
 import { withJsCode } from '@ecl-twig/storybook-addon-jscode';
-import jsCode from '../js/#phpFileName#.js.html';
-
 import docs from '../README.md';
-import #componentVariant# from '../#phpFileName#.php.html';
 
-storiesOf('Components/#deprecated##componentGroup##component#', module)
-.addDecorator(withNotes)
-  .addDecorator(withCode)
-  .addDecorator(withJsCode)
-  .addDecorator(withDiff)
-  .add(
-    '#phpFileName#',
-    () => {
-      return #componentVariant#;
-    },
-    {
-      notes: { markdown: docs },
-      diff: { jsmarkup: jsCode }
-    },
-  )
+export default {
+  title: 'Components/#deprecated##componentGroup##component#',
+  decorators: [withCode, withNotes, withJsCode, withDiff],
+};
+

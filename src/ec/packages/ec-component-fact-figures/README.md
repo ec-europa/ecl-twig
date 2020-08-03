@@ -1,4 +1,4 @@
-# ECL Twig - EC Fact and figures component
+# ECL-Twig Fact and figures component
 
 npm package: `@ecl-twig/ec-component-fact-figures`
 

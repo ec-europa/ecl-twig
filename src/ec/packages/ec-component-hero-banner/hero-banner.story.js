@@ -1,120 +1,122 @@
-import merge from 'deepmerge';
-import { storiesOf } from '@storybook/html';
-import { withKnobs, text, boolean } from '@storybook/addon-knobs';
+import { withKnobs, text, boolean, select } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
+import {
+  getExtraKnobs,
+  getIconKnobs,
+  tabLabels,
+  getComplianceKnob,
+} from '@ecl-twig/story-utils';
 import withCode from '@ecl-twig/storybook-addon-code';
 
-import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
+import uiIcons from '@ecl/ec-resources-icons/dist/lists/ui.json';
 import dataDefault from './demo/data--default';
 import dataImage from './demo/data--image';
 import dataImageShade from './demo/data--image-shade';
 import dataPrimary from './demo/data--primary';
 import dataLeft from './demo/data--align-left';
-
 import heroBanner from './ecl-hero-banner.html.twig';
 import notes from './README.md';
 
-const PrepareBanner = data => {
-  data.link.icon.path = defaultSprite; // eslint-disable-line no-param-reassign
+const icons = { none: '' };
+uiIcons.forEach((icon) => {
+  icons[icon] = icon;
+});
+
+const prepareBanner = (data, variant) => {
+  data.centered = boolean('centered', data.centered, tabLabels.states);
+  data.type = select('type', [data.type], data.type, tabLabels.required);
+  data.title = text('title', data.title, tabLabels.optional);
+  data.description = text('description', data.description, tabLabels.optional);
+
+  if (variant === 'img') {
+    data.image = text('image', data.image, tabLabels.required);
+  }
+  data.link.link.label = text(
+    'link.link.label',
+    data.link.link.label,
+    tabLabels.optional
+  );
+  data.link.link.path = text(
+    'link.link.path',
+    data.link.link.path,
+    tabLabels.optional
+  );
+  data.link.icon.name = select(
+    'link.icon.name',
+    icons,
+    data.link.icon.name,
+    tabLabels.optional
+  );
+  if (data.link.icon.name) {
+    getIconKnobs(
+      data,
+      data.link.icon.name,
+      'ui',
+      'xs',
+      'default',
+      'rotate-90',
+      true
+    );
+  }
+
+  getExtraKnobs(data);
+  getComplianceKnob(data);
+
   return data;
 };
-storiesOf('Components/Banners/Hero Banner', module)
-  .addDecorator(withKnobs)
-  .addDecorator(withNotes)
-  .addDecorator(withCode)
-  .add(
-    'image',
-    () =>
-      heroBanner(
-        merge(PrepareBanner(dataImage), {
-          link: {
-            link: {
-              label: text('Link label', dataImage.link.link.label),
-            },
-          },
-          title: text('Title', dataImage.title),
-          description: text('Description', dataImage.description),
-          centered: boolean('Centered', dataImage.centered),
-          image: text('Image', dataImage.image),
-        })
-      ),
-    {
-      notes: { markdown: notes, json: PrepareBanner(dataImage) },
-    }
-  )
-  .add(
-    'image-shade',
-    () =>
-      heroBanner(
-        merge(PrepareBanner(dataImageShade), {
-          link: {
-            link: {
-              label: text('Link label', dataImageShade.link.link.label),
-            },
-          },
-          title: text('Title', dataImageShade.title),
-          description: text('Description', dataImageShade.description),
-          centered: boolean('Centered', dataImageShade.centered),
-          image: text('Image', dataImageShade.image),
-        })
-      ),
-    {
-      notes: { markdown: notes, json: PrepareBanner(dataImageShade) },
-    }
-  )
-  .add(
-    'primary',
-    () =>
-      heroBanner(
-        merge(PrepareBanner(dataPrimary), {
-          link: {
-            link: {
-              label: text('Link label', dataPrimary.link.link.label),
-            },
-          },
-          title: text('Title', dataPrimary.title),
-          description: text('Description', dataPrimary.description),
-          centered: boolean('Centered', dataPrimary.centered),
-        })
-      ),
-    {
-      notes: { markdown: notes, json: PrepareBanner(dataPrimary) },
-    }
-  )
-  .add(
-    'default',
-    () =>
-      heroBanner(
-        merge(PrepareBanner(dataDefault), {
-          link: {
-            link: {
-              label: text('Link label', dataDefault.link.link.label),
-            },
-          },
-          title: text('Title', dataDefault.title),
-          description: text('Description', dataDefault.description),
-          centered: boolean('Centered', dataDefault.centered),
-        })
-      ),
-    {
-      notes: { markdown: notes, json: PrepareBanner(dataDefault) },
-    }
-  )
-  .add(
-    'align-left',
-    () =>
-      heroBanner(
-        merge(PrepareBanner(dataLeft), {
-          link: {
-            link: {
-              label: text('Link label', dataLeft.link.link.label),
-            },
-          },
-          title: text('Title', dataLeft.title),
-          description: text('Description', dataLeft.description),
-        })
-      ),
-    {
-      notes: { markdown: notes, json: PrepareBanner(dataLeft) },
-    }
-  );
+
+export default {
+  title: 'Components/Banners/Hero Banner',
+  decorators: [withKnobs, withNotes, withCode],
+};
+
+export const Default = () => heroBanner(prepareBanner(dataDefault));
+
+Default.story = {
+  name: 'default',
+
+  parameters: {
+    notes: { markdown: notes, json: dataDefault },
+  },
+};
+
+export const Primary = () => heroBanner(prepareBanner(dataPrimary));
+
+Primary.story = {
+  name: 'primary',
+
+  parameters: {
+    notes: { markdown: notes, json: dataPrimary },
+  },
+};
+
+export const AlignLeft = () => heroBanner(prepareBanner(dataLeft));
+
+AlignLeft.story = {
+  name: 'align-left',
+
+  parameters: {
+    notes: { markdown: notes, json: dataLeft },
+  },
+};
+
+export const Image = () => heroBanner(prepareBanner(dataImage, 'img'));
+
+Image.story = {
+  name: 'image',
+
+  parameters: {
+    notes: { markdown: notes, json: dataImage },
+  },
+};
+
+export const ImageShade = () =>
+  heroBanner(prepareBanner(dataImageShade, 'img'));
+
+ImageShade.story = {
+  name: 'image-shade',
+
+  parameters: {
+    notes: { markdown: notes, json: dataImageShade },
+  },
+};

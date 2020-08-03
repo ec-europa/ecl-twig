@@ -6,7 +6,7 @@ import dataTile from './demo/data--tile';
 
 describe('EC - Card', () => {
   const template = '@ecl-twig/ec-component-card/ecl-card.html.twig';
-  const render = params => renderTwigFileAsNode(template, params);
+  const render = (params) => renderTwigFileAsNode(template, params);
 
   describe('Default', () => {
     test('renders correctly', () => {
@@ -35,6 +35,15 @@ describe('EC - Card', () => {
       });
 
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
+    });
+
+    test('with validation enabled and missing input data returns the right warning message', () => {
+      expect.assertions(1);
+
+      const dataCompliance = { ...dataCard, _compliance_: true };
+      dataCompliance.card.title.label = '';
+
+      return expect(render(dataCompliance)).resolves.toMatchSnapshot();
     });
   });
 

@@ -31,9 +31,9 @@ There's also an extra package: `@ecl-twig/{ec,eu}-components` which is used to a
 
 Each component comes with a story `*.story.js` which is consumed by [Storybook](https://storybook.js.org/). In this story file, you import the main Twig template and you pass data to it. That's it!
 
-You can use knobs to make the showcase more dynamic and interactive.
+### ECL Compliance
 
-More features will come in the near future...
+The ecl-twig library comes with a special component named `ecl-compliance`, which defines a parent template for the ecl compliance checks to be performed.
 
 ### EC system
 
@@ -64,7 +64,7 @@ yarn lint
 The libraries we use for sniffing and linting the twig templates all are php ones, therefore in order to be able to use the functionality in ECl-twig you would need a working installation of php (7.x) and composer to be installed.
 
 ```bash
-composer install --no-scripts && composer grump-en
+composer install --no-scripts
 ```
 
 We install the libraries with the no-scripts flag in order to avoid the override of the git hooks created by husky.
@@ -73,13 +73,13 @@ To circumvent the issue we added a script and we suggest you to run it together 
 the grump-php pre-commit hook by running:
 
 ```bash
-composer grump-en
+yarn grump-en
 ```
 
 To disable the pre-commit execution of the grump-php sniff you run:
 
 ```bash
-composer grump-dis
+yarn grump-dis
 ```
 
 You can also run the sniffer manually on the code in different ways using the command line:
@@ -119,25 +119,37 @@ yarn jest-update
 Check the rendering of a single component in php and js and diff the resulting templates:
 
 ```bash
-yarn check:component "componentName"
+yarn check:component "system(ec/eu)" "componentName"
 ```
 
 Diff the existing templates in php-storybook
 
 ```bash
-yarn diff
+yarn diff "ec or eu"
 ```
 
 Diff a component rendered via php with the ECL markup
 (interactive script that fetches the html from the ECl storybook and matches that with the right variant rendered via php)
 
 ```bash
-yarn ecl-diff
+yarn diff:ecl "ec or eu"
 ```
 
 ## Dist
 
-Build the dist:
+Build the dist for the twing based storybook:
+
+```bash
+yarn twing:dist
+```
+
+Build the dist for the php based storybook:
+
+```bash
+yarn php:dist
+```
+
+Build both:
 
 ```bash
 yarn dist
@@ -160,13 +172,13 @@ The following commands are available from the project root: (please ensure data 
 Get dependencies.
 
 ```bash
-yarn setupPhp
+yarn php:install
 ```
 
 Remove files and folders from previous builds.
 
 ```bash
-yarn clean:php
+yarn php:clean
 ```
 
 Generate data from specification files.
@@ -190,7 +202,7 @@ yarn render:js
 All these commands can be executed at once passing the generated files through prettier:
 
 ```bash
-yarn render-php-js
+yarn render-php-js "ec or eu"
 ```
 
 The whole process of installing the dependencies, generating the needed files, then linting them and finally launching a storybook instance on port 9002 is done by:
@@ -199,26 +211,11 @@ The whole process of installing the dependencies, generating the needed files, t
 yarn start:php-ec
 ```
 
+```bash
+yarn start:php-eu
+```
+
 All output files are stored in `./php/packages/ec` folder.
-
-
-## Deployment of the PHP Twig Storybook
-
-We host the php/js storybook on github: https://ec-europa.github.io/ecl-twig
-To be able to deploy a new version on github there are scripts you can execute:
-
-```bash
-yarn dist:php
-```
-
-It will create the bundle and place it in php/dist
-
-```bash
-yarn deploy:php
-```
-
-It uses the npm package https://www.npmjs.com/package/gh-pages to quickly deploy the php/dist folder on github.
-
 
 ## Libraries update
 
@@ -227,4 +224,5 @@ The task of upgrading the dependencies is executed via the command:
 ```bash
 yarn upgrade-interactive --latest --exact
 ```
+
 which will retrieve all the possible upgrades marking them in green, yellow or red depending on the changes included in these packages.

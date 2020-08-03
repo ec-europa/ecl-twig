@@ -1,12 +1,13 @@
 import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
-import demoContentImg from '@ecl/ec-specs-media-container/demo/data--image';
-import demoContentVideo from './demo/data';
+import demoContentImg from './demo/data--image';
+import demoContentVideo from './demo/data--video';
+import demoContentEmbed from './demo/data--embed';
 
 describe('EC Media Container', () => {
   const template =
     '@ecl-twig/ec-component-media-container/ecl-media-container.html.twig';
-  const render = params => renderTwigFileAsNode(template, params);
+  const render = (params) => renderTwigFileAsNode(template, params);
   const defaultDataStructure = demoContentImg;
 
   describe('Media Container generic tests', () => {
@@ -42,7 +43,7 @@ describe('EC Media Container', () => {
   });
 
   describe('EC - Media container video', () => {
-    test('Media container video renders correctly', () => {
+    test('renders correctly', () => {
       const options = merge(defaultDataStructure, {
         tracks: demoContentVideo.tracks,
         sources: demoContentVideo.sources,
@@ -50,6 +51,22 @@ describe('EC Media Container', () => {
 
       expect.assertions(1);
       return expect(render(options)).resolves.toMatchSnapshot();
+    });
+
+    test('with embedded media renders correctly', () => {
+      expect.assertions(1);
+      return expect(render(demoContentEmbed)).resolves.toMatchSnapshot();
+    });
+  });
+
+  describe('with validation enabled and missing input data', () => {
+    test('returns the right warning message', () => {
+      expect.assertions(1);
+
+      const dataCompliance = { ...defaultDataStructure, _compliance_: true };
+      dataCompliance.image = '';
+
+      return expect(render(dataCompliance)).resolves.toMatchSnapshot();
     });
   });
 });

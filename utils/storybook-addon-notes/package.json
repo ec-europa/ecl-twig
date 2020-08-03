@@ -1,7 +1,12 @@
 {
   "name": "@ecl-twig/storybook-addon-notes",
-  "version": "0.0.0-dev-only",
+  "version": "2.31.0",
   "description": "A custom Storybook addon",
   "main": "src/index.js",
-  "private": true
+  "private": true,
+  "devDependencies": {
+    "@storybook/addons": "5.3.19",
+    "marked": "1.1.1",
+    "prismjs": "1.20.0"
+  }
 }

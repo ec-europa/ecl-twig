@@ -1,8 +1,12 @@
-import { storiesOf } from '@storybook/html';
-import { withKnobs, text, boolean } from '@storybook/addon-knobs';
+import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
+import {
+  getExtraKnobs,
+  tabLabels,
+  getFormKnobs,
+  getComplianceKnob,
+} from '@ecl-twig/story-utils';
 import withCode from '@ecl-twig/storybook-addon-code';
-import decode from 'decode-html';
 
 // Import data for tests
 import dataDefault from './demo/data';
@@ -11,62 +15,53 @@ import dataMulti from './demo/data--multiple';
 import fileUpload from './ecl-file-upload.html.twig';
 import notes from './README.md';
 
-storiesOf('Components/Forms/File Upload', module)
-  .addDecorator(withKnobs)
-  .addDecorator(withNotes)
-  .addDecorator(withCode)
-  .add(
-    'default',
-    () =>
-      fileUpload({
-        required: boolean('Required', dataDefault.required),
-        disabled: boolean('Disabled', dataDefault.disabled),
-        invalid: boolean('Invalid', dataDefault.invalid),
-        id: text('Input id', dataDefault.id),
-        name: text('Name', dataDefault.name),
-        label: text('Label', dataDefault.label),
-        helper_text: decode(text('Help message', dataDefault.helper_text)),
-        invalid_text: text('Invalid text', dataDefault.invalid_text),
-        required_text: text('Required text', dataDefault.required_text),
-        optional_text: text('Optional Text', dataDefault.optional_text),
-        button_choose_label: text(
-          'Button choose label',
-          dataDefault.button_choose_label
-        ),
-        button_replace_label: text(
-          'Button replace label',
-          dataDefault.button_replace_label
-        ),
-      }),
-    {
-      notes: { markdown: notes, json: dataDefault },
-    }
-  )
-  .add(
-    'multiple',
-    () =>
-      fileUpload({
-        required: boolean('Required', dataMulti.required),
-        disabled: boolean('Disabled', dataMulti.disabled),
-        invalid: boolean('Invalid', dataMulti.invalid),
-        id: text('Input id', dataMulti.id),
-        name: text('Name', dataMulti.name),
-        label: text('Label', dataMulti.label),
-        helper_text: decode(text('Help message', dataMulti.helper_text)),
-        invalid_text: text('Invalid text', dataMulti.invalid_text),
-        multiple: boolean('Multiple', dataMulti.multiple),
-        required_text: text('Required text', dataMulti.required_text),
-        optional_text: text('Optional Text', dataMulti.optional_text),
-        button_choose_label: text(
-          'Button choose label',
-          dataMulti.button_choose_label
-        ),
-        button_replace_label: text(
-          'Button replace label',
-          dataMulti.button_replace_label
-        ),
-      }),
-    {
-      notes: { markdown: notes, json: dataMulti },
-    }
+const prepareFileUpload = (data) => {
+  getFormKnobs(data);
+
+  if (data.multiple) {
+    data.multiple = boolean('multiple', data.multiple, tabLabels.required);
+  }
+  data.id = select('id', [data.id], data.id, tabLabels.required);
+  data.label = text('label', data.label, tabLabels.required);
+  data.name = text('name', data.name, tabLabels.optional);
+  data.button_choose_label = text(
+    'button_choose_label',
+    data.button_choose_label,
+    tabLabels.required
   );
+  data.button_replace_label = text(
+    'button_replace_label',
+    data.button_replace_label,
+    tabLabels.required
+  );
+
+  getExtraKnobs(data);
+  getComplianceKnob(data);
+
+  return data;
+};
+
+export default {
+  title: 'Components/Forms/File Upload',
+  decorators: [withKnobs, withNotes, withCode],
+};
+
+export const Default = () => fileUpload(prepareFileUpload(dataDefault));
+
+Default.story = {
+  name: 'default',
+
+  parameters: {
+    notes: { markdown: notes, json: dataDefault },
+  },
+};
+
+export const Multiple = () => fileUpload(prepareFileUpload(dataMulti));
+
+Multiple.story = {
+  name: 'multiple',
+
+  parameters: {
+    notes: { markdown: notes, json: dataMulti },
+  },
+};

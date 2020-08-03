@@ -12,6 +12,7 @@
   - "extra_attributes" (optional) (array) (default: [])
     - "name" (string) Attribute name, eg. 'data-test'
     - "value" (optional) (string) Attribute value, eg: 'data-test-1'
+  - "_compliance_": (boolean) (default: false)
   Blocks:
   - "label"
   - "helper_text"
@@ -35,8 +36,9 @@
 {% set _optional_text = optional_text|default('') %}
 {% set _label = label|default('') %}
 
-{% set _css_class = 'ecl-form-group ecl-form-group--checkbox' %}
+{% set _css_class = 'ecl-form-group' %}
 {% set _extra_attributes = '' %}
+{% set _compliance = _compliance_|default(false) %}
 
 {# Internal logic - Process properties #}
 
@@ -63,11 +65,10 @@
 {% endif %}
   {{ _extra_attributes|raw }}
 >
-
   {%- if _label is not empty %}
     <legend
       class="ecl-form-label
-      {{- _invalid and _invalid_text is not empty ? ' ecl-checkbox__group--invalid' -}}"
+      {{- _invalid ? ' ecl-form-label--invalid' -}}"
     {% if _label_id %}
       id="{{ _label_id }}"
     {% endif %}
@@ -83,7 +84,7 @@
 
   {% if _helper_text is not empty %}
     <div
-      class="ecl-checkbox__help ecl-help-block"
+      class="ecl-help-block"
       {% if _helper_id is not empty %}
         id="{{ _helper_id }}"
       {% endif %}
@@ -103,10 +104,27 @@
       {% include '@ecl-twig/ec-component-checkbox/ecl-checkbox-button.html.twig' with _item|merge({
         name: _name,
         invalid: _invalid,
+        _compliance_: _compliance,
+        _compliance_inner_check_: true
       }) only %}
     {% endfor -%}
   {% endif %}
 
 </fieldset>
+
+{# Validation #}
+
+{% if _compliance %}
+  {% include '@ecl-twig/ec-component-ecl-compliance/components/ecl-compliance-form-group.html.twig' with {
+    helper_id: _helper_id,
+    invalid: _invalid,
+    required: _required,
+    invalid_text: _invalid_text,
+    required_text: _required_text,
+    optional_text: _optional_text,
+    label: _label,
+    variant: 'checkbox'
+  } only %}
+{% endif %}
 
 {% endspaceless %}

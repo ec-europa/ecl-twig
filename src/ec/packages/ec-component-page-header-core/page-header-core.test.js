@@ -3,6 +3,9 @@ import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 import demoTitleContent from './demo/data--title';
 import demoMetaTitleContent from './demo/data--meta-title';
 import demoMetaTitleDescriptionContent from './demo/data--meta-title-description';
+import euDemoTitleContent from './demo/eu-data--title';
+import euDemoMetaTitleContent from './demo/eu-data--meta-title';
+import euDemoMetaTitleDescriptionContent from './demo/eu-data--meta-title-description';
 
 const defaultSprite = '/icons.svg';
 
@@ -10,12 +13,12 @@ demoTitleContent.breadcrumb.icon_file_path = defaultSprite;
 demoMetaTitleContent.breadcrumb.icon_file_path = defaultSprite;
 demoMetaTitleDescriptionContent.breadcrumb.icon_file_path = defaultSprite;
 
-describe('EC - Page Header Core', () => {
+describe('Page Header Core', () => {
   const template =
     '@ecl-twig/ec-component-page-header-core/ecl-page-header-core.html.twig';
-  const render = params => renderTwigFileAsNode(template, params);
+  const render = (params) => renderTwigFileAsNode(template, params);
 
-  describe('title', () => {
+  describe('EC - title', () => {
     test(`- renders correctly`, () => {
       expect.assertions(1);
       return expect(render(demoTitleContent)).resolves.toMatchSnapshot();
@@ -43,9 +46,19 @@ describe('EC - Page Header Core', () => {
 
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
     });
+
+    test('EC - with missing input data and debug enabled it shows the right warning messages', () => {
+      expect.assertions(1);
+
+      const dataCompliance = { ...demoTitleContent, _compliance_: true };
+      dataCompliance.breadcrumb = {};
+      dataCompliance.title = '';
+
+      return expect(render(dataCompliance)).resolves.toMatchSnapshot();
+    });
   });
 
-  describe('meta-title', () => {
+  describe('EC - meta-title', () => {
     test(`- renders correctly`, () => {
       expect.assertions(1);
       return expect(render(demoMetaTitleContent)).resolves.toMatchSnapshot();
@@ -75,7 +88,7 @@ describe('EC - Page Header Core', () => {
     });
   });
 
-  describe('meta-title-description', () => {
+  describe('EC - meta-title-description', () => {
     test(`- renders correctly`, () => {
       expect.assertions(1);
       return expect(
@@ -104,6 +117,28 @@ describe('EC - Page Header Core', () => {
       });
 
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
+    });
+  });
+
+  describe('EU content', () => {
+    test('Title', () => {
+      expect.assertions(1);
+
+      return expect(render(euDemoTitleContent)).resolves.toMatchSnapshot();
+    });
+
+    test('Meta Title', () => {
+      expect.assertions(1);
+
+      return expect(render(euDemoMetaTitleContent)).resolves.toMatchSnapshot();
+    });
+
+    test('Meta Title Description', () => {
+      expect.assertions(1);
+
+      return expect(
+        render(euDemoMetaTitleDescriptionContent)
+      ).resolves.toMatchSnapshot();
     });
   });
 });

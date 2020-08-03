@@ -1,4 +1,4 @@
-# ECL Twig - EC Inpage navigation
+# ECL-Twig Inpage navigation
 
 npm package: `@ecl-twig/ec-component-inpage-navigation`
 
@@ -14,6 +14,7 @@ Parameters:
 - **"links"** (associative array) (default: predefined structure):
   - href: (string) (default: '')
   - label: (string) (default: '')
+- **"icon_path"** (string) (default: ''): path to the icons svg
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
@@ -24,15 +25,25 @@ Parameters:
 <!-- prettier-ignore -->
 ```twig
 {% include '@ecl-twig/ec-component-inpage-navigation/ecl-inpage-navigation.html.twig' with {  
-  title: 'Inpage navigation', 
+  title: 'Page contents', 
   links: [ 
     { 
-      href: '#heading1', 
-      label: 'Heading 1', 
+      href: "#inline-nav-1", 
+      label: "Heading 1" 
     }, 
-    ... 
+    { 
+      href: "#inline-nav-2", 
+      label: "Heading 2" 
+    }, 
+    { 
+      href: "#inline-nav-3", 
+      label: "Heading 3" 
+    }, 
+    { 
+      href: "#inline-nav-4", 
+      label: "Heading 4" 
+    }, 
   ], 
-  ... 
-  ] 
+  icon_path: '/static/media/icons.svg' 
 } %}
 ```

@@ -4,7 +4,7 @@
    */
   class storyHelpers {
     // Used to prepend a string in a file.
-    function prepend($string, $orig_filename) {
+    function prependToStory($string, $orig_filename) {
       $context = stream_context_create();
       $orig_file = fopen($orig_filename, 'r', 1, $context);
 
@@ -87,5 +87,65 @@
       }
 
       return $base_component;
+    }
+    // Creates a story.js and links the README file in the given folder.
+    function createStoryFiles(
+      $folder,
+      $base_component,
+      $adapted_variant,
+      $variant,
+      $deprecated_component,
+      $component_group,
+      $packages_folder
+    ) {
+      // Not sure why we needed this, but it's the case.
+      if (!is_dir($folder . DIRECTORY_SEPARATOR . 'story')) {
+        mkdir($folder . DIRECTORY_SEPARATOR . 'story');
+      }
+      // Prepare a folder for the js rendered files.
+      if (!is_dir($folder . DIRECTORY_SEPARATOR . 'js')) {
+        mkdir($folder . DIRECTORY_SEPARATOR . 'js');
+      }
+      // Get the story template.
+      $story_template = file_get_contents(__DIR__ . '/../resources/story-template.txt');
+
+      // Replace the content with our variables.
+      $story_content = str_replace(
+        ['#component#', '#componentVariant#', '#phpFileName#', '#deprecated#', '#componentGroup#'],
+        [ucfirst($base_component), $adapted_variant, $variant, $deprecated_component, $component_group]
+        , $story_template
+      );
+      // Here we createthe story file.
+      file_put_contents(
+        $folder . DIRECTORY_SEPARATOR . 'story' . DIRECTORY_SEPARATOR . $base_component . '.story.js',
+        $story_content, FILE_APPEND | LOCK_EX
+      );
+      // Symlink the docs.
+      $link = $folder . DIRECTORY_SEPARATOR . 'README.md';
+      $target = $packages_folder . DIRECTORY_SEPARATOR . 'ec-component-' . $base_component . DIRECTORY_SEPARATOR . 'README.md';
+      if (!file_exists($link) && file_exists($target)) {
+        symlink($target, $link);
+      }
+    }
+    // Code to import a variant for the story file.
+    function setImportCode($adapted_variant, $variant, $result_extension) {
+      $import = "import " . $adapted_variant . " from '../" . $variant . $result_extension . "';\n";
+      $import .= "import " . $adapted_variant . "Js from '../js/" . $variant . ".js.html';\n";
+      return $import;
+    }
+    // Code to export a story.
+    function setExportCode($variant_name, $adapted_variant) {
+      return "export const ". $variant_name . " = () => " . $adapted_variant .";\n\n";
+    }
+    // Code to define the story for a given export.
+    function setStoryCode($variant_name, $adapted_variant) {
+      return $variant_name . ".story = { parameters: { notes: { markdown: docs }, diff: { jsmarkup: " . $adapted_variant . "Js }}};\n\n";
+    }
+    // Update the story file.
+    function updateStoryFile($folder, $base_component, $data_story) {
+      file_put_contents(
+        $folder . DIRECTORY_SEPARATOR . 'story' . DIRECTORY_SEPARATOR . $base_component . '.story.js',
+        $data_story, FILE_APPEND | LOCK_EX
+      );
     }
   }

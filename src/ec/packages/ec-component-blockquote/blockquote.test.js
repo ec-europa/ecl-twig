@@ -4,7 +4,7 @@ import data from '@ecl/ec-specs-blockquote/demo/data';
 
 describe('EC - Blockquote', () => {
   const template = '@ecl-twig/ec-component-blockquote/ecl-blockquote.html.twig';
-  const render = params => renderTwigFileAsNode(template, params);
+  const render = (params) => renderTwigFileAsNode(template, params);
 
   describe('Default', () => {
     test('renders correctly', () => {
@@ -34,6 +34,18 @@ describe('EC - Blockquote', () => {
       });
 
       return expect(render(optionsWithExtraClasses)).resolves.toMatchSnapshot();
+    });
+  });
+  describe('with validation enabled and missing input data', () => {
+    test('returns the right warning message', () => {
+      expect.assertions(1);
+
+      const dataCompliance = merge(data, {
+        _compliance_: true,
+      });
+      dataCompliance.author = '';
+
+      return expect(render(dataCompliance)).resolves.toMatchSnapshot();
     });
   });
 });

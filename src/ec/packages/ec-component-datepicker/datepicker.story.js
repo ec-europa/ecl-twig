@@ -1,35 +1,51 @@
-/* eslint-disable no-param-reassign */
-import { storiesOf } from '@storybook/html';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
-import { withKnobs, text, boolean } from '@storybook/addon-knobs';
+import { withKnobs, text, optionsKnob } from '@storybook/addon-knobs';
 import withCode from '@ecl-twig/storybook-addon-code';
+import {
+  getExtraKnobs,
+  tabLabels,
+  getFormKnobs,
+  getComplianceKnob,
+} from '@ecl-twig/story-utils';
 
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
-import data from './demo/data';
+import dataDefault from './demo/data';
 import datepicker from './ecl-datepicker.html.twig';
 import notes from './README.md';
 
-storiesOf('Components/Forms/Datepicker', module)
-  .addDecorator(withNotes)
-  .addDecorator(withCode)
-  .addDecorator(withKnobs)
-  .add(
-    'default',
-    () => {
-      return datepicker({
-        label: text('Label', data.label),
-        icons_path: defaultSprite,
-        helper_text: text('Helper text', data.helper_text),
-        invalid: boolean('Invalid', false),
-        invalid_text: text('Invalid text', data.invalid_text),
-        disabled: boolean('Disabled', false),
-        required: boolean('Required', data.required),
-        required_text: text('Required text', data.required_text),
-        optional_text: text('Optional text', data.optional_text),
-        placeholder: text('Placeholder', data.placeholder),
-      });
-    },
-    {
-      notes: { markdown: notes, json: data },
-    }
+const prepareDatePicker = (data) => {
+  getFormKnobs(data);
+
+  data.label = text('label', data.label, tabLabels.required);
+  data.icons_path = optionsKnob(
+    'icons_path',
+    { current: defaultSprite, 'no path': '' },
+    defaultSprite,
+    { display: 'inline-radio' },
+    tabLabels.required
   );
+
+  data.placeholder = text('placeholder', data.placeholder, tabLabels.required);
+
+  getExtraKnobs(data);
+  getComplianceKnob(data);
+
+  return data;
+};
+
+export default {
+  title: 'Components/Forms/Datepicker',
+  decorators: [withNotes, withCode, withKnobs],
+};
+
+export const Default = () => {
+  return datepicker(prepareDatePicker(dataDefault));
+};
+
+Default.story = {
+  name: 'default',
+
+  parameters: {
+    notes: { markdown: notes, json: dataDefault },
+  },
+};

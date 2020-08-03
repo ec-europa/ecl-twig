@@ -1,17 +1,20 @@
 #!/usr/bin/env node
 
 /* eslint-disable import/no-extraneous-dependencies, import/no-unresolved, no-console,
-no-param-reassign, no-restricted-syntax, no-await-in-loop */
+no-param-reassign, no-restricted-syntax, no-await-in-loop, import/no-dynamic-require */
 
 const fs = require('fs');
 const logger = require('html-differ/lib/logger');
 const puppeteer = require('puppeteer');
-const decode = require('decode-html');
+const he = require('he');
 const yargsInteractive = require('yargs-interactive');
 const { HtmlDiffer } = require('html-differ');
 const { execSync } = require('child_process');
 
-const eclVersions = execSync('npm view @ecl/ec-component-link versions')
+const args = process.argv.slice(2);
+const system = args[1] ? args[1] : 'ec';
+
+const eclVersions = execSync(`npm view @ecl/${system}-component-link versions`)
   .toString()
   .replace(/([\s'[\]|])/g, '')
   .split(',')
@@ -28,19 +31,20 @@ const diffOptions = {
 };
 
 const htmlDiffer = new HtmlDiffer(diffOptions);
-let packages = require('../../../../src/ec/.storybook/ec-packages.js').list;
+let packages = require(`@ecl-twig/${system}-storybook/.storybook/packages.js`)
+  .list;
 
-const system = 'ec';
 const domain = 'https://ec.europa.eu';
 const rootFolder = process.cwd();
 const distFolder = `${rootFolder}/php`;
 const systemFolder = `${distFolder}/packages/${system}`;
-const getBase = element => {
-  [, element] = element.split('ec-component-');
+const getBase = (element) => {
+  [, element] = element.split(`ec-component-`);
   return element;
 };
+
 // We build a list of components by their root name.
-packages = packages.map(getBase);
+packages = packages.map((item) => getBase(item));
 packages.pop();
 
 // The questions we need an answer for.
@@ -106,7 +110,7 @@ const options = {
 yargsInteractive()
   .usage('$0 <command> [args]')
   .interactive(options)
-  .then(result => {
+  .then((result) => {
     (async () => {
       try {
         const {
@@ -120,7 +124,7 @@ yargsInteractive()
           language,
         } = result;
         const extension = language === 'php' ? '.php.html' : '.js.html';
-        const getVariant = element => {
+        const getVariant = (element) => {
           if (element.includes('--')) {
             element = element.split('--')[1].replace(extension, '');
           } else {
@@ -151,24 +155,19 @@ yargsInteractive()
 
         if (!fs.existsSync(twigFullPath)) {
           console.error(
-            `It seems that "${component}" has not been rendered yet, please run yarn check:component ${component}`
+            `It seems that "${component}" has not been rendered yet, please run yarn check:component ${system} ${component}`
           );
           process.exit(1);
         } else if (!fs.existsSync(`${twigFullPath}/${fileName}`)) {
           let files = fs.readdirSync(twigFullPath);
 
-          files = files.filter(file => {
-            return (
-              file
-                .split('.')
-                .slice(1)
-                .join('.') === extension.slice(1)
-            );
+          files = files.filter((file) => {
+            return file.split('.').slice(1).join('.') === extension.slice(1);
           });
 
-          files = files.map(getVariant);
+          files = files.map((file) => getVariant(file));
           // We might have empty items in the array now.
-          files = files.filter(item => item);
+          files = files.filter((item) => item);
 
           if (files.length > 0) {
             if (variant !== '') {
@@ -203,7 +202,7 @@ yargsInteractive()
             'xlink:href="{{.*icons.*.svg#}}'
           )
           // Booleans.
-          .replace(/(data-ecl[-A-Za-z]+)(?=[\s/>])/g, '$1="{{true|false}}"')
+          .replace(/(data-ecl[A-Za-z-]+)(?=[\s/>])/g, '$1="{{true|false}}"') // eslint-disable-line unicorn/regex-shorthand
           // aria-hidden
           .replace(/(aria-hidden)(=".+")/g, '$1="{{true|false}}"')
           // Logo
@@ -214,7 +213,7 @@ yargsInteractive()
         // Now we process the story in ECL, we try to retrieve all the stories available
         // and see if any of them matches the requested one, if none does we return the
         // list of stories available for a component, if we found them.
-        const eclComponents = el => {
+        const eclComponents = (el) => {
           if (el === 'text-input') {
             el = 'text-field';
           } else if (el === 'text-area') {
@@ -269,6 +268,12 @@ yargsInteractive()
             if (el === 'accordion') {
               el = 'accordion-ecl-2-6-0';
             }
+            if (el === 'site-header') {
+              el = 'site-header-ecl-2-12-0';
+            }
+            if (el === 'page-header') {
+              el = 'page-header-ecl-2-14-0';
+            }
           }
 
           return el;
@@ -279,7 +284,7 @@ yargsInteractive()
         if (eclSubSection !== 'none') {
           eclGluePath = `${eclSection}-${eclSubSection}`;
         }
-        const eclPath = `${domain}/component-library/${version}/playground/ec/?path=/story/${eclGluePath}-`;
+        const eclPath = `${domain}/component-library/${version}/playground/${system}/?path=/story/${eclGluePath}-`;
         const eclFinalUrl = `${eclPath + eclComponent}--${eclStory}`;
         // Puppeteer will try to reach the requested component variant page.
         const browser = await puppeteer.launch();
@@ -296,7 +301,7 @@ yargsInteractive()
               visible: true,
             });
             if (groupLink) {
-              page.$eval(`#explorer${eclGluePath}`, elem => elem.click());
+              page.$eval(`#explorer${eclGluePath}`, (elem) => elem.click());
             }
           }
           // Menu link, if it's there click on it.
@@ -305,7 +310,7 @@ yargsInteractive()
             { visible: true }
           );
           if (menuLink) {
-            page.$eval(`a#explorer${eclGluePath}-${eclComponent}`, elem =>
+            page.$eval(`a#explorer${eclGluePath}-${eclComponent}`, (elem) =>
               elem.click()
             );
             await page.waitForSelector(
@@ -319,7 +324,7 @@ yargsInteractive()
               let hrefs = [];
               for (const story of stories) {
                 const href = await page.evaluate(
-                  el => el.getAttribute('href'),
+                  (el) => el.getAttribute('href'),
                   story
                 );
                 // Try to match the urls found with the one built in this script.
@@ -351,12 +356,12 @@ yargsInteractive()
 
           if (await page.waitForSelector('code')) {
             let eclMarkup = await page.evaluate(
-              el => el.innerHTML,
+              (el) => el.innerHTML,
               await page.$('code')
             );
 
             // The html we get is enriched by a syntax highlighter.
-            eclMarkup = decode(eclMarkup.replace(/<\/?[^>]+(>|$)/g, ''));
+            eclMarkup = he.decode(eclMarkup.replace(/<\/?[^>]+(>|$)/g, ''));
             const eclMarkupMinusDiv = eclMarkup.replace(/^<div>/, '');
             if (eclMarkupMinusDiv !== eclMarkup) {
               eclMarkup = eclMarkupMinusDiv.replace(/<\/div>$/, '');
@@ -366,7 +371,7 @@ yargsInteractive()
             const isEqual = htmlDiffer.isEqual(eclTwigMarkup, eclMarkup);
 
             console.log(
-              `\nComparing ${fileName} with ECL markup from ${eclFinalUrl}:`
+              `\nComparing ${fileName} from the ${system} system with ECL markup from ${eclFinalUrl}:`
             );
 
             let successMsg = false;

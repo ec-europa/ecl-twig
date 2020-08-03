@@ -3,10 +3,11 @@ import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 // Import data for tests
 import dataWithTranslation from './demo/data--with-translation';
 import dataWithoutTranslation from './demo/data--without-translation';
+import dataThumbnail from './demo/data--thumbnail';
 
 describe('EC - File', () => {
   const template = '@ecl-twig/ec-component-file/ecl-file.html.twig';
-  const render = params => renderTwigFileAsNode(template, params);
+  const render = (params) => renderTwigFileAsNode(template, params);
 
   describe('With translation', () => {
     test('renders correctly', () => {
@@ -36,6 +37,16 @@ describe('EC - File', () => {
       });
 
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
+    });
+
+    test('with validation enabled and missing input data returns the right warning message', () => {
+      expect.assertions(1);
+
+      const dataCompliance = { ...dataWithTranslation, _compliance_: true };
+      dataCompliance.translation.items[0].title = '';
+      dataCompliance.translation.items[0].download.link.label = '';
+
+      return expect(render(dataCompliance)).resolves.toMatchSnapshot();
     });
   });
 
@@ -67,6 +78,24 @@ describe('EC - File', () => {
       });
 
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
+    });
+
+    test('with validation enabled and missing input data returns the right warning message', () => {
+      expect.assertions(1);
+
+      const dataCompliance = { ...dataWithoutTranslation, _compliance_: true };
+      dataCompliance.meta = '';
+      dataCompliance.language = '';
+
+      return expect(render(dataCompliance)).resolves.toMatchSnapshot();
+    });
+  });
+
+  describe('Thumbnail', () => {
+    test('renders correctly', () => {
+      expect.assertions(1);
+
+      return expect(render(dataThumbnail)).resolves.toMatchSnapshot();
     });
   });
 });

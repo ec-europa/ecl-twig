@@ -5,7 +5,7 @@ no-param-reassign, no-restricted-syntax, no-await-in-loop, import/no-dynamic-req
 const fs = require('fs');
 const logger = require('html-differ/lib/logger');
 const puppeteer = require('puppeteer');
-const decode = require('decode-html');
+const he = require('he');
 const { HtmlDiffer } = require('html-differ');
 const { execSync } = require('child_process');
 
@@ -84,7 +84,7 @@ const eclDiffVariant = data => {
           );
           await browser.close();
           // The html we get is enriched by a syntax highlighter.
-          eclMarkup = decode(eclMarkup.replace(/<\/?[^>]+(>|$)/g, ''));
+          eclMarkup = he.decode(eclMarkup.replace(/<\/?[^>]+(>|$)/g, ''));
           const eclMarkupMinusDiv = eclMarkup.replace(/^<div>/, '');
           if (eclMarkupMinusDiv !== eclMarkup) {
             eclMarkup = eclMarkupMinusDiv.replace(/<\/div>$/, '');

@@ -3,9 +3,9 @@ import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 import demoData from './demo/data';
 
 // Set fake paths for svgs to render for tests.
-demoData.links.forEach(link => {
+demoData.links.forEach((link) => {
   if (link.icon) {
-    link.icon.forEach(icon => {
+    link.icon.forEach((icon) => {
       icon.path = 'example'; // eslint-disable-line no-param-reassign
     });
   }
@@ -14,7 +14,7 @@ demoData.links.forEach(link => {
 describe('EC - Social Media Follow', () => {
   const template =
     '@ecl-twig/ec-component-social-media-follow/ecl-social-media-follow.html.twig';
-  const render = params => renderTwigFileAsNode(template, params);
+  const render = (params) => renderTwigFileAsNode(template, params);
   describe('Default', () => {
     test('renders correctly with extra class names', () => {
       expect.assertions(1);
@@ -58,6 +58,19 @@ describe('EC - Social Media Follow', () => {
           variant: 'vertical',
         })
       ).resolves.toMatchSnapshot();
+    });
+  });
+
+  describe('with validation enabled and missing input data', () => {
+    test('returns the right warning message', () => {
+      expect.assertions(1);
+      const dataCompliance = {
+        ...demoData,
+        _compliance_: true,
+      };
+      dataCompliance.description = '';
+
+      return expect(render(dataCompliance)).resolves.toMatchSnapshot();
     });
   });
 });
