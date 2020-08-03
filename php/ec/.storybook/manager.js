@@ -3,7 +3,7 @@ import browserUpdate from 'browser-update';
 browserUpdate({
   required: {
     i: 11,
-    e: 14,
+    e: -4,
     f: -4,
     c: -4,
     s: -2,
@@ -16,13 +16,9 @@ browserUpdate({
   },
   text_for_i: {
     msg:
-      'Sorry, the minimal required version of Internet EXplorer is 11 on this website',
+      'Sorry, the minimal required version of Internet Explorer is 11 on this website',
     msgmore: '',
   },
-  text_for_e: {
-    msg: 'Sorry, Microsoft Edge is only supported starting from version 14.',
-    msgmore: '',
-  },
-  noclose: true,
-  no_permanent_hide: true,
+  noclose: false,
+  no_permanent_hide: false,
 });
