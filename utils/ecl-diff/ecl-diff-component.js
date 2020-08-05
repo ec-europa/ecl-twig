@@ -17,9 +17,6 @@ const getData = (component) => {
     return elm.match(/.*\.(php.html)/gi);
   });
 
-  console.log(`\nChecking component: ${component}:`);
-  console.log(`-------------------------------------------------------`);
-
   const variants = [];
   twigFiles.forEach(async (twigFile) => {
     const variant = twigFile.includes('--')
@@ -32,9 +29,14 @@ const getData = (component) => {
 };
 
 module.exports = (component) => {
+  let message = `\nChecking component: ${component}\n`;
+  message += `-------------------------------------------------------`;
+  console.log(message);
   const datas = getData(component);
 
-  return Promise.all(datas.map((variant) => eclDiffVariant(variant))).then(() =>
-    console.log(`\nTask completed for component: ${component}\n`)
+  return Promise.all(datas.map((variant) => eclDiffVariant(variant))).then(
+    (result) => {
+      return result;
+    }
   );
 };

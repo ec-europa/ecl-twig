@@ -27,6 +27,13 @@ const version = cliArg[0] ? cliArg[0] : lastEclVersion;
 const eclPath = require(`./mapping/ecl-mapping-${version}.js`);
 
 let matches = 0;
+let totalVariants = 0;
+let current = '';
+let message = '';
+let diffMessage = '';
+let variantMessage = '';
+let successMsg = '';
+
 const diffOptions = {
   ignoreAttributes: [],
   compareAttributesAsJSON: [],
@@ -41,6 +48,28 @@ const eclDiffVariant = (data) => {
   const { component } = data;
   const { variant } = data;
   const { file } = data;
+  const diffFolder = `${systemFolder}/${component}/ecl-diff`;
+  const diffFilePath = `${systemFolder}/${component}/ecl-diff/${component}.diff`;
+  let componentMessage = '';
+
+  if (current !== component) {
+    componentMessage += `\n-------------------------------------------------------`;
+    componentMessage += `\nChecking component: ${component}\n`;
+    componentMessage += `-------------------------------------------------------\n`;
+    current = component;
+    message += componentMessage;
+    if (!fs.existsSync(diffFolder)) {
+      fs.mkdirSync(diffFolder);
+    }
+
+    fs.writeFile(
+      `${systemFolder}/${component}/ecl-diff/${component}.diff`,
+      componentMessage,
+      (err) => {
+        if (err) throw err;
+      }
+    );
+  }
 
   return new Promise(async (resolve, reject) => {
     const eclTwigMarkup = fs
@@ -67,6 +96,7 @@ const eclDiffVariant = (data) => {
       return resolve();
     }
     if (eclGluePath !== '') {
+      totalVariants += 1;
       const eclFinalUrl = `${domain}/component-library/v${version}/playground/ec/?path=/story/${eclGluePath}`;
       // Puppeteer will try to reach the requested component variant page.
       const browser = await puppeteer.launch();
@@ -95,22 +125,30 @@ const eclDiffVariant = (data) => {
           // Make the diff against the php rendered files.
           const diff = htmlDiffer.diffHtml(eclTwigMarkup, eclMarkup);
           const isEqual = htmlDiffer.isEqual(eclTwigMarkup, eclMarkup);
-          console.log(
-            `\nComparing ${file} with ECL markup from ${eclFinalUrl}:`
-          );
+          const thisMessage = `Comparing ${file} with ECL markup from ${eclFinalUrl}:`;
+          console.log(thisMessage);
+          message += thisMessage;
 
-          let successMsg = false;
           if (isEqual) {
-            successMsg = '> Perfectly matching!*';
+            successMsg = '> Perfectly matching!*\n';
+            console.log(successMsg);
             matches += 1;
+            message += successMsg;
+            variantMessage = `\n${successMsg}`;
           } else {
             logger.logDiffText(diff, { charsAroundDiff: 40 });
+            diffMessage = `\n> Differences were found, please check the diff by running yarn diff:ecl ec ${component}\n`;
+            message += diffMessage;
+            variantMessage = diffMessage;
           }
 
-          if (successMsg) {
-            console.log(successMsg);
-          }
-          resolve(matches);
+          fs.appendFileSync(diffFilePath, thisMessage + variantMessage);
+
+          resolve({
+            matches,
+            variants: totalVariants,
+            message,
+          });
         } else {
           reject(matches);
           console.error(
