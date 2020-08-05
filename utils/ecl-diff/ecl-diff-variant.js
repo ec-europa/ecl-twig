@@ -9,21 +9,16 @@ const he = require('he');
 const { HtmlDiffer } = require('html-differ');
 const { execSync } = require('child_process');
 
-const system = 'ec';
 const domain = 'https://ec.europa.eu';
 const rootFolder = process.cwd();
 const distFolder = `${rootFolder}/php`;
-const systemFolder = `${distFolder}/packages/${system}`;
-const lastEclVersion = execSync('npm view @ecl/ec-component-link versions')
+const version = execSync('npm view @ecl/ec-component-link versions')
   .toString()
   .replace(/([\s'[\]|])/g, '')
   .split(',')
   .reverse()
   .slice(0, 1)
   .toString();
-
-const cliArg = process.argv.slice(2);
-const version = cliArg[0] ? cliArg[0] : lastEclVersion;
 const eclPath = require(`./mapping/ecl-mapping-${version}.js`);
 
 let matches = 0;
@@ -44,7 +39,8 @@ const diffOptions = {
 };
 const htmlDiffer = new HtmlDiffer(diffOptions);
 
-const eclDiffVariant = (data) => {
+const eclDiffVariant = (data, system) => {
+  const systemFolder = `${distFolder}/packages/${system}`;
   const { component } = data;
   const { variant } = data;
   const { file } = data;
@@ -93,13 +89,13 @@ const eclDiffVariant = (data) => {
         '{{(.*?)logo--(en|fr|mute).*.svg}}'
       );
     // On the Ecl side.
-    const eclGluePath = eclPath(component, variant);
+    const eclGluePath = eclPath(component, variant, system);
     if (!eclGluePath) {
       return resolve();
     }
     if (eclGluePath !== '') {
       totalVariants += 1;
-      const eclFinalUrl = `${domain}/component-library/v${version}/playground/ec/?path=/story/${eclGluePath}`;
+      const eclFinalUrl = `${domain}/component-library/v${version}/playground/${system}/?path=/story/${eclGluePath}`;
       // Puppeteer will try to reach the requested component variant page.
       const browser = await puppeteer.launch();
       const page = await browser.newPage();
@@ -138,7 +134,7 @@ const eclDiffVariant = (data) => {
             variantMessage = `\n${successMsg}`;
           } else {
             logger.logDiffText(diff, { charsAroundDiff: 40 });
-            diffMessage = `\n> Differences were found, please check the diff by running yarn diff:ecl ec ${component}\n`;
+            diffMessage = `\n> Differences were found, please check the diff by running yarn diff:ecl ${system} ${component}\n`;
             message += diffMessage;
             variantMessage = diffMessage;
           }

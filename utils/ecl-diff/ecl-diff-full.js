@@ -1,11 +1,14 @@
 #!/usr/bin/env node
 
-/* eslint-disable no-console, no-param-reassign, unicorn/no-reduce */
+/* eslint-disable no-console, no-param-reassign, unicorn/no-reduce, import/no-dynamic-require */
+const args = process.argv.slice(2);
+const system = args[0] ? args[0] : 'ec';
+const rootFolder = process.cwd();
 
 const fs = require('fs');
 
-const rootFolder = process.cwd();
-const packages = require('@ecl-twig/ec-storybook/.storybook/packages.js').list;
+const packages = require(`@ecl-twig/${system}-storybook/.storybook/packages.js`)
+  .list;
 const eclDiffComponent = require('./ecl-diff-component.js');
 
 const getBase = (element) => {
@@ -15,14 +18,22 @@ const getBase = (element) => {
 
 // We build a list of components by their root name.
 const components = [];
+const exclusions = [
+  'ec-component-inpage-navigation',
+  'ec-component-ecl-compliance',
+  'ec-component-contextual-navigation',
+  'ec-components',
+];
+if (system === 'eu') {
+  exclusions.push(
+    'ec-component-accordion',
+    'ec-component-footer',
+    'ec-component-menu-legacy'
+  );
+}
 packages.forEach((item) => {
   // But we exclude some.
-  if (
-    item !== 'ec-component-inpage-navigation' &&
-    item !== 'ec-component-ecl-compliance' &&
-    item !== 'ec-component-contextual-navigation' &&
-    item !== 'ec-components'
-  ) {
+  if (!exclusions.includes(item)) {
     components.push(getBase(item));
   }
 });
@@ -31,7 +42,7 @@ packages.forEach((item) => {
 // to each component.
 components
   .reduce(
-    (current, next) => current.then(() => eclDiffComponent(next)),
+    (current, next) => current.then(() => eclDiffComponent(next, system)),
     Promise.resolve()
   )
   .then((result) => {

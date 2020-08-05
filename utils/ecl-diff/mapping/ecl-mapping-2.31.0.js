@@ -4,7 +4,7 @@
 
 let eclPath = '';
 
-const eclComponents = (component, variant) => {
+const eclComponents = (component, variant, system) => {
   switch (component) {
     case 'accordion':
       eclPath = 'deprecated-accordion-ecl-2-6-0';
@@ -108,9 +108,28 @@ const eclComponents = (component, variant) => {
     case 'footer-harmonised':
       variant = `${variant.slice(0, -1)}-${variant.slice(-1)}`;
       eclPath = `components-footers-harmonised--${variant}`;
+      if (system === 'eu') {
+        eclPath = `components-footers-harmonised--default`;
+      }
       break;
     case 'hero-banner':
       eclPath = `components-banners-${component}--${variant}`;
+      break;
+    case 'icon':
+      switch (variant) {
+        case 'facebook':
+          eclPath = 'components-icon--branded';
+          break;
+        case 'ui':
+          eclPath = 'components-icon--ui';
+          break;
+        case 'audio':
+          eclPath = 'components-icon--general';
+          break;
+        case 'success':
+          eclPath = 'components-icon--notifications';
+          break;
+      }
       break;
     case 'inpage-navigation':
       eclPath = 'components-navigation-in-page-navigation';
@@ -160,22 +179,27 @@ const eclComponents = (component, variant) => {
       eclPath = `components-banners-page-banner--${variant}`;
       break;
     case 'page-header':
-      switch (variant) {
-        case 'events':
-          eclPath = 'deprecated-page-header-ecl-2-14-0--events';
-          break;
-        case 'events-description':
-          eclPath = 'deprecated-page-header-ecl-2-14-0--events-description';
-          break;
-        case 'meta-title':
-          eclPath = 'deprecated-page-header-ecl-2-14-0--meta-title';
-          break;
-        case 'meta-title-description':
-          eclPath = 'deprecated-page-header-ecl-2-14-0--meta-title-description';
-          break;
-        case 'title-description':
-          eclPath = 'deprecated-page-header-ecl-2-14-0--title-description';
-          break;
+      if (system === 'eu') {
+        eclPath = `page-structure-pageheader--${variant}`;
+      } else {
+        switch (variant) {
+          case 'events':
+            eclPath = 'deprecated-page-header-ecl-2-14-0--events';
+            break;
+          case 'events-description':
+            eclPath = 'deprecated-page-header-ecl-2-14-0--events-description';
+            break;
+          case 'meta-title':
+            eclPath = 'deprecated-page-header-ecl-2-14-0--meta-title';
+            break;
+          case 'meta-title-description':
+            eclPath =
+              'deprecated-page-header-ecl-2-14-0--meta-title-description';
+            break;
+          case 'title-description':
+            eclPath = 'deprecated-page-header-ecl-2-14-0--title-description';
+            break;
+        }
       }
       break;
     case 'page-header-core':
@@ -213,13 +237,24 @@ const eclComponents = (component, variant) => {
       eclPath = 'components-forms-searchform--default';
       break;
     case 'site-header':
-      switch (variant) {
-        case 'en':
-          eclPath = 'deprecated-site-header-ecl-2-12-0--default';
-          break;
-        case 'fr':
-          eclPath = 'deprecated-site-header-ecl-2-12-0--translated';
-          break;
+      if (system === 'eu') {
+        switch (variant) {
+          case 'en':
+            eclPath = 'page-structure-siteheader--default';
+            break;
+          case 'fr':
+            eclPath = 'page-structure-siteheader--translated';
+            break;
+        }
+      } else {
+        switch (variant) {
+          case 'en':
+            eclPath = 'deprecated-site-header-ecl-2-12-0--default';
+            break;
+          case 'fr':
+            eclPath = 'deprecated-site-header-ecl-2-12-0--translated';
+            break;
+        }
       }
       break;
     case 'site-header-core':
@@ -271,6 +306,9 @@ const eclComponents = (component, variant) => {
           break;
         default:
           eclPath = `components-table--${variant}`;
+      }
+      if (system === 'eu' && variant === 'sort-table') {
+        eclPath = false;
       }
       break;
     case 'tag':
