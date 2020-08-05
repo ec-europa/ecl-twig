@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-/* eslint-disable import/no-unresolved, no-console, no-param-reassign, unicorn/no-reduce */
+/* eslint-disable no-console, no-param-reassign, unicorn/no-reduce */
 
 const fs = require('fs');
 
@@ -16,6 +16,7 @@ const getBase = (element) => {
 // We build a list of components by their root name.
 const components = [];
 packages.forEach((item) => {
+  // But we exclude some.
   if (
     item !== 'ec-component-inpage-navigation' &&
     item !== 'ec-component-ecl-compliance' &&
@@ -25,7 +26,9 @@ packages.forEach((item) => {
     components.push(getBase(item));
   }
 });
-// components = ['accordion'];
+// We run the promises sequentially to avoid memory leaks,
+// the reduce here will concatenate the Promise.all relateive
+// to each component.
 components
   .reduce(
     (current, next) => current.then(() => eclDiffComponent(next)),
@@ -36,6 +39,7 @@ components
     console.log(message);
     message = `-------------------------------------------------------\n${message}`;
     result[0].message += message;
+    // Write the full report.
     fs.writeFileSync(
       `${rootFolder}/ecl-diff-full-results.txt`,
       result[0].message

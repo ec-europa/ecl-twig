@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
-/* eslint-disable import/no-extraneous-dependencies, import/no-unresolved, no-console, consistent-return,
-no-param-reassign, no-restricted-syntax, no-await-in-loop, import/no-dynamic-require, no-async-promise-executor */
+/* eslint-disable no-console, consistent-return, no-await-in-loop, import/no-dynamic-require, no-async-promise-executor */
+
 const fs = require('fs');
 const logger = require('html-differ/lib/logger');
 const puppeteer = require('puppeteer');
@@ -53,15 +53,17 @@ const eclDiffVariant = (data) => {
   let componentMessage = '';
 
   if (current !== component) {
+    // This is for the logs.
     componentMessage += `\n-------------------------------------------------------`;
     componentMessage += `\nChecking component: ${component}\n`;
     componentMessage += `-------------------------------------------------------\n`;
     current = component;
     message += componentMessage;
+    // Create the ecl-diff folder in the component root if it doesn't exist.
     if (!fs.existsSync(diffFolder)) {
       fs.mkdirSync(diffFolder);
     }
-
+    // Create the report file, it only contains the headings for now.
     fs.writeFile(
       `${systemFolder}/${component}/ecl-diff/${component}.diff`,
       componentMessage,
@@ -103,7 +105,6 @@ const eclDiffVariant = (data) => {
       const page = await browser.newPage();
       await page.goto(eclFinalUrl);
       await page.setViewport({ width: 1900, height: 1600 });
-      // We are ready to get the html, hopefully of the right story, otherwise we'll tell you.
       const htmlReveal = await page.waitForSelector(
         'button[title="Show HTML"]'
       );
@@ -141,9 +142,10 @@ const eclDiffVariant = (data) => {
             message += diffMessage;
             variantMessage = diffMessage;
           }
-
+          // Here we append the reports about the single variants to the diff file.
           fs.appendFileSync(diffFilePath, thisMessage + variantMessage);
-
+          // We resolve the promise with the number of matches, number of variants and
+          // a message that gets populated in each iteration.
           resolve({
             matches,
             variants: totalVariants,
@@ -157,6 +159,7 @@ const eclDiffVariant = (data) => {
         }
       }
     } else {
+      // It should not happen, if we reach this is because our mapping is not correct.
       reject(matches);
       console.error(
         'Looks like we are not able to retrieve the html for this story...'
