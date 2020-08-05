@@ -122,7 +122,7 @@ Check the rendering of a single component in php and js and diff the resulting t
 yarn check:component "system(ec/eu)" "componentName"
 ```
 
-Diff the existing templates in php-storybook
+Diff the existing templates
 
 ```bash
 yarn diff "ec or eu"
@@ -133,6 +133,13 @@ Diff a component rendered via php with the ECL markup
 
 ```bash
 yarn diff:ecl "ec or eu"
+
+```
+
+Make a diff between all the available variants files and the ECL markup for the corresponding variants.
+
+```bash
+yarn diff:ecl-full "ec or eu"
 ```
 
 ## Dist
