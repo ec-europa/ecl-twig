@@ -51,8 +51,12 @@ components
     message = `-------------------------------------------------------\n${message}`;
     result[0].message += message;
     // Write the full report.
-    fs.writeFileSync(
-      `${rootFolder}/ecl-diff-full-results.txt`,
-      result[0].message
-    );
+    try {
+      fs.writeFileSync(
+        `${rootFolder}/ecl-diff-full-results.txt`,
+        result[0].message
+      );
+    } catch (error) {
+      console.error(error);
+    }
   });

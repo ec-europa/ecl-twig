@@ -45,7 +45,7 @@ const eclDiffVariant = (data, system) => {
   const { variant } = data;
   const { file } = data;
   const diffFolder = `${systemFolder}/${component}/ecl-diff`;
-  const diffFilePath = `${systemFolder}/${component}/ecl-diff/${component}.diff`;
+  const diffFilePath = `${systemFolder}/${component}/ecl-diff/${component}.diff.html`;
   let componentMessage = '';
 
   if (current !== component) {
@@ -60,13 +60,9 @@ const eclDiffVariant = (data, system) => {
       fs.mkdirSync(diffFolder);
     }
     // Create the report file, it only contains the headings for now.
-    fs.writeFile(
-      `${systemFolder}/${component}/ecl-diff/${component}.diff`,
-      componentMessage,
-      (err) => {
-        if (err) throw err;
-      }
-    );
+    fs.writeFile(diffFilePath, componentMessage, (err) => {
+      if (err) throw err;
+    });
   }
 
   return new Promise(async (resolve, reject) => {
@@ -107,6 +103,11 @@ const eclDiffVariant = (data, system) => {
       if (htmlReveal) {
         // This will reveal the markup container.
         await page.click('button[title="Show HTML"]');
+        try {
+          await page.waitForSelector('code');
+        } catch {
+          resolve();
+        }
         if (await page.waitForSelector('code')) {
           let eclMarkup = await page.evaluate(
             (el) => el.innerHTML,

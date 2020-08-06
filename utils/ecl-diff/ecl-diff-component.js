@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 
-/* eslint-disable no-console */
+/* eslint-disable no-console, no-param-reassign */
 
+const prettier = require('prettier');
 const fs = require('fs');
 const eclDiffVariant = require('./ecl-diff-variant.js');
 
@@ -28,6 +29,8 @@ const getData = (component, system) => {
 };
 
 module.exports = (component, system) => {
+  const systemFolder = `${distFolder}/packages/${system}`;
+  const twigFullPath = `${systemFolder}/${component}`;
   // This is for the console. Do not consider the same message in
   // ecl-diff-variant.js a duplicate, then.
   let message = `\nChecking component: ${component}\n`;
@@ -39,6 +42,32 @@ module.exports = (component, system) => {
   return Promise.all(
     datas.map((variant) => eclDiffVariant(variant, system))
   ).then((result) => {
+    // Update the story file with the ecl diff report in a storybook panel.
+    if (fs.existsSync(`${twigFullPath}/ecl-diff/${component}.diff.html`)) {
+      const storyPath = `${twigFullPath}/story/${component}.story.js`;
+      let newImports = `import ecl_diff_report from '../ecl-diff/${component}.diff.html';\n`;
+      newImports += `import { withEclDiff } from '@ecl-twig/storybook-addon-ecl-diff';\n`;
+
+      fs.readFile(storyPath, 'utf8', (err, data) => {
+        if (err) throw err;
+
+        if (!data.includes('ecl_diff_report')) {
+          data = newImports + data;
+          data = data
+            .replace(
+              /diff: {[^}]*/g,
+              '$& }, ecl_diff: { eclDiff: ecl_diff_report'
+            )
+            .replace('withDiff]', 'withDiff, withEclDiff]');
+          data = prettier.format(data, { semi: false, parser: 'babel' });
+
+          fs.writeFile(storyPath, data, (error) => {
+            if (error) throw error;
+          });
+        }
+      });
+    }
+
     return result;
   });
 };
