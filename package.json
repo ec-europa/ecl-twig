@@ -17,7 +17,7 @@
     "php:copy": "./node_modules/@ecl-twig/php-storybook/resources/get-assets.js",
     "php-clean:eu": "rimraf build php/packages/eu php/dist/eu",
     "php-clean:ec": "rimraf build php/packages/ec php/dist/ec",
-    "php:dist": "npm-run-all php:clean render-php-js storybook-build-php:* php:copy php:dist-fix",
+    "php:dist": "npm-run-all php:clean render-php-js diff:ecl-full storybook-build-php:* php:copy php:dist-fix",
     "php:clean": "npm-run-all php-clean:*",
     "php:dist-fix": "./node_modules/@ecl-twig/php-storybook/resources/fix-build.js",
     "php:install": "lerna --scope \"@ecl-twig/php-storybook\" run setup",
