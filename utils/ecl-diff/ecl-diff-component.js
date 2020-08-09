@@ -33,7 +33,7 @@ module.exports = (component, system) => {
   const twigFullPath = `${systemFolder}/${component}`;
   // This is for the console. Do not consider the same message in
   // ecl-diff-variant.js a duplicate, then.
-  let message = `\nChecking component: ${component}\n`;
+  let message = `\nChecking component: ${component} - (${system})\n`;
   message += `-------------------------------------------------------`;
   console.log(message);
   const datas = getData(component, system);
@@ -41,11 +41,28 @@ module.exports = (component, system) => {
   // Promise.all.
   return Promise.all(
     datas.map((variant) => eclDiffVariant(variant, system))
-  ).then((result) => {
+  ).then((res) => {
     // Update the story file with the ecl diff report in a storybook panel.
-    if (fs.existsSync(`${twigFullPath}/ecl-diff/${component}.diff.html`)) {
+    const diffPath = `${twigFullPath}/ecl-diff/${component}.md`;
+    if (fs.existsSync(diffPath)) {
+      fs.readFile(diffPath, 'utf8', (err, markdown) => {
+        if (err) throw err;
+        markdown += `\n* For the diff we use https://www.npmjs.com/package/html-differ, with this conf: `;
+        if (res[0] && res[0].diffOptions) {
+          markdown += res[0].diffOptions;
+        }
+        markdown = prettier.format(markdown, {
+          semi: false,
+          parser: 'markdown',
+        });
+
+        fs.writeFile(diffPath, markdown, (error) => {
+          if (error) throw error;
+        });
+      });
+
       const storyPath = `${twigFullPath}/story/${component}.story.js`;
-      let newImports = `import ecl_diff_report from '../ecl-diff/${component}.diff.html';\n`;
+      let newImports = `import ecl_diff_report from '../ecl-diff/${component}.md';\n`;
       newImports += `import { withEclDiff } from '@ecl-twig/storybook-addon-ecl-diff';\n`;
 
       fs.readFile(storyPath, 'utf8', (err, data) => {
@@ -68,6 +85,6 @@ module.exports = (component, system) => {
       });
     }
 
-    return result;
+    return res;
   });
 };

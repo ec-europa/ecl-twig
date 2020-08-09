@@ -1,6 +1,12 @@
 import addons, { makeDecorator } from '@storybook/addons';
+import marked from 'marked';
 
+const renderer = new marked.Renderer();
 let res = '';
+
+function renderMarkdown(text) {
+  return marked(text, { ...marked.defaults, renderer });
+}
 
 export const withEclDiff = makeDecorator({
   name: 'withEclDiff',
@@ -18,8 +24,7 @@ export const withEclDiff = makeDecorator({
     if (!eclDiff) {
       throw new Error('You must set `eclDiff` on the `eclDiff` parameter');
     }
-
-    res = eclDiff;
+    res = renderMarkdown(eclDiff);
 
     channel.emit('ecl/ecl_diff/add_code', res);
 

@@ -20,15 +20,6 @@ const version = execSync('npm view @ecl/ec-component-link versions')
   .slice(0, 1)
   .toString();
 const eclPath = require(`./mapping/ecl-mapping-${version}.js`);
-
-let matches = 0;
-let totalVariants = 0;
-let current = '';
-let message = '';
-let diffMessage = '';
-let variantMessage = '';
-let successMsg = '';
-
 const diffOptions = {
   ignoreAttributes: [],
   compareAttributesAsJSON: [],
@@ -39,22 +30,43 @@ const diffOptions = {
 };
 const htmlDiffer = new HtmlDiffer(diffOptions);
 
+const results = {
+  ec: {
+    matches: 0,
+    variants: 0,
+    message: '',
+  },
+  eu: {
+    matches: 0,
+    variants: 0,
+    message: '',
+  },
+  totalMatches: 0,
+  totalVariants: 0,
+  version,
+  diffOptions: JSON.stringify(diffOptions, undefined, ' '),
+};
+
+let current = '';
+let diffMessage = '';
+let variantMessage = '';
+let successMsg = '';
+
 const eclDiffVariant = (data, system) => {
   const systemFolder = `${distFolder}/packages/${system}`;
   const { component } = data;
   const { variant } = data;
   const { file } = data;
   const diffFolder = `${systemFolder}/${component}/ecl-diff`;
-  const diffFilePath = `${systemFolder}/${component}/ecl-diff/${component}.diff.html`;
+  const diffFilePath = `${systemFolder}/${component}/ecl-diff/${component}.md`;
   let componentMessage = '';
 
   if (current !== component) {
     // This is for the logs.
-    componentMessage += `\n-------------------------------------------------------`;
-    componentMessage += `\nChecking component: ${component}\n`;
+    componentMessage += `\nChecking component: ${component} - (${system})\n`;
     componentMessage += `-------------------------------------------------------\n`;
     current = component;
-    message += componentMessage;
+    results[system].message += componentMessage;
     // Create the ecl-diff folder in the component root if it doesn't exist.
     if (!fs.existsSync(diffFolder)) {
       fs.mkdirSync(diffFolder);
@@ -90,15 +102,23 @@ const eclDiffVariant = (data, system) => {
       return resolve();
     }
     if (eclGluePath !== '') {
-      totalVariants += 1;
+      results[system].variants += 1;
+      results.totalVariants += 1;
       const eclFinalUrl = `${domain}/component-library/v${version}/playground/${system}/?path=/story/${eclGluePath}`;
       // Puppeteer will try to reach the requested component variant page.
       const browser = await puppeteer.launch();
       const page = await browser.newPage();
-      await page.goto(eclFinalUrl);
+      await page.setDefaultNavigationTimeout(0);
+      await page.goto(eclFinalUrl, {
+        waitUntil: 'load',
+        timeout: 0,
+      });
       await page.setViewport({ width: 1900, height: 1600 });
       const htmlReveal = await page.waitForSelector(
-        'button[title="Show HTML"]'
+        'button[title="Show HTML"]',
+        {
+          timeout: 0,
+        }
       );
       if (htmlReveal) {
         // This will reveal the markup container.
@@ -123,33 +143,31 @@ const eclDiffVariant = (data, system) => {
           // Make the diff against the php rendered files.
           const diff = htmlDiffer.diffHtml(eclTwigMarkup, eclMarkup);
           const isEqual = htmlDiffer.isEqual(eclTwigMarkup, eclMarkup);
-          const thisMessage = `Comparing ${file} with ECL markup from ${eclFinalUrl}:`;
+          const thisMessage = `Comparing ${file} with ECL markup from ${eclFinalUrl}:\n`;
           console.log(thisMessage);
-          message += thisMessage;
+          results[system].message += thisMessage;
 
           if (isEqual) {
-            successMsg = '> Perfectly matching!*\n';
+            successMsg = '> Perfectly matching! \n\n';
             console.log(successMsg);
-            matches += 1;
-            message += successMsg;
+            // Update our results bucket with the match.
+            results[system].matches += 1;
+            results.totalMatches += 1;
+            results[system].message += successMsg;
             variantMessage = `\n${successMsg}`;
           } else {
             logger.logDiffText(diff, { charsAroundDiff: 40 });
-            diffMessage = `\n> Differences were found, please check the diff by running yarn diff:ecl ${system} ${component}\n`;
-            message += diffMessage;
+            diffMessage = `\n> Differences were found, please check the diff by running yarn diff:ecl ${system} ${component} \n\n`;
+            results[system].message += diffMessage;
             variantMessage = diffMessage;
           }
           // Here we append the reports about the single variants to the diff file.
           fs.appendFileSync(diffFilePath, thisMessage + variantMessage);
           // We resolve the promise with the number of matches, number of variants and
           // a message that gets populated in each iteration.
-          resolve({
-            matches,
-            variants: totalVariants,
-            message,
-          });
+          resolve(results);
         } else {
-          reject(matches);
+          reject();
           console.error(
             'Looks like we are not able to retrieve the html for this story...'
           );
@@ -157,7 +175,7 @@ const eclDiffVariant = (data, system) => {
       }
     } else {
       // It should not happen, if we reach this is because our mapping is not correct.
-      reject(matches);
+      reject();
       console.error(
         'Looks like we are not able to retrieve the html for this story...'
       );
