@@ -202,7 +202,7 @@ yargsInteractive()
             'xlink:href="{{.*icons.*.svg#}}'
           )
           // Booleans.
-          .replace(/(data-ecl[A-Za-z-]+)(?=[\s/>])/g, '$1="{{true|false}}"') // eslint-disable-line unicorn/regex-shorthand
+          .replace(/(data-ecl[\dA-Za-z-]+)(?=[\s/>])/g, '$1="{{true|false}}"') // eslint-disable-line unicorn/regex-shorthand
           // aria-hidden
           .replace(/(aria-hidden)(=".+")/g, '$1="{{true|false}}"')
           // Logo
@@ -218,8 +218,6 @@ yargsInteractive()
             el = 'text-field';
           } else if (el === 'text-area') {
             el = 'textarea';
-          } else if (el === 'accordion2') {
-            el = 'accordion';
           } else if (el === 'unordered-list' || el === 'description-list') {
             el = 'list';
           } else if (el === 'message') {
@@ -274,6 +272,9 @@ yargsInteractive()
             if (el === 'page-header') {
               el = 'page-header-ecl-2-14-0';
             }
+          }
+          if (el === 'accordion2') {
+            el = 'accordion';
           }
 
           return el;

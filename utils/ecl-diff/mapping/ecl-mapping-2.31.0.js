@@ -30,9 +30,6 @@ const eclComponents = (component, variant, system) => {
         case 'call':
           eclPath = 'components-button--call-to-action';
           break;
-        case 'ghost':
-          eclPath = 'components-button--text';
-          break;
         default:
           eclPath = `components-button--${variant}`;
       }

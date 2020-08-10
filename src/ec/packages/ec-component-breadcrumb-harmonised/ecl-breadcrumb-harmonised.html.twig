@@ -93,7 +93,7 @@
   <ol class="ecl-breadcrumb-harmonised__container">
   {% if _links is not empty %}
     {% for key, link in links %}
-      {% set _breadcrumb_segment_attributes = 'data-ecl-breadcrumb-harmonised-item="static"' %}
+      {% set _breadcrumb_segment_attributes = 'data-ecl-breadcrumb-harmonised-item="static" aria-hidden="false"' %}
       {# Last item is not a link. #}
       {% if loop.last %}
         {% set _breadcrumb_segment_attributes = _breadcrumb_segment_attributes ~ ' aria-current="page"' %}
@@ -104,11 +104,12 @@
         {# The logic is based on mandatory elements to be shown left side and right side.
         If the number of items is bigger than the sum of these two an "ellipsis" item is added and the element are marked as "expandable" #}
         {% if _breadcrumb_size > (_min_items_left + _min_items_right) and key > 0 and key < (_breadcrumb_size - _min_items_right) %}
-          {% set _breadcrumb_segment_attributes = 'data-ecl-breadcrumb-harmonised-item="expandable"' %}
+          {% set _breadcrumb_segment_attributes = 'data-ecl-breadcrumb-harmonised-item="expandable" aria-hidden="false"' %}
           {% if key == _min_items_left %}
             <li
             class="{{ _breadcrumb_segment_class ~ ' ecl-breadcrumb-harmonised__segment--ellipsis' }}"
             data-ecl-breadcrumb-harmonised-ellipsis
+            aria-hidden="true"
             >
               <button
                 type="button"

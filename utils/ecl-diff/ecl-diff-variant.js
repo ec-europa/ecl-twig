@@ -88,7 +88,7 @@ const eclDiffVariant = (data, system) => {
         'xlink:href="{{.*icons.*.svg#}}'
       )
       // Booleans.
-      .replace(/(data-ecl[A-Za-z-]+)(?=[\s/>])/g, '$1="{{true|false}}"')
+      .replace(/(data-ecl[\dA-Za-z-]+)(?=[\s/>])/g, '$1="{{true|false}}"')
       // aria-hidden
       .replace(/(aria-hidden)(=".+")/g, '$1="{{true|false}}"')
       // Logo

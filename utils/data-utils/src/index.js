@@ -32,7 +32,7 @@ const formatLink = (l) => {
     link.link.hreflang = l.hreflang;
   }
 
-  link.link.aria_label = l.ariaLabel ? l.ariaLabel : 'Aria label default';
+  link.link.aria_label = l.ariaLabel ? l.ariaLabel : '';
 
   return link;
 };
@@ -60,7 +60,7 @@ const formatLinkAlt = (a) => {
     link.hreflang = a.hreflang;
   }
 
-  link.aria_label = a.aria_label ? a.aria_label : 'Aria label default';
+  link.aria_label = a.aria_label ? a.aria_label : '';
 
   return link;
 };
