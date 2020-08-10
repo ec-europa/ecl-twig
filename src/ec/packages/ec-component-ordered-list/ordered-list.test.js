@@ -1,5 +1,5 @@
 import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
-import data from '@ecl/ec-specs-list/demo/data--text';
+import data from './demo/data';
 
 describe('EC - Ordered list', () => {
   const template =

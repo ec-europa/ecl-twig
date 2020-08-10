@@ -143,8 +143,9 @@ const eclComponents = (component, variant, system) => {
     case 'media-container':
       if (system === 'eu' && variant === 'embed-video') {
         eclPath = false;
+      } else {
+        eclPath = `components-mediacontainer--${variant}`;
       }
-      eclPath = `components-mediacontainer--${variant}`;
       break;
     case 'menu':
       switch (variant) {
@@ -202,13 +203,7 @@ const eclComponents = (component, variant, system) => {
       eclPath = 'components-navigation-pagination--default';
       break;
     case 'ordered-list':
-      switch (variant) {
-        case 'text':
-          eclPath = 'components-list--ordered';
-          break;
-        default:
-          eclPath = false;
-      }
+      eclPath = 'components-list--ordered';
       break;
     case 'radio':
       switch (variant) {
@@ -333,7 +328,14 @@ const eclComponents = (component, variant, system) => {
       }
       break;
     case 'unordered-list':
-      eclPath = 'components-list--unordered';
+      switch (variant) {
+        case 'with-divider':
+        case 'without-bullet':
+          eclPath = `components-list--${variant}`;
+          break;
+        default:
+          eclPath = 'components-list--unordered';
+      }
       break;
   }
 
