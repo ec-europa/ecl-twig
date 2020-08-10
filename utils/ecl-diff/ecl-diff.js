@@ -368,6 +368,9 @@ yargsInteractive()
                 .replace('<p>Content before</p>', '')
                 .replace('<p>Content after</p>', '');
             }
+            if (component === 'skip-link') {
+              eclMarkup = eclMarkup.replace('<div id="top"></div>', '');
+            }
             const eclMarkupMinusDiv = eclMarkup.replace(/^<div>/, '');
             if (eclMarkupMinusDiv !== eclMarkup) {
               eclMarkup = eclMarkupMinusDiv.replace(/<\/div>$/, '');

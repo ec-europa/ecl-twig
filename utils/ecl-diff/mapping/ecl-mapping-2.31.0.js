@@ -136,15 +136,15 @@ const eclComponents = (component, variant, system) => {
         case 'cta-icon':
           eclPath = false;
           break;
-        case 'cta':
-          eclPath = 'components-navigation-link--call-to-action';
-          break;
         default:
           eclPath = `components-navigation-${component}--${variant}`;
       }
       break;
     case 'media-container':
-      eclPath = 'components-mediacontainer--video';
+      if (system === 'eu' && variant === 'embed-video') {
+        eclPath = false;
+      }
+      eclPath = `components-mediacontainer--${variant}`;
       break;
     case 'menu':
       switch (variant) {
