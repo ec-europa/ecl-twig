@@ -36,8 +36,7 @@ const eclComponents = (component, variant, system) => {
       break;
     case 'card':
       switch (variant) {
-        case 'card-tag':
-        case 'card-event':
+        case 'event':
           eclPath = false;
           break;
         default:
@@ -75,7 +74,13 @@ const eclComponents = (component, variant, system) => {
       eclPath = `components-${component}--${variant}`;
       break;
     case 'description-list':
-      eclPath = 'components-list--description';
+      switch (variant) {
+        case 'horizontal':
+          eclPath = 'components-list--description-horizontal';
+          break;
+        default:
+          eclPath = 'components-list--description';
+      }
       break;
     case 'dropdown-legacy':
       eclPath = 'components-dropdown-legacy--default';
@@ -113,20 +118,7 @@ const eclComponents = (component, variant, system) => {
       eclPath = `components-banners-${component}--${variant}`;
       break;
     case 'icon':
-      switch (variant) {
-        case 'facebook':
-          eclPath = 'components-icon--branded';
-          break;
-        case 'ui':
-          eclPath = 'components-icon--ui';
-          break;
-        case 'audio':
-          eclPath = 'components-icon--general';
-          break;
-        case 'success':
-          eclPath = 'components-icon--notifications';
-          break;
-      }
+      eclPath = `components-${component}--${variant}`;
       break;
     case 'inpage-navigation':
       eclPath = 'components-navigation-in-page-navigation';

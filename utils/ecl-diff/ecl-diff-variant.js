@@ -136,6 +136,11 @@ const eclDiffVariant = (data, system) => {
           await browser.close();
           // The html we get is enriched by a syntax highlighter.
           eclMarkup = he.decode(eclMarkup.replace(/<\/?[^>]+(>|$)/g, ''));
+          if (component === 'dropdown-legacy') {
+            eclMarkup = eclMarkup
+              .replace('<p>Content before</p>', '')
+              .replace('<p>Content after</p>', '');
+          }
           const eclMarkupMinusDiv = eclMarkup.replace(/^<div>/, '');
           if (eclMarkupMinusDiv !== eclMarkup) {
             eclMarkup = eclMarkupMinusDiv.replace(/<\/div>$/, '');

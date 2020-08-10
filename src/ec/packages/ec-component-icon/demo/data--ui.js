@@ -1,6 +1,9 @@
-const data = {};
-data.icon = {};
-data.icon.type = 'ui';
-data.icon.name = 'chek-filled';
+const data = {
+  icon: {
+    path: '/icons.svg',
+    type: 'ui',
+    name: 'check-filled',
+  },
+};
 
 export default data;

@@ -822,251 +822,6 @@ exports[`EC - Card Events renders correctly with extra class names 1`] = `
 </test>
 `;
 
-exports[`EC - Card Tag renders correctly 1`] = `
-<test>
-  <article
-    class="ecl-card"
-  >
-    <header
-      class="ecl-card__header"
-    >
-      <div
-        aria-label="card image"
-        class="ecl-card__image"
-        role="img"
-        style="background-image:url('https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg')"
-      />
-      <div
-        class="ecl-card__meta"
-      >
-        Meta1 | Meta2
-      </div>
-      <h1
-        class="ecl-card__title"
-      >
-        <a
-          class="ecl-link ecl-link--standalone"
-          href="/example"
-        >
-          Better regulation
-        </a>
-      </h1>
-    </header>
-    <div
-      class="ecl-card__body"
-    >
-      <div
-        class="ecl-card__description"
-      >
-        Transparently designing and evaluating evidence-based EU legislation, backed by citizens views.
-      </div>
-    </div>
-    <footer
-      class="ecl-card__footer"
-    >
-      <ul
-        class="ecl-card__tag-container"
-      >
-        <li
-          class="ecl-card__tag-item"
-        >
-          <a
-            class="ecl-tag ecl-card__tag"
-            href="/example"
-          >
-            tag 1
-          </a>
-        </li>
-        <li
-          class="ecl-card__tag-item"
-        >
-          <a
-            class="ecl-tag ecl-card__tag"
-            href="/example"
-          >
-            tag 2
-          </a>
-        </li>
-        <li
-          class="ecl-card__tag-item"
-        >
-          <a
-            class="ecl-tag ecl-card__tag"
-            href="/example"
-          >
-            tag 3
-          </a>
-        </li>
-      </ul>
-    </footer>
-  </article>
-</test>
-`;
-
-exports[`EC - Card Tag renders correctly with extra attributes 1`] = `
-<test>
-  <article
-    class="ecl-card"
-    data-test="data-test-value"
-    data-test-1="data-test-value-1"
-  >
-    <header
-      class="ecl-card__header"
-    >
-      <div
-        aria-label="card image"
-        class="ecl-card__image"
-        role="img"
-        style="background-image:url('https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg')"
-      />
-      <div
-        class="ecl-card__meta"
-      >
-        Meta1 | Meta2
-      </div>
-      <h1
-        class="ecl-card__title"
-      >
-        <a
-          class="ecl-link ecl-link--standalone"
-          href="/example"
-        >
-          Better regulation
-        </a>
-      </h1>
-    </header>
-    <div
-      class="ecl-card__body"
-    >
-      <div
-        class="ecl-card__description"
-      >
-        Transparently designing and evaluating evidence-based EU legislation, backed by citizens views.
-      </div>
-    </div>
-    <footer
-      class="ecl-card__footer"
-    >
-      <ul
-        class="ecl-card__tag-container"
-      >
-        <li
-          class="ecl-card__tag-item"
-        >
-          <a
-            class="ecl-tag ecl-card__tag"
-            href="/example"
-          >
-            tag 1
-          </a>
-        </li>
-        <li
-          class="ecl-card__tag-item"
-        >
-          <a
-            class="ecl-tag ecl-card__tag"
-            href="/example"
-          >
-            tag 2
-          </a>
-        </li>
-        <li
-          class="ecl-card__tag-item"
-        >
-          <a
-            class="ecl-tag ecl-card__tag"
-            href="/example"
-          >
-            tag 3
-          </a>
-        </li>
-      </ul>
-    </footer>
-  </article>
-</test>
-`;
-
-exports[`EC - Card Tag renders correctly with extra class names 1`] = `
-<test>
-  <article
-    class="ecl-card custom-class custom-class--test"
-  >
-    <header
-      class="ecl-card__header"
-    >
-      <div
-        aria-label="card image"
-        class="ecl-card__image"
-        role="img"
-        style="background-image:url('https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg')"
-      />
-      <div
-        class="ecl-card__meta"
-      >
-        Meta1 | Meta2
-      </div>
-      <h1
-        class="ecl-card__title"
-      >
-        <a
-          class="ecl-link ecl-link--standalone"
-          href="/example"
-        >
-          Better regulation
-        </a>
-      </h1>
-    </header>
-    <div
-      class="ecl-card__body"
-    >
-      <div
-        class="ecl-card__description"
-      >
-        Transparently designing and evaluating evidence-based EU legislation, backed by citizens views.
-      </div>
-    </div>
-    <footer
-      class="ecl-card__footer"
-    >
-      <ul
-        class="ecl-card__tag-container"
-      >
-        <li
-          class="ecl-card__tag-item"
-        >
-          <a
-            class="ecl-tag ecl-card__tag"
-            href="/example"
-          >
-            tag 1
-          </a>
-        </li>
-        <li
-          class="ecl-card__tag-item"
-        >
-          <a
-            class="ecl-tag ecl-card__tag"
-            href="/example"
-          >
-            tag 2
-          </a>
-        </li>
-        <li
-          class="ecl-card__tag-item"
-        >
-          <a
-            class="ecl-tag ecl-card__tag"
-            href="/example"
-          >
-            tag 3
-          </a>
-        </li>
-      </ul>
-    </footer>
-  </article>
-</test>
-`;
-
 exports[`EC - Card Tile renders correctly 1`] = `
 <test>
   <article
@@ -1096,7 +851,6 @@ exports[`EC - Card Tile renders correctly 1`] = `
           class="ecl-card__link-item"
         >
           <a
-            aria-label="Aria label default"
             class="ecl-link ecl-link--standalone ecl-card__link"
             href="/example"
           >
@@ -1107,7 +861,6 @@ exports[`EC - Card Tile renders correctly 1`] = `
           class="ecl-card__link-item"
         >
           <a
-            aria-label="Aria label default"
             class="ecl-link ecl-link--standalone ecl-card__link"
             href="/example"
           >
@@ -1118,7 +871,6 @@ exports[`EC - Card Tile renders correctly 1`] = `
           class="ecl-card__link-item"
         >
           <a
-            aria-label="Aria label default"
             class="ecl-link ecl-link--standalone ecl-card__link"
             href="/example"
           >
@@ -1127,6 +879,9 @@ exports[`EC - Card Tile renders correctly 1`] = `
         </li>
       </ul>
     </div>
+    <footer
+      class="ecl-card__footer"
+    />
   </article>
 </test>
 `;
@@ -1162,7 +917,6 @@ exports[`EC - Card Tile renders correctly with extra attributes 1`] = `
           class="ecl-card__link-item"
         >
           <a
-            aria-label="Aria label default"
             class="ecl-link ecl-link--standalone ecl-card__link"
             href="/example"
           >
@@ -1173,7 +927,6 @@ exports[`EC - Card Tile renders correctly with extra attributes 1`] = `
           class="ecl-card__link-item"
         >
           <a
-            aria-label="Aria label default"
             class="ecl-link ecl-link--standalone ecl-card__link"
             href="/example"
           >
@@ -1184,7 +937,6 @@ exports[`EC - Card Tile renders correctly with extra attributes 1`] = `
           class="ecl-card__link-item"
         >
           <a
-            aria-label="Aria label default"
             class="ecl-link ecl-link--standalone ecl-card__link"
             href="/example"
           >
@@ -1193,6 +945,9 @@ exports[`EC - Card Tile renders correctly with extra attributes 1`] = `
         </li>
       </ul>
     </div>
+    <footer
+      class="ecl-card__footer"
+    />
   </article>
 </test>
 `;
@@ -1226,7 +981,6 @@ exports[`EC - Card Tile renders correctly with extra class names 1`] = `
           class="ecl-card__link-item"
         >
           <a
-            aria-label="Aria label default"
             class="ecl-link ecl-link--standalone ecl-card__link"
             href="/example"
           >
@@ -1237,7 +991,6 @@ exports[`EC - Card Tile renders correctly with extra class names 1`] = `
           class="ecl-card__link-item"
         >
           <a
-            aria-label="Aria label default"
             class="ecl-link ecl-link--standalone ecl-card__link"
             href="/example"
           >
@@ -1248,7 +1001,6 @@ exports[`EC - Card Tile renders correctly with extra class names 1`] = `
           class="ecl-card__link-item"
         >
           <a
-            aria-label="Aria label default"
             class="ecl-link ecl-link--standalone ecl-card__link"
             href="/example"
           >
@@ -1257,6 +1009,9 @@ exports[`EC - Card Tile renders correctly with extra class names 1`] = `
         </li>
       </ul>
     </div>
+    <footer
+      class="ecl-card__footer"
+    />
   </article>
 </test>
 `;
