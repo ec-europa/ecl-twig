@@ -12,11 +12,11 @@ Comparing blockquote.php.html with ECL markup from https://ec.europa.eu/componen
 
 ## Checking component: breadcrumb - (eu)
 
-Comparing breadcrumb.php.html with ECL markup from https://ec.europa.eu/component-library/v2.31.0/playground/eu/?path=/story/components-navigation-breadcrumb--long:
+Comparing breadcrumb--simple.php.html with ECL markup from https://ec.europa.eu/component-library/v2.31.0/playground/eu/?path=/story/components-navigation-breadcrumb--simple:
 
 > Differences were found, please check the diff by running yarn diff:ecl eu breadcrumb
 
-Comparing breadcrumb--simple.php.html with ECL markup from https://ec.europa.eu/component-library/v2.31.0/playground/eu/?path=/story/components-navigation-breadcrumb--simple:
+Comparing breadcrumb.php.html with ECL markup from https://ec.europa.eu/component-library/v2.31.0/playground/eu/?path=/story/components-navigation-breadcrumb--long:
 
 > Differences were found, please check the diff by running yarn diff:ecl eu breadcrumb
 
@@ -52,23 +52,23 @@ Comparing breadcrumb-standardised--simple.php.html with ECL markup from https://
 
 ## Checking component: button - (eu)
 
-Comparing button--secondary.php.html with ECL markup from https://ec.europa.eu/component-library/v2.31.0/playground/eu/?path=/story/components-button--secondary:
+Comparing button--call.php.html with ECL markup from https://ec.europa.eu/component-library/v2.31.0/playground/eu/?path=/story/components-button--call-to-action:
 
-> Differences were found, please check the diff by running yarn diff:ecl eu button
+> Perfectly matching!
 
 Comparing button--primary.php.html with ECL markup from https://ec.europa.eu/component-library/v2.31.0/playground/eu/?path=/story/components-button--primary:
 
 > Perfectly matching!
 
-Comparing button--call.php.html with ECL markup from https://ec.europa.eu/component-library/v2.31.0/playground/eu/?path=/story/components-button--call-to-action:
-
-> Perfectly matching!
-
-Comparing button--search.php.html with ECL markup from https://ec.europa.eu/component-library/v2.31.0/playground/eu/?path=/story/components-button--search:
+Comparing button--ghost.php.html with ECL markup from https://ec.europa.eu/component-library/v2.31.0/playground/eu/?path=/story/components-button--text:
 
 > Differences were found, please check the diff by running yarn diff:ecl eu button
 
-Comparing button--ghost.php.html with ECL markup from https://ec.europa.eu/component-library/v2.31.0/playground/eu/?path=/story/components-button--text:
+Comparing button--secondary.php.html with ECL markup from https://ec.europa.eu/component-library/v2.31.0/playground/eu/?path=/story/components-button--secondary:
+
+> Differences were found, please check the diff by running yarn diff:ecl eu button
+
+Comparing button--search.php.html with ECL markup from https://ec.europa.eu/component-library/v2.31.0/playground/eu/?path=/story/components-button--search:
 
 > Differences were found, please check the diff by running yarn diff:ecl eu button
 
@@ -102,13 +102,13 @@ Comparing datepicker.php.html with ECL markup from https://ec.europa.eu/componen
 
 ## Checking component: description-list - (eu)
 
-Comparing description-list--horizontal.php.html with ECL markup from https://ec.europa.eu/component-library/v2.31.0/playground/eu/?path=/story/components-list--description:
-
-> Differences were found, please check the diff by running yarn diff:ecl eu description-list
-
 Comparing description-list.php.html with ECL markup from https://ec.europa.eu/component-library/v2.31.0/playground/eu/?path=/story/components-list--description:
 
 > Perfectly matching!
+
+Comparing description-list--horizontal.php.html with ECL markup from https://ec.europa.eu/component-library/v2.31.0/playground/eu/?path=/story/components-list--description:
+
+> Differences were found, please check the diff by running yarn diff:ecl eu description-list
 
 ## Checking component: dropdown-legacy - (eu)
 
@@ -124,11 +124,11 @@ Comparing expandable.php.html with ECL markup from https://ec.europa.eu/componen
 
 ## Checking component: fact-figures - (eu)
 
-Comparing fact-figures--4-col.php.html with ECL markup from https://ec.europa.eu/component-library/v2.31.0/playground/eu/?path=/story/components-fact-figures--4-columns:
+Comparing fact-figures--3-col.php.html with ECL markup from https://ec.europa.eu/component-library/v2.31.0/playground/eu/?path=/story/components-fact-figures--3-columns:
 
 > Differences were found, please check the diff by running yarn diff:ecl eu fact-figures
 
-Comparing fact-figures--3-col.php.html with ECL markup from https://ec.europa.eu/component-library/v2.31.0/playground/eu/?path=/story/components-fact-figures--3-columns:
+Comparing fact-figures--4-col.php.html with ECL markup from https://ec.europa.eu/component-library/v2.31.0/playground/eu/?path=/story/components-fact-figures--4-columns:
 
 > Differences were found, please check the diff by running yarn diff:ecl eu fact-figures
 
@@ -186,7 +186,7 @@ Comparing hero-banner--default.php.html with ECL markup from https://ec.europa.e
 
 > Differences were found, please check the diff by running yarn diff:ecl eu hero-banner
 
-Comparing hero-banner--image.php.html with ECL markup from https://ec.europa.eu/component-library/v2.31.0/playground/eu/?path=/story/components-banners-hero-banner--image:
+Comparing hero-banner--primary.php.html with ECL markup from https://ec.europa.eu/component-library/v2.31.0/playground/eu/?path=/story/components-banners-hero-banner--primary:
 
 > Differences were found, please check the diff by running yarn diff:ecl eu hero-banner
 
@@ -194,31 +194,31 @@ Comparing hero-banner--align-left.php.html with ECL markup from https://ec.europ
 
 > Differences were found, please check the diff by running yarn diff:ecl eu hero-banner
 
-Comparing hero-banner--primary.php.html with ECL markup from https://ec.europa.eu/component-library/v2.31.0/playground/eu/?path=/story/components-banners-hero-banner--primary:
+Comparing hero-banner--image-shade.php.html with ECL markup from https://ec.europa.eu/component-library/v2.31.0/playground/eu/?path=/story/components-banners-hero-banner--image-shade:
 
 > Differences were found, please check the diff by running yarn diff:ecl eu hero-banner
 
-Comparing hero-banner--image-shade.php.html with ECL markup from https://ec.europa.eu/component-library/v2.31.0/playground/eu/?path=/story/components-banners-hero-banner--image-shade:
+Comparing hero-banner--image.php.html with ECL markup from https://ec.europa.eu/component-library/v2.31.0/playground/eu/?path=/story/components-banners-hero-banner--image:
 
 > Differences were found, please check the diff by running yarn diff:ecl eu hero-banner
 
 ## Checking component: icon - (eu)
 
-Comparing icon--facebook.php.html with ECL markup from https://ec.europa.eu/component-library/v2.31.0/playground/eu/?path=/story/components-icon--branded:
-
-> Perfectly matching!
-
 Comparing icon--success.php.html with ECL markup from https://ec.europa.eu/component-library/v2.31.0/playground/eu/?path=/story/components-icon--notifications:
-
-> Differences were found, please check the diff by running yarn diff:ecl eu icon
-
-Comparing icon--ui.php.html with ECL markup from https://ec.europa.eu/component-library/v2.31.0/playground/eu/?path=/story/components-icon--ui:
 
 > Differences were found, please check the diff by running yarn diff:ecl eu icon
 
 Comparing icon--audio.php.html with ECL markup from https://ec.europa.eu/component-library/v2.31.0/playground/eu/?path=/story/components-icon--general:
 
 > Perfectly matching!
+
+Comparing icon--facebook.php.html with ECL markup from https://ec.europa.eu/component-library/v2.31.0/playground/eu/?path=/story/components-icon--branded:
+
+> Perfectly matching!
+
+Comparing icon--ui.php.html with ECL markup from https://ec.europa.eu/component-library/v2.31.0/playground/eu/?path=/story/components-icon--ui:
+
+> Differences were found, please check the diff by running yarn diff:ecl eu icon
 
 ## Checking component: label - (eu)
 
@@ -242,11 +242,11 @@ Comparing link--default.php.html with ECL markup from https://ec.europa.eu/compo
 
 > Differences were found, please check the diff by running yarn diff:ecl eu link
 
-Comparing link--cta.php.html with ECL markup from https://ec.europa.eu/component-library/v2.31.0/playground/eu/?path=/story/components-navigation-link--call-to-action:
+Comparing link--standalone.php.html with ECL markup from https://ec.europa.eu/component-library/v2.31.0/playground/eu/?path=/story/components-navigation-link--standalone:
 
 > Differences were found, please check the diff by running yarn diff:ecl eu link
 
-Comparing link--standalone.php.html with ECL markup from https://ec.europa.eu/component-library/v2.31.0/playground/eu/?path=/story/components-navigation-link--standalone:
+Comparing link--cta.php.html with ECL markup from https://ec.europa.eu/component-library/v2.31.0/playground/eu/?path=/story/components-navigation-link--call-to-action:
 
 > Differences were found, please check the diff by running yarn diff:ecl eu link
 
@@ -272,11 +272,7 @@ Comparing menu--en.php.html with ECL markup from https://ec.europa.eu/component-
 
 ## Checking component: message - (eu)
 
-Comparing message--error.php.html with ECL markup from https://ec.europa.eu/component-library/v2.31.0/playground/eu/?path=/story/components-messages--error:
-
-> Perfectly matching!
-
-Comparing message--success.php.html with ECL markup from https://ec.europa.eu/component-library/v2.31.0/playground/eu/?path=/story/components-messages--success:
+Comparing message--warning.php.html with ECL markup from https://ec.europa.eu/component-library/v2.31.0/playground/eu/?path=/story/components-messages--warning:
 
 > Perfectly matching!
 
@@ -284,7 +280,11 @@ Comparing message--info.php.html with ECL markup from https://ec.europa.eu/compo
 
 > Perfectly matching!
 
-Comparing message--warning.php.html with ECL markup from https://ec.europa.eu/component-library/v2.31.0/playground/eu/?path=/story/components-messages--warning:
+Comparing message--error.php.html with ECL markup from https://ec.europa.eu/component-library/v2.31.0/playground/eu/?path=/story/components-messages--error:
+
+> Perfectly matching!
+
+Comparing message--success.php.html with ECL markup from https://ec.europa.eu/component-library/v2.31.0/playground/eu/?path=/story/components-messages--success:
 
 > Perfectly matching!
 
@@ -295,6 +295,10 @@ Comparing ordered-list--text.php.html with ECL markup from https://ec.europa.eu/
 > Perfectly matching!
 
 ## Checking component: page-banner - (eu)
+
+Comparing page-banner--primary.php.html with ECL markup from https://ec.europa.eu/component-library/v2.31.0/playground/eu/?path=/story/components-banners-page-banner--primary:
+
+> Differences were found, please check the diff by running yarn diff:ecl eu page-banner
 
 Comparing page-banner--align-left.php.html with ECL markup from https://ec.europa.eu/component-library/v2.31.0/playground/eu/?path=/story/components-banners-page-banner--align-left:
 
@@ -312,17 +316,21 @@ Comparing page-banner--image.php.html with ECL markup from https://ec.europa.eu/
 
 > Differences were found, please check the diff by running yarn diff:ecl eu page-banner
 
-Comparing page-banner--primary.php.html with ECL markup from https://ec.europa.eu/component-library/v2.31.0/playground/eu/?path=/story/components-banners-page-banner--primary:
-
-> Differences were found, please check the diff by running yarn diff:ecl eu page-banner
-
 ## Checking component: page-header - (eu)
+
+Comparing page-header--branded-homepage-image.php.html with ECL markup from https://ec.europa.eu/component-library/v2.31.0/playground/eu/?path=/story/page-structure-pageheader--branded-homepage-image:
+
+> Differences were found, please check the diff by running yarn diff:ecl eu page-header
 
 Comparing page-header--basic.php.html with ECL markup from https://ec.europa.eu/component-library/v2.31.0/playground/eu/?path=/story/page-structure-pageheader--basic:
 
 > Differences were found, please check the diff by running yarn diff:ecl eu page-header
 
 Comparing page-header--branded-homepage.php.html with ECL markup from https://ec.europa.eu/component-library/v2.31.0/playground/eu/?path=/story/page-structure-pageheader--branded-homepage:
+
+> Differences were found, please check the diff by running yarn diff:ecl eu page-header
+
+Comparing page-header--events-description.php.html with ECL markup from https://ec.europa.eu/component-library/v2.31.0/playground/eu/?path=/story/page-structure-pageheader--events-description:
 
 > Differences were found, please check the diff by running yarn diff:ecl eu page-header
 
@@ -338,19 +346,7 @@ Comparing page-header--homepage-image.php.html with ECL markup from https://ec.e
 
 > Differences were found, please check the diff by running yarn diff:ecl eu page-header
 
-Comparing page-header--events-description.php.html with ECL markup from https://ec.europa.eu/component-library/v2.31.0/playground/eu/?path=/story/page-structure-pageheader--events-description:
-
-> Differences were found, please check the diff by running yarn diff:ecl eu page-header
-
-Comparing page-header--branded-homepage-image.php.html with ECL markup from https://ec.europa.eu/component-library/v2.31.0/playground/eu/?path=/story/page-structure-pageheader--branded-homepage-image:
-
-> Differences were found, please check the diff by running yarn diff:ecl eu page-header
-
 ## Checking component: page-header-core - (eu)
-
-Comparing page-header-core--meta-title.php.html with ECL markup from https://ec.europa.eu/component-library/v2.31.0/playground/eu/?path=/story/components-page-headers-core--meta-title:
-
-> Differences were found, please check the diff by running yarn diff:ecl eu page-header-core
 
 Comparing page-header-core--meta-title-description.php.html with ECL markup from https://ec.europa.eu/component-library/v2.31.0/playground/eu/?path=/story/components-page-headers-core--meta-title-description:
 
@@ -360,9 +356,13 @@ Comparing page-header-core--title.php.html with ECL markup from https://ec.europ
 
 > Differences were found, please check the diff by running yarn diff:ecl eu page-header-core
 
+Comparing page-header-core--meta-title.php.html with ECL markup from https://ec.europa.eu/component-library/v2.31.0/playground/eu/?path=/story/components-page-headers-core--meta-title:
+
+> Differences were found, please check the diff by running yarn diff:ecl eu page-header-core
+
 ## Checking component: page-header-harmonised - (eu)
 
-Comparing page-header-harmonised--title.php.html with ECL markup from https://ec.europa.eu/component-library/v2.31.0/playground/eu/?path=/story/components-page-headers-harmonised--title:
+Comparing page-header-harmonised--meta-title-description.php.html with ECL markup from https://ec.europa.eu/component-library/v2.31.0/playground/eu/?path=/story/components-page-headers-harmonised--meta-title-description:
 
 > Differences were found, please check the diff by running yarn diff:ecl eu page-header-harmonised
 
@@ -370,17 +370,17 @@ Comparing page-header-harmonised--meta-title.php.html with ECL markup from https
 
 > Differences were found, please check the diff by running yarn diff:ecl eu page-header-harmonised
 
-Comparing page-header-harmonised--meta-title-description.php.html with ECL markup from https://ec.europa.eu/component-library/v2.31.0/playground/eu/?path=/story/components-page-headers-harmonised--meta-title-description:
+Comparing page-header-harmonised--title.php.html with ECL markup from https://ec.europa.eu/component-library/v2.31.0/playground/eu/?path=/story/components-page-headers-harmonised--title:
 
 > Differences were found, please check the diff by running yarn diff:ecl eu page-header-harmonised
 
 ## Checking component: page-header-standardised - (eu)
 
-Comparing page-header-standardised--meta-title.php.html with ECL markup from https://ec.europa.eu/component-library/v2.31.0/playground/eu/?path=/story/components-page-headers-standardised--meta-title:
+Comparing page-header-standardised--meta-title-description.php.html with ECL markup from https://ec.europa.eu/component-library/v2.31.0/playground/eu/?path=/story/components-page-headers-standardised--meta-title-description:
 
 > Differences were found, please check the diff by running yarn diff:ecl eu page-header-standardised
 
-Comparing page-header-standardised--meta-title-description.php.html with ECL markup from https://ec.europa.eu/component-library/v2.31.0/playground/eu/?path=/story/components-page-headers-standardised--meta-title-description:
+Comparing page-header-standardised--meta-title.php.html with ECL markup from https://ec.europa.eu/component-library/v2.31.0/playground/eu/?path=/story/components-page-headers-standardised--meta-title:
 
 > Differences were found, please check the diff by running yarn diff:ecl eu page-header-standardised
 
@@ -412,13 +412,13 @@ Comparing search-form.php.html with ECL markup from https://ec.europa.eu/compone
 
 ## Checking component: select - (eu)
 
-Comparing select--single.php.html with ECL markup from https://ec.europa.eu/component-library/v2.31.0/playground/eu/?path=/story/components-forms-select--default:
-
-> Perfectly matching!
-
 Comparing select--multiple.php.html with ECL markup from https://ec.europa.eu/component-library/v2.31.0/playground/eu/?path=/story/components-forms-select--multiple:
 
 > Differences were found, please check the diff by running yarn diff:ecl eu select
+
+Comparing select--single.php.html with ECL markup from https://ec.europa.eu/component-library/v2.31.0/playground/eu/?path=/story/components-forms-select--default:
+
+> Perfectly matching!
 
 ## Checking component: site-header - (eu)
 
@@ -442,11 +442,11 @@ Comparing site-header-core--en.php.html with ECL markup from https://ec.europa.e
 
 ## Checking component: site-header-harmonised - (eu)
 
-Comparing site-header-harmonised--en.php.html with ECL markup from https://ec.europa.eu/component-library/v2.31.0/playground/eu/?path=/story/components-site-headers-core--translated:
+Comparing site-header-harmonised--fr.php.html with ECL markup from https://ec.europa.eu/component-library/v2.31.0/playground/eu/?path=/story/components-site-headers-core--translated:
 
 > Differences were found, please check the diff by running yarn diff:ecl eu site-header-harmonised
 
-Comparing site-header-harmonised--fr.php.html with ECL markup from https://ec.europa.eu/component-library/v2.31.0/playground/eu/?path=/story/components-site-headers-core--translated:
+Comparing site-header-harmonised--en.php.html with ECL markup from https://ec.europa.eu/component-library/v2.31.0/playground/eu/?path=/story/components-site-headers-core--translated:
 
 > Differences were found, please check the diff by running yarn diff:ecl eu site-header-harmonised
 
@@ -526,11 +526,11 @@ Comparing unordered-list--link-no-bullet.php.html with ECL markup from https://e
 
 > Differences were found, please check the diff by running yarn diff:ecl eu unordered-list
 
-Comparing unordered-list--link.php.html with ECL markup from https://ec.europa.eu/component-library/v2.31.0/playground/eu/?path=/story/components-list--unordered:
+Comparing unordered-list--description.php.html with ECL markup from https://ec.europa.eu/component-library/v2.31.0/playground/eu/?path=/story/components-list--unordered:
 
 > Differences were found, please check the diff by running yarn diff:ecl eu unordered-list
 
-Comparing unordered-list--description.php.html with ECL markup from https://ec.europa.eu/component-library/v2.31.0/playground/eu/?path=/story/components-list--unordered:
+Comparing unordered-list--link-divider.php.html with ECL markup from https://ec.europa.eu/component-library/v2.31.0/playground/eu/?path=/story/components-list--unordered:
 
 > Differences were found, please check the diff by running yarn diff:ecl eu unordered-list
 
@@ -538,7 +538,7 @@ Comparing unordered-list--text.php.html with ECL markup from https://ec.europa.e
 
 > Perfectly matching!
 
-Comparing unordered-list--link-divider.php.html with ECL markup from https://ec.europa.eu/component-library/v2.31.0/playground/eu/?path=/story/components-list--unordered:
+Comparing unordered-list--link.php.html with ECL markup from https://ec.europa.eu/component-library/v2.31.0/playground/eu/?path=/story/components-list--unordered:
 
 > Differences were found, please check the diff by running yarn diff:ecl eu unordered-list
 

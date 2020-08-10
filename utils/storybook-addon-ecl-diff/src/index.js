@@ -2,10 +2,15 @@ import addons, { makeDecorator } from '@storybook/addons';
 import marked from 'marked';
 
 const renderer = new marked.Renderer();
-let res = '';
+renderer.blockquote = (text) => {
+  if (text.includes('Perfectly')) {
+    return `<blockquote class="matches"><p>${text}</p></blockquote>`;
+  }
+  return `<blockquote class="differences"><p>${text}</p></blockquote>`;
+};
 
-function renderMarkdown(text) {
-  return marked(text, { ...marked.defaults, renderer });
+function renderMarkdown(text, options) {
+  return marked(text, { ...marked.defaults, renderer, ...options });
 }
 
 export const withEclDiff = makeDecorator({
@@ -16,15 +21,15 @@ export const withEclDiff = makeDecorator({
     const channel = addons.getChannel();
     const storyOptions = parameters || options;
 
-    const { eclDiff } =
+    const { eclDiff, markdownOptions } =
       typeof storyOptions === 'string'
-        ? { jsmarkup: storyOptions }
+        ? { eclDiff: storyOptions }
         : storyOptions;
 
     if (!eclDiff) {
       throw new Error('You must set `eclDiff` on the `eclDiff` parameter');
     }
-    res = renderMarkdown(eclDiff);
+    const res = renderMarkdown(eclDiff, markdownOptions);
 
     channel.emit('ecl/ecl_diff/add_code', res);
 
@@ -32,7 +37,8 @@ export const withEclDiff = makeDecorator({
   },
 });
 
-export const withEclMarkupDiff = (text) =>
+export const withEclMarkupDiff = (text, options) =>
   withEclDiff({
     eclDiff: text,
+    markdownOptions: options,
   });

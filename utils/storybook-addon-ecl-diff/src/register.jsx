@@ -2,30 +2,16 @@ import React from 'react';
 import addons from '@storybook/addons';
 import styled from '@emotion/styled';
 
-const CodePanel = styled.div({
-  margin: 0,
+const Panel = styled.div({
+  padding: 10,
+  boxSizing: 'border-box',
   width: '100%',
-  height: '100%',
-  overflow: 'auto',
-  fontSize: '1rem',
-  display: 'flex',
-});
-
-const Pre = styled.pre({
-  backgroundColor: '#272822',
-  margin: '0 !important',
-  paddingTop: '4rem !important',
-  borderRadius: '0 !important',
-  flexGrow: 1,
-    color: '#f8f8f2',
 });
 
 class HTMLMarkup extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      code: ''
-    };
+    this.state = { html: '' };
 
     this.onAddHTMLMarkup = this.onAddHTMLMarkup.bind(this);
 
@@ -59,24 +45,26 @@ class HTMLMarkup extends React.Component {
     channel.removeListener('ecl/ecl_diff/add_code', this.onAddHTMLMarkup);
   }
 
-  onAddHTMLMarkup(code) {
-    this.setState({ code });
+  onAddHTMLMarkup(html) {
+    this.setState({ html });
   }
 
   render() {
-    const { code: rawCode } = this.state;
     // eslint-disable-next-line react/prop-types
     const { active } = this.props;
+    const { html } = this.state;
+    const textAfterFormatted = html
+      ? html
+          .trim()
+          .replace(/(<\S+.*>)\n/g, '$1')
+          .replace(/\n/g, '<br />')
+      : '';
 
-    let code = rawCode;
     return active ? (
-      <CodePanel>
-        <Pre>
-          <code className="language-text" ref={this.setCodeRef}>
-            {code}
-          </code>
-        </Pre>
-      </CodePanel>
+      <Panel
+        className="addon-ecl-diff-container"
+        dangerouslySetInnerHTML={{ __html: textAfterFormatted }}
+      />
     ) : null;
   }
 }

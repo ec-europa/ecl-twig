@@ -67,5 +67,5 @@ if (systems.length > 1) {
       process.exit(0);
     });
 } else {
-  eclDiffSystem(systems[0]);
+  eclDiffSystem(systems[0], components);
 }
