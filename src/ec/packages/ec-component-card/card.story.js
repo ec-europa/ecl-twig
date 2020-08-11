@@ -34,13 +34,7 @@ const prepareCard = (data) => {
     data.card.title.label,
     tabLabels.required
   );
-  data.icon_path = optionsKnob(
-    'icon_path',
-    { current: defaultSprite, 'no path': '' },
-    defaultSprite,
-    { display: 'inline-radio' },
-    tabLabels.optional
-  );
+
   if (data.card.title.type) {
     data.card.title.type = text(
       'card.title.type',
@@ -84,6 +78,12 @@ const prepareCard = (data) => {
           `infos[${i}].icon.type`,
           [info.icon.type],
           info.icon.type,
+          tabLabels.optional
+        );
+        info.icon.size = select(
+          `infos[${i}].icon.size`,
+          ['xl', 'm', 's', 'xs', '2xs'],
+          info.icon.size,
           tabLabels.optional
         );
       }
