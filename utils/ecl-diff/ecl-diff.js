@@ -269,7 +269,7 @@ yargsInteractive()
             if (el === 'site-header') {
               el = 'site-header-ecl-2-12-0';
             }
-            if (el === 'page-header') {
+            if (el === 'pageheader') {
               el = 'page-header-ecl-2-14-0';
             }
           }

@@ -138,7 +138,7 @@
           {% if info.icon is defined and info.icon is not empty %}
             {% set _icon = info.icon|merge({ size: 'xs' }) %}
             {% if _icon_path is not empty %}
-              {% set _icon = info.icon|merge({ path: _icon_path }) %}
+              {% set _icon = _icon|merge({ path: _icon_path }) %}
             {% else %}
               {% set _icon_path = _icon.path|default('') %}
             {% endif %}
