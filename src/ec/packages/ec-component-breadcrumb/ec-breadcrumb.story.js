@@ -42,7 +42,7 @@ const prepareBreadcrumb = (data) => {
 };
 
 export default {
-  title: 'Components/Navigation/Breadcrumb',
+  title: 'Components/deprecated/Breadcrumb',
   decorators: [withKnobs, withNotes, withCode],
 };
 
