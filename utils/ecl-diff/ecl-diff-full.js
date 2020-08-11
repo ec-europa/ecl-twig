@@ -32,12 +32,7 @@ const exclusions = [
   'ec-components',
 ];
 // And some only for EU.
-const euExclusions = new Set([
-  ...exclusions,
-  'accordion',
-  'footer',
-  'menu-legacy',
-]);
+const euExclusions = [...exclusions, 'accordion', 'footer', 'menu-legacy'];
 
 const ecPackages = packages.filter((el) => !exclusions.includes(el));
 const euPackages = packages.filter((el) => !euExclusions.has(el));
