@@ -40,6 +40,10 @@ The components released by ECL-Twig are node packages containing at least one `.
 
 The [ECL-Twig JS](https://ecl-twig-js.netlify.com) website can be used to customize a component through "knobs". (interactive fields) Such tweaks provide valid include code in the "notes" tab. The website offers also a demo of the `ECL compliance` tool available in the library, in the "validation" tab.
 
+<details>
+  <img src="docs/gifs/blockquote.gif" width="988" height="562" />
+</details>
+
 ## Documentation
 
 Read the technical documentation [on GitHub](docs).
