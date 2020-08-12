@@ -38,7 +38,7 @@ Also the support to Edge is limited to the latest releases.
 
 The components released by ECL-Twig are node packages containing at least one `.html.twig` file (the component templates) and a `README.md` file with the documentation of the data structure supported by the component and an example of an include code for the template.
 
-The [ECL-Twig Js](https://ecl-twig-js.netlify.com) website can be used to fully customise a component through the available "knobs" (interactive fields) for then getting a valid include code in the "notes" tab, the website offers also a demo of the `ECL compliance` tool available in the library, in the "validation" tab.
+The [ECL-Twig JS](https://ecl-twig-js.netlify.com) website can be used to customize a component through "knobs". (interactive fields) Such tweaks provide valid include code in the "notes" tab. The website offers also a demo of the `ECL compliance` tool available in the library, in the "validation" tab.
 
 ## Documentation
 
