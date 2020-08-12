@@ -5,7 +5,6 @@ if (process.env.STORYBOOK_SYSTEM === 'EU') {
 const stories = [`../../packages/${system}/**/*.story.js`];
 
 const addons = [
-  '@storybook/addon-options',
   '@storybook/addon-viewport',
   '@ecl-twig/storybook-addon-notes/src/register',
   '@ecl-twig/storybook-addon-code/src/register',
