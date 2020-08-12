@@ -9,7 +9,7 @@ ECL is a library of components applicable to all European Commission websites (h
 
 For information on how to use the ECL library please refer to the information available in the [ECL docs](https://github.com/ec-europa/europa-component-library/blob/v2-dev/docs/README.md)
 
-The twig implementation of the ECL components is meanly meant to serve [Drupal 8](http://drupal.org) applications, therefore the version of twig in use is "1.x".
+The twig implementation of the ECL components is mainly meant to serve [Drupal 8](http://drupal.org) applications, therefore the version of twig in use is "1.x".
 
 ## EC/EU
 
