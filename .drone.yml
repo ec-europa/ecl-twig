@@ -1,23 +1,23 @@
 pipeline:
   dependencies:
-    image: node:dubnium
+    image: node:erbium
     commands:
       - ./scripts/check-lockfile.sh
 
   lint:
     group: tests
-    image: node:dubnium
+    image: node:erbium
     commands:
       - yarn lint && yarn pretty:check
 
   jest:
     group: tests
-    image: node:dubnium
+    image: node:erbium
     commands:
       - yarn jest
 
   check-build:
-    image: node:dubnium
+    image: node:erbium
     secrets: [gh_token]
     commands: node scripts/failcheck.js
     when:
@@ -25,7 +25,7 @@ pipeline:
 
   deploy-twigjs-preview:
     group: previews
-    image: node:dubnium
+    image: node:erbium
     secrets: [gh_token, netlify_auth_token, netlify_js_site_id]
     commands:
       - yarn twing:clean
@@ -42,7 +42,7 @@ pipeline:
           - master
 
   deploy-prod-js:
-    image: node:dubnium
+    image: node:erbium
     secrets: [gh_token, netlify_auth_token, netlify_js_site_id]
     commands:
       - yarn twing:clean
