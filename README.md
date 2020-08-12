@@ -19,7 +19,8 @@ Although they may differ in style, in the current v2 version, the HTML markup is
 
 ## The ECL-Twig website(s)
 
-ECL-Twig is capable of rendering the twig templates using both a javascript implementation of twig (twing) and twig as a php package.
+ECL-Twig is capable of rendering twig templates using both a javascript implementation of twig (twing) and twig as a php package.
+Two different instances of [Storybook](http://storybookjs.org) are distributed:
 Two different instances of [Storybook](http://storybookjs.org) are distributed:
 
 - [ECL-Twig JS](https://ecl-twig-js.netlify.com) - interactive (renders the twig templates)
