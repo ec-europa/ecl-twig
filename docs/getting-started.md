@@ -119,27 +119,29 @@ yarn jest-update
 Check the rendering of a single component in php and js and diff the resulting templates:
 
 ```bash
-yarn check:component "system(ec/eu)" "componentName"
+yarn check:component (ec/eu) (componentName)
 ```
+
+#### The commands below rely on the existence of the php filesystem: `yarn render-php-js`
 
 Diff the existing templates
 
 ```bash
-yarn diff "ec or eu"
+yarn diff (ec|eu)
 ```
 
 Diff a component rendered via php with the ECL markup
 (interactive script that fetches the html from the ECl storybook and matches that with the right variant rendered via php)
 
 ```bash
-yarn diff:ecl "ec or eu"
+yarn diff:ecl (ec|eu)
 
 ```
 
 Make a diff between all the available variants files and the ECL markup for the corresponding variants.
 
 ```bash
-yarn diff:ecl-full "ec or eu"
+yarn diff:ecl-full (ec|eu)
 ```
 
 ## Dist
@@ -209,7 +211,7 @@ yarn render:js
 All these commands can be executed at once passing the generated files through prettier:
 
 ```bash
-yarn render-php-js "ec or eu"
+yarn render-php-js (ec|eu)
 ```
 
 The whole process of installing the dependencies, generating the needed files, then linting them and finally launching a storybook instance on port 9002 is done by:
