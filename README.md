@@ -13,7 +13,7 @@ The twig implementation of the ECL components is mainly meant to serve [Drupal 8
 
 ## EC/EU
 
-ECL is a library used both for EC (European Commission) and EU (European Union) websites, it comes indeed with two sets of distributes resources (css, js) for the two institutions.
+ECL is a library used both for EC (European Commission) and EU (European Union) websites, it comes with two sets of distributes resources (css, js) for the two institutions.
 
 Although they may differ in style, in the current v2 version, the HTML markup is the same. ECL-Twig is shipping one single component that can be used while working on both EC and EU website. Templates are not system-aware because they don't need to be.
 
