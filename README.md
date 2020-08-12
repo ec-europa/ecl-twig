@@ -23,7 +23,7 @@ ECL-Twig is capable of rendering the twig templates using both a javascript impl
 Two different instances of [Storybook](http://storybookjs.org) are distributed:
 
 - [ECL-Twig JS](https://ecl-twig-js.netlify.com) - interactive (renders the twig templates)
-- [ECL-Twig Php](https://ecl-twig-php.netlify.com) - static (renders html files)
+- [ECL-Twig PHP](https://ecl-twig-php.netlify.com) - static (renders html files)
 
 The two versions EC/EU are available as a separated storybook instance in the two websites, the first page offers a simple choice between the two.
 
