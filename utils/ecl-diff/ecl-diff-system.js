@@ -31,7 +31,7 @@ module.exports = (system, components) => {
         // Write the full report for the given system.
         try {
           fs.writeFileSync(
-            `${rootFolder}/docs/ecl-diff/ecl-diff-${system}-${res[0].version}.md`,
+            `${rootFolder}/docs/ecl-diff/${system}/${res[0].version}.md`,
             markdown
           );
         } catch (error) {
