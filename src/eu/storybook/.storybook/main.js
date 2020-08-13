@@ -1,3 +1,4 @@
+const webPackFinal = require('./webpack.config.js');
 // We actually point at the EC templates.
 const stories = [
   `../../../ec/packages/**/!(*contextual-navigation|ec*).story.js`,
@@ -10,11 +11,13 @@ const addons = [
   '@storybook/addon-knobs',
 ];
 
-const managerWebpack = async (baseConfig) => {
-  // Exclude node_modules
-  baseConfig.module.rules[0].exclude = /node_modules\/(?!@ecl-twig\/).*/;
-
-  return baseConfig;
+module.exports = {
+  stories,
+  addons,
+  webPackFinal: (config) => {
+    return {
+      ...config,
+      module: { ...config.module, rules: webPackFinal.module.rules },
+    };
+  },
 };
-
-module.exports = { stories, addons, managerWebpack };

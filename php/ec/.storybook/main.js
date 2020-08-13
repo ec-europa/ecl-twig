@@ -1,3 +1,5 @@
+const webPackFinal = require('./webpack.config.js');
+
 let system = 'ec';
 if (process.env.STORYBOOK_SYSTEM === 'EU') {
   system = 'eu';
@@ -12,11 +14,13 @@ const addons = [
   '@ecl-twig/storybook-addon-diff/src/register',
 ];
 
-const managerWebpack = async baseConfig => {
-  // Exclude node_modules
-  baseConfig.module.rules[0].exclude = /node_modules\/(?!@ecl-twig\/).*/;
-
-  return baseConfig;
+module.exports = {
+  stories,
+  addons,
+  webPackFinal: (config) => {
+    return {
+      ...config,
+      module: { ...config.module, rules: webPackFinal.module.rules },
+    };
+  },
 };
-
-module.exports = { stories, addons, managerWebpack };

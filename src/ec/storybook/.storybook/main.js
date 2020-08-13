@@ -1,3 +1,4 @@
+const webPackFinal = require('./webpack.config.js');
 const stories = ['../../packages/**/!(*contextual-navigation|eu*).story.js'];
 
 const addons = [
@@ -7,11 +8,13 @@ const addons = [
   '@storybook/addon-knobs',
 ];
 
-const managerWebpack = async (baseConfig) => {
-  // Exclude node_modules
-  baseConfig.module.rules[0].exclude = /node_modules\/(?!@ecl-twig\/).*/;
-
-  return baseConfig;
+module.exports = {
+  stories,
+  addons,
+  webPackFinal: (config) => {
+    return {
+      ...config,
+      module: { ...config.module, rules: webPackFinal.module.rules },
+    };
+  },
 };
-
-module.exports = { stories, addons, managerWebpack };
