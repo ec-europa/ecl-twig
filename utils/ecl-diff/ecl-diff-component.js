@@ -12,7 +12,7 @@ const distFolder = `${rootFolder}/php`;
 const getData = (component, system) => {
   const systemFolder = `${distFolder}/packages/${system}`;
   const twigFullPath = `${systemFolder}/${component}`;
-  const twigFilesFolder = fs.readdirSync(`${twigFullPath}`);
+  const twigFilesFolder = fs.readdirSync(twigFullPath);
   const twigFiles = twigFilesFolder.filter((elm) => {
     return elm.match(/.*\.(php.html)/gi);
   });
