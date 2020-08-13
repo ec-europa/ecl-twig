@@ -1,7 +1,5 @@
 #!/usr/bin/env node
 
-/* eslint-disable default-case, no-param-reassign */
-
 let eclPath = '';
 
 const eclComponents = (component, variant, system) => {

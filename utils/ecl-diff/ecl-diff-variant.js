@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-/* eslint-disable no-console, consistent-return, no-await-in-loop, import/no-dynamic-require, no-async-promise-executor */
+/* eslint-disable consistent-return, no-await-in-loop, import/no-dynamic-require, no-async-promise-executor */
 
 const fs = require('fs');
 const logger = require('html-differ/lib/logger');

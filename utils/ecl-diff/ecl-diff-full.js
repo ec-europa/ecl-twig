@@ -1,7 +1,5 @@
 #!/usr/bin/env node
 
-/* eslint-disable no-console, unicorn/no-reduce, no-param-reassign */
-
 const eclDiffSystem = require('./ecl-diff-system.js');
 
 const fullPackages = require(`@ecl-twig/ec-storybook/.storybook/packages.js`)

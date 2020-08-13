@@ -1,7 +1,5 @@
 #!/usr/bin/env node
 
-/* eslint-disable no-console, no-param-reassign */
-
 const prettier = require('prettier');
 const fs = require('fs');
 const eclDiffVariant = require('./ecl-diff-variant.js');
@@ -13,12 +11,12 @@ const getData = (component, system) => {
   const systemFolder = `${distFolder}/packages/${system}`;
   const twigFullPath = `${systemFolder}/${component}`;
   const twigFilesFolder = fs.readdirSync(twigFullPath);
-const twigFiles = twigFilesFolder.filter((elm) => elm.match(/.*\.(php.html)/gi));
-    return elm.match(/.*\.(php.html)/gi);
-  });
+  const twigFiles = twigFilesFolder.filter((elm) =>
+    elm.match(/.*\.(php.html)/gi)
+  );
 
   const variants = [];
-  twigFiles.forEach(async (twigFile) => {
+  twigFiles.forEach((twigFile) => {
     const variant = twigFile.includes('--')
       ? twigFile.replace(`${component}--`, '').slice(0, -9)
       : 'default';

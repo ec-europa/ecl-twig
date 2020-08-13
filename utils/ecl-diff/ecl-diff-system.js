@@ -1,7 +1,5 @@
 #!/usr/bin/env node
 
-/* eslint-disable no-console, unicorn/no-reduce */
-
 const fs = require('fs');
 const prettier = require('prettier');
 const eclDiffComponent = require('./ecl-diff-component.js');
