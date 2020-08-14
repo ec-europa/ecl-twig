@@ -1,4 +1,5 @@
 const webPackFinal = require('./webpack.config.js');
+
 const stories = ['../../packages/**/!(*contextual-navigation|eu*).story.js'];
 
 const addons = [

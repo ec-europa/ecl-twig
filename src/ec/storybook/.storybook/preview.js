@@ -9,7 +9,7 @@ addParameters({
       base: 'light',
       brandTitle: `ECL-Twig EC v${version}`,
       brandUrl: 'https://github.com/ec-europa/ecl-twig',
-      brandImage: null,
+      brandImage: undefined,
     }),
     sidebarAnimations: false,
   },
