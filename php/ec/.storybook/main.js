@@ -1,4 +1,4 @@
-const webPackFinal = require('./webpack.config.js');
+const path = require('path');
 
 let system = 'ec';
 if (process.env.STORYBOOK_SYSTEM === 'EU') {
@@ -14,13 +14,20 @@ const addons = [
   '@ecl-twig/storybook-addon-diff/src/register',
 ];
 
+const webpackFinal = (config) => {
+  // Trick "babel-loader", force it to transpile @ecl-twig addons
+  config.module.rules[0].exclude = /node_modules\/(?!@ecl-twig\/).*/;
+  config.plugins.forEach((plugin, i) => {
+    if (plugin.constructor.name === 'ProgressPlugin') {
+      config.plugins.splice(i, 1);
+    }
+  });
+
+  return config;
+};
+
 module.exports = {
   stories,
   addons,
-  webPackFinal: (config) => {
-    return {
-      ...config,
-      module: { ...config.module, rules: webPackFinal.module.rules },
-    };
-  },
+  webpackFinal,
 };
