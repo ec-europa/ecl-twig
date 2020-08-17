@@ -65,20 +65,10 @@ export default {
 
 export const Vertical = () => descriptionList(prepareList(specs));
 
-Vertical.story = {
-  name: 'vertical',
-
-  parameters: {
-    notes: { markdown: notes, json: specs },
-  },
-};
+Vertical.storyName = 'vertical';
+Vertical.parameters = { notes: { markdown: notes, json: specs } };
 
 export const Horizontal = () => descriptionList(prepareList(specsHorizontal));
 
-Horizontal.story = {
-  name: 'horizontal',
-
-  parameters: {
-    notes: { markdown: notes, json: specsHorizontal },
-  },
-};
+Horizontal.storyName = 'horizontal';
+Horizontal.parameters = { notes: { markdown: notes, json: specsHorizontal } };

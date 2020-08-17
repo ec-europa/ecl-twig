@@ -126,11 +126,8 @@ export const Columns3 = () => {
   return factFigures(prepareFactFigures(data3));
 };
 
-Columns3.story = {
-  parameters: {
-    notes: { markdown: notes, json: data3 },
-  },
-};
+Columns3.storyName = '3 Columns';
+Columns3.parameters = { notes: { markdown: notes, json: data3 } };
 
 export const Columns4 = () => {
   button('With or without view_links', viewAll4Toggler, tabLabels.cases);
@@ -139,8 +136,5 @@ export const Columns4 = () => {
   return factFigures(prepareFactFigures(data4));
 };
 
-Columns4.story = {
-  parameters: {
-    notes: { markdown: notes, json: data4 },
-  },
-};
+Columns4.storyName = '4 Columns';
+Columns4.parameters = { notes: { markdown: notes, json: data4 } };

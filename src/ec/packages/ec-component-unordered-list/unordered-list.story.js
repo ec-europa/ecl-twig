@@ -52,42 +52,22 @@ export default {
 
 export const Default = () => unorderedList(prepareUnorderedList(dataDefault));
 
-Default.story = {
-  name: 'default',
-
-  parameters: {
-    notes: { markdown: notes, json: dataDefault },
-  },
-};
+Default.storyName = 'default';
+Default.parameters = { notes: { markdown: notes, json: dataDefault } };
 
 export const Divider = () =>
   unorderedList(prepareUnorderedList(dataLinkDivider));
 
-Divider.story = {
-  name: 'with divider',
-
-  parameters: {
-    notes: { markdown: notes, json: dataLinkDivider },
-  },
-};
+Divider.storyName = 'with divider';
+Divider.parameters = { notes: { markdown: notes, json: dataLinkDivider } };
 
 export const Links = () => unorderedList(prepareUnorderedList(dataLink));
 
-Links.story = {
-  name: 'with links',
-
-  parameters: {
-    notes: { markdown: notes },
-  },
-};
+Links.storyName = 'with links';
+Links.parameters = { notes: { markdown: notes } };
 
 export const NoBullet = () =>
   unorderedList(prepareUnorderedList(dataLinkNoBullet));
 
-NoBullet.story = {
-  name: 'no bullet',
-
-  parameters: {
-    notes: { markdown: notes },
-  },
-};
+NoBullet.storyName = 'no bullet';
+NoBullet.parameters = { notes: { markdown: notes } };

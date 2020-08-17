@@ -124,40 +124,20 @@ export default {
 
 export const Card = () => card(prepareCard(dataCard));
 
-Card.story = {
-  name: 'card',
-
-  parameters: {
-    notes: { markdown: notes, json: dataCard },
-  },
-};
+Card.storyName = 'card';
+Card.parameters = { notes: { markdown: notes, json: dataCard } };
 
 export const Tile = () => card(prepareCard(dataCardTile));
 
-Tile.story = {
-  name: 'tile',
-
-  parameters: {
-    notes: { markdown: notes, json: dataCardTile },
-  },
-};
+Tile.storyName = 'tile';
+Tile.parameters = { notes: { markdown: notes, json: dataCardTile } };
 
 export const Tag = () => card(prepareCard(dataCardTag));
 
-Tag.story = {
-  name: 'tag',
-
-  parameters: {
-    notes: { markdown: notes, json: dataCardTag },
-  },
-};
+Tag.storyName = 'tag';
+Tag.parameters = { notes: { markdown: notes, json: dataCardTag } };
 
 export const Event = () => card(prepareCard(dataCardEvent));
 
-Event.story = {
-  name: 'event',
-
-  parameters: {
-    notes: { markdown: notes, json: dataCardEvent },
-  },
-};
+Event.storyName = 'event';
+Event.parameters = { notes: { markdown: notes, json: dataCardEvent } };

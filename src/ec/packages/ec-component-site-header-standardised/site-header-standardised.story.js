@@ -176,13 +176,8 @@ export const Default = () => {
   return siteHeaderStandardised(dataStory);
 };
 
-Default.story = {
-  name: 'default',
-
-  parameters: {
-    notes: { markdown: notes, json: enData },
-  },
-};
+Default.storyName = 'default';
+Default.parameters = { notes: { markdown: notes, json: enData } };
 
 export const LoggedIn = () => {
   button(btnLangLabel, enBtnLangHandler, tabLabels.cases);
@@ -192,13 +187,8 @@ export const LoggedIn = () => {
   return siteHeaderStandardised(dataStory);
 };
 
-LoggedIn.story = {
-  name: 'logged in',
-
-  parameters: {
-    notes: { markdown: notes, json: enData },
-  },
-};
+LoggedIn.storyName = 'logged in';
+LoggedIn.parameters = { notes: { markdown: notes, json: enData } };
 
 export const Translated = () => {
   button(btnLangLabel, frBtnLangHandler, tabLabels.cases);
@@ -208,10 +198,5 @@ export const Translated = () => {
   return siteHeaderStandardised(dataStory);
 };
 
-Translated.story = {
-  name: 'translated',
-
-  parameters: {
-    notes: { markdown: notes, json: frData },
-  },
-};
+Translated.storyName = 'translated';
+Translated.parameters = { notes: { markdown: notes, json: frData } };

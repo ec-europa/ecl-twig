@@ -1,18 +1,7 @@
 import { addParameters } from '@storybook/html';
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
-import { create } from '@storybook/theming';
-import { version } from '../../../../lerna.json';
 
 addParameters({
-  options: {
-    theme: create({
-      base: 'light',
-      brandTitle: `ECL-Twig EC v${version}`,
-      brandUrl: 'https://github.com/ec-europa/ecl-twig',
-      brandImage: undefined,
-    }),
-    sidebarAnimations: false,
-  },
   viewport: {
     defaultViewport: 'responsive',
     viewports: {

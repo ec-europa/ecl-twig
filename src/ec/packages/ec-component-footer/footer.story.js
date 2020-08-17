@@ -118,22 +118,12 @@ export default {
   decorators: [withCode, withNotes, withKnobs],
 };
 
-export const Ecl2120Corporate = () => footer(prepareFooter(dataCorporate));
+export const Corporate = () => footer(prepareFooter(dataCorporate));
 
-Ecl2120Corporate.story = {
-  name: 'ECL < 2.12.0 - corporate',
+Corporate.storyName = 'ECL < 2.12.0 - corporate';
+Corporate.parameters = { notes: { markdown: notes, json: dataCorporate } };
 
-  parameters: {
-    notes: { markdown: notes, json: dataCorporate },
-  },
-};
+export const Custom = () => footer(prepareFooter(dataCustom));
 
-export const Ecl2120Custom = () => footer(prepareFooter(dataCustom));
-
-Ecl2120Custom.story = {
-  name: 'ECL < 2.12.0 - custom',
-
-  parameters: {
-    notes: { markdown: notes, json: dataCustom },
-  },
-};
+Custom.storyName = 'ECL < 2.12.0 - custom';
+Custom.parameters = { notes: { markdown: notes, json: dataCustom } };

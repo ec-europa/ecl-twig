@@ -60,15 +60,10 @@ const prepareTimeline = (data) => {
 
 export default {
   title: 'Components/Timeline',
-  decorators: [withKnobs, withCode, withNotes],
 };
 
 export const Default = () => timeline(prepareTimeline(demoData));
 
-Default.story = {
-  name: 'default',
-
-  parameters: {
-    notes: { markdown: notes, json: demoData },
-  },
-};
+Default.storyName = 'default';
+Default.parameters = { notes: { markdown: notes, json: demoData } };
+Default.decorators = [withKnobs, withCode, withNotes];

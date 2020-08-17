@@ -58,20 +58,10 @@ export default {
 
 export const Simple = () => breadcrumb(prepareBreadcrumbCore(simpleData));
 
-Simple.story = {
-  name: 'simple',
-
-  parameters: {
-    notes: { markdown: notes, json: simpleData },
-  },
-};
+Simple.storyName = 'simple';
+Simple.parameters = { notes: { markdown: notes, json: simpleData } };
 
 export const Long = () => breadcrumb(prepareBreadcrumbCore(longData));
 
-Long.story = {
-  name: 'long',
-
-  parameters: {
-    notes: { markdown: notes, json: longData },
-  },
-};
+Long.storyName = 'long';
+Long.parameters = { notes: { markdown: notes, json: longData } };

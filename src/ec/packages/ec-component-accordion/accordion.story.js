@@ -47,15 +47,10 @@ const prepareAccordion = (data) => {
 
 export default {
   title: 'Components/deprecated/Accordion',
-  decorators: [withKnobs, withCode, withNotes],
 };
 
 export const Default = () => accordion(prepareAccordion(demoData));
 
-Default.story = {
-  name: 'ECL < 2.6.0 - default',
-
-  parameters: {
-    notes: { markdown: notes, json: demoData },
-  },
-};
+Default.storyName = 'ECL < 2.6.0 - default';
+Default.parameters = { notes: { markdown: notes, json: demoData } };
+Default.decorators = [withKnobs, withCode, withNotes];

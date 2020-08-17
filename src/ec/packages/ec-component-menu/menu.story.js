@@ -57,20 +57,10 @@ export default {
 
 export const Default = () => menu(prepareMenu(enData));
 
-Default.story = {
-  name: 'default',
-
-  parameters: {
-    notes: { markdown: notes, json: enData },
-  },
-};
+Default.storyName = 'default';
+Default.parameters = { notes: { markdown: notes, json: enData } };
 
 export const Translated = () => menu(prepareMenu(frData));
 
-Translated.story = {
-  name: 'translated',
-
-  parameters: {
-    notes: { markdown: notes, json: frData },
-  },
-};
+Translated.storyName = 'translated';
+Translated.parameters = { notes: { markdown: notes, json: frData } };

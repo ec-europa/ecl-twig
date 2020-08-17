@@ -72,7 +72,6 @@ const btnIdHandler = () => {
 
 export default {
   title: 'Components/Navigation/Inpage navigation',
-  decorators: [withNotes, withKnobs, withCode],
 };
 
 export const Default = () => {
@@ -108,10 +107,6 @@ export const Default = () => {
   return demo;
 };
 
-Default.story = {
-  name: 'default',
-
-  parameters: {
-    notes: { markdown: notes },
-  },
-};
+Default.storName = 'default';
+Default.parameters = { notes: { markdown: notes } };
+Default.decorators = [withNotes, withKnobs, withCode];

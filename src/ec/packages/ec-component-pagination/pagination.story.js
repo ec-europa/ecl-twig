@@ -97,15 +97,10 @@ const preparePagination = (data) => {
 
 export default {
   title: 'Components/Navigation/Pagination',
-  decorators: [withKnobs, withNotes, withCode],
 };
 
 export const Default = () => pagination(preparePagination(specs));
 
-Default.story = {
-  name: 'default',
-
-  parameters: {
-    notes: { markdown: notes, json: specs },
-  },
-};
+Default.storyName = 'default';
+Default.parameters = { notes: { markdown: notes, json: specs } };
+Default.decorators = [withKnobs, withNotes, withCode];

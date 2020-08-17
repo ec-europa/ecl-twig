@@ -21,7 +21,6 @@ const prepareTextInput = (data) => {
 
 export default {
   title: 'Components/Forms/Text field',
-  decorators: [withKnobs, withNotes, withCode],
 };
 
 export const Default = () => {
@@ -30,10 +29,6 @@ export const Default = () => {
   return textInput(data);
 };
 
-Default.story = {
-  name: 'default',
-
-  parameters: {
-    notes: { markdown: notes, json: dataDefault },
-  },
-};
+Default.storyName = 'default';
+Default.parameters = { notes: { markdown: notes, json: dataDefault } };
+Default.decorators = [withKnobs, withNotes, withCode];

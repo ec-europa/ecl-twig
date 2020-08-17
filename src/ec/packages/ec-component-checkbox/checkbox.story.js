@@ -36,7 +36,6 @@ const prepareCheckbox = (data) => {
 
 export default {
   title: 'Components/Forms/Checkbox',
-  decorators: [withKnobs, withNotes, withCode],
 };
 
 export const Default = () => {
@@ -45,10 +44,6 @@ export const Default = () => {
   return checkboxGroup(data);
 };
 
-Default.story = {
-  name: 'default',
-
-  parameters: {
-    notes: { markdown: notes, json: dataDefault },
-  },
-};
+Default.storName = 'default';
+Default.parameters = { notes: { markdown: notes, json: dataDefault } };
+Default.decorators = [withKnobs, withNotes, withCode];
