@@ -1,5 +1,3 @@
-const path = require('path');
-
 let system = 'ec';
 if (process.env.STORYBOOK_SYSTEM === 'EU') {
   system = 'eu';
