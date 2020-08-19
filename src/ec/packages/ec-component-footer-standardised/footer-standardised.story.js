@@ -378,16 +378,11 @@ const prepareFooterStandardised = (data) => {
 
 export default {
   title: 'Components/Footers/Standardised',
-  decorators: [withNotes, withCode, withKnobs],
 };
 
 export const Default = () =>
   footerStandardised(prepareFooterStandardised(data));
 
-Default.story = {
-  name: 'default',
-
-  parameters: {
-    notes: { markdown: notes, json: data },
-  },
-};
+Default.storName = 'default';
+Default.parameters = { notes: { markdown: notes, json: data } };
+Default.decorators = [withNotes, withCode, withKnobs];

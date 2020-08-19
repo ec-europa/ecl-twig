@@ -43,15 +43,10 @@ const prepareExpandable = (data) => {
 
 export default {
   title: 'Components/Expandables',
-  decorators: [withKnobs, withCode, withNotes],
 };
 
 export const Default = () => expandable(prepareExpandable(demoData));
 
-Default.story = {
-  name: 'default',
-
-  parameters: {
-    notes: { markdown: notes, json: demoData },
-  },
-};
+Default.storyName = 'default';
+Default.parameters = { notes: { markdown: notes, json: demoData } };
+Default.decorators = [withKnobs, withCode, withNotes];

@@ -147,21 +147,11 @@ export default {
 export const Horizontal = () =>
   SocialMediaFollow(prepareSocialMediaFollow(demoData));
 
-Horizontal.story = {
-  name: 'horizontal',
-
-  parameters: {
-    notes: { markdown: notes, json: demoData },
-  },
-};
+Horizontal.storyName = 'horizontal';
+Horizontal.parameters = { notes: { markdown: notes, json: demoData } };
 
 export const Vertical = () =>
   SocialMediaFollow(prepareSocialMediaFollow(demoData, 'vertical'));
 
-Vertical.story = {
-  name: 'vertical',
-
-  parameters: {
-    notes: { markdown: notes, json: demoData },
-  },
-};
+Vertical.storyName = 'vertical';
+Vertical.parameters = { notes: { markdown: notes, json: demoData } };

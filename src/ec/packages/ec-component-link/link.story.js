@@ -10,7 +10,7 @@ import {
 
 import uiIcons from '@ecl/ec-resources-icons/dist/lists/ui.json';
 import dataDefault from './demo/data--default';
-import dataCta from './demo/data--cta';
+import dataCta from './demo/data--call-to-action';
 import dataStandalone from './demo/data--standalone';
 import link from './ecl-link.html.twig';
 import notes from './README.md';
@@ -67,13 +67,8 @@ export const Default = () => {
   return demo;
 };
 
-Default.story = {
-  name: 'default',
-
-  parameters: {
-    notes: { markdown: notes, json: dataDefault },
-  },
-};
+Default.storyName = 'default';
+Default.parameters = { notes: { markdown: notes, json: dataDefault } };
 
 export const Standalone = () => {
   const dataStory = prepareLink(dataStandalone);
@@ -87,13 +82,8 @@ export const Standalone = () => {
   return link(dataStory);
 };
 
-Standalone.story = {
-  name: 'standalone',
-
-  parameters: {
-    notes: { markdown: notes, json: dataStandalone },
-  },
-};
+Standalone.storyName = 'standalone';
+Standalone.parameters = { notes: { markdown: notes, json: dataStandalone } };
 
 export const Cta = () => {
   const dataStory = prepareLink(dataCta);
@@ -112,10 +102,5 @@ export const Cta = () => {
   return link(dataStory);
 };
 
-Cta.story = {
-  name: 'cta',
-
-  parameters: {
-    notes: { markdown: notes, json: dataCta },
-  },
-};
+Cta.storyName = 'cta';
+Cta.parameters = { notes: { markdown: notes, json: dataCta } };

@@ -10,7 +10,6 @@ import {
 
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import demoData from './demo/data';
-
 import dropdown from './ecl-dropdown-legacy.html.twig';
 import notes from './README.md';
 
@@ -41,15 +40,10 @@ const prepareDropdown = (data) => {
 
 export default {
   title: 'Components/Dropdowns legacy',
-  decorators: [withKnobs, withCode, withNotes],
 };
 
 export const Default = () => dropdown(prepareDropdown(demoData));
 
-Default.story = {
-  name: 'default',
-
-  parameters: {
-    notes: { markdown: notes, json: demoData },
-  },
-};
+Default.storyName = 'default';
+Default.parameters = { notes: { markdown: notes, json: demoData } };
+Default.decorators = [withKnobs, withCode, withNotes];

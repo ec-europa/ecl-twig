@@ -46,15 +46,10 @@ const prepareAccordion2 = (data) => {
 
 export default {
   title: 'Components/Accordion2',
-  decorators: [withKnobs, withCode, withNotes],
 };
 
 export const Default = () => accordion2(prepareAccordion2(demoData));
 
-Default.story = {
-  name: 'default',
-
-  parameters: {
-    notes: { markdown: notes, json: demoData },
-  },
-};
+Default.storyName = 'default';
+Default.parameters = { notes: { markdown: notes, json: demoData } };
+Default.decorators = [withKnobs, withCode, withNotes];

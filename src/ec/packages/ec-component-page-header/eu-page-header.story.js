@@ -115,74 +115,47 @@ export default {
 
 export const Basic = () => pageHeader(preparePageHeader(dataBasic));
 
-Basic.story = {
-  name: 'ECL < 2.14 Basic',
-
-  parameters: {
-    notes: { markdown: notes, json: dataBasic },
-  },
-};
+Basic.storyName = 'ECL < 2.14 Basic';
+Basic.parameters = { notes: { markdown: notes, json: dataBasic } };
 
 export const Homepage = () => pageHeader(preparePageHeader(dataHomepage));
 
-Homepage.story = {
-  name: 'ECL < 2.14 Homepage',
-
-  parameters: {
-    notes: { markdown: notes, json: dataHomepage },
-  },
-};
+Homepage.storyName = 'ECL < 2.14 Homepage';
+Homepage.parameters = { notes: { markdown: notes, json: dataHomepage } };
 
 export const BrandedHomepage = () =>
   pageHeader(preparePageHeader(dataBrandedHomepage));
 
-BrandedHomepage.story = {
-  name: 'ECL < 2.14 Branded homepage',
-
-  parameters: {
-    notes: { markdown: notes, json: dataBrandedHomepage },
-  },
+BrandedHomepage.storyName = 'ECL < 2.14 Branded homepage';
+BrandedHomepage.parameters = {
+  notes: { markdown: notes, json: dataBrandedHomepage },
 };
 
 export const BrandedHomepageImage = () =>
   pageHeader(preparePageHeader(dataBrandedHomepageImage, 'img'));
 
-BrandedHomepageImage.story = {
-  name: 'ECL < 2.14 Branded homepage image',
-
-  parameters: {
-    notes: { markdown: notes, json: dataBrandedHomepageImage },
-  },
+BrandedHomepageImage.storyName = 'ECL < 2.14 Branded homepage image';
+BrandedHomepageImage.parameters = {
+  notes: { markdown: notes, json: dataBrandedHomepageImage },
 };
 
 export const HomepageImage = () =>
   pageHeader(preparePageHeader(dataHomepageImage));
 
-HomepageImage.story = {
-  name: 'ECL < 2.14 Homepage image',
-
-  parameters: {
-    notes: { markdown: notes, json: dataHomepageImage },
-  },
+HomepageImage.storyName = 'ECL < 2.14 Homepage image';
+HomepageImage.parameters = {
+  notes: { markdown: notes, json: dataHomepageImage },
 };
 
 export const Events = () => pageHeader(preparePageHeader(dataEvents, 'event'));
 
-Events.story = {
-  name: 'ECL < 2.14 events',
-
-  parameters: {
-    notes: { markdown: notes, json: dataEvents },
-  },
-};
+Events.storyName = 'ECL < 2.14 events';
+Events.parameters = { notes: { markdown: notes, json: dataEvents } };
 
 export const EventsDescription = () =>
   pageHeader(preparePageHeader(dataEventsDescription, 'event'));
 
-EventsDescription.story = {
-  name: 'ECL < 2.14 events-description',
-
-  parameters: {
-    notes: { markdown: notes, json: dataEventsDescription },
-  },
+EventsDescription.storyName = 'ECL < 2.14 events-description';
+EventsDescription.parameters = {
+  notes: { markdown: notes, json: dataEventsDescription },
 };

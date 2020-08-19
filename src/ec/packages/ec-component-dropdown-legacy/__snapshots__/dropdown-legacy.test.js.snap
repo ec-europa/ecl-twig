@@ -5,9 +5,10 @@ exports[`EC - Dropdown legacy Default renders correctly 1`] = `
   <div
     class="ecl-dropdown-legacy ecl-dropdown-legacy--padded"
     data-ecl-auto-init="DropdownLegacy"
+    data-ecl-dropdown-legacy=""
   >
     <button
-      aria-controls="dropdown-legacy-example-dropdown-content"
+      aria-controls="dropdown-legacy-example-content"
       class="ecl-button ecl-button--secondary ecl-dropdown-legacy__toggle"
       data-ecl-dropdown-legacy-toggle="true"
       type="button"
@@ -36,7 +37,7 @@ exports[`EC - Dropdown legacy Default renders correctly 1`] = `
     <div
       class="ecl-dropdown-legacy__content"
       hidden=""
-      id="dropdown-legacy-example-dropdown-content"
+      id="dropdown-legacy-example-content"
     >
       <ul
         class="ecl-unordered-list ecl-unordered-list--no-bullet"
@@ -82,11 +83,12 @@ exports[`EC - Dropdown legacy Default renders correctly with extra attributes 1`
   <div
     class="ecl-dropdown-legacy ecl-dropdown-legacy--padded"
     data-ecl-auto-init="DropdownLegacy"
+    data-ecl-dropdown-legacy=""
     data-test="data-test-value"
     data-test-1="data-test-value-1"
   >
     <button
-      aria-controls="dropdown-legacy-example-dropdown-content"
+      aria-controls="dropdown-legacy-example-content"
       class="ecl-button ecl-button--secondary ecl-dropdown-legacy__toggle"
       data-ecl-dropdown-legacy-toggle="true"
       type="button"
@@ -115,7 +117,7 @@ exports[`EC - Dropdown legacy Default renders correctly with extra attributes 1`
     <div
       class="ecl-dropdown-legacy__content"
       hidden=""
-      id="dropdown-legacy-example-dropdown-content"
+      id="dropdown-legacy-example-content"
     >
       <ul
         class="ecl-unordered-list ecl-unordered-list--no-bullet"
@@ -161,9 +163,10 @@ exports[`EC - Dropdown legacy Default renders correctly with extra class names 1
   <div
     class="ecl-dropdown-legacy ecl-dropdown-legacy--padded custom-class custom-class--test"
     data-ecl-auto-init="DropdownLegacy"
+    data-ecl-dropdown-legacy=""
   >
     <button
-      aria-controls="dropdown-legacy-example-dropdown-content"
+      aria-controls="dropdown-legacy-example-content"
       class="ecl-button ecl-button--secondary ecl-dropdown-legacy__toggle"
       data-ecl-dropdown-legacy-toggle="true"
       type="button"
@@ -192,7 +195,7 @@ exports[`EC - Dropdown legacy Default renders correctly with extra class names 1
     <div
       class="ecl-dropdown-legacy__content"
       hidden=""
-      id="dropdown-legacy-example-dropdown-content"
+      id="dropdown-legacy-example-content"
     >
       <ul
         class="ecl-unordered-list ecl-unordered-list--no-bullet"
@@ -238,9 +241,10 @@ exports[`EC - Dropdown legacy Default with missing input data and debug enabled 
   <div
     class="ecl-dropdown-legacy ecl-dropdown-legacy--padded"
     data-ecl-auto-init="DropdownLegacy"
+    data-ecl-dropdown-legacy=""
   >
     <button
-      aria-controls="-dropdown-content"
+      aria-controls="-content"
       class="ecl-button ecl-button--secondary ecl-dropdown-legacy__toggle"
       data-ecl-dropdown-legacy-toggle="true"
       type="button"
@@ -287,7 +291,7 @@ exports[`EC - Dropdown legacy Default with missing input data and debug enabled 
     <div
       class="ecl-dropdown-legacy__content"
       hidden=""
-      id="-dropdown-content"
+      id="-content"
     >
       <ul
         class="ecl-unordered-list ecl-unordered-list--no-bullet"

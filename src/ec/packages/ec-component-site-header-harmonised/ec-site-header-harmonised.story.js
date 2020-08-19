@@ -23,6 +23,7 @@ import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import logo from '@ecl/ec-resources-logo/logo--en.svg';
 import siteHeaderHarmonised from './ecl-site-header-harmonised.html.twig';
 import dataGroup1 from './demo/data--group1';
+
 import dataGroup2 from './demo/data--group2';
 import dataGroup3 from './demo/data--group3';
 import notes from './README.md';
@@ -233,13 +234,8 @@ export const Group1 = () => {
   return siteHeaderHarmonised(dataStory);
 };
 
-Group1.story = {
-  name: 'group 1',
-
-  parameters: {
-    notes: { markdown: notes, json: dataG1 },
-  },
-};
+Group1.storyName = 'group 1';
+Group1.parameters = { notes: { markdown: notes, json: dataG1 } };
 
 export const Group2 = () => {
   button(btnLangLabel, btnLangG2Handler, tabLabels.cases);
@@ -250,13 +246,8 @@ export const Group2 = () => {
   return siteHeaderHarmonised(dataStory);
 };
 
-Group2.story = {
-  name: 'group 2',
-
-  parameters: {
-    notes: { markdown: notes, json: dataG2 },
-  },
-};
+Group2.storyName = 'group 2';
+Group2.parameters = { notes: { markdown: notes, json: dataG2 } };
 
 export const Group3 = () => {
   button(btnLogoLabel, btnLogoHandler, tabLabels.cases);
@@ -265,10 +256,5 @@ export const Group3 = () => {
   return siteHeaderHarmonised(dataStory);
 };
 
-Group3.story = {
-  name: 'group 3',
-
-  parameters: {
-    notes: { markdown: notes, json: dataGroup3 },
-  },
-};
+Group3.storyName = 'group 3';
+Group3.parameters = { notes: { markdown: notes, json: dataGroup3 } };

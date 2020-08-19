@@ -119,32 +119,17 @@ export default {
 export const Default = () =>
   siteHeaderHarmonised(prepareSiteHeaderHarmonised(enSpecs, 'en'));
 
-Default.story = {
-  name: 'default',
-
-  parameters: {
-    notes: { markdown: notes, json: enSpecs },
-  },
-};
+Default.storyName = 'default';
+Default.parameters = { notes: { markdown: notes, json: enSpecs } };
 
 export const LoggedIn = () =>
   siteHeaderHarmonised(prepareSiteHeaderHarmonised(enSpecs, 'en', true));
 
-LoggedIn.story = {
-  name: 'logged in',
-
-  parameters: {
-    notes: { markdown: notes, json: enSpecs },
-  },
-};
+LoggedIn.storyName = 'logged in';
+LoggedIn.parameters = { notes: { markdown: notes, json: enSpecs } };
 
 export const Translated = () =>
   siteHeaderHarmonised(prepareSiteHeaderHarmonised(frSpecs, 'fr'));
 
-Translated.story = {
-  name: 'translated',
-
-  parameters: {
-    notes: { markdown: notes, json: frSpecs },
-  },
-};
+Translated.storyName = 'translated';
+Translated.parameters = { notes: { markdown: notes, json: frSpecs } };

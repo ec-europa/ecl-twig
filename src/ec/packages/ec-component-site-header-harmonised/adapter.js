@@ -29,8 +29,6 @@ const adapter = (initialData) => {
   }
 
   adaptedData.language_selector = adaptedData.languageSelector;
-  adaptedData.language_selector.eu_category = 'EU official languages';
-  adaptedData.language_selector.non_eu_category = 'Non-EU languages';
   delete adaptedData.languageSelector;
 
   adaptedData.language_selector.overlay.close_label =

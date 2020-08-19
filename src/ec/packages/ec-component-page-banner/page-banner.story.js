@@ -213,6 +213,22 @@ export default {
   decorators: [withNotes, withCode, withKnobs],
 };
 
+export const Default = () => {
+  button('With or without title', defaultTitleBtnToggler, tabLabels.cases);
+  button('With or without baseline', defaultDescBtnToggler, tabLabels.cases);
+  button(
+    'With or without call to action',
+    defaultCtaBtnToggler,
+    tabLabels.cases
+  );
+  button('Reset the layout', defaultResetBtnToggler, tabLabels.cases);
+
+  return pageBanner(preparePageBanner(defaultData));
+};
+
+Default.storyName = 'default';
+Default.parameters = { notes: { markdown: notes, json: defaultData } };
+
 export const Image = () => {
   button('With or without title', imageTitleBtnToggler, tabLabels.cases);
   button('With or without baseline', imageDescBtnToggler, tabLabels.cases);
@@ -222,13 +238,8 @@ export const Image = () => {
   return pageBanner(preparePageBanner(imageData, 'img'));
 };
 
-Image.story = {
-  name: 'image',
-
-  parameters: {
-    notes: { markdown: notes, json: imageData },
-  },
-};
+Image.storyName = 'image';
+Image.parameters = { notes: { markdown: notes, json: imageData } };
 
 export const ImageShade = () => {
   button('With or without title', imageShadeTitleBtnToggler, tabLabels.cases);
@@ -243,13 +254,8 @@ export const ImageShade = () => {
   return pageBanner(preparePageBanner(imageShadeData, 'img'));
 };
 
-ImageShade.story = {
-  name: 'image-shade',
-
-  parameters: {
-    notes: { markdown: notes, json: imageShadeData },
-  },
-};
+ImageShade.storyName = 'image-shade';
+ImageShade.parameters = { notes: { markdown: notes, json: imageShadeData } };
 
 export const Primary = () => {
   button('With or without title', primaryTitleBtnToggler, tabLabels.cases);
@@ -264,34 +270,8 @@ export const Primary = () => {
   return pageBanner(preparePageBanner(primaryData));
 };
 
-Primary.story = {
-  name: 'primary',
-
-  parameters: {
-    notes: { markdown: notes, json: primaryData },
-  },
-};
-
-export const Default = () => {
-  button('With or without title', defaultTitleBtnToggler, tabLabels.cases);
-  button('With or without baseline', defaultDescBtnToggler, tabLabels.cases);
-  button(
-    'With or without call to action',
-    defaultCtaBtnToggler,
-    tabLabels.cases
-  );
-  button('Reset the layout', defaultResetBtnToggler, tabLabels.cases);
-
-  return pageBanner(preparePageBanner(defaultData));
-};
-
-Default.story = {
-  name: 'default',
-
-  parameters: {
-    notes: { markdown: notes, json: defaultData },
-  },
-};
+Primary.storyName = 'primary';
+Primary.parameters = { notes: { markdown: notes, json: primaryData } };
 
 export const AlignLeft = () => {
   button('With or without title', leftTitleBtnToggler, tabLabels.cases);
@@ -302,10 +282,5 @@ export const AlignLeft = () => {
   return pageBanner(preparePageBanner(leftData));
 };
 
-AlignLeft.story = {
-  name: 'align-left',
-
-  parameters: {
-    notes: { markdown: notes, json: leftData },
-  },
-};
+AlignLeft.storyName = 'align-left';
+AlignLeft.parameters = { notes: { markdown: notes, json: leftData } };

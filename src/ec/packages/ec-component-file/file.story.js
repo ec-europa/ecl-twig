@@ -123,30 +123,19 @@ export default {
 export const WithoutTranslation = () =>
   file(prepareFile(dataWithoutTranslation));
 
-WithoutTranslation.story = {
-  name: 'without translation',
-
-  parameters: {
-    notes: { markdown: notes, json: dataWithoutTranslation },
-  },
+WithoutTranslation.storyName = 'without translation';
+WithoutTranslation.parameters = {
+  notes: { markdown: notes, json: dataWithoutTranslation },
 };
 
 export const WithTranslation = () => file(prepareFile(dataWithTranslation));
 
-WithTranslation.story = {
-  name: 'with translation',
-
-  parameters: {
-    notes: { markdown: notes, json: dataWithTranslation },
-  },
+WithTranslation.storyName = 'with translation';
+WithTranslation.parameters = {
+  notes: { markdown: notes, json: dataWithTranslation },
 };
 
 export const Thumbnail = () => file(prepareFile(dataThumbnail, 'thumbnail'));
 
-Thumbnail.story = {
-  name: 'thumbnail',
-
-  parameters: {
-    notes: { markdown: notes, json: dataThumbnail },
-  },
-};
+Thumbnail.storyName = 'thumbnail';
+Thumbnail.parameters = { notes: { markdown: notes, json: dataThumbnail } };

@@ -33,17 +33,10 @@ const prepareLabel = (data) => {
   return data;
 };
 
-export default {
-  title: 'Components/Label',
-  decorators: [withKnobs, withNotes, withCode],
-};
+export default { title: 'Components/Label' };
 
 export const Default = () => label(prepareLabel(dataDefault));
 
-Default.story = {
-  name: 'default',
-
-  parameters: {
-    notes: { markdown: notes, json: dataDefault },
-  },
-};
+Default.storyName = 'default';
+Default.parameters = { notes: { markdown: notes, json: dataDefault } };
+Default.decorators = [withKnobs, withNotes, withCode];

@@ -59,10 +59,6 @@ export default {
 
 export const Default = () => menuLegacy(prepareMenuLegacy(demoData));
 
-Default.story = {
-  name: 'default',
-
-  parameters: {
-    notes: { markdown: notes, json: demoData },
-  },
-};
+Default.storyName = 'default';
+Default.parameters = { notes: { markdown: notes, json: demoData } };
+Default.decorators = [withKnobs, withNotes, withCode];

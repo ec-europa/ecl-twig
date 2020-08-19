@@ -23,7 +23,7 @@ class Notes extends React.Component {
     channel.on('ecl/notes/add_notes', this.onAddNotes);
 
     // Clear the current notes on every story change.
-    this.stopListeningOnStory = api.onStory(() => {
+    this.stopListeningOnStory = api.on(() => {
       this.onAddNotes('');
     });
   }

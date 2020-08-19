@@ -6,6 +6,7 @@ const adapter = (initialData) => {
   const adaptedData = JSON.parse(JSON.stringify(initialData));
 
   adaptedData.items.forEach((item) => {
+    item.id = `${item.id}-content`;
     const { toggle } = item;
     const [type, name] = toggle.iconShape.split('--');
 
