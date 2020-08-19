@@ -7,8 +7,7 @@ import {
 } from '@ecl-twig/story-utils';
 import withCode from '@ecl-twig/storybook-addon-code';
 
-import specs from '@ecl/ec-specs-list/demo/data--text';
-
+import specs from './demo/data';
 import orderedList from './ecl-ordered-list.html.twig';
 import notes from './README.md';
 

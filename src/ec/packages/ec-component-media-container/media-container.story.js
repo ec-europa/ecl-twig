@@ -10,7 +10,7 @@ import {
 
 import demoImg from './demo/data--image';
 import demoVideo from './demo/data--video';
-import demoEmbed from './demo/data--embed';
+import demoEmbed from './demo/data--embed-video';
 import exampleImg from '../../../../static/images/example-image.jpg';
 import mediaContainer from './ecl-media-container.html.twig';
 import notes from './README.md';

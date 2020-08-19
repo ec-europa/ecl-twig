@@ -8,11 +8,9 @@ import {
 import he from 'he';
 import withCode from '@ecl-twig/storybook-addon-code';
 
-import dataDefault from '@ecl/ec-specs-list/demo/data--text';
-import dataLink from '@ecl/ec-specs-list/demo/data--link';
-import dataLinkDivider from '@ecl/ec-specs-list/demo/data--link-divider';
-import dataLinkNoBullet from '@ecl/ec-specs-list/demo/data--link-no-bullet';
-
+import dataDefault from './demo/data';
+import dataLinkDivider from './demo/data--with-divider';
+import dataLinkNoBullet from './demo/data--without-bullet';
 import unorderedList from './ecl-unordered-list.html.twig';
 import notes from './README.md';
 
@@ -60,11 +58,6 @@ export const Divider = () =>
 
 Divider.storyName = 'with divider';
 Divider.parameters = { notes: { markdown: notes, json: dataLinkDivider } };
-
-export const Links = () => unorderedList(prepareUnorderedList(dataLink));
-
-Links.storyName = 'with links';
-Links.parameters = { notes: { markdown: notes } };
 
 export const NoBullet = () =>
   unorderedList(prepareUnorderedList(dataLinkNoBullet));

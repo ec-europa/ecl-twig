@@ -10,7 +10,6 @@ import {
 
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import demoData from './demo/data';
-
 import dropdown from './ecl-dropdown-legacy.html.twig';
 import notes from './README.md';
 

@@ -16,8 +16,7 @@ import {
 
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import dataCard from './demo/data--card';
-import dataCardEvent from './demo/data--card-event';
-import dataCardTag from './demo/data--card-tag';
+import dataCardEvent from './demo/data--event';
 import dataCardTile from './demo/data--tile';
 
 import card from './ecl-card.html.twig';
@@ -138,11 +137,6 @@ export const Tile = () => card(prepareCard(dataCardTile));
 
 Tile.storyName = 'tile';
 Tile.parameters = { notes: { markdown: notes, json: dataCardTile } };
-
-export const Tag = () => card(prepareCard(dataCardTag));
-
-Tag.storyName = 'tag';
-Tag.parameters = { notes: { markdown: notes, json: dataCardTag } };
 
 export const Event = () => card(prepareCard(dataCardEvent));
 

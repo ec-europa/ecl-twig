@@ -24,7 +24,7 @@
 {# Internal properties #}
 
 {% set _id = id|default('') %}
-{% set _aria_controls = _id ~ '-dropdown-content' %}
+{% set _aria_controls = _id ~ '-content' %}
 {% set _compliance = _compliance_|default(false) %}
 
 {% set _button_attributes = [
@@ -52,7 +52,7 @@
 {% set _list = list|default({}) %}
 {% set _auto_init = auto_init ?? true %}
 {% set _css_class = 'ecl-dropdown-legacy ecl-dropdown-legacy--padded' %}
-{% set _extra_attributes = 'data-ecl-auto-init="DropdownLegacy"' %}
+{% set _extra_attributes = 'data-ecl-auto-init="DropdownLegacy" data-ecl-dropdown-legacy' %}
 
 {% set _content_hidden_attribute = '' %}
 
@@ -77,7 +77,7 @@
 <div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
   {% include '@ecl-twig/ec-component-button/ecl-button.html.twig' with _button only %}
   <div
-    id="{{ _id ~ '-dropdown-content' }}"
+    id="{{ _id ~ '-content' }}"
     class="ecl-dropdown-legacy__content"
     hidden
   >

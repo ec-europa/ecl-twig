@@ -23,6 +23,7 @@ import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import logo from '@ecl/ec-resources-logo/logo--en.svg';
 import siteHeaderHarmonised from './ecl-site-header-harmonised.html.twig';
 import dataGroup1 from './demo/data--group1';
+
 import dataGroup2 from './demo/data--group2';
 import dataGroup3 from './demo/data--group3';
 import notes from './README.md';

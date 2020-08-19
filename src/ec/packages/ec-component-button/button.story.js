@@ -8,13 +8,13 @@ import {
   getComplianceKnob,
 } from '@ecl-twig/story-utils';
 // Import data for demos
-import dataPrimary from '@ecl/ec-specs-button/demo/data--primary';
-import dataSecondary from '@ecl/ec-specs-button/demo/data--secondary';
-import dataCall from '@ecl/ec-specs-button/demo/data--call';
-import dataGhost from '@ecl/ec-specs-button/demo/data--ghost';
-import dataSearch from '@ecl/ec-specs-button/demo/data--search';
-
 import uiIcons from '@ecl/ec-resources-icons/dist/lists/ui.json';
+import dataPrimary from './demo/data--primary';
+import dataSecondary from './demo/data--secondary';
+import dataCall from './demo/data--call';
+import dataGhost from './demo/data--text';
+import dataSearch from './demo/data--search';
+
 import button from './ecl-button.html.twig';
 import notes from './README.md';
 
@@ -26,7 +26,8 @@ uiIcons.forEach((icon) => {
 });
 
 // Preserve the adapted specs.
-const prepareButton = (data) => {
+const prepareButton = (data, type) => {
+  const typeLabel = type ? tabLabels.required : tabLabels.optional;
   data.disabled = boolean('disabled', data.disabled, tabLabels.states);
   data.label = text('label', data.label, tabLabels.required);
 
@@ -36,6 +37,8 @@ const prepareButton = (data) => {
     data.variant,
     tabLabels.required
   );
+
+  data.type = select('type', [data.type], data.type, typeLabel);
 
   getExtraKnobs(data);
   getComplianceKnob(data);
@@ -64,7 +67,7 @@ Primary.storyName = 'primary';
 Primary.parameters = { notes: { markdown: notes, json: dataPrimary } };
 
 export const Secondary = () => {
-  const data = prepareButton(dataSecondary);
+  const data = prepareButton(dataSecondary, true);
   const name = select('icon.name', iconsList, 'none', tabLabels.optional);
   if (name !== 'none') {
     getIconKnobs(data, name, 'ui', 'xs');
@@ -99,7 +102,7 @@ CallToAction.storyName = 'call to action';
 CallToAction.parameters = { notes: { markdown: notes, json: dataCall } };
 
 export const Text = () => {
-  const data = prepareButton(dataGhost);
+  const data = prepareButton(dataGhost, true);
   const name = select('icon.name', iconsList, '', tabLabels.optional);
   if (name !== '') {
     getIconKnobs(data, name, 'ui', 'xs');
@@ -114,7 +117,7 @@ Text.storyName = 'text';
 Text.parameters = { notes: { markdown: notes, json: dataGhost } };
 
 export const Search = () => {
-  const data = prepareButton(dataSearch);
+  const data = prepareButton(dataSearch, true);
   const name = select('icon.name', iconsList, '', tabLabels.optional);
   if (name !== '') {
     getIconKnobs(data, name, 'ui', 'xs');

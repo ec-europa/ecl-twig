@@ -3,12 +3,14 @@
 /* eslint-disable import/no-extraneous-dependencies, no-console */
 
 const fs = require('fs');
+const path = require('path');
 const { HtmlDiffer } = require('html-differ');
 const logger = require('html-differ/lib/logger');
 
 const args = process.argv.slice(2);
 const system = args[0] ? args[0] : 'ec';
-const rootFolder = process.cwd();
+const rootFolder = path.resolve(__dirname, '../../../');
+
 const distFolder = `${rootFolder}/php`;
 const systemFolder = `${distFolder}/packages/${system}`;
 const diffOptions = {
