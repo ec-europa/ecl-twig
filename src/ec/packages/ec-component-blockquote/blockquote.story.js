@@ -24,15 +24,10 @@ const prepareQuote = (data) => {
 
 export default {
   title: 'Components/Blockquote',
-  decorators: [withKnobs, withCode, withNotes],
 };
 
 export const Default = () => blockquote(prepareQuote(defaultData));
 
-Default.story = {
-  name: 'default',
-
-  parameters: {
-    notes: { markdown: notes, json: defaultData },
-  },
-};
+Default.storyName = 'default';
+Default.parameters = { notes: { markdown: notes, json: defaultData } };
+Default.decorators = [withKnobs, withCode, withNotes];

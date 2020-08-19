@@ -298,15 +298,10 @@ const prepareGallery = (data) => {
 
 export default {
   title: 'Components/Gallery',
-  decorators: [withKnobs, withCode, withNotes],
 };
 
 export const Default = () => gallery(prepareGallery(dataDefault));
 
-Default.story = {
-  name: 'default',
-
-  parameters: {
-    notes: { markdown: notes, json: dataDefault },
-  },
-};
+Default.storyName = 'default';
+Default.parameters = { notes: { markdown: notes, json: dataDefault } };
+Default.decorators = [withKnobs, withCode, withNotes];

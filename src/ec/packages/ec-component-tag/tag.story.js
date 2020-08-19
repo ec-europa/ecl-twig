@@ -56,30 +56,15 @@ export default {
 
 export const Link = () => tag(prepareTag(dataLink, true));
 
-Link.story = {
-  name: 'as a link',
-
-  parameters: {
-    notes: { markdown: notes, json: dataLink },
-  },
-};
+Link.storyName = 'as a link';
+Link.parameters = { notes: { markdown: notes, json: dataLink } };
 
 export const Button = () => tag(prepareTag(dataButton));
 
-Button.story = {
-  name: 'as a button',
-
-  parameters: {
-    notes: { markdown: notes, json: dataButton },
-  },
-};
+Button.storyName = 'as a button';
+Button.parameters = { notes: { markdown: notes, json: dataButton } };
 
 export const Removable = () => tag(prepareTag(dataRemovable, false, true));
 
-Removable.story = {
-  name: 'removable',
-
-  parameters: {
-    notes: { markdown: notes, json: dataRemovable },
-  },
-};
+Removable.storyName = 'removable';
+Removable.parameters = { notes: { markdown: notes, json: dataRemovable } };

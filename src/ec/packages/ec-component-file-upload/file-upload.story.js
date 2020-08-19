@@ -48,20 +48,10 @@ export default {
 
 export const Default = () => fileUpload(prepareFileUpload(dataDefault));
 
-Default.story = {
-  name: 'default',
-
-  parameters: {
-    notes: { markdown: notes, json: dataDefault },
-  },
-};
+Default.storyName = 'default';
+Default.parameters = { notes: { markdown: notes, json: dataDefault } };
 
 export const Multiple = () => fileUpload(prepareFileUpload(dataMulti));
 
-Multiple.story = {
-  name: 'multiple',
-
-  parameters: {
-    notes: { markdown: notes, json: dataMulti },
-  },
-};
+Multiple.storyName = 'multiple';
+Multiple.parameters = { notes: { markdown: notes, json: dataMulti } };

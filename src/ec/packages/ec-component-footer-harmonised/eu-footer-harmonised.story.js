@@ -160,15 +160,10 @@ const prepareFooterHarmonised = (data) => {
 
 export default {
   title: 'Components/Footers/Harmonised',
-  decorators: [withCode, withNotes, withKnobs],
 };
 
 export const Group1 = () => footerHarmonised(prepareFooterHarmonised(dataEu));
 
-Group1.story = {
-  name: 'group1',
-
-  parameters: {
-    notes: { markdown: notes, json: dataEu },
-  },
-};
+Group1.storyName = 'group1';
+Group1.parameters = { notes: { markdown: notes, json: dataEu } };
+Group1.decorators = [withCode, withNotes, withKnobs];

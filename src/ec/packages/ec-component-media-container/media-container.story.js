@@ -60,32 +60,17 @@ export default {
 export const Image = () =>
   mediaContainer(prepareMediaContainer(demoImg, 'image'));
 
-Image.story = {
-  name: 'image',
-
-  parameters: {
-    notes: { markdown: notes, json: demoImg },
-  },
-};
+Image.storyName = 'image';
+Image.parameters = { notes: { markdown: notes, json: demoImg } };
 
 export const Video = () =>
   mediaContainer(prepareMediaContainer(demoVideo, 'video'));
 
-Video.story = {
-  name: 'video',
-
-  parameters: {
-    notes: { markdown: notes, json: demoVideo },
-  },
-};
+Video.Name = 'video';
+Video.parameters = { notes: { markdown: notes, json: demoVideo } };
 
 export const EmbeddedVideo = () =>
   mediaContainer(prepareMediaContainer(demoEmbed, 'embed'));
 
-EmbeddedVideo.story = {
-  name: 'embedded video',
-
-  parameters: {
-    notes: { markdown: notes, json: demoEmbed },
-  },
-};
+EmbeddedVideo.storyName = 'embedded video';
+EmbeddedVideo.parameters = { notes: { markdown: notes, json: demoEmbed } };

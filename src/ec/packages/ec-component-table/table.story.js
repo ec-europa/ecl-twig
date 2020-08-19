@@ -87,46 +87,28 @@ export default {
 
 export const Default = () => table(prepareTable(dataDefault));
 
-Default.story = {
-  name: 'default',
-
-  parameters: {
-    notes: { markdown: notes, json: dataDefault },
-  },
-};
+Default.storyName = 'default';
+Default.parameters = { notes: { markdown: notes, json: dataDefault } };
 
 export const WithRowExtraAttributes = () =>
   table(prepareTable(dataDefault, true));
 
-WithRowExtraAttributes.story = {
-  name: 'default with row extra attributes',
-
-  parameters: {
-    notes: { markdown: notes, json: dataDefault },
-  },
+WithRowExtraAttributes.storyName = 'With row extra attributes';
+WithRowExtraAttributes.parameters = {
+  notes: { markdown: notes, json: dataDefault },
 };
 
 export const Zebra = () => table(prepareTable(dataZebra));
 
-Zebra.story = {
-  parameters: {
-    notes: { markdown: notes, json: dataZebra },
-  },
-};
+Zebra.storyName = 'Zebra';
+Zebra.parameters = { notes: { markdown: notes, json: dataZebra } };
 
 export const Multi = () => table(prepareTable(dataMulti));
 
-Multi.story = {
-  parameters: {
-    notes: { markdown: notes, json: dataMulti },
-  },
-};
+Multi.storyName = 'Multi';
+Multi.parameters = { notes: { markdown: notes, json: dataMulti } };
 
 export const Sortable = () => table(prepareTable(dataSortable));
 
-Sortable.story = {
-  name: 'sort table',
-  parameters: {
-    notes: { markdown: notes, json: dataSortable },
-  },
-};
+Sortable.storyName = 'sort table';
+Sortable.parameters = { notes: { markdown: notes, json: dataSortable } };

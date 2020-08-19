@@ -101,76 +101,53 @@ export default {
 
 export const Title = () => pageHeader(preparePageHeader(pageHeaderDataTitle));
 
-Title.story = {
-  name: 'ECL < 2.14 title',
-
-  parameters: {
-    notes: { markdown: notes, json: pageHeaderDataTitle },
-  },
-};
+Title.storyName = 'ECL < 2.14 title';
+Title.parameters = { notes: { markdown: notes, json: pageHeaderDataTitle } };
 
 export const TitleDescription = () =>
   pageHeader(preparePageHeader(pageHeaderDataTitleDescription));
 
-TitleDescription.story = {
-  name: 'ECL < 2.14 title-description',
-
-  parameters: {
-    notes: { markdown: notes, json: pageHeaderDataTitleDescription },
-  },
+TitleDescription.storyName = 'ECL < 2.14 title-description';
+TitleDescription.parameters = {
+  notes: { markdown: notes, json: pageHeaderDataTitleDescription },
 };
 
 export const MetaTitle = () =>
   pageHeader(preparePageHeader(pageHeaderDataMetaTitle));
 
-MetaTitle.story = {
-  name: 'ECL < 2.14 meta-title',
-
-  parameters: {
-    notes: { markdown: notes, json: pageHeaderDataMetaTitle },
-  },
+MetaTitle.storyName = 'ECL < 2.14 meta-title';
+MetaTitle.parameters = {
+  notes: { markdown: notes, json: pageHeaderDataMetaTitle },
 };
 
 export const MetaTitleDescription = () =>
   pageHeader(preparePageHeader(pageHeaderDataMetaTitleDescription));
 
-MetaTitleDescription.story = {
-  name: 'ECL < 2.14 meta-title-description',
-
-  parameters: {
-    notes: { markdown: notes, json: pageHeaderDataMetaTitleDescription },
-  },
+MetaTitleDescription.storyName = 'ECL < 2.14 meta-title-description';
+MetaTitleDescription.parameters = {
+  notes: { markdown: notes, json: pageHeaderDataMetaTitleDescription },
 };
 
 export const Events = () =>
   pageHeader(preparePageHeader(pageHeaderDataEvents, 'event'));
 
-Events.story = {
-  name: 'ECL < 2.14 events',
-
-  parameters: {
-    notes: { markdown: notes, json: pageHeaderDataEvents },
-  },
+Events.storyName = 'ECL < 2.14 events';
+Events.parameters = {
+  notes: { markdown: notes, json: pageHeaderDataEvents },
 };
 
 export const EventsDescription = () =>
   pageHeader(preparePageHeader(pageHeaderDataEventsDescription, 'event'));
 
-EventsDescription.story = {
-  name: 'ECL < 2.14 events-description',
-
-  parameters: {
-    notes: { markdown: notes, json: pageHeaderDataEventsDescription },
-  },
+EventsDescription.storyName = 'ECL < 2.14 events-description';
+EventsDescription.parameters = {
+  notes: { markdown: notes, json: pageHeaderDataEventsDescription },
 };
 
 export const BackgroundImage = () =>
   pageHeader(preparePageHeader(pageHeaderBackgroundImage, 'img'));
 
-BackgroundImage.story = {
-  name: 'ECL < 2.14 Background image',
-
-  parameters: {
-    notes: { markdown: notes, json: pageHeaderBackgroundImage },
-  },
+BackgroundImage.storyName = 'ECL < 2.14 Background image';
+BackgroundImage.parameters = {
+  notes: { markdown: notes, json: pageHeaderBackgroundImage },
 };

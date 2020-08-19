@@ -134,13 +134,8 @@ export const Default = () => {
   return siteHeaderCore(dataStory);
 };
 
-Default.story = {
-  name: 'default',
-
-  parameters: {
-    notes: { markdown: notes, json: enData },
-  },
-};
+Default.storyName = 'default';
+Default.parameters = { notes: { markdown: notes, json: enData } };
 
 export const LoggedIn = () => {
   enData.logged = true;
@@ -150,13 +145,8 @@ export const LoggedIn = () => {
   return siteHeaderCore(dataStory);
 };
 
-LoggedIn.story = {
-  name: 'logged in',
-
-  parameters: {
-    notes: { markdown: notes, json: englishData },
-  },
-};
+LoggedIn.storyName = 'logged in';
+LoggedIn.parameters = { notes: { markdown: notes, json: englishData } };
 
 export const Translated = () => {
   button(btnLabel, frBtnHandler, tabLabels.cases);
@@ -165,10 +155,5 @@ export const Translated = () => {
   return siteHeaderCore(dataStory);
 };
 
-Translated.story = {
-  name: 'translated',
-
-  parameters: {
-    notes: { markdown: notes, json: frData },
-  },
-};
+Translated.storyName = 'translated';
+Translated.parameters = { notes: { markdown: notes, json: frData } };

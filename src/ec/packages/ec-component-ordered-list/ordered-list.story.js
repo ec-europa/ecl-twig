@@ -34,15 +34,10 @@ const prepareOrderedList = (data) => {
 
 export default {
   title: 'Components/List/Ordered list',
-  decorators: [withNotes, withCode, withKnobs],
 };
 
 export const Default = () => orderedList(prepareOrderedList(specs));
 
-Default.story = {
-  name: 'default',
-
-  parameters: {
-    notes: { markdown: notes, json: specs },
-  },
-};
+Default.storyName = 'default';
+Default.parameters = { notes: { markdown: notes, json: specs } };
+Default.decorators = [withNotes, withCode, withKnobs];

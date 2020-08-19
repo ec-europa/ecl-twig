@@ -139,7 +139,9 @@
     }
     // Code to define the story for a given export.
     function setStoryCode($variant_name, $adapted_variant) {
-      return $variant_name . ".story = { parameters: { notes: { markdown: docs }, diff: { jsmarkup: " . $adapted_variant . "Js }}};\n\n";
+      $code = $variant_name . ".storyName = '" . $variant_name . "';";
+      $code .= $variant_name . ".parameters = { notes: { markdown: docs }, diff: { jsmarkup: " . $adapted_variant . "Js } };\n\n";
+      return $code;
     }
     // Update the story file.
     function updateStoryFile($folder, $base_component, $data_story) {

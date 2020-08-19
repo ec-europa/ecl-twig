@@ -13,11 +13,20 @@ const addons = [
   '@ecl-twig/storybook-addon-ecl-diff/src/register',
 ];
 
-const managerWebpack = async (baseConfig) => {
-  // Exclude node_modules
-  baseConfig.module.rules[0].exclude = /node_modules\/(?!@ecl-twig\/).*/;
+const webpackFinal = (config) => {
+  // Trick "babel-loader", force it to transpile @ecl-twig addons
+  config.module.rules[0].exclude = /node_modules\/(?!@ecl-twig\/).*/;
+  config.plugins.forEach((plugin, i) => {
+    if (plugin.constructor.name === 'ProgressPlugin') {
+      config.plugins.splice(i, 1);
+    }
+  });
 
-  return baseConfig;
+  return config;
 };
 
-module.exports = { stories, addons, managerWebpack };
+module.exports = {
+  stories,
+  addons,
+  webpackFinal,
+};

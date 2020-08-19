@@ -39,42 +39,22 @@ export default {
 export const Default = () =>
   dateBlock(prepareDateBlock(dataDefault, 'default'));
 
-Default.story = {
-  name: 'default',
-
-  parameters: {
-    notes: { markdown: notes, json: dataDefault },
-  },
-};
+Default.storyName = 'default';
+Default.parameters = { notes: { markdown: notes, json: dataDefault } };
 
 export const Ongoing = () =>
   dateBlock(prepareDateBlock(dataOngoing, 'ongoing'));
 
-Ongoing.story = {
-  name: 'ongoing',
-
-  parameters: {
-    notes: { markdown: notes, json: dataOngoing },
-  },
-};
+Ongoing.storyName = 'ongoing';
+Ongoing.parameters = { notes: { markdown: notes, json: dataOngoing } };
 
 export const Canceled = () =>
   dateBlock(prepareDateBlock(dataCanceled, 'canceled'));
 
-Canceled.story = {
-  name: 'canceled',
-
-  parameters: {
-    notes: { markdown: notes, json: dataCanceled },
-  },
-};
+Canceled.storyName = 'canceled';
+Canceled.parameters = { notes: { markdown: notes, json: dataCanceled } };
 
 export const Past = () => dateBlock(prepareDateBlock(dataPast, 'past'));
 
-Past.story = {
-  name: 'past',
-
-  parameters: {
-    notes: { markdown: notes, json: dataPast },
-  },
-};
+Past.storyName = 'past';
+Past.parameters = { notes: { markdown: notes, json: dataPast } };

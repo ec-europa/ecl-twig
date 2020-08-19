@@ -63,13 +63,8 @@ export const Primary = () => {
   return button(data);
 };
 
-Primary.story = {
-  name: 'primary',
-
-  parameters: {
-    notes: { markdown: notes, json: dataPrimary },
-  },
-};
+Primary.storyName = 'primary';
+Primary.parameters = { notes: { markdown: notes, json: dataPrimary } };
 
 export const Secondary = () => {
   const data = prepareButton(dataSecondary, true);
@@ -83,13 +78,8 @@ export const Secondary = () => {
   return button(data);
 };
 
-Secondary.story = {
-  name: 'secondary',
-
-  parameters: {
-    notes: { markdown: notes, json: dataSecondary },
-  },
-};
+Secondary.storName = 'secondary';
+Secondary.parameters = { notes: { markdown: notes, json: dataSecondary } };
 
 export const CallToAction = () => {
   const data = prepareButton(dataCall);
@@ -108,13 +98,8 @@ export const CallToAction = () => {
   return button(data);
 };
 
-CallToAction.story = {
-  name: 'call to action',
-
-  parameters: {
-    notes: { markdown: notes, json: dataCall },
-  },
-};
+CallToAction.storyName = 'call to action';
+CallToAction.parameters = { notes: { markdown: notes, json: dataCall } };
 
 export const Text = () => {
   const data = prepareButton(dataGhost, true);
@@ -128,13 +113,8 @@ export const Text = () => {
   return button(data);
 };
 
-Text.story = {
-  name: 'text',
-
-  parameters: {
-    notes: { markdown: notes, json: dataGhost },
-  },
-};
+Text.storyName = 'text';
+Text.parameters = { notes: { markdown: notes, json: dataGhost } };
 
 export const Search = () => {
   const data = prepareButton(dataSearch, true);
@@ -148,10 +128,5 @@ export const Search = () => {
   return button(data);
 };
 
-Search.story = {
-  name: 'search',
-
-  parameters: {
-    notes: { markdown: notes, json: dataSearch },
-  },
-};
+Search.storyName = 'search';
+Search.parameters = { notes: { markdown: notes, json: dataSearch } };

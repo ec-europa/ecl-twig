@@ -150,20 +150,10 @@ export default {
 
 export const Splash = () => languageList(prepareLanguageList(dataSplash));
 
-Splash.story = {
-  name: 'splash',
-
-  parameters: {
-    notes: { markdown: notes, json: dataSplash },
-  },
-};
+Splash.storyName = 'splash';
+Splash.parameters = { notes: { markdown: notes, json: dataSplash } };
 
 export const Overlay = () => languageList(prepareLanguageList(dataOverlay));
 
-Overlay.story = {
-  name: 'overlay',
-
-  parameters: {
-    notes: { markdown: notes, json: dataOverlay },
-  },
-};
+Overlay.storyName = 'overlay';
+Overlay.parameters = { notes: { markdown: notes, json: dataOverlay } };

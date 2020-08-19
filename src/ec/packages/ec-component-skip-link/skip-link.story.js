@@ -35,15 +35,10 @@ const prepareSkipLink = (data) => {
 
 export default {
   title: 'Components/Navigation/Skip Link',
-  decorators: [withKnobs, withNotes, withCode],
 };
 
 export const Default = () => skipLink(prepareSkipLink(specs));
 
-Default.story = {
-  name: 'default',
-
-  parameters: {
-    notes: { markdown: notes, json: specs },
-  },
-};
+Default.storyName = 'default';
+Default.parameters = { notes: { markdown: notes, json: specs } };
+Default.decorators = [withKnobs, withNotes, withCode];

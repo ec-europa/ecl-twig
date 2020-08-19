@@ -86,39 +86,23 @@ export default {
 export const Title = () =>
   pageHeaderStandardised(preparePageHeaderStandardised(dataTitle));
 
-Title.story = {
-  name: 'title',
-
-  parameters: {
-    notes: { markdown: notes, json: dataTitle },
-  },
-};
+Title.storyName = 'title';
+Title.parameters = { notes: { markdown: notes, json: dataTitle } };
 
 export const MetaTitle = () =>
   pageHeaderStandardised(
     preparePageHeaderStandardised(dataMetaTitle, false, true)
   );
 
-MetaTitle.story = {
-  name: 'meta-title',
-
-  parameters: {
-    notes: { markdown: notes, json: dataMetaTitle },
-  },
-};
+MetaTitle.storyName = 'meta-title';
+MetaTitle.parameters = { notes: { markdown: notes, json: dataMetaTitle } };
 
 export const MetaTitleDescription = () =>
   pageHeaderStandardised(
     preparePageHeaderStandardised(dataMetaTitleDescription, true, true)
   );
 
-MetaTitleDescription.story = {
-  name: 'meta-title-description',
-
-  parameters: {
-    notes: {
-      markdown: notes,
-      json: dataMetaTitleDescription,
-    },
-  },
+MetaTitleDescription.storyName = 'meta-title-description';
+MetaTitleDescription.parameters = {
+  notes: { markdown: notes, json: dataMetaTitleDescription },
 };

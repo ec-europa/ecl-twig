@@ -34,15 +34,10 @@ const prepareSearchForm = (data) => {
 
 export default {
   title: 'Components/Forms/Search Form',
-  decorators: [withKnobs, withNotes, withCode],
 };
 
 export const Default = () => searchForm(prepareSearchForm(dataDefault));
 
-Default.story = {
-  name: 'default',
-
-  parameters: {
-    notes: { markdown: notes, json: dataDefault },
-  },
-};
+Default.storyName = 'default';
+Default.parameters = { notes: { markdown: notes, json: dataDefault } };
+Default.decorators = [withKnobs, withNotes, withCode];

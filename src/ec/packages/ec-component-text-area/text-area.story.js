@@ -20,15 +20,10 @@ const prepareTextArea = (data) => {
 
 export default {
   title: 'Components/Forms/Text area',
-  decorators: [withKnobs, withNotes, withCode],
 };
 
 export const Default = () => textArea(prepareTextArea(specData));
 
-Default.story = {
-  name: 'default',
-
-  parameters: {
-    notes: { markdown: notes, json: specData },
-  },
-};
+Default.storyName = 'default';
+Default.parameters = { notes: { markdown: notes, json: specData } };
+Default.decorators = [withKnobs, withNotes, withCode];

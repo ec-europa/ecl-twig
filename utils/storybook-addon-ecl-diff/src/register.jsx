@@ -28,7 +28,7 @@ class HTMLMarkup extends React.Component {
     channel.on('ecl/ecl_diff/add_code', this.onAddHTMLMarkup);
 
     // Clear the current HTMLMarkup on every story change.
-    this.stopListeningOnStory = api.onStory(() => {
+    this.stopListeningOnStory = api.on(() => {
       this.onAddHTMLMarkup('');
     });
   }

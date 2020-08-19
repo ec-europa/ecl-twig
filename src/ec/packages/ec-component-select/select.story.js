@@ -72,20 +72,10 @@ export default {
 
 export const Single = () => selectBox(prepareSelect(dataSingle));
 
-Single.story = {
-  name: 'default',
-
-  parameters: {
-    notes: { markdown: notes, json: dataSingle },
-  },
-};
+Single.storyName = 'default';
+Single.parameters = { notes: { markdown: notes, json: dataSingle } };
 
 export const Multiple = () => selectBox(prepareSelect(dataMultiple));
 
-Multiple.story = {
-  name: 'Multiple',
-
-  parameters: {
-    notes: { markdown: notes, json: dataMultiple },
-  },
-};
+Multiple.storyName = 'Multiple';
+Multiple.parameters = { notes: { markdown: notes, json: dataMultiple } };

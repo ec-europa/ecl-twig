@@ -454,39 +454,30 @@ export default {
 
 export const Group1 = () => footerHarmonised(prepareFooterHarmonisedG1(dataG1));
 
-Group1.story = {
-  name: 'group 1',
-
-  parameters: {
-    notes: {
-      markdown: notes,
-      json: { dataG1 },
-    },
+Group1.storyName = 'group 1';
+Group1.parameters = {
+  notes: {
+    markdown: notes,
+    json: { dataG1 },
   },
 };
 
 export const Group2 = () => footerHarmonised(prepareFooterHarmonisedG2(dataG2));
 
-Group2.story = {
-  name: 'group 2',
-
-  parameters: {
-    notes: {
-      markdown: notes,
-      json: { dataG2 },
-    },
+Group2.storyName = 'group 2';
+Group2.parameters = {
+  notes: {
+    markdown: notes,
+    json: { dataG2 },
   },
 };
 
 export const Group3 = () => footerHarmonised(prepareFooterHarmonisedG3(dataG3));
 
-Group3.story = {
-  name: 'group 3',
-
-  parameters: {
-    notes: {
-      markdown: notes,
-      json: { dataG3 },
-    },
+Group3.storyName = 'group 3';
+Group3.parameters = {
+  notes: {
+    markdown: notes,
+    json: { dataG3 },
   },
 };
