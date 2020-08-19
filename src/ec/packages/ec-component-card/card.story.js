@@ -33,13 +33,7 @@ const prepareCard = (data) => {
     data.card.title.label,
     tabLabels.required
   );
-  data.icon_path = optionsKnob(
-    'icon_path',
-    { current: defaultSprite, 'no path': '' },
-    defaultSprite,
-    { display: 'inline-radio' },
-    tabLabels.optional
-  );
+
   if (data.card.title.type) {
     data.card.title.type = text(
       'card.title.type',
@@ -58,6 +52,13 @@ const prepareCard = (data) => {
       tag.label = text(`card.tags[${i}].label`, tag.label, tabLabels.optional);
     });
   }
+  data.icon_path = optionsKnob(
+    'icon_path',
+    { current: defaultSprite, 'no path': '' },
+    defaultSprite,
+    { display: 'inline-radio' },
+    tabLabels.optional
+  );
   if (data.card.infos) {
     data.card.infos.forEach((info, i) => {
       info.label = text(
@@ -66,7 +67,7 @@ const prepareCard = (data) => {
         tabLabels.optional
       );
       info.icon.path = optionsKnob(
-        `infos[${i}].icon.path`,
+        `infos[${i}].icon.path (not needed if icon_path is set)`,
         { current: defaultSprite, 'no path': '' },
         defaultSprite,
         { display: 'inline-radio' },
@@ -83,6 +84,12 @@ const prepareCard = (data) => {
           `infos[${i}].icon.type`,
           [info.icon.type],
           info.icon.type,
+          tabLabels.optional
+        );
+        info.icon.size = select(
+          `infos[${i}].icon.size (the size will not change, this is for demoing that)`,
+          ['xl', 'm', 's', 'xs', '2xs'],
+          info.icon.size,
           tabLabels.optional
         );
       }
