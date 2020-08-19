@@ -142,7 +142,7 @@
     {% if _disabled %}
       disabled
     {% endif %}
-      {{ _extra_attributes|raw }}
+      {{- _extra_attributes|raw -}}
     >
       {% for option in _options %}
         <option value="{{ option.value }}">

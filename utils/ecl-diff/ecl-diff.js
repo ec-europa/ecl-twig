@@ -202,7 +202,7 @@ yargsInteractive()
             'xlink:href="{{.*icons.*.svg#}}'
           )
           // Booleans.
-          .replace(/(data-ecl[A-Za-z-]+)(?=[\s/>])/g, '$1="{{true|false}}"') // eslint-disable-line unicorn/regex-shorthand
+          .replace(/(data-ecl[\dA-Za-z-]+)(?=[\s/>])/g, '$1="{{true|false}}"') // eslint-disable-line unicorn/regex-shorthand
           // aria-hidden
           .replace(/(aria-hidden)(=".+")/g, '$1="{{true|false}}"')
           // Logo
@@ -218,8 +218,6 @@ yargsInteractive()
             el = 'text-field';
           } else if (el === 'text-area') {
             el = 'textarea';
-          } else if (el === 'accordion2') {
-            el = 'accordion';
           } else if (el === 'unordered-list' || el === 'description-list') {
             el = 'list';
           } else if (el === 'message') {
@@ -271,9 +269,12 @@ yargsInteractive()
             if (el === 'site-header') {
               el = 'site-header-ecl-2-12-0';
             }
-            if (el === 'page-header') {
+            if (el === 'pageheader') {
               el = 'page-header-ecl-2-14-0';
             }
+          }
+          if (el === 'accordion2') {
+            el = 'accordion';
           }
 
           return el;
@@ -362,6 +363,14 @@ yargsInteractive()
 
             // The html we get is enriched by a syntax highlighter.
             eclMarkup = he.decode(eclMarkup.replace(/<\/?[^>]+(>|$)/g, ''));
+            if (component === 'dropdown-legacy') {
+              eclMarkup = eclMarkup
+                .replace('<p>Content before</p>', '')
+                .replace('<p>Content after</p>', '');
+            }
+            if (component === 'skip-link') {
+              eclMarkup = eclMarkup.replace('<div id="top"></div>', '');
+            }
             const eclMarkupMinusDiv = eclMarkup.replace(/^<div>/, '');
             if (eclMarkupMinusDiv !== eclMarkup) {
               eclMarkup = eclMarkupMinusDiv.replace(/<\/div>$/, '');

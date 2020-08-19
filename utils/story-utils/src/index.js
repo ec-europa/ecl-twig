@@ -432,6 +432,16 @@ export const getLanguageSelectorKnobs = (data, required, deprecated) => {
   if (required) {
     label = tabLabels.required;
   }
+  data.language_selector.eu_category = text(
+    'language_selector.eu_category',
+    data.language_selector.eu_category,
+    label
+  );
+  data.language_selector.non_eu_category = text(
+    'language_selector.non_eu_category',
+    data.language_selector.non_eu_category,
+    label
+  );
   data.language_selector.href = text(
     'language_selector.href',
     data.language_selector.href,

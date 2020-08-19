@@ -8,11 +8,9 @@ import {
 import withCode from '@ecl-twig/storybook-addon-code';
 
 import specs from '@ecl/ec-specs-description-list/demo/data';
-import specsHorizontal from '@ecl/ec-specs-description-list/demo/data--horizontal';
+import specsHorizontal from './demo/data--horizontal';
 import descriptionList from './ecl-description-list.html.twig';
 import notes from './README.md';
-
-specsHorizontal.variant = 'horizontal';
 
 const prepareList = (data) => {
   if (data.variant) {

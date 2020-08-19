@@ -10,7 +10,7 @@ import {
 
 import uiIcons from '@ecl/ec-resources-icons/dist/lists/ui.json';
 import dataDefault from './demo/data--default';
-import dataCta from './demo/data--cta';
+import dataCta from './demo/data--call-to-action';
 import dataStandalone from './demo/data--standalone';
 import link from './ecl-link.html.twig';
 import notes from './README.md';

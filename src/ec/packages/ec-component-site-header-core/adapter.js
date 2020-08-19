@@ -27,8 +27,6 @@ const adapter = (initialData) => {
   adaptedData.language_selector.overlay.close_label =
     adaptedData.language_selector.overlay.closeLabel;
   delete adaptedData.language_selector.overlay.closeLabel;
-  adaptedData.language_selector.eu_category = 'EU official languages';
-  adaptedData.language_selector.non_eu_category = 'Non-EU languages';
   adaptedData.language_selector.overlay.items.forEach((item) => {
     item.path = item.href;
     delete item.href;

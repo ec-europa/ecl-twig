@@ -33,5 +33,5 @@ ncp('static/favicon.ico', 'php/dist/favicon.ico', {}, (err) => {
   if (err) {
     return console.error(err);
   }
-  return console.log('Index.html copied in the php/dist folder');
+  return console.log('Favicon.ico copied in the php/dist folder');
 });
