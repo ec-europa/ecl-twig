@@ -1,6 +1,6 @@
 ## Develop
 
-### Defining a component
+### Components
 
 Public packages which are published on NPM registry are located in `src/ec/packages`. Packages in other folders are private and are for development purposes only.
 
@@ -10,14 +10,17 @@ The Twig template file in each package should be named after the component too. 
 
 The extra (meta) package `@ecl-twig/ec-components` is used to automatically import all the available Twig components. New components must be added in this package!
 
-### Rendering a component
+### Style guide
 
-Each component comes with a [Storybook](https://storybook.js.org/) story file `*.story.js`. Twig templates are imported and visualized through these stories for demonstrating components' visual design as well as data structures and behaviors.
+Each component comes with a [Storybook](https://storybook.js.org/) story file `*.story.js`.
+
+Twig templates are imported and visualized through these stories for demonstrating components' visual design as well as data structures and behaviors.
 
 ### EC/EU systems
 
-The library was built with two independent systems in mind, EC and EU, the filesystem is still reflecting that although in ECL-Twig only the EC components are defined and two different storybook instances are prepared to render the components with the right style.  
-Sometimes components diverge in the two systems in terms of content or data for the input that we receive as specs from ECL, if this cannot be simply handled in a single `*.story.js` file, two story files can be created, the system will select the right one for the different system looking at the beginning of the file name: `ec-{compnent}.story.js` will be chosen when starting EC and `eu-{compnent}.story.js` when starting EU.
+The library was built with two independent systems in mind, EC and EU, but in ECL-Twig only the EC components are defined and two different storybook instances are prepared to render the components with the right style.
+
+Sometimes components diverge in the two systems in terms of content or data for the input that we receive as specs from ECL, if this cannot be handled in a single `*.story.js` file, two story files can be created, the system will select the right one for the different system: `ec-{component}.story.js` will be chosen when starting EC and `eu-{component}.story.js` when starting EU.
 
 #### Working on the EC system
 
@@ -53,10 +56,6 @@ yarn jest-update
 
 Standards for the way of writing templates is ensured with static code analysis.
 
-The ECL-Twig library is an implementation of the ECL vanilla components using the twig render engine. Since templates are targeting Drupal primarily, ECL-Twig is based on twig [1.x](https://twig.symfony.com/doc/1.x/).
-
-No syntax or features from twig 2.x can be used. There are a few utilities for ensuring these standards.
-
 ### JavaScript
 
 ```bash
@@ -64,6 +63,10 @@ yarn lint
 ```
 
 ### Twig
+
+The ECL-Twig library is an implementation of the ECL vanilla components using the twig render engine. Since templates are targeting Drupal primarily, ECL-Twig is based on twig [1.x](https://twig.symfony.com/doc/1.x/).
+
+No syntax or features from twig 2.x can be used. There are a few utilities for ensuring these standards.
 
 Libraries for sniffing and linting twig (language) templates are based on PHP. The following software packages are required for the following scripts to work:
 
@@ -76,41 +79,44 @@ Install dependencies:
 composer install --no-scripts
 ```
 
-The `no-scripts` flag prevents Grumphp from overriding existing git hooks from husky (npm toolchain). To circumvent this issue, it's recommended to also run the following script:
+The `no-scripts` flag prevents Grumphp from overriding existing git hooks from husky (npm toolchain).
+
+To circumvent this issue it's recommended to also run the following script that will enable the pre-commit check by Grumphp.
 
 ```bash
 yarn grump-en
 ```
 
-It's possible to disable this pre-commit hook by:
+Disable the pre-commit hook:
 
 ```bash
 yarn grump-dis
 ```
 
-The sniffer can also be ran manually by:
+Manually run the sniffer on all the packages:
+It uses [twigcs](https://github.com/friendsoftwig/twigcs)
 
 ```bash
 composer twig-cs
 ```
 
-The latter executes [twigcs](https://github.com/friendsoftwig/twigcs) on all the packages. To run the sniffer on a specific file:
+Run the sniffer on a specific file:
 
 ```bash
 composer cs /path/to/specific/template/file
 ```
 
+Run [grumphp](https://github.com/phpro/grumphp) on all the packages, one of its tasks is twigcs, the output of this command should be equal to `composer run twig-cs`.
+
 ```bash
 composer grump-cs
 ```
-
-Runs [grumphp](https://github.com/phpro/grumphp) on all the packages, one of its tasks is twigcs, the output of this command should be equal to "composer run twig-cs".
 
 ## PHP Twig Storybook
 
 If you want test components with PHP rendering, please ensure that you have the required dependencies to work also with the PHP tool-chain, i.e. Composer.
 
-Details are included in the `README.md` of `@ecl-twig/php-renderer`.
+Details are included in the `README.md` of `@ecl-twig/php-storybook`.
 
 The following commands are available from the project root: (please ensure data is generated before executing any rendering command)
 
@@ -150,7 +156,7 @@ All these commands can be executed at once passing the generated files through p
 yarn render-php-js (ec|eu)
 ```
 
-The whole process of installing the dependencies, generating the needed files, then linting them and finally launching a storybook instance is done by:
+The whole process of installing the dependencies, generating the needed files, linting them and finally launching a storybook instance is done by:
 
 ```bash
 yarn start:php-ec
