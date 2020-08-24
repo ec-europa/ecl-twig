@@ -12,13 +12,13 @@ import footerHarmonised from './ecl-footer-harmonised.html.twig';
 import notes from './README.md';
 
 // Icons.
-dataEu.sections.forEach(section => {
+dataEu.sections.forEach((section) => {
   if (!Array.isArray(section)) {
     section = [section];
   }
-  section.forEach(s => {
+  section.forEach((s) => {
     if (s.links && Array.isArray(s.links)) {
-      s.links.forEach(l => {
+      s.links.forEach((l) => {
         if (l.icon) {
           l.icon.path = defaultSprite;
         }
@@ -30,7 +30,7 @@ dataEu.sections.forEach(section => {
   });
 });
 
-const prepareFooterHarmonised = data => {
+const prepareFooterHarmonised = (data) => {
   data.sections.forEach((section, i) => {
     if (!Array.isArray(section)) {
       if (section.logo) {
@@ -160,15 +160,10 @@ const prepareFooterHarmonised = data => {
 
 export default {
   title: 'Components/Footers/Harmonised',
-  decorators: [withCode, withNotes, withKnobs],
 };
 
 export const Group1 = () => footerHarmonised(prepareFooterHarmonised(dataEu));
 
-Group1.story = {
-  name: 'group1',
-
-  parameters: {
-    notes: { markdown: notes, json: dataEu },
-  },
-};
+Group1.storyName = 'group1';
+Group1.parameters = { notes: { markdown: notes, json: dataEu } };
+Group1.decorators = [withCode, withNotes, withKnobs];

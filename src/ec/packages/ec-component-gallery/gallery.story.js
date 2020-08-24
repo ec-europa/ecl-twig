@@ -14,7 +14,7 @@ import gallery from './ecl-gallery.html.twig';
 import dataDefault from './demo/data';
 import notes from './README.md';
 
-const prepareGallery = data => {
+const prepareGallery = (data) => {
   data.items.forEach((item, i) => {
     if (item.image) {
       item.image.src = text(
@@ -298,15 +298,10 @@ const prepareGallery = data => {
 
 export default {
   title: 'Components/Gallery',
-  decorators: [withKnobs, withCode, withNotes],
 };
 
 export const Default = () => gallery(prepareGallery(dataDefault));
 
-Default.story = {
-  name: 'default',
-
-  parameters: {
-    notes: { markdown: notes, json: dataDefault },
-  },
-};
+Default.storyName = 'default';
+Default.parameters = { notes: { markdown: notes, json: dataDefault } };
+Default.decorators = [withKnobs, withCode, withNotes];

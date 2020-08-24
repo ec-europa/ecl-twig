@@ -12,7 +12,7 @@ import searchForm from './ecl-search-form.html.twig';
 import dataDefault from './demo/data';
 import notes from './README.md';
 
-const prepareSearchForm = data => {
+const prepareSearchForm = (data) => {
   data.button.label = text(
     'button.label',
     data.button.label,
@@ -34,15 +34,10 @@ const prepareSearchForm = data => {
 
 export default {
   title: 'Components/Forms/Search Form',
-  decorators: [withKnobs, withNotes, withCode],
 };
 
 export const Default = () => searchForm(prepareSearchForm(dataDefault));
 
-Default.story = {
-  name: 'default',
-
-  parameters: {
-    notes: { markdown: notes, json: dataDefault },
-  },
-};
+Default.storyName = 'default';
+Default.parameters = { notes: { markdown: notes, json: dataDefault } };
+Default.decorators = [withKnobs, withNotes, withCode];

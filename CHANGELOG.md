@@ -3,6 +3,39 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.31.1](https://github.com/ec-europa/ecl-twig/compare/v2.31.0...v2.31.1) (2020-08-24)
+
+#### :bug: Bug Fix
+
+- [#524](https://github.com/ec-europa/ecl-twig/pull/524) fix(card): All the icons in the infos array receive the xs size from the template - front-1479 ([@planctus](https://github.com/planctus))
+- [#517](https://github.com/ec-europa/ecl-twig/pull/517) fix(favicon): Adding favicon.ico to distributed packages - front-1384 ([@planctus](https://github.com/planctus))
+
+#### :nail_care: Enhancement
+
+- [#523](https://github.com/ec-europa/ecl-twig/pull/523) feat(site-headers): Improving include code for language list - front-1480 ([@planctus](https://github.com/planctus))
+
+#### :memo: Documentation
+
+- [#527](https://github.com/ec-europa/ecl-twig/pull/527) feat(docs): Simplifying getting started, creating documentation - front-1492 ([@planctus](https://github.com/planctus))
+
+#### :house: Internal
+
+- [#526](https://github.com/ec-europa/ecl-twig/pull/526) fix(ci): fixing php-clean scripts - front-1491 ([@planctus](https://github.com/planctus))
+- [#525](https://github.com/ec-europa/ecl-twig/pull/525) chore(storybook): Upgrade to storybook 6 and deps update - front 1482 ([@planctus](https://github.com/planctus))
+- [#521](https://github.com/ec-europa/ecl-twig/pull/521) feat(ecl-diff): Adding script to run on all the available components, creating local package - front-242 ([@planctus](https://github.com/planctus))
+- [#520](https://github.com/ec-europa/ecl-twig/pull/520) chore(pipeline): replacing dubnium with erbium - front-1439 ([@planctus](https://github.com/planctus))
+- [#518](https://github.com/ec-europa/ecl-twig/pull/518) feat(browser-support): Adding browser-update configuration for php and js storybook(s) - front-1388 ([@planctus](https://github.com/planctus))
+- [#519](https://github.com/ec-europa/ecl-twig/pull/519) fix(storybook): Removing deprecated storybook-addon-options dep - front-1429 ([@planctus](https://github.com/planctus))
+- [#522](https://github.com/ec-europa/ecl-twig/pull/522) chore(deps-dev): bump prismjs from 1.20.0 to 1.21.0 ([@dependabot[bot]](https://github.com/apps/dependabot))
+- [#515](https://github.com/ec-europa/ecl-twig/pull/515) chore(deps): update libraries - front-1383 ([@planctus](https://github.com/planctus))
+- [#514](https://github.com/ec-europa/ecl-twig/pull/514) feat(scripts): Creating system aware prettier tasks for php - front-1380 ([@planctus](https://github.com/planctus))
+- [#513](https://github.com/ec-europa/ecl-twig/pull/513) feat(php-storybook): Converting the php generated story files to CSF - front-1379 ([@planctus](https://github.com/planctus))
+- [#516](https://github.com/ec-europa/ecl-twig/pull/516) chore(deps): bump elliptic from 6.5.2 to 6.5.3 ([@dependabot[bot]](https://github.com/apps/dependabot))
+
+#### Committers: 1
+
+- [@planctus](https://github.com/planctus)
+
 ## [2.31.0](https://github.com/ec-europa/ecl-twig/compare/v2.30.0...v2.31.0) (2020-07-28)
 
 #### :rocket: New Feature

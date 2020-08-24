@@ -1,4 +1,4 @@
-const adapter = initialData => {
+const adapter = (initialData) => {
   // Copy reference specification demo adaptedData.
   const adaptedData = JSON.parse(JSON.stringify(initialData));
   const [type, name] = adaptedData.shape.split('--');

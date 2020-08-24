@@ -25,7 +25,7 @@ if (process.env.STORYBOOK_SYSTEM === 'EU') {
 }
 
 // Prepare the knobs.
-const formatFooter = data => {
+const formatFooter = (data) => {
   data.sections.forEach((section, i) => {
     if (!Array.isArray(section)) {
       if (section.title) {
@@ -232,15 +232,10 @@ const formatFooter = data => {
 
 export default {
   title: 'Components/Footers/Core',
-  decorators: [withCode, withNotes, withKnobs],
 };
 
 export const Default = () => footer(formatFooter(systemSpec));
 
-Default.story = {
-  name: 'default',
-
-  parameters: {
-    notes: { markdown: notes, json: systemSpec },
-  },
-};
+Default.storyName = 'default';
+Default.parameters = { notes: { markdown: notes, json: systemSpec } };
+Default.decorators = [withCode, withNotes, withKnobs];

@@ -15,7 +15,7 @@ import pageHeaderHomepageEU from './demo/eu-data--homepage';
 describe('Page Header', () => {
   const template =
     '@ecl-twig/ec-component-page-header/ecl-page-header.html.twig';
-  const render = params => renderTwigFileAsNode(template, params);
+  const render = (params) => renderTwigFileAsNode(template, params);
 
   describe('EU', () => {
     test('branded homepage renders correctly', () => {

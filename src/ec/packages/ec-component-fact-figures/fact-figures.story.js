@@ -22,7 +22,7 @@ import factFigures from './ecl-fact-figures.html.twig';
 import notes from './README.md';
 
 const iconsList = [];
-generalIcons.forEach(icon => {
+generalIcons.forEach((icon) => {
   iconsList.push(icon);
 });
 
@@ -86,7 +86,7 @@ const formatItem = (item, index) => {
   return item;
 };
 // prepare the knobs for the stories.
-const prepareFactFigures = data => {
+const prepareFactFigures = (data) => {
   data.column = text('column', data.column, tabLabels.required);
   data.display_icons = boolean('display_icons', true, tabLabels.optional);
   data.view_all = data.view_all.link
@@ -106,7 +106,7 @@ const prepareFactFigures = data => {
       }
     : false;
 
-  data.items = data.items.map(formatItem);
+  data.items = data.items.map((item) => formatItem(item));
 
   getExtraKnobs(data);
   getComplianceKnob(data);
@@ -126,11 +126,8 @@ export const Columns3 = () => {
   return factFigures(prepareFactFigures(data3));
 };
 
-Columns3.story = {
-  parameters: {
-    notes: { markdown: notes, json: data3 },
-  },
-};
+Columns3.storyName = '3 Columns';
+Columns3.parameters = { notes: { markdown: notes, json: data3 } };
 
 export const Columns4 = () => {
   button('With or without view_links', viewAll4Toggler, tabLabels.cases);
@@ -139,8 +136,5 @@ export const Columns4 = () => {
   return factFigures(prepareFactFigures(data4));
 };
 
-Columns4.story = {
-  parameters: {
-    notes: { markdown: notes, json: data4 },
-  },
-};
+Columns4.storyName = '4 Columns';
+Columns4.parameters = { notes: { markdown: notes, json: data4 } };

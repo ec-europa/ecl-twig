@@ -15,7 +15,7 @@ function formatItem(i) {
   return item;
 }
 
-const adapter = initialData => {
+const adapter = (initialData) => {
   // Copy reference specification demo adaptedData.
   const adaptedData = JSON.parse(JSON.stringify(initialData));
   adaptedData.helper_id = adaptedData.helperId;
@@ -32,7 +32,7 @@ const adapter = initialData => {
   delete adaptedData.helperText;
   delete adaptedData.invalidText;
 
-  adaptedData.items = adaptedData.items.map(formatItem);
+  adaptedData.items = adaptedData.items.map((item) => formatItem(item));
 
   return adaptedData;
 };

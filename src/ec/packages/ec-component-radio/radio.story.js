@@ -37,20 +37,10 @@ export default {
 
 export const Default = () => radioGroup(prepareRadio(dataDefault));
 
-Default.story = {
-  name: 'default',
-
-  parameters: {
-    notes: { markdown: notes, json: dataDefault },
-  },
-};
+Default.storyName = 'default';
+Default.parameters = { notes: { markdown: notes, json: dataDefault } };
 
 export const Binary = () => radioGroup(prepareRadio(dataBinary, true));
 
-Binary.story = {
-  name: 'binary',
-
-  parameters: {
-    notes: { markdown: notes, json: dataBinary },
-  },
-};
+Binary.storyName = 'binary';
+Binary.parameters = { notes: { markdown: notes, json: dataBinary } };

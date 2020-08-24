@@ -1,6 +1,6 @@
 import { formatLink } from '@ecl-twig/data-utils';
 
-const adapter = initialData => {
+const adapter = (initialData) => {
   // Copy reference specification demo adaptedData.
   const adaptedData = JSON.parse(JSON.stringify(initialData));
   if (adaptedData.detailMeta) {
@@ -25,7 +25,7 @@ const adapter = initialData => {
         path: '/icons.svg',
       },
     };
-    adaptedData.translation.items.forEach(item => {
+    adaptedData.translation.items.forEach((item) => {
       item.lang_full = item.langFull;
       delete item.langFull;
       item.download = formatLink(item.download);

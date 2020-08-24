@@ -22,7 +22,7 @@ const btnTabHandler = () => {
   return false;
 };
 
-const prepareSkipLink = data => {
+const prepareSkipLink = (data) => {
   button(btnTabLabel, btnTabHandler, tabLabels.states);
   data.label = text('label', data.label, tabLabels.required);
   data.href = text('href', data.href, tabLabels.required);
@@ -35,15 +35,10 @@ const prepareSkipLink = data => {
 
 export default {
   title: 'Components/Navigation/Skip Link',
-  decorators: [withKnobs, withNotes, withCode],
 };
 
 export const Default = () => skipLink(prepareSkipLink(specs));
 
-Default.story = {
-  name: 'default',
-
-  parameters: {
-    notes: { markdown: notes, json: specs },
-  },
-};
+Default.storyName = 'default';
+Default.parameters = { notes: { markdown: notes, json: specs } };
+Default.decorators = [withKnobs, withNotes, withCode];

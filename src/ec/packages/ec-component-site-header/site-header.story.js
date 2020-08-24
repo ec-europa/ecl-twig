@@ -97,20 +97,10 @@ export default {
 
 export const Default = () => siteHeader(prepareSiteHeader(enData, 'en'));
 
-Default.story = {
-  name: 'ECL < 2.12 - default',
-
-  parameters: {
-    notes: { markdown: notes, json: enData },
-  },
-};
+Default.storNname = 'ECL < 2.12 - default';
+Default.parameters = { notes: { markdown: notes, json: enData } };
 
 export const Translated = () => siteHeader(prepareSiteHeader(frData, 'fr'));
 
-Translated.story = {
-  name: 'ECL < 2.12 - translated',
-
-  parameters: {
-    notes: { markdown: notes, json: frData },
-  },
-};
+Translated.storyName = 'ECL < 2.12 - translated';
+Translated.parameters = { notes: { markdown: notes, json: frData } };

@@ -16,31 +16,24 @@ import {
 
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import dataCard from './demo/data--card';
-import dataCardEvent from './demo/data--card-event';
-import dataCardTag from './demo/data--card-tag';
+import dataCardEvent from './demo/data--event';
 import dataCardTile from './demo/data--tile';
 
 import card from './ecl-card.html.twig';
 import notes from './README.md';
 
 const iconsList = [];
-generalIcons.forEach(icon => {
+generalIcons.forEach((icon) => {
   iconsList.push(icon);
 });
 
-const prepareCard = data => {
+const prepareCard = (data) => {
   data.card.title.label = text(
     'card.title.label',
     data.card.title.label,
     tabLabels.required
   );
-  data.icon_path = optionsKnob(
-    'icon_path',
-    { current: defaultSprite, 'no path': '' },
-    defaultSprite,
-    { display: 'inline-radio' },
-    tabLabels.optional
-  );
+
   if (data.card.title.type) {
     data.card.title.type = text(
       'card.title.type',
@@ -59,6 +52,13 @@ const prepareCard = data => {
       tag.label = text(`card.tags[${i}].label`, tag.label, tabLabels.optional);
     });
   }
+  data.icon_path = optionsKnob(
+    'icon_path',
+    { current: defaultSprite, 'no path': '' },
+    defaultSprite,
+    { display: 'inline-radio' },
+    tabLabels.optional
+  );
   if (data.card.infos) {
     data.card.infos.forEach((info, i) => {
       info.label = text(
@@ -67,7 +67,7 @@ const prepareCard = data => {
         tabLabels.optional
       );
       info.icon.path = optionsKnob(
-        `infos[${i}].icon.path`,
+        `infos[${i}].icon.path (not needed if icon_path is set)`,
         { current: defaultSprite, 'no path': '' },
         defaultSprite,
         { display: 'inline-radio' },
@@ -84,6 +84,12 @@ const prepareCard = data => {
           `infos[${i}].icon.type`,
           [info.icon.type],
           info.icon.type,
+          tabLabels.optional
+        );
+        info.icon.size = select(
+          `infos[${i}].icon.size (the size will not change, this is for demoing that)`,
+          ['xl', 'm', 's', 'xs', '2xs'],
+          info.icon.size,
           tabLabels.optional
         );
       }
@@ -124,40 +130,15 @@ export default {
 
 export const Card = () => card(prepareCard(dataCard));
 
-Card.story = {
-  name: 'card',
-
-  parameters: {
-    notes: { markdown: notes, json: dataCard },
-  },
-};
+Card.storyName = 'card';
+Card.parameters = { notes: { markdown: notes, json: dataCard } };
 
 export const Tile = () => card(prepareCard(dataCardTile));
 
-Tile.story = {
-  name: 'tile',
-
-  parameters: {
-    notes: { markdown: notes, json: dataCardTile },
-  },
-};
-
-export const Tag = () => card(prepareCard(dataCardTag));
-
-Tag.story = {
-  name: 'tag',
-
-  parameters: {
-    notes: { markdown: notes, json: dataCardTag },
-  },
-};
+Tile.storyName = 'tile';
+Tile.parameters = { notes: { markdown: notes, json: dataCardTile } };
 
 export const Event = () => card(prepareCard(dataCardEvent));
 
-Event.story = {
-  name: 'event',
-
-  parameters: {
-    notes: { markdown: notes, json: dataCardEvent },
-  },
-};
+Event.storyName = 'event';
+Event.parameters = { notes: { markdown: notes, json: dataCardEvent } };

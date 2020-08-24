@@ -10,7 +10,7 @@ import specData from './demo/data--default';
 import textArea from './ecl-text-area.html.twig';
 import notes from './README.md';
 
-const prepareTextArea = data => {
+const prepareTextArea = (data) => {
   getFormKnobs(data);
   getExtraKnobs(data);
   getComplianceKnob(data);
@@ -20,15 +20,10 @@ const prepareTextArea = data => {
 
 export default {
   title: 'Components/Forms/Text area',
-  decorators: [withKnobs, withNotes, withCode],
 };
 
 export const Default = () => textArea(prepareTextArea(specData));
 
-Default.story = {
-  name: 'default',
-
-  parameters: {
-    notes: { markdown: notes, json: specData },
-  },
-};
+Default.storyName = 'default';
+Default.parameters = { notes: { markdown: notes, json: specData } };
+Default.decorators = [withKnobs, withNotes, withCode];

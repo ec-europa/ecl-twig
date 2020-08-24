@@ -13,7 +13,7 @@ import dataDefault from './demo/data';
 import datepicker from './ecl-datepicker.html.twig';
 import notes from './README.md';
 
-const prepareDatePicker = data => {
+const prepareDatePicker = (data) => {
   getFormKnobs(data);
 
   data.label = text('label', data.label, tabLabels.required);
@@ -35,17 +35,12 @@ const prepareDatePicker = data => {
 
 export default {
   title: 'Components/Forms/Datepicker',
-  decorators: [withNotes, withCode, withKnobs],
 };
 
 export const Default = () => {
   return datepicker(prepareDatePicker(dataDefault));
 };
 
-Default.story = {
-  name: 'default',
-
-  parameters: {
-    notes: { markdown: notes, json: dataDefault },
-  },
-};
+Default.storyName = 'default';
+Default.parameters = { notes: { markdown: notes, json: dataDefault } };
+Default.decorators = [withNotes, withCode, withKnobs];

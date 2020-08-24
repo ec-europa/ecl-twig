@@ -10,19 +10,19 @@ import {
 
 import uiIcons from '@ecl/ec-resources-icons/dist/lists/ui.json';
 import dataDefault from './demo/data--default';
-import dataCta from './demo/data--cta';
+import dataCta from './demo/data--call-to-action';
 import dataStandalone from './demo/data--standalone';
 import link from './ecl-link.html.twig';
 import notes from './README.md';
 
 const iconsList = {};
-iconsList.none = null;
+iconsList.none = '';
 
-uiIcons.forEach(icon => {
+uiIcons.forEach((icon) => {
   iconsList[icon] = icon;
 });
 
-const prepareLink = data => {
+const prepareLink = (data) => {
   let typeLabel = tabLabels.required;
   if (data.link.type === 'default' || data.link.label === '') {
     typeLabel = tabLabels.optional;
@@ -50,10 +50,10 @@ export default {
 export const Default = () => {
   const dataStory = prepareLink(dataDefault);
 
-  const name = select('icon.name', iconsList, null, tabLabels.optional);
-  if (name !== null) {
+  const name = select('icon.name', iconsList, '', tabLabels.optional);
+  if (name !== '') {
     getIconKnobs(dataStory, name, 'ui', 'xs');
-  } else if (name === null && dataStory.icon) {
+  } else if (name === '' && dataStory.icon) {
     delete dataStory.icon.name;
   }
 
@@ -67,33 +67,23 @@ export const Default = () => {
   return demo;
 };
 
-Default.story = {
-  name: 'default',
-
-  parameters: {
-    notes: { markdown: notes, json: dataDefault },
-  },
-};
+Default.storyName = 'default';
+Default.parameters = { notes: { markdown: notes, json: dataDefault } };
 
 export const Standalone = () => {
   const dataStory = prepareLink(dataStandalone);
-  const name = select('icon.name', iconsList, null, tabLabels.optional);
-  if (name !== null) {
+  const name = select('icon.name', iconsList, '', tabLabels.optional);
+  if (name !== '') {
     getIconKnobs(dataStory, name, 'ui', 'xs');
-  } else if (name === null && dataStory.icon) {
+  } else if (name === '' && dataStory.icon) {
     delete dataStory.icon.name;
   }
 
   return link(dataStory);
 };
 
-Standalone.story = {
-  name: 'standalone',
-
-  parameters: {
-    notes: { markdown: notes, json: dataStandalone },
-  },
-};
+Standalone.storyName = 'standalone';
+Standalone.parameters = { notes: { markdown: notes, json: dataStandalone } };
 
 export const Cta = () => {
   const dataStory = prepareLink(dataCta);
@@ -103,19 +93,14 @@ export const Cta = () => {
     'rounded-arrow',
     tabLabels.optional
   );
-  if (name !== null) {
+  if (name !== '') {
     getIconKnobs(dataStory, name, 'ui', 'xs', '', 'rotate-90', true);
-  } else if (name === null && dataStory.icon) {
+  } else if (name === '' && dataStory.icon) {
     delete dataStory.icon.name;
   }
 
   return link(dataStory);
 };
 
-Cta.story = {
-  name: 'cta',
-
-  parameters: {
-    notes: { markdown: notes, json: dataCta },
-  },
-};
+Cta.storyName = 'cta';
+Cta.parameters = { notes: { markdown: notes, json: dataCta } };

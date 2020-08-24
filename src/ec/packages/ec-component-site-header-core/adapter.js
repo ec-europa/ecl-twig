@@ -1,6 +1,6 @@
 import he from 'he';
 
-const adapter = initialData => {
+const adapter = (initialData) => {
   const adaptedData = JSON.parse(JSON.stringify(initialData));
   const defaultSprite = '/icons.svg';
   if (adaptedData.loginToggle) {
@@ -27,9 +27,7 @@ const adapter = initialData => {
   adaptedData.language_selector.overlay.close_label =
     adaptedData.language_selector.overlay.closeLabel;
   delete adaptedData.language_selector.overlay.closeLabel;
-  adaptedData.language_selector.eu_category = 'EU official languages';
-  adaptedData.language_selector.non_eu_category = 'Non-EU languages';
-  adaptedData.language_selector.overlay.items.forEach(item => {
+  adaptedData.language_selector.overlay.items.forEach((item) => {
     item.path = item.href;
     delete item.href;
     if (item.isActive) {

@@ -131,17 +131,14 @@
   {% if _card.description is not empty or _card.links is not empty %}
   </div>
   {% endif %}
-
-  {% if _card.infos is not empty or _card.tags is not empty %}
   <footer class="ecl-card__footer">
-  {% endif %}
     {% if _card.infos is defined and _card.infos is not empty and _card.infos is iterable %}
       <ul class="ecl-card__info-container">
         {% for info in _card.infos %}
           {% if info.icon is defined and info.icon is not empty %}
             {% set _icon = info.icon|merge({ size: 'xs' }) %}
             {% if _icon_path is not empty %}
-              {% set _icon = info.icon|merge({ path: _icon_path }) %}
+              {% set _icon = _icon|merge({ path: _icon_path }) %}
             {% else %}
               {% set _icon_path = _icon.path|default('') %}
             {% endif %}
@@ -172,9 +169,7 @@
         {% endfor %}
       </ul>
     {% endif %}
-  {% if _card.infos is not empty or _card.tags is not empty %}
   </footer>
-  {% endif %}
 </article>
 
 {# Validation #}

@@ -1,4 +1,4 @@
-const adapter = initialData => {
+const adapter = (initialData) => {
   const adaptedData = JSON.parse(JSON.stringify(initialData));
 
   const defaultSprite = '/icons.svg';
@@ -15,7 +15,7 @@ const adapter = initialData => {
     adaptedData.language_selector.overlay.closeLabel;
   delete adaptedData.language_selector.overlay.closeLabel;
 
-  adaptedData.language_selector.overlay.items.forEach(item => {
+  adaptedData.language_selector.overlay.items.forEach((item) => {
     item.path = item.href;
     delete item.href;
     if (item.isActive) {

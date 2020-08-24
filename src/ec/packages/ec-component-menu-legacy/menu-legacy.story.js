@@ -13,7 +13,7 @@ import demoData from './demo/data';
 import menuLegacy from './ecl-menu-legacy.html.twig';
 import notes from './README.md';
 
-const prepareMenuLegacy = data => {
+const prepareMenuLegacy = (data) => {
   data.label = text('label', data.label, tabLabels.required);
   data.icon_path = optionsKnob(
     'icon_path',
@@ -59,10 +59,6 @@ export default {
 
 export const Default = () => menuLegacy(prepareMenuLegacy(demoData));
 
-Default.story = {
-  name: 'default',
-
-  parameters: {
-    notes: { markdown: notes, json: demoData },
-  },
-};
+Default.storyName = 'default';
+Default.parameters = { notes: { markdown: notes, json: demoData } };
+Default.decorators = [withKnobs, withNotes, withCode];

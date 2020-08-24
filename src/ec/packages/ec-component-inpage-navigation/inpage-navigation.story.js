@@ -56,9 +56,7 @@ const btnIdHandler = () => {
   const numParagraphs = document.querySelectorAll('.ecl-col-lg-9 p').length;
   const position = Math.floor(Math.random() * Math.floor(numParagraphs));
   const btnIdElement = document.querySelectorAll('.ecl-col-lg-9 p')[position];
-  const demoId = Math.random()
-    .toString(36)
-    .slice(7);
+  const demoId = Math.random().toString(36).slice(7);
   const btnIdTag = document.createElement('h2');
   btnIdTag.classList.add('ecl-u-type-heading-2');
   btnIdTag.id = `new-${demoId}`;
@@ -74,7 +72,6 @@ const btnIdHandler = () => {
 
 export default {
   title: 'Components/Navigation/Inpage navigation',
-  decorators: [withNotes, withKnobs, withCode],
 };
 
 export const Default = () => {
@@ -85,7 +82,7 @@ export const Default = () => {
   button(btnIdRemoveLabel, btnIdRemoveHandler, tabLabels.cases);
 
   let pageFillerHtml = '';
-  demoData.links.forEach(content => {
+  demoData.links.forEach((content) => {
     pageFillerHtml += content.item;
   });
 
@@ -110,10 +107,6 @@ export const Default = () => {
   return demo;
 };
 
-Default.story = {
-  name: 'default',
-
-  parameters: {
-    notes: { markdown: notes },
-  },
-};
+Default.storName = 'default';
+Default.parameters = { notes: { markdown: notes } };
+Default.decorators = [withNotes, withKnobs, withCode];

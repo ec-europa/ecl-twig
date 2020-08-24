@@ -1,4 +1,4 @@
-const formatIcon = i => {
+const formatIcon = (i) => {
   const [type, name] = i.shape.split('--');
   const icon = {
     path: '/icons.svg',
@@ -11,11 +11,12 @@ const formatIcon = i => {
   return icon;
 };
 
-const formatLink = l => {
+const formatLink = (l) => {
   const link = {
     link: {
       label: l.label,
-      path: l.href ? l.href : '#',
+      path: l.href || '#',
+      aria_label: l.ariaLabel || '',
     },
   };
 
@@ -32,15 +33,14 @@ const formatLink = l => {
     link.link.hreflang = l.hreflang;
   }
 
-  link.link.aria_label = l.ariaLabel ? l.ariaLabel : 'Aria label default';
-
   return link;
 };
 
-const formatLinkAlt = a => {
+const formatLinkAlt = (a) => {
   const link = {
     label: a.label,
-    path: a.href ? a.href : '#',
+    path: a.href || '#',
+    aria_label: a.ariaLabel || '',
   };
 
   if (a.isActive) {
@@ -60,12 +60,10 @@ const formatLinkAlt = a => {
     link.hreflang = a.hreflang;
   }
 
-  link.aria_label = a.aria_label ? a.aria_label : 'Aria label default';
-
   return link;
 };
 
-const formatButton = b => {
+const formatButton = (b) => {
   const button = {
     variant: b.variant,
     label: b.label,

@@ -2,12 +2,12 @@ import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
 import demoContentImg from './demo/data--image';
 import demoContentVideo from './demo/data--video';
-import demoContentEmbed from './demo/data--embed';
+import demoContentEmbed from './demo/data--embed-video';
 
 describe('EC Media Container', () => {
   const template =
     '@ecl-twig/ec-component-media-container/ecl-media-container.html.twig';
-  const render = params => renderTwigFileAsNode(template, params);
+  const render = (params) => renderTwigFileAsNode(template, params);
   const defaultDataStructure = demoContentImg;
 
   describe('Media Container generic tests', () => {

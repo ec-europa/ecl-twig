@@ -10,7 +10,6 @@ import notes from './README.md';
 
 export default {
   title: 'Components/Navigation/Contextual Navigation',
-  decorators: [withKnobs, withCode, withNotes],
 };
 
 export const Default = () => {
@@ -28,10 +27,6 @@ export const Default = () => {
   return contextualNavigation(demoData);
 };
 
-Default.story = {
-  name: 'default',
-
-  parameters: {
-    notes: { markdown: notes },
-  },
-};
+Default.storyName = 'default';
+Default.parameters = { notes: { markdown: notes } };
+Default.decorators = [withKnobs, withCode, withNotes];

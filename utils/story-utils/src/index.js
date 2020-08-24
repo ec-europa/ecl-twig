@@ -53,7 +53,7 @@ export const getExtraKnobs = (data, nested) => {
       data.extra_attributes.push(attribute);
     }
   } else {
-    data.extra_attributes = null;
+    data.extra_attributes = undefined;
   }
 
   if (nested) {
@@ -103,7 +103,7 @@ export const getExtraKnobs = (data, nested) => {
           data.items[i].extra_attributes.push(nestedAttr);
         }
       } else {
-        data.items[i].extra_attributes = null;
+        data.items[i].extra_attributes = undefined;
       }
     });
   }
@@ -282,7 +282,7 @@ export const getFormKnobs = (data, required) => {
   return data;
 };
 
-export const getFormGroupKnobs = data => {
+export const getFormGroupKnobs = (data) => {
   let helperTextDefault = '';
   if (data.helper_text) {
     helperTextDefault = data.helper_text;
@@ -372,7 +372,7 @@ export const getFormItemKnobs = (data, disabled) => {
   return data;
 };
 
-export const getLogoKnobs = data => {
+export const getLogoKnobs = (data) => {
   data.logo.title = text('logo.title', data.logo.title, tabLabels.required);
   data.logo.alt = text('logo.alt', data.logo.alt, tabLabels.required);
   data.logo.href = text('logo.href', data.logo.href, tabLabels.required);
@@ -432,6 +432,16 @@ export const getLanguageSelectorKnobs = (data, required, deprecated) => {
   if (required) {
     label = tabLabels.required;
   }
+  data.language_selector.eu_category = text(
+    'language_selector.eu_category',
+    data.language_selector.eu_category,
+    label
+  );
+  data.language_selector.non_eu_category = text(
+    'language_selector.non_eu_category',
+    data.language_selector.non_eu_category,
+    label
+  );
   data.language_selector.href = text(
     'language_selector.href',
     data.language_selector.href,
@@ -492,7 +502,7 @@ export const getBrandedIconsOptions = (labels, none, hover) => {
     options.push('Other social networks');
   }
 
-  brandedIcons.forEach(icon => {
+  brandedIcons.forEach((icon) => {
     if (labels) {
       icon = icon.charAt(0).toUpperCase() + icon.slice(1);
     } else if (hover) {
@@ -505,7 +515,7 @@ export const getBrandedIconsOptions = (labels, none, hover) => {
   return options;
 };
 
-export const getLinkKnobs = data => {
+export const getLinkKnobs = (data) => {
   data.links.forEach((link, i) => {
     link.label = text(`links[${i}].label`, link.label, tabLabels.required);
     link.path = text(`links[${i}].path`, link.path, tabLabels.required);
@@ -514,7 +524,7 @@ export const getLinkKnobs = data => {
   return data;
 };
 
-export const getComplianceKnob = data => {
+export const getComplianceKnob = (data) => {
   data['_compliance_'] = boolean(
     '_compliance_',
     data['_compliance_'],

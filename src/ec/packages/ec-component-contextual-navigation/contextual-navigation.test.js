@@ -6,7 +6,7 @@ describe('EC - Contextual Navigation', () => {
   demoData.itemMore.icon.path = 'static/icons';
   const template =
     '@ecl-twig/ec-component-contextual-navigation/ecl-contextual-navigation.html.twig';
-  const render = params => renderTwigFileAsNode(template, params);
+  const render = (params) => renderTwigFileAsNode(template, params);
 
   test('renders correctly', () => {
     expect.assertions(1);

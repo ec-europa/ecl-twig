@@ -7,5 +7,7 @@ specs.logo.src_desktop = '/eu-logo--fr.svg';
 specs.menu = dataMenu;
 specs.menu.site_name = '';
 specs.menu_label = 'Menu';
+specs.languageSelector.eu_category = "Langues officielles de l'UE";
+specs.languageSelector.non_eu_category = 'Non-EU Langues';
 
 export default adapter(specs);

@@ -66,7 +66,7 @@ class HTMLMarkup extends React.Component {
     this.clipboard = new ClipboardJS('#copy-code');
 
     // Clear the current HTMLMarkup on every story change.
-    this.stopListeningOnStory = api.onStory(() => {
+    this.stopListeningOnStory = api.on(() => {
       this.onAddHTMLMarkup('');
     });
 
@@ -126,7 +126,7 @@ class HTMLMarkup extends React.Component {
 addons.register('ecl/diff', api => {
   // Also need to set a unique name to the panel.
   addons.addPanel('ecl/diff/panel', {
-    title: 'Diff',
+    title: 'Diff php/js',
     // eslint-disable-next-line react/prop-types
     render: ({ active }) => (
       <HTMLMarkup channel={addons.getChannel()} api={api} active={active} />

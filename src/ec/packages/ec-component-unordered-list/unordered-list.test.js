@@ -1,13 +1,12 @@
 import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
-import data from '@ecl/ec-specs-list/demo/data--text';
-import dataLink from '@ecl/ec-specs-list/demo/data--link';
-import dataLinkDivider from '@ecl/ec-specs-list/demo/data--link-divider';
-import dataLinkNoBullet from '@ecl/ec-specs-list/demo/data--link-no-bullet';
+import data from './demo/data';
+import dataLinkDivider from './demo/data--with-divider';
+import dataLinkNoBullet from './demo/data--without-bullet';
 
 describe('EC - Unordered list', () => {
   const template =
     '@ecl-twig/ec-component-unordered-list/ecl-unordered-list.html.twig';
-  const render = params => renderTwigFileAsNode(template, params);
+  const render = (params) => renderTwigFileAsNode(template, params);
 
   describe('Default', () => {
     test('renders correctly', () => {
@@ -30,12 +29,6 @@ describe('EC - Unordered list', () => {
       expect.assertions(1);
 
       return expect(render(dataLinkNoBullet)).resolves.toMatchSnapshot();
-    });
-
-    test('renders correctly with links', () => {
-      expect.assertions(1);
-
-      return expect(render(dataLink)).resolves.toMatchSnapshot();
     });
 
     test('renders correctly with divider variant', () => {

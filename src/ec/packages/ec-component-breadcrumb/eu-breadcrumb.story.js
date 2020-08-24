@@ -15,7 +15,7 @@ import dataLongEu from './demo/eu-data';
 import breadcrumb from './ecl-breadcrumb.html.twig';
 import notes from './README.md';
 
-const prepareBreadcrumb = data => {
+const prepareBreadcrumb = (data) => {
   data.icon_file_path = optionsKnob(
     'icon_file_path',
     { current: defaultSprite, 'no path': '' },
@@ -58,13 +58,8 @@ export const Simple = () => {
   return demoSimple;
 };
 
-Simple.story = {
-  name: 'simple',
-
-  parameters: {
-    notes: { markdown: notes, json: dataSimpleEu },
-  },
-};
+Simple.storyName = 'simple';
+Simple.parameters = { notes: { markdown: notes, json: dataSimpleEu } };
 
 export const Long = () => {
   const longHtml = breadcrumb(prepareBreadcrumb(dataLongEu));
@@ -78,10 +73,5 @@ export const Long = () => {
   return demoLong;
 };
 
-Long.story = {
-  name: 'long',
-
-  parameters: {
-    notes: { markdown: notes, json: dataLongEu },
-  },
-};
+Long.storyName = 'long';
+Long.parameters = { notes: { markdown: notes, json: dataLongEu } };

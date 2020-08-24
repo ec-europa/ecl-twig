@@ -40,6 +40,7 @@
 {% set _translation = translation|default([]) %}
 {% set _css_class = 'ecl-file' %}
 {% set _image = image|default({}) %}
+{% set _meta_detail_string = '' %}
 {% set _variant = variant|default('') %}
 {% set _description = description|default('') %}
 {% set _extra_attributes = 'data-ecl-file' %}
@@ -50,20 +51,8 @@
 {% endif %}
 
 {# Internal logic - Process properties #}
-
 {% if _variant is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ _css_class ~ '--' ~ _variant %}
-    {% if _detail_meta is not empty and _detail_meta is iterable %}
-      {% for meta_detail in _detail_meta %}
-        {% if loop.first %}
-          {% set _meta_detail_string = meta_detail|upper %}
-        {% else %}
-          {% set _meta_detail_string = _meta_detail_string ~ ' | ' ~ meta_detail %}
-        {% endif %}
-      {% endfor %}
-    {% else %}
-      {% set _meta_detail_string = '' %}
-    {% endif %}
 {% endif %}
 
 {% if extra_classes is defined and extra_classes is not empty %}
@@ -79,6 +68,16 @@
     {% endif %}
   {% endfor %}
 {% endif %}
+
+{% if _detail_meta is not empty and _detail_meta is iterable %}
+    {% for meta_detail in _detail_meta %}
+      {% if loop.first %}
+        {% set _meta_detail_string = meta_detail|upper %}
+      {% else %}
+        {% set _meta_detail_string = _meta_detail_string ~ ' | ' ~ meta_detail %}
+      {% endif %}
+    {% endfor %}
+  {% endif %}
 
 {# Print the result #}
 

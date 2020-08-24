@@ -13,7 +13,7 @@ import specs from './demo/data';
 import pagination from './ecl-pagination.html.twig';
 import notes from './README.md';
 
-const preparePagination = data => {
+const preparePagination = (data) => {
   data.label = text('label', data.label, tabLabels.required);
   data.icon_path = optionsKnob(
     'icon_path',
@@ -97,15 +97,10 @@ const preparePagination = data => {
 
 export default {
   title: 'Components/Navigation/Pagination',
-  decorators: [withKnobs, withNotes, withCode],
 };
 
 export const Default = () => pagination(preparePagination(specs));
 
-Default.story = {
-  name: 'default',
-
-  parameters: {
-    notes: { markdown: notes, json: specs },
-  },
-};
+Default.storyName = 'default';
+Default.parameters = { notes: { markdown: notes, json: specs } };
+Default.decorators = [withKnobs, withNotes, withCode];

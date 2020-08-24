@@ -1,11 +1,11 @@
 import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
-import data from '@ecl/ec-specs-description-list/demo/data';
-import dataHorizontal from '@ecl/ec-specs-description-list/demo/data--horizontal';
+import data from './demo/data';
+import dataHorizontal from './demo/data--horizontal';
 
 describe('EC - Description list', () => {
   const template =
     '@ecl-twig/ec-component-description-list/ecl-description-list.html.twig';
-  const render = params => renderTwigFileAsNode(template, params);
+  const render = (params) => renderTwigFileAsNode(template, params);
 
   describe('Default', () => {
     test('renders correctly', () => {

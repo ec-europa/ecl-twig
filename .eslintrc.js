@@ -20,6 +20,15 @@ module.exports = {
   },
   overrides: [
     {
+      files: 'utils/ecl-diff/**/*.js',
+      rules: {
+        'no-console': 0,
+        'unicorn/no-reduce': 0,
+        'no-param-reassign': 0,
+        'default-case': 0,
+      },
+    },
+    {
       files: '**/demo/*.js',
       rules: {
         'unicorn/filename-case': 'off',

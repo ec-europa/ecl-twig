@@ -13,7 +13,7 @@ import demoData from './demo/data';
 import timeline from './ecl-timeline.html.twig';
 import notes from './README.md';
 
-const prepareTimeline = data => {
+const prepareTimeline = (data) => {
   const { from, to } = data.hide;
   let hiddenCount = 0;
   if (to > 0) {
@@ -60,15 +60,10 @@ const prepareTimeline = data => {
 
 export default {
   title: 'Components/Timeline',
-  decorators: [withKnobs, withCode, withNotes],
 };
 
 export const Default = () => timeline(prepareTimeline(demoData));
 
-Default.story = {
-  name: 'default',
-
-  parameters: {
-    notes: { markdown: notes, json: demoData },
-  },
-};
+Default.storyName = 'default';
+Default.parameters = { notes: { markdown: notes, json: demoData } };
+Default.decorators = [withKnobs, withCode, withNotes];

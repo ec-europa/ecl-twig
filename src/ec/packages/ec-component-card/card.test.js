@@ -1,12 +1,11 @@
 import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 import dataCard from './demo/data--card';
-import dataCardEvent from './demo/data--card-event';
-import dataCardTag from './demo/data--card-tag';
+import dataCardEvent from './demo/data--event';
 import dataTile from './demo/data--tile';
 
 describe('EC - Card', () => {
   const template = '@ecl-twig/ec-component-card/ecl-card.html.twig';
-  const render = params => renderTwigFileAsNode(template, params);
+  const render = (params) => renderTwigFileAsNode(template, params);
 
   describe('Default', () => {
     test('renders correctly', () => {
@@ -67,36 +66,6 @@ describe('EC - Card', () => {
       expect.assertions(1);
 
       const withExtraAttributes = merge(dataTile, {
-        extra_attributes: [
-          { name: 'data-test', value: 'data-test-value' },
-          { name: 'data-test-1', value: 'data-test-value-1' },
-        ],
-      });
-
-      return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
-    });
-  });
-
-  describe('Tag', () => {
-    test('renders correctly', () => {
-      expect.assertions(1);
-      return expect(render(dataCardTag)).resolves.toMatchSnapshot();
-    });
-
-    test('renders correctly with extra class names', () => {
-      expect.assertions(1);
-
-      const withExtraClasses = merge(dataCardTag, {
-        extra_classes: 'custom-class custom-class--test',
-      });
-
-      return expect(render(withExtraClasses)).resolves.toMatchSnapshot();
-    });
-
-    test('renders correctly with extra attributes', () => {
-      expect.assertions(1);
-
-      const withExtraAttributes = merge(dataCardTag, {
         extra_attributes: [
           { name: 'data-test', value: 'data-test-value' },
           { name: 'data-test-1', value: 'data-test-value-1' },

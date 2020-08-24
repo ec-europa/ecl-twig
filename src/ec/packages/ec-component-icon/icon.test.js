@@ -4,16 +4,16 @@ import brandedIcons from '@ecl/ec-resources-icons/dist/lists/branded.json';
 import generalIcons from '@ecl/ec-resources-icons/dist/lists/general.json';
 import notificationsIcons from '@ecl/ec-resources-icons/dist/lists/notifications.json';
 import uiIcons from '@ecl/ec-resources-icons/dist/lists/ui.json';
-import dataBranded from './demo/data--facebook';
-import dataNotifications from './demo/data--success';
-import dataUi from './demo/data--audio';
+import dataBranded from './demo/data--branded';
+import dataNotifications from './demo/data--notifications';
+import dataUi from './demo/data--general';
 
 describe('EC - Icon', () => {
   const template = '@ecl-twig/ec-component-icon/ecl-icon.html.twig';
-  const render = params => renderTwigFileAsNode(template, params);
+  const render = (params) => renderTwigFileAsNode(template, params);
 
   describe('Branded', () => {
-    brandedIcons.forEach(icon => {
+    brandedIcons.forEach((icon) => {
       test(`- icon ${icon} renders correctly`, () => {
         expect.assertions(1);
 
@@ -29,7 +29,7 @@ describe('EC - Icon', () => {
   });
 
   describe('Notifications', () => {
-    notificationsIcons.forEach(icon => {
+    notificationsIcons.forEach((icon) => {
       test(`- icon ${icon} renders correctly`, () => {
         expect.assertions(1);
 
@@ -45,7 +45,7 @@ describe('EC - Icon', () => {
   });
 
   describe('General', () => {
-    generalIcons.forEach(icon => {
+    generalIcons.forEach((icon) => {
       test(`- icon ${icon} renders correctly`, () => {
         expect.assertions(1);
 
@@ -62,7 +62,7 @@ describe('EC - Icon', () => {
   });
 
   describe('UI', () => {
-    uiIcons.forEach(icon => {
+    uiIcons.forEach((icon) => {
       test(`- icon ${icon} renders correctly`, () => {
         expect.assertions(1);
 

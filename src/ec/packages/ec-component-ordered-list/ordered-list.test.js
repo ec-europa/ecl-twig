@@ -1,10 +1,10 @@
 import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
-import data from '@ecl/ec-specs-list/demo/data--text';
+import data from './demo/data';
 
 describe('EC - Ordered list', () => {
   const template =
     '@ecl-twig/ec-component-ordered-list/ecl-ordered-list.html.twig';
-  const render = params => renderTwigFileAsNode(template, params);
+  const render = (params) => renderTwigFileAsNode(template, params);
 
   describe('Default', () => {
     test('renders correctly', () => {

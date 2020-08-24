@@ -17,7 +17,7 @@ import dataWarning from './demo/data--warning';
 import message from './ecl-message.html.twig';
 import notes from './README.md';
 
-const prepareMessage = data => {
+const prepareMessage = (data) => {
   data.title = text('title', data.title, tabLabels.required);
   data.description = text('description', data.description, tabLabels.required);
   data.variant = select(
@@ -57,32 +57,20 @@ export default {
 
 export const Info = () => message(prepareMessage(dataInfo));
 
-Info.story = {
-  parameters: {
-    notes: { markdown: notes, json: dataInfo },
-  },
-};
+Info.storyName = 'Info';
+Info.parameters = { notes: { markdown: notes, json: dataInfo } };
 
 export const Success = () => message(prepareMessage(dataSuccess));
 
-Success.story = {
-  parameters: {
-    notes: { markdown: notes, json: dataSuccess },
-  },
-};
+Success.storyName = 'Success';
+Success.parameters = { notes: { markdown: notes, json: dataSuccess } };
 
 export const Error = () => message(prepareMessage(dataError));
 
-Error.story = {
-  parameters: {
-    notes: { markdown: notes, json: dataError },
-  },
-};
+Error.storyName = 'Error';
+Error.parameters = { notes: { markdown: notes, json: dataError } };
 
 export const Warning = () => message(prepareMessage(dataWarning));
 
-Warning.story = {
-  parameters: {
-    notes: { markdown: notes, json: dataWarning },
-  },
-};
+Warning.storyName = 'Warning';
+Warning.parameters = { notes: { markdown: notes, json: dataWarning } };

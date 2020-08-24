@@ -3,12 +3,14 @@
 /* eslint-disable import/no-extraneous-dependencies, no-console */
 
 const fs = require('fs');
+const path = require('path');
 const { HtmlDiffer } = require('html-differ');
 const logger = require('html-differ/lib/logger');
 
 const args = process.argv.slice(2);
 const system = args[0] ? args[0] : 'ec';
-const rootFolder = process.cwd();
+const rootFolder = path.resolve(__dirname, '../../../');
+
 const distFolder = `${rootFolder}/php`;
 const systemFolder = `${distFolder}/packages/${system}`;
 const diffOptions = {
@@ -28,7 +30,7 @@ let totalComponents = 0;
 let totalVariants = 0;
 const failed = [];
 
-components.forEach(component => {
+components.forEach((component) => {
   // Our validation component.
   if (component === 'ecl-compliance') {
     return;
@@ -44,11 +46,11 @@ components.forEach(component => {
   const dataFiles = fs.readdirSync(`${systemFolder}/${component}/specs`);
   const markup = [];
 
-  dataFiles.forEach(dataFile => {
+  dataFiles.forEach((dataFile) => {
     totalVariants += 1;
     const filenames = [];
 
-    ['js', 'php'].forEach(lang => {
+    ['js', 'php'].forEach((lang) => {
       const extension = `.${lang}.html`;
       const js = lang === 'js' ? lang : '';
       const fileName =

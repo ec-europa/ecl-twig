@@ -38,13 +38,13 @@ const domain = 'https://ec.europa.eu';
 const rootFolder = process.cwd();
 const distFolder = `${rootFolder}/php`;
 const systemFolder = `${distFolder}/packages/${system}`;
-const getBase = element => {
+const getBase = (element) => {
   [, element] = element.split(`ec-component-`);
   return element;
 };
 
 // We build a list of components by their root name.
-packages = packages.map(getBase);
+packages = packages.map((item) => getBase(item));
 packages.pop();
 
 // The questions we need an answer for.
@@ -110,7 +110,7 @@ const options = {
 yargsInteractive()
   .usage('$0 <command> [args]')
   .interactive(options)
-  .then(result => {
+  .then((result) => {
     (async () => {
       try {
         const {
@@ -124,7 +124,7 @@ yargsInteractive()
           language,
         } = result;
         const extension = language === 'php' ? '.php.html' : '.js.html';
-        const getVariant = element => {
+        const getVariant = (element) => {
           if (element.includes('--')) {
             element = element.split('--')[1].replace(extension, '');
           } else {
@@ -161,18 +161,13 @@ yargsInteractive()
         } else if (!fs.existsSync(`${twigFullPath}/${fileName}`)) {
           let files = fs.readdirSync(twigFullPath);
 
-          files = files.filter(file => {
-            return (
-              file
-                .split('.')
-                .slice(1)
-                .join('.') === extension.slice(1)
-            );
+          files = files.filter((file) => {
+            return file.split('.').slice(1).join('.') === extension.slice(1);
           });
 
-          files = files.map(getVariant);
+          files = files.map((file) => getVariant(file));
           // We might have empty items in the array now.
-          files = files.filter(item => item);
+          files = files.filter((item) => item);
 
           if (files.length > 0) {
             if (variant !== '') {
@@ -207,7 +202,7 @@ yargsInteractive()
             'xlink:href="{{.*icons.*.svg#}}'
           )
           // Booleans.
-          .replace(/(data-ecl[-A-Za-z]+)(?=[\s/>])/g, '$1="{{true|false}}"') // eslint-disable-line unicorn/regex-shorthand
+          .replace(/(data-ecl[\dA-Za-z-]+)(?=[\s/>])/g, '$1="{{true|false}}"') // eslint-disable-line unicorn/regex-shorthand
           // aria-hidden
           .replace(/(aria-hidden)(=".+")/g, '$1="{{true|false}}"')
           // Logo
@@ -218,13 +213,11 @@ yargsInteractive()
         // Now we process the story in ECL, we try to retrieve all the stories available
         // and see if any of them matches the requested one, if none does we return the
         // list of stories available for a component, if we found them.
-        const eclComponents = el => {
+        const eclComponents = (el) => {
           if (el === 'text-input') {
             el = 'text-field';
           } else if (el === 'text-area') {
             el = 'textarea';
-          } else if (el === 'accordion2') {
-            el = 'accordion';
           } else if (el === 'unordered-list' || el === 'description-list') {
             el = 'list';
           } else if (el === 'message') {
@@ -276,9 +269,12 @@ yargsInteractive()
             if (el === 'site-header') {
               el = 'site-header-ecl-2-12-0';
             }
-            if (el === 'page-header') {
+            if (el === 'pageheader') {
               el = 'page-header-ecl-2-14-0';
             }
+          }
+          if (el === 'accordion2') {
+            el = 'accordion';
           }
 
           return el;
@@ -306,7 +302,7 @@ yargsInteractive()
               visible: true,
             });
             if (groupLink) {
-              page.$eval(`#explorer${eclGluePath}`, elem => elem.click());
+              page.$eval(`#explorer${eclGluePath}`, (elem) => elem.click());
             }
           }
           // Menu link, if it's there click on it.
@@ -315,7 +311,7 @@ yargsInteractive()
             { visible: true }
           );
           if (menuLink) {
-            page.$eval(`a#explorer${eclGluePath}-${eclComponent}`, elem =>
+            page.$eval(`a#explorer${eclGluePath}-${eclComponent}`, (elem) =>
               elem.click()
             );
             await page.waitForSelector(
@@ -329,7 +325,7 @@ yargsInteractive()
               let hrefs = [];
               for (const story of stories) {
                 const href = await page.evaluate(
-                  el => el.getAttribute('href'),
+                  (el) => el.getAttribute('href'),
                   story
                 );
                 // Try to match the urls found with the one built in this script.
@@ -361,12 +357,20 @@ yargsInteractive()
 
           if (await page.waitForSelector('code')) {
             let eclMarkup = await page.evaluate(
-              el => el.innerHTML,
+              (el) => el.innerHTML,
               await page.$('code')
             );
 
             // The html we get is enriched by a syntax highlighter.
             eclMarkup = he.decode(eclMarkup.replace(/<\/?[^>]+(>|$)/g, ''));
+            if (component === 'dropdown-legacy') {
+              eclMarkup = eclMarkup
+                .replace('<p>Content before</p>', '')
+                .replace('<p>Content after</p>', '');
+            }
+            if (component === 'skip-link') {
+              eclMarkup = eclMarkup.replace('<div id="top"></div>', '');
+            }
             const eclMarkupMinusDiv = eclMarkup.replace(/^<div>/, '');
             if (eclMarkupMinusDiv !== eclMarkup) {
               eclMarkup = eclMarkupMinusDiv.replace(/<\/div>$/, '');

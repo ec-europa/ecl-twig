@@ -8,13 +8,11 @@ import {
 import withCode from '@ecl-twig/storybook-addon-code';
 
 import specs from '@ecl/ec-specs-description-list/demo/data';
-import specsHorizontal from '@ecl/ec-specs-description-list/demo/data--horizontal';
+import specsHorizontal from './demo/data--horizontal';
 import descriptionList from './ecl-description-list.html.twig';
 import notes from './README.md';
 
-specsHorizontal.variant = 'horizontal';
-
-const prepareList = data => {
+const prepareList = (data) => {
   if (data.variant) {
     data.variant = select(
       'variant',
@@ -65,20 +63,10 @@ export default {
 
 export const Vertical = () => descriptionList(prepareList(specs));
 
-Vertical.story = {
-  name: 'vertical',
-
-  parameters: {
-    notes: { markdown: notes, json: specs },
-  },
-};
+Vertical.storyName = 'vertical';
+Vertical.parameters = { notes: { markdown: notes, json: specs } };
 
 export const Horizontal = () => descriptionList(prepareList(specsHorizontal));
 
-Horizontal.story = {
-  name: 'horizontal',
-
-  parameters: {
-    notes: { markdown: notes, json: specsHorizontal },
-  },
-};
+Horizontal.storyName = 'horizontal';
+Horizontal.parameters = { notes: { markdown: notes, json: specsHorizontal } };

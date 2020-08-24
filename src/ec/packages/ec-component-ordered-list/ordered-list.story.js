@@ -7,12 +7,11 @@ import {
 } from '@ecl-twig/story-utils';
 import withCode from '@ecl-twig/storybook-addon-code';
 
-import specs from '@ecl/ec-specs-list/demo/data--text';
-
+import specs from './demo/data';
 import orderedList from './ecl-ordered-list.html.twig';
 import notes from './README.md';
 
-const prepareOrderedList = data => {
+const prepareOrderedList = (data) => {
   data.items.forEach((item, i) => {
     item.label = text(`items[${i}].label`, item.label, tabLabels.required);
 
@@ -35,15 +34,10 @@ const prepareOrderedList = data => {
 
 export default {
   title: 'Components/List/Ordered list',
-  decorators: [withNotes, withCode, withKnobs],
 };
 
 export const Default = () => orderedList(prepareOrderedList(specs));
 
-Default.story = {
-  name: 'default',
-
-  parameters: {
-    notes: { markdown: notes, json: specs },
-  },
-};
+Default.storyName = 'default';
+Default.parameters = { notes: { markdown: notes, json: specs } };
+Default.decorators = [withNotes, withCode, withKnobs];

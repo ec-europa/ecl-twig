@@ -25,7 +25,7 @@ const system = process.env.STORYBOOK_SYSTEM
 const simpleData = system ? dataSimpleEu : dataSimple;
 const longData = system ? dataLongEu : dataLong;
 
-const prepareBreadcrumbCore = data => {
+const prepareBreadcrumbCore = (data) => {
   data.icon_file_path = optionsKnob(
     'icon_file_path',
     { current: defaultSprite, 'no path': '' },
@@ -58,20 +58,10 @@ export default {
 
 export const Simple = () => breadcrumb(prepareBreadcrumbCore(simpleData));
 
-Simple.story = {
-  name: 'simple',
-
-  parameters: {
-    notes: { markdown: notes, json: simpleData },
-  },
-};
+Simple.storyName = 'simple';
+Simple.parameters = { notes: { markdown: notes, json: simpleData } };
 
 export const Long = () => breadcrumb(prepareBreadcrumbCore(longData));
 
-Long.story = {
-  name: 'long',
-
-  parameters: {
-    notes: { markdown: notes, json: longData },
-  },
-};
+Long.storyName = 'long';
+Long.parameters = { notes: { markdown: notes, json: longData } };

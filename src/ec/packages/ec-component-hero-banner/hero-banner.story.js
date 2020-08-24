@@ -18,7 +18,7 @@ import heroBanner from './ecl-hero-banner.html.twig';
 import notes from './README.md';
 
 const icons = { none: '' };
-uiIcons.forEach(icon => {
+uiIcons.forEach((icon) => {
   icons[icon] = icon;
 });
 
@@ -72,51 +72,26 @@ export default {
 
 export const Default = () => heroBanner(prepareBanner(dataDefault));
 
-Default.story = {
-  name: 'default',
-
-  parameters: {
-    notes: { markdown: notes, json: dataDefault },
-  },
-};
+Default.storyName = 'default';
+Default.parameters = { notes: { markdown: notes, json: dataDefault } };
 
 export const Primary = () => heroBanner(prepareBanner(dataPrimary));
 
-Primary.story = {
-  name: 'primary',
-
-  parameters: {
-    notes: { markdown: notes, json: dataPrimary },
-  },
-};
+Primary.storyName = 'primary';
+Primary.parameters = { notes: { markdown: notes, json: dataPrimary } };
 
 export const AlignLeft = () => heroBanner(prepareBanner(dataLeft));
 
-AlignLeft.story = {
-  name: 'align-left',
-
-  parameters: {
-    notes: { markdown: notes, json: dataLeft },
-  },
-};
+AlignLeft.storyName = 'align-left';
+AlignLeft.parameters = { notes: { markdown: notes, json: dataLeft } };
 
 export const Image = () => heroBanner(prepareBanner(dataImage, 'img'));
 
-Image.story = {
-  name: 'image',
-
-  parameters: {
-    notes: { markdown: notes, json: dataImage },
-  },
-};
+Image.storyName = 'image';
+Image.parameters = { notes: { markdown: notes, json: dataImage } };
 
 export const ImageShade = () =>
   heroBanner(prepareBanner(dataImageShade, 'img'));
 
-ImageShade.story = {
-  name: 'image-shade',
-
-  parameters: {
-    notes: { markdown: notes, json: dataImageShade },
-  },
-};
+ImageShade.storyName = 'image-shade';
+ImageShade.parameters = { notes: { markdown: notes, json: dataImageShade } };

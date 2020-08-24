@@ -1,1 +1,0 @@
-../../ec/.storybook/webpack.config.js

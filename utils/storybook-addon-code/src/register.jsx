@@ -69,7 +69,7 @@ class HTMLMarkup extends React.Component {
     this.clipboard = new ClipboardJS('#copy-code');
 
     // Clear the current HTMLMarkup on every story change.
-    this.stopListeningOnStory = api.onStory(() => {
+    this.stopListeningOnStory = api.on(() => {
       this.onAddHTMLMarkup('');
     });
 

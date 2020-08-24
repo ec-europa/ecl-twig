@@ -12,9 +12,9 @@ import brandedIcons from '@ecl/ec-resources-icons/dist/lists/branded.json';
 import generalIcons from '@ecl/ec-resources-icons/dist/lists/general.json';
 import notificationsIcons from '@ecl/ec-resources-icons/dist/lists/notifications.json';
 import uiIcons from '@ecl/ec-resources-icons/dist/lists/ui.json';
-import dataBranded from './demo/data--facebook';
-import dataNotifications from './demo/data--success';
-import dataGeneral from './demo/data--audio';
+import dataBranded from './demo/data--branded';
+import dataNotifications from './demo/data--notifications';
+import dataGeneral from './demo/data--general';
 import dataUi from './demo/data--ui';
 
 import icon from './ecl-icon.html.twig';
@@ -45,13 +45,8 @@ export const Branded = () => {
   return icon(dataStory);
 };
 
-Branded.story = {
-  name: 'branded',
-
-  parameters: {
-    notes: { markdown: notes, json: dataBranded },
-  },
-};
+Branded.storyName = 'branded';
+Branded.parameters = { notes: { markdown: notes, json: dataBranded } };
 
 export const General = () => {
   const iconName = select(
@@ -65,13 +60,8 @@ export const General = () => {
   return icon(dataStory);
 };
 
-General.story = {
-  name: 'general',
-
-  parameters: {
-    notes: { markdown: notes, json: dataGeneral },
-  },
-};
+General.storyName = 'general';
+General.parameters = { notes: { markdown: notes, json: dataGeneral } };
 
 export const Notifications = () => {
   const iconName = select(
@@ -85,12 +75,9 @@ export const Notifications = () => {
   return icon(dataStory);
 };
 
-Notifications.story = {
-  name: 'notifications',
-
-  parameters: {
-    notes: { markdown: notes, json: dataNotifications },
-  },
+Notifications.storyName = 'notifications';
+Notifications.parameters = {
+  notes: { markdown: notes, json: dataNotifications },
 };
 
 export const Ui = () => {
@@ -100,10 +87,5 @@ export const Ui = () => {
   return icon(dataStory);
 };
 
-Ui.story = {
-  name: 'ui',
-
-  parameters: {
-    notes: { markdown: notes, json: dataUi },
-  },
-};
+Ui.storyName = 'ui';
+Ui.parameters = { notes: { markdown: notes, json: dataUi } };

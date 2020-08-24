@@ -1,11 +1,11 @@
 import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 import dataDefault from './demo/data--default';
-import dataCta from './demo/data--cta';
+import dataCta from './demo/data--call-to-action';
 import dataStandalone from './demo/data--standalone';
 
 describe('EC - Link', () => {
   const template = '@ecl-twig/ec-component-link/ecl-link.html.twig';
-  const render = params => renderTwigFileAsNode(template, params);
+  const render = (params) => renderTwigFileAsNode(template, params);
   const defaultIconPath = 'static/icons.svg';
 
   describe('Default', () => {

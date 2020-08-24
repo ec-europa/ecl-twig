@@ -18,14 +18,14 @@ import notes from './README.md';
 
 // Icons.
 const groups = [dataGroup1, dataGroup2];
-groups.forEach(g => {
-  g.sections.forEach(section => {
+groups.forEach((g) => {
+  g.sections.forEach((section) => {
     if (!Array.isArray(section)) {
       section = [section];
     }
-    section.forEach(s => {
+    section.forEach((s) => {
       if (s.links && Array.isArray(s.links)) {
-        s.links.forEach(l => {
+        s.links.forEach((l) => {
           if (l.icon) {
             l.icon.path = defaultSprite;
           }
@@ -182,7 +182,7 @@ const resetBtnToggler = () => {
 };
 
 // Prepare the knobs for group3.
-const prepareFooterHarmonisedG3 = data => {
+const prepareFooterHarmonisedG3 = (data) => {
   button(
     'With or without first "Partnership logo"',
     partnershipLogoBtnToggler,
@@ -239,7 +239,7 @@ const prepareFooterHarmonisedG3 = data => {
 };
 
 // Prepare the knobs for group2.
-const prepareFooterHarmonisedG2 = data => {
+const prepareFooterHarmonisedG2 = (data) => {
   dataG2.sections.forEach((section, i) => {
     if (section.title) {
       section.title.link = {
@@ -278,7 +278,7 @@ const prepareFooterHarmonisedG2 = data => {
 };
 
 // Prepare the knobs for group1
-const prepareFooterHarmonisedG1 = data => {
+const prepareFooterHarmonisedG1 = (data) => {
   button('With our without class names', classBtnToggler, tabLabels.cases);
   button(
     'With our without DG-related service navigation (contact us)',
@@ -454,39 +454,30 @@ export default {
 
 export const Group1 = () => footerHarmonised(prepareFooterHarmonisedG1(dataG1));
 
-Group1.story = {
-  name: 'group 1',
-
-  parameters: {
-    notes: {
-      markdown: notes,
-      json: { dataG1 },
-    },
+Group1.storyName = 'group 1';
+Group1.parameters = {
+  notes: {
+    markdown: notes,
+    json: { dataG1 },
   },
 };
 
 export const Group2 = () => footerHarmonised(prepareFooterHarmonisedG2(dataG2));
 
-Group2.story = {
-  name: 'group 2',
-
-  parameters: {
-    notes: {
-      markdown: notes,
-      json: { dataG2 },
-    },
+Group2.storyName = 'group 2';
+Group2.parameters = {
+  notes: {
+    markdown: notes,
+    json: { dataG2 },
   },
 };
 
 export const Group3 = () => footerHarmonised(prepareFooterHarmonisedG3(dataG3));
 
-Group3.story = {
-  name: 'group 3',
-
-  parameters: {
-    notes: {
-      markdown: notes,
-      json: { dataG3 },
-    },
+Group3.storyName = 'group 3';
+Group3.parameters = {
+  notes: {
+    markdown: notes,
+    json: { dataG3 },
   },
 };

@@ -12,7 +12,7 @@ import demoData from './demo/data';
 import accordion from './ecl-accordion.html.twig';
 import notes from './README.md';
 
-const prepareAccordion = data => {
+const prepareAccordion = (data) => {
   data.items.forEach((item, index) => {
     const { id, level, toggle, content } = item;
     item.id = text(`items[${index}].id`, id, tabLabels.required);
@@ -47,15 +47,10 @@ const prepareAccordion = data => {
 
 export default {
   title: 'Components/deprecated/Accordion',
-  decorators: [withKnobs, withCode, withNotes],
 };
 
 export const Default = () => accordion(prepareAccordion(demoData));
 
-Default.story = {
-  name: 'ECL < 2.6.0 - default',
-
-  parameters: {
-    notes: { markdown: notes, json: demoData },
-  },
-};
+Default.storyName = 'ECL < 2.6.0 - default';
+Default.parameters = { notes: { markdown: notes, json: demoData } };
+Default.decorators = [withKnobs, withCode, withNotes];
