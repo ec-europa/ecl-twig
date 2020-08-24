@@ -8,8 +8,11 @@ backend:
     create: 'feat({{collection}}): create {{collection}} “{{slug}}”'
     update: 'feat({{collection}}): update {{collection}} “{{slug}}”'
     delete: 'feat({{collection}}): delete {{collection}} “{{slug}}”'
+    uploadMedia: 'Upload “{{path}}”'
+    deleteMedia: 'Delete “{{path}}”'
 
 media_folder: static/images
+publish_mode: editorial_workflow
 
 collections:
   - label: 'Components'
