@@ -22,7 +22,5 @@ collections:
         name: 'accordion'
         file: 'src/ec/packages/ec-component-accordion/README.md'
         fields:
-          - { label: Title, name: title, widget: string }
+          - { label: ECL-Twig Doc, name: title, widget: string }
           - { label: Body, name: body, widget: markdown }
-          - { label: Example, name: example, widget: code }
-          - { label: 'Draft', name: 'draft', widget: 'boolean', default: false }
