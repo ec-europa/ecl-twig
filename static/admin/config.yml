@@ -6,8 +6,8 @@ backend:
     create: 'feat({{collection}}): create {{collection}} “{{slug}}”'
     update: 'feat({{collection}}): update {{collection}} “{{slug}}”'
     delete: 'feat({{collection}}): delete {{collection}} “{{slug}}”'
-    uploadMedia: 'feat(media): upload “{{path}}”'
-    deleteMedia: 'feat(media): delete “{{path}}”'
+
+media_folder: static/images
 
 collections:
   - label: 'Components'
