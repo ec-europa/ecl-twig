@@ -20,7 +20,6 @@ npm install --save @ecl-twig/ec-component-blockquote
 ## Example:
 
 <!-- prettier-ignore -->
-
 ```twig
 {% include '@ecl-twig/ec-component-blockquote/ecl-blockquote.html.twig' with { 
   citation: 'Twenty years from now you will be more disappointed by the things that you didn’t do than by the ones you did do.', 
