@@ -1,5 +1,5 @@
 backend:
-  name: github
+  name: git-gateway
   repo: ec-europa/ecl-twig
   open_authoring: true
   branch: netlifycms
@@ -24,3 +24,4 @@ collections:
         fields:
           - { label: ECL-Twig Doc, name: title, widget: string }
           - { label: Body, name: body, widget: markdown }
+          - { label: Example, name: example, widget: code }
