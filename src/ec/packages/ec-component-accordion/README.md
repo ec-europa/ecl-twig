@@ -17,8 +17,8 @@ npm install --save @ecl-twig/ec-component-accordion
   - "content" (string) (default: '')
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: \[]) Extra attributes
-  * "name" (string) Attribute name, eg. 'data-test'
-  * "value" (string) Attribute value, eg: 'data-test-1'
+  - "name" (string) Attribute name, eg. 'data-test'
+  - "value" (string) Attribute value, eg: 'data-test-1'
 - **"`_compliance_`"** (boolean) (default: false) Activates debug
 
 ### Example :
