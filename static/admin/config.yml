@@ -1,7 +1,6 @@
 backend:
   name: git-gateway
   repo: ec-europa/ecl-twig
-  open_authoring: true
   branch: netlifycms
   squash_merges: true
   commit_messages:
@@ -15,8 +14,8 @@ media_folder: static/images
 publish_mode: editorial_workflow
 
 collections:
-  - label: 'Components'
-    name: 'components'
+  - label: 'Docs'
+    name: 'docs'
     files:
       - label: 'Accordion'
         name: 'accordion'
