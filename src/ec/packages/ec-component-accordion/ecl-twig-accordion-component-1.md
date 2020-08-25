@@ -1,5 +1,7 @@
 ---
 title: ECL-Twig Accordion component
+npm_package:
+  code: "npm package: @ecl-twig/ec-component-accordion"
 example:
   code: >-
     {% include '@ecl-twig/ec-component-accordion/ecl-accordion.html.twig' with
@@ -26,12 +28,6 @@ example:
     } %}  
   lang: twig
 ---
-
-
-```shell
-npm package: `@ecl-twig/ec-component-accordion`
-```
-
 ### Parameters
 
 * **"items"** (array) (default: \[]): format:
