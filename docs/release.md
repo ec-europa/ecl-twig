@@ -1,3 +1,6 @@
+---
+title: How to publish a new release
+---
 # How to publish a new release:
 
 Today is the big day. You're about to publish a new version of ECL-Twig templates. Congratulations!
