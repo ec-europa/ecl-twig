@@ -1,3 +1,6 @@
+---
+title: Accordion
+---
 # ECL-Twig Accordion component
 
 npm package: `@ecl-twig/ec-component-accordion`
