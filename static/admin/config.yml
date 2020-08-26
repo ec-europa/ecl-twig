@@ -2,7 +2,6 @@ backend:
   name: git-gateway
   repo: ec-europa/ecl-twig
   branch: develop
-  extension: md
   squash_merges: true
   commit_messages:
     create: 'feat({{collection}}): create {{collection}} “{{slug}}”'
@@ -18,6 +17,7 @@ collections:
   - label: 'Docs'
     name: 'docs'
     label_singular: 'Doc'
+    extension: md
     files:
       - name: 'conventions'
         label: 'Conventions'
@@ -67,6 +67,7 @@ collections:
   - label: 'Components docs'
     label_singular: 'Component docs'
     name: 'component'
+    extension: md
     files:
       - name: 'accordion_deprecated'
         label: 'Accordion (deprecated)'
