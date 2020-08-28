@@ -1,4 +1,5 @@
 import he from 'he';
+import { formatLinkAlt } from '@ecl-twig/data-utils';
 
 const adapter = (initialData) => {
   const adaptedData = JSON.parse(JSON.stringify(initialData));
@@ -35,6 +36,17 @@ const adapter = (initialData) => {
       delete item.isActive;
     }
   });
+  adaptedData.language_selector.overlay.non_eu_items = adaptedData.language_selector.overlay.itemsNonEu.map(
+    (nonEuItem) => formatLinkAlt(nonEuItem)
+  );
+
+  adaptedData.language_selector.eu_category =
+    adaptedData.language_selector.overlay.categoryEu;
+  adaptedData.language_selector.non_eu_category =
+    adaptedData.language_selector.overlay.categoryNonEu;
+  delete adaptedData.language_selector.overlay.categoryEu;
+  delete adaptedData.language_selector.overlay.categoryNonEu;
+  delete adaptedData.language_selector.overlay.itemsNonEu;
 
   adaptedData.search_form = {
     text_input: {
