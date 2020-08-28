@@ -1,3 +1,5 @@
+{"widget":"table","headings":["heading 1","heading 2"],"rows":[["cell 1","cell 2"]]}
+
 # ECL-Twig ECL Compliance component
 
 npm package: `@ecl-twig/ec-component-ecl-compliance`
