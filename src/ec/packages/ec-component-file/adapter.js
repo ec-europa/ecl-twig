@@ -4,7 +4,7 @@ const adapter = (initialData) => {
   // Copy reference specification demo adaptedData.
   const adaptedData = JSON.parse(JSON.stringify(initialData));
   if (adaptedData.detailMeta) {
-    adaptedData.detail_meta = adaptedData.detailMeta.split(' | ');
+    adaptedData.detail_meta = adaptedData.detailMeta;
     delete adaptedData.detailMeta;
   }
   if (adaptedData.download) {
