@@ -1,3 +1,5 @@
+{"widget":"table","headings":["heading 1\"","\"heading 2","third heading"],"rows":[["cell 1","cell 2","third cell"]]}
+
 # Conventions
 
 ## Git conventions
