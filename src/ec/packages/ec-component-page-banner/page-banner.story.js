@@ -15,27 +15,43 @@ import {
 } from '@ecl-twig/story-utils';
 
 import uiIcons from '@ecl/ec-resources-icons/dist/lists/ui.json';
-import bannerDataDefault from './demo/data--default';
-import bannerDataImage from './demo/data--image';
+import bannerDataSimplePrimary from './demo/data--simple-primary';
+import bannerDataSimpleGrey from './demo/data--simple-grey';
+import bannerDataSimpleWhite from './demo/data--simple-white';
+import bannerDataImage from './demo/data--image-text-box';
 import bannerDataImageShade from './demo/data--image-shade';
-import bannerDataPrimary from './demo/data--primary';
-import bannerDataAlignLeft from './demo/data--align-left';
+import bannerDataImageGradient from './demo/data--image-gradient';
 import pageBanner from './ecl-page-banner.html.twig';
 import notes from './README.md';
 
 // Preserve the adapted specs.
-let defaultData = { ...bannerDataDefault };
+let simplePrimaryData = { ...bannerDataSimplePrimary };
+let simpleGreyData = { ...bannerDataSimpleGrey };
+let simpleWhiteData = { ...bannerDataSimpleWhite };
 let imageData = { ...bannerDataImage };
 let imageShadeData = { ...bannerDataImageShade };
-let primaryData = { ...bannerDataPrimary };
-let leftData = { ...bannerDataAlignLeft };
+let imageGradientData = { ...bannerDataImageGradient };
 
 // Show/hide buttons for optional elements.
-const defaultDescBtnToggler = () => {
-  if (defaultData.baseline) {
-    delete defaultData.baseline;
+const simplePrimaryDescBtnToggler = () => {
+  if (simplePrimaryData.baseline) {
+    delete simplePrimaryData.baseline;
   } else {
-    defaultData.baseline = bannerDataDefault.baseline;
+    simplePrimaryData.baseline = bannerDataSimplePrimary.baseline;
+  }
+};
+const simpleGreyDescBtnToggler = () => {
+  if (simpleGreyData.baseline) {
+    delete simpleGreyData.baseline;
+  } else {
+    simpleGreyData.baseline = bannerDataSimpleGrey.baseline;
+  }
+};
+const simpleWhiteDescBtnToggler = () => {
+  if (simpleWhiteData.baseline) {
+    delete simpleWhiteData.baseline;
+  } else {
+    simpleWhiteData.baseline = bannerDataSimpleWhite.baseline;
   }
 };
 const imageDescBtnToggler = () => {
@@ -45,6 +61,13 @@ const imageDescBtnToggler = () => {
     imageData.baseline = bannerDataImage.baseline;
   }
 };
+const imageGradientDescBtnToggler = () => {
+  if (imageGradientData.baseline) {
+    delete imageGradientData.baseline;
+  } else {
+    imageGradientData.baseline = bannerDataImageGradient.baseline;
+  }
+};
 const imageShadeDescBtnToggler = () => {
   if (imageShadeData.baseline) {
     delete imageShadeData.baseline;
@@ -52,25 +75,25 @@ const imageShadeDescBtnToggler = () => {
     imageShadeData.baseline = bannerDataImageShade.baseline;
   }
 };
-const primaryDescBtnToggler = () => {
-  if (primaryData.baseline) {
-    delete primaryData.baseline;
+const simplePrimaryTitleBtnToggler = () => {
+  if (simplePrimaryData.title) {
+    delete simplePrimaryData.title;
   } else {
-    primaryData.baseline = bannerDataPrimary.baseline;
+    simplePrimaryData.title = bannerDataSimplePrimary.title;
   }
 };
-const leftDescBtnToggler = () => {
-  if (leftData.baseline) {
-    delete leftData.baseline;
+const simpleGreyTitleBtnToggler = () => {
+  if (simpleGreyData.title) {
+    delete simpleGreyData.title;
   } else {
-    leftData.baseline = bannerDataAlignLeft.baseline;
+    simpleGreyData.title = bannerDataSimpleGrey.title;
   }
 };
-const defaultTitleBtnToggler = () => {
-  if (defaultData.title) {
-    delete defaultData.title;
+const simpleWhiteTitleBtnToggler = () => {
+  if (simpleWhiteData.title) {
+    delete simpleWhiteData.title;
   } else {
-    defaultData.title = bannerDataDefault.title;
+    simpleWhiteData.title = bannerDataSimpleWhite.title;
   }
 };
 const imageTitleBtnToggler = () => {
@@ -80,6 +103,13 @@ const imageTitleBtnToggler = () => {
     imageData.title = bannerDataImage.title;
   }
 };
+const imageGradientTitleBtnToggler = () => {
+  if (imageGradientData.title) {
+    delete imageGradientData.title;
+  } else {
+    imageGradientData.title = bannerDataImageGradient.title;
+  }
+};
 const imageShadeTitleBtnToggler = () => {
   if (imageShadeData.title) {
     delete imageShadeData.title;
@@ -87,25 +117,25 @@ const imageShadeTitleBtnToggler = () => {
     imageShadeData.title = bannerDataImageShade.title;
   }
 };
-const primaryTitleBtnToggler = () => {
-  if (primaryData.title) {
-    delete primaryData.title;
+const simplePrimaryCtaBtnToggler = () => {
+  if (simplePrimaryData.link) {
+    delete simplePrimaryData.link;
   } else {
-    primaryData.title = bannerDataPrimary.title;
+    simplePrimaryData.link = bannerDataSimplePrimary.link;
   }
 };
-const leftTitleBtnToggler = () => {
-  if (leftData.title) {
-    delete leftData.title;
+const simpleGreyCtaBtnToggler = () => {
+  if (simpleGreyData.link) {
+    delete simpleGreyData.link;
   } else {
-    leftData.title = bannerDataAlignLeft.title;
+    simpleGreyData.link = bannerDataSimpleGrey.link;
   }
 };
-const defaultCtaBtnToggler = () => {
-  if (defaultData.link) {
-    delete defaultData.link;
+const simpleWhiteCtaBtnToggler = () => {
+  if (simpleWhiteData.link) {
+    delete simpleWhiteData.link;
   } else {
-    defaultData.link = bannerDataDefault.link;
+    simpleWhiteData.link = bannerDataSimpleWhite.link;
   }
 };
 const imageCtaBtnToggler = () => {
@@ -115,6 +145,13 @@ const imageCtaBtnToggler = () => {
     imageData.link = bannerDataImage.link;
   }
 };
+const imageGradientCtaBtnToggler = () => {
+  if (imageGradientData.link) {
+    delete imageGradientData.link;
+  } else {
+    imageGradientData.link = bannerDataImageGradient.link;
+  }
+};
 const imageShadeCtaBtnToggler = () => {
   if (imageShadeData.link) {
     delete imageShadeData.link;
@@ -122,35 +159,24 @@ const imageShadeCtaBtnToggler = () => {
     imageShadeData.link = bannerDataImage.link;
   }
 };
-const primaryCtaBtnToggler = () => {
-  if (primaryData.link) {
-    delete primaryData.link;
-  } else {
-    primaryData.link = bannerDataPrimary.link;
-  }
-};
-const leftCtaBtnToggler = () => {
-  if (leftData.link) {
-    delete leftData.link;
-  } else {
-    leftData.link = bannerDataAlignLeft.link;
-  }
-};
 // Reset buttons.
-const defaultResetBtnToggler = () => {
-  defaultData = { ...bannerDataDefault };
+const simplePrimaryResetBtnToggler = () => {
+  simplePrimaryData = { ...bannerDataSimplePrimary };
+};
+const simpleGreyResetBtnToggler = () => {
+  simpleGreyData = { ...bannerDataSimpleGrey };
+};
+const simpleWhiteResetBtnToggler = () => {
+  simpleWhiteData = { ...bannerDataSimpleWhite };
 };
 const imageResetBtnToggler = () => {
   imageData = { ...bannerDataImage };
 };
+const imageGradientResetBtnToggler = () => {
+  imageGradientData = { ...bannerDataImageGradient };
+};
 const imageShadeResetBtnToggler = () => {
   imageShadeData = { ...bannerDataImageShade };
-};
-const primaryResetBtnToggler = () => {
-  primaryData = { ...bannerDataPrimary };
-};
-const leftResetBtnToggler = () => {
-  leftData = { ...bannerDataAlignLeft };
 };
 
 uiIcons.unshift('null');
@@ -214,36 +240,108 @@ export default {
 };
 
 export const Default = () => {
-  button('With or without title', defaultTitleBtnToggler, tabLabels.cases);
-  button('With or without baseline', defaultDescBtnToggler, tabLabels.cases);
   button(
-    'With or without call to action',
-    defaultCtaBtnToggler,
+    'With or without title',
+    simplePrimaryTitleBtnToggler,
     tabLabels.cases
   );
-  button('Reset the layout', defaultResetBtnToggler, tabLabels.cases);
+  button(
+    'With or without baseline',
+    simplePrimaryDescBtnToggler,
+    tabLabels.cases
+  );
+  button(
+    'With or without call to action',
+    simplePrimaryCtaBtnToggler,
+    tabLabels.cases
+  );
+  button('Reset the layout', simplePrimaryResetBtnToggler, tabLabels.cases);
 
-  return pageBanner(preparePageBanner(defaultData));
+  return pageBanner(preparePageBanner(simplePrimaryData));
 };
 
-Default.storyName = 'default';
-Default.parameters = { notes: { markdown: notes, json: defaultData } };
+Default.storyName = 'simple - primary';
+Default.parameters = { notes: { markdown: notes, json: simplePrimaryData } };
+
+export const SimpleGrey = () => {
+  button('With or without title', simpleGreyTitleBtnToggler, tabLabels.cases);
+  button('With or without baseline', simpleGreyDescBtnToggler, tabLabels.cases);
+  button(
+    'With or without call to action',
+    simpleGreyCtaBtnToggler,
+    tabLabels.cases
+  );
+  button('Reset the layout', simpleGreyResetBtnToggler, tabLabels.cases);
+
+  return pageBanner(preparePageBanner(simpleGreyData));
+};
+
+SimpleGrey.storyName = 'simple - grey';
+SimpleGrey.parameters = { notes: { markdown: notes, json: simpleGreyData } };
+
+export const SimpleWhite = () => {
+  button('With or without title', simpleWhiteTitleBtnToggler, tabLabels.cases);
+  button(
+    'With or without baseline',
+    simpleWhiteDescBtnToggler,
+    tabLabels.cases
+  );
+  button(
+    'With or without call to action',
+    simpleWhiteCtaBtnToggler,
+    tabLabels.cases
+  );
+  button('Reset the layout', simpleWhiteResetBtnToggler, tabLabels.cases);
+
+  return pageBanner(preparePageBanner(simpleWhiteData));
+};
+
+SimpleWhite.storyName = 'simple - white';
+SimpleWhite.parameters = { notes: { markdown: notes, json: simpleWhiteData } };
 
 export const Image = () => {
   button('With or without title', imageTitleBtnToggler, tabLabels.cases);
-  button('With or without baseline', imageDescBtnToggler, tabLabels.cases);
+  button('With or without description', imageDescBtnToggler, tabLabels.cases);
   button('With or without call to action', imageCtaBtnToggler, tabLabels.cases);
   button('Reset the layout', imageResetBtnToggler, tabLabels.cases);
 
   return pageBanner(preparePageBanner(imageData, 'img'));
 };
 
-Image.storyName = 'image';
+Image.storyName = 'image - text-block';
 Image.parameters = { notes: { markdown: notes, json: imageData } };
+
+export const ImageGradient = () => {
+  button(
+    'With or without title',
+    imageGradientTitleBtnToggler,
+    tabLabels.cases
+  );
+  button(
+    'With or without description',
+    imageGradientDescBtnToggler,
+    tabLabels.cases
+  );
+  button(
+    'With or without call to action',
+    imageGradientCtaBtnToggler,
+    tabLabels.cases
+  );
+  button('Reset the layout', imageGradientResetBtnToggler, tabLabels.cases);
+
+  return pageBanner(preparePageBanner(imageGradientData, 'img'));
+};
+
+ImageGradient.storyName = 'image - gradient';
+ImageGradient.parameters = { notes: { markdown: notes, json: imageData } };
 
 export const ImageShade = () => {
   button('With or without title', imageShadeTitleBtnToggler, tabLabels.cases);
-  button('With or without baseline', imageShadeDescBtnToggler, tabLabels.cases);
+  button(
+    'With or without description',
+    imageShadeDescBtnToggler,
+    tabLabels.cases
+  );
   button(
     'With or without call to action',
     imageShadeCtaBtnToggler,
@@ -254,33 +352,5 @@ export const ImageShade = () => {
   return pageBanner(preparePageBanner(imageShadeData, 'img'));
 };
 
-ImageShade.storyName = 'image-shade';
+ImageShade.storyName = 'image - shade';
 ImageShade.parameters = { notes: { markdown: notes, json: imageShadeData } };
-
-export const Primary = () => {
-  button('With or without title', primaryTitleBtnToggler, tabLabels.cases);
-  button('With or without baseline', primaryDescBtnToggler, tabLabels.cases);
-  button(
-    'With or without call to action',
-    primaryCtaBtnToggler,
-    tabLabels.cases
-  );
-  button('Reset the layout', primaryResetBtnToggler, tabLabels.cases);
-
-  return pageBanner(preparePageBanner(primaryData));
-};
-
-Primary.storyName = 'primary';
-Primary.parameters = { notes: { markdown: notes, json: primaryData } };
-
-export const AlignLeft = () => {
-  button('With or without title', leftTitleBtnToggler, tabLabels.cases);
-  button('With or without baseline', leftDescBtnToggler, tabLabels.cases);
-  button('With or without call to action', leftCtaBtnToggler, tabLabels.cases);
-  button('Reset the layout', leftResetBtnToggler, tabLabels.cases);
-
-  return pageBanner(preparePageBanner(leftData));
-};
-
-AlignLeft.storyName = 'align-left';
-AlignLeft.parameters = { notes: { markdown: notes, json: leftData } };

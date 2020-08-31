@@ -9,11 +9,12 @@ import {
 import withCode from '@ecl-twig/storybook-addon-code';
 
 import uiIcons from '@ecl/ec-resources-icons/dist/lists/ui.json';
-import dataDefault from './demo/data--default';
-import dataImage from './demo/data--image';
+import dataImage from './demo/data--image-text-box';
+import dataImageGradient from './demo/data--image-gradient';
 import dataImageShade from './demo/data--image-shade';
-import dataPrimary from './demo/data--primary';
-import dataLeft from './demo/data--align-left';
+import dataSimplePrimary from './demo/data--simple-primary';
+import dataSimpleGrey from './demo/data--simple-grey';
+import dataSimpleWhite from './demo/data--simple-white';
 import heroBanner from './ecl-hero-banner.html.twig';
 import notes from './README.md';
 
@@ -70,28 +71,36 @@ export default {
   decorators: [withKnobs, withNotes, withCode],
 };
 
-export const Default = () => heroBanner(prepareBanner(dataDefault));
+export const Default = () => heroBanner(prepareBanner(dataSimplePrimary));
 
-Default.storyName = 'default';
-Default.parameters = { notes: { markdown: notes, json: dataDefault } };
+Default.storyName = 'simple - primary';
+Default.parameters = { notes: { markdown: notes, json: dataSimplePrimary } };
 
-export const Primary = () => heroBanner(prepareBanner(dataPrimary));
+export const SimpleGrey = () => heroBanner(prepareBanner(dataSimpleGrey));
 
-Primary.storyName = 'primary';
-Primary.parameters = { notes: { markdown: notes, json: dataPrimary } };
+SimpleGrey.storyName = 'simple - grey';
+SimpleGrey.parameters = { notes: { markdown: notes, json: dataSimpleGrey } };
 
-export const AlignLeft = () => heroBanner(prepareBanner(dataLeft));
+export const SimpleWhite = () => heroBanner(prepareBanner(dataSimpleWhite));
 
-AlignLeft.storyName = 'align-left';
-AlignLeft.parameters = { notes: { markdown: notes, json: dataLeft } };
+SimpleWhite.storyName = 'simple - white';
+SimpleWhite.parameters = { notes: { markdown: notes, json: dataSimpleWhite } };
 
 export const Image = () => heroBanner(prepareBanner(dataImage, 'img'));
 
-Image.storyName = 'image';
+Image.storyName = 'image - text-box';
 Image.parameters = { notes: { markdown: notes, json: dataImage } };
+
+export const ImageGradient = () =>
+  heroBanner(prepareBanner(dataImageGradient, 'img'));
+
+ImageGradient.storyName = 'image - gradient';
+ImageGradient.parameters = {
+  notes: { markdown: notes, json: dataImageGradient },
+};
 
 export const ImageShade = () =>
   heroBanner(prepareBanner(dataImageShade, 'img'));
 
-ImageShade.storyName = 'image-shade';
+ImageShade.storyName = 'image - shade';
 ImageShade.parameters = { notes: { markdown: notes, json: dataImageShade } };

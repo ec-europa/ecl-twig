@@ -2,7 +2,7 @@
 
 {#
   Parameters:
-  - "type" (string) (default: 'default') Type of banner (can be 'default','image','image-shade','primary')
+  - "type" (string) (default: 'primary') Type of banner (can be 'grey', 'white', image','image-shade','image-gradient')
   - "title" (string) (default: '') Title of banner
   - "image" (string) (default: '') Image for banner (required for image banner type)
   - "baseline" (string) (default: '') Baseline of banner
@@ -24,7 +24,7 @@
 {% set _type = type|default('default') %}
 {% set _centered = centered ?? true %}
 {% set _title = title|default('') %}
-{% set _baseline = baseline|default('') %}
+{% set _description = baseline|default('') %}
 {% set _image = image|default('') %}
 {% set _button = button|default({}) %}
 {% set _link = link|default({}) %}
@@ -56,22 +56,26 @@
 {# Print the result #}
 
 <section class="{{ _css_class }}"{{ _extra_attributes|raw }}>
-  {% if _image is not empty and _type in ['image', 'image-shade'] %}
+  {% if _image is not empty and _type in ['image', 'image-shade', 'image-gradient'] %}
     <div class="ecl-page-banner__image" style="background-image:url({{ _image }})"></div>
   {% endif %}
   <div class="ecl-container ecl-page-banner__container">
   {% if _title is not empty or _baseline is not empty or link is not empty or button is not empty %}
     <div class="ecl-page-banner__content">
       <h1 class="ecl-page-banner__title">{{ _title }}</h1>
-      {% if _baseline is not empty %}
-        <p class="ecl-page-banner__baseline">{{ _baseline }}</p>
+      {% if _description is not empty %}
+        <p class="ecl-page-banner__description">{{ _description }}</p>
       {% endif %}
       {% if _link is not empty %}
+        {% set _link_extra_classes = 'ecl-page-banner__link-cta' %}
+        {% if _link.extra_classes is defined and _link.extra_classes is not empty %}
+          {% set _link_extra_classes = _link_extra_classes ~ ' ' ~ _link.extra_classes %}
+        {% endif %}
         {% include '@ecl-twig/ec-component-link/ecl-link.html.twig' with _link|merge({
           link: _link.link|merge({
             type: 'cta',
           }),
-          extra_classes: 'ecl-page-banner__link-cta',
+          extra_classes: _link_extra_classes,
           _compliance_: _compliance,
           _compliance_inner_check_: true
         }) only %}
