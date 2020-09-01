@@ -18,6 +18,7 @@ npm install --save @ecl-twig/ec-component-language-list
   - "label" (string) (default: '')
   - "path" (string) (default: '')
   - "active" (boolean) (default: false)
+- **"label"** (string) (default: '')
 - **"eu_category"** (string) (default: '')
 - **"non_eu_category"** (string) (default: '')
 - **"overlay"** (boolean) (default: false)
@@ -29,9 +30,9 @@ npm install --save @ecl-twig/ec-component-language-list
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
-- **"_compliance_"**: (boolean) (default: false) Activates debug
+- **"\_compliance\_"**: (boolean) (default: false) Activates debug
 
-### Example for overlay:
+### Example:
 
 <!-- prettier-ignore -->
 ```twig
