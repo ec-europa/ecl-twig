@@ -362,7 +362,6 @@
   {% set _eu_category = _language_selector.eu_category|default('') %}
   {% set _non_eu_category = _language_selector.non_eu_category|default('') %}
   {% set _title = _language_selector.overlay.title|default('') %}
-  {% set _label = _language_selector.label|default('') %}
   {% set _close_label = _language_selector.overlay.close_label|default('') %}
   {% if _language_selector.overlay.non_eu_items is defined and _language_selector.overlay.non_eu_items is not empty %}
     {% set _non_eu_items = _language_selector.overlay.non_eu_items %}
@@ -372,7 +371,6 @@
     items: _items,
     close_label: _close_label,
     title: _title,
-    label: _label,
     icon_path: _icon_file_path,
     non_eu_items: _non_eu_items,
     eu_category: _eu_category,

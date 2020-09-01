@@ -4,7 +4,6 @@
   Parameters:
   - "overlay" (boolean) (default:false)
   - "data_lang_overlay" (string) (default: '')
-  - "label" (string) (default: '') Label and aria label for the selector
   - "eu_category" (string) (default: '');
   - "non_eu_category" (string) (default: '')
   - "close_label (string) (default: ''): label of close button
@@ -139,7 +138,6 @@
 
 {% if _compliance %}
   {% include '@ecl-twig/ec-component-ecl-compliance/components/ecl-compliance-language-list.html.twig' with {
-    label: _label,
     overlay: _overlay,
     close_label: _close_label,
     eu_category: _eu_category,

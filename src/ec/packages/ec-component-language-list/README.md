@@ -18,7 +18,6 @@ npm install --save @ecl-twig/ec-component-language-list
   - "label" (string) (default: '')
   - "path" (string) (default: '')
   - "active" (boolean) (default: false)
-- **"label"** (string) (default: '')
 - **"eu_category"** (string) (default: '')
 - **"non_eu_category"** (string) (default: '')
 - **"overlay"** (boolean) (default: false)
