@@ -34,7 +34,7 @@ const data = {
         {
           icon: {
             size: 'xs',
-            path: 'icons.svg',
+            path: '/icons.svg',
             name: 'calendar',
             type: 'general',
           },
@@ -43,7 +43,7 @@ const data = {
         {
           icon: {
             size: 'xs',
-            path: 'icons.svg',
+            path: '/icons.svg',
             name: 'location',
             type: 'general',
           },
@@ -85,7 +85,7 @@ const data = {
         {
           icon: {
             size: 'xs',
-            path: 'icons.svg',
+            path: '/icons.svg',
             name: 'calendar',
             type: 'general',
           },
@@ -94,7 +94,7 @@ const data = {
         {
           icon: {
             size: 'xs',
-            path: 'icons.svg',
+            path: '/icons.svg',
             name: 'location',
             type: 'general',
           },
@@ -136,7 +136,7 @@ const data = {
         {
           icon: {
             size: 'xs',
-            path: 'icons.svg',
+            path: '/icons.svg',
             name: 'calendar',
             type: 'general',
           },
@@ -145,7 +145,7 @@ const data = {
         {
           icon: {
             size: 'xs',
-            path: 'icons.svg',
+            path: '/icons.svg',
             name: 'location',
             type: 'general',
           },
@@ -187,7 +187,7 @@ const data = {
         {
           icon: {
             size: 'xs',
-            path: 'icons.svg',
+            path: '/icons.svg',
             name: 'calendar',
             type: 'general',
           },
@@ -196,7 +196,7 @@ const data = {
         {
           icon: {
             size: 'xs',
-            path: 'icons.svg',
+            path: '/icons.svg',
             name: 'location',
             type: 'general',
           },
@@ -238,7 +238,7 @@ const data = {
         {
           icon: {
             size: 'xs',
-            path: 'icons.svg',
+            path: '/icons.svg',
             name: 'calendar',
             type: 'general',
           },
@@ -247,7 +247,7 @@ const data = {
         {
           icon: {
             size: 'xs',
-            path: 'icons.svg',
+            path: '/icons.svg',
             name: 'location',
             type: 'general',
           },
@@ -289,7 +289,7 @@ const data = {
         {
           icon: {
             size: 'xs',
-            path: 'icons.svg',
+            path: '/icons.svg',
             name: 'calendar',
             type: 'general',
           },
@@ -298,7 +298,7 @@ const data = {
         {
           icon: {
             size: 'xs',
-            path: 'icons.svg',
+            path: '/icons.svg',
             name: 'location',
             type: 'general',
           },
