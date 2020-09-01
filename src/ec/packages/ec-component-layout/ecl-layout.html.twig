@@ -1,0 +1,55 @@
+{% spaceless %}
+
+{#
+  Parameters:
+    - "component" (string) (default: '')
+    - "items" (array) (default: [])
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (optional) (string)
+        ...
+      ]
+#}
+
+{% set _component = component|default('') %}
+{% set _items = items|default([]) %}
+
+{# Internal properties #}
+
+{% set _css_class = 'ecl-layout' %}
+{% set _extra_attributes = '' %}
+{% set _compliance = _compliance_|default(false) %}
+
+{# Internal logic - Process properties #}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value|e ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+<div class="ecl-container "{{ _css_class }}"{{ _extra_attributes|raw }}">
+  <ul class="ecl-row">
+    {% if _items is not empty and _items is iterable %}
+      {% for _item in _items %}
+        <li class="ecl-col-md-4" style="margin-top:1rem">
+          {% include '@ecl-twig/ec-component-' ~ _component ~ '/ecl-' ~ _component ~ '.html.twig' with {
+            card: _item
+          } only %}
+        </li>
+      {% endfor %}
+  {% endif %}
+  </ul>
+</div>
+
+{% endspaceless %}
