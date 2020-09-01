@@ -19,7 +19,6 @@ const formatLink = (l) => {
       aria_label: l.ariaLabel || '',
     },
   };
-
   if (l.icon) {
     link.link.icon_position = l.iconPosition;
     link.icon = formatIcon(l.icon);
