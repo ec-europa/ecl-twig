@@ -75,48 +75,6 @@ const imageShadeDescBtnToggler = () => {
     imageShadeData.baseline = bannerDataImageShade.baseline;
   }
 };
-const simplePrimaryTitleBtnToggler = () => {
-  if (simplePrimaryData.title) {
-    delete simplePrimaryData.title;
-  } else {
-    simplePrimaryData.title = bannerDataSimplePrimary.title;
-  }
-};
-const simpleGreyTitleBtnToggler = () => {
-  if (simpleGreyData.title) {
-    delete simpleGreyData.title;
-  } else {
-    simpleGreyData.title = bannerDataSimpleGrey.title;
-  }
-};
-const simpleWhiteTitleBtnToggler = () => {
-  if (simpleWhiteData.title) {
-    delete simpleWhiteData.title;
-  } else {
-    simpleWhiteData.title = bannerDataSimpleWhite.title;
-  }
-};
-const imageTitleBtnToggler = () => {
-  if (imageData.title) {
-    delete imageData.title;
-  } else {
-    imageData.title = bannerDataImage.title;
-  }
-};
-const imageGradientTitleBtnToggler = () => {
-  if (imageGradientData.title) {
-    delete imageGradientData.title;
-  } else {
-    imageGradientData.title = bannerDataImageGradient.title;
-  }
-};
-const imageShadeTitleBtnToggler = () => {
-  if (imageShadeData.title) {
-    delete imageShadeData.title;
-  } else {
-    imageShadeData.title = bannerDataImageShade.title;
-  }
-};
 const simplePrimaryCtaBtnToggler = () => {
   if (simplePrimaryData.link) {
     delete simplePrimaryData.link;
@@ -183,9 +141,7 @@ uiIcons.unshift('null');
 const preparePageBanner = (data, variant) => {
   data.centered = boolean('centered', data.centered, tabLabels.states);
   data.type = select('type', [data.type], data.type, tabLabels.required);
-  if (data.title) {
-    data.title = text('title', data.title, tabLabels.optional);
-  }
+  data.title = text('title', data.title, tabLabels.required);
   if (data.baseline) {
     data.baseline = text('baseline', data.baseline, tabLabels.optional);
   }
@@ -241,12 +197,7 @@ export default {
 
 export const Default = () => {
   button(
-    'With or without title',
-    simplePrimaryTitleBtnToggler,
-    tabLabels.cases
-  );
-  button(
-    'With or without baseline',
+    'With or without description',
     simplePrimaryDescBtnToggler,
     tabLabels.cases
   );
@@ -264,8 +215,11 @@ Default.storyName = 'simple - primary';
 Default.parameters = { notes: { markdown: notes, json: simplePrimaryData } };
 
 export const SimpleGrey = () => {
-  button('With or without title', simpleGreyTitleBtnToggler, tabLabels.cases);
-  button('With or without baseline', simpleGreyDescBtnToggler, tabLabels.cases);
+  button(
+    'With or without description',
+    simpleGreyDescBtnToggler,
+    tabLabels.cases
+  );
   button(
     'With or without call to action',
     simpleGreyCtaBtnToggler,
@@ -280,9 +234,8 @@ SimpleGrey.storyName = 'simple - grey';
 SimpleGrey.parameters = { notes: { markdown: notes, json: simpleGreyData } };
 
 export const SimpleWhite = () => {
-  button('With or without title', simpleWhiteTitleBtnToggler, tabLabels.cases);
   button(
-    'With or without baseline',
+    'With or without description',
     simpleWhiteDescBtnToggler,
     tabLabels.cases
   );
@@ -300,7 +253,6 @@ SimpleWhite.storyName = 'simple - white';
 SimpleWhite.parameters = { notes: { markdown: notes, json: simpleWhiteData } };
 
 export const Image = () => {
-  button('With or without title', imageTitleBtnToggler, tabLabels.cases);
   button('With or without description', imageDescBtnToggler, tabLabels.cases);
   button('With or without call to action', imageCtaBtnToggler, tabLabels.cases);
   button('Reset the layout', imageResetBtnToggler, tabLabels.cases);
@@ -312,11 +264,6 @@ Image.storyName = 'image - text-block';
 Image.parameters = { notes: { markdown: notes, json: imageData } };
 
 export const ImageGradient = () => {
-  button(
-    'With or without title',
-    imageGradientTitleBtnToggler,
-    tabLabels.cases
-  );
   button(
     'With or without description',
     imageGradientDescBtnToggler,
@@ -336,7 +283,6 @@ ImageGradient.storyName = 'image - gradient';
 ImageGradient.parameters = { notes: { markdown: notes, json: imageData } };
 
 export const ImageShade = () => {
-  button('With or without title', imageShadeTitleBtnToggler, tabLabels.cases);
   button(
     'With or without description',
     imageShadeDescBtnToggler,
