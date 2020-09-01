@@ -38,7 +38,7 @@
   {% endfor %}
 {% endif %}
 
-<div class="ecl-container "{{ _css_class }}"{{ _extra_attributes|raw }}">
+<div class="ecl-container {{ _css_class }}"{{ _extra_attributes|raw }}>
   <ul class="ecl-row">
     {% if _items is not empty and _items is iterable %}
       {% for _item in _items %}
