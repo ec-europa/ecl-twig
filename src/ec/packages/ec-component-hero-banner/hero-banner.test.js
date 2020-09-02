@@ -1,6 +1,6 @@
 import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
-import bannerDataImage from './demo/data--image-text-box';
+import bannerDataImage from './demo/data--image-box';
 import bannerDataImageGradient from './demo/data--image-gradient';
 import bannerDataImageShade from './demo/data--image-shade';
 import bannerDataSimplePrimary from './demo/data--simple-primary';

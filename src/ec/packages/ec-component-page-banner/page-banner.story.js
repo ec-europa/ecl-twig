@@ -18,7 +18,7 @@ import uiIcons from '@ecl/ec-resources-icons/dist/lists/ui.json';
 import bannerDataSimplePrimary from './demo/data--simple-primary';
 import bannerDataSimpleGrey from './demo/data--simple-grey';
 import bannerDataSimpleWhite from './demo/data--simple-white';
-import bannerDataImage from './demo/data--image-text-box';
+import bannerDataImage from './demo/data--image-box';
 import bannerDataImageShade from './demo/data--image-shade';
 import bannerDataImageGradient from './demo/data--image-gradient';
 import pageBanner from './ecl-page-banner.html.twig';

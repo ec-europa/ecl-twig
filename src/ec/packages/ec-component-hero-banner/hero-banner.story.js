@@ -15,7 +15,7 @@ import {
 import withCode from '@ecl-twig/storybook-addon-code';
 
 import uiIcons from '@ecl/ec-resources-icons/dist/lists/ui.json';
-import bannerDataImage from './demo/data--image-text-box';
+import bannerDataImage from './demo/data--image-box';
 import bannerDataImageGradient from './demo/data--image-gradient';
 import bannerDataImageShade from './demo/data--image-shade';
 import bannerDataSimplePrimary from './demo/data--simple-primary';
