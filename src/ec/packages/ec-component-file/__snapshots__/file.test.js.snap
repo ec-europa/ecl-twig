@@ -19,7 +19,16 @@ exports[`EC - File Thumbnail renders correctly 1`] = `
           <div
             class="ecl-file__detail-meta"
           >
-            RESOURCE TYPE | Publication date
+            <span
+              class="ecl-file__detail-meta-item"
+            >
+              Resource type
+            </span>
+            <span
+              class="ecl-file__detail-meta-item"
+            >
+              Publication date
+            </span>
           </div>
           <div
             class="ecl-file__title"
@@ -53,6 +62,7 @@ exports[`EC - File Thumbnail renders correctly 1`] = `
         </div>
       </div>
       <a
+        aria-label="Download file State of the Union 2018 brochure"
         class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-file__download"
         download=""
         href="/example"
@@ -117,7 +127,7 @@ exports[`EC - File Thumbnail renders correctly 1`] = `
               class="ecl-file__translation-title"
               lang="bg"
             >
-              Title
+              Title bg
             </div>
             <div
               class="ecl-file__translation-description"
@@ -141,6 +151,7 @@ exports[`EC - File Thumbnail renders correctly 1`] = `
             </div>
           </div>
           <a
+            aria-label="Download file State of the Union 2018 brochure"
             class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-file__translation-download"
             download=""
             href="/example#bg"
@@ -173,7 +184,7 @@ exports[`EC - File Thumbnail renders correctly 1`] = `
               class="ecl-file__translation-title"
               lang="es"
             >
-              Title
+              Title es
             </div>
             <div
               class="ecl-file__translation-description"
@@ -197,6 +208,7 @@ exports[`EC - File Thumbnail renders correctly 1`] = `
             </div>
           </div>
           <a
+            aria-label="Download file State of the Union 2018 brochure"
             class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-file__translation-download"
             download=""
             href="/example#es"
@@ -229,7 +241,7 @@ exports[`EC - File Thumbnail renders correctly 1`] = `
               class="ecl-file__translation-title"
               lang="fr"
             >
-              Title
+              Title fr
             </div>
             <div
               class="ecl-file__translation-description"
@@ -253,6 +265,7 @@ exports[`EC - File Thumbnail renders correctly 1`] = `
             </div>
           </div>
           <a
+            aria-label="Download file State of the Union 2018 brochure"
             class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-file__translation-download"
             download=""
             href="/example#fr"
@@ -325,6 +338,7 @@ exports[`EC - File With translation renders correctly 1`] = `
         </div>
       </div>
       <a
+        aria-label="Download file State of the Union 2018 brochure"
         class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-file__download"
         download=""
         href="/example"
@@ -398,6 +412,7 @@ exports[`EC - File With translation renders correctly 1`] = `
             </div>
           </div>
           <a
+            aria-label="Download file State of the Union 2018 brochure"
             class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-file__translation-download"
             download=""
             href="/example#bg"
@@ -439,6 +454,7 @@ exports[`EC - File With translation renders correctly 1`] = `
             </div>
           </div>
           <a
+            aria-label="Download file State of the Union 2018 brochure"
             class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-file__translation-download"
             download=""
             href="/example#es"
@@ -480,6 +496,7 @@ exports[`EC - File With translation renders correctly 1`] = `
             </div>
           </div>
           <a
+            aria-label="Download file State of the Union 2018 brochure"
             class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-file__translation-download"
             download=""
             href="/example#fr"
@@ -554,6 +571,7 @@ exports[`EC - File With translation renders correctly with extra attributes 1`] 
         </div>
       </div>
       <a
+        aria-label="Download file State of the Union 2018 brochure"
         class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-file__download"
         download=""
         href="/example"
@@ -627,6 +645,7 @@ exports[`EC - File With translation renders correctly with extra attributes 1`] 
             </div>
           </div>
           <a
+            aria-label="Download file State of the Union 2018 brochure"
             class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-file__translation-download"
             download=""
             href="/example#bg"
@@ -668,6 +687,7 @@ exports[`EC - File With translation renders correctly with extra attributes 1`] 
             </div>
           </div>
           <a
+            aria-label="Download file State of the Union 2018 brochure"
             class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-file__translation-download"
             download=""
             href="/example#es"
@@ -709,6 +729,7 @@ exports[`EC - File With translation renders correctly with extra attributes 1`] 
             </div>
           </div>
           <a
+            aria-label="Download file State of the Union 2018 brochure"
             class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-file__translation-download"
             download=""
             href="/example#fr"
@@ -781,6 +802,7 @@ exports[`EC - File With translation renders correctly with extra class names 1`]
         </div>
       </div>
       <a
+        aria-label="Download file State of the Union 2018 brochure"
         class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-file__download"
         download=""
         href="/example"
@@ -854,6 +876,7 @@ exports[`EC - File With translation renders correctly with extra class names 1`]
             </div>
           </div>
           <a
+            aria-label="Download file State of the Union 2018 brochure"
             class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-file__translation-download"
             download=""
             href="/example#bg"
@@ -895,6 +918,7 @@ exports[`EC - File With translation renders correctly with extra class names 1`]
             </div>
           </div>
           <a
+            aria-label="Download file State of the Union 2018 brochure"
             class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-file__translation-download"
             download=""
             href="/example#es"
@@ -936,6 +960,7 @@ exports[`EC - File With translation renders correctly with extra class names 1`]
             </div>
           </div>
           <a
+            aria-label="Download file State of the Union 2018 brochure"
             class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-file__translation-download"
             download=""
             href="/example#fr"
@@ -1022,6 +1047,7 @@ exports[`EC - File With translation with validation enabled and missing input da
         </div>
       </div>
       <a
+        aria-label="Download file State of the Union 2018 brochure"
         class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-file__download"
         download=""
         href="/example"
@@ -1149,6 +1175,7 @@ exports[`EC - File With translation with validation enabled and missing input da
             </div>
           </div>
           <a
+            aria-label="Download file State of the Union 2018 brochure"
             class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-file__translation-download"
             download=""
             href="/example#bg"
@@ -1216,6 +1243,7 @@ exports[`EC - File With translation with validation enabled and missing input da
             </div>
           </div>
           <a
+            aria-label="Download file State of the Union 2018 brochure"
             class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-file__translation-download"
             download=""
             href="/example#es"
@@ -1285,6 +1313,7 @@ exports[`EC - File With translation with validation enabled and missing input da
             </div>
           </div>
           <a
+            aria-label="Download file State of the Union 2018 brochure"
             class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-file__translation-download"
             download=""
             href="/example#fr"
@@ -1394,6 +1423,7 @@ exports[`EC - File Without translation renders correctly 1`] = `
         </div>
       </div>
       <a
+        aria-label="Download file State of the Union 2018 brochure"
         class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-file__download"
         download=""
         href="/example"
@@ -1459,6 +1489,7 @@ exports[`EC - File Without translation renders correctly with extra attributes 1
         </div>
       </div>
       <a
+        aria-label="Download file State of the Union 2018 brochure"
         class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-file__download"
         download=""
         href="/example"
@@ -1522,6 +1553,7 @@ exports[`EC - File Without translation renders correctly with extra class names 
         </div>
       </div>
       <a
+        aria-label="Download file State of the Union 2018 brochure"
         class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-file__download"
         download=""
         href="/example"
@@ -1589,6 +1621,7 @@ exports[`EC - File Without translation with validation enabled and missing input
         </div>
       </div>
       <a
+        aria-label="Download file State of the Union 2018 brochure"
         class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-file__download"
         download=""
         href="/example"

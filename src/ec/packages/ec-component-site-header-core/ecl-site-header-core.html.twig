@@ -298,9 +298,9 @@
           class="ecl-link ecl-link--standalone ecl-site-header-core__language-selector"
           href="{{ _language_selector.href }}"
           data-ecl-language-selector
+          aria-label="{{ _language_selector.label }}"
         {% if _has_overlay is defined %}
           aria-controls="language-list-overlay"
-          aria-expanded="false"
         {% endif %}
         >
           <span class="ecl-site-header-core__language-icon">
