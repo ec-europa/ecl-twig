@@ -2,6 +2,7 @@
   Parameters:
     type: (string)
     image: (string)
+    title (string)
 #}
 
 {% extends "@ecl-twig/ec-component-ecl-compliance/ecl-compliance.html.twig" %}
@@ -9,16 +10,21 @@
 {% set message = '' %}
 {% set component = 'page-banner' %}
 {% set no_image_case = false %}
+{% set no_title_case = title is empty %}
 {% set variant = type|default('') %}
 
 {% if type in ['image', 'image-shade'] %}
   {% set no_image_case = image is not defined or image is empty %}
 {% endif %}
 
-{% set not_compliant = no_image_case %}
+{% set not_compliant = no_image_case or no_title_case %}
 
-{% set message = message ~ ' When type is ' ~ type ~ ', the {{ image }} property needs to be set and filled in.' %}
-
+{% if no_image_case %}
+  {% set message = message ~ ' When type is ' ~ type ~ ', the {{ image }} property needs to be set and filled in.' %}
+{% endif %}
+{% if no_title_case %}
+  {% set message = message ~ ' {{ title }} property needs to be set and filled in.' %}
+{% endif %}
 
 
 
