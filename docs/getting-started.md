@@ -44,5 +44,5 @@ yarn jest
 Update snapshots when reported changes are desired and are to be committed as a new reference:
 
 ```bash
-yarn jest-update
+yarn jest:update
 ```
