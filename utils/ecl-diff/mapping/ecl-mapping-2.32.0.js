@@ -171,11 +171,17 @@ const eclComponents = (component, variant, system) => {
         eclPath = `page-structure-pageheader--${variant}`;
       } else {
         switch (variant) {
+          case 'background-image':
+            eclPath = 'deprecated-page-header-ecl-2-14-0--background-image';
+            break;
           case 'events':
             eclPath = 'deprecated-page-header-ecl-2-14-0--events';
             break;
           case 'events-description':
             eclPath = 'deprecated-page-header-ecl-2-14-0--events-description';
+            break;
+          case 'title':
+            eclPath = 'deprecated-page-header-ecl-2-14-0--title';
             break;
           case 'meta-title':
             eclPath = 'deprecated-page-header-ecl-2-14-0--meta-title';
