@@ -32,6 +32,8 @@ import notes from './README.md';
 
 const enData = { ...englishData };
 const frData = { ...frenchData };
+const loggedInData = { ...enData, logged: true };
+
 let system = false;
 if (process.env.STORYBOOK_SYSTEM === 'EU') {
   system = 'eu';
@@ -171,9 +173,8 @@ export default {
 export const Default = () => {
   button(btnLangLabel, enBtnLangHandler, tabLabels.cases);
   button(btnLoginLabel, enBtnLoginHandler, tabLabels.cases);
-  const dataStory = prepareSiteHeaderStandardised(enData, 'en');
 
-  return siteHeaderStandardised(dataStory);
+  return siteHeaderStandardised(prepareSiteHeaderStandardised(enData, 'en'));
 };
 
 Default.storyName = 'default';
@@ -181,21 +182,20 @@ Default.parameters = { notes: { markdown: notes, json: enData } };
 
 export const LoggedIn = () => {
   button(btnLangLabel, enBtnLangHandler, tabLabels.cases);
-  enData.logged = true;
-  const dataStory = prepareSiteHeaderStandardised(enData, 'en');
 
-  return siteHeaderStandardised(dataStory);
+  return siteHeaderStandardised(
+    prepareSiteHeaderStandardised(loggedInData, 'en')
+  );
 };
 
 LoggedIn.storyName = 'logged in';
-LoggedIn.parameters = { notes: { markdown: notes, json: enData } };
+LoggedIn.parameters = { notes: { markdown: notes, json: loggedInData } };
 
 export const Translated = () => {
   button(btnLangLabel, frBtnLangHandler, tabLabels.cases);
   button(btnLoginLabel, frBtnLoginHandler, tabLabels.cases);
-  const dataStory = prepareSiteHeaderStandardised(frData, 'fr');
 
-  return siteHeaderStandardised(dataStory);
+  return siteHeaderStandardised(prepareSiteHeaderStandardised(frData, 'fr'));
 };
 
 Translated.storyName = 'translated';

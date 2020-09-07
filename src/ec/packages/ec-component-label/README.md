@@ -8,7 +8,7 @@ npm install --save @ecl-twig/ec-component-label
 
 ### Parameters
 
-- **"variant"** (string) (default: low) (Allowed values: low, medium, high) - Variant name
+- **"variant"** (string) (default: low) (Allowed values: low, medium, high, highlight) - Variant name
 - **"label"** (string) (default: '') Text of the label
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
