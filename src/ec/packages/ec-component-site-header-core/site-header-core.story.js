@@ -38,6 +38,7 @@ if (process.env.STORYBOOK_SYSTEM === 'EU') {
 
 const enData = system ? { ...euEnglishData } : { ...englishData };
 const frData = system ? { ...euFrenchData } : { ...frenchData };
+const loggedInData = { ...enData, logged: true };
 
 // Show/hide buttons for the language switcher.
 const btnLabel = 'With or without the login box';
@@ -129,30 +130,26 @@ export default {
 
 export const Default = () => {
   button(btnLabel, enBtnHandler, tabLabels.cases);
-  const dataStory = prepareSiteHeaderCore(enData, 'en');
 
-  return siteHeaderCore(dataStory);
+  return siteHeaderCore(prepareSiteHeaderCore(enData, 'en'));
 };
 
 Default.storyName = 'default';
 Default.parameters = { notes: { markdown: notes, json: enData } };
 
 export const LoggedIn = () => {
-  enData.logged = true;
   button(btnLabel, enBtnHandler, tabLabels.cases);
-  const dataStory = prepareSiteHeaderCore(enData, 'en');
 
-  return siteHeaderCore(dataStory);
+  return siteHeaderCore(prepareSiteHeaderCore(loggedInData, 'en'));
 };
 
 LoggedIn.storyName = 'logged in';
-LoggedIn.parameters = { notes: { markdown: notes, json: englishData } };
+LoggedIn.parameters = { notes: { markdown: notes, json: loggedInData } };
 
 export const Translated = () => {
   button(btnLabel, frBtnHandler, tabLabels.cases);
-  const dataStory = prepareSiteHeaderCore(frData, 'fr');
 
-  return siteHeaderCore(dataStory);
+  return siteHeaderCore(prepareSiteHeaderCore(frData, 'fr'));
 };
 
 Translated.storyName = 'translated';

@@ -15,7 +15,7 @@ const adapter = (initialData) => {
   adaptedData.type = adaptedData.variant;
   delete adaptedData.variant;
 
-  adaptedData.centered = initialData.isCentered;
+  adaptedData.centered = true;
   delete adaptedData.isCentered;
 
   return adaptedData;

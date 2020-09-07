@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.32.0](https://github.com/ec-europa/ecl-twig/compare/v2.32.0...v2.31.1) (2020-09-03)
+
+#### :bug: Bug Fix
+
+- [#553](https://github.com/ec-europa/ecl-twig/pull/553) fix(templates and accessibility): Date block, File and Site Header(s) templates alignment, added aria-label from specs - front-1560 ([@planctus](https://github.com/planctus))
+
+#### :nail_care: Enhancement
+
+- [#546](https://github.com/ec-europa/ecl-twig/pull/546) feat(label): highlight variant added - front-1553 ([@planctus](https://github.com/planctus))
+- [#552](https://github.com/ec-europa/ecl-twig/pull/552) feat(banners): New iteration for hero-banner and page-banner - front 1557 ([@planctus](https://github.com/planctus))
+
+#### :house: Internal
+
+- [#554](https://github.com/ec-europa/ecl-twig/pull/554) chore(deps): update before 2.32.0 release - front-1572 ([@planctus](https://github.com/planctus))
+- [#545](https://github.com/ec-europa/ecl-twig/pull/545) chore(deps): update 28-08-2020 - front-1562 ([@planctus](https://github.com/planctus))
+- [#544](https://github.com/ec-europa/ecl-twig/pull/544) feat(ecl): update resources to 2.32.0 - front-1561 ([@planctus](https://github.com/planctus))
+
+#### Committers: 1
+
+- [@planctus](https://github.com/planctus)
+
 ## [2.31.1](https://github.com/ec-europa/ecl-twig/compare/v2.31.0...v2.31.1) (2020-08-24)
 
 #### :bug: Bug Fix

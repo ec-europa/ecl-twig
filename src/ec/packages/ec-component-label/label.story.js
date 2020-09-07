@@ -16,6 +16,7 @@ const options = {
   'low importance': 'low',
   'medium importance': 'medium',
   'high importance': 'high',
+  highlight: 'highlight',
 };
 
 const prepareLabel = (data) => {
