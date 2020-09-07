@@ -46,6 +46,11 @@ const prepareFile = (data, variant) => {
     data.download.link.label,
     tabLabels.required
   );
+  data.download.link.aria_label = text(
+    'download.link.aria_label',
+    data.download.link.aria_label,
+    tabLabels.required
+  );
   data.download.icon.path = optionsKnob(
     'download.icon.path',
     { current: defaultSprite, 'no path': '' },

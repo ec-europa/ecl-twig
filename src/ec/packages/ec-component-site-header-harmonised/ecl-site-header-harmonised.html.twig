@@ -255,7 +255,7 @@
                 path: _icon_file_path,
                 type: 'general',
                 name: 'logged-in',
-                size: 'm'
+                size: 's'
               },
               extra_classes: 'ecl-site-header-harmonised__icon',
               _compliance_: _compliance,
@@ -319,9 +319,9 @@
           class="ecl-link ecl-link--standalone ecl-site-header-harmonised__language-selector"
           href="{{ _language_selector.href }}"
           data-ecl-language-selector
+          aria-label="{{ _language_selector.label }}"
         {% if _has_overlay is defined %}
           aria-controls="language-list-overlay"
-          aria-expanded="false"
         {% endif %}
         >
           <span class="ecl-site-header-harmonised__language-icon">
