@@ -57,6 +57,11 @@ const prepareSelect = (data, multi) => {
       option.value,
       tabLabels.required
     );
+    option.selected = boolean(
+      `options[${i}].selected`,
+      option.selected,
+      tabLabels.optional
+    );
   });
 
   getExtraKnobs(data);

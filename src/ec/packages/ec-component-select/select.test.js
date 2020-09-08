@@ -44,15 +44,6 @@ describe('EC - Select', () => {
         render(optionsWithExtraAttributes)
       ).resolves.toMatchSnapshot();
     });
-
-    test('with missing input data and debug enabled returns the right warning message', () => {
-      expect.assertions(1);
-
-      const dataCompliance = { ...dataSingle, _compliance_: true };
-      dataCompliance.options[0].value = '';
-
-      return expect(render(dataCompliance)).resolves.toMatchSnapshot();
-    });
   });
 
   describe('Required', () => {
@@ -88,6 +79,27 @@ describe('EC - Select', () => {
       expect.assertions(1);
 
       return expect(render(options)).resolves.toMatchSnapshot();
+    });
+  });
+
+  describe('With a default value', () => {
+    test('renders correctly', () => {
+      expect.assertions(1);
+
+      dataSingle.options[0].selected = true;
+
+      return expect(render(dataSingle)).resolves.toMatchSnapshot();
+    });
+  });
+
+  describe('with missing input data and debug enabled returns the right warning message', () => {
+    test('renders correctly', () => {
+      expect.assertions(1);
+
+      const dataCompliance = { ...dataSingle, _compliance_: true };
+      dataCompliance.options[0].value = '';
+
+      return expect(render(dataCompliance)).resolves.toMatchSnapshot();
     });
   });
 

@@ -145,7 +145,12 @@
       {{- _extra_attributes|raw -}}
     >
       {% for option in _options %}
-        <option value="{{ option.value }}">
+        <option
+          value="{{ option.value }}"
+        {% if option.selected is defined and option.selected is not empty %}
+          selected
+        {% endif %}
+        >
           {{- option.label -}}
         </option>
       {% endfor %}
