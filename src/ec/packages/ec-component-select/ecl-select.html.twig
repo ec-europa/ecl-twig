@@ -144,14 +144,20 @@
     {% endif %}
       {{- _extra_attributes|raw -}}
     >
-      {% for option in _options %}
-        <option
-          value="{{ option.value }}"
-        {% if option.selected is defined and option.selected is not empty %}
-          selected
+      {% for _option in _options %}
+        {% set _option_extra_attributes = '' %}
+        {% if _option.extra_attributes is defined and _option.extra_attributes is not empty %}
+          {% for _option_attr in _option.extra_attributes %}
+            {% if _option_attr.value is defined %}
+              {% set _option_extra_attributes = _option_extra_attributes ~ ' ' ~ _option_attr.name ~ '="' ~ _option_attr.value|e ~ '"' %}
+            {% else %}
+              {% set _option_extra_attributes = _option_extra_attributes ~ ' ' ~ _option_attr.name %}
+            {% endif %}
+          {% endfor %}
         {% endif %}
-        >
-          {{- option.label -}}
+
+        <option value="{{ _option.value }}" {{ _option_extra_attributes|raw }}>
+          {{- _option.label -}}
         </option>
       {% endfor %}
     </select>

@@ -86,7 +86,30 @@ describe('EC - Select', () => {
     test('renders correctly', () => {
       expect.assertions(1);
 
-      dataSingle.options[0].selected = true;
+      dataSingle.options[0].extra_attributes = [{ name: 'selected' }];
+
+      return expect(render(dataSingle)).resolves.toMatchSnapshot();
+    });
+  });
+
+  describe('With a disabled option', () => {
+    test('renders correctly', () => {
+      expect.assertions(1);
+
+      dataSingle.options[1].extra_attributes = [{ name: 'disabled' }];
+
+      return expect(render(dataSingle)).resolves.toMatchSnapshot();
+    });
+  });
+
+  describe('With multiple attributes for an option', () => {
+    test('renders correctly', () => {
+      expect.assertions(1);
+
+      dataSingle.options[2].extra_attributes = [
+        { name: 'data-option-test', value: 'data-option-test-value' },
+        { name: 'data-option-test-1', value: 'data-option-test-value-1' },
+      ];
 
       return expect(render(dataSingle)).resolves.toMatchSnapshot();
     });
