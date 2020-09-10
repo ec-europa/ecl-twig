@@ -11,6 +11,13 @@ const adapter = (initialData) => {
   delete adaptedData.invalidText;
   adaptedData.icon_path = '/icons.svg';
   adaptedData.required = true;
+  adaptedData.options.map((option) => {
+    if (option.isDisabled) {
+      option.disabled = true;
+      delete option.isDisabled;
+    }
+    return option;
+  });
   if (adaptedData.multiple) {
     adaptedData.multiple_all_text = adaptedData.multipleAllText;
     adaptedData.multiple_search_text = adaptedData.multipleSearchText;

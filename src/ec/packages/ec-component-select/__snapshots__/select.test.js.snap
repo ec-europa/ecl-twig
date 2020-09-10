@@ -1024,108 +1024,6 @@ exports[`EC - Select With error renders correctly 1`] = `
 </test>
 `;
 
-exports[`EC - Select With multiple attributes for an option renders correctly 1`] = `
-<test>
-  <div
-    class="ecl-form-group"
-  >
-    <label
-      class="ecl-form-label"
-      for="select-default"
-    >
-      Select a country
-      <span
-        class="ecl-form-label__required"
-      >
-        *
-      </span>
-    </label>
-    <div
-      class="ecl-help-block"
-    >
-      This is the input's helper text.
-    </div>
-    <div
-      class="ecl-select__container ecl-select__container--m"
-    >
-      <select
-        class="ecl-select"
-        id="select-default"
-        required=""
-      >
-        <option
-          selected=""
-          value="1"
-        >
-          Belgium
-        </option>
-        <option
-          disabled=""
-          value="2"
-        >
-          France
-        </option>
-        <option
-          data-option-test="data-option-test-value"
-          data-option-test-1="data-option-test-value-1"
-          value="3"
-        >
-          Luxembourg
-        </option>
-        <option
-          value="4"
-        >
-          Germany
-        </option>
-        <option
-          value="5"
-        >
-          Bulgaria
-        </option>
-        <option
-          value="6"
-        >
-          Italy
-        </option>
-        <option
-          value="7"
-        >
-          Romania
-        </option>
-        <option
-          value="8"
-        >
-          Greece
-        </option>
-        <option
-          value="9"
-        >
-          Hungary
-        </option>
-        <option
-          value="10"
-        >
-          Portugal
-        </option>
-      </select>
-      <div
-        class="ecl-select__icon"
-      >
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--s ecl-icon--rotate-180 ecl-select__icon-shape"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#ui--corner-arrow"
-          />
-        </svg>
-      </div>
-    </div>
-  </div>
-</test>
-`;
-
 exports[`EC - Select with missing input data and debug enabled returns the right warning message renders correctly 1`] = `
 <test>
   <div
@@ -1168,8 +1066,6 @@ exports[`EC - Select with missing input data and debug enabled returns the right
           France
         </option>
         <option
-          data-option-test="data-option-test-value"
-          data-option-test-1="data-option-test-value-1"
           value="3"
         >
           Luxembourg

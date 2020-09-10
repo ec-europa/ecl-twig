@@ -12,9 +12,8 @@ npm install --save @ecl-twig/ec-component-select
 - **"options"** (array) (default: []):
   - "value" (string) (default: '')
   - "label" (string) (default: '')
-  - "extra_attributes" (optional) (array) (default: []) Extra attributes for the option
-    - "name" (string) Attribute name, eg. 'data-test'
-    - "value" (string) Attribute value, eg: 'data-test-1'
+  - "selected" (boolean) (default: false)
+  - "disabled" (boolean) (default: false)
 - **"disabled"** (boolean) (default: false)
 - **"invalid"** (boolean) (default: false)
 - **"required"** (boolean) (default: false)

@@ -6,6 +6,8 @@
   - "options" (array) (default: []):
     - "value" (string) (default: '')
     - "label" (string) (default: '')
+    - "disabled" (boolean) (default: false)
+    - "selected" (boolean) (default: false)
   - "disabled" (boolean) (default: false)
   - "invalid" (boolean) (default: false)
   - "required" (boolean) (default: false)
@@ -145,18 +147,15 @@
       {{- _extra_attributes|raw -}}
     >
       {% for _option in _options %}
-        {% set _option_extra_attributes = '' %}
-        {% if _option.extra_attributes is defined and _option.extra_attributes is not empty %}
-          {% for _option_attr in _option.extra_attributes %}
-            {% if _option_attr.value is defined %}
-              {% set _option_extra_attributes = _option_extra_attributes ~ ' ' ~ _option_attr.name ~ '="' ~ _option_attr.value|e ~ '"' %}
-            {% else %}
-              {% set _option_extra_attributes = _option_extra_attributes ~ ' ' ~ _option_attr.name %}
-            {% endif %}
-          {% endfor %}
+        <option
+          value="{{ _option.value }}"
+        {% if _option.selected %}
+          selected
         {% endif %}
-
-        <option value="{{ _option.value }}" {{ _option_extra_attributes|raw }}>
+        {% if _option.disabled %}
+          disabled
+        {% endif %}
+        >
           {{- _option.label -}}
         </option>
       {% endfor %}
