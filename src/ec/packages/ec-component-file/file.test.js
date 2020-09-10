@@ -97,5 +97,13 @@ describe('EC - File', () => {
 
       return expect(render(dataThumbnail)).resolves.toMatchSnapshot();
     });
+
+    test('renders correctly without an image', () => {
+      expect.assertions(1);
+
+      dataThumbnail.image = {};
+
+      return expect(render(dataThumbnail)).resolves.toMatchSnapshot();
+    });
   });
 });

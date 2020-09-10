@@ -32,7 +32,7 @@ const preparePagination = (data) => {
       );
     }
     item.aria_label = text(
-      `items[${i}].label`,
+      `items[${i}].aria_label`,
       item.aria_label,
       tabLabels.required
     );

@@ -41,7 +41,6 @@ let imageGradientData = { ...bannerDataImageGradient };
 const simplePrimaryDescBtnToggler = () => {
   if (simplePrimaryData.description) {
     delete simplePrimaryData.description;
-    console.log(simplePrimaryData);
   } else {
     simplePrimaryData.description = bannerDataSimplePrimary.description;
   }
