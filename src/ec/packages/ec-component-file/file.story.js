@@ -94,6 +94,13 @@ const prepareFile = (data, variant) => {
         data.translation.items[i].lang,
         tabLabels.required
       );
+      if (data.translation.items[i].description) {
+        data.translation.items[i].description = text(
+          `data.translation.items[${i}].description`,
+          data.translation.items[i].description,
+          tabLabels.required
+        );
+      }
       data.translation.items[i].download.link.label = text(
         `data.translation.items[${i}].download.link.label`,
         data.translation.items[i].download.link.label,

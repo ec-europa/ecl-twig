@@ -93,7 +93,7 @@ const prepareSiteHeaderCore = (data, lang) => {
     getLogoKnobs(data, true);
   }
   // Login box and login toggle knobs.
-  getLoginKnobs(data, true);
+  getLoginKnobs(data, false);
   // Language selector knobs.
   getLanguageSelectorKnobs(data, true);
   // Search toggle.
