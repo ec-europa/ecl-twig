@@ -20,6 +20,14 @@
   rel="stylesheet"
   href="https://unpkg.com/tippy.js@6/animations/scale-extreme.css"
 />
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/@glidejs/glide@3.3.0/dist/css/glide.core.min.css"
+/>
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/@glidejs/glide@3.3.0/dist/css/glide.theme.min.css"
+/>
 <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/dist/svg-arrow.css" />
 <script
   src="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v2.32.0/ec-preset-legacy-website/scripts/ecl-ec-preset-legacy-website.js"
@@ -28,6 +36,7 @@
   sha512-NwAVKhFR6aY1f0vrMUUTy4j8B5StraEVX5lhbeBFbCqcsFeSQTzM9H0GsJEXYgTBIQabdInN5ruzB+5FTMQl+A=="
   crossorigin="anonymous"
 ></script>
+<script src="https://unpkg.com/@glidejs/glide@3.4.1/dist/glide.js"></script>
 <script src="https://unpkg.com/svg4everybody@2.1.9/dist/svg4everybody.min.js"></script>
 <script src="https://unpkg.com/@popperjs/core@2"></script>
 <script src="https://unpkg.com/tippy.js@6"></script>
@@ -55,6 +64,24 @@
   // https://github.com/storybookjs/storybook/issues/6113#issuecomment-473965255
   function runOnPageChange() {
     ECL.autoInit();
+
+    if (document.querySelector('.ecl-layout--carousel')) {
+      var glide = new Glide('.ecl-layout--carousel', {
+        type: 'carousel',
+        perView: 3,
+        focusAt: 'center',
+        breakpoints: {
+          800: {
+            perView: 2,
+          },
+          480: {
+            perView: 1,
+          },
+        },
+      });
+
+      glide.mount();
+    }
 
     if ((complianceReps = document.querySelectorAll('.ecl-compliance-inner'))) {
       tippy.setDefaultProps({

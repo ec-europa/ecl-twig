@@ -20,6 +20,14 @@
   rel="stylesheet"
   href="https://unpkg.com/tippy.js@6/animations/scale-extreme.css"
 />
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/@glidejs/glide@3.3.0/dist/css/glide.core.min.css"
+/>
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/@glidejs/glide@3.3.0/dist/css/glide.theme.min.css"
+/>
 <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/dist/svg-arrow.css" />
 <script
   src="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v2.32.0/eu-preset-legacy-website/scripts/ecl-eu-preset-legacy-website.js"
@@ -28,6 +36,7 @@
   sha512-2aaKzjGfiL1KmG0Izmot5VZ6dXkaOhU4WsmJMJRK3JRW6ZBQft8eQJmc22Xc8cccGvR5iuq+wpDBbtlVCjRzgA=="
   crossorigin="anonymous"
 ></script>
+<script src="https://unpkg.com/@glidejs/glide@3.4.1/dist/glide.js"></script>
 <script src="https://unpkg.com/svg4everybody@2.1.9/dist/svg4everybody.min.js"></script>
 <script src="https://unpkg.com/@popperjs/core@2"></script>
 <script src="https://unpkg.com/tippy.js@6"></script>
@@ -35,7 +44,42 @@
   // https://github.com/storybookjs/storybook/issues/6113#issuecomment-473965255
   function runOnPageChange() {
     ECL.autoInit();
+
+    if (document.querySelector('.ecl-layout--carousel')) {
+      var glide = new Glide('.ecl-layout--carousel', {
+        type: 'carousel',
+        perView: 3,
+        focusAt: 'center',
+        breakpoints: {
+          800: {
+            perView: 2,
+          },
+          480: {
+            perView: 1,
+          },
+        },
+      });
+
+      glide.mount();
+    }
+
+    if ((complianceReps = document.querySelectorAll('.ecl-compliance-inner'))) {
+      tippy.setDefaultProps({
+        interactive: true,
+        animation: 'scale-extreme',
+        arrow: tippy.roundArrow,
+      });
+      complianceReps.forEach((e) => {
+        if (e.hasAttribute('title')) {
+          e.setAttribute('data-tippy-content', e.getAttribute('title'));
+          e.removeAttribute('title');
+        }
+      });
+      tippy('.ecl-compliance-success', { theme: 'ecl-compliance-success' });
+      tippy('.ecl-compliance-failure', { theme: 'ecl-compliance-failure' });
+    }
   }
+
   document.addEventListener(
     'DOMContentLoaded',
     function () {

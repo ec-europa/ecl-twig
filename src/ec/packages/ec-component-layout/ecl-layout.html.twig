@@ -2,8 +2,19 @@
 
 {#
   Parameters:
-    - "component" (string) (default: '')
+    - "component" (string) (default: '') Name of the component to include
+    - "variant" (string) (default: '') variant name
+    - "arrows" (boolean) (default: false) Whether to show the carousel controls
+    - "visible_items" (integer) (default: 1) Number of items visible in the carousel
+    - "same_height" (boolean) (default: false) Whether to enforce the same height for the items
     - "items" (array) (default: [])
+    - "highlighted_item" (object) (default: {}) The item to show as an highlight
+    - "columns_desktop" (integer) (default: 1) Number of columns for desktops
+    - "columns_mobile" (integer) (default: 1) Number of columns for mobile
+    - "spacing" (string) (default: m) ECL spacing token (2xs, xs, s, m, l, xl, 2xl, 3xl, 4xl)
+    - "grid" (integer) (default: 12) (number of columns for the main container)
+    - "item_extra_classes" (string) (default: '') Extra classes for the <li>
+    - "list_extra_classes" (string) (default: '') Extra classes for the <ul>
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
         {
@@ -14,18 +25,44 @@
 #}
 
 {% set _component = component|default('') %}
+{% set _variant = variant|default('') %}
 {% set _items = items|default([]) %}
+{% set _grid = grid|default(12) %}
+{% set _columns_desktop = columns_desktop|default(1) %}
+{% set _columns_mobile = columns_mobile|default(1) %}
+{% set _visible_items = visible_items|default(4) %}
+{% set _same_height = same_height|default('false') %}
+{% set _arrows = arrows|default(false) %}
+{% set _item_extra_classes = 'ecl-layout__item ' ~ item_extra_classes|default('') %}
+{% set _list_extra_classes = 'ecl-layout__list ecl-unordered-list--no-bullet' ~ list_extra_classes|default('') %}
 
 {# Internal properties #}
 
 {% set _css_class = 'ecl-layout' %}
 {% set _extra_attributes = '' %}
+{% set _container_grid = 'ecl-col-md-' ~ _grid %}
+{% set _grid_classes = 'ecl-layout-container ' ~ _container_grid %}
+{% set _spacing = 'ecl-u-mv-' ~ spacing|default('m') %}
+{% set _item_grid_desktop = 'ecl-col-md-' ~ (_grid / _columns_desktop) %}
+{% set _item_grid_mobile = 'ecl-col-sm-' ~ (_grid / columns_mobile) %}
 {% set _compliance = _compliance_|default(false) %}
 
 {# Internal logic - Process properties #}
 
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if _variant == 'carousel' %}
+  {% set _item_extra_classes = _item_extra_classes ~ ' glide__slide' %}
+  {% set _css_class = _css_class ~ ' ecl-layout--carousel-' ~ _visible_items ~ ' ecl-layout--carousel glide' %}
+  {% set _grid_classes = _grid__classes ~ ' glide__track' %}
+{% else %}
+  {% set _item_extra_classes = _item_extra_classes ~ ' ' ~ _item_grid_desktop ~ ' ' ~ _item_grid_mobile %}
+{% endif %}
+
+{% if _same_height %}
+  {% set _css_class = _css_class ~ ' ecl-layout--same-height' %}
 {% endif %}
 
 {% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
@@ -39,17 +76,31 @@
 {% endif %}
 
 <div class="ecl-container {{ _css_class }}"{{ _extra_attributes|raw }}>
-  <ul class="ecl-row">
-    {% if _items is not empty and _items is iterable %}
-      {% for _item in _items %}
-        <li class="ecl-col-md-4" style="margin-top:1rem">
-          {% include '@ecl-twig/ec-component-' ~ _component ~ '/ecl-' ~ _component ~ '.html.twig' with {
-            card: _item
-          } only %}
-        </li>
-      {% endfor %}
-  {% endif %}
-  </ul>
+  <div
+    class="{{ _grid_classes }}"
+    {%- if variant == 'carousel' %}
+      data-glide-el="track"
+    {% endif %}
+    >
+    <ul class="ecl-row {{ _list_extra_classes }}">
+      {% if _items is not empty and _items is iterable %}
+        {% for _item in _items %}
+          <li class="{{ _item_extra_classes }} {{ _spacing }}"
+          >
+            {% include '@ecl-twig/ec-component-' ~ _component ~ '/ecl-' ~ _component ~ '.html.twig' with _item only %}
+          </li>
+        {% endfor %}
+    {% endif %}
+    </ul>
+    {% if variant == 'carousel' and _arrows %}
+      <div class="glide__arrows" data-glide-el="controls">
+        <button class="glide__arrow glide__arrow--left" data-glide-dir="<">prev</button>
+        <button class="glide__arrow glide__arrow--right" data-glide-dir=">">next</button>
+      </div>
+    {% endif %}
+  </div>
 </div>
+
+
 
 {% endspaceless %}
