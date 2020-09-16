@@ -2,6 +2,7 @@ const path = require('path');
 // We actually point at the EC templates.
 const stories = [
   `../../../ec/packages/**/!(*contextual-navigation|ec*).story.js`,
+  '../../../../php/packages/ec/layout/*.story.js',
 ];
 
 const addons = [

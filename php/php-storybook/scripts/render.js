@@ -55,6 +55,9 @@ systems.forEach((system) => {
                   </div>
                 </div>`;
       }
+      if (!fs.existsSync(`${systemFolder}/${component}/js`)) {
+        fs.mkdirSync(`${systemFolder}/${component}/js`);
+      }
 
       fs.writeFile(
         `${systemFolder}/${component}/js/${variant}.js.html`,

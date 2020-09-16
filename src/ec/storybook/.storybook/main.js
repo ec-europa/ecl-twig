@@ -1,6 +1,9 @@
 const path = require('path');
 
-const stories = ['../../packages/**/!(*contextual-navigation|eu*).story.js'];
+const stories = [
+  '../../packages/**/!(*contextual-navigation|eu*).story.js',
+  '../../../../php/packages/ec/layout/*.story.js',
+];
 
 const addons = [
   '@ecl-twig/storybook-addon-notes/src/register',
