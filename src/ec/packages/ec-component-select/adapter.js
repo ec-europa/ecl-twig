@@ -12,10 +12,6 @@ const adapter = (initialData) => {
   adaptedData.icon_path = '/icons.svg';
   adaptedData.required = true;
   adaptedData.options.map((option) => {
-    if (option.isDisabled) {
-      option.disabled = true;
-      delete option.isDisabled;
-    }
     return option;
   });
   if (adaptedData.multiple) {
