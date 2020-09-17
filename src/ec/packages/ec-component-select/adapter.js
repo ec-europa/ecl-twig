@@ -11,9 +11,6 @@ const adapter = (initialData) => {
   delete adaptedData.invalidText;
   adaptedData.icon_path = '/icons.svg';
   adaptedData.required = true;
-  adaptedData.options.map((option) => {
-    return option;
-  });
   if (adaptedData.multiple) {
     adaptedData.multiple_all_text = adaptedData.multipleAllText;
     adaptedData.multiple_search_text = adaptedData.multipleSearchText;
