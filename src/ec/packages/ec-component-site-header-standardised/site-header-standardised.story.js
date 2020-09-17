@@ -125,7 +125,7 @@ const prepareSiteHeaderStandardised = (data, lang) => {
     getLogoKnobs(data, true);
   }
   // Login box and login toggle knobs.
-  getLoginKnobs(data, true);
+  getLoginKnobs(data, false);
   // Search toggle.
   data.search_toggle.label = text(
     'search_toggle.label',
