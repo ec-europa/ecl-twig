@@ -39,6 +39,7 @@ exports[`EC - Select Default renders correctly 1`] = `
           France
         </option>
         <option
+          disabled=""
           value="3"
         >
           Luxembourg
@@ -49,6 +50,7 @@ exports[`EC - Select Default renders correctly 1`] = `
           Germany
         </option>
         <option
+          selected=""
           value="5"
         >
           Bulgaria
@@ -139,6 +141,7 @@ exports[`EC - Select Default renders correctly with extra attributes 1`] = `
           France
         </option>
         <option
+          disabled=""
           value="3"
         >
           Luxembourg
@@ -149,6 +152,7 @@ exports[`EC - Select Default renders correctly with extra attributes 1`] = `
           Germany
         </option>
         <option
+          selected=""
           value="5"
         >
           Bulgaria
@@ -237,6 +241,7 @@ exports[`EC - Select Default renders correctly with extra class names 1`] = `
           France
         </option>
         <option
+          disabled=""
           value="3"
         >
           Luxembourg
@@ -247,6 +252,7 @@ exports[`EC - Select Default renders correctly with extra class names 1`] = `
           Germany
         </option>
         <option
+          selected=""
           value="5"
         >
           Bulgaria
@@ -335,6 +341,7 @@ exports[`EC - Select Disabled renders correctly 1`] = `
           France
         </option>
         <option
+          disabled=""
           value="3"
         >
           Luxembourg
@@ -345,6 +352,7 @@ exports[`EC - Select Disabled renders correctly 1`] = `
           Germany
         </option>
         <option
+          selected=""
           value="5"
         >
           Bulgaria
@@ -439,6 +447,7 @@ exports[`EC - Select Multiple renders correctly 1`] = `
           France
         </option>
         <option
+          disabled=""
           value="3"
         >
           Luxembourg
@@ -449,6 +458,7 @@ exports[`EC - Select Multiple renders correctly 1`] = `
           Germany
         </option>
         <option
+          selected=""
           value="5"
         >
           Bulgaria
@@ -543,6 +553,7 @@ exports[`EC - Select Multiple with missing input data and debug enabled returns 
           France
         </option>
         <option
+          disabled=""
           value="3"
         >
           Luxembourg
@@ -553,6 +564,7 @@ exports[`EC - Select Multiple with missing input data and debug enabled returns 
           Germany
         </option>
         <option
+          selected=""
           value="5"
         >
           Bulgaria
@@ -665,205 +677,7 @@ exports[`EC - Select Required renders correctly 1`] = `
           France
         </option>
         <option
-          value="3"
-        >
-          Luxembourg
-        </option>
-        <option
-          value="4"
-        >
-          Germany
-        </option>
-        <option
-          value="5"
-        >
-          Bulgaria
-        </option>
-        <option
-          value="6"
-        >
-          Italy
-        </option>
-        <option
-          value="7"
-        >
-          Romania
-        </option>
-        <option
-          value="8"
-        >
-          Greece
-        </option>
-        <option
-          value="9"
-        >
-          Hungary
-        </option>
-        <option
-          value="10"
-        >
-          Portugal
-        </option>
-      </select>
-      <div
-        class="ecl-select__icon"
-      >
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--s ecl-icon--rotate-180 ecl-select__icon-shape"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#ui--corner-arrow"
-          />
-        </svg>
-      </div>
-    </div>
-  </div>
-</test>
-`;
-
-exports[`EC - Select With a default value renders correctly 1`] = `
-<test>
-  <div
-    class="ecl-form-group"
-  >
-    <label
-      class="ecl-form-label"
-      for="select-default"
-    >
-      Select a country
-      <span
-        class="ecl-form-label__required"
-      >
-        *
-      </span>
-    </label>
-    <div
-      class="ecl-help-block"
-    >
-      This is the input's helper text.
-    </div>
-    <div
-      class="ecl-select__container ecl-select__container--m"
-    >
-      <select
-        class="ecl-select"
-        id="select-default"
-        required=""
-      >
-        <option
-          selected=""
-          value="1"
-        >
-          Belgium
-        </option>
-        <option
-          value="2"
-        >
-          France
-        </option>
-        <option
-          value="3"
-        >
-          Luxembourg
-        </option>
-        <option
-          value="4"
-        >
-          Germany
-        </option>
-        <option
-          value="5"
-        >
-          Bulgaria
-        </option>
-        <option
-          value="6"
-        >
-          Italy
-        </option>
-        <option
-          value="7"
-        >
-          Romania
-        </option>
-        <option
-          value="8"
-        >
-          Greece
-        </option>
-        <option
-          value="9"
-        >
-          Hungary
-        </option>
-        <option
-          value="10"
-        >
-          Portugal
-        </option>
-      </select>
-      <div
-        class="ecl-select__icon"
-      >
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--s ecl-icon--rotate-180 ecl-select__icon-shape"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#ui--corner-arrow"
-          />
-        </svg>
-      </div>
-    </div>
-  </div>
-</test>
-`;
-
-exports[`EC - Select With a disabled option renders correctly 1`] = `
-<test>
-  <div
-    class="ecl-form-group"
-  >
-    <label
-      class="ecl-form-label"
-      for="select-default"
-    >
-      Select a country
-      <span
-        class="ecl-form-label__required"
-      >
-        *
-      </span>
-    </label>
-    <div
-      class="ecl-help-block"
-    >
-      This is the input's helper text.
-    </div>
-    <div
-      class="ecl-select__container ecl-select__container--m"
-    >
-      <select
-        class="ecl-select"
-        id="select-default"
-        required=""
-      >
-        <option
-          selected=""
-          value="1"
-        >
-          Belgium
-        </option>
-        <option
           disabled=""
-          value="2"
-        >
-          France
-        </option>
-        <option
           value="3"
         >
           Luxembourg
@@ -874,6 +688,7 @@ exports[`EC - Select With a disabled option renders correctly 1`] = `
           Germany
         </option>
         <option
+          selected=""
           value="5"
         >
           Bulgaria
@@ -966,6 +781,7 @@ exports[`EC - Select With error renders correctly 1`] = `
           France
         </option>
         <option
+          disabled=""
           value="3"
         >
           Luxembourg
@@ -976,6 +792,7 @@ exports[`EC - Select With error renders correctly 1`] = `
           Germany
         </option>
         <option
+          selected=""
           value="5"
         >
           Bulgaria
@@ -1054,18 +871,17 @@ exports[`EC - Select with missing input data and debug enabled returns the right
         required=""
       >
         <option
-          selected=""
           value=""
         >
           Belgium
         </option>
         <option
-          disabled=""
           value="2"
         >
           France
         </option>
         <option
+          disabled=""
           value="3"
         >
           Luxembourg
@@ -1076,6 +892,7 @@ exports[`EC - Select with missing input data and debug enabled returns the right
           Germany
         </option>
         <option
+          selected=""
           value="5"
         >
           Bulgaria

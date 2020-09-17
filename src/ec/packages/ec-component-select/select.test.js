@@ -82,26 +82,6 @@ describe('EC - Select', () => {
     });
   });
 
-  describe('With a default value', () => {
-    test('renders correctly', () => {
-      expect.assertions(1);
-
-      dataSingle.options[0].selected = true;
-
-      return expect(render(dataSingle)).resolves.toMatchSnapshot();
-    });
-  });
-
-  describe('With a disabled option', () => {
-    test('renders correctly', () => {
-      expect.assertions(1);
-
-      dataSingle.options[1].disabled = true;
-
-      return expect(render(dataSingle)).resolves.toMatchSnapshot();
-    });
-  });
-
   describe('with missing input data and debug enabled returns the right warning message', () => {
     test('renders correctly', () => {
       expect.assertions(1);

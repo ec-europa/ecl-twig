@@ -57,11 +57,20 @@ const prepareSelect = (data, multi) => {
       option.value,
       tabLabels.required
     );
-    option.selected = boolean(
-      `options[${i}].selected`,
-      option.selected,
-      tabLabels.optional
-    );
+    if (option.selected) {
+      option.selected = boolean(
+        `options[${i}].selected (default value)`,
+        option.selected,
+        tabLabels.optional
+      );
+    }
+    if (option.disabled) {
+      option.disabled = boolean(
+        `options[${i}].disabled`,
+        option.disabled,
+        tabLabels.optional
+      );
+    }
   });
 
   getExtraKnobs(data);
