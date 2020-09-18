@@ -1,0 +1,356 @@
+backend:
+  name: git-gateway
+  repo: ec-europa/ecl-twig
+  branch: develop
+  squash_merges: true
+  commit_messages:
+    create: 'feat({{collection}}): create {{collection}} “{{slug}}”'
+    update: 'feat({{collection}}): update {{collection}} “{{slug}}”'
+    delete: 'feat({{collection}}): delete {{collection}} “{{slug}}”'
+    uploadMedia: 'Upload “{{path}}”'
+    deleteMedia: 'Delete “{{path}}”'
+
+media_folder: static/images
+publish_mode: editorial_workflow
+
+collections:
+  - label: 'Docs'
+    name: 'docs'
+    label_singular: 'Doc'
+    extension: md
+    files:
+      - name: 'conventions'
+        label: 'Conventions'
+        file: 'docs/conventions.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - name: 'getting_started'
+        label: 'Getting started'
+        file: 'docs/getting-started.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - name: 'documentation'
+        label: 'Documentation'
+        file: 'docs/documentation.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - name: 'release'
+        label: 'Release'
+        file: 'docs/release.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - name: 'readme'
+        label: 'Readme (docs)'
+        file: 'docs/README.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - name: 'readme_decisions'
+        label: 'Readme (decisions)'
+        file: 'docs/decisions/README.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - name: 'ecl_compliance'
+        label: 'Ecl compliance (decisions)'
+        file: 'docs/decisions/003-ecl-compliance.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - name: 'stories'
+        label: 'Stories (decisions)'
+        file: 'docs/decisions/002-stories.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - name: 'strip_whitespaces'
+        label: 'Strip whitespaces (decisions)'
+        file: 'docs/decisions/001-strip-whitespaces.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+  - label: 'Components docs'
+    label_singular: 'Component docs'
+    name: 'component'
+    extension: md
+    files:
+      - name: 'accordion_deprecated'
+        label: 'Accordion (deprecated)'
+        file: 'src/ec/packages/ec-component-accordion/README.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - name: 'accordion'
+        label: 'Accordion'
+        file: 'src/ec/packages/ec-component-accordion2/README.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - name: 'blockquote'
+        label: 'Blockquote'
+        file: 'src/ec/packages/ec-component-blockquote/README.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - name: 'breadcrumb_deprecated'
+        label: 'Breadcrumb (deprecated)'
+        file: 'src/ec/packages/ec-component-breadcrumb/README.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - name: 'breadcrumb_core'
+        label: 'Breadcrumb Core'
+        file: 'src/ec/packages/ec-component-breadcrumb-core/README.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - name: 'breadcrumb_standardised'
+        label: 'Breadcrumb Standardised'
+        file: 'src/ec/packages/ec-component-breadcrumb-standardised/README.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - name: 'breadcrumb_harmonised'
+        label: 'Breadcrumb Harmonised'
+        file: 'src/ec/packages/ec-component-breadcrumb-harmonised/README.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - name: 'button'
+        label: 'Button'
+        file: 'src/ec/packages/ec-component-breadcrumb-button/README.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - name: 'card'
+        label: 'Card'
+        file: 'src/ec/packages/ec-component-breadcrumb-card/README.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - name: 'checkbox'
+        label: 'Checkbox'
+        file: 'src/ec/packages/ec-component-checkbox/README.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - name: 'contextual_nav'
+        label: 'Contextual Navigation'
+        file: 'src/ec/packages/ec-component-contextual-navigation/README.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - name: 'date-block'
+        label: 'Date Block'
+        file: 'src/ec/packages/ec-component-date-block/README.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - name: 'datepicker'
+        label: 'Date picker'
+        file: 'src/ec/packages/ec-component-datepicker/README.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - name: 'description-list'
+        label: 'Description list'
+        file: 'src/ec/packages/ec-component-description-list/README.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - name: 'dropdown-legacy'
+        label: 'Dropdown Legacy'
+        file: 'src/ec/packages/ec-component-dropdown-legacy/README.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - name: 'ecl_compliance'
+        label: 'ECL compliance'
+        file: 'src/ec/packages/ec-component-ecl-compliance/README.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - name: 'expandable'
+        label: 'Expandable'
+        file: 'src/ec/packages/ec-component-expandable/README.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - name: 'fact-figures'
+        label: 'Fact & Figures'
+        file: 'src/ec/packages/ec-component-fact-figures/README.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - name: 'file'
+        label: 'File'
+        file: 'src/ec/packages/ec-component-file/README.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - name: 'file_upload'
+        label: 'File Upload'
+        file: 'src/ec/packages/ec-component-file-upload/README.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - name: 'footer'
+        label: 'Footer (deprecated)'
+        file: 'src/ec/packages/ec-component-footer/README.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - name: 'footer-core'
+        label: 'Footer Core'
+        file: 'src/ec/packages/ec-component-footer-core/README.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - name: 'footer_standardised'
+        label: 'Footer Standardised'
+        file: 'src/ec/packages/ec-component-footer-standardised/README.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - name: 'footer_harmonised'
+        label: 'Footer Harmonised'
+        file: 'src/ec/packages/ec-component-footer-harmonised/README.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - name: 'gallery'
+        label: 'Gallery'
+        file: 'src/ec/packages/ec-component-gallery/README.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - name: 'hero_banner'
+        label: 'Hero Banner'
+        file: 'src/ec/packages/ec-component-hero-banner/README.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - name: 'icon'
+        label: 'Icon'
+        file: 'src/ec/packages/ec-component-icon/README.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - name: 'inpage_navigation'
+        label: 'InPage Navigation'
+        file: 'src/ec/packages/ec-component-inpage-navigation/README.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - name: 'label'
+        label: 'Label'
+        file: 'src/ec/packages/ec-component-label/README.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - name: 'language_list'
+        label: 'Language List'
+        file: 'src/ec/packages/ec-component-language-list/README.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - name: 'link'
+        label: 'Link'
+        file: 'src/ec/packages/ec-component-link/README.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - name: 'media_container'
+        label: 'Media Container'
+        file: 'src/ec/packages/ec-component-media-container/README.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - name: 'menu'
+        label: 'Menu'
+        file: 'src/ec/packages/ec-component-menu/README.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - name: 'menu_legacy'
+        label: 'Menu (Legacy)'
+        file: 'src/ec/packages/ec-component-menu-legacy/README.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - name: 'message'
+        label: 'Message'
+        file: 'src/ec/packages/ec-component-message/README.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - name: 'ordered_list'
+        label: 'Ordered List'
+        file: 'src/ec/packages/ec-component-ordered-list/README.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - name: 'page_banner'
+        label: 'Page Banner'
+        file: 'src/ec/packages/ec-component-page-banner/README.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - name: 'page_header'
+        label: 'Page Header (deprecated)'
+        file: 'src/ec/packages/ec-component-page-header/README.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - name: 'page_header_core'
+        label: 'Page Header Core'
+        file: 'src/ec/packages/ec-component-page-header-core/README.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - name: 'page_header_standardised'
+        label: 'Page Header Standardised'
+        file: 'src/ec/packages/ec-component-page-header-standardised/README.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - name: 'page_header_harmonised'
+        label: 'Page Header Harmonised'
+        file: 'src/ec/packages/ec-component-page-header-harmonised/README.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - name: 'pagination'
+        label: 'Pagination'
+        file: 'src/ec/packages/ec-component-pagination/README.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - name: 'radio'
+        label: 'radio'
+        file: 'src/ec/packages/ec-component-radio/README.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - name: 'search_form'
+        label: 'Search Form'
+        file: 'src/ec/packages/ec-component-search-form/README.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - name: 'select'
+        label: 'Select'
+        file: 'src/ec/packages/ec-component-select/README.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - name: 'site_header'
+        label: 'Site Header (deprecated)'
+        file: 'src/ec/packages/ec-component-site-header/README.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - name: 'site_header_core'
+        label: 'Site Header Core'
+        file: 'src/ec/packages/ec-component-pagination/README.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - name: 'site_header_standardised'
+        label: 'Site Header Standardised'
+        file: 'src/ec/packages/ec-component-site-header-standardised/README.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - name: 'skip_link'
+        label: 'Skip Link'
+        file: 'src/ec/packages/ec-component-skip-link/README.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - name: 'social_media_follow'
+        label: 'Social Media Follow'
+        file: 'src/ec/packages/ec-component-social-media-follow/README.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - name: 'social_media_share'
+        label: 'Social Media Share'
+        file: 'src/ec/packages/ec-component-social-media-share/README.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - name: 'table'
+        label: 'Table'
+        file: 'src/ec/packages/ec-component-table/README.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - name: 'tag'
+        label: 'Tag'
+        file: 'src/ec/packages/ec-component-tag/README.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - name: 'text_area'
+        label: 'Text Area'
+        file: 'src/ec/packages/ec-component-text-area/README.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - name: 'text_input'
+        label: 'Text Input'
+        file: 'src/ec/packages/ec-component-text-input/README.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - name: 'timeline'
+        label: 'Timeline'
+        file: 'src/ec/packages/ec-component-timeline/README.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - name: 'unordered_list'
+        label: 'Unordered List'
+        file: 'src/ec/packages/ec-component-unordered-list/README.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
