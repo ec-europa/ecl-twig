@@ -12,6 +12,8 @@ npm install --save @ecl-twig/ec-component-select
 - **"options"** (array) (default: []):
   - "value" (string) (default: '')
   - "label" (string) (default: '')
+  - "selected" (boolean) (default: false)
+  - "disabled" (boolean) (default: false)
 - **"disabled"** (boolean) (default: false)
 - **"invalid"** (boolean) (default: false)
 - **"required"** (boolean) (default: false)
@@ -27,7 +29,7 @@ npm install --save @ecl-twig/ec-component-select
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
-- **"\_compliance"** (boolean) (default: false)
+- **"\_compliance\_"** (boolean) (default: false)
 
 ### Blocks:
 

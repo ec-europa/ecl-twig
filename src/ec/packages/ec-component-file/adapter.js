@@ -32,7 +32,6 @@ const adapter = (initialData) => {
     adaptedData.translation.items.forEach((item) => {
       item.lang_full = item.langFull;
       delete item.langFull;
-      item.download.ariaLabel = adaptedData.ariaLabel;
       item.download = formatLink(item.download);
       item.download.icon = {};
       item.download.icon.path = '/icons.svg';
