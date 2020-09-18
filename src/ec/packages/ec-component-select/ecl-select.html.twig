@@ -6,6 +6,8 @@
   - "options" (array) (default: []):
     - "value" (string) (default: '')
     - "label" (string) (default: '')
+    - "disabled" (boolean) (default: false)
+    - "selected" (boolean) (default: false)
   - "disabled" (boolean) (default: false)
   - "invalid" (boolean) (default: false)
   - "required" (boolean) (default: false)
@@ -144,9 +146,17 @@
     {% endif %}
       {{- _extra_attributes|raw -}}
     >
-      {% for option in _options %}
-        <option value="{{ option.value }}">
-          {{- option.label -}}
+      {% for _option in _options %}
+        <option
+          value="{{ _option.value }}"
+        {% if _option.selected %}
+          selected
+        {% endif %}
+        {% if _option.disabled %}
+          disabled
+        {% endif %}
+        >
+          {{- _option.label -}}
         </option>
       {% endfor %}
     </select>
