@@ -4,6 +4,8 @@ const adapter = (initialData) => {
   if (adaptedData.meta) {
     adaptedData.meta = adaptedData.meta.replace(/(<([^>]+)>)/gi, '');
   }
+  // Overriding this to align with ECL.
+  adaptedData.breadcrumb.ellipsis_label = 'Click here to expand';
 
   return adaptedData;
 };
