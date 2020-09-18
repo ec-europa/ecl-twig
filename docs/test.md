@@ -15,7 +15,6 @@ They help keep the interface clean and reduce scrolling by saving vertical space
 | action indicator  | yes       | varies depending on the state (collapsed/expanded). **Indicates what the next action will do - expands/collapses content container on click**                                  |
 | button            | yes       | actionable item (expands/collapses) - The button label must be short and **descriptive of the action that follows after being clicked**.<br/>Contains Label & Action indicator |
 | content container | yes       | this element displays relevant content in a **container that's initially hidden**                                                                                              |
-| row 4 cell 1      | yes       | row 4 cell 3                                                                                                                                                                   |
 
 ## Do's
 
