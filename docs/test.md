@@ -1,4 +1,4 @@
-The accordion is a **progressive disclosure componen**t. Such
+The accordion is a **progressive disclosure component**. Such
 components truncate information for the general layout/design and are intended
 to **deliver optional additional content depending on users' interest**.
 
@@ -10,11 +10,11 @@ They help keep the interface clean and reduce scrolling by saving vertical space
 
 ![anatomy](/static/images/accordion2.jpg "anatomy")
 
-| Elements          | Mandatory | Description                                                                                                                                                                    |
-| ----------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| action indicator  | yes       | varies depending on the state (collapsed/expanded). **Indicates what the next action will do - expands/collapses content container on click**                                  |
-| button            | yes       | actionable item (expands/collapses) - The button label must be short and **descriptive of the action that follows after being clicked**.<br/>Contains Label & Action indicator |
-| content container | yes       | this element displays relevant content in a **container that's initially hidden**                                                                                              |
+| Elements          | Mandatory | Description                                                                                                                                                                |
+| ----------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| action indicator  | yes       | varies depending on the state (collapsed/expanded). **Indicates what the next action will do - expands/collapses content container on click**                              |
+| button            | yes       | actionable item (expands/collapses) - The button label must be short and **descriptive of the action that follows after being clicked**. Contains Label & Action indicator |
+| content container | yes       | this element displays relevant content in a **container that's initially hidden**                                                                                          |
 
 ## Do's
 
