@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.33.0](https://github.com/ec-europa/ecl-twig/compare/v2.33.0...v2.32.0) (2020-09-18)
+
+#### :bug: Bug Fix
+
+- [#559](https://github.com/ec-europa/ecl-twig/pull/559) fix(site-headers): Login box is optional in the three families - front-1592 ([@planctus](https://github.com/planctus))
+- [#558](https://github.com/ec-europa/ecl-twig/pull/558) fix(file): Fixing markup for the thumbnail variant - front-1594 ([@planctus](https://github.com/planctus))
+- [#557](https://github.com/ec-europa/ecl-twig/pull/557) fix(pagination): Fixing markup for links without icons - front-1574 ([@planctus](https://github.com/planctus))
+
+#### :nail_care: Enhancement
+
+- [#563](https://github.com/ec-europa/ecl-twig/pull/563) feat(menu): Adding css class - front-1667 ([@planctus](https://github.com/planctus))
+- [#556](https://github.com/ec-europa/ecl-twig/pull/556) feat(select): Adding support for disabled and selected options - front-1590 ([@planctus](https://github.com/planctus))
+
+#### :house: Internal
+
+- [#564](https://github.com/ec-europa/ecl-twig/pull/564) chore(file): Small alignment with ECL - front-1669 ([@planctus](https://github.com/planctus))
+- [#562](https://github.com/ec-europa/ecl-twig/pull/562) chore(page-headers): Small alignment with ECL - front-1668 ([@planctus](https://github.com/planctus))
+- [#561](https://github.com/ec-europa/ecl-twig/pull/561) chore(ecl): update ECL resources to 2.33.0 - front-1670 ([@planctus](https://github.com/planctus))
+- [#560](https://github.com/ec-europa/ecl-twig/pull/560) chore(deps-dev): bump node-fetch from 2.6.0 to 2.6.1 ([@dependabot[bot]](https://github.com/apps/dependabot))
+
+#### Committers: 1
+
+- [@planctus](https://github.com/planctus)
+
 ## [2.32.0](https://github.com/ec-europa/ecl-twig/compare/v2.32.0...v2.31.1) (2020-09-03)
 
 #### :bug: Bug Fix
