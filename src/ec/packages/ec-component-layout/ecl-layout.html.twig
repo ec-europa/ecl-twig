@@ -27,6 +27,8 @@
 {% set _component = component|default('') %}
 {% set _variant = variant|default('') %}
 {% set _items = items|default([]) %}
+{% set _highlight = highlight|default({}) %}
+{% set _footer = footer|default({}) %}
 {% set _grid = grid|default(12) %}
 {% set _columns_desktop = columns_desktop|default(1) %}
 {% set _columns_mobile = columns_mobile|default(1) %}
@@ -76,6 +78,13 @@
 {% endif %}
 
 <div class="ecl-container {{ _css_class }}"{{ _extra_attributes|raw }}>
+  {% if _highlight is not empty %}
+    {% if _highlight.component is defined and _highlight.item is defined and _highlight.item is not empty %}
+    <div class="ecl-layout__header {{ _container_grid }}">
+     {% include '@ecl-twig/ec-component-' ~ _highlight.component ~ '/ecl-' ~ _highlight.component ~ '.html.twig' with _highlight.item only %}
+    </div>
+    {% endif %}
+  {% endif %}
   <div
     class="{{ _grid_classes }}"
     {%- if variant == 'carousel' %}
@@ -99,6 +108,13 @@
       </div>
     {% endif %}
   </div>
+  {% if _footer is not empty %}
+    {% if _footer.component is defined and _footer.item is defined and _footer.item is not empty %}
+    <div class="ecl-layout__footer {{ _container_grid }}">
+     {% include '@ecl-twig/ec-component-' ~ _footer.component ~ '/ecl-' ~ _footer.component ~ '.html.twig' with _footer.item only %}
+    </div>
+    {% endif %}
+  {% endif %}
 </div>
 
 {% endspaceless %}

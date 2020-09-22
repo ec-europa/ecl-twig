@@ -5,6 +5,8 @@ import layout__4_columnsJs from './js/layout--4-columns.js.html';
 import layout__carouselJs from './js/layout--carousel.js.html';
 import layout__file_listJs from './js/layout--file-list.js.html';
 import layout__media_containerJs from './js/layout--media-container.js.html';
+import layout__highlightJs from './js/layout--highlight.js.html';
+import layout__footerJs from './js/layout--footer.js.html';
 
 export default {
   title: 'Components/Layout',
@@ -22,6 +24,14 @@ Columns_3.storyName = '3 columns';
 export const Columns_4 = () => layout__4_columnsJs;
 
 Columns_4.storyName = '4 columns';
+
+export const Highlight = () => layout__highlightJs;
+
+Highlight.storyName = 'Highlighted item';
+
+export const Footer = () => layout__footerJs;
+
+Footer.storyName = 'Footer';
 
 export const Carousel = () => layout__carouselJs;
 
