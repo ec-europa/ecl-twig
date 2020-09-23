@@ -14,7 +14,12 @@ npm install --save @ecl-twig/ec-component-layout
 - **"visible_items"** (integer) (default: 1) Number of items visible in the carousel
 - **"same_height"** (boolean) (default: false) Whether to enforce the same height for the items
 - **"items"** (array) (default: [])
-- **"highlighted_item"** (object) (default: {}) The item to show as an highlight
+- **"highlight"** (object) (default: {}) The item to show as an highlight
+  - "component" (string) (default: '') Name of the component to be included
+  - "item" (object) (default: {}) Input data for the highlighted item
+- **"footer"** (object) (default: {}) The item to show in the bottom
+  - "component" (string) (default: '') Name of the component to be included
+  - "item" (object) (default: {}) Input data for the footer item
 - **"columns_desktop"** (integer) (default: 1) Number of columns for desktops
 - **"columns_mobile"** (integer) (default: 1) Number of columns for desktops
 - **"spacing"** (string) (default: m) ECL spacing token (2xs, xs, s, m, l, xl, 2xl, 3xl, 4xl)
