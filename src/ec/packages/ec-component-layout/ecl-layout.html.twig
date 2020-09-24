@@ -2,19 +2,26 @@
 
 {#
   Parameters:
+    - "title" (string) (default: '') Title of the layout block
     - "component" (string) (default: '') Name of the component to include
     - "variant" (string) (default: '') variant name
     - "arrows" (boolean) (default: false) Whether to show the carousel controls
     - "visible_items" (integer) (default: 1) Number of items visible in the carousel
     - "same_height" (boolean) (default: false) Whether to enforce the same height for the items
+    - "nested" (boolean) (false) Whether the layout is a nested one
     - "items" (array) (default: [])
     - "highlight" (object) (default: {}) The item to show as an highlight format: {
+        "title" (string) (default: '') The title for the highlight block
         "component" (string) (default: '') Name of the component to be included
-        "item" (object) (default: {}) data input for the highlighted item
+        "item" (object) or (array) (default: {}) data input for the highlighted item(s)
+        "sub_component" (default: {component}) When nesting layouts this is the component to be included
+        "extra_data" (default: {}) To pass additional input when nesting layouts
       }
     - "footer" (object) (default: {}) The item to show at the bottom: {
         "component" (string) (default: '') Name of the component to be included
         "item" (object) (default: {}) data input for the footer item
+        "sub_component" (default: {component}) When nesting layouts this is the component to be included
+        "extra_data" (default: {}) To pass additional input when nesting layouts
       }
     - "columns_desktop" (integer) (default: 1) Number of columns for desktops
     - "columns_mobile" (integer) (default: 1) Number of columns for mobile
@@ -34,9 +41,11 @@
 {% set _component = component|default('') %}
 {% set _variant = variant|default('') %}
 {% set _items = items|default([]) %}
+{% set _title = title|default('') %}
 {% set _highlight = highlight|default({}) %}
 {% set _footer = footer|default({}) %}
 {% set _grid = grid|default(12) %}
+{% set _nested = nested|default(false) %}
 {% set _columns_desktop = columns_desktop|default(1) %}
 {% set _columns_mobile = columns_mobile|default(1) %}
 {% set _visible_items = visible_items|default(4) %}
@@ -62,6 +71,10 @@
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
 {% endif %}
 
+{% if not _nested %}
+  {% set _css_class = _css_class ~ ' ecl-container' %}
+{% endif %}
+
 {% if _variant == 'carousel' %}
   {% set _item_extra_classes = _item_extra_classes ~ ' glide__slide' %}
   {% set _css_class = _css_class ~ ' ecl-layout--carousel-' ~ _visible_items ~ ' ecl-layout--carousel glide' %}
@@ -84,11 +97,22 @@
   {% endfor %}
 {% endif %}
 
-<div class="ecl-container {{ _css_class }}"{{ _extra_attributes|raw }}>
+<div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
   {% if _highlight is not empty %}
     {% if _highlight.component is defined and _highlight.item is defined and _highlight.item is not empty %}
+      {% set _item = _highlight.item %}
+      {% if _highlight.component == 'layout' %}
+        {% set _item = { component: _highlight.sub_component, items: _item, nested: true } %}
+          {% if _highlight.extra_data is defined and _highlight.extra_data is not empty %}
+            {% set _item = _item|merge(_highlight.extra_data) %}
+          {% endif %}
+        {% set _container_grid = '' %}
+      {% endif %}
     <div class="ecl-layout__header {{ _container_grid }}">
-     {% include '@ecl-twig/ec-component-' ~ _highlight.component ~ '/ecl-' ~ _highlight.component ~ '.html.twig' with _highlight.item only %}
+    {% if _highlight.title is defined and _highlight.title is not empty %}
+      <h2 class="ecl_layout__header__title ecl-u-type-heading-2 ecl-u-ml-s">{{ _highlight.title }}</h2>
+    {% endif %}
+     {% include '@ecl-twig/ec-component-' ~ _highlight.component ~ '/ecl-' ~ _highlight.component ~ '.html.twig' with _item only %}
     </div>
     {% endif %}
   {% endif %}
@@ -98,6 +122,9 @@
       data-glide-el="track"
     {% endif %}
     >
+    {% if _title is not empty %}
+      <h2 class="ecl_layout__header__title ecl-u-type-heading-2">{{ title }}</h2>
+    {% endif %}
     <ul class="ecl-row {{ _list_extra_classes }}">
       {% if _items is not empty and _items is iterable %}
         {% for _item in _items %}
@@ -117,8 +144,19 @@
   </div>
   {% if _footer is not empty %}
     {% if _footer.component is defined and _footer.item is defined and _footer.item is not empty %}
+      {% set _footer_item = _footer.item %}
+      {% if _footer.component == 'layout' %}
+        {% set _footer_item = { component: _footer.sub_component, items: _footer_item, nested: true } %}
+          {% if _footer.extra_data is defined and _footer.extra_data is not empty %}
+            {% set _footer_item = _footer_item|merge(_footer.extra_data) %}
+          {% endif %}
+        {% set _container_grid = '' %}
+      {% endif %}
     <div class="ecl-layout__footer {{ _container_grid }}">
-     {% include '@ecl-twig/ec-component-' ~ _footer.component ~ '/ecl-' ~ _footer.component ~ '.html.twig' with _footer.item only %}
+    {% if _footer.title is defined and _footer.title is not empty %}
+      <h2 class="ecl_layout__header__title ecl-u-type-heading-2 ecl-u-ml-s">{{ _footer.title }}</h2>
+    {% endif %}
+     {% include '@ecl-twig/ec-component-' ~ _footer.component ~ '/ecl-' ~ _footer.component ~ '.html.twig' with _footer_item only %}
     </div>
     {% endif %}
   {% endif %}
