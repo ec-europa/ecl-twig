@@ -5,6 +5,7 @@ import data3Cols from './demo/data--3-columns';
 import data4Cols from './demo/data--4-columns';
 import dataCarousel from './demo/data--carousel';
 import dataFile from './demo/data--file-list';
+import dataLayout from './demo/data--layout';
 
 describe('EC - Layout', () => {
   const template = '@ecl-twig/ec-component-layout/ecl-layout.html.twig';
@@ -38,6 +39,12 @@ describe('EC - Layout', () => {
     expect.assertions(1);
 
     return expect(render(dataFile)).resolves.toMatchSnapshot();
+  });
+
+  test(' Full Layout renders correctly', () => {
+    expect.assertions(1);
+
+    return expect(render(dataLayout)).resolves.toMatchSnapshot();
   });
 
   test('renders correctly with extra class names', () => {
