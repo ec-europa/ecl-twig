@@ -73,7 +73,8 @@ const data = {
             'Transparently designing and evaluating evidence-based EU legislation, backed by citizens views.',
           title: {
             variant: 'standalone',
-            label: 'Better regulation',
+            label:
+              "The programming of EU's external assistance and development aid and the fragile balance of power bet ween EEAS and DG DEVCO",
             level: 1,
             path: '/example',
             type: 'standalone',
@@ -126,26 +127,12 @@ const data = {
             'Transparently designing and evaluating evidence-based EU legislation, backed by citizens views.',
           title: {
             variant: 'standalone',
-            label: 'Better regulation',
+            label: 'Who gets what',
             level: 1,
             path: '/example',
             type: 'standalone',
           },
           meta: ['Meta1', 'Meta2'],
-          tags: [
-            {
-              label: 'tag 1',
-              path: '/example',
-            },
-            {
-              label: 'tag 2',
-              path: '/example',
-            },
-            {
-              label: 'tag 3',
-              path: '/example',
-            },
-          ],
           image: {
             alt: 'card image',
             src:
@@ -179,19 +166,19 @@ const data = {
     {
       items: [
         {
-          term: 'European Commission',
+          term: 'Cabinets',
           definition:
-            'The executive body of the European Union formed in 1967, which initiates action in the EU and mediates between member governments. Former name (until 1993): Commission of the European Communities',
+            'Cabinets help Commissioners in carrying out their collegial and portfolio roles.',
         },
         {
-          term: 'European Union',
+          term: 'Commissioner',
           definition:
-            'An association of European nations formed in 1993 for the purpose of achieving political and economic integration.',
+            "As part of the Commission's commitment to transparency, Commissioners and their members of Cabinet publish information on meetings held with organisations",
         },
         {
-          term: 'Citizen',
+          term: 'Lobbies',
           definition:
-            'A native or naturalized member of a state or nation who owes allegiance to its government and is entitled to its protection',
+            'The Commission maintains a register of interest groups that aim to influence citizens and other interest groups the possibility to track the activities of lobbyists.',
         },
       ],
       variant: 'horizontal',
@@ -227,7 +214,7 @@ const data = {
     },
     item: [
       {
-        title: 'State of the Union 2018 brochure',
+        title: 'State of the Union 2019 brochure',
         description:
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis lorem tellus. Nullam sollicitudin suscipit diam, ac blandit ipsum tempor consectetur. Duis vitae pulvinar turpis. Donec maximus pharetra ex a ultricies.',
         image: {
@@ -247,7 +234,7 @@ const data = {
           link: {
             label: 'Download',
             path: '/example',
-            aria_label: 'Download file State of the Union 2018 brochure',
+            aria_label: 'Download file State of the Union 2019 brochure',
           },
           icon: {
             path: '/icons.svg',
@@ -287,7 +274,7 @@ const data = {
         variant: 'thumbnail',
       },
       {
-        title: 'State of the Union 2018 brochure',
+        title: 'State of the Union 2017 brochure',
         description:
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis lorem tellus. Nullam sollicitudin suscipit diam, ac blandit ipsum tempor consectetur. Duis vitae pulvinar turpis. Donec maximus pharetra ex a ultricies.',
         image: {
@@ -307,7 +294,7 @@ const data = {
           link: {
             label: 'Download',
             path: '/example',
-            aria_label: 'Download file State of the Union 2018 brochure',
+            aria_label: 'Download file State of the Union 2017 brochure',
           },
           icon: {
             path: '/icons.svg',
