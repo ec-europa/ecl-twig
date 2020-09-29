@@ -384,6 +384,10 @@
      _compliance_: _compliance,
      _compliance_inner_check_: true
   }) only %}
+{% else %}
+  <div class="ecl-site-header-standardised__banner">
+    <div class="ecl-container">{{ _site_name }}</div>
+  </div>
 {% endif %}
 {% if _has_overlay is defined and _language_selector.overlay is defined and _language_selector.overlay.items is defined %}
   {% set _non_eu_items = [] %}

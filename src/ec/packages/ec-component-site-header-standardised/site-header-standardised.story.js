@@ -71,8 +71,31 @@ const frBtnLangHandler = () => {
     frData.language_selector = frenchData.language_selector;
   }
 };
+const btnMenuLabel = 'With or without the menu';
+const enBtnMenuHandler = () => {
+  if (enData.menu) {
+    delete enData.menu;
+  } else {
+    enData.menu = englishData.menu;
+  }
+};
+const enBtnMenuLoggedHandler = () => {
+  if (loggedInData.menu) {
+    delete loggedInData.menu;
+  } else {
+    loggedInData.menu = englishData.menu;
+  }
+};
+const frBtnMenuHandler = () => {
+  if (frData.menu) {
+    delete frData.menu;
+  } else {
+    frData.menu = frenchData.menu;
+  }
+};
 
 const prepareSiteHeaderStandardised = (data, lang) => {
+  data.site_name = text('site_name', data.site_name, tabLabels.required);
   data.logged = boolean('logged', data.logged, tabLabels.states);
   if (!system) {
     data.banner_top.link.label = text(
@@ -158,7 +181,9 @@ const prepareSiteHeaderStandardised = (data, lang) => {
   // Extra classes and extra attributes.
   getExtraKnobs(data);
   // Menu.
-  data.menu = object('data.menu', data.menu, tabLabels.optional);
+  if (data.menu) {
+    data.menu = object('data.menu', data.menu, tabLabels.optional);
+  }
   // Compliance
   getComplianceKnob(data);
 
@@ -173,6 +198,7 @@ export default {
 export const Default = () => {
   button(btnLangLabel, enBtnLangHandler, tabLabels.cases);
   button(btnLoginLabel, enBtnLoginHandler, tabLabels.cases);
+  button(btnMenuLabel, enBtnMenuHandler, tabLabels.cases);
 
   return siteHeaderStandardised(prepareSiteHeaderStandardised(enData, 'en'));
 };
@@ -182,6 +208,7 @@ Default.parameters = { notes: { markdown: notes, json: enData } };
 
 export const LoggedIn = () => {
   button(btnLangLabel, enBtnLangHandler, tabLabels.cases);
+  button(btnMenuLabel, enBtnMenuLoggedHandler, tabLabels.cases);
 
   return siteHeaderStandardised(
     prepareSiteHeaderStandardised(loggedInData, 'en')
@@ -194,6 +221,7 @@ LoggedIn.parameters = { notes: { markdown: notes, json: loggedInData } };
 export const Translated = () => {
   button(btnLangLabel, frBtnLangHandler, tabLabels.cases);
   button(btnLoginLabel, frBtnLoginHandler, tabLabels.cases);
+  button(btnMenuLabel, frBtnMenuHandler, tabLabels.cases);
 
   return siteHeaderStandardised(prepareSiteHeaderStandardised(frData, 'fr'));
 };
