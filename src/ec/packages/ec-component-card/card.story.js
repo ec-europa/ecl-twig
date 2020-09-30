@@ -142,3 +142,11 @@ export const Event = () => card(prepareCard(dataCardEvent));
 
 Event.storyName = 'event';
 Event.parameters = { notes: { markdown: notes, json: dataCardEvent } };
+
+export const Utilities = () => {
+  const data = { ...dataCard, extra_classes: 'ecl-u-bg-yellow' };
+  return card(data);
+};
+
+Event.Utilities = 'Utilities';
+Event.parameters = { notes: { markdown: notes, json: dataCard } };
