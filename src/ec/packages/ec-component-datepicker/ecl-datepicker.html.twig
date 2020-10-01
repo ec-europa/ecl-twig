@@ -2,8 +2,10 @@
 
 {#
   Parameters:
+    - "autoinit" (boolean) (default: false)
     - "id" (string) (default: '')
     - "name" (string) (default: '')
+    - "default_value" (default: '')
     - "required" (boolean) (default: false)
     - "required_text" (string) (default: '')
     - "helper_text" (string) (default: '')
@@ -26,7 +28,9 @@
 
 {# Internal properties #}
 
+{% set _autoinit = autoinit|default(false) %}
 {% set _css_class = 'ecl-datepicker' %}
+{% set _default_value = default_value|default('') %}
 {% set _label_class = 'ecl-form-label' %}
 {% set _helper_class = 'ecl-help-block' %}
 {% set _input_class = 'ecl-datepicker__field ecl-text-input ecl-text-input--s' %}
@@ -102,7 +106,9 @@
   >
     <input
       data-ecl-datepicker-toggle
+    {% if _autoinit %}
       data-ecl-auto-init="Datepicker"
+    {% endif %}
     {% if _id is not empty %}
       id="{{ id }}"
     {% endif %}
@@ -121,6 +127,9 @@
     {% endif %}
     {% if _placeholder is not empty %}
       placeholder="{{ _placeholder|raw }}"
+    {% endif %}
+    {% if _default_value is not empty %}
+      value="{{ _default_value }}"
     {% endif %}
     />
   {% if _icons_path is not empty %}
