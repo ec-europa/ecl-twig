@@ -3,7 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [2.33.1](https://github.com/ec-europa/ecl-twig/compare/v2.33.1...v2.33.0) (2020-09-18)
+## [2.33.2](https://github.com/ec-europa/ecl-twig/compare/v2.33.2...v2.33.1) (2020-10-01)
+
+#### :nail_care: Enhancement
+
+- [#567](https://github.com/ec-europa/ecl-twig/pull/567) fix(datepicker): Opt in/out for autoinit, adding default value - front-1699 ([@planctus](https://github.com/planctus))
+
+#### Committers: 1
+
+- [@planctus](https://github.com/planctus)
+
+## [2.33.1](https://github.com/ec-europa/ecl-twig/compare/v2.33.1...v2.33.0) (2020-09-29)
 
 #### :bug: Bug Fix
 
