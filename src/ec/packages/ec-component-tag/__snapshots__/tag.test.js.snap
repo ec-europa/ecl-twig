@@ -42,7 +42,7 @@ exports[`EC - Tag Display with missing input data and debug enabled returns the 
     <p
       class="ecl-u-type-color-grey ecl-u-ml-m ecl-u-type-xs"
     >
-      [tag--display] -  {{ tag.label }} needs to set and filled inis mandatory.
+      [tag--display] -  {{ tag.label }} property needs to set and filled in.
     </p>
   </div>
 </test>
@@ -98,7 +98,7 @@ exports[`EC - Tag Link with missing input data and debug enabled returns the rig
     <p
       class="ecl-u-type-color-grey ecl-u-ml-m ecl-u-type-xs"
     >
-      [tag--link] -  When the tag is a link the {{ tag.path }} property need to be set and filled in.
+      [tag--link] -  When {{ tag.type }} is "link" the {{ tag.path }} property needs to be set and filled in.
     </p>
   </div>
 </test>
@@ -265,7 +265,7 @@ exports[`EC - Tag Removable with missing input data and debug enabled returns th
     <p
       class="ecl-u-type-color-grey ecl-u-ml-m ecl-u-type-xs"
     >
-      [tag--removable] -  {{ default_icon_path }} needs to be set and filled in. {{ aria_label }} needs to be set and filled in for accessibility reasons.
+      [tag--removable] -  {{ default_icon_path }} property needs to be set and filled in. {{ aria_label }} property needs to be set and filled in for accessibility reasons.
     </p>
   </div>
 </test>
