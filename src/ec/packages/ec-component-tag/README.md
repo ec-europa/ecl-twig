@@ -10,15 +10,15 @@ npm install --save @ecl-twig/ec-component-tag
 
 - **"tag"** (associative array) (default: 'predefined structure below')
   - "path" (string) (default: '') - path/url for tag (if needed - only for type 'link')
-  - "type" (string) (default: '') - type of tag (can be 'link', 'removable', 'display', 'button')
+  - "type" (string) (default: '') - type of tag (can be 'link', 'removable', 'display', 'button' (deprecated))
   - "label" (string) (default: '') - tag label
 - **"default_icon_path"** (string ) (default: '') - path for the icon image (need to render Icon component if tag type is 'removable')
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
-- **"_compliance_"** (optional) (boolean) (default: false) Activates debug
-- **"_compliance_inner_check_"** (optional) (boolean) (default: false) Inline compliance report
+- **"\_compliance\_"** (optional) (boolean) (default: false) Activates debug
+- **"\_compliance_inner_check\_"** (optional) (boolean) (default: false) Inline compliance report
 
 ### Example:
 
