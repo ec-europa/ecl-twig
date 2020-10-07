@@ -9,8 +9,9 @@ import {
 
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import dataLink from './demo/data--link';
-import dataButton from './demo/data--button';
 import dataRemovable from './demo/data--removable';
+import dataDisplay from './demo/data--display';
+
 import tag from './ecl-tag.html.twig';
 import notes from './README.md';
 
@@ -54,17 +55,17 @@ export default {
   decorators: [withKnobs, withNotes, withCode],
 };
 
+export const Display = () => tag(prepareTag(dataDisplay, false, true));
+
+Display.storyName = 'display tag';
+Display.parameters = { notes: { markdown: notes, json: dataDisplay } };
+
 export const Link = () => tag(prepareTag(dataLink, true));
 
-Link.storyName = 'as a link';
+Link.storyName = 'link tag';
 Link.parameters = { notes: { markdown: notes, json: dataLink } };
-
-export const Button = () => tag(prepareTag(dataButton));
-
-Button.storyName = 'as a button';
-Button.parameters = { notes: { markdown: notes, json: dataButton } };
 
 export const Removable = () => tag(prepareTag(dataRemovable, false, true));
 
-Removable.storyName = 'removable';
+Removable.storyName = 'removable tag';
 Removable.parameters = { notes: { markdown: notes, json: dataRemovable } };
