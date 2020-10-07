@@ -30,6 +30,39 @@ exports[`EC - Button CTA button - icon after renders correctly 1`] = `
 </test>
 `;
 
+exports[`EC - Button CTA button - icon after renders correctly when disabled 1`] = `
+<test>
+  <button
+    class="ecl-button ecl-button--call"
+    data-test="data-test-value"
+    data-test-1="data-test-value-1"
+    disabled=""
+    type="submit"
+  >
+    <span
+      class="ecl-button__container"
+    >
+      <span
+        class="ecl-button__label"
+        data-ecl-label="true"
+      >
+        CTA Button with icon
+      </span>
+      <svg
+        aria-hidden="true"
+        class="ecl-icon ecl-icon--fluid ecl-button__icon ecl-button__icon--after"
+        data-ecl-icon=""
+        focusable="false"
+      >
+        <use
+          xlink:href="static/icons.svg#ui--corner-arrow"
+        />
+      </svg>
+    </span>
+  </button>
+</test>
+`;
+
 exports[`EC - Button CTA button - icon after renders correctly with extra attributes 1`] = `
 <test>
   <button
