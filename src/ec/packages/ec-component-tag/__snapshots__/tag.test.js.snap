@@ -51,7 +51,7 @@ exports[`EC - Tag Display with missing input data and debug enabled returns the 
 exports[`EC - Tag Link renders correctly 1`] = `
 <test>
   <a
-    class="ecl-tag ecl-tag--link"
+    class="ecl-tag"
     href="/example"
   >
     Link tag
@@ -62,7 +62,7 @@ exports[`EC - Tag Link renders correctly 1`] = `
 exports[`EC - Tag Link renders correctly with extra attributes 1`] = `
 <test>
   <a
-    class="ecl-tag ecl-tag--link"
+    class="ecl-tag"
     data-test="data-test-value"
     data-test-1="data-test-value-1"
     href="/example"
@@ -75,7 +75,7 @@ exports[`EC - Tag Link renders correctly with extra attributes 1`] = `
 exports[`EC - Tag Link renders correctly with extra class names 1`] = `
 <test>
   <a
-    class="ecl-tag ecl-tag--link custom-class custom-class--test"
+    class="ecl-tag custom-class custom-class--test"
     href="/example"
   >
     Link tag
@@ -86,7 +86,7 @@ exports[`EC - Tag Link renders correctly with extra class names 1`] = `
 exports[`EC - Tag Link with missing input data and debug enabled returns the right warning message 1`] = `
 <test>
   <a
-    class="ecl-tag ecl-tag--link"
+    class="ecl-tag"
     href=""
   >
     Link tag

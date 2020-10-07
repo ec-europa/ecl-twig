@@ -33,11 +33,14 @@
   {% set _tag = _tag|merge(tag) %}
 {% endif %}
 
-{% set _css_class = 'ecl-tag ecl-tag--' ~ _tag.type %}
+{% set _css_class = 'ecl-tag' %}
+{% if _tag.type == 'removable' or _tag.type == 'display' %}
+  {% set _css_class = _css_class ~ ' ecl-tag--' ~ _tag.type %}
+{% endif %}
 {% set _extra_attributes = '' %}
 {% set _compliance = _compliance_|default(false) %}
 {% set _compliance_inner_check = _compliance_inner_check_|default(false) %}
-{% set _default_icon_path = default_icon_path|default(false) %}
+{% set _default_icon_path = default_icon_path|default('') %}
 
 {# Add extra class for removable tag #}
 {% if _tag.type == 'removable' %}
@@ -99,8 +102,8 @@
 {% if _compliance %}
   {% include '@ecl-twig/ec-component-ecl-compliance/components/ecl-compliance-tag.html.twig' with {
     tag: _tag,
-    default_icon_path: default_icon_path,
-    icon_path: _icon_path,
+    default_icon_path: _default_icon_path,
+    icon_path: _default_icon_path,
     _compliance_inner_check_: _compliance_inner_check
   } only %}
 {% endif %}
