@@ -100,10 +100,11 @@
 {# Validation #}
 
 {% if _compliance %}
+  {% set _icon_path = icon_path|default('') %}
   {% include '@ecl-twig/ec-component-ecl-compliance/components/ecl-compliance-tag.html.twig' with {
     tag: _tag,
     default_icon_path: _default_icon_path,
-    icon_path: _default_icon_path,
+    icon_path: _icon_path,
     _compliance_inner_check_: _compliance_inner_check
   } only %}
 {% endif %}
