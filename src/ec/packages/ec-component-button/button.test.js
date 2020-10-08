@@ -110,6 +110,20 @@ describe('EC - Button', () => {
 
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
     });
+
+    test('renders correctly when disabled', () => {
+      expect.assertions(1);
+
+      const whenDisabled = merge(buttonData, {
+        extra_attributes: [
+          { name: 'data-test', value: 'data-test-value' },
+          { name: 'data-test-1', value: 'data-test-value-1' },
+        ],
+        disabled: true,
+      });
+
+      return expect(render(whenDisabled)).resolves.toMatchSnapshot();
+    });
   });
 
   describe('with validation enabled and missing input data', () => {

@@ -46,6 +46,11 @@ const prepareFile = (data, variant) => {
     data.download.link.label,
     tabLabels.required
   );
+  data.download.link.aria_label = text(
+    'download.link.aria_label',
+    data.download.link.aria_label,
+    tabLabels.required
+  );
   data.download.icon.path = optionsKnob(
     'download.icon.path',
     { current: defaultSprite, 'no path': '' },
@@ -89,6 +94,13 @@ const prepareFile = (data, variant) => {
         data.translation.items[i].lang,
         tabLabels.required
       );
+      if (data.translation.items[i].description) {
+        data.translation.items[i].description = text(
+          `data.translation.items[${i}].description`,
+          data.translation.items[i].description,
+          tabLabels.required
+        );
+      }
       data.translation.items[i].download.link.label = text(
         `data.translation.items[${i}].download.link.label`,
         data.translation.items[i].download.link.label,

@@ -1,7 +1,7 @@
 import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 import dataLink from './demo/data--link';
-import dataButton from './demo/data--button';
 import dataRemovable from './demo/data--removable';
+import dataDisplay from './demo/data--display';
 
 describe('EC - Tag', () => {
   const template = '@ecl-twig/ec-component-tag/ecl-tag.html.twig';
@@ -46,16 +46,16 @@ describe('EC - Tag', () => {
     });
   });
 
-  describe('Button', () => {
+  describe('Display', () => {
     test('renders correctly', () => {
       expect.assertions(1);
-      return expect(render(dataButton)).resolves.toMatchSnapshot();
+      return expect(render(dataDisplay)).resolves.toMatchSnapshot();
     });
 
     test('renders correctly with extra class names', () => {
       expect.assertions(1);
 
-      const optionsWithExtraClasses = merge(dataButton, {
+      const optionsWithExtraClasses = merge(dataDisplay, {
         extra_classes: 'custom-class custom-class--test',
       });
 
@@ -65,7 +65,7 @@ describe('EC - Tag', () => {
     test('renders correctly with extra attributes', () => {
       expect.assertions(1);
 
-      const optionsWithExtraClasses = merge(dataButton, {
+      const optionsWithExtraClasses = merge(dataDisplay, {
         extra_attributes: [
           { name: 'data-test', value: 'data-test-value' },
           { name: 'data-test-1', value: 'data-test-value-1' },
@@ -78,7 +78,7 @@ describe('EC - Tag', () => {
     test('with missing input data and debug enabled returns the right warning message', () => {
       expect.assertions(1);
 
-      const dataCompliance = { ...dataButton, _compliance_: true };
+      const dataCompliance = { ...dataDisplay, _compliance_: true };
       dataCompliance.tag.label = '';
 
       return expect(render(dataCompliance)).resolves.toMatchSnapshot();

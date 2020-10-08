@@ -9,7 +9,7 @@ npm install --save @ecl-twig/ec-component-accordion2
 ### Parameters
 
 - **"items"** (array) (default: []): format:
-  - "id" (string) (default: '') Used for binding of toggable elements
+  - "id" (string) (default: '') Used for binding of togglable elements
   - "level" (string) (default: 3)
   - "toggle" (predefined structure): see Button component
     - "label" (string) (default: '')
@@ -20,7 +20,7 @@ npm install --save @ecl-twig/ec-component-accordion2
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
-- **_compliance_** (boolean) (default: false) Activates debug
+- **"`_compliance_`"** (boolean) (default: false) Activates debug
 
 ### Example :
 

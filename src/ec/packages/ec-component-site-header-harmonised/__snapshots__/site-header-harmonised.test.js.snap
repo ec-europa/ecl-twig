@@ -32,8 +32,11 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly 1`] = `
             class="ecl-site-header-harmonised__login-container"
           >
             <a
+              aria-controls="login-box-id"
+              aria-expanded="false"
               class="ecl-link ecl-link--standalone ecl-site-header-harmonised__login-toggle"
-              href=""
+              data-ecl-login-toggle=""
+              href="/example"
             >
               <svg
                 aria-hidden="true"
@@ -41,15 +44,44 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly 1`] = `
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#general--log-in"
+                  xlink:href="/icons.svg#general--logged-in"
                 />
               </svg>
-              Log in
+              Logged in
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--xs ecl-site-header-harmonised__login-arrow"
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#ui--corner-arrow"
+                />
+              </svg>
             </a>
+            <div
+              class="ecl-site-header-harmonised__login-box"
+              data-ecl-login-box=""
+              id="login-box-id"
+            >
+              <p
+                class="ecl-site-header-harmonised__login-description"
+              >
+                Logged in as &lt;last name&gt;, &lt;first name&gt;
+              </p>
+              <hr
+                class="ecl-site-header-harmonised__login-separator"
+              />
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
+              >
+                Log out
+              </a>
+            </div>
           </div>
           <a
             aria-controls="language-list-overlay"
-            aria-expanded="false"
+            aria-label="English"
             class="ecl-link ecl-link--standalone ecl-site-header-harmonised__language-selector"
             data-ecl-language-selector=""
             href="/example"
@@ -277,7 +309,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly 1`] = `
               </a>
             </li>
             <li
-              class="ecl-menu__item ecl-menu__item--current"
+              class="ecl-menu__item ecl-menu__item--current ecl-menu__item--has-children"
               data-ecl-has-children=""
               data-ecl-menu-item=""
             >
@@ -484,7 +516,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly 1`] = `
               </div>
             </li>
             <li
-              class="ecl-menu__item"
+              class="ecl-menu__item ecl-menu__item--has-children"
               data-ecl-has-children=""
               data-ecl-menu-item=""
             >
@@ -548,7 +580,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly 1`] = `
               </div>
             </li>
             <li
-              class="ecl-menu__item"
+              class="ecl-menu__item ecl-menu__item--has-children"
               data-ecl-has-children=""
               data-ecl-menu-item=""
             >
@@ -733,7 +765,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly 1`] = `
               </div>
             </li>
             <li
-              class="ecl-menu__item"
+              class="ecl-menu__item ecl-menu__item--has-children"
               data-ecl-has-children=""
               data-ecl-menu-item=""
             >
@@ -841,7 +873,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly 1`] = `
               </div>
             </li>
             <li
-              class="ecl-menu__item"
+              class="ecl-menu__item ecl-menu__item--has-children"
               data-ecl-has-children=""
               data-ecl-menu-item=""
             >
@@ -1048,7 +1080,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly 1`] = `
               </div>
             </li>
             <li
-              class="ecl-menu__item"
+              class="ecl-menu__item ecl-menu__item--has-children"
               data-ecl-has-children=""
               data-ecl-menu-item=""
             >
@@ -1262,7 +1294,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly 1`] = `
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_bg"
+                  href="/example"
                   hreflang="bg"
                   lang="bg"
                   rel="alternate"
@@ -1275,7 +1307,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly 1`] = `
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_es"
+                  href="/example"
                   hreflang="es"
                   lang="es"
                   rel="alternate"
@@ -1288,7 +1320,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly 1`] = `
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_cs"
+                  href="/example"
                   hreflang="cs"
                   lang="cs"
                   rel="alternate"
@@ -1301,7 +1333,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly 1`] = `
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_da"
+                  href="/example"
                   hreflang="da"
                   lang="da"
                   rel="alternate"
@@ -1314,7 +1346,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly 1`] = `
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_de"
+                  href="/example"
                   hreflang="de"
                   lang="de"
                   rel="alternate"
@@ -1327,7 +1359,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly 1`] = `
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_et"
+                  href="/example"
                   hreflang="et"
                   lang="et"
                   rel="alternate"
@@ -1340,7 +1372,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly 1`] = `
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_el"
+                  href="/example"
                   hreflang="el"
                   lang="el"
                   rel="alternate"
@@ -1353,7 +1385,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly 1`] = `
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-language-list__link"
-                  href="/example#language_en"
+                  href="/example"
                   hreflang="en"
                   lang="en"
                   rel="alternate"
@@ -1380,7 +1412,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly 1`] = `
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_fr"
+                  href="/example"
                   hreflang="fr"
                   lang="fr"
                   rel="alternate"
@@ -1393,7 +1425,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly 1`] = `
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_ga"
+                  href="/example"
                   hreflang="ga"
                   lang="ga"
                   rel="alternate"
@@ -1406,7 +1438,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly 1`] = `
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_hr"
+                  href="/example"
                   hreflang="hr"
                   lang="hr"
                   rel="alternate"
@@ -1419,7 +1451,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly 1`] = `
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_it"
+                  href="/example"
                   hreflang="it"
                   lang="it"
                   rel="alternate"
@@ -1440,7 +1472,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly 1`] = `
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_lv"
+                  href="/example"
                   hreflang="lv"
                   lang="lv"
                   rel="alternate"
@@ -1453,7 +1485,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly 1`] = `
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_lt"
+                  href="/example"
                   hreflang="lt"
                   lang="lt"
                   rel="alternate"
@@ -1466,7 +1498,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly 1`] = `
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_hu"
+                  href="/example"
                   hreflang="hu"
                   lang="hu"
                   rel="alternate"
@@ -1479,7 +1511,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly 1`] = `
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_mt"
+                  href="/example"
                   hreflang="mt"
                   lang="mt"
                   rel="alternate"
@@ -1492,7 +1524,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly 1`] = `
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_nl"
+                  href="/example"
                   hreflang="nl"
                   lang="nl"
                   rel="alternate"
@@ -1505,7 +1537,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly 1`] = `
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_pl"
+                  href="/example"
                   hreflang="pl"
                   lang="pl"
                   rel="alternate"
@@ -1518,7 +1550,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly 1`] = `
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_pt"
+                  href="/example"
                   hreflang="pt"
                   lang="pt"
                   rel="alternate"
@@ -1531,7 +1563,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly 1`] = `
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_ro"
+                  href="/example"
                   hreflang="ro"
                   lang="ro"
                   rel="alternate"
@@ -1544,7 +1576,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly 1`] = `
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_sk"
+                  href="/example"
                   hreflang="sk"
                   lang="sk"
                   rel="alternate"
@@ -1557,7 +1589,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly 1`] = `
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_sl"
+                  href="/example"
                   hreflang="sl"
                   lang="sl"
                   rel="alternate"
@@ -1570,7 +1602,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly 1`] = `
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_fi"
+                  href="/example"
                   hreflang="fi"
                   lang="fi"
                   rel="alternate"
@@ -1583,12 +1615,102 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly 1`] = `
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_sv"
+                  href="/example"
                   hreflang="sv"
                   lang="sv"
                   rel="alternate"
                 >
                   svenska
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div
+          class="ecl-row ecl-language-list__non-eu"
+        >
+          <div
+            class="ecl-language-list__category ecl-col-12 ecl-col-lg-8 ecl-offset-lg-2"
+          >
+            Non-EU languages
+          </div>
+          <div
+            class="ecl-language-list__column ecl-col-12 ecl-col-lg-4 ecl-offset-lg-2"
+          >
+            <ul
+              class="ecl-language-list__list"
+            >
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="zh"
+                  lang="zh"
+                  rel="alternate"
+                >
+                  中文
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="tr"
+                  lang="tr"
+                  rel="alternate"
+                >
+                  Türk
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="ru"
+                  lang="ru"
+                  rel="alternate"
+                >
+                  pусский
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div
+            class="ecl-language-list__column ecl-col-12 ecl-col-lg-4"
+          >
+            <ul
+              class="ecl-language-list__list"
+            >
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="ca"
+                  lang="ca"
+                  rel="alternate"
+                >
+                  Català
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="ar"
+                  lang="ar"
+                  rel="alternate"
+                >
+                  عَرَبِيّ
                 </a>
               </li>
             </ul>
@@ -1640,7 +1762,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly when logged in 1`
             >
               <svg
                 aria-hidden="true"
-                class="ecl-icon ecl-icon--m ecl-site-header-harmonised__icon"
+                class="ecl-icon ecl-icon--s ecl-site-header-harmonised__icon"
                 focusable="false"
               >
                 <use
@@ -1681,7 +1803,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly when logged in 1`
           </div>
           <a
             aria-controls="language-list-overlay"
-            aria-expanded="false"
+            aria-label="English"
             class="ecl-link ecl-link--standalone ecl-site-header-harmonised__language-selector"
             data-ecl-language-selector=""
             href="/example"
@@ -1909,7 +2031,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly when logged in 1`
               </a>
             </li>
             <li
-              class="ecl-menu__item ecl-menu__item--current"
+              class="ecl-menu__item ecl-menu__item--current ecl-menu__item--has-children"
               data-ecl-has-children=""
               data-ecl-menu-item=""
             >
@@ -2116,7 +2238,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly when logged in 1`
               </div>
             </li>
             <li
-              class="ecl-menu__item"
+              class="ecl-menu__item ecl-menu__item--has-children"
               data-ecl-has-children=""
               data-ecl-menu-item=""
             >
@@ -2180,7 +2302,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly when logged in 1`
               </div>
             </li>
             <li
-              class="ecl-menu__item"
+              class="ecl-menu__item ecl-menu__item--has-children"
               data-ecl-has-children=""
               data-ecl-menu-item=""
             >
@@ -2365,7 +2487,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly when logged in 1`
               </div>
             </li>
             <li
-              class="ecl-menu__item"
+              class="ecl-menu__item ecl-menu__item--has-children"
               data-ecl-has-children=""
               data-ecl-menu-item=""
             >
@@ -2473,7 +2595,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly when logged in 1`
               </div>
             </li>
             <li
-              class="ecl-menu__item"
+              class="ecl-menu__item ecl-menu__item--has-children"
               data-ecl-has-children=""
               data-ecl-menu-item=""
             >
@@ -2680,7 +2802,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly when logged in 1`
               </div>
             </li>
             <li
-              class="ecl-menu__item"
+              class="ecl-menu__item ecl-menu__item--has-children"
               data-ecl-has-children=""
               data-ecl-menu-item=""
             >
@@ -2894,7 +3016,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly when logged in 1`
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_bg"
+                  href="/example"
                   hreflang="bg"
                   lang="bg"
                   rel="alternate"
@@ -2907,7 +3029,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly when logged in 1`
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_es"
+                  href="/example"
                   hreflang="es"
                   lang="es"
                   rel="alternate"
@@ -2920,7 +3042,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly when logged in 1`
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_cs"
+                  href="/example"
                   hreflang="cs"
                   lang="cs"
                   rel="alternate"
@@ -2933,7 +3055,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly when logged in 1`
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_da"
+                  href="/example"
                   hreflang="da"
                   lang="da"
                   rel="alternate"
@@ -2946,7 +3068,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly when logged in 1`
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_de"
+                  href="/example"
                   hreflang="de"
                   lang="de"
                   rel="alternate"
@@ -2959,7 +3081,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly when logged in 1`
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_et"
+                  href="/example"
                   hreflang="et"
                   lang="et"
                   rel="alternate"
@@ -2972,7 +3094,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly when logged in 1`
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_el"
+                  href="/example"
                   hreflang="el"
                   lang="el"
                   rel="alternate"
@@ -2985,7 +3107,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly when logged in 1`
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-language-list__link"
-                  href="/example#language_en"
+                  href="/example"
                   hreflang="en"
                   lang="en"
                   rel="alternate"
@@ -3012,7 +3134,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly when logged in 1`
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_fr"
+                  href="/example"
                   hreflang="fr"
                   lang="fr"
                   rel="alternate"
@@ -3025,7 +3147,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly when logged in 1`
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_ga"
+                  href="/example"
                   hreflang="ga"
                   lang="ga"
                   rel="alternate"
@@ -3038,7 +3160,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly when logged in 1`
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_hr"
+                  href="/example"
                   hreflang="hr"
                   lang="hr"
                   rel="alternate"
@@ -3051,7 +3173,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly when logged in 1`
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_it"
+                  href="/example"
                   hreflang="it"
                   lang="it"
                   rel="alternate"
@@ -3072,7 +3194,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly when logged in 1`
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_lv"
+                  href="/example"
                   hreflang="lv"
                   lang="lv"
                   rel="alternate"
@@ -3085,7 +3207,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly when logged in 1`
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_lt"
+                  href="/example"
                   hreflang="lt"
                   lang="lt"
                   rel="alternate"
@@ -3098,7 +3220,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly when logged in 1`
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_hu"
+                  href="/example"
                   hreflang="hu"
                   lang="hu"
                   rel="alternate"
@@ -3111,7 +3233,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly when logged in 1`
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_mt"
+                  href="/example"
                   hreflang="mt"
                   lang="mt"
                   rel="alternate"
@@ -3124,7 +3246,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly when logged in 1`
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_nl"
+                  href="/example"
                   hreflang="nl"
                   lang="nl"
                   rel="alternate"
@@ -3137,7 +3259,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly when logged in 1`
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_pl"
+                  href="/example"
                   hreflang="pl"
                   lang="pl"
                   rel="alternate"
@@ -3150,7 +3272,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly when logged in 1`
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_pt"
+                  href="/example"
                   hreflang="pt"
                   lang="pt"
                   rel="alternate"
@@ -3163,7 +3285,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly when logged in 1`
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_ro"
+                  href="/example"
                   hreflang="ro"
                   lang="ro"
                   rel="alternate"
@@ -3176,7 +3298,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly when logged in 1`
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_sk"
+                  href="/example"
                   hreflang="sk"
                   lang="sk"
                   rel="alternate"
@@ -3189,7 +3311,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly when logged in 1`
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_sl"
+                  href="/example"
                   hreflang="sl"
                   lang="sl"
                   rel="alternate"
@@ -3202,7 +3324,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly when logged in 1`
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_fi"
+                  href="/example"
                   hreflang="fi"
                   lang="fi"
                   rel="alternate"
@@ -3215,12 +3337,102 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly when logged in 1`
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_sv"
+                  href="/example"
                   hreflang="sv"
                   lang="sv"
                   rel="alternate"
                 >
                   svenska
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div
+          class="ecl-row ecl-language-list__non-eu"
+        >
+          <div
+            class="ecl-language-list__category ecl-col-12 ecl-col-lg-8 ecl-offset-lg-2"
+          >
+            Non-EU languages
+          </div>
+          <div
+            class="ecl-language-list__column ecl-col-12 ecl-col-lg-4 ecl-offset-lg-2"
+          >
+            <ul
+              class="ecl-language-list__list"
+            >
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="zh"
+                  lang="zh"
+                  rel="alternate"
+                >
+                  中文
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="tr"
+                  lang="tr"
+                  rel="alternate"
+                >
+                  Türk
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="ru"
+                  lang="ru"
+                  rel="alternate"
+                >
+                  pусский
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div
+            class="ecl-language-list__column ecl-col-12 ecl-col-lg-4"
+          >
+            <ul
+              class="ecl-language-list__list"
+            >
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="ca"
+                  lang="ca"
+                  rel="alternate"
+                >
+                  Català
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="ar"
+                  lang="ar"
+                  rel="alternate"
+                >
+                  عَرَبِيّ
                 </a>
               </li>
             </ul>
@@ -3266,8 +3478,11 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly with extra attrib
             class="ecl-site-header-harmonised__login-container"
           >
             <a
+              aria-controls="login-box-id"
+              aria-expanded="false"
               class="ecl-link ecl-link--standalone ecl-site-header-harmonised__login-toggle"
-              href=""
+              data-ecl-login-toggle=""
+              href="/example"
             >
               <svg
                 aria-hidden="true"
@@ -3275,15 +3490,44 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly with extra attrib
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#general--log-in"
+                  xlink:href="/icons.svg#general--logged-in"
                 />
               </svg>
-              Log in
+              Logged in
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--xs ecl-site-header-harmonised__login-arrow"
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#ui--corner-arrow"
+                />
+              </svg>
             </a>
+            <div
+              class="ecl-site-header-harmonised__login-box"
+              data-ecl-login-box=""
+              id="login-box-id"
+            >
+              <p
+                class="ecl-site-header-harmonised__login-description"
+              >
+                Logged in as &lt;last name&gt;, &lt;first name&gt;
+              </p>
+              <hr
+                class="ecl-site-header-harmonised__login-separator"
+              />
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
+              >
+                Log out
+              </a>
+            </div>
           </div>
           <a
             aria-controls="language-list-overlay"
-            aria-expanded="false"
+            aria-label="English"
             class="ecl-link ecl-link--standalone ecl-site-header-harmonised__language-selector"
             data-ecl-language-selector=""
             href="/example"
@@ -3511,7 +3755,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly with extra attrib
               </a>
             </li>
             <li
-              class="ecl-menu__item ecl-menu__item--current"
+              class="ecl-menu__item ecl-menu__item--current ecl-menu__item--has-children"
               data-ecl-has-children=""
               data-ecl-menu-item=""
             >
@@ -3718,7 +3962,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly with extra attrib
               </div>
             </li>
             <li
-              class="ecl-menu__item"
+              class="ecl-menu__item ecl-menu__item--has-children"
               data-ecl-has-children=""
               data-ecl-menu-item=""
             >
@@ -3782,7 +4026,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly with extra attrib
               </div>
             </li>
             <li
-              class="ecl-menu__item"
+              class="ecl-menu__item ecl-menu__item--has-children"
               data-ecl-has-children=""
               data-ecl-menu-item=""
             >
@@ -3967,7 +4211,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly with extra attrib
               </div>
             </li>
             <li
-              class="ecl-menu__item"
+              class="ecl-menu__item ecl-menu__item--has-children"
               data-ecl-has-children=""
               data-ecl-menu-item=""
             >
@@ -4075,7 +4319,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly with extra attrib
               </div>
             </li>
             <li
-              class="ecl-menu__item"
+              class="ecl-menu__item ecl-menu__item--has-children"
               data-ecl-has-children=""
               data-ecl-menu-item=""
             >
@@ -4282,7 +4526,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly with extra attrib
               </div>
             </li>
             <li
-              class="ecl-menu__item"
+              class="ecl-menu__item ecl-menu__item--has-children"
               data-ecl-has-children=""
               data-ecl-menu-item=""
             >
@@ -4496,7 +4740,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly with extra attrib
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_bg"
+                  href="/example"
                   hreflang="bg"
                   lang="bg"
                   rel="alternate"
@@ -4509,7 +4753,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly with extra attrib
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_es"
+                  href="/example"
                   hreflang="es"
                   lang="es"
                   rel="alternate"
@@ -4522,7 +4766,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly with extra attrib
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_cs"
+                  href="/example"
                   hreflang="cs"
                   lang="cs"
                   rel="alternate"
@@ -4535,7 +4779,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly with extra attrib
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_da"
+                  href="/example"
                   hreflang="da"
                   lang="da"
                   rel="alternate"
@@ -4548,7 +4792,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly with extra attrib
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_de"
+                  href="/example"
                   hreflang="de"
                   lang="de"
                   rel="alternate"
@@ -4561,7 +4805,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly with extra attrib
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_et"
+                  href="/example"
                   hreflang="et"
                   lang="et"
                   rel="alternate"
@@ -4574,7 +4818,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly with extra attrib
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_el"
+                  href="/example"
                   hreflang="el"
                   lang="el"
                   rel="alternate"
@@ -4587,7 +4831,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly with extra attrib
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-language-list__link"
-                  href="/example#language_en"
+                  href="/example"
                   hreflang="en"
                   lang="en"
                   rel="alternate"
@@ -4614,7 +4858,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly with extra attrib
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_fr"
+                  href="/example"
                   hreflang="fr"
                   lang="fr"
                   rel="alternate"
@@ -4627,7 +4871,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly with extra attrib
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_ga"
+                  href="/example"
                   hreflang="ga"
                   lang="ga"
                   rel="alternate"
@@ -4640,7 +4884,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly with extra attrib
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_hr"
+                  href="/example"
                   hreflang="hr"
                   lang="hr"
                   rel="alternate"
@@ -4653,7 +4897,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly with extra attrib
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_it"
+                  href="/example"
                   hreflang="it"
                   lang="it"
                   rel="alternate"
@@ -4674,7 +4918,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly with extra attrib
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_lv"
+                  href="/example"
                   hreflang="lv"
                   lang="lv"
                   rel="alternate"
@@ -4687,7 +4931,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly with extra attrib
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_lt"
+                  href="/example"
                   hreflang="lt"
                   lang="lt"
                   rel="alternate"
@@ -4700,7 +4944,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly with extra attrib
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_hu"
+                  href="/example"
                   hreflang="hu"
                   lang="hu"
                   rel="alternate"
@@ -4713,7 +4957,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly with extra attrib
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_mt"
+                  href="/example"
                   hreflang="mt"
                   lang="mt"
                   rel="alternate"
@@ -4726,7 +4970,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly with extra attrib
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_nl"
+                  href="/example"
                   hreflang="nl"
                   lang="nl"
                   rel="alternate"
@@ -4739,7 +4983,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly with extra attrib
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_pl"
+                  href="/example"
                   hreflang="pl"
                   lang="pl"
                   rel="alternate"
@@ -4752,7 +4996,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly with extra attrib
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_pt"
+                  href="/example"
                   hreflang="pt"
                   lang="pt"
                   rel="alternate"
@@ -4765,7 +5009,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly with extra attrib
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_ro"
+                  href="/example"
                   hreflang="ro"
                   lang="ro"
                   rel="alternate"
@@ -4778,7 +5022,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly with extra attrib
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_sk"
+                  href="/example"
                   hreflang="sk"
                   lang="sk"
                   rel="alternate"
@@ -4791,7 +5035,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly with extra attrib
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_sl"
+                  href="/example"
                   hreflang="sl"
                   lang="sl"
                   rel="alternate"
@@ -4804,7 +5048,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly with extra attrib
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_fi"
+                  href="/example"
                   hreflang="fi"
                   lang="fi"
                   rel="alternate"
@@ -4817,12 +5061,102 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly with extra attrib
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_sv"
+                  href="/example"
                   hreflang="sv"
                   lang="sv"
                   rel="alternate"
                 >
                   svenska
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div
+          class="ecl-row ecl-language-list__non-eu"
+        >
+          <div
+            class="ecl-language-list__category ecl-col-12 ecl-col-lg-8 ecl-offset-lg-2"
+          >
+            Non-EU languages
+          </div>
+          <div
+            class="ecl-language-list__column ecl-col-12 ecl-col-lg-4 ecl-offset-lg-2"
+          >
+            <ul
+              class="ecl-language-list__list"
+            >
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="zh"
+                  lang="zh"
+                  rel="alternate"
+                >
+                  中文
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="tr"
+                  lang="tr"
+                  rel="alternate"
+                >
+                  Türk
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="ru"
+                  lang="ru"
+                  rel="alternate"
+                >
+                  pусский
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div
+            class="ecl-language-list__column ecl-col-12 ecl-col-lg-4"
+          >
+            <ul
+              class="ecl-language-list__list"
+            >
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="ca"
+                  lang="ca"
+                  rel="alternate"
+                >
+                  Català
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="ar"
+                  lang="ar"
+                  rel="alternate"
+                >
+                  عَرَبِيّ
                 </a>
               </li>
             </ul>
@@ -4866,8 +5200,11 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly with extra class 
             class="ecl-site-header-harmonised__login-container"
           >
             <a
+              aria-controls="login-box-id"
+              aria-expanded="false"
               class="ecl-link ecl-link--standalone ecl-site-header-harmonised__login-toggle"
-              href=""
+              data-ecl-login-toggle=""
+              href="/example"
             >
               <svg
                 aria-hidden="true"
@@ -4875,15 +5212,44 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly with extra class 
                 focusable="false"
               >
                 <use
-                  xlink:href="/icons.svg#general--log-in"
+                  xlink:href="/icons.svg#general--logged-in"
                 />
               </svg>
-              Log in
+              Logged in
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--xs ecl-site-header-harmonised__login-arrow"
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#ui--corner-arrow"
+                />
+              </svg>
             </a>
+            <div
+              class="ecl-site-header-harmonised__login-box"
+              data-ecl-login-box=""
+              id="login-box-id"
+            >
+              <p
+                class="ecl-site-header-harmonised__login-description"
+              >
+                Logged in as &lt;last name&gt;, &lt;first name&gt;
+              </p>
+              <hr
+                class="ecl-site-header-harmonised__login-separator"
+              />
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
+              >
+                Log out
+              </a>
+            </div>
           </div>
           <a
             aria-controls="language-list-overlay"
-            aria-expanded="false"
+            aria-label="English"
             class="ecl-link ecl-link--standalone ecl-site-header-harmonised__language-selector"
             data-ecl-language-selector=""
             href="/example"
@@ -5111,7 +5477,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly with extra class 
               </a>
             </li>
             <li
-              class="ecl-menu__item ecl-menu__item--current"
+              class="ecl-menu__item ecl-menu__item--current ecl-menu__item--has-children"
               data-ecl-has-children=""
               data-ecl-menu-item=""
             >
@@ -5318,7 +5684,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly with extra class 
               </div>
             </li>
             <li
-              class="ecl-menu__item"
+              class="ecl-menu__item ecl-menu__item--has-children"
               data-ecl-has-children=""
               data-ecl-menu-item=""
             >
@@ -5382,7 +5748,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly with extra class 
               </div>
             </li>
             <li
-              class="ecl-menu__item"
+              class="ecl-menu__item ecl-menu__item--has-children"
               data-ecl-has-children=""
               data-ecl-menu-item=""
             >
@@ -5567,7 +5933,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly with extra class 
               </div>
             </li>
             <li
-              class="ecl-menu__item"
+              class="ecl-menu__item ecl-menu__item--has-children"
               data-ecl-has-children=""
               data-ecl-menu-item=""
             >
@@ -5675,7 +6041,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly with extra class 
               </div>
             </li>
             <li
-              class="ecl-menu__item"
+              class="ecl-menu__item ecl-menu__item--has-children"
               data-ecl-has-children=""
               data-ecl-menu-item=""
             >
@@ -5882,7 +6248,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly with extra class 
               </div>
             </li>
             <li
-              class="ecl-menu__item"
+              class="ecl-menu__item ecl-menu__item--has-children"
               data-ecl-has-children=""
               data-ecl-menu-item=""
             >
@@ -6096,7 +6462,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly with extra class 
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_bg"
+                  href="/example"
                   hreflang="bg"
                   lang="bg"
                   rel="alternate"
@@ -6109,7 +6475,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly with extra class 
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_es"
+                  href="/example"
                   hreflang="es"
                   lang="es"
                   rel="alternate"
@@ -6122,7 +6488,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly with extra class 
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_cs"
+                  href="/example"
                   hreflang="cs"
                   lang="cs"
                   rel="alternate"
@@ -6135,7 +6501,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly with extra class 
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_da"
+                  href="/example"
                   hreflang="da"
                   lang="da"
                   rel="alternate"
@@ -6148,7 +6514,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly with extra class 
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_de"
+                  href="/example"
                   hreflang="de"
                   lang="de"
                   rel="alternate"
@@ -6161,7 +6527,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly with extra class 
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_et"
+                  href="/example"
                   hreflang="et"
                   lang="et"
                   rel="alternate"
@@ -6174,7 +6540,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly with extra class 
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_el"
+                  href="/example"
                   hreflang="el"
                   lang="el"
                   rel="alternate"
@@ -6187,7 +6553,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly with extra class 
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-language-list__link"
-                  href="/example#language_en"
+                  href="/example"
                   hreflang="en"
                   lang="en"
                   rel="alternate"
@@ -6214,7 +6580,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly with extra class 
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_fr"
+                  href="/example"
                   hreflang="fr"
                   lang="fr"
                   rel="alternate"
@@ -6227,7 +6593,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly with extra class 
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_ga"
+                  href="/example"
                   hreflang="ga"
                   lang="ga"
                   rel="alternate"
@@ -6240,7 +6606,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly with extra class 
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_hr"
+                  href="/example"
                   hreflang="hr"
                   lang="hr"
                   rel="alternate"
@@ -6253,7 +6619,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly with extra class 
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_it"
+                  href="/example"
                   hreflang="it"
                   lang="it"
                   rel="alternate"
@@ -6274,7 +6640,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly with extra class 
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_lv"
+                  href="/example"
                   hreflang="lv"
                   lang="lv"
                   rel="alternate"
@@ -6287,7 +6653,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly with extra class 
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_lt"
+                  href="/example"
                   hreflang="lt"
                   lang="lt"
                   rel="alternate"
@@ -6300,7 +6666,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly with extra class 
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_hu"
+                  href="/example"
                   hreflang="hu"
                   lang="hu"
                   rel="alternate"
@@ -6313,7 +6679,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly with extra class 
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_mt"
+                  href="/example"
                   hreflang="mt"
                   lang="mt"
                   rel="alternate"
@@ -6326,7 +6692,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly with extra class 
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_nl"
+                  href="/example"
                   hreflang="nl"
                   lang="nl"
                   rel="alternate"
@@ -6339,7 +6705,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly with extra class 
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_pl"
+                  href="/example"
                   hreflang="pl"
                   lang="pl"
                   rel="alternate"
@@ -6352,7 +6718,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly with extra class 
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_pt"
+                  href="/example"
                   hreflang="pt"
                   lang="pt"
                   rel="alternate"
@@ -6365,7 +6731,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly with extra class 
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_ro"
+                  href="/example"
                   hreflang="ro"
                   lang="ro"
                   rel="alternate"
@@ -6378,7 +6744,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly with extra class 
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_sk"
+                  href="/example"
                   hreflang="sk"
                   lang="sk"
                   rel="alternate"
@@ -6391,7 +6757,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly with extra class 
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_sl"
+                  href="/example"
                   hreflang="sl"
                   lang="sl"
                   rel="alternate"
@@ -6404,7 +6770,7 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly with extra class 
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_fi"
+                  href="/example"
                   hreflang="fi"
                   lang="fi"
                   rel="alternate"
@@ -6417,12 +6783,102 @@ exports[`EC - Site Header Harmonised Group 1 renders correctly with extra class 
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_sv"
+                  href="/example"
                   hreflang="sv"
                   lang="sv"
                   rel="alternate"
                 >
                   svenska
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div
+          class="ecl-row ecl-language-list__non-eu"
+        >
+          <div
+            class="ecl-language-list__category ecl-col-12 ecl-col-lg-8 ecl-offset-lg-2"
+          >
+            Non-EU languages
+          </div>
+          <div
+            class="ecl-language-list__column ecl-col-12 ecl-col-lg-4 ecl-offset-lg-2"
+          >
+            <ul
+              class="ecl-language-list__list"
+            >
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="zh"
+                  lang="zh"
+                  rel="alternate"
+                >
+                  中文
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="tr"
+                  lang="tr"
+                  rel="alternate"
+                >
+                  Türk
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="ru"
+                  lang="ru"
+                  rel="alternate"
+                >
+                  pусский
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div
+            class="ecl-language-list__column ecl-col-12 ecl-col-lg-4"
+          >
+            <ul
+              class="ecl-language-list__list"
+            >
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="ca"
+                  lang="ca"
+                  rel="alternate"
+                >
+                  Català
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="ar"
+                  lang="ar"
+                  rel="alternate"
+                >
+                  عَرَبِيّ
                 </a>
               </li>
             </ul>
@@ -6466,8 +6922,11 @@ exports[`EC - Site Header Harmonised Group 1 with missing input data and debug e
             class="ecl-site-header-harmonised__login-container"
           >
             <a
+              aria-controls="login-box-id"
+              aria-expanded="false"
               class="ecl-link ecl-link--standalone ecl-site-header-harmonised__login-toggle"
-              href=""
+              data-ecl-login-toggle=""
+              href="/example"
             >
               <svg
                 aria-hidden="true"
@@ -6475,7 +6934,27 @@ exports[`EC - Site Header Harmonised Group 1 with missing input data and debug e
                 focusable="false"
               >
                 <use
-                  xlink:href="#general--log-in"
+                  xlink:href="#general--logged-in"
+                />
+              </svg>
+              <!-- ecl2-compliance: icon -->
+              <div
+                class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-red ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+              >
+                <p
+                  class="ecl-u-type-color-grey ecl-u-ml-m ecl-u-type-xs"
+                >
+                  [icon] - {{ icon.name }} and {{ icon.path }} properties need to set and filled in.
+                </p>
+              </div>
+              Logged in
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--xs ecl-site-header-harmonised__login-arrow"
+                focusable="false"
+              >
+                <use
+                  xlink:href="#ui--corner-arrow"
                 />
               </svg>
               <!-- ecl2-compliance: icon -->
@@ -6489,10 +6968,40 @@ exports[`EC - Site Header Harmonised Group 1 with missing input data and debug e
                 </p>
               </div>
             </a>
+            <div
+              class="ecl-site-header-harmonised__login-box"
+              data-ecl-login-box=""
+              id="login-box-id"
+            >
+              <p
+                class="ecl-site-header-harmonised__login-description"
+              >
+                Logged in as &lt;last name&gt;, &lt;first name&gt;
+              </p>
+              <hr
+                class="ecl-site-header-harmonised__login-separator"
+              />
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
+              >
+                Log out
+              </a>
+              <!-- ecl2-compliance: link--standalone -->
+              <div
+                class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+              >
+                <p
+                  class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                >
+                  [link--standalone] - ecl compliant
+                </p>
+              </div>
+            </div>
           </div>
           <a
             aria-controls="language-list-overlay"
-            aria-expanded="false"
+            aria-label="English"
             class="ecl-link ecl-link--standalone ecl-site-header-harmonised__language-selector"
             data-ecl-language-selector=""
             href="/example"
@@ -6782,7 +7291,7 @@ exports[`EC - Site Header Harmonised Group 1 with missing input data and debug e
               </p>
             </div>
             <li
-              class="ecl-menu__item ecl-menu__item--current"
+              class="ecl-menu__item ecl-menu__item--current ecl-menu__item--has-children"
               data-ecl-has-children=""
               data-ecl-menu-item=""
             >
@@ -7009,7 +7518,7 @@ exports[`EC - Site Header Harmonised Group 1 with missing input data and debug e
               </p>
             </div>
             <li
-              class="ecl-menu__item"
+              class="ecl-menu__item ecl-menu__item--has-children"
               data-ecl-has-children=""
               data-ecl-menu-item=""
             >
@@ -7093,7 +7602,7 @@ exports[`EC - Site Header Harmonised Group 1 with missing input data and debug e
               </p>
             </div>
             <li
-              class="ecl-menu__item"
+              class="ecl-menu__item ecl-menu__item--has-children"
               data-ecl-has-children=""
               data-ecl-menu-item=""
             >
@@ -7298,7 +7807,7 @@ exports[`EC - Site Header Harmonised Group 1 with missing input data and debug e
               </p>
             </div>
             <li
-              class="ecl-menu__item"
+              class="ecl-menu__item ecl-menu__item--has-children"
               data-ecl-has-children=""
               data-ecl-menu-item=""
             >
@@ -7426,7 +7935,7 @@ exports[`EC - Site Header Harmonised Group 1 with missing input data and debug e
               </p>
             </div>
             <li
-              class="ecl-menu__item"
+              class="ecl-menu__item ecl-menu__item--has-children"
               data-ecl-has-children=""
               data-ecl-menu-item=""
             >
@@ -7653,7 +8162,7 @@ exports[`EC - Site Header Harmonised Group 1 with missing input data and debug e
               </p>
             </div>
             <li
-              class="ecl-menu__item"
+              class="ecl-menu__item ecl-menu__item--has-children"
               data-ecl-has-children=""
               data-ecl-menu-item=""
             >
@@ -7917,7 +8426,7 @@ exports[`EC - Site Header Harmonised Group 1 with missing input data and debug e
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_bg"
+                  href="/example"
                   hreflang="bg"
                   lang="bg"
                   rel="alternate"
@@ -7940,7 +8449,7 @@ exports[`EC - Site Header Harmonised Group 1 with missing input data and debug e
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_es"
+                  href="/example"
                   hreflang="es"
                   lang="es"
                   rel="alternate"
@@ -7963,7 +8472,7 @@ exports[`EC - Site Header Harmonised Group 1 with missing input data and debug e
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_cs"
+                  href="/example"
                   hreflang="cs"
                   lang="cs"
                   rel="alternate"
@@ -7986,7 +8495,7 @@ exports[`EC - Site Header Harmonised Group 1 with missing input data and debug e
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_da"
+                  href="/example"
                   hreflang="da"
                   lang="da"
                   rel="alternate"
@@ -8009,7 +8518,7 @@ exports[`EC - Site Header Harmonised Group 1 with missing input data and debug e
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_de"
+                  href="/example"
                   hreflang="de"
                   lang="de"
                   rel="alternate"
@@ -8032,7 +8541,7 @@ exports[`EC - Site Header Harmonised Group 1 with missing input data and debug e
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_et"
+                  href="/example"
                   hreflang="et"
                   lang="et"
                   rel="alternate"
@@ -8055,7 +8564,7 @@ exports[`EC - Site Header Harmonised Group 1 with missing input data and debug e
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_el"
+                  href="/example"
                   hreflang="el"
                   lang="el"
                   rel="alternate"
@@ -8078,7 +8587,7 @@ exports[`EC - Site Header Harmonised Group 1 with missing input data and debug e
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-language-list__link"
-                  href="/example#language_en"
+                  href="/example"
                   hreflang="en"
                   lang="en"
                   rel="alternate"
@@ -8125,7 +8634,7 @@ exports[`EC - Site Header Harmonised Group 1 with missing input data and debug e
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_fr"
+                  href="/example"
                   hreflang="fr"
                   lang="fr"
                   rel="alternate"
@@ -8148,7 +8657,7 @@ exports[`EC - Site Header Harmonised Group 1 with missing input data and debug e
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_ga"
+                  href="/example"
                   hreflang="ga"
                   lang="ga"
                   rel="alternate"
@@ -8171,7 +8680,7 @@ exports[`EC - Site Header Harmonised Group 1 with missing input data and debug e
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_hr"
+                  href="/example"
                   hreflang="hr"
                   lang="hr"
                   rel="alternate"
@@ -8194,7 +8703,7 @@ exports[`EC - Site Header Harmonised Group 1 with missing input data and debug e
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_it"
+                  href="/example"
                   hreflang="it"
                   lang="it"
                   rel="alternate"
@@ -8225,7 +8734,7 @@ exports[`EC - Site Header Harmonised Group 1 with missing input data and debug e
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_lv"
+                  href="/example"
                   hreflang="lv"
                   lang="lv"
                   rel="alternate"
@@ -8248,7 +8757,7 @@ exports[`EC - Site Header Harmonised Group 1 with missing input data and debug e
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_lt"
+                  href="/example"
                   hreflang="lt"
                   lang="lt"
                   rel="alternate"
@@ -8271,7 +8780,7 @@ exports[`EC - Site Header Harmonised Group 1 with missing input data and debug e
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_hu"
+                  href="/example"
                   hreflang="hu"
                   lang="hu"
                   rel="alternate"
@@ -8294,7 +8803,7 @@ exports[`EC - Site Header Harmonised Group 1 with missing input data and debug e
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_mt"
+                  href="/example"
                   hreflang="mt"
                   lang="mt"
                   rel="alternate"
@@ -8317,7 +8826,7 @@ exports[`EC - Site Header Harmonised Group 1 with missing input data and debug e
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_nl"
+                  href="/example"
                   hreflang="nl"
                   lang="nl"
                   rel="alternate"
@@ -8340,7 +8849,7 @@ exports[`EC - Site Header Harmonised Group 1 with missing input data and debug e
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_pl"
+                  href="/example"
                   hreflang="pl"
                   lang="pl"
                   rel="alternate"
@@ -8363,7 +8872,7 @@ exports[`EC - Site Header Harmonised Group 1 with missing input data and debug e
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_pt"
+                  href="/example"
                   hreflang="pt"
                   lang="pt"
                   rel="alternate"
@@ -8386,7 +8895,7 @@ exports[`EC - Site Header Harmonised Group 1 with missing input data and debug e
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_ro"
+                  href="/example"
                   hreflang="ro"
                   lang="ro"
                   rel="alternate"
@@ -8409,7 +8918,7 @@ exports[`EC - Site Header Harmonised Group 1 with missing input data and debug e
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_sk"
+                  href="/example"
                   hreflang="sk"
                   lang="sk"
                   rel="alternate"
@@ -8432,7 +8941,7 @@ exports[`EC - Site Header Harmonised Group 1 with missing input data and debug e
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_sl"
+                  href="/example"
                   hreflang="sl"
                   lang="sl"
                   rel="alternate"
@@ -8455,7 +8964,7 @@ exports[`EC - Site Header Harmonised Group 1 with missing input data and debug e
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_fi"
+                  href="/example"
                   hreflang="fi"
                   lang="fi"
                   rel="alternate"
@@ -8478,12 +8987,152 @@ exports[`EC - Site Header Harmonised Group 1 with missing input data and debug e
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_sv"
+                  href="/example"
                   hreflang="sv"
                   lang="sv"
                   rel="alternate"
                 >
                   svenska
+                </a>
+                <!-- ecl2-compliance: link--standalone -->
+                <div
+                  class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+                >
+                  <p
+                    class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                  >
+                    [link--standalone] - ecl compliant
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div
+          class="ecl-row ecl-language-list__non-eu"
+        >
+          <div
+            class="ecl-language-list__category ecl-col-12 ecl-col-lg-8 ecl-offset-lg-2"
+          >
+            Non-EU languages
+          </div>
+          <div
+            class="ecl-language-list__column ecl-col-12 ecl-col-lg-4 ecl-offset-lg-2"
+          >
+            <ul
+              class="ecl-language-list__list"
+            >
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="zh"
+                  lang="zh"
+                  rel="alternate"
+                >
+                  中文
+                </a>
+                <!-- ecl2-compliance: link--standalone -->
+                <div
+                  class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+                >
+                  <p
+                    class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                  >
+                    [link--standalone] - ecl compliant
+                  </p>
+                </div>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="tr"
+                  lang="tr"
+                  rel="alternate"
+                >
+                  Türk
+                </a>
+                <!-- ecl2-compliance: link--standalone -->
+                <div
+                  class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+                >
+                  <p
+                    class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                  >
+                    [link--standalone] - ecl compliant
+                  </p>
+                </div>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="ru"
+                  lang="ru"
+                  rel="alternate"
+                >
+                  pусский
+                </a>
+                <!-- ecl2-compliance: link--standalone -->
+                <div
+                  class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+                >
+                  <p
+                    class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                  >
+                    [link--standalone] - ecl compliant
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div
+            class="ecl-language-list__column ecl-col-12 ecl-col-lg-4"
+          >
+            <ul
+              class="ecl-language-list__list"
+            >
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="ca"
+                  lang="ca"
+                  rel="alternate"
+                >
+                  Català
+                </a>
+                <!-- ecl2-compliance: link--standalone -->
+                <div
+                  class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
+                >
+                  <p
+                    class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs"
+                  >
+                    [link--standalone] - ecl compliant
+                  </p>
+                </div>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="ar"
+                  lang="ar"
+                  rel="alternate"
+                >
+                  عَرَبِيّ
                 </a>
                 <!-- ecl2-compliance: link--standalone -->
                 <div
@@ -8519,7 +9168,7 @@ exports[`EC - Site Header Harmonised Group 1 with missing input data and debug e
     <p
       class="ecl-u-type-color-grey ecl-u-ml-m ecl-u-type-xs"
     >
-      [site-header-harmonised] -  {{ logo }} needs to contain an {{ alt }}, a {{ src }}, an {{ href }}, a {{ language }} and a {{ title }} properties set and filled in. {{ icon_file_path }}needs to be set and filled in to retrieve the icons file. If the {{ language_selector }} is set it needs to contain a {{ code }} and a {{ label }} properties set and filled in. If the login box is present, when the user is logged out, the {{ login.toggle.label_not_logged }} and {{ login.toggle.href_not_logged }} properties need to be set and filled in. If the {{ search_form }} is set, the {{ button }} object inside of it needs to contain a {{ label }} property set and filled in.
+      [site-header-harmonised] -  {{ logo }} needs to contain an {{ alt }}, a {{ src }}, an {{ href }}, a {{ language }} and a {{ title }} properties set and filled in. {{ icon_file_path }}needs to be set and filled in to retrieve the icons file. If the {{ language_selector }} is set it needs to contain a {{ code }} and a {{ label }} properties set and filled in. If the {{ search_form }} is set, the {{ button }} object inside of it needs to contain a {{ label }} property set and filled in.
     </p>
   </div>
 </test>
@@ -8555,7 +9204,7 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly 1`] = `
         >
           <a
             aria-controls="language-list-overlay"
-            aria-expanded="false"
+            aria-label="English"
             class="ecl-link ecl-link--standalone ecl-site-header-harmonised__language-selector"
             data-ecl-language-selector=""
             href="/example"
@@ -8764,7 +9413,7 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly 1`] = `
               </a>
             </li>
             <li
-              class="ecl-menu__item ecl-menu__item--current"
+              class="ecl-menu__item ecl-menu__item--current ecl-menu__item--has-children"
               data-ecl-has-children=""
               data-ecl-menu-item=""
             >
@@ -8971,7 +9620,7 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly 1`] = `
               </div>
             </li>
             <li
-              class="ecl-menu__item"
+              class="ecl-menu__item ecl-menu__item--has-children"
               data-ecl-has-children=""
               data-ecl-menu-item=""
             >
@@ -9035,7 +9684,7 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly 1`] = `
               </div>
             </li>
             <li
-              class="ecl-menu__item"
+              class="ecl-menu__item ecl-menu__item--has-children"
               data-ecl-has-children=""
               data-ecl-menu-item=""
             >
@@ -9220,7 +9869,7 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly 1`] = `
               </div>
             </li>
             <li
-              class="ecl-menu__item"
+              class="ecl-menu__item ecl-menu__item--has-children"
               data-ecl-has-children=""
               data-ecl-menu-item=""
             >
@@ -9328,7 +9977,7 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly 1`] = `
               </div>
             </li>
             <li
-              class="ecl-menu__item"
+              class="ecl-menu__item ecl-menu__item--has-children"
               data-ecl-has-children=""
               data-ecl-menu-item=""
             >
@@ -9535,7 +10184,7 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly 1`] = `
               </div>
             </li>
             <li
-              class="ecl-menu__item"
+              class="ecl-menu__item ecl-menu__item--has-children"
               data-ecl-has-children=""
               data-ecl-menu-item=""
             >
@@ -9749,7 +10398,7 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly 1`] = `
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_bg"
+                  href="/example"
                   hreflang="bg"
                   lang="bg"
                   rel="alternate"
@@ -9762,7 +10411,7 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly 1`] = `
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_es"
+                  href="/example"
                   hreflang="es"
                   lang="es"
                   rel="alternate"
@@ -9775,7 +10424,7 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly 1`] = `
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_cs"
+                  href="/example"
                   hreflang="cs"
                   lang="cs"
                   rel="alternate"
@@ -9788,7 +10437,7 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly 1`] = `
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_da"
+                  href="/example"
                   hreflang="da"
                   lang="da"
                   rel="alternate"
@@ -9801,7 +10450,7 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly 1`] = `
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_de"
+                  href="/example"
                   hreflang="de"
                   lang="de"
                   rel="alternate"
@@ -9814,7 +10463,7 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly 1`] = `
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_et"
+                  href="/example"
                   hreflang="et"
                   lang="et"
                   rel="alternate"
@@ -9827,7 +10476,7 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly 1`] = `
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_el"
+                  href="/example"
                   hreflang="el"
                   lang="el"
                   rel="alternate"
@@ -9840,7 +10489,7 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly 1`] = `
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-language-list__link"
-                  href="/example#language_en"
+                  href="/example"
                   hreflang="en"
                   lang="en"
                   rel="alternate"
@@ -9867,7 +10516,7 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly 1`] = `
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_fr"
+                  href="/example"
                   hreflang="fr"
                   lang="fr"
                   rel="alternate"
@@ -9880,7 +10529,7 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly 1`] = `
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_ga"
+                  href="/example"
                   hreflang="ga"
                   lang="ga"
                   rel="alternate"
@@ -9893,7 +10542,7 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly 1`] = `
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_hr"
+                  href="/example"
                   hreflang="hr"
                   lang="hr"
                   rel="alternate"
@@ -9906,7 +10555,7 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly 1`] = `
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_it"
+                  href="/example"
                   hreflang="it"
                   lang="it"
                   rel="alternate"
@@ -9927,7 +10576,7 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly 1`] = `
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_lv"
+                  href="/example"
                   hreflang="lv"
                   lang="lv"
                   rel="alternate"
@@ -9940,7 +10589,7 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly 1`] = `
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_lt"
+                  href="/example"
                   hreflang="lt"
                   lang="lt"
                   rel="alternate"
@@ -9953,7 +10602,7 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly 1`] = `
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_hu"
+                  href="/example"
                   hreflang="hu"
                   lang="hu"
                   rel="alternate"
@@ -9966,7 +10615,7 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly 1`] = `
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_mt"
+                  href="/example"
                   hreflang="mt"
                   lang="mt"
                   rel="alternate"
@@ -9979,7 +10628,7 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly 1`] = `
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_nl"
+                  href="/example"
                   hreflang="nl"
                   lang="nl"
                   rel="alternate"
@@ -9992,7 +10641,7 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly 1`] = `
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_pl"
+                  href="/example"
                   hreflang="pl"
                   lang="pl"
                   rel="alternate"
@@ -10005,7 +10654,7 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly 1`] = `
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_pt"
+                  href="/example"
                   hreflang="pt"
                   lang="pt"
                   rel="alternate"
@@ -10018,7 +10667,7 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly 1`] = `
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_ro"
+                  href="/example"
                   hreflang="ro"
                   lang="ro"
                   rel="alternate"
@@ -10031,7 +10680,7 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly 1`] = `
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_sk"
+                  href="/example"
                   hreflang="sk"
                   lang="sk"
                   rel="alternate"
@@ -10044,7 +10693,7 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly 1`] = `
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_sl"
+                  href="/example"
                   hreflang="sl"
                   lang="sl"
                   rel="alternate"
@@ -10057,7 +10706,7 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly 1`] = `
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_fi"
+                  href="/example"
                   hreflang="fi"
                   lang="fi"
                   rel="alternate"
@@ -10070,12 +10719,102 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly 1`] = `
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_sv"
+                  href="/example"
                   hreflang="sv"
                   lang="sv"
                   rel="alternate"
                 >
                   svenska
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div
+          class="ecl-row ecl-language-list__non-eu"
+        >
+          <div
+            class="ecl-language-list__category ecl-col-12 ecl-col-lg-8 ecl-offset-lg-2"
+          >
+            Non-EU languages
+          </div>
+          <div
+            class="ecl-language-list__column ecl-col-12 ecl-col-lg-4 ecl-offset-lg-2"
+          >
+            <ul
+              class="ecl-language-list__list"
+            >
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="zh"
+                  lang="zh"
+                  rel="alternate"
+                >
+                  中文
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="tr"
+                  lang="tr"
+                  rel="alternate"
+                >
+                  Türk
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="ru"
+                  lang="ru"
+                  rel="alternate"
+                >
+                  pусский
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div
+            class="ecl-language-list__column ecl-col-12 ecl-col-lg-4"
+          >
+            <ul
+              class="ecl-language-list__list"
+            >
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="ca"
+                  lang="ca"
+                  rel="alternate"
+                >
+                  Català
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="ar"
+                  lang="ar"
+                  rel="alternate"
+                >
+                  عَرَبِيّ
                 </a>
               </li>
             </ul>
@@ -10119,7 +10858,7 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly with extra attrib
         >
           <a
             aria-controls="language-list-overlay"
-            aria-expanded="false"
+            aria-label="English"
             class="ecl-link ecl-link--standalone ecl-site-header-harmonised__language-selector"
             data-ecl-language-selector=""
             href="/example"
@@ -10328,7 +11067,7 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly with extra attrib
               </a>
             </li>
             <li
-              class="ecl-menu__item ecl-menu__item--current"
+              class="ecl-menu__item ecl-menu__item--current ecl-menu__item--has-children"
               data-ecl-has-children=""
               data-ecl-menu-item=""
             >
@@ -10535,7 +11274,7 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly with extra attrib
               </div>
             </li>
             <li
-              class="ecl-menu__item"
+              class="ecl-menu__item ecl-menu__item--has-children"
               data-ecl-has-children=""
               data-ecl-menu-item=""
             >
@@ -10599,7 +11338,7 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly with extra attrib
               </div>
             </li>
             <li
-              class="ecl-menu__item"
+              class="ecl-menu__item ecl-menu__item--has-children"
               data-ecl-has-children=""
               data-ecl-menu-item=""
             >
@@ -10784,7 +11523,7 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly with extra attrib
               </div>
             </li>
             <li
-              class="ecl-menu__item"
+              class="ecl-menu__item ecl-menu__item--has-children"
               data-ecl-has-children=""
               data-ecl-menu-item=""
             >
@@ -10892,7 +11631,7 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly with extra attrib
               </div>
             </li>
             <li
-              class="ecl-menu__item"
+              class="ecl-menu__item ecl-menu__item--has-children"
               data-ecl-has-children=""
               data-ecl-menu-item=""
             >
@@ -11099,7 +11838,7 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly with extra attrib
               </div>
             </li>
             <li
-              class="ecl-menu__item"
+              class="ecl-menu__item ecl-menu__item--has-children"
               data-ecl-has-children=""
               data-ecl-menu-item=""
             >
@@ -11313,7 +12052,7 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly with extra attrib
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_bg"
+                  href="/example"
                   hreflang="bg"
                   lang="bg"
                   rel="alternate"
@@ -11326,7 +12065,7 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly with extra attrib
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_es"
+                  href="/example"
                   hreflang="es"
                   lang="es"
                   rel="alternate"
@@ -11339,7 +12078,7 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly with extra attrib
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_cs"
+                  href="/example"
                   hreflang="cs"
                   lang="cs"
                   rel="alternate"
@@ -11352,7 +12091,7 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly with extra attrib
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_da"
+                  href="/example"
                   hreflang="da"
                   lang="da"
                   rel="alternate"
@@ -11365,7 +12104,7 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly with extra attrib
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_de"
+                  href="/example"
                   hreflang="de"
                   lang="de"
                   rel="alternate"
@@ -11378,7 +12117,7 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly with extra attrib
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_et"
+                  href="/example"
                   hreflang="et"
                   lang="et"
                   rel="alternate"
@@ -11391,7 +12130,7 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly with extra attrib
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_el"
+                  href="/example"
                   hreflang="el"
                   lang="el"
                   rel="alternate"
@@ -11404,7 +12143,7 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly with extra attrib
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-language-list__link"
-                  href="/example#language_en"
+                  href="/example"
                   hreflang="en"
                   lang="en"
                   rel="alternate"
@@ -11431,7 +12170,7 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly with extra attrib
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_fr"
+                  href="/example"
                   hreflang="fr"
                   lang="fr"
                   rel="alternate"
@@ -11444,7 +12183,7 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly with extra attrib
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_ga"
+                  href="/example"
                   hreflang="ga"
                   lang="ga"
                   rel="alternate"
@@ -11457,7 +12196,7 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly with extra attrib
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_hr"
+                  href="/example"
                   hreflang="hr"
                   lang="hr"
                   rel="alternate"
@@ -11470,7 +12209,7 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly with extra attrib
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_it"
+                  href="/example"
                   hreflang="it"
                   lang="it"
                   rel="alternate"
@@ -11491,7 +12230,7 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly with extra attrib
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_lv"
+                  href="/example"
                   hreflang="lv"
                   lang="lv"
                   rel="alternate"
@@ -11504,7 +12243,7 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly with extra attrib
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_lt"
+                  href="/example"
                   hreflang="lt"
                   lang="lt"
                   rel="alternate"
@@ -11517,7 +12256,7 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly with extra attrib
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_hu"
+                  href="/example"
                   hreflang="hu"
                   lang="hu"
                   rel="alternate"
@@ -11530,7 +12269,7 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly with extra attrib
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_mt"
+                  href="/example"
                   hreflang="mt"
                   lang="mt"
                   rel="alternate"
@@ -11543,7 +12282,7 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly with extra attrib
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_nl"
+                  href="/example"
                   hreflang="nl"
                   lang="nl"
                   rel="alternate"
@@ -11556,7 +12295,7 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly with extra attrib
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_pl"
+                  href="/example"
                   hreflang="pl"
                   lang="pl"
                   rel="alternate"
@@ -11569,7 +12308,7 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly with extra attrib
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_pt"
+                  href="/example"
                   hreflang="pt"
                   lang="pt"
                   rel="alternate"
@@ -11582,7 +12321,7 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly with extra attrib
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_ro"
+                  href="/example"
                   hreflang="ro"
                   lang="ro"
                   rel="alternate"
@@ -11595,7 +12334,7 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly with extra attrib
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_sk"
+                  href="/example"
                   hreflang="sk"
                   lang="sk"
                   rel="alternate"
@@ -11608,7 +12347,7 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly with extra attrib
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_sl"
+                  href="/example"
                   hreflang="sl"
                   lang="sl"
                   rel="alternate"
@@ -11621,7 +12360,7 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly with extra attrib
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_fi"
+                  href="/example"
                   hreflang="fi"
                   lang="fi"
                   rel="alternate"
@@ -11634,12 +12373,102 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly with extra attrib
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_sv"
+                  href="/example"
                   hreflang="sv"
                   lang="sv"
                   rel="alternate"
                 >
                   svenska
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div
+          class="ecl-row ecl-language-list__non-eu"
+        >
+          <div
+            class="ecl-language-list__category ecl-col-12 ecl-col-lg-8 ecl-offset-lg-2"
+          >
+            Non-EU languages
+          </div>
+          <div
+            class="ecl-language-list__column ecl-col-12 ecl-col-lg-4 ecl-offset-lg-2"
+          >
+            <ul
+              class="ecl-language-list__list"
+            >
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="zh"
+                  lang="zh"
+                  rel="alternate"
+                >
+                  中文
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="tr"
+                  lang="tr"
+                  rel="alternate"
+                >
+                  Türk
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="ru"
+                  lang="ru"
+                  rel="alternate"
+                >
+                  pусский
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div
+            class="ecl-language-list__column ecl-col-12 ecl-col-lg-4"
+          >
+            <ul
+              class="ecl-language-list__list"
+            >
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="ca"
+                  lang="ca"
+                  rel="alternate"
+                >
+                  Català
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="ar"
+                  lang="ar"
+                  rel="alternate"
+                >
+                  عَرَبِيّ
                 </a>
               </li>
             </ul>
@@ -11681,7 +12510,7 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly with extra class 
         >
           <a
             aria-controls="language-list-overlay"
-            aria-expanded="false"
+            aria-label="English"
             class="ecl-link ecl-link--standalone ecl-site-header-harmonised__language-selector"
             data-ecl-language-selector=""
             href="/example"
@@ -11890,7 +12719,7 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly with extra class 
               </a>
             </li>
             <li
-              class="ecl-menu__item ecl-menu__item--current"
+              class="ecl-menu__item ecl-menu__item--current ecl-menu__item--has-children"
               data-ecl-has-children=""
               data-ecl-menu-item=""
             >
@@ -12097,7 +12926,7 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly with extra class 
               </div>
             </li>
             <li
-              class="ecl-menu__item"
+              class="ecl-menu__item ecl-menu__item--has-children"
               data-ecl-has-children=""
               data-ecl-menu-item=""
             >
@@ -12161,7 +12990,7 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly with extra class 
               </div>
             </li>
             <li
-              class="ecl-menu__item"
+              class="ecl-menu__item ecl-menu__item--has-children"
               data-ecl-has-children=""
               data-ecl-menu-item=""
             >
@@ -12346,7 +13175,7 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly with extra class 
               </div>
             </li>
             <li
-              class="ecl-menu__item"
+              class="ecl-menu__item ecl-menu__item--has-children"
               data-ecl-has-children=""
               data-ecl-menu-item=""
             >
@@ -12454,7 +13283,7 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly with extra class 
               </div>
             </li>
             <li
-              class="ecl-menu__item"
+              class="ecl-menu__item ecl-menu__item--has-children"
               data-ecl-has-children=""
               data-ecl-menu-item=""
             >
@@ -12661,7 +13490,7 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly with extra class 
               </div>
             </li>
             <li
-              class="ecl-menu__item"
+              class="ecl-menu__item ecl-menu__item--has-children"
               data-ecl-has-children=""
               data-ecl-menu-item=""
             >
@@ -12875,7 +13704,7 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly with extra class 
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_bg"
+                  href="/example"
                   hreflang="bg"
                   lang="bg"
                   rel="alternate"
@@ -12888,7 +13717,7 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly with extra class 
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_es"
+                  href="/example"
                   hreflang="es"
                   lang="es"
                   rel="alternate"
@@ -12901,7 +13730,7 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly with extra class 
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_cs"
+                  href="/example"
                   hreflang="cs"
                   lang="cs"
                   rel="alternate"
@@ -12914,7 +13743,7 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly with extra class 
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_da"
+                  href="/example"
                   hreflang="da"
                   lang="da"
                   rel="alternate"
@@ -12927,7 +13756,7 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly with extra class 
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_de"
+                  href="/example"
                   hreflang="de"
                   lang="de"
                   rel="alternate"
@@ -12940,7 +13769,7 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly with extra class 
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_et"
+                  href="/example"
                   hreflang="et"
                   lang="et"
                   rel="alternate"
@@ -12953,7 +13782,7 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly with extra class 
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_el"
+                  href="/example"
                   hreflang="el"
                   lang="el"
                   rel="alternate"
@@ -12966,7 +13795,7 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly with extra class 
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-language-list__link"
-                  href="/example#language_en"
+                  href="/example"
                   hreflang="en"
                   lang="en"
                   rel="alternate"
@@ -12993,7 +13822,7 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly with extra class 
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_fr"
+                  href="/example"
                   hreflang="fr"
                   lang="fr"
                   rel="alternate"
@@ -13006,7 +13835,7 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly with extra class 
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_ga"
+                  href="/example"
                   hreflang="ga"
                   lang="ga"
                   rel="alternate"
@@ -13019,7 +13848,7 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly with extra class 
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_hr"
+                  href="/example"
                   hreflang="hr"
                   lang="hr"
                   rel="alternate"
@@ -13032,7 +13861,7 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly with extra class 
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_it"
+                  href="/example"
                   hreflang="it"
                   lang="it"
                   rel="alternate"
@@ -13053,7 +13882,7 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly with extra class 
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_lv"
+                  href="/example"
                   hreflang="lv"
                   lang="lv"
                   rel="alternate"
@@ -13066,7 +13895,7 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly with extra class 
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_lt"
+                  href="/example"
                   hreflang="lt"
                   lang="lt"
                   rel="alternate"
@@ -13079,7 +13908,7 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly with extra class 
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_hu"
+                  href="/example"
                   hreflang="hu"
                   lang="hu"
                   rel="alternate"
@@ -13092,7 +13921,7 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly with extra class 
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_mt"
+                  href="/example"
                   hreflang="mt"
                   lang="mt"
                   rel="alternate"
@@ -13105,7 +13934,7 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly with extra class 
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_nl"
+                  href="/example"
                   hreflang="nl"
                   lang="nl"
                   rel="alternate"
@@ -13118,7 +13947,7 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly with extra class 
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_pl"
+                  href="/example"
                   hreflang="pl"
                   lang="pl"
                   rel="alternate"
@@ -13131,7 +13960,7 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly with extra class 
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_pt"
+                  href="/example"
                   hreflang="pt"
                   lang="pt"
                   rel="alternate"
@@ -13144,7 +13973,7 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly with extra class 
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_ro"
+                  href="/example"
                   hreflang="ro"
                   lang="ro"
                   rel="alternate"
@@ -13157,7 +13986,7 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly with extra class 
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_sk"
+                  href="/example"
                   hreflang="sk"
                   lang="sk"
                   rel="alternate"
@@ -13170,7 +13999,7 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly with extra class 
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_sl"
+                  href="/example"
                   hreflang="sl"
                   lang="sl"
                   rel="alternate"
@@ -13183,7 +14012,7 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly with extra class 
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_fi"
+                  href="/example"
                   hreflang="fi"
                   lang="fi"
                   rel="alternate"
@@ -13196,12 +14025,102 @@ exports[`EC - Site Header Harmonised Group 2 renders correctly with extra class 
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_sv"
+                  href="/example"
                   hreflang="sv"
                   lang="sv"
                   rel="alternate"
                 >
                   svenska
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div
+          class="ecl-row ecl-language-list__non-eu"
+        >
+          <div
+            class="ecl-language-list__category ecl-col-12 ecl-col-lg-8 ecl-offset-lg-2"
+          >
+            Non-EU languages
+          </div>
+          <div
+            class="ecl-language-list__column ecl-col-12 ecl-col-lg-4 ecl-offset-lg-2"
+          >
+            <ul
+              class="ecl-language-list__list"
+            >
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="zh"
+                  lang="zh"
+                  rel="alternate"
+                >
+                  中文
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="tr"
+                  lang="tr"
+                  rel="alternate"
+                >
+                  Türk
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="ru"
+                  lang="ru"
+                  rel="alternate"
+                >
+                  pусский
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div
+            class="ecl-language-list__column ecl-col-12 ecl-col-lg-4"
+          >
+            <ul
+              class="ecl-language-list__list"
+            >
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="ca"
+                  lang="ca"
+                  rel="alternate"
+                >
+                  Català
+                </a>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="ar"
+                  lang="ar"
+                  rel="alternate"
+                >
+                  عَرَبِيّ
                 </a>
               </li>
             </ul>
@@ -13236,7 +14155,7 @@ exports[`EC - Site Header Harmonised Group 2 with missing input data and debug e
         >
           <a
             aria-controls="language-list-overlay"
-            aria-expanded="false"
+            aria-label="English"
             class="ecl-link ecl-link--standalone ecl-site-header-harmonised__language-selector"
             data-ecl-language-selector=""
             href="/example"
@@ -13557,7 +14476,7 @@ exports[`EC - Site Header Harmonised Group 2 with missing input data and debug e
               </svg>
             </span>
             <li
-              class="ecl-menu__item ecl-menu__item--current"
+              class="ecl-menu__item ecl-menu__item--current ecl-menu__item--has-children"
               data-ecl-has-children=""
               data-ecl-menu-item=""
             >
@@ -13792,7 +14711,7 @@ exports[`EC - Site Header Harmonised Group 2 with missing input data and debug e
               </svg>
             </span>
             <li
-              class="ecl-menu__item"
+              class="ecl-menu__item ecl-menu__item--has-children"
               data-ecl-has-children=""
               data-ecl-menu-item=""
             >
@@ -13884,7 +14803,7 @@ exports[`EC - Site Header Harmonised Group 2 with missing input data and debug e
               </svg>
             </span>
             <li
-              class="ecl-menu__item"
+              class="ecl-menu__item ecl-menu__item--has-children"
               data-ecl-has-children=""
               data-ecl-menu-item=""
             >
@@ -14097,7 +15016,7 @@ exports[`EC - Site Header Harmonised Group 2 with missing input data and debug e
               </svg>
             </span>
             <li
-              class="ecl-menu__item"
+              class="ecl-menu__item ecl-menu__item--has-children"
               data-ecl-has-children=""
               data-ecl-menu-item=""
             >
@@ -14233,7 +15152,7 @@ exports[`EC - Site Header Harmonised Group 2 with missing input data and debug e
               </svg>
             </span>
             <li
-              class="ecl-menu__item"
+              class="ecl-menu__item ecl-menu__item--has-children"
               data-ecl-has-children=""
               data-ecl-menu-item=""
             >
@@ -14468,7 +15387,7 @@ exports[`EC - Site Header Harmonised Group 2 with missing input data and debug e
               </svg>
             </span>
             <li
-              class="ecl-menu__item"
+              class="ecl-menu__item ecl-menu__item--has-children"
               data-ecl-has-children=""
               data-ecl-menu-item=""
             >
@@ -14752,7 +15671,7 @@ exports[`EC - Site Header Harmonised Group 2 with missing input data and debug e
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_bg"
+                  href="/example"
                   hreflang="bg"
                   lang="bg"
                   rel="alternate"
@@ -14779,7 +15698,7 @@ exports[`EC - Site Header Harmonised Group 2 with missing input data and debug e
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_es"
+                  href="/example"
                   hreflang="es"
                   lang="es"
                   rel="alternate"
@@ -14806,7 +15725,7 @@ exports[`EC - Site Header Harmonised Group 2 with missing input data and debug e
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_cs"
+                  href="/example"
                   hreflang="cs"
                   lang="cs"
                   rel="alternate"
@@ -14833,7 +15752,7 @@ exports[`EC - Site Header Harmonised Group 2 with missing input data and debug e
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_da"
+                  href="/example"
                   hreflang="da"
                   lang="da"
                   rel="alternate"
@@ -14860,7 +15779,7 @@ exports[`EC - Site Header Harmonised Group 2 with missing input data and debug e
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_de"
+                  href="/example"
                   hreflang="de"
                   lang="de"
                   rel="alternate"
@@ -14887,7 +15806,7 @@ exports[`EC - Site Header Harmonised Group 2 with missing input data and debug e
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_et"
+                  href="/example"
                   hreflang="et"
                   lang="et"
                   rel="alternate"
@@ -14914,7 +15833,7 @@ exports[`EC - Site Header Harmonised Group 2 with missing input data and debug e
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_el"
+                  href="/example"
                   hreflang="el"
                   lang="el"
                   rel="alternate"
@@ -14941,7 +15860,7 @@ exports[`EC - Site Header Harmonised Group 2 with missing input data and debug e
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-language-list__link"
-                  href="/example#language_en"
+                  href="/example"
                   hreflang="en"
                   lang="en"
                   rel="alternate"
@@ -14996,7 +15915,7 @@ exports[`EC - Site Header Harmonised Group 2 with missing input data and debug e
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_fr"
+                  href="/example"
                   hreflang="fr"
                   lang="fr"
                   rel="alternate"
@@ -15023,7 +15942,7 @@ exports[`EC - Site Header Harmonised Group 2 with missing input data and debug e
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_ga"
+                  href="/example"
                   hreflang="ga"
                   lang="ga"
                   rel="alternate"
@@ -15050,7 +15969,7 @@ exports[`EC - Site Header Harmonised Group 2 with missing input data and debug e
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_hr"
+                  href="/example"
                   hreflang="hr"
                   lang="hr"
                   rel="alternate"
@@ -15077,7 +15996,7 @@ exports[`EC - Site Header Harmonised Group 2 with missing input data and debug e
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_it"
+                  href="/example"
                   hreflang="it"
                   lang="it"
                   rel="alternate"
@@ -15112,7 +16031,7 @@ exports[`EC - Site Header Harmonised Group 2 with missing input data and debug e
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_lv"
+                  href="/example"
                   hreflang="lv"
                   lang="lv"
                   rel="alternate"
@@ -15139,7 +16058,7 @@ exports[`EC - Site Header Harmonised Group 2 with missing input data and debug e
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_lt"
+                  href="/example"
                   hreflang="lt"
                   lang="lt"
                   rel="alternate"
@@ -15166,7 +16085,7 @@ exports[`EC - Site Header Harmonised Group 2 with missing input data and debug e
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_hu"
+                  href="/example"
                   hreflang="hu"
                   lang="hu"
                   rel="alternate"
@@ -15193,7 +16112,7 @@ exports[`EC - Site Header Harmonised Group 2 with missing input data and debug e
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_mt"
+                  href="/example"
                   hreflang="mt"
                   lang="mt"
                   rel="alternate"
@@ -15220,7 +16139,7 @@ exports[`EC - Site Header Harmonised Group 2 with missing input data and debug e
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_nl"
+                  href="/example"
                   hreflang="nl"
                   lang="nl"
                   rel="alternate"
@@ -15247,7 +16166,7 @@ exports[`EC - Site Header Harmonised Group 2 with missing input data and debug e
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_pl"
+                  href="/example"
                   hreflang="pl"
                   lang="pl"
                   rel="alternate"
@@ -15274,7 +16193,7 @@ exports[`EC - Site Header Harmonised Group 2 with missing input data and debug e
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_pt"
+                  href="/example"
                   hreflang="pt"
                   lang="pt"
                   rel="alternate"
@@ -15301,7 +16220,7 @@ exports[`EC - Site Header Harmonised Group 2 with missing input data and debug e
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_ro"
+                  href="/example"
                   hreflang="ro"
                   lang="ro"
                   rel="alternate"
@@ -15328,7 +16247,7 @@ exports[`EC - Site Header Harmonised Group 2 with missing input data and debug e
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_sk"
+                  href="/example"
                   hreflang="sk"
                   lang="sk"
                   rel="alternate"
@@ -15355,7 +16274,7 @@ exports[`EC - Site Header Harmonised Group 2 with missing input data and debug e
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_sl"
+                  href="/example"
                   hreflang="sl"
                   lang="sl"
                   rel="alternate"
@@ -15382,7 +16301,7 @@ exports[`EC - Site Header Harmonised Group 2 with missing input data and debug e
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_fi"
+                  href="/example"
                   hreflang="fi"
                   lang="fi"
                   rel="alternate"
@@ -15409,12 +16328,172 @@ exports[`EC - Site Header Harmonised Group 2 with missing input data and debug e
               >
                 <a
                   class="ecl-link ecl-link--standalone ecl-language-list__link"
-                  href="/example#language_sv"
+                  href="/example"
                   hreflang="sv"
                   lang="sv"
                   rel="alternate"
                 >
                   svenska
+                </a>
+                <span
+                  class="ecl-u-type-color-green ecl-compliance-inner ecl-compliance-success ecl-u-ma-2xs"
+                  title="[link--standalone] - ecl compliant"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="ecl-icon ecl-icon--xs"
+                    focusable="false"
+                  >
+                    <use
+                      xlink:href="/icons.svg#notifications--success"
+                    />
+                  </svg>
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div
+          class="ecl-row ecl-language-list__non-eu"
+        >
+          <div
+            class="ecl-language-list__category ecl-col-12 ecl-col-lg-8 ecl-offset-lg-2"
+          >
+            Non-EU languages
+          </div>
+          <div
+            class="ecl-language-list__column ecl-col-12 ecl-col-lg-4 ecl-offset-lg-2"
+          >
+            <ul
+              class="ecl-language-list__list"
+            >
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="zh"
+                  lang="zh"
+                  rel="alternate"
+                >
+                  中文
+                </a>
+                <span
+                  class="ecl-u-type-color-green ecl-compliance-inner ecl-compliance-success ecl-u-ma-2xs"
+                  title="[link--standalone] - ecl compliant"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="ecl-icon ecl-icon--xs"
+                    focusable="false"
+                  >
+                    <use
+                      xlink:href="/icons.svg#notifications--success"
+                    />
+                  </svg>
+                </span>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="tr"
+                  lang="tr"
+                  rel="alternate"
+                >
+                  Türk
+                </a>
+                <span
+                  class="ecl-u-type-color-green ecl-compliance-inner ecl-compliance-success ecl-u-ma-2xs"
+                  title="[link--standalone] - ecl compliant"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="ecl-icon ecl-icon--xs"
+                    focusable="false"
+                  >
+                    <use
+                      xlink:href="/icons.svg#notifications--success"
+                    />
+                  </svg>
+                </span>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="ru"
+                  lang="ru"
+                  rel="alternate"
+                >
+                  pусский
+                </a>
+                <span
+                  class="ecl-u-type-color-green ecl-compliance-inner ecl-compliance-success ecl-u-ma-2xs"
+                  title="[link--standalone] - ecl compliant"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="ecl-icon ecl-icon--xs"
+                    focusable="false"
+                  >
+                    <use
+                      xlink:href="/icons.svg#notifications--success"
+                    />
+                  </svg>
+                </span>
+              </li>
+            </ul>
+          </div>
+          <div
+            class="ecl-language-list__column ecl-col-12 ecl-col-lg-4"
+          >
+            <ul
+              class="ecl-language-list__list"
+            >
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="ca"
+                  lang="ca"
+                  rel="alternate"
+                >
+                  Català
+                </a>
+                <span
+                  class="ecl-u-type-color-green ecl-compliance-inner ecl-compliance-success ecl-u-ma-2xs"
+                  title="[link--standalone] - ecl compliant"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="ecl-icon ecl-icon--xs"
+                    focusable="false"
+                  >
+                    <use
+                      xlink:href="/icons.svg#notifications--success"
+                    />
+                  </svg>
+                </span>
+              </li>
+              <li
+                class="ecl-language-list__item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone ecl-language-list__link"
+                  href="/example"
+                  hreflang="ar"
+                  lang="ar"
+                  rel="alternate"
+                >
+                  عَرَبِيّ
                 </a>
                 <span
                   class="ecl-u-type-color-green ecl-compliance-inner ecl-compliance-success ecl-u-ma-2xs"

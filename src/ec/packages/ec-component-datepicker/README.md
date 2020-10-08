@@ -8,6 +8,8 @@ npm install --save @ecl-twig/ec-component-datepicker
 
 ### Parameters
 
+- **"autoinit"** (boolean) (default: false)
+- **"default_value"** (string) (default: '')
 - **"helper_text"** (string) ) (default: '')
 - **"invalid_text"** (string) (default: '')
 - **"optional_text"** (string) (default: '')

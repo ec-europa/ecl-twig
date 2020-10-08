@@ -24,6 +24,14 @@ describe('EC - Site Header Standardised', () => {
       return expect(render(withExtraClasses)).resolves.toMatchSnapshot();
     });
 
+    test('renders correctly with no menu', () => {
+      expect.assertions(1);
+      const noMenu = { ...englishData };
+      noMenu.menu = false;
+
+      return expect(render(noMenu)).resolves.toMatchSnapshot();
+    });
+
     test('renders correctly when logged in', () => {
       expect.assertions(1);
 

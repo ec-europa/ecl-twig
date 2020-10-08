@@ -4,6 +4,13 @@ const adapter = (initialData) => {
   if (adaptedData.meta) {
     adaptedData.meta = adaptedData.meta.replace(/(<([^>]+)>)/gi, '');
   }
+  if (adaptedData.image) {
+    adaptedData.background_image = true;
+    adaptedData.background_image_url = adaptedData.image;
+    delete adaptedData.image;
+  }
+  // Overriding this to align with ECL.
+  adaptedData.breadcrumb.ellipsis_label = 'Click here to expand';
 
   return adaptedData;
 };
