@@ -12,11 +12,13 @@ npm install --save @ecl-twig/ec-component-page-header-core
 - **"description"** (string) (default: '') Description of header
 - **"meta"** (string) (default: '') Meta of header
 - **"breadcrumb"** (associative array) (default: '') Predefined structure compatible with EC Breadcrumb
+- **"background_image"** (boolean) (default: false) With or without background image
+- **"background_image_url"** (string) (default: '') Background image url
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
-- **"_compliance_"** (boolean) (default: false) Activates debug
+- **"\_compliance\_"** (boolean) (default: false) Activates debug
 
 ### Example :
 

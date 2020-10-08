@@ -4,6 +4,7 @@ import demoTitleContent from './demo/data--title';
 import demoMetaTitleContent from './demo/data--meta-title';
 import demoMetaTitleDescriptionContent from './demo/data--meta-title-description';
 import euDemoTitleContent from './demo/eu-data--title';
+import demoBackgroundImage from './demo/data--background-image';
 import euDemoMetaTitleContent from './demo/eu-data--meta-title';
 import euDemoMetaTitleDescriptionContent from './demo/eu-data--meta-title-description';
 
@@ -110,6 +111,37 @@ describe('Page Header Core', () => {
       expect.assertions(1);
 
       const withExtraAttributes = merge(demoMetaTitleDescriptionContent, {
+        extra_attributes: [
+          { name: 'data-test', value: 'data-test-value' },
+          { name: 'data-test-1', value: 'data-test-value-1' },
+        ],
+      });
+
+      return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
+    });
+  });
+
+  describe('background image', () => {
+    test(`- renders correctly`, () => {
+      expect.assertions(1);
+
+      return expect(render(demoBackgroundImage)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly with extra class names', () => {
+      expect.assertions(1);
+
+      const withExtraClasses = merge(demoBackgroundImage, {
+        extra_classes: 'custom-class custom-class--test',
+      });
+
+      return expect(render(withExtraClasses)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly with extra attributes', () => {
+      expect.assertions(1);
+
+      const withExtraAttributes = merge(demoBackgroundImage, {
         extra_attributes: [
           { name: 'data-test', value: 'data-test-value' },
           { name: 'data-test-1', value: 'data-test-value-1' },

@@ -5,6 +5,8 @@
     - "description" (string) (default: '') Description of header
     - "meta" (string) (default: '') Meta of header
     - "breadcrumb" (associative array) (default: '') Predefined structure compatible with EC Breadcrumb
+    - "background_image" (boolean) (default: false) With or without header background
+    - "background_image_url (string) (default: '') Background image url
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
         {
@@ -21,12 +23,23 @@
 {% set _description = description|default('') %}
 {% set _breadcrumb = breadcrumb|default({}) %}
 {% set _css_class = 'ecl-page-header-core' %}
+{% set _background_image = background_image|default(false) %}
+{% set _background_image_url = background_image_url|default('') %}
 {% set _extra_attributes = '' %}
 {% set _compliance = _compliance_|default(false) %}
 
 {# Internal logic - Process properties #}
+
+{% if _background_image %}
+  {% set _css_class = _css_class ~ ' ecl-page-header-core--image' %}
+{% endif %}
+
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if _background_image and _background_image_url is not empty %}
+  {% set _extra_attributes = 'style="background-image: url(' ~ _background_image_url ~ ')"' %}
 {% endif %}
 
 {% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
