@@ -1,4 +1,4 @@
-import { withKnobs, text, optionsKnob } from '@storybook/addon-knobs';
+import { withKnobs, text, boolean, optionsKnob } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
 import {
@@ -8,12 +8,14 @@ import {
 } from '@ecl-twig/story-utils';
 
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
+import demoBackgroundImage from './demo/data--background-image';
 import demoTitleContent from './demo/data--title';
 import demoMetaTitleContent from './demo/data--meta-title';
 import demoMetaTitleDescriptionContent from './demo/data--meta-title-description';
 import euDemoTitleContent from './demo/eu-data--title';
 import euDemoMetaTitleContent from './demo/eu-data--meta-title';
 import euDemoMetaTitleDescriptionContent from './demo/eu-data--meta-title-description';
+import euDemoBackgroundImage from './demo/eu-data--background-image';
 
 import pageHeaderCore from './ecl-page-header-core.html.twig';
 import notes from './README.md';
@@ -28,8 +30,11 @@ const dataMetaTitle = system ? euDemoMetaTitleContent : demoMetaTitleContent;
 const dataMetaTitleDescription = system
   ? euDemoMetaTitleDescriptionContent
   : demoMetaTitleDescriptionContent;
+const dataBackgroundImage = system
+  ? euDemoBackgroundImage
+  : demoBackgroundImage;
 
-const preparePageHeaderCore = (data, desc, meta) => {
+const preparePageHeaderCore = (data, desc, meta, img) => {
   data.title = text('title', data.title, tabLabels.required);
   if (meta) {
     data.meta = text('meta', data.meta, tabLabels.optional);
@@ -39,6 +44,18 @@ const preparePageHeaderCore = (data, desc, meta) => {
       'description',
       data.description,
       tabLabels.optional
+    );
+  }
+  if (img) {
+    data.background_image = boolean(
+      'background_image',
+      data.background_image,
+      tabLabels.required
+    );
+    data.background_image_url = text(
+      'background_image_url',
+      data.background_image_url,
+      tabLabels.required
     );
   }
   data.breadcrumb.icon_file_path = optionsKnob(
@@ -98,4 +115,12 @@ export const MetaTitleDescription = () =>
 MetaTitleDescription.storyName = 'meta-title-description';
 MetaTitleDescription.parameters = {
   notes: { markdown: notes, json: dataMetaTitleDescription },
+};
+
+export const BackgroundImage = () =>
+  pageHeaderCore(preparePageHeaderCore(dataBackgroundImage, true, true, true));
+
+BackgroundImage.storyName = 'background image';
+BackgroundImage.parameters = {
+  notes: { markdown: notes, json: dataBackgroundImage },
 };
