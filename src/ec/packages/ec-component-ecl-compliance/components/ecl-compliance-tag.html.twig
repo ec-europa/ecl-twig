@@ -28,15 +28,15 @@
   {% set message = 'No tag has been provided.' %}
 {% endif %}
 {% if no_label_case %}
-  {% set message = message ~ ' {{ tag.label }} needs to set and filled inis mandatory.' %}
+  {% set message = message ~ ' {{ tag.label }} property needs to set and filled in.' %}
 {% endif %}
 {% if no_path_case %}
-  {% set message = message ~ ' When the tag is a link the {{ tag.path }} property need to be set and filled in.' %}
+  {% set message = message ~ ' When {{ tag.type }} is "link" the {{ tag.path }} property needs to be set and filled in.' %}
 {% endif %}
 {% if no_icon_path_case %}
-  {% set message = message ~ ' {{ default_icon_path }} needs to be set and filled in.' %}
+  {% set message = message ~ ' {{ default_icon_path }} property needs to be set and filled in.' %}
 {% endif %}
 {% if no_aria_label_case %}
-  {% set message = message ~ ' {{ aria_label }} needs to be set and filled in for accessibility reasons.' %}
+  {% set message = message ~ ' {{ aria_label }} property needs to be set and filled in for accessibility reasons.' %}
 {% endif %}
 

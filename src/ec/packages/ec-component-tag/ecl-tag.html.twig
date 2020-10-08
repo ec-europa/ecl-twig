@@ -4,7 +4,7 @@
   Parameters:
    - "tag" (associative array) (default: predefined structure): format:
       {
-        type: string (default: 'link') can be 'link', 'button', 'removable',
+        type: string (default: 'link') can be 'link', 'removable', 'display', 'button' (deprecated)
         path: string (default: '') tag url if needed),
         label: string (default: '') tag text as string,
         aria_label: (string) (default: '') (optional) aria label for removable tag as a string
@@ -34,15 +34,16 @@
 {% endif %}
 
 {% set _css_class = 'ecl-tag' %}
+{% if _tag.type == 'removable' or _tag.type == 'display' %}
+  {% set _css_class = _css_class ~ ' ecl-tag--' ~ _tag.type %}
+{% endif %}
 {% set _extra_attributes = '' %}
 {% set _compliance = _compliance_|default(false) %}
 {% set _compliance_inner_check = _compliance_inner_check_|default(false) %}
-{% set _icon_path = icon_path|default(false) %}
+{% set _default_icon_path = default_icon_path|default('') %}
 
 {# Add extra class for removable tag #}
-
 {% if _tag.type == 'removable' %}
-  {% set _css_class = _css_class ~ ' ecl-tag--removable' %}
   {% if _tag.aria_label is defined and _tag.aria_label is not empty %}
     {% set _extra_attributes = 'aria-label="' ~ _tag.aria_label ~ '"' %}
   {% endif %}
@@ -74,32 +75,35 @@
   <button class="{{ _css_class }}" type="button" {{ _extra_attributes|raw }}>
     {{- _tag.label -}}
   </button>
-{% elseif _tag.type == 'removable' %}
+{% else %}
   <span class="{{ _css_class }}">
     {{- _tag.label -}}
+  {%- if _tag.type == 'removable' -%}
     <button type="button" {{ _extra_attributes|raw }} class="ecl-tag__icon">
       {% include '@ecl-twig/ec-component-icon/ecl-icon.html.twig' with {
-        icon: { type: 'ui', name: 'close', size: 'xs', path: default_icon_path },
+        icon: { type: 'ui', name: 'close', size: 'xs', path: _default_icon_path },
         extra_classes: 'ecl-tag__icon-close',
         _compliance_: _compliance,
         _compliance_inner_check_: true
       } only %}
       {% include '@ecl-twig/ec-component-icon/ecl-icon.html.twig' with {
-        icon: { type: 'ui', name: 'close-filled', size: 'xs', path: default_icon_path },
+        icon: { type: 'ui', name: 'close-filled', size: 'xs', path: _default_icon_path },
         extra_classes: 'ecl-tag__icon-close-filled',
         _compliance_: _compliance,
         _compliance_inner_check_: true
       } only %}
     </button>
+  {%- endif -%}
   </span>
 {% endif %}
 
 {# Validation #}
 
 {% if _compliance %}
+  {% set _icon_path = icon_path|default('') %}
   {% include '@ecl-twig/ec-component-ecl-compliance/components/ecl-compliance-tag.html.twig' with {
     tag: _tag,
-    default_icon_path: default_icon_path,
+    default_icon_path: _default_icon_path,
     icon_path: _icon_path,
     _compliance_inner_check_: _compliance_inner_check
   } only %}

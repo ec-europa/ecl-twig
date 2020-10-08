@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.34.0](https://github.com/ec-europa/ecl-twig/compare/v2.34.0...v2.33.2) (2020-10-08)
+
+#### :rocket: New Feature
+
+- [#571](https://github.com/ec-europa/ecl-twig/pull/571) feat(tag): New variant added, another deprecated - front-1709 ([@planctus](https://github.com/planctus))
+- [#572](https://github.com/ec-europa/ecl-twig/pull/572) feat(page-header-core): Adding background-image variant - front-1711 ([@planctus](https://github.com/planctus))
+
+#### :bug: Bug Fix
+
+- [#569](https://github.com/ec-europa/ecl-twig/pull/569) fix(button): Disabled attribute was deleting the custom attributes set - front-1708 ([@planctus](https://github.com/planctus))
+- [#568](https://github.com/ec-europa/ecl-twig/pull/568) fix(php-storybook): Creating local packages for storybook - front-1703 ([@planctus](https://github.com/planctus))
+
+#### :house: Internal
+
+- [#573](https://github.com/ec-europa/ecl-twig/pull/573) chore(deps): update pre 2.34.0 release - front-1714 ([@planctus](https://github.com/planctus))
+- [#570](https://github.com/ec-europa/ecl-twig/pull/570) chore(storybook): Update ECL resources to 2.34.0 - front-1713 ([@planctus](https://github.com/planctus))
+
+#### Committers: 1
+
+- [@planctus](https://github.com/planctus)
+
 ## [2.33.2](https://github.com/ec-europa/ecl-twig/compare/v2.33.2...v2.33.1) (2020-10-01)
 
 #### :nail_care: Enhancement
