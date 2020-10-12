@@ -107,7 +107,26 @@ describe('EC - Icon', () => {
 
       return expect(render(optionsWithExtraClasses)).resolves.toMatchSnapshot();
     });
+
+    test('renders correctly with accessibility content', () => {
+      expect.assertions(1);
+
+      const optionsWithAccessibility = merge(options, {
+        as_image: true,
+        extra_accessibility: {
+          title: 'Title',
+          title_id: 'example-title',
+          description: 'Description',
+          description_id: 'example-desc',
+        },
+      });
+
+      return expect(
+        render(optionsWithAccessibility)
+      ).resolves.toMatchSnapshot();
+    });
   });
+
   describe('with validation enabled and missing input data', () => {
     test('returns the right warning message', () => {
       expect.assertions(1);

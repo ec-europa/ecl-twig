@@ -15,12 +15,18 @@ npm install --save @ecl-twig/ec-component-icon
   - "size" (string) (default: 'm') size of icon. Available sizes are 'xs','s','m','l','xl','2xl','fluid'
   - "transform" (string) (default: '') Transformation of icon. Available transformations are 'rotate-0', 'rotate-90', 'rotate-180', 'rotate-270', 'flip-horizontal', 'flip-vertical')
   - "color" (string) (default: '') Color of icon. Available colors are 'default', 'inverted', 'primary'
+- **"as_image"**: (boolean) (default: false) Whether the icon is used as an image
+- **"extra_accessibility"** (optional) (object) Extra tags for accessibility when used as an image
+  - description: '' (desc tag)
+  - description_id: '' (desc tag id)
+  - title: '' (title tag)
+  - title_id: '' (title tag id)
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1',
-- **"_compliance_"** (optional) (boolean) (default: false) Activates debug
-- **"_compliance_inner_check_"** (optional) (boolean) (default: false) Inline compliance report
+- **"\_compliance\_"** (optional) (boolean) (default: false) Activates debug
+- **"\_compliance_inner_check\_"** (optional) (boolean) (default: false) Inline compliance report
 
 ### Example:
 
