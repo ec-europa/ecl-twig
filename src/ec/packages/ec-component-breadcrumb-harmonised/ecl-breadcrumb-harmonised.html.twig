@@ -37,8 +37,8 @@
 {% set _icon_file_path = icon_file_path|default('') %}
 
 {% set _nav_attributes = [
-  { name: 'aria-label', value: _navigation_text },
-  { name: 'data-ecl-breadcrumb-harmonised', value: 'true' }]
+  {name: 'aria-label', value: _navigation_text},
+  {name: 'data-ecl-breadcrumb-harmonised', value: 'true'}]
 %}
 {% set _compliance = _compliance_|default(false) %}
 {% set _compliance_inner_check = _compliance_inner_check_|default(false) %}
@@ -51,7 +51,9 @@
     path: _icon_file_path
   },
   extra_classes: 'ecl-breadcrumb-harmonised__icon',
-  extra_attributes: [{ name: 'role', value: 'presentation' }]
+  extra_attributes: [
+    {name: 'role', value: 'presentation'}
+  ]
 } %}
 
 {% set _css_class = 'ecl-breadcrumb-harmonised' %}
@@ -59,7 +61,7 @@
 {# Internal logic - Process properties #}
 
 {% if _breadcrumb_size > (_min_items_left + _min_items_right) %}
-  {% set _nav_attributes = _nav_attributes|merge([{ name: 'data-ecl-auto-init', value: 'BreadcrumbHarmonised' }]) %}
+  {% set _nav_attributes = _nav_attributes|merge([{name: 'data-ecl-auto-init', value: 'BreadcrumbHarmonised'}]) %}
 {% endif %}
 
 {% if _compliance %}

@@ -95,11 +95,15 @@
 {% endif %}
 
 {% if search_form.text_input is defined and search_form.text_input is not empty %}
-  {% set _search_form = _search_form|merge({ text_input: _search_form.text_input|merge(search_form.text_input) }) %}
+  {% set _search_form = _search_form|merge({
+    text_input: _search_form.text_input|merge(search_form.text_input)
+  }) %}
 {% endif %}
 
 {% if search_form.button is defined and search_form.button is not empty %}
-  {% set _search_form = _search_form|merge({ button: _search_form.button|merge(search_form.button) }) %}
+  {% set _search_form = _search_form|merge({
+    button: _search_form.button|merge(search_form.button)
+  }) %}
 {% endif %}
 
 {# Internal logic - Process properties #}
@@ -165,9 +169,7 @@
           eu_category: _language_selector.eu_category,
           non_eu_category: _language_selector.non_eu_category,
           non_eu_items: _language_selector.overlay.non_eu_items,
-          extra_attributes: [
-            { name: 'hidden' }
-          ],
+          extra_attributes: [{name: 'hidden'}],
           _compliance_: _compliance,
           _compliance_inner_check_: true
         } %}

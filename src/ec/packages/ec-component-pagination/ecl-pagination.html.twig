@@ -50,13 +50,13 @@
     {% for _item in _items %}
       <li class="ecl-pagination__item{{ _item.type ? ' ecl-pagination__item--' ~ _item.type }}">
         {% if _item.link is not empty %}
-          {% set _link = _item.link.link|merge({ type: 'standalone' }) %}
+          {% set _link = _item.link.link|merge({type: 'standalone'}) %}
           {% if _item.aria_label is defined and _item.aria_label is not empty %}
-            {% set _link = _link|merge({ aria_label: _item.aria_label }) %}
+            {% set _link = _link|merge({aria_label: _item.aria_label}) %}
           {% endif %}
           {% if _item.link.icon is defined and _item.link.icon is not empty %}
-            {% set _icon = _icon_path is not empty ? _item.link.icon|merge({ path: _icon_path }) : _item.link.icon %}
-            {% set _link = _link|merge({ 'icon': _icon }) %}
+            {% set _icon = _icon_path is not empty ? _item.link.icon|merge({path: _icon_path}) : _item.link.icon %}
+            {% set _link = _link|merge({'icon': _icon}) %}
           {% endif %}
           {% include '@ecl-twig/ec-component-link/ecl-link.html.twig' with _item.link|merge({
             link: _link|default({}),

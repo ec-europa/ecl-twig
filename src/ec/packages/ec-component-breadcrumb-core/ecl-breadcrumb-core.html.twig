@@ -37,8 +37,8 @@
 {% set _min_items_left = min_items_left|default(1) %}
 {% set _min_items_right = min_items_right|default(2) %}
 {% set _nav_attributes = [
-  { name: 'aria-label', value: _navigation_text },
-  { name: 'data-ecl-breadcrumb-core', value: 'true' }]
+  {name: 'aria-label', value: _navigation_text},
+  {name: 'data-ecl-breadcrumb-core', value: 'true'}]
 %}
 {% set _breadcrumb_icon = {
   icon: {
@@ -49,7 +49,7 @@
     path: _icon_file_path,
   },
   extra_classes: 'ecl-breadcrumb-core__icon',
-  extra_attributes: [{ name: 'role', value: 'presentation' }]
+  extra_attributes: [{name: 'role', value: 'presentation'}]
 } %}
 {% set _compliance = _compliance_|default(false) %}
 {% set _compliance_inner_check = _compliance_inner_check_|default(false) %}
@@ -58,7 +58,7 @@
 {# Internal logic - Process properties #}
 
 {% if _breadcrumb_size > (_min_items_left + _min_items_right) %}
-  {% set _nav_attributes = _nav_attributes|merge([{ name: 'data-ecl-auto-init', value: 'BreadcrumbCore' }]) %}
+  {% set _nav_attributes = _nav_attributes|merge([{name: 'data-ecl-auto-init', value: 'BreadcrumbCore'}]) %}
 {% endif %}
 
 {% if _compliance %}

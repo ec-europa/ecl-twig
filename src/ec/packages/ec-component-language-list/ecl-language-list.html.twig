@@ -90,7 +90,7 @@
           },
           icon_position: "after",
           extra_classes: 'ecl-language-list__close-button',
-          extra_attributes: [{ name: 'data-ecl-language-list-close' }],
+          extra_attributes: [{name: 'data-ecl-language-list-close'}],
           _compliance_: _compliance,
           _compliance_inner_check_: true
         } only %}
@@ -104,8 +104,7 @@
     </div>
 {% else %}
   <header class="ecl-language-list__header">
-  {% if (_logo.path is defined and _logo.path is not empty) and
-      (_logo.alt is defined and _logo.alt is not empty) %}
+  {% if _logo.path is defined and _logo.path is not empty %}
     <img class="ecl-language-list__logo" src="{{ _logo.path }}" alt="{{ _logo.alt }}" />
   {% endif %}
   </header>

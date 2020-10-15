@@ -63,11 +63,11 @@
 <div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
   {% set _label = _label_collapsed %}
   {% set _button_attributes = [
-    { name: 'aria-controls', value: _aria_controls },
-    { name: 'data-ecl-expandable-toggle' },
-    { name: 'data-ecl-label-expanded', value: _label_expanded },
-    { name: 'data-ecl-label-collapsed', value: _label_collapsed },
-    { name: 'aria-expanded', value: 'false' }
+    {name: 'aria-controls', value: _aria_controls},
+    {name: 'data-ecl-expandable-toggle'},
+    {name: 'data-ecl-label-expanded', value: _label_expanded},
+    {name: 'data-ecl-label-collapsed', value: _label_collapsed},
+    {name: 'aria-expanded', value: 'false'}
   ] %}
   {% include '@ecl-twig/ec-component-button/ecl-button.html.twig' with _button|merge({
     label: _label,

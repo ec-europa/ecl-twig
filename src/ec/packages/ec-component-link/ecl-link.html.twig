@@ -86,7 +86,7 @@
 {% endif %}
 
 {% if _link.aria_label is defined and _link.aria_label is not empty %}
-  {% set extra_attributes = extra_attributes|default([])|merge([{ name: 'aria-label', value: _link.aria_label }]) %}
+  {% set extra_attributes = extra_attributes|default([])|merge([{name: 'aria-label', value: _link.aria_label}]) %}
 {% endif %}
 
 {% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}

@@ -57,9 +57,9 @@
     extra_classes: 'ecl-message__icon',
   } only %}
   {% if _close.icon is defined and _close.icon is not empty %}
-    {% set _icon = _close.icon|merge({ size: 's', name: 'close', type: 'ui' }) %}
+    {% set _icon = _close.icon|merge({size: 's', name: 'close', type: 'ui'}) %}
     {% if _compliance %}
-      {% set _close = _close|merge({ '_compliance_': _compliance, inner_check: true }) %}
+      {% set _close = _close|merge({'_compliance_': _compliance, inner_check: true}) %}
     {% endif %}
   {% endif %}
   <div class="ecl-message__content">

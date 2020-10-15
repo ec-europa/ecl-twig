@@ -28,8 +28,9 @@
 {% set _compliance = _compliance_|default(false) %}
 
 {% set _button_attributes = [
-{ name: 'aria-controls', value: _aria_controls },
-{ name: 'data-ecl-dropdown-legacy-toggle', value: 'true' }] %}
+  {name: 'aria-controls', value: _aria_controls},
+  {name: 'data-ecl-dropdown-legacy-toggle', value: 'true'}
+] %}
 
 {% set _button = {
   label: _button.label,

@@ -104,7 +104,7 @@
             'path': _link.href
           },
           extra_classes: _extra_classes,
-          extra_attributes: [{ name: 'data-' ~ _prefix_class ~ '-link' }],
+          extra_attributes: [{name: 'data-' ~ _prefix_class ~ '-link'}],
           _compliance_: _compliance,
           _compliance_inner_check_: true,
           icon_path: _icon.path|default('')
@@ -115,7 +115,7 @@
           link: {'type': 'standalone', 'label': _link.label, 'path': _link.href, 'icon_position': 'after'},
           icon: _icon,
           extra_classes: _extra_classes,
-          extra_attributes: [{ name: 'data-' ~ _prefix_class ~ '-link' }],
+          extra_attributes: [{name: 'data-' ~ _prefix_class ~ '-link'}],
            _compliance_: _compliance,
            _compliance_inner_check_: true
         } only -%}
@@ -132,9 +132,13 @@
               {% set _extra_classes = _prefix_class ~ '__sublink' ~ (_child_link.is_current ? ' ' ~ _prefix_class ~ '__sublink--current' : '') %}
               <li class="{{ _list_subelement_custom_class }}" data-ecl-menu-legacy-subitem>
                {%- include '@ecl-twig/ec-component-link/ecl-link.html.twig' with {
-                  link: {'type': 'standalone', 'label': _child_link.label, 'path': _child_link.href},
+                  link: {
+                    type: 'standalone',
+                    label: _child_link.label,
+                    path: _child_link.href
+                  },
                   extra_classes: _extra_classes,
-                  extra_attributes: [{ name: 'data-ecl-menu-legacy-sublink' }],
+                  extra_attributes: [{name: 'data-ecl-menu-legacy-sublink'}],
                    _compliance_: _compliance,
                    _compliance_inner_check_: true
                 } only -%}

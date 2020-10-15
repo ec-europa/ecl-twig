@@ -118,7 +118,7 @@
       {% for link in _card.links %}
         <li class="ecl-card__link-item">
           {% include '@ecl-twig/ec-component-link/ecl-link.html.twig' with {
-            link: link|merge({ type: 'standalone' }),
+            link: link|merge({type: 'standalone'}),
             extra_classes: 'ecl-card__link',
             _compliance_: _compliance,
             _compliance_inner_check_: true,
@@ -136,9 +136,9 @@
       <ul class="ecl-card__info-container">
         {% for info in _card.infos %}
           {% if info.icon is defined and info.icon is not empty %}
-            {% set _icon = info.icon|merge({ size: 'xs' }) %}
+            {% set _icon = info.icon|merge({size: 'xs'}) %}
             {% if _icon_path is not empty %}
-              {% set _icon = _icon|merge({ path: _icon_path }) %}
+              {% set _icon = _icon|merge({path: _icon_path}) %}
             {% else %}
               {% set _icon_path = _icon.path|default('') %}
             {% endif %}

@@ -10,12 +10,12 @@
     "storybook"
   ],
   "scripts": {
-    "twig-cs": "./vendor/bin/twigcs \"./src/*/packages\"",
-    "cs": "./vendor/bin/twigcs --severity error",
+    "twig-cs": "./vendor/bin/twigcs \"./src/*/packages\" --severity error --exclude \"node_modules\" --exclude \"ec-component-ecl-compliance\" --display blocking --twig-version 1",
+    "cs": "./vendor/bin/twigcs --severity error --display blocking --twig-version 1",
     "grump-cs": "php ./vendor/bin/grumphp run"
   },
   "require-dev": {
-    "friendsoftwig/twigcs": "^3.2.2",
-    "phpro/grumphp": "^0.18.0"
+    "friendsoftwig/twigcs": "^v4.0-BETA4",
+    "phpro/grumphp": "^1.0.0"
   }
 }

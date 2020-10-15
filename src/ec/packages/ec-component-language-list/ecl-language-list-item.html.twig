@@ -23,17 +23,17 @@
 
 {% set _item_attribute = [] %}
 {% if _item.lang is defined and _item.lang is not empty %}
-  {% set _item_attribute = _item_attribute|merge([{ name: 'lang', value: _item.lang }]) %}
-  {% set _item_attribute = _item_attribute|merge([{ name: 'hreflang', value: _item.lang }]) %}
+  {% set _item_attribute = _item_attribute|merge([{name: 'lang', value: _item.lang}]) %}
+  {% set _item_attribute = _item_attribute|merge([{name: 'hreflang', value: _item.lang}]) %}
 {% endif %}
 {% if _overlay %}
-  {% set _item_attribute = _item_attribute|merge([{ name: 'rel', value: 'alternate' }]) %}
+  {% set _item_attribute = _item_attribute|merge([{name: 'rel', value: 'alternate'}]) %}
 {% endif %}
 
 {# Print the result #}
-
-{% if _item.label is defined and item.label is not empty and
-  _item.path is defined and _item.path is not empty %}
+{% set _has_label = _item.label is defined and item.label is not empty %}
+{% set _has_path = _item.path is defined and _item.path is not empty %}
+{% if _has_label and _has_path %}
   {% set _item_icon = {} %}
   {% if _item.active is defined and item.active == true %}
     {% set _item_icon = {

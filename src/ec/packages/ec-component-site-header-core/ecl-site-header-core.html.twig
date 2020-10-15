@@ -73,7 +73,7 @@
 {% set _css_class = 'ecl-site-header-core' %}
 {% set _compliance = _compliance_|default(false) %}
 {% set _menu = menu|default(false) %}
-{% set _search_form_extra_attributes = [{ name: 'data-ecl-search-form' }] %}
+{% set _search_form_extra_attributes = [{name: 'data-ecl-search-form'}] %}
 {% set _search_input_extra_classes = 'ecl-search-form__text-input' %}
 {% set _search_form_extra_classes = 'ecl-site-header-core__search' %}
 {% set _search_input_extra_attributes = [] %}
@@ -83,12 +83,12 @@
 {# Merge options #}
 
 {% set extra_attributes = [
-  { name: 'data-ecl-auto-init', value: 'SiteHeaderCore' }
+  {name: 'data-ecl-auto-init', value: 'SiteHeaderCore'}
   ]|merge(extra_attributes|default([]))
 %}
 
 {% if _menu is not empty %}
-  {% set extra_attributes = extra_attributes|merge([{ name: 'data-ecl-has-menu' }]) %}
+  {% set extra_attributes = extra_attributes|merge([{name: 'data-ecl-has-menu'}]) %}
 {% endif %}
 
 {% if login_toggle is defined and login_toggle is not empty %}
@@ -334,9 +334,7 @@
               path: _icon_file_path,
               type: 'general',
               size: 's',
-              extra_attributes: [
-               { name: 'aria-hidden', value: true }
-              ],
+              extra_attributes: [{name: 'aria-hidden', value: true}],
               _compliance_: _compliance,
               _compliance_inner_check_: true
             }
@@ -376,8 +374,8 @@
     eu_category: _eu_category,
     non_eu_category: _non_eu_category,
     extra_attributes: [
-      { name: 'hidden' },
-      { name: 'id', value: 'language-list-overlay' }
+      {name: 'hidden'},
+      {name: 'id', value: 'language-list-overlay'}
     ],
     _compliance_: _compliance,
     _compliance_inner_check_: true

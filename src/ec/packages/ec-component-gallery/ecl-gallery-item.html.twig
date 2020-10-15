@@ -27,8 +27,9 @@
 {% set _image_alt = '' %}
 {% set _item = item|default({}) %}
 {% set _compliance = _compliance_|default(false) %}
-{% set _has_icon = (_item.icon is defined and _item.icon is not empty) and
-  (_item.icon.name is defined and _item.icon.name is not empty) %}
+{% set _has_icon_object = _item.icon is defined and _item.icon is not empty %}
+{% set _has_icon_label = _item.icon.name is defined and _item.icon.name is not empty %}
+{% set _has_icon = _has_icon_object and _has_icon_label %}
 
 {# Internal logic - Process properties #}
 
@@ -99,9 +100,7 @@
         {{- _item.description -}}
         {% if _has_icon %}
           {%- include '@ecl-twig/ec-component-icon/ecl-icon.html.twig' with {
-            icon: _item.icon|merge({
-              size: "l",
-            }),
+            icon: _item.icon|merge({size: "l"}),
             extra_classes: 'ecl-gallery__description-icon',
             _compliance_: _compliance,
             _compliance_inner_check_: true

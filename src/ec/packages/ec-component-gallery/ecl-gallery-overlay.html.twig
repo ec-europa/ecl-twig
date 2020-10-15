@@ -53,7 +53,7 @@
       variant: _button_variant,
       type: 'submit',
       extra_attributes: [
-        { name: 'data-ecl-gallery-close' },
+        {name: 'data-ecl-gallery-close'},
       ],
       _compliance_: _compliance
     }) only %}
@@ -74,13 +74,14 @@
           name: 'corner-arrow',
         }),
         extra_attributes: [
-          { name: 'data-ecl-gallery-overlay-previous' },
+          {name: 'data-ecl-gallery-overlay-previous'},
         ],
         _compliance_: _compliance
       }) only %}
     {% endif %}
-    {% if (_overlay.next is defined and _overlay.next is not empty) and
-      (_overlay.next.icon is defined and _overlay.next.icon is not empty) %}
+    {% set _has_next = _overlay.next is defined and _overlay.next is not empty %}
+    {% set _has_next_icon = _overlay.next.icon is defined and _overlay.next.icon is not empty %}
+    {% if _has_next and _has_next_icon %}
       {% include '@ecl-twig/ec-component-button/ecl-button.html.twig' with _overlay.next|merge({
         extra_classes: 'ecl-gallery__slider-next',
         type: _button_type,
@@ -92,7 +93,7 @@
           name: 'corner-arrow',
         }),
         extra_attributes: [
-          { name: 'data-ecl-gallery-overlay-next' },
+          {name: 'data-ecl-gallery-overlay-next'},
         ],
         _compliance_: _compliance
       }) only %}
@@ -108,8 +109,9 @@
     </div>
   {% endif %}
     <div class="ecl-gallery__detail-actions">
-    {% if (_overlay.download is defined and _overlay.download is not empty) and
-      (_overlay.download.link is defined and _overlay.download.link is not empty) %}
+    {% set _has_download = _overlay.download is defined and _overlay.download is not empty %}
+    {% set _has_download_link = _overlay.download.link is defined and _overlay.download.link is not empty %}
+    {% if _has_download and _has_download_link %}
       {% include '@ecl-twig/ec-component-link/ecl-link.html.twig' with _overlay.download|merge({
         link: _overlay.download.link|merge({
           icon_position: 'after'
@@ -121,14 +123,15 @@
         }),
         extra_classes: 'ecl-gallery__download',
         extra_attributes: [
-          { name: 'data-ecl-gallery-overlay-download' },
-          { name: 'download' },
+          {name: 'data-ecl-gallery-overlay-download'},
+          {name: 'download'},
         ],
         _compliance_: _compliance
       }) only %}
     {% endif %}
-    {% if (_overlay.share is defined and _overlay.share is not empty) and
-      (_overlay.share.link is defined and _overlay.share.link is not empty) %}
+    {% set _has_share = _overlay.share is defined and _overlay.share is not empty %}
+    {% set _has_share_link = _overlay.share.link is defined and _overlay.share.link is not empty %}
+    {% if _has_share and _has_share_link %}
       {% include '@ecl-twig/ec-component-link/ecl-link.html.twig' with _overlay.share|merge({
         link: _overlay.share.link|merge({
           icon_position: 'after'
@@ -140,7 +143,7 @@
         }),
         extra_classes: 'ecl-gallery__share',
         extra_attributes: [
-          { name: 'data-ecl-gallery-overlay-share' },
+          {name: 'data-ecl-gallery-overlay-share'},
         ],
         _compliance_: _compliance
       }) only %}

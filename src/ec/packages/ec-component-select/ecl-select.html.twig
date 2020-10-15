@@ -65,12 +65,12 @@
 {% set _extra_attributes = '' %}
 {% if _multiple %}
   {% set extra_attributes = [
-    { name: 'multiple' },
-    { name: 'data-ecl-auto-init', value: 'Select' },
-    { name: 'data-ecl-select-multiple'},
-    { name: 'data-ecl-select-default', value: _multiple_placeholder },
-    { name: 'data-ecl-select-search', value: _multiple_search_text },
-    { name: 'data-ecl-select-all', value: _multiple_all_text }
+    {name: 'multiple'},
+    {name: 'data-ecl-auto-init', value: 'Select'},
+    {name: 'data-ecl-select-multiple'},
+    {name: 'data-ecl-select-default', value: _multiple_placeholder},
+    {name: 'data-ecl-select-search', value: _multiple_search_text},
+    {name: 'data-ecl-select-all', value: _multiple_all_text}
   ]|merge(extra_attributes|default([])) %}
 {% endif %}
 

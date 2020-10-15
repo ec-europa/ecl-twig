@@ -120,7 +120,7 @@
       {% endif %}
       {% if _section.title.link is defined and _section.title.link is not empty %}
         {% include '@ecl-twig/ec-component-link/ecl-link.html.twig' with _section|merge({
-          link: _section.title.link|merge({ type: 'standalone'}),
+          link: _section.title.link|merge({type: 'standalone'}),
           extra_classes: _title_class_name,
           icon: _section.title.icon|default({}),
           _compliance_: _compliance,
@@ -167,7 +167,7 @@
       {% for _item in _section.links %}
         <li class="ecl-footer-harmonised__list-item">
            {% include '@ecl-twig/ec-component-link/ecl-link.html.twig' with _item|merge({
-              link: _item.link|default({})|merge({ type: 'standalone' }),
+              link: _item.link|default({})|merge({type: 'standalone'}),
               extra_classes: 'ecl-footer-harmonised__link',
               _compliance_: _compliance,
               _compliance_inner_check_: true

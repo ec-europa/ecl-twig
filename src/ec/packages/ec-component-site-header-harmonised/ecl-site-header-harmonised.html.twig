@@ -79,7 +79,7 @@
 {% set _menu = menu|default(false) %}
 {% set _extra_attributes = '' %}
 {% set _compliance = _compliance_|default(false) %}
-{% set _search_form_extra_attributes = [{ name: 'data-ecl-search-form' }] %}
+{% set _search_form_extra_attributes = [{name: 'data-ecl-search-form'}] %}
 {% set _search_input_extra_classes = 'ecl-search-form__text-input' %}
 {% set _search_form_extra_classes = 'ecl-site-header-harmonised__search' %}
 {% set _search_input_extra_attributes = [] %}
@@ -92,7 +92,7 @@
 
 {% if group != 'group3' %}
 {% set extra_attributes = [
-  { name: 'data-ecl-auto-init', value: 'SiteHeaderHarmonised' }
+  {name: 'data-ecl-auto-init', value: 'SiteHeaderHarmonised'}
   ]|merge(extra_attributes|default([]))
 %}
 {% endif %}
@@ -188,7 +188,7 @@
 {% endif %}
 
 {% if _menu is not empty %}
-  {% set extra_attributes = extra_attributes|default([])|merge([{ name: 'data-ecl-has-menu' }]) %}
+  {% set extra_attributes = extra_attributes|default([])|merge([{name: 'data-ecl-has-menu'}]) %}
 {% endif %}
 
 {% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
@@ -358,7 +358,7 @@
                 type: 'general',
                 size: 's',
                 extra_attributes: [
-                { name: 'aria-hidden', value: true }
+                  {name: 'aria-hidden', value: true}
                 ],
                 _compliance_: _compliance,
                 _compliance_inner_check_: true
@@ -379,7 +379,7 @@
     <div class="ecl-container">
       {%- if banner_top.link is defined and banner_top.link is not empty %}
         {% include '@ecl-twig/ec-component-link/ecl-link.html.twig' with banner_top|merge({
-          link: banner_top.link|merge({ type: 'standalone'}),
+          link: banner_top.link|merge({type: 'standalone'}),
           _compliance_: _compliance,
           _compliance_inner_check_: true,
           icon_path: _icon_file_path
@@ -423,8 +423,8 @@
     non_eu_category: _non_eu_category,
     icon_path: _icon_file_path,
     extra_attributes: [
-      { name: 'hidden' },
-      { name: 'id', value: 'language-list-overlay' }
+      {name: 'hidden'},
+      {name: 'id', value: 'language-list-overlay'}
     ],
     _compliance_: _compliance,
     _compliance_inner_check_: true
