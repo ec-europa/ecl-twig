@@ -266,16 +266,20 @@ const eclComponents = (component, variant, system) => {
       }
       break;
     case 'site-header-harmonised':
-      switch (variant) {
-        case 'group1':
-          eclPath = 'components-site-headers-harmonised--group-1';
-          break;
-        case 'group2':
-          eclPath = 'components-site-headers-harmonised--group-2';
-          break;
-        case 'group3':
-          eclPath = 'components-site-headers-harmonised--group-3';
-          break;
+      if (system !== 'eu') {
+        switch (variant) {
+          case 'group1':
+            eclPath = 'components-site-headers-harmonised--group-1';
+            break;
+          case 'group2':
+            eclPath = 'components-site-headers-harmonised--group-2';
+            break;
+          case 'group3':
+            eclPath = 'components-site-headers-harmonised--group-3';
+            break;
+        }
+      } else {
+        eclPath = `components-site-headers-harmonised--${variant}`;
       }
       break;
     case 'skip-link':
