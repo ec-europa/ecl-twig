@@ -22,8 +22,9 @@ import logoEnMobile from '@ecl/eu-resources-logo/condensed-version/positive/en.s
 import logoFr from '@ecl/eu-resources-logo/logo--fr.svg';
 import logoFrMobile from '@ecl/eu-resources-logo/condensed-version/positive/fr.svg';
 import siteHeaderHarmonised from './ecl-site-header-harmonised.html.twig';
-import enSpecs from './demo/eu-data--en';
-import frSpecs from './demo/eu-data--fr';
+import enSpecs from './demo/eu-data--default';
+import frSpecs from './demo/eu-data--translated';
+import loggedInSpecs from './demo/eu-data--logged-in';
 import notes from './README.md';
 
 const prepareSiteHeaderHarmonised = (data, lang, logged) => {
@@ -123,10 +124,10 @@ Default.storyName = 'default';
 Default.parameters = { notes: { markdown: notes, json: enSpecs } };
 
 export const LoggedIn = () =>
-  siteHeaderHarmonised(prepareSiteHeaderHarmonised(enSpecs, 'en', true));
+  siteHeaderHarmonised(prepareSiteHeaderHarmonised(loggedInSpecs, 'en', true));
 
 LoggedIn.storyName = 'logged in';
-LoggedIn.parameters = { notes: { markdown: notes, json: enSpecs } };
+LoggedIn.parameters = { notes: { markdown: notes, json: loggedInSpecs } };
 
 export const Translated = () =>
   siteHeaderHarmonised(prepareSiteHeaderHarmonised(frSpecs, 'fr'));
