@@ -3,6 +3,7 @@ import dataMenu from '../../ec-component-menu/demo/data--en';
 import adapter from '../adapter';
 
 specs.menu = dataMenu;
+specs.site_name = 'Site name';
 specs.logo.src_desktop = '/logo--en.svg';
 
 export default adapter(specs);
