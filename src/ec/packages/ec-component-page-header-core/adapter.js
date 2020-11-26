@@ -1,9 +1,6 @@
 const adapter = (initialData) => {
   // Copy reference specification demo adaptedData.
   const adaptedData = JSON.parse(JSON.stringify(initialData));
-  if (adaptedData.meta) {
-    adaptedData.meta = adaptedData.meta.replace(/(<([^>]+)>)/gi, '');
-  }
   if (adaptedData.image) {
     adaptedData.background_image = true;
     adaptedData.background_image_url = adaptedData.image;
