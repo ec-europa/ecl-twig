@@ -6,6 +6,7 @@
     - "is_current" (boolean) Whether the item is currently selected
     - "label" (string) Label of the menu link
     - "icon_path" (string) Path to the icon sprite
+    - "submenu_label" (string) Label for the accessibility span
     - "children" (array of object) Array of sub-items
       - "is_current" (boolean) Whether the sub-item is currently selected
       - "path" (string) Href of the sub-item link
@@ -20,18 +21,26 @@
 {% set _menu_list_item_class = 'ecl-menu__item' %}
 {% set _icon_path = icon_path|default('') %}
 {% set _compliance = _compliance_|default(false) %}
+{% set _submenu_label = '' %}
 
 {% if _item.is_current is defined %}
   {% set _menu_item_class = _menu_item_class ~ ' ecl-menu__link--current' %}
   {% set _menu_list_item_class = _menu_list_item_class ~ ' ecl-menu__item--current' %}
 {% endif %}
 
-{% if item.children is defined and item.children is not empty and item.children is iterable %}
+{% if _item.children is defined and _item.children is not empty and _item.children is iterable %}
   {% set _menu_list_item_attributes = _menu_list_item_attributes ~ ' data-ecl-has-children' %}
   {% set _menu_list_item_class = _menu_list_item_class ~ ' ecl-menu__item--has-children' %}
+  {% if _item.submenu_label is defined and _item.submenu_label is not empty %}
+    {% set _submenu_label %}
+      <span class="ecl-u-sr-only">{{ _item.submenu_label }}</span>
+    {% endset %}
+  {% endif %}
 {% endif %}
 
-<li class="{{ _menu_list_item_class }}" {{ _menu_list_item_attributes }}>
+<li
+  class="{{ _menu_list_item_class }}" {{ _menu_list_item_attributes }}>
+  {{ _submenu_label }}
   <a href="{{ item.path }}" class="{{ _menu_item_class }}" {{ _menu_item_attributes }}>
     {{- item.label -}}
     {%- if item.children is defined and item.children is not empty and item.children is iterable -%}
