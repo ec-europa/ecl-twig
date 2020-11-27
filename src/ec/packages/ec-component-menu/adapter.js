@@ -10,7 +10,10 @@ const adapter = (initialData) => {
     adaptedData.items.forEach((mainItem) => {
       mainItem.path = mainItem.href;
       delete mainItem.href;
-
+      if (mainItem.hasSubmenuLabel) {
+        mainItem.submenu_label = mainItem.hasSubmenuLabel;
+        delete mainItem.hasSubmenuLabel;
+      }
       if (mainItem.isCurrent) {
         mainItem.is_current = mainItem.isCurrent;
         delete mainItem.isCurrent;

@@ -8,15 +8,16 @@ npm install --save @ecl-twig/ec-component-menu
 
 ### Parameters
 
-- **title:** (string) (default: ''): Title
-- **close:** (string) (default: ''): Close button label
-- **back:** (string): (default: ''): Back button label
-- **menu_link:** (string): (default: ''): Href attribute of the menu toggler
+- **"title** (string) (default: ''): Title
+- **"close"** (string) (default: ''): Close button label
+- **"back"** (string): (default: ''): Back button label
+- **"menu_link"** (string): (default: ''): Href attribute of the menu toggler
 - **"icon_path"** (string) (default: ''): Path to the icon sprite
 - **"items"** (associative array) (default: {}): The menu items - format:
   "label": (string) (default: '')
   "path": (string) (default: '')
   "is_current": (boolean) (optional),
+  "submenu_label": (string) (optional),
   - "children": (associative array) (optional)
     "label": (string) (default: '')
     "path": (string) (default: '')
@@ -26,7 +27,7 @@ npm install --save @ecl-twig/ec-component-menu
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes for the nav element
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (optional) (string) Attribute value, eg: 'data-test-1'
-- **"_compliance_"** (boolean) (default: false) Activates debug
+- **"\_compliance\_"** (boolean) (default: false) Activates debug
 
 ### Example:
 
