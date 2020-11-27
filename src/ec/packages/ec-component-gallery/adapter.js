@@ -6,6 +6,7 @@ function formatItem(i) {
     meta: i.meta,
     share_path: i.shareHref,
     video: i.video,
+    embedded_video: i.embeddedVideo,
     image: i.image,
   };
 
