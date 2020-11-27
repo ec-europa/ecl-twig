@@ -3,6 +3,32 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.35.0](https://github.com/ec-europa/ecl-twig/compare/v2.35.0...v2.34.0) (2020-11-27)
+
+#### :bug: Bug Fix
+
+- [#580](https://github.com/ec-europa/ecl-twig/pull/580) fix(page-header): homepage image variant doesn't have the breadcrumb - front-1727 ([@planctus](https://github.com/planctus))
+- [#578](https://github.com/ec-europa/ecl-twig/pull/578) fix(site-header-standardised): fixing translated story - front-1725 ([@planctus](https://github.com/planctus))
+
+#### :nail_care: Enhancement
+
+- [#584](https://github.com/ec-europa/ecl-twig/pull/584) feat(gallery): Add support for external video iframe - FRONT-1817 ([@papegaill](https://github.com/papegaill))
+- [#585](https://github.com/ec-europa/ecl-twig/pull/585) feat(menu): Adding span for accessibiltiy - FRONT-1818 ([@planctus](https://github.com/planctus))
+- [#582](https://github.com/ec-europa/ecl-twig/pull/582) feat(page-headers): Meta is uppercased in CSS - front-1819 ([@planctus](https://github.com/planctus))
+- [#574](https://github.com/ec-europa/ecl-twig/pull/574) feat(icon): Adding extra markup for accessibility - front-1715 ([@planctus](https://github.com/planctus))
+
+#### :house: Internal
+
+- [#583](https://github.com/ec-europa/ecl-twig/pull/583) chore(deps): overall updates, including storybook - FRONT-1821 ([@planctus](https://github.com/planctus))
+- [#581](https://github.com/ec-europa/ecl-twig/pull/581) chore(ECL): Upgrading ECL resources to 2.35.0 - FRONT-1820 ([@planctus](https://github.com/planctus))
+- [#579](https://github.com/ec-europa/ecl-twig/pull/579) fix(site-header-harmonised): Fixing demoes, fixing mapping for diff - front-1726 ([@planctus](https://github.com/planctus))
+- [#577](https://github.com/ec-europa/ecl-twig/pull/577) chore(deps): update performed the 16-10-2020 - front-1724 ([@planctus](https://github.com/planctus))
+
+#### Committers: 2
+
+- Alexis Gaillard ([@papegaill](https://github.com/papegaill))
+- [@planctus](https://github.com/planctus)
+
 ## [2.34.0](https://github.com/ec-europa/ecl-twig/compare/v2.34.0...v2.33.2) (2020-10-08)
 
 #### :rocket: New Feature
