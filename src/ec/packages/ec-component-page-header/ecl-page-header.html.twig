@@ -64,7 +64,7 @@
 {% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
   {% for attr in extra_attributes %}
     {% if attr.value is defined %}
-      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value|e ~ '"' %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
     {% else %}
       {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name %}
     {% endif %}
@@ -72,7 +72,7 @@
 {% endif %}
 
 {# Print the result #}
-<div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+<div class="{{ _css_class }}"{{ _extra_attributes }}>
   <div class="ecl-container">
   {% if _breadcrumb is not empty %}
     {% include '@ecl-twig/ec-component-breadcrumb/ecl-breadcrumb.html.twig' with _breadcrumb|merge({
@@ -82,7 +82,7 @@
     }) only %}
   {% endif %}
   {% if composition is defined and composition is not empty %}
-    {{- composition|raw -}}
+    {{- composition -}}
   {% endif %}
   {% if _meta is not empty %}
     <div class="ecl-page-header__meta-list">{{ _meta }}</div>

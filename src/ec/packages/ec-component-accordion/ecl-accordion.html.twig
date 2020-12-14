@@ -40,7 +40,7 @@
 {% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
   {% for attr in extra_attributes %}
     {% if attr.value is defined %}
-      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value|e ~ '"' %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
     {% else %}
       {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name %}
     {% endif %}
@@ -50,7 +50,7 @@
 {# Print the result #}
 
 <div
-  class="{{ _css_class }}"{{ _extra_attributes|raw }}
+  class="{{ _css_class }}"{{ _extra_attributes }}
   data-ecl-accordion="true"
 >
   {% if _items is not empty %}
@@ -78,7 +78,7 @@
         role="region"
       >
         {%- set _content = _item.content|default('') %}
-        {%- block content _content|raw -%}
+        {%- block content _content -%}
       </div>
     {% endfor %}
   {% endif %}

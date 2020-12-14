@@ -35,7 +35,7 @@ export const getExtraKnobs = (data, nested) => {
     );
     attribute.name = attribute1Name;
     if (attribute1Value !== '') {
-      attribute.value = attribute1Value;
+      attribute.value = he.decode(attribute1Value);
     }
     data.extra_attributes.push(attribute);
     // Second attribute.
@@ -48,7 +48,7 @@ export const getExtraKnobs = (data, nested) => {
       attribute = {};
       attribute.name = attribute2Name;
       if (attribute2Value !== '') {
-        attribute.value = attribute2Value;
+        attribute.value = he.decode(attribute2Value);
       }
       data.extra_attributes.push(attribute);
     }
@@ -389,7 +389,7 @@ export const getLogoKnobs = (data) => {
 export const getLoginKnobs = (data, required) => {
   let descriptionDefault = '';
   if (data.login_box && data.login_box.description) {
-    descriptionDefault = data.login_box.description;
+    descriptionDefault = he.decode(data.login_box.description);
   }
   let label = tabLabels.optional;
   if (required) {

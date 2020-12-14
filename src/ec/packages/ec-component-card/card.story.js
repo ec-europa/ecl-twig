@@ -1,3 +1,4 @@
+import he from 'he';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import {
   withKnobs,
@@ -41,10 +42,8 @@ const prepareCard = (data) => {
       tabLabels.optional
     );
   }
-  data.card.description = text(
-    'card.description',
-    data.card.description,
-    tabLabels.optional
+  data.card.description = he.decode(
+    text('card.description', data.card.description, tabLabels.optional)
   );
   data.card.meta = array('card.meta', data.card.meta, '|', tabLabels.optional);
   if (data.card.tags) {

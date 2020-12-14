@@ -38,7 +38,7 @@
 {% if not_compliant %}
   {% block complaints %}
     {% if _icon_path is not empty and _compliance_inner_check %}
-      <span class="ecl-u-type-color-red ecl-compliance-inner ecl-compliance-failure ecl-u-ma-2xs" title="{{ _message|raw }}">
+      <span class="ecl-u-type-color-red ecl-compliance-inner ecl-compliance-failure ecl-u-ma-2xs" title="{{ _message }}">
       {% include '@ecl-twig/ec-component-icon/ecl-icon.html.twig' with {
           icon: { type: 'notifications', name: 'error', size: 'xs', path: _icon_path },
         } only %}
@@ -48,7 +48,7 @@
       class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-red ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
     >
       <p class="ecl-u-type-color-grey ecl-u-ml-m ecl-u-type-xs">
-        {{- _message|raw -}}
+        {{- _message -}}
       </p>
     </div>
   {% endif %}
@@ -56,7 +56,7 @@
 {% else %}
   {% block compliant %}
     {% if _icon_path is not empty and _compliance_inner_check %}
-      <span class="ecl-u-type-color-green ecl-compliance-inner ecl-compliance-success ecl-u-ma-2xs" title="{{ _success_message|raw }}">
+      <span class="ecl-u-type-color-green ecl-compliance-inner ecl-compliance-success ecl-u-ma-2xs" title="{{ _success_message }}">
       {% include '@ecl-twig/ec-component-icon/ecl-icon.html.twig' with {
           icon: { type: 'notifications', name: 'success', size: 'xs', path: _icon_path },
         } only %}
@@ -66,7 +66,7 @@
         class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-green ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"
       >
         <p class="ecl-u-type-color-grey ecl-u-ml-s ecl-u-type-xs">
-          {{- _success_message|raw -}}
+          {{- _success_message -}}
         </p>
       </div>
     {% endif %}

@@ -1,4 +1,5 @@
 import addons, { makeDecorator } from '@storybook/addons';
+import he from 'he';
 
 const withCode = makeDecorator({
   name: 'withCode',
@@ -8,10 +9,10 @@ const withCode = makeDecorator({
 
     let code = '';
     if (typeof story === 'string') {
-      code = story;
+      code = he.decode(story);
     } else if (story instanceof DocumentFragment) {
       const htmlElement = document.createElement('div');
-      code = story.cloneNode(true);
+      code = he.decode(story.cloneNode(true));
       const rootEl = code.firstChild;
       // Check whether we wrapped the story just for the demo.
       if (rootEl.hasAttribute('demo_only')) {
@@ -22,7 +23,7 @@ const withCode = makeDecorator({
       } else {
         htmlElement.appendChild(code);
       }
-      code = htmlElement.innerHTML;
+      code = he.decode(htmlElement.innerHTML);
     } else if (story instanceof Node) {
       code = story.outerHTML;
     }
