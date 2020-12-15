@@ -7,6 +7,7 @@ const stories = [
 const addons = [
   '@ecl-twig/storybook-addon-notes/src/register',
   '@ecl-twig/storybook-addon-code/src/register',
+  '@ecl-twig/storybook-addon-system-switcher/register',
   '@storybook/addon-viewport',
   '@storybook/addon-knobs',
 ];
