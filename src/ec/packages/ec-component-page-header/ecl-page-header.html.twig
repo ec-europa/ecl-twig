@@ -54,7 +54,7 @@
 {% endif %}
 
 {% if _background_image and _background_image_url is not empty %}
-  {% set _extra_attributes = 'style="background-image: url(' ~ _background_image_url ~ ')"' %}
+  {% set extra_attributes = extra_attributes|default([])|merge([{ name: 'style', value: 'background-image: url(' ~ _background_image_url ~ ')' }]) %}
 {% endif %}
 
 {% if extra_classes is defined and extra_classes is not empty %}
