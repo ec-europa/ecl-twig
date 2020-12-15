@@ -26,7 +26,7 @@ const Switcher = () => {
               fontWeight: 'bold',
               textDecoration: 'none',
             }}
-            href={`/playground/ec${queryString}`}
+            href={`/ec${queryString}`}
           >
             <span>EC</span>
           </a>
@@ -47,7 +47,7 @@ const Switcher = () => {
               fontWeight: 'bold',
               textDecoration: 'none',
             }}
-            href={`/playground/eu${queryString}`}
+            href={`/eu${queryString}`}
           >
             <span>EU</span>
           </a>
