@@ -11,7 +11,7 @@ npm install --save @ecl-twig/ec-component-skip-link
 - **"link"** (associative array) (default: 'predefined structure below')
   - "label" (string) (default: '') - Content of link
   - "href" (string) (default: '') - href attribute
-- **"_compliance_"** (boolean) (default: false) Activates debug
+- **"\_compliance\_"** (boolean) (default: false) Activates debug
 
 ### Example:
 
