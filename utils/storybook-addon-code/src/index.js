@@ -12,7 +12,7 @@ const withCode = makeDecorator({
       code = he.decode(story);
     } else if (story instanceof DocumentFragment) {
       const htmlElement = document.createElement('div');
-      code = he.decode(story.cloneNode(true));
+      code = story.cloneNode(true);
       const rootEl = code.firstChild;
       // Check whether we wrapped the story just for the demo.
       if (rootEl.hasAttribute('demo_only')) {

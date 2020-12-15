@@ -1,3 +1,4 @@
+import he from 'he';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import {
   withKnobs,
@@ -65,10 +66,8 @@ const formatItem = (item, index) => {
   item.value = text(`items[${index}].value`, item.value, tabLabels.required);
   item.title = text(`items[${index}].title`, item.title, tabLabels.required);
   if (item.description) {
-    item.description = text(
-      `items[${index}].description`,
-      item.description,
-      tabLabels.optional
+    item.description = he.decode(
+      text(`items[${index}].description`, item.description, tabLabels.optional)
     );
   }
   item.icon.name = select(

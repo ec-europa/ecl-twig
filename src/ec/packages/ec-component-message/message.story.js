@@ -1,3 +1,4 @@
+import he from 'he';
 import { withKnobs, text, select, optionsKnob } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
@@ -19,7 +20,9 @@ import notes from './README.md';
 
 const prepareMessage = (data) => {
   data.title = text('title', data.title, tabLabels.required);
-  data.description = text('description', data.description, tabLabels.required);
+  data.description = he.decode(
+    text('description', data.description, tabLabels.required)
+  );
   data.variant = select(
     'variant',
     [data.variant],

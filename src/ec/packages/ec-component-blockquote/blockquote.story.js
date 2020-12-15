@@ -1,3 +1,4 @@
+import he from 'he';
 import { withKnobs, text } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
@@ -12,7 +13,9 @@ import blockquote from './ecl-blockquote.html.twig';
 import notes from './README.md';
 
 const prepareQuote = (data) => {
-  data.citation = text('citation', data.citation, tabLabels.required);
+  data.citation = he.decode(
+    text('citation', data.citation, tabLabels.required)
+  );
 
   data.author = text('author', data.author, tabLabels.required);
 

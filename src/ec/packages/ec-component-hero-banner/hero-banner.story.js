@@ -1,3 +1,4 @@
+import he from 'he';
 import {
   withKnobs,
   text,
@@ -147,10 +148,8 @@ const prepareHeroBanner = (data, variant) => {
   data.type = select('type', [data.type], data.type, tabLabels.required);
   data.title = text('title', data.title, tabLabels.required);
   if (data.description) {
-    data.description = text(
-      'description',
-      data.description,
-      tabLabels.optional
+    data.description = he.decode(
+      text('description', data.description, tabLabels.optional)
     );
   }
 

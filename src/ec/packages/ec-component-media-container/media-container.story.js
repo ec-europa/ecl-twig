@@ -17,19 +17,15 @@ import notes from './README.md';
 
 const prepareMediaContainer = (data, media) => {
   if (media === 'video') {
-    data.description = text(
-      'description',
-      demoVideo.description,
-      tabLabels.optional
+    data.description = he.decode(
+      text('description', demoVideo.description, tabLabels.optional)
     );
     data.alt = text('alt', demoVideo.alt, tabLabels.required);
     data.sources = object('sources', demoVideo.sources, tabLabels.required);
     data.tracks = object('tracks', demoVideo.tracks, tabLabels.required);
   } else if (media === 'image') {
-    data.description = text(
-      'description',
-      demoImg.description,
-      tabLabels.optional
+    data.description = he.decode(
+      text('description', demoImg.description, tabLabels.optional)
     );
     data.alt = text('alt', demoImg.alt, tabLabels.required);
     data.image = text('image', exampleImg, tabLabels.required);
@@ -38,10 +34,8 @@ const prepareMediaContainer = (data, media) => {
     data.embedded_media = he.decode(
       text('embedded_media', data.embedded_media, tabLabels.required)
     );
-    data.description = text(
-      'description',
-      demoVideo.description,
-      tabLabels.optional
+    data.description = he.decode(
+      text('description', demoVideo.description, tabLabels.optional)
     );
     data.ratio = select('ratio', options, data.ratio, tabLabels.required);
   }

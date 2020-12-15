@@ -196,10 +196,8 @@ const prepareFooterHarmonisedG3 = (data) => {
   button('Reset the layout', resetG3BtnToggler, tabLabels.cases);
   dataG3.sections.forEach((section, i) => {
     if (section.title) {
-      section.title = text(
-        `sections[${i}].title`,
-        section.title,
-        tabLabels.required
+      section.title = he.decode(
+        text(`sections[${i}].title`, section.title, tabLabels.required)
       );
     }
 

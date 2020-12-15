@@ -1,3 +1,4 @@
+import he from 'he';
 import { withKnobs, text, optionsKnob } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
@@ -30,15 +31,13 @@ const dataMetaTitleDescription = system
   : demoMetaTitleDescriptionContent;
 
 const preparePageHeaderHarmonised = (data, desc, meta) => {
-  data.title = text('title', data.title, tabLabels.required);
+  data.title = he.decode(text('title', data.title, tabLabels.required));
   if (meta) {
     data.meta = text('meta', data.meta, tabLabels.optional);
   }
   if (desc) {
-    data.description = text(
-      'description',
-      data.description,
-      tabLabels.optional
+    data.description = he.decode(
+      text('description', data.description, tabLabels.optional)
     );
   }
   data.breadcrumb.icon_file_path = optionsKnob(

@@ -238,16 +238,12 @@ export const getFormKnobs = (data, required) => {
   data.required = boolean('required', required, tabLabels.states);
   data.label = text('label', data.label, tabLabels.required);
   if (data.invalid) {
-    data.invalid_text = text(
-      'invalid_text',
-      data.invalid_text,
-      tabLabels.required
+    data.invalid_text = he.decode(
+      text('invalid_text', data.invalid_text, tabLabels.required)
     );
   } else {
-    data.invalid_text = text(
-      'invalid_text',
-      data.invalid_text,
-      tabLabels.optional
+    data.invalid_text = he.decode(
+      text('invalid_text', data.invalid_text, tabLabels.optional)
     );
   }
   if (data.required) {
@@ -313,16 +309,12 @@ export const getFormGroupKnobs = (data) => {
     );
   }
   if (data.invalid) {
-    data.invalid_text = text(
-      'invalid_text',
-      data.invalid_text,
-      tabLabels.required
+    data.invalid_text = he.decode(
+      text('invalid_text', data.invalid_text, tabLabels.required)
     );
   } else {
-    data.invalid_text = text(
-      'invalid_text',
-      data.invalid_text,
-      tabLabels.optional
+    data.invalid_text = he.decode(
+      text('invalid_text', data.invalid_text, tabLabels.optional)
     );
   }
 
@@ -339,7 +331,9 @@ export const getFormItemKnobs = (data, disabled) => {
     if (item.helper_text) {
       helperTextDefault = item.helper_text;
     }
-    item.label = text(`items[${i}].label`, item.label, tabLabels.required);
+    item.label = he.decode(
+      text(`items[${i}].label`, item.label, tabLabels.required)
+    );
     item.id = select(`items[${i}].id`, [item.id], item.id, tabLabels.required);
     if (disabled) {
       item.disabled = boolean(

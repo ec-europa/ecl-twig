@@ -1,3 +1,4 @@
+import he from 'he';
 import { withKnobs, text, select, optionsKnob } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import {
@@ -17,7 +18,9 @@ const prepareAccordion2 = (data) => {
     const levels = [1, 2, 3, 4, 5, 6];
     const { id, level, toggle, content } = item;
     item.id = text(`items[${index}].id`, id, tabLabels.required);
-    item.content = text(`items[${index}].content`, content, tabLabels.required);
+    item.content = he.decode(
+      text(`items[${index}].content`, content, tabLabels.required)
+    );
     item.toggle.label = text(
       `items[${index}].toggle.label`,
       toggle.label,

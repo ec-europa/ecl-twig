@@ -1,3 +1,4 @@
+import he from 'he';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import {
   withKnobs,
@@ -141,9 +142,11 @@ uiIcons.unshift('null');
 const preparePageBanner = (data, variant) => {
   data.centered = boolean('centered', data.centered, tabLabels.states);
   data.type = select('type', [data.type], data.type, tabLabels.required);
-  data.title = text('title', data.title, tabLabels.required);
+  data.title = he.decode(text('title', data.title, tabLabels.required));
   if (data.baseline) {
-    data.baseline = text('baseline', data.baseline, tabLabels.optional);
+    data.baseline = he.decode(
+      text('baseline', data.baseline, tabLabels.optional)
+    );
   }
   if (variant === 'img') {
     data.image = text('image', data.image, tabLabels.required);

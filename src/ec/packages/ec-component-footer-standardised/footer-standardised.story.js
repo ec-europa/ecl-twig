@@ -176,10 +176,12 @@ const prepareFooterStandardised = (data) => {
     if (!Array.isArray(section)) {
       if (section.title && typeof section.title === 'object') {
         section.title.link = {
-          label: text(
-            `sections[${i}].title.link.label`,
-            section.title.link.label,
-            tabLabels.required
+          label: he.decode(
+            text(
+              `sections[${i}].title.link.label`,
+              section.title.link.label,
+              tabLabels.required
+            )
           ),
           path: text(
             `sections[${i}].title.link.path`,
@@ -194,10 +196,12 @@ const prepareFooterStandardised = (data) => {
           section.logo.path,
           tabLabels.required
         );
-        section.logo.title = text(
-          `sections[${i}].logo.title`,
-          section.logo.title,
-          tabLabels.required
+        section.logo.title = he.decode(
+          text(
+            `sections[${i}].logo.title`,
+            section.logo.title,
+            tabLabels.required
+          )
         );
         section.logo.alt = text(
           `sections[${i}].logo.alt`,
@@ -230,10 +234,12 @@ const prepareFooterStandardised = (data) => {
         );
       }
       if (section.content_before) {
-        section.content_before = text(
-          `sections[${i}].content_before`,
-          section.content_before,
-          tabLabels.required
+        section.content_before = he.decode(
+          text(
+            `sections[${i}].content_before`,
+            section.content_before,
+            tabLabels.required
+          )
         );
       }
       if (section.list_class_name) {
@@ -245,10 +251,12 @@ const prepareFooterStandardised = (data) => {
       }
       if (section.links) {
         section.links.forEach((linkItem, j) => {
-          linkItem.link.label = text(
-            `sections[${i}].links[${j}].link.label`,
-            linkItem.link.label,
-            tabLabels.required
+          linkItem.link.label = he.decode(
+            text(
+              `sections[${i}].links[${j}].link.label`,
+              linkItem.link.label,
+              tabLabels.required
+            )
           );
           linkItem.link.path = text(
             `sections[${i}].links[${j}].link.path`,
@@ -282,10 +290,12 @@ const prepareFooterStandardised = (data) => {
     } else {
       section.forEach((sectionItem, j) => {
         if (sectionItem.content_before) {
-          sectionItem.content_before = text(
-            `sections[${i}][${j}].content_before`,
-            sectionItem.content_before,
-            tabLabels.optional
+          sectionItem.content_before = he.decode(
+            text(
+              `sections[${i}][${j}].content_before`,
+              sectionItem.content_before,
+              tabLabels.optional
+            )
           );
         }
         if (sectionItem.list_class_name) {
@@ -296,10 +306,12 @@ const prepareFooterStandardised = (data) => {
           );
         }
         if (sectionItem.links) {
-          sectionItem.title = text(
-            `sections[${i}][${j}].title`,
-            sectionItem.title,
-            tabLabels.optional
+          sectionItem.title = he.decode(
+            text(
+              `sections[${i}][${j}].title`,
+              sectionItem.title,
+              tabLabels.optional
+            )
           );
           sectionItem.links.forEach((linkItem, k) => {
             linkItem.link.label = text(
