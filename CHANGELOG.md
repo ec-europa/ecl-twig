@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.35.1](https://github.com/ec-europa/ecl-twig/compare/v2.35.1...v2.35.0) (2020-12-21)
+
+#### :bug: Bug Fix
+
+- [#591](https://github.com/ec-europa/ecl-twig/pull/591) fix(pagination): Fixing icon_path parameter usage - FRONT-1920 ([@planctus](https://github.com/planctus))
+
+#### :nail_care: Enhancement
+
+- [#587](https://github.com/ec-europa/ecl-twig/pull/587) feat(raw-filter): Removing usage of the raw filter in all the components - FRONT-1909 ([@planctus](https://github.com/planctus))
+
+#### :house: Internal
+
+- [#590](https://github.com/ec-europa/ecl-twig/pull/590) chore(docs): Fixing _compliance_ parameter - front-1915 ([@planctus](https://github.com/planctus))
+- [#589](https://github.com/ec-europa/ecl-twig/pull/589) feat(storybook): Adding EC/EU switcher - front-1914 ([@planctus](https://github.com/planctus))
+- [#588](https://github.com/ec-europa/ecl-twig/pull/588) chore(deps): updating libs before 2.35.1 release - FRONT-1913 ([@planctus](https://github.com/planctus))
+
+#### Committers: 1
+
+- [@planctus](https://github.com/planctus)
+
 ## [2.35.0](https://github.com/ec-europa/ecl-twig/compare/v2.35.0...v2.34.0) (2020-11-27)
 
 #### :bug: Bug Fix
