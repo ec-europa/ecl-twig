@@ -69,7 +69,7 @@
 {% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
   {% for attr in extra_attributes %}
     {% if attr.value is defined %}
-      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value|e ~ '"' %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
     {% else %}
       {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name %}
     {% endif %}
@@ -78,14 +78,14 @@
 
 {# Print the result #}
 
-<nav class="{{ _css_class }}" {{ _extra_attributes|raw }}>
+<nav class="{{ _css_class }}" {{ _extra_attributes }}>
   <ol class="ecl-breadcrumb__container">
   {% if _links is not empty %}
     {% for key, link in links %}
       {% set _breadcrumb_segment_attributes = 'data-ecl-breadcrumb-item="static" aria-hidden="false"' %}
       {% if loop.last %}
         {% set _breadcrumb_segment_attributes = _breadcrumb_segment_attributes ~ ' aria-current="page"' %}
-        <li class="{{ _breadcrumb_segment_class ~ ' ecl-breadcrumb__current-page' }}" {{ _breadcrumb_segment_attributes|raw }}>
+        <li class="{{ _breadcrumb_segment_class ~ ' ecl-breadcrumb__current-page' }}" {{ _breadcrumb_segment_attributes }}>
           {{- link.label -}}
         </li>
       {% else %}
@@ -98,7 +98,7 @@
           {% endif %}
           {% set _breadcrumb_segment_attributes = 'data-ecl-breadcrumb-item="expandable" aria-hidden="true"' %}
         {% endif %}
-        <li class="{{ _breadcrumb_segment_class }}" {{ _breadcrumb_segment_attributes|raw }}>
+        <li class="{{ _breadcrumb_segment_class }}" {{ _breadcrumb_segment_attributes }}>
           {% include '@ecl-twig/ec-component-link/ecl-link.html.twig' with {
             link: {
               type: 'standalone',

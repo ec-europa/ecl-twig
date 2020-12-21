@@ -1,3 +1,4 @@
+import he from 'he';
 import { withKnobs, text, optionsKnob } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import {
@@ -13,10 +14,8 @@ import dataDefault from './demo/data';
 import notes from './README.md';
 
 const prepareSearchForm = (data) => {
-  data.button.label = text(
-    'button.label',
-    data.button.label,
-    tabLabels.required
+  data.button.label = he.decode(
+    text('button.label', data.button.label, tabLabels.required)
   );
   data.button.icon.path = optionsKnob(
     'button.icon.path',

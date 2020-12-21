@@ -1,3 +1,4 @@
+import he from 'he';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import {
   getExtraKnobs,
@@ -26,10 +27,8 @@ const prepareTable = (data, attr) => {
   data.sortable = boolean('sortable', data.sortable, tabLabels.cases);
   data.headers.forEach((headers, i) => {
     headers.forEach((header, ind) => {
-      header.label = text(
-        `headers[${i}][${ind}].label`,
-        header.label,
-        tabLabels.required
+      header.label = he.decode(
+        text(`headers[${i}][${ind}].label`, header.label, tabLabels.required)
       );
       header.colspan = text(
         `headers[${i}][${ind}].colspan`,
@@ -51,10 +50,8 @@ const prepareTable = (data, attr) => {
       tabLabels.optional
     );
     row.forEach((cell, ind) => {
-      cell.label = text(
-        `rows[${i}][${ind}].label`,
-        cell.label,
-        tabLabels.required
+      cell.label = he.decode(
+        text(`rows[${i}][${ind}].label`, cell.label, tabLabels.required)
       );
       cell['data-ecl-table-header'] = text(
         `rows[${i}][${ind}]['data-ecl-table-header']`,

@@ -1,3 +1,4 @@
+import he from 'he';
 import { withKnobs, text, optionsKnob } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
@@ -25,15 +26,19 @@ const prepareMenu = (data) => {
     tabLabels.required
   );
   data.items.forEach((item, i) => {
-    item.label = text(`items[${i}].label`, item.label, tabLabels.required);
+    item.label = he.decode(
+      text(`items[${i}].label`, item.label, tabLabels.required)
+    );
     item.path = text(`items[${i}].path`, item.path, tabLabels.required);
 
     if (item.children) {
       item.children.forEach((subitem, j) => {
-        subitem.label = text(
-          `items[${i}].children[${j}].label`,
-          subitem.label,
-          tabLabels.optional
+        subitem.label = he.decode(
+          text(
+            `items[${i}].children[${j}].label`,
+            subitem.label,
+            tabLabels.optional
+          )
         );
         subitem.path = text(
           `items[${i}].children[${j}].path`,

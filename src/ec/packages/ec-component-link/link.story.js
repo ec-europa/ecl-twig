@@ -1,3 +1,4 @@
+import he from 'he';
 import { withKnobs, text, select } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
@@ -27,7 +28,9 @@ const prepareLink = (data) => {
   if (data.link.type === 'default' || data.link.label === '') {
     typeLabel = tabLabels.optional;
   }
-  data.link.label = text('link.label', data.link.label, tabLabels.required);
+  data.link.label = he.decode(
+    text('link.label', data.link.label, tabLabels.required)
+  );
   data.link.path = text('link.path', data.link.path, tabLabels.required);
   data.link.type = select(
     'link.type',

@@ -1,3 +1,4 @@
+import he from 'he';
 import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
@@ -29,7 +30,7 @@ uiIcons.forEach((icon) => {
 const prepareButton = (data, type) => {
   const typeLabel = type ? tabLabels.required : tabLabels.optional;
   data.disabled = boolean('disabled', data.disabled, tabLabels.states);
-  data.label = text('label', data.label, tabLabels.required);
+  data.label = he.decode(text('label', data.label, tabLabels.required));
 
   data.variant = select(
     'variant',

@@ -11,4 +11,4 @@ if (typeof loader.addPath === 'function') {
   loader.addPath(ecAbsPath, 'ecl-twig');
 }
 
-module.exports = new TwingEnvironment(loader);
+module.exports = new TwingEnvironment(loader, { autoescape: false });

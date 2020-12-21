@@ -1,3 +1,4 @@
+import he from 'he';
 import { withKnobs, text, optionsKnob, array } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import {
@@ -16,14 +17,12 @@ import file from './ecl-file.html.twig';
 import notes from './README.md';
 
 const prepareFile = (data, variant) => {
-  data.title = text('title', data.title, tabLabels.required);
+  data.title = he.decode(text('title', data.title, tabLabels.required));
   data.language = text('language', data.language, tabLabels.required);
   data.meta = text('meta', data.meta, tabLabels.required);
   if (variant) {
-    data.description = text(
-      'description',
-      data.description,
-      tabLabels.optional
+    data.description = he.decode(
+      text('description', data.description, tabLabels.optional)
     );
     data.image.src = text('image.src', data.image.src, tabLabels.optional);
     data.image.alt = text('image.alt', data.image.alt, tabLabels.optional);
@@ -60,10 +59,12 @@ const prepareFile = (data, variant) => {
   );
 
   if (data.translation) {
-    data.translation.description = text(
-      'translation.description',
-      data.translation.description,
-      tabLabels.optional
+    data.translation.description = he.decode(
+      text(
+        'translation.description',
+        data.translation.description,
+        tabLabels.optional
+      )
     );
     data.translation.toggle.label = text(
       'translation.toggle.label',

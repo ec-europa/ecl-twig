@@ -1,3 +1,4 @@
+import he from 'he';
 import { withKnobs, text, boolean, optionsKnob } from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
@@ -35,15 +36,13 @@ const dataBackgroundImage = system
   : demoBackgroundImage;
 
 const preparePageHeaderCore = (data, desc, meta, img) => {
-  data.title = text('title', data.title, tabLabels.required);
+  data.title = he.decode(text('title', data.title, tabLabels.required));
   if (meta) {
     data.meta = text('meta', data.meta, tabLabels.optional);
   }
   if (desc) {
-    data.description = text(
-      'description',
-      data.description,
-      tabLabels.optional
+    data.description = he.decode(
+      text('description', data.description, tabLabels.optional)
     );
   }
   if (img) {

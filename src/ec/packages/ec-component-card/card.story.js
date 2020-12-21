@@ -1,3 +1,4 @@
+import he from 'he';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import {
   withKnobs,
@@ -28,10 +29,8 @@ generalIcons.forEach((icon) => {
 });
 
 const prepareCard = (data) => {
-  data.card.title.label = text(
-    'card.title.label',
-    data.card.title.label,
-    tabLabels.required
+  data.card.title.label = he.decode(
+    text('card.title.label', data.card.title.label, tabLabels.required)
   );
 
   if (data.card.title.type) {
@@ -41,15 +40,15 @@ const prepareCard = (data) => {
       tabLabels.optional
     );
   }
-  data.card.description = text(
-    'card.description',
-    data.card.description,
-    tabLabels.optional
+  data.card.description = he.decode(
+    text('card.description', data.card.description, tabLabels.optional)
   );
   data.card.meta = array('card.meta', data.card.meta, '|', tabLabels.optional);
   if (data.card.tags) {
     data.card.tags.forEach((tag, i) => {
-      tag.label = text(`card.tags[${i}].label`, tag.label, tabLabels.optional);
+      tag.label = he.decode(
+        text(`card.tags[${i}].label`, tag.label, tabLabels.optional)
+      );
     });
   }
   data.icon_path = optionsKnob(

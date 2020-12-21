@@ -59,17 +59,17 @@ const formatFooter = (data) => {
           )
         );
       } else if (!section.description && system && i === 0) {
-        section.description = text(
-          `sections[${i}].description`,
-          '',
-          tabLabels.required
+        section.description = he.decode(
+          text(`sections[${i}].description`, '', tabLabels.required)
         );
       }
       if (section.content_before) {
-        section.content_before = text(
-          `sections[${i}].content_before`,
-          section.content_before,
-          tabLabels.required
+        section.content_before = he.decode(
+          text(
+            `sections[${i}].content_before`,
+            section.content_before,
+            tabLabels.required
+          )
         );
       }
       if (section.section_class_name) {
@@ -119,10 +119,12 @@ const formatFooter = (data) => {
       }
       if (section.links) {
         section.links.forEach((link, j) => {
-          link.link.label = text(
-            `sections[${i}].links[${j}].link.label`,
-            link.link.label,
-            tabLabels.required
+          link.link.label = he.decode(
+            text(
+              `sections[${i}].links[${j}].link.label`,
+              link.link.label,
+              tabLabels.required
+            )
           );
           link.link.path = text(
             `sections[${i}].links[${j}].link.path`,
@@ -156,10 +158,12 @@ const formatFooter = (data) => {
     } else {
       section.forEach((sectionItem, j) => {
         if (sectionItem.content_before) {
-          sectionItem.content_before = text(
-            `sections[${i}][${j}].content_before`,
-            sectionItem.content_before,
-            tabLabels.optional
+          sectionItem.content_before = he.decode(
+            text(
+              `sections[${i}][${j}].content_before`,
+              sectionItem.content_before,
+              tabLabels.optional
+            )
           );
         }
         if (sectionItem.list_class_name) {
@@ -177,16 +181,20 @@ const formatFooter = (data) => {
           );
         }
         if (sectionItem.links) {
-          sectionItem.title = text(
-            `sections[${i}][${j}].title`,
-            sectionItem.title,
-            tabLabels.optional
+          sectionItem.title = he.decode(
+            text(
+              `sections[${i}][${j}].title`,
+              sectionItem.title,
+              tabLabels.optional
+            )
           );
           sectionItem.links.forEach((linkItem, k) => {
-            linkItem.link.label = text(
-              `sections[${i}][${j}].links[${k}].link.label`,
-              linkItem.link.label,
-              tabLabels.optional
+            linkItem.link.label = he.decode(
+              text(
+                `sections[${i}][${j}].links[${k}].link.label`,
+                linkItem.link.label,
+                tabLabels.optional
+              )
             );
             linkItem.link.path = text(
               `sections[${i}][${j}].links[${k}].link.path`,

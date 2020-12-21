@@ -65,7 +65,7 @@
 {% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
   {% for attr in extra_attributes %}
     {% if attr.value is defined %}
-      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value|e ~ '"' %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
     {% else %}
       {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name %}
     {% endif %}
@@ -74,7 +74,7 @@
 
 {# Print the result #}
 
-<div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+<div class="{{ _css_class }}"{{ _extra_attributes }}>
   {% include '@ecl-twig/ec-component-button/ecl-button.html.twig' with _button only %}
   <div
     id="{{ _id ~ '-content' }}"
@@ -84,7 +84,7 @@
     <ul class="ecl-unordered-list ecl-unordered-list--no-bullet">
       {% for item in _list.items %}
         <li class="ecl-unordered-list__item">
-          {{- item.label|raw -}}
+          {{- item.label -}}
         </li>
       {% endfor %}
     </ul>
