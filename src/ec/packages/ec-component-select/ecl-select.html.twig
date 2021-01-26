@@ -87,9 +87,9 @@
 {% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
   {% for attr in extra_attributes %}
     {% if attr.value is defined %}
-      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
     {% else %}
-      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') %}
     {% endif %}
   {% endfor %}
 {% endif %}
@@ -99,7 +99,7 @@
   {% if _label is not empty %}
     <label
     {% if _id %}
-      for="{{ _id }}"
+      for="{{ _id|e('html_attr') }}"
     {% endif %}
       class="ecl-form-label
       {{- _invalid ? ' ecl-form-label--invalid' -}}
@@ -136,7 +136,7 @@
       id="{{ _id }}"
     {% endif %}
     {% if _name is not empty %}
-      name="{{ _name }}"
+      name="{{ _name|e('html_attr') }}"
     {% endif %}
     {% if _required %}
       required
@@ -144,11 +144,11 @@
     {% if _disabled %}
       disabled
     {% endif %}
-      {{- _extra_attributes -}}
+      {{- _extra_attributes|raw -}}
     >
       {% for _option in _options %}
         <option
-          value="{{ _option.value }}"
+          value="{{ _option.value|e('html_attr') }}"
         {% if _option.selected %}
           selected
         {% endif %}

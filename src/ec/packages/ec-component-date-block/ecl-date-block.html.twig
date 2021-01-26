@@ -41,32 +41,38 @@
 {% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
   {% for attr in extra_attributes %}
     {% if attr.value is defined %}
-      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
     {% else %}
-      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') %}
     {% endif %}
   {% endfor %}
 {% endif %}
 
-{% if (_month is not empty or _month_full is not empty) and _year is not empty %}
-  {% if _month_full is not empty and _month_full != _month %}
-    {% set _month_markup = '<abbr title="' ~ _month_full ~ '" class="ecl-date-block__month" aria-hidden="true">' ~ _month ~ '</abbr>' %}
-  {% else %}
-    {% set _month_markup = '<span class="ecl-date-block__month">' ~ _month ~ '</span>' %}
-  {% endif %}
-  {% if _date_time is not empty %}
-    {% set _extra_attributes = _extra_attributes ~ 'dateTime="' ~ _date_time ~ '"' %}
-  {% endif %}
-
-  <time class="{{ _css_class }}"{{ _extra_attributes }}>
-    {% if _date_time is not empty %}
-      <span class="ecl-u-sr-only">{{ _date_time }}</span>
-    {% endif %}
-    <span class="ecl-date-block__day" aria-hidden="true">{{ _day }}</span>
-    {{ _month_markup }}
-    <span class="ecl-date-block__year" aria-hidden="true">{{ _year }}</span>
-  </time>
+{% if _date_time is not empty %}
+  {% set _extra_attributes = _extra_attributes ~ 'dateTime="' ~ _date_time|e('html_attr') ~ '"' %}
 {% endif %}
+
+<time class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+  {% if _date_time is not empty %}
+    <span class="ecl-u-sr-only">{{ _date_time }}</span>
+  {% endif %}
+  <span class="ecl-date-block__day" aria-hidden="true">{{ _day }}</span>
+{% if (_month is not empty or _month_full is not empty) %}
+  {% if _month_full is not empty and _month_full != _month %}
+  <abbr
+    title="{{ _month_full|e('html_attr') }}"
+    class="ecl-date-block__month"
+    aria-hidden="true">
+      {{- _month -}}
+  </abbr>
+  {% else %}
+  <span class="ecl-date-block__month">{{ _month }}</span>
+  {% endif %}
+{% endif %}
+{% if _year is not empty %}
+  <span class="ecl-date-block__year" aria-hidden="true">{{ _year }}</span>
+{% endif %}
+</time>
 
 {# Validation #}
 
