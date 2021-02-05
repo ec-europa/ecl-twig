@@ -60,7 +60,7 @@
 {% if (_month is not empty or _month_full is not empty) %}
   {% if _month_full is not empty and _month_full != _month %}
   <abbr
-    title="{{ _month_full|e('html_attr') }}"
+    title="{{ _month_full }}"
     class="ecl-date-block__month"
     aria-hidden="true">
       {{- _month -}}

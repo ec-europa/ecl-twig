@@ -99,7 +99,7 @@
   {% if _label is not empty %}
     <label
     {% if _id %}
-      for="{{ _id|e('html_attr') }}"
+      for="{{ _id }}"
     {% endif %}
       class="ecl-form-label
       {{- _invalid ? ' ecl-form-label--invalid' -}}
@@ -136,7 +136,7 @@
       id="{{ _id }}"
     {% endif %}
     {% if _name is not empty %}
-      name="{{ _name|e('html_attr') }}"
+      name="{{ _name }}"
     {% endif %}
     {% if _required %}
       required
@@ -148,7 +148,7 @@
     >
       {% for _option in _options %}
         <option
-          value="{{ _option.value|e('html_attr') }}"
+          value="{{ _option.value }}"
         {% if _option.selected %}
           selected
         {% endif %}
