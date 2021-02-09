@@ -14,5 +14,5 @@ $eu_packages_folder = Path::canonicalize(__DIR__ . '/../../src/eu/packages/');
 $loader = new \Twig\Loader\FilesystemLoader($ec_packages_folder);
 $loader->addPath($eu_packages_folder, 'ecl-twig');
 $loader->addPath($ec_packages_folder, 'ecl-twig');
-$twig = new \Twig\Environment($loader);
+$twig = new \Twig\Environment($loader, ['autoescape' => false]);
 

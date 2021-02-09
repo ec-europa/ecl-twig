@@ -176,6 +176,29 @@ exports[`EC - Date Block renders correctly with time set 1`] = `
 
 exports[`EC - Date Block with validation enabled and missing input data returns the right warning message 1`] = `
 <test>
+  <time
+    class="ecl-date-block"
+    datetime="2019-09-26"
+  >
+    <span
+      class="ecl-u-sr-only"
+    >
+      2019-09-26
+    </span>
+    <span
+      aria-hidden="true"
+      class="ecl-date-block__day"
+    >
+      26
+    </span>
+    <abbr
+      aria-hidden="true"
+      class="ecl-date-block__month"
+      title="September"
+    >
+      Sep
+    </abbr>
+  </time>
   <!-- ecl2-compliance: date-block -->
   <div
     class="ecl2-compliance ecl-u-border-width-1 ecl-u-border-color-red ecl-u-border-style-solid ecl-u-ma-xs ecl-u-pr-s ecl-u-bg-white"

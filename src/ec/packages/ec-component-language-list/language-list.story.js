@@ -12,6 +12,7 @@ import {
   tabLabels,
   getComplianceKnob,
 } from '@ecl-twig/story-utils';
+import he from 'he';
 
 import logoPath from '@ecl/ec-resources-logo/logo--mute.svg';
 import euLogoPath from '@ecl/eu-resources-logo/logo--mute.svg';
@@ -73,11 +74,11 @@ const prepareLanguageList = (data) => {
   if (data.title) {
     data.title = text('title', data.title, tabLabels.required);
   }
-  data.eu_category = text('eu_category', data.eu_category, tabLabels.optional);
-  data.non_eu_category = text(
-    'non_eu_category',
-    data.non_eu_category,
-    tabLabels.optional
+  data.eu_category = he.decode(
+    text('eu_category', data.eu_category, tabLabels.optional)
+  );
+  data.non_eu_category = he.decode(
+    text('non_eu_category', data.non_eu_category, tabLabels.optional)
   );
   data.items.forEach((item, i) => {
     if (item.label && item.path) {
