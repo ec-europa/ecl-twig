@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.35.2](https://github.com/ec-europa/ecl-twig/compare/v2.35.2...v2.35.1) (2021-02-09)
+
+#### :bug: Bug Fix
+
+- [#594](https://github.com/ec-europa/ecl-twig/pull/594) fix(raw-filter): Using raw in safe context to avoid double escaping - FRONT-1940 ([@planctus](https://github.com/planctus))
+
+#### :house: Internal
+
+- [#596](https://github.com/ec-europa/ecl-twig/pull/596) chore(deps): update on February the 5th, 2021 ([@planctus](https://github.com/planctus))
+- [#595](https://github.com/ec-europa/ecl-twig/pull/595) chore(deps): update 28-01-2021 - FRONT-1942 ([@planctus](https://github.com/planctus))
+
+#### Committers: 1
+
+- [@planctus](https://github.com/planctus)
+
 ## [2.35.1](https://github.com/ec-europa/ecl-twig/compare/v2.35.1...v2.35.0) (2020-12-21)
 
 #### :bug: Bug Fix
