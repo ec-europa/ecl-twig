@@ -24,6 +24,8 @@ import dataCardTileTaxonomy from './demo/data--tile-taxonomy';
 import card from './ecl-card.html.twig';
 import notes from './README.md';
 
+dataCardTileTaxonomy.card.type = 'tile';
+
 const iconsList = [];
 generalIcons.forEach((icon) => {
   iconsList.push(icon);
@@ -125,6 +127,42 @@ const prepareCard = (data) => {
       data.card.image.src,
       tabLabels.optional
     );
+  }
+  if (data.card.lists) {
+    data.card.lists.forEach((list, j) => {
+      list.variant = text(
+        `card.lists[${j}].variant`,
+        list.variant,
+        tabLabels.optional
+      );
+      list.items.forEach((item, k) => {
+        item.term = text(
+          `card.lists[${j}].items[${k}].term`,
+          item.term,
+          tabLabels.optional
+        );
+        if (!Array.isArray(item.definition)) {
+          item.defitiion = text(
+            `card.lists[${j}].items[${k}].definition`,
+            item.definition,
+            tabLabels.optional
+          );
+        } else {
+          item.definition.forEach((def, l) => {
+            def.label = text(
+              `card.lists[${j}].items[${k}].definition[${l}].label`,
+              def.label,
+              tabLabels.optional
+            );
+            def.variant = text(
+              `card.lists[${j}].items[${k}].definition[${l}].variant`,
+              def.variant,
+              tabLabels.optional
+            );
+          });
+        }
+      });
+    });
   }
 
   getExtraKnobs(data);

@@ -21,6 +21,18 @@ const prepareFile = (data, variant) => {
   data.title = he.decode(text('title', data.title, tabLabels.required));
   data.language = text('language', data.language, tabLabels.required);
   data.meta = text('meta', data.meta, tabLabels.required);
+  if (data.label) {
+    data.label.label = text(
+      'data.label.label',
+      data.label.label,
+      tabLabels.optional
+    );
+    data.label.variant = text(
+      'data.label.variant',
+      data.label.variant,
+      tabLabels.optional
+    );
+  }
   if (variant) {
     data.description = he.decode(
       text('description', data.description, tabLabels.optional)
@@ -58,7 +70,6 @@ const prepareFile = (data, variant) => {
     { display: 'inline-radio' },
     tabLabels.required
   );
-
   if (data.translation) {
     data.translation.description = he.decode(
       text(
@@ -79,7 +90,42 @@ const prepareFile = (data, variant) => {
       { display: 'inline-radio' },
       tabLabels.required
     );
-
+    if (data.lists) {
+      data.lists.forEach((list, j) => {
+        list.variant = text(
+          `lists[${j}].variant`,
+          list.variant,
+          tabLabels.optional
+        );
+        list.items.forEach((item, k) => {
+          item.term = text(
+            `lists[${j}].items[${k}].term`,
+            item.term,
+            tabLabels.optional
+          );
+          if (!Array.isArray(item.definition)) {
+            item.defitiion = text(
+              `lists[${j}].items[${k}].definition`,
+              item.definition,
+              tabLabels.optional
+            );
+          } else {
+            item.definition.forEach((def, l) => {
+              def.label = text(
+                `lists[${j}].items[${k}].definition[${l}].label`,
+                def.label,
+                tabLabels.optional
+              );
+              def.variant = text(
+                `lists[${j}].items[${k}].definition[${l}].variant`,
+                def.variant,
+                tabLabels.optional
+              );
+            });
+          }
+        });
+      });
+    }
     data.translation.items.forEach((item, i) => {
       data.translation.items[i].title = text(
         `data.translation.items[${i}].title`,

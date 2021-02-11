@@ -4,6 +4,8 @@ import dataCardTaxonomy from './demo/data--card-taxonomy';
 import dataTile from './demo/data--tile';
 import dataTileTaxonomy from './demo/data--tile-taxonomy';
 
+dataTileTaxonomy.card.type = 'tile';
+
 describe('EC - Card', () => {
   const template = '@ecl-twig/ec-component-card/ecl-card.html.twig';
   const render = (params) => renderTwigFileAsNode(template, params);

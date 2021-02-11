@@ -35,15 +35,22 @@ const prepareList = (data) => {
       item.term = text(`items[${i}].term`, item.term, tabLabels.required);
     }
     if (Array.isArray(item.definition)) {
-      if (item.definition !== 'object') {
-        item.definition.forEach((definitionItem, k) => {
-          data.items[i].definition[k] = text(
-            `items[${i}].definition[${k}]`,
-            definitionItem,
+      item.definition.forEach((def, k) => {
+        if (!def.label) {
+          def = text(`items[${i}].definition[${k}]`, def, tabLabels.required);
+        } else {
+          def.label = text(
+            `items[${i}].definition[${k}].label`,
+            def.label,
             tabLabels.required
           );
-        });
-      }
+          def.variant = text(
+            `items[${i}].definition[${k}].variant`,
+            def.variant,
+            tabLabels.required
+          );
+        }
+      });
     } else {
       item.definition = text(
         `items[${i}].definition`,
@@ -76,5 +83,5 @@ Horizontal.parameters = { notes: { markdown: notes, json: specsHorizontal } };
 
 export const Taxonomy = () => descriptionList(prepareList(specsTaxonomy));
 
-Taxonomy.storyName = 'horizontal (taxononmy)';
+Taxonomy.storyName = 'horizontal (taxonomy)';
 Taxonomy.parameters = { notes: { markdown: notes, json: specsTaxonomy } };
