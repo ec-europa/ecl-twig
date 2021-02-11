@@ -12,6 +12,7 @@ import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import dataWithTranslation from './demo/data--with-translation';
 import dataWithoutTranslation from './demo/data--without-translation';
 import dataThumbnail from './demo/data--thumbnail';
+import dataThumbnailTaxonomy from './demo/data--thumbnail-taxonomy';
 
 import file from './ecl-file.html.twig';
 import notes from './README.md';
@@ -152,3 +153,11 @@ export const Thumbnail = () => file(prepareFile(dataThumbnail, 'thumbnail'));
 
 Thumbnail.storyName = 'thumbnail';
 Thumbnail.parameters = { notes: { markdown: notes, json: dataThumbnail } };
+
+export const ThumbnailTaxonomy = () =>
+  file(prepareFile(dataThumbnailTaxonomy, 'thumbnail'));
+
+ThumbnailTaxonomy.storyName = 'thumbnail (taxonomy)';
+ThumbnailTaxonomy.parameters = {
+  notes: { markdown: notes, json: dataThumbnailTaxonomy },
+};

@@ -1,6 +1,117 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`EC - Description list Default renders correctly 1`] = `
+exports[`EC - Description list Horizontal renders correctly 1`] = `
+<test>
+  <dl
+    class="ecl-description-list ecl-description-list--horizontal"
+  >
+    <dt
+      class="ecl-description-list__term"
+    >
+      European Commission
+    </dt>
+    <dd
+      class="ecl-description-list__definition"
+    >
+      The executive body of the European Union formed in 1967, which initiates action in the EU and mediates between member governments. Former name (until 1993): Commission of the European Communities
+    </dd>
+    <dt
+      class="ecl-description-list__term"
+    >
+      European Union
+    </dt>
+    <dd
+      class="ecl-description-list__definition"
+    >
+      An association of European nations formed in 1993 for the purpose of achieving political and economic integration.
+    </dd>
+    <dt
+      class="ecl-description-list__term"
+    >
+      Citizen
+    </dt>
+    <dd
+      class="ecl-description-list__definition"
+    >
+      A native or naturalized member of a state or nation who owes allegiance to its government and is entitled to its protection
+    </dd>
+  </dl>
+</test>
+`;
+
+exports[`EC - Description list Taxonomy renders correctly 1`] = `
+<test>
+  <dl
+    class="ecl-description-list ecl-description-list--taxonomy"
+  >
+    <dt
+      class="ecl-description-list__term"
+    >
+      Science areas
+    </dt>
+    <dd
+      class="ecl-description-list__definition"
+    >
+      <span
+        class="ecl-tag ecl-tag--display ecl-description-list__tag"
+      >
+        Energy and transport
+      </span>
+      <span
+        class="ecl-tag ecl-tag--display ecl-description-list__tag"
+      >
+        Standards
+      </span>
+    </dd>
+    <dt
+      class="ecl-description-list__term"
+    >
+      Keywords
+    </dt>
+    <dd
+      class="ecl-description-list__definition"
+    >
+      <span
+        class="ecl-tag ecl-tag--display ecl-description-list__tag"
+      >
+        Electricity
+      </span>
+      <span
+        class="ecl-tag ecl-tag--display ecl-description-list__tag"
+      >
+        Electromobility
+      </span>
+      <span
+        class="ecl-tag ecl-tag--display ecl-description-list__tag"
+      >
+        Energy
+      </span>
+      <span
+        class="ecl-tag ecl-tag--display ecl-description-list__tag"
+      >
+        Energy storage
+      </span>
+      <span
+        class="ecl-tag ecl-tag--display ecl-description-list__tag"
+      >
+        Security
+      </span>
+      <span
+        class="ecl-tag ecl-tag--display ecl-description-list__tag"
+      >
+        Transport
+      </span>
+      <span
+        class="ecl-tag ecl-tag--display ecl-description-list__tag"
+      >
+        Low carbon
+      </span>
+    </dd>
+  </dl>
+</test>
+`;
+
+exports[`EC - Description list Vertical renders correctly 1`] = `
 <test>
   <dl
     class="ecl-description-list"
@@ -49,46 +160,7 @@ exports[`EC - Description list Default renders correctly 1`] = `
 </test>
 `;
 
-exports[`EC - Description list Default renders correctly in the horizontal variant 1`] = `
-<test>
-  <dl
-    class="ecl-description-list ecl-description-list--horizontal"
-  >
-    <dt
-      class="ecl-description-list__term"
-    >
-      European Commission
-    </dt>
-    <dd
-      class="ecl-description-list__definition"
-    >
-      The executive body of the European Union formed in 1967, which initiates action in the EU and mediates between member governments. Former name (until 1993): Commission of the European Communities
-    </dd>
-    <dt
-      class="ecl-description-list__term"
-    >
-      European Union
-    </dt>
-    <dd
-      class="ecl-description-list__definition"
-    >
-      An association of European nations formed in 1993 for the purpose of achieving political and economic integration.
-    </dd>
-    <dt
-      class="ecl-description-list__term"
-    >
-      Citizen
-    </dt>
-    <dd
-      class="ecl-description-list__definition"
-    >
-      A native or naturalized member of a state or nation who owes allegiance to its government and is entitled to its protection
-    </dd>
-  </dl>
-</test>
-`;
-
-exports[`EC - Description list Default renders correctly with extra attributes 1`] = `
+exports[`EC - Description list Vertical renders correctly with extra attributes 1`] = `
 <test>
   <dl
     class="ecl-description-list"
@@ -139,7 +211,7 @@ exports[`EC - Description list Default renders correctly with extra attributes 1
 </test>
 `;
 
-exports[`EC - Description list Default renders correctly with extra class names 1`] = `
+exports[`EC - Description list Vertical renders correctly with extra class names 1`] = `
 <test>
   <dl
     class="ecl-description-list custom-class custom-class--test"
@@ -188,7 +260,7 @@ exports[`EC - Description list Default renders correctly with extra class names 
 </test>
 `;
 
-exports[`EC - Description list Default with missing input data and debug enabled shows the right warning message 1`] = `
+exports[`EC - Description list Vertical with missing input data and debug enabled shows the right warning message 1`] = `
 <test>
   <dl
     class="ecl-description-list"

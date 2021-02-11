@@ -17,8 +17,9 @@ import {
 
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import dataCard from './demo/data--card';
-import dataCardEvent from './demo/data--event';
+import dataCardTaxonomy from './demo/data--card-taxonomy';
 import dataCardTile from './demo/data--tile';
+import dataCardTileTaxonomy from './demo/data--tile-taxonomy';
 
 import card from './ecl-card.html.twig';
 import notes from './README.md';
@@ -29,21 +30,31 @@ generalIcons.forEach((icon) => {
 });
 
 const prepareCard = (data) => {
-  data.card.title.label = he.decode(
-    text('card.title.label', data.card.title.label, tabLabels.required)
-  );
-
-  if (data.card.title.type) {
-    data.card.title.type = text(
-      'card.title.type',
-      data.card.title.type,
+  if (data.card.title) {
+    data.card.title.label = he.decode(
+      text('card.title.label', data.card.title.label, tabLabels.required)
+    );
+    if (data.card.title.type) {
+      data.card.title.type = text(
+        'card.title.type',
+        data.card.title.type,
+        tabLabels.optional
+      );
+    }
+  }
+  if (data.card.description) {
+    data.card.description = he.decode(
+      text('card.description', data.card.description, tabLabels.optional)
+    );
+  }
+  if (data.card.meta) {
+    data.card.meta = array(
+      'card.meta',
+      data.card.meta,
+      '|',
       tabLabels.optional
     );
   }
-  data.card.description = he.decode(
-    text('card.description', data.card.description, tabLabels.optional)
-  );
-  data.card.meta = array('card.meta', data.card.meta, '|', tabLabels.optional);
   if (data.card.tags) {
     data.card.tags.forEach((tag, i) => {
       tag.label = he.decode(
@@ -132,12 +143,21 @@ export const Card = () => card(prepareCard(dataCard));
 Card.storyName = 'card';
 Card.parameters = { notes: { markdown: notes, json: dataCard } };
 
+export const CardTaxonomy = () => card(prepareCard(dataCardTaxonomy));
+
+CardTaxonomy.storyName = 'card (taxonomy)';
+CardTaxonomy.parameters = {
+  notes: { markdown: notes, json: dataCardTaxonomy },
+};
+
 export const Tile = () => card(prepareCard(dataCardTile));
 
 Tile.storyName = 'tile';
 Tile.parameters = { notes: { markdown: notes, json: dataCardTile } };
 
-export const Event = () => card(prepareCard(dataCardEvent));
+export const TileTaxonomy = () => card(prepareCard(dataCardTileTaxonomy));
 
-Event.storyName = 'event';
-Event.parameters = { notes: { markdown: notes, json: dataCardEvent } };
+TileTaxonomy.storyName = 'tile (taxonomy)';
+TileTaxonomy.parameters = {
+  notes: { markdown: notes, json: dataCardTileTaxonomy },
+};

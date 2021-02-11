@@ -4,6 +4,7 @@ import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 import dataWithTranslation from './demo/data--with-translation';
 import dataWithoutTranslation from './demo/data--without-translation';
 import dataThumbnail from './demo/data--thumbnail';
+import dataThumbnailTaxonomy from './demo/data--thumbnail-taxonomy';
 
 describe('EC - File', () => {
   const template = '@ecl-twig/ec-component-file/ecl-file.html.twig';
@@ -104,6 +105,12 @@ describe('EC - File', () => {
       dataThumbnail.image = {};
 
       return expect(render(dataThumbnail)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly with taxonomies', () => {
+      expect.assertions(1);
+
+      return expect(render(dataThumbnailTaxonomy)).resolves.toMatchSnapshot();
     });
   });
 });

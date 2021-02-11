@@ -38,6 +38,10 @@ const adapter = (initialData) => {
     });
   }
   delete adaptedData.ariaLabel;
+  if (adaptedData.taxonomy) {
+    adaptedData.lists = [adaptedData.taxonomy];
+    delete adaptedData.taxonomy;
+  }
 
   return adaptedData;
 };
