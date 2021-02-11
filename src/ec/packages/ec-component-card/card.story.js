@@ -17,11 +17,14 @@ import {
 
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import dataCard from './demo/data--card';
-import dataCardEvent from './demo/data--event';
+import dataCardTaxonomy from './demo/data--card-taxonomy';
 import dataCardTile from './demo/data--tile';
+import dataCardTileTaxonomy from './demo/data--tile-taxonomy';
 
 import card from './ecl-card.html.twig';
 import notes from './README.md';
+
+dataCardTileTaxonomy.card.type = 'tile';
 
 const iconsList = [];
 generalIcons.forEach((icon) => {
@@ -29,21 +32,31 @@ generalIcons.forEach((icon) => {
 });
 
 const prepareCard = (data) => {
-  data.card.title.label = he.decode(
-    text('card.title.label', data.card.title.label, tabLabels.required)
-  );
-
-  if (data.card.title.type) {
-    data.card.title.type = text(
-      'card.title.type',
-      data.card.title.type,
+  if (data.card.title) {
+    data.card.title.label = he.decode(
+      text('card.title.label', data.card.title.label, tabLabels.required)
+    );
+    if (data.card.title.type) {
+      data.card.title.type = text(
+        'card.title.type',
+        data.card.title.type,
+        tabLabels.optional
+      );
+    }
+  }
+  if (data.card.description) {
+    data.card.description = he.decode(
+      text('card.description', data.card.description, tabLabels.optional)
+    );
+  }
+  if (data.card.meta) {
+    data.card.meta = array(
+      'card.meta',
+      data.card.meta,
+      '|',
       tabLabels.optional
     );
   }
-  data.card.description = he.decode(
-    text('card.description', data.card.description, tabLabels.optional)
-  );
-  data.card.meta = array('card.meta', data.card.meta, '|', tabLabels.optional);
   if (data.card.tags) {
     data.card.tags.forEach((tag, i) => {
       tag.label = he.decode(
@@ -115,6 +128,42 @@ const prepareCard = (data) => {
       tabLabels.optional
     );
   }
+  if (data.card.lists) {
+    data.card.lists.forEach((list, j) => {
+      list.variant = text(
+        `card.lists[${j}].variant`,
+        list.variant,
+        tabLabels.optional
+      );
+      list.items.forEach((item, k) => {
+        item.term = text(
+          `card.lists[${j}].items[${k}].term`,
+          item.term,
+          tabLabels.optional
+        );
+        if (!Array.isArray(item.definition)) {
+          item.defitiion = text(
+            `card.lists[${j}].items[${k}].definition`,
+            item.definition,
+            tabLabels.optional
+          );
+        } else {
+          item.definition.forEach((def, l) => {
+            def.label = text(
+              `card.lists[${j}].items[${k}].definition[${l}].label`,
+              def.label,
+              tabLabels.optional
+            );
+            def.variant = text(
+              `card.lists[${j}].items[${k}].definition[${l}].variant`,
+              def.variant,
+              tabLabels.optional
+            );
+          });
+        }
+      });
+    });
+  }
 
   getExtraKnobs(data);
   getComplianceKnob(data);
@@ -132,12 +181,21 @@ export const Card = () => card(prepareCard(dataCard));
 Card.storyName = 'card';
 Card.parameters = { notes: { markdown: notes, json: dataCard } };
 
+export const CardTaxonomy = () => card(prepareCard(dataCardTaxonomy));
+
+CardTaxonomy.storyName = 'card (taxonomy)';
+CardTaxonomy.parameters = {
+  notes: { markdown: notes, json: dataCardTaxonomy },
+};
+
 export const Tile = () => card(prepareCard(dataCardTile));
 
 Tile.storyName = 'tile';
 Tile.parameters = { notes: { markdown: notes, json: dataCardTile } };
 
-export const Event = () => card(prepareCard(dataCardEvent));
+export const TileTaxonomy = () => card(prepareCard(dataCardTileTaxonomy));
 
-Event.storyName = 'event';
-Event.parameters = { notes: { markdown: notes, json: dataCardEvent } };
+TileTaxonomy.storyName = 'tile (taxonomy)';
+TileTaxonomy.parameters = {
+  notes: { markdown: notes, json: dataCardTileTaxonomy },
+};

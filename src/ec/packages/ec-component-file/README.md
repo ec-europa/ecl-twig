@@ -9,13 +9,15 @@ npm install --save @ecl-twig/ec-component-file
 ### Parameters
 
 - **"icon"** (object) (default: {}): object of type Icon; file type
-- **"variant"** (string) (default: '') Thumbnail
+- **"variant"** (string) (default: '') (thumbnail)
 - **"title"** (string) (default: '')
 - **"description"** (string) (default: '')
 - **"language"** (string) (default: '')
 - **"meta"** (string) (default: '')
 - **"detail_meta"** (array) (default: []) Meta element for the thumbnail variant
 - **"download"** (object) (default: {}): object of type Link
+- **"image"** (object) (default: {}): image for the thumbnail variant
+- **"label"** (object) (default: {}) label for the thumbnail variant
 - **"translation"** (array) (default: []):
   - "toggle" (object) (default: {}): object of type Button
   - "items" (array) (default: []):
@@ -23,7 +25,12 @@ npm install --save @ecl-twig/ec-component-file
     - "meta" (string) (default: '')
     - "lang" (string) (default: '')
     - "download" (object) (default to the parent download property) object of type Link
-  - "description (string) (default:'')
+- **"description"** (string) (default:'')
+- **"lists"** (array) (default: []) Array of objects of type "description list"
+  - "variant" (optional) (taxonomy or horizontal)
+  - "items" (array)
+    - term (string)
+    - definition (string, array of strings or array of objects)
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
