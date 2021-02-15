@@ -9,6 +9,7 @@ import withCode from '@ecl-twig/storybook-addon-code';
 
 import specs from '@ecl/ec-specs-description-list/demo/data';
 import specsHorizontal from './demo/data--horizontal';
+import specsTaxonomy from './demo/data--taxonomy';
 import descriptionList from './ecl-description-list.html.twig';
 import notes from './README.md';
 
@@ -34,12 +35,21 @@ const prepareList = (data) => {
       item.term = text(`items[${i}].term`, item.term, tabLabels.required);
     }
     if (Array.isArray(item.definition)) {
-      item.definition.forEach((definitionItem, k) => {
-        data.items[i].definition[k] = text(
-          `items[${i}].definition[${k}]`,
-          definitionItem,
-          tabLabels.required
-        );
+      item.definition.forEach((def, k) => {
+        if (!def.label) {
+          def = text(`items[${i}].definition[${k}]`, def, tabLabels.required);
+        } else {
+          def.label = text(
+            `items[${i}].definition[${k}].label`,
+            def.label,
+            tabLabels.required
+          );
+          def.variant = text(
+            `items[${i}].definition[${k}].variant`,
+            def.variant,
+            tabLabels.required
+          );
+        }
       });
     } else {
       item.definition = text(
@@ -70,3 +80,8 @@ export const Horizontal = () => descriptionList(prepareList(specsHorizontal));
 
 Horizontal.storyName = 'horizontal';
 Horizontal.parameters = { notes: { markdown: notes, json: specsHorizontal } };
+
+export const Taxonomy = () => descriptionList(prepareList(specsTaxonomy));
+
+Taxonomy.storyName = 'horizontal (taxonomy)';
+Taxonomy.parameters = { notes: { markdown: notes, json: specsTaxonomy } };

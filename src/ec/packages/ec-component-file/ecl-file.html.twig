@@ -11,6 +11,7 @@
   - "detail_meta" (array) (default: []) Meta element(s) for the thumbnail variant
   - "download" (object) (default: {}): object of type Link
   - "image" (object) (default: {}): image for the thumbnail variant
+  - "label" (object) (default: {}) Object of type label
   - "translation" (array) (default: []):
     - "toggle" (object) (default: {}): object of type Button
     - "items" (array) (default: []):
@@ -18,7 +19,12 @@
       - "meta" (string) (default: '')
       - "lang" (string) (default: '')
       - "download" (object) (default to the parent download property) object of type Link
-    - "description (string) (default:'')
+    - "description" (string) (default:'')
+    - "lists" (array) (default: []) Array of objects of type "description list".
+      - "variant" (optional) (taxonomy or horizontal)
+      - "items" (array)
+        - "term" (string)
+        - "definition" (string, array of strings or array of objects)
   - "extra_classes" (optional) (string) (default: '')
   - "extra_attributes" (optional) (array) (default: []) [{
     - "name" (string) Attribute name, eg. 'data-test'
@@ -38,8 +44,10 @@
 {% set _download = download|default({}) %}
 {% set _detail_meta = detail_meta|default([]) %}
 {% set _translation = translation|default([]) %}
+{% set _lists = lists|default([]) %}
 {% set _css_class = 'ecl-file' %}
 {% set _image = image|default({}) %}
+{% set _label = label|default({}) %}
 {% set _meta_detail_string = '' %}
 {% set _variant = variant|default('') %}
 {% set _description = description|default('') %}
@@ -83,6 +91,11 @@
 <div class="{{ _css_class }}" {{ _extra_attributes|raw }}>
   <div class="ecl-file__container">
   {% if _variant == 'thumbnail' %}
+    {% if _label is not empty %}
+      <div class="ecl-file__label">
+        {% include '@ecl-twig/ec-component-label/ecl-label.html.twig' with _label only %}
+      </div>
+    {% endif %}
     <div class="ecl-file__detail">
       <div class="ecl-file__detail-info">
       {% if _meta_detail_string is not empty %}
@@ -103,6 +116,13 @@
       />
     {% endif %}
     </div>
+    {% if _lists is not empty and _lists is iterable %}
+    <div class="ecl-file__taxonomy">
+      {% for _list in _lists %}
+        {% include '@ecl-twig/ec-component-description-list/ecl-description-list.html.twig' with _list only %}
+      {% endfor %}
+    </div>
+    {% endif %}
   {% else %}
     {% include '@ecl-twig/ec-component-icon/ecl-icon.html.twig' with {
       icon: _icon,
