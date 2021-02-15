@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.36.0](https://github.com/ec-europa/ecl-twig/compare/v2.36.0...v2.35.2) (2021-02-15)
+
+#### :rocket: New Feature
+
+- [#597](https://github.com/ec-europa/ecl-twig/pull/597) feat(taxonomies): Adding variant for the description list, file and card components - front-2012 ([@planctus](https://github.com/planctus))
+
+#### Committers: 1
+
+- [@planctus](https://github.com/planctus)
+
 ## [2.35.2](https://github.com/ec-europa/ecl-twig/compare/v2.35.2...v2.35.1) (2021-02-09)
 
 #### :bug: Bug Fix
