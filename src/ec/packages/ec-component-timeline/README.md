@@ -17,7 +17,7 @@ npm install --save @ecl-twig/ec-component-timeline
   - "id": (string) (default: '')
   - "label": (string) (default: '')
   - "title": (string) (default: '')
-  - "content": (block) (default: '')
+  - "content": (string) (default: '')
 - **"icon_path"** (string) (default: ''): file containing the svg icons
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes

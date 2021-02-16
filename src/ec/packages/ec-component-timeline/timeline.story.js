@@ -45,10 +45,10 @@ const prepareTimeline = (data) => {
   data.items.forEach((item, i) => {
     const { id, label, title, content } = item;
     item.label = text(`items[${i}].label`, label, tabLabels.required);
+    item.title = text(`items[${i}].title`, title, tabLabels.required);
     item.id = text(`items[${i}].id`, id, tabLabels.optional);
-    item.title = text(`items[${i}].title`, title, tabLabels.optional);
     item.content = he.decode(
-      text(`items[${i}].content`, content, tabLabels.required)
+      text(`items[${i}].content`, content, tabLabels.optional)
     );
   });
 
