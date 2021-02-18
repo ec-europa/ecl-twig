@@ -15,10 +15,10 @@ npm install --save @ecl-twig/ec-component-timeline
   - "to": (integer) (default: items.length) Item index after which to resume displaying timeline items
 - **"items"** (array) (default: []):
   - "id": (string) (default: '')
-  - "label": (string) (default: '')
+  - "label": (string) (default: '') To be used as a "timestamp"
   - "title": (string) (default: '')
-  - "content": (string) (default: '')
-- **"icon_path"** (string) (default: ''): file containing the svg icons
+  - "content": (html markup marked as safe string) (default: '')
+- **"icon_path"** (string) (default: ''): Path to the file containing the icons
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
