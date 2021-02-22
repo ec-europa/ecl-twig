@@ -113,6 +113,7 @@ describe('EC - Timeline', () => {
 
     const dataCompliance = { ...demoData, _compliance_: true };
     dataCompliance.items[1].label = '';
+    dataCompliance.items[3].title = '';
     dataCompliance.toggle_collapsed = '';
     dataCompliance.toggle_expanded = '';
     dataCompliance.icon_path = '';

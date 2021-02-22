@@ -8,11 +8,11 @@ Parameters:
     - "from": (integer) (default: items.length) Item index after which to start hiding timeline items
     - "to": (integer) (default: items.length) Item index after which to resume displaying timeline items
   - "items" (array) (default: []):
-    - "id": (string) (default: '')
-    - "label": (string) (default: '')
+    - "id": (string) (optional) (default: '')
+    - "label": (string) (default: '') To be used as a "timestamp"
     - "title": (string) (default: '')
-    - "content": (block) (default: '')
-  - "icon_path" (string) (default: ''): file containing the svg icons
+    - "content": (html markup marked as safe string) (optional) (default: '')
+  - "icon_path" (string) (default: ''): Path to the file containing the icons
   - "extra_classes" (string) (default: '')
   - "extra_attributes" (array) (default: []): format:
     - "name" (string) (default: '')
@@ -74,14 +74,16 @@ Parameters:
       {% set extra_class = (loop.index > _display_amount and loop.revindex > _bottom_amount) ? ' ecl-timeline2__item--collapsed' : '' %}
       <li
       class="ecl-timeline2__item{{ extra_class }}"
-        {% if _item.id is defined and _item.id is not empty %}
+      {% if _item.id is defined and _item.id is not empty %}
           id="{{ _item.id }}"
-        {% endif %}>
+      {% endif %}>
         <div class="ecl-timeline2__label">{{ _item.label }}</div>
-        {% if _item.title is defined and _item.title is not empty %}
+      {% if _item.title is defined and _item.title is not empty %}
         <div class="ecl-timeline2__title">{{ _item.title }}</div>
-        {% endif %}
-        <div class="ecl-timeline2__content">{{ _item.content|default('') }}</div>
+      {% endif %}
+      {% if _item.content is defined and _item.content is not empty %}
+        <div class="ecl-timeline2__content">{{ _item.content }}</div>
+      {% endif %}
       </li>
       {# Display the show more button if required. #}
       {% if (_hide_amount > 0 and loop.revindex == _bottom_amount + 1) or (_hide_amount > 0 and _hide_to == 0 and loop.revindex == 1) %}
