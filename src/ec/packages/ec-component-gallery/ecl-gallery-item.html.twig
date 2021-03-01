@@ -102,6 +102,7 @@
           _compliance_inner_check_: true
         } only %}
       {% endif %}
+      {% if _item.description is defined and _item.description is not empty %}
       <figcaption
         class="ecl-gallery__description"
         data-ecl-gallery-description
@@ -123,6 +124,7 @@
         </span>
         {% endif %}
       </figcaption>
+      {% endif %}
     </figure>
   {% endif %}
   </a>
