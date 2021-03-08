@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.37.0](https://github.com/ec-europa/ecl-twig/compare/v2.37.0...v2.36.0) (2021-03-08)
+
+#### :bug: Bug Fix
+
+- [#599](https://github.com/ec-europa/ecl-twig/pull/599) fix(gallery): description is optional - front-2061 ([@planctus](https://github.com/planctus))
+- [#598](https://github.com/ec-europa/ecl-twig/pull/598) feat(timeline): Content is optional and title mandatory - FRONT-2036 ([@planctus](https://github.com/planctus))
+
+#### Committers: 1
+
+- [@planctus](https://github.com/planctus)
+
 ## [2.36.0](https://github.com/ec-europa/ecl-twig/compare/v2.36.0...v2.35.2) (2021-02-15)
 
 #### :rocket: New Feature
