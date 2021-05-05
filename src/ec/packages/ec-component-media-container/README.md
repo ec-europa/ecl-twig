@@ -9,6 +9,7 @@ npm install --save @ecl-twig/ec-component-media-container
 ### Parameters
 
 - **"description"** (string) (default: '') - A caption to be shown under the media,
+- **"full_width"** (boolean) (default: false) - Whether the component will be full width or not,
 - **"image"** (string) (default: '') The path to the image,
 - **"sources"** (array) (default: []) Array of Video sources with this structure:
   - "src" (string) (default: ''),
