@@ -21,6 +21,14 @@ describe('EC Media Container', () => {
       return expect(render(optionsWithExtraClasses)).resolves.toMatchSnapshot();
     });
 
+    test('renders correctly with full width', () => {
+      expect.assertions(1);
+
+      const fullWidthData = { ...defaultDataStructure, full_width: true };
+
+      return expect(render(fullWidthData)).resolves.toMatchSnapshot();
+    });
+
     test('Media container renders correctly with extra attributes', () => {
       expect.assertions(1);
 

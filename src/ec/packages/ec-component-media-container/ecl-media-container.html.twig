@@ -3,6 +3,7 @@
   Parameters:
   - "alt" (string) (default: ''),
   - "image" (string) (default: ''),
+  - "full_width" (boolean) (default: false)
   - "extra_classes" (string) (default: ''),
   - "sources" (array) (default: []): format: [
       {
@@ -45,10 +46,15 @@
 {% set _embedded_media = embedded_media|default('') %}
 {% set _ratio = ratio|default('16-9') %}
 {% set _sources = sources|default({}) %}
+{% set _full_width = full_width|default(false) %}
 {% set _tracks = tracks|default({}) %}
 {% set _compliance = _compliance_|default(false) %}
 
 {# Internal logic - Process properties #}
+
+{% if _full_width %}
+  {% set _css_class = _css_class ~ ' ecl-media-container--full-width' %}
+{% endif %}
 
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}

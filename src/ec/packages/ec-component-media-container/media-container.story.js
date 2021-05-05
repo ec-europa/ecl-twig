@@ -1,5 +1,11 @@
 import he from 'he';
-import { withKnobs, text, select, object } from '@storybook/addon-knobs';
+import {
+  withKnobs,
+  text,
+  select,
+  object,
+  boolean,
+} from '@storybook/addon-knobs';
 import { withNotes } from '@ecl-twig/storybook-addon-notes';
 import withCode from '@ecl-twig/storybook-addon-code';
 import {
@@ -39,6 +45,7 @@ const prepareMediaContainer = (data, media) => {
     );
     data.ratio = select('ratio', options, data.ratio, tabLabels.required);
   }
+  data.full_width = boolean('Full width', data.full_width, tabLabels.optional);
 
   getExtraKnobs(data);
   getComplianceKnob(data);

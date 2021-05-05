@@ -9,6 +9,7 @@ npm install --save @ecl-twig/ec-component-media-container
 ### Parameters
 
 - **"description"** (string) (default: '') - A caption to be shown under the media,
+- **"full_width"** (boolean) (default: false) - Whether the component will be full width or not,
 - **"image"** (string) (default: '') The path to the image,
 - **"sources"** (array) (default: []) Array of Video sources with this structure:
   - "src" (string) (default: ''),
@@ -35,14 +36,14 @@ npm install --save @ecl-twig/ec-component-media-container
 
 <!-- prettier-ignore -->
 ```twig
-{% include '@ecl-twig/ec-component-media-container/ecl-media-container.html.twig' with { 
-  description: 'A description for this image', 
-  extra_classes: 'my-extra-class-1 my-extra-class-2', 
-  image: '/path/to/your/image', 
-  alt: 'An alternate text', 
-  extra_attributes: [ 
-    { name: 'data-test', value: 'data-test-value' }, 
-    { name: 'data-test-1', value: 'data-test-value-1' } 
-  ] 
-} %} 
+{% include '@ecl-twig/ec-component-media-container/ecl-media-container.html.twig' with {
+  description: 'A description for this image',
+  extra_classes: 'my-extra-class-1 my-extra-class-2',
+  image: '/path/to/your/image',
+  alt: 'An alternate text',
+  extra_attributes: [
+    { name: 'data-test', value: 'data-test-value' },
+    { name: 'data-test-1', value: 'data-test-value-1' }
+  ]
+} %}
 ```
