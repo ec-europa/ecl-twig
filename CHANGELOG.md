@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.38.0](https://github.com/ec-europa/ecl-twig/compare/v2.37.0...v2.36.0) (2021-05-05)
+
+#### :nail_care: Enhancement
+
+- [#604](https://github.com/ec-europa/ecl-twig/pull/604) feat(media-container): Adding full-width variant ([@planctus](https://github.com/planctus))
+
+#### :house: Internal
+
+- [#603](https://github.com/ec-europa/ecl-twig/pull/603) chore(deps): updating storybook to 6.2.8 ([@planctus](https://github.com/planctus))
+
+#### Committers: 1
+
+- [@planctus](https://github.com/planctus)
+
 ## [2.37.0](https://github.com/ec-europa/ecl-twig/compare/v2.37.0...v2.36.0) (2021-03-08)
 
 #### :bug: Bug Fix
