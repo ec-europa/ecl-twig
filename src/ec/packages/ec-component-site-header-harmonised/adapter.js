@@ -42,12 +42,14 @@ const adapter = (initialData) => {
     adaptedData.language_selector.overlay.closeLabel;
   delete adaptedData.language_selector.overlay.closeLabel;
 
-  adaptedData.language_selector.overlay.items = adaptedData.language_selector.overlay.items.map(
-    (euItem) => formatLinkAlt(euItem)
-  );
-  adaptedData.language_selector.overlay.non_eu_items = adaptedData.language_selector.overlay.itemsNonEu.map(
-    (nonEuItem) => formatLinkAlt(nonEuItem)
-  );
+  adaptedData.language_selector.overlay.items =
+    adaptedData.language_selector.overlay.items.map((euItem) =>
+      formatLinkAlt(euItem)
+    );
+  adaptedData.language_selector.overlay.non_eu_items =
+    adaptedData.language_selector.overlay.itemsNonEu.map((nonEuItem) =>
+      formatLinkAlt(nonEuItem)
+    );
   delete adaptedData.language_selector.overlay.itemsNonEu;
   // Search toggle.
   adaptedData.search_toggle = adaptedData.searchToggle;
