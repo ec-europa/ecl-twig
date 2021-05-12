@@ -31,8 +31,8 @@ const diffOptions = {
 };
 
 const htmlDiffer = new HtmlDiffer(diffOptions);
-let packages = require(`@ecl-twig/${system}-storybook/.storybook/packages.js`)
-  .list;
+let packages =
+  require(`@ecl-twig/${system}-storybook/.storybook/packages.js`).list;
 
 const domain = 'https://ec.europa.eu';
 const rootFolder = process.cwd();

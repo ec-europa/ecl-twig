@@ -2,8 +2,8 @@
 
 const eclDiffSystem = require('./ecl-diff-system.js');
 
-const fullPackages = require(`@ecl-twig/ec-storybook/.storybook/packages.js`)
-  .list;
+const fullPackages =
+  require(`@ecl-twig/ec-storybook/.storybook/packages.js`).list;
 
 let components = {};
 // Get the argument from the command line.
