@@ -4,7 +4,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const twing = require('@ecl-twig/ec-storybook/.storybook/environment.js');
+const twing = require('@ecl-twig/ec-storybook/.storybook/environment');
 
 const extension = 'html.twig';
 const rootFolder = path.resolve(__dirname, '../../../');

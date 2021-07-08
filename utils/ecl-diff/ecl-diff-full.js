@@ -1,9 +1,8 @@
 #!/usr/bin/env node
 
-const eclDiffSystem = require('./ecl-diff-system.js');
+const eclDiffSystem = require('./ecl-diff-system');
 
-const fullPackages =
-  require(`@ecl-twig/ec-storybook/.storybook/packages.js`).list;
+const fullPackages = require(`@ecl-twig/ec-storybook/.storybook/packages`).list;
 
 let components = {};
 // Get the argument from the command line.
