@@ -2,7 +2,7 @@
 
 const prettier = require('prettier');
 const fs = require('fs');
-const eclDiffVariant = require('./ecl-diff-variant.js');
+const eclDiffVariant = require('./ecl-diff-variant');
 
 const rootFolder = process.cwd();
 const distFolder = `${rootFolder}/php`;

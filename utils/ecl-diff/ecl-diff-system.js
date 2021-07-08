@@ -2,7 +2,7 @@
 
 const fs = require('fs');
 const prettier = require('prettier');
-const eclDiffComponent = require('./ecl-diff-component.js');
+const eclDiffComponent = require('./ecl-diff-component');
 
 const rootFolder = process.cwd();
 
