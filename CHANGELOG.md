@@ -3,7 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [2.38.0](https://github.com/ec-europa/ecl-twig/compare/v2.37.0...v2.36.0) (2021-05-05)
+## [2.39.0](https://github.com/ec-europa/ecl-twig/compare/v2.38.0...v2.38.0) (2021-08-17)
+
+#### :house: Internal
+
+- [#613](https://github.com/ec-europa/ecl-twig/pull/613) chore(deps): Updates 02/08/21 ([@planctus](https://github.com/planctus))
+- [#612](https://github.com/ec-europa/ecl-twig/pull/612) chore(deps): updates (08-07-21) ([@planctus](https://github.com/planctus))
+- [#611](https://github.com/ec-europa/ecl-twig/pull/611) chore: updating storybook ([@planctus](https://github.com/planctus))
+- [#607](https://github.com/ec-europa/ecl-twig/pull/607) chore(deps): Safe updates 07.06.21 ([@planctus](https://github.com/planctus))
+- [#605](https://github.com/ec-europa/ecl-twig/pull/605) chore: update deps ([@planctus](https://github.com/planctus))
+
+## [2.38.0](https://github.com/ec-europa/ecl-twig/compare/v2.38.0...v2.37.0) (2021-05-05)
 
 #### :nail_care: Enhancement
 
