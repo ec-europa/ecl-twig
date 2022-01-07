@@ -53,7 +53,7 @@ export const Simple = () => {
   simpleHtmlElement.style.background = '#004494';
   simpleHtmlElement.setAttribute('demo_only', true);
   simpleHtmlElement.innerHTML = simpleHtml;
-  demoSimple.appendChild(simpleHtmlElement);
+  demoSimple.append(simpleHtmlElement);
 
   return demoSimple;
 };
@@ -68,7 +68,7 @@ export const Long = () => {
   longHtmlElement.style.background = '#004494';
   longHtmlElement.setAttribute('demo_only', true);
   longHtmlElement.innerHTML = longHtml;
-  demoLong.appendChild(longHtmlElement);
+  demoLong.append(longHtmlElement);
 
   return demoLong;
 };

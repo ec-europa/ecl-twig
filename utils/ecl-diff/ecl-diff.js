@@ -125,11 +125,7 @@ yargsInteractive()
         } = result;
         const extension = language === 'php' ? '.php.html' : '.js.html';
         const getVariant = (element) => {
-          if (element.includes('--')) {
-            element = element.split('--')[1].replace(extension, '');
-          } else {
-            element = '';
-          }
+          element = element.includes('--') ? element.split('--')[1].replace(extension, '') : '';
 
           return element;
         };
@@ -141,11 +137,7 @@ yargsInteractive()
         // We try to use the variant as it comes from the user, if we don't find it
         // we return the available variants in ecl-twig.
         let fileName = '';
-        if (variant) {
-          fileName = `${component}--${variant}${extension}`;
-        } else {
-          fileName = component + extension;
-        }
+        fileName = variant ? `${component}--${variant}${extension}` : component + extension;
 
         const version = `v${eclVersion}`;
         const twigFullPath =
@@ -161,9 +153,7 @@ yargsInteractive()
         } else if (!fs.existsSync(`${twigFullPath}/${fileName}`)) {
           let files = fs.readdirSync(twigFullPath);
 
-          files = files.filter((file) => {
-            return file.split('.').slice(1).join('.') === extension.slice(1);
-          });
+          files = files.filter((file) => file.split('.').slice(1).join('.') === extension.slice(1));
 
           files = files.map((file) => getVariant(file));
           // We might have empty items in the array now.
@@ -214,50 +204,120 @@ yargsInteractive()
         // and see if any of them matches the requested one, if none does we return the
         // list of stories available for a component, if we found them.
         const eclComponents = (el) => {
-          if (el === 'text-input') {
+          switch (el) {
+          case 'text-input': {
             el = 'text-field';
-          } else if (el === 'text-area') {
+          
+          break;
+          }
+          case 'text-area': {
             el = 'textarea';
-          } else if (el === 'unordered-list' || el === 'description-list') {
+          
+          break;
+          }
+          case 'unordered-list': 
+          case 'description-list': {
             el = 'list';
-          } else if (el === 'message') {
+          
+          break;
+          }
+          case 'message': {
             el = 'messages';
-          } else if (el === 'search-form') {
+          
+          break;
+          }
+          case 'search-form': {
             el = 'searchform';
-          } else if (el === 'media-container') {
+          
+          break;
+          }
+          case 'media-container': {
             el = 'mediacontainer';
-          } else if (el === 'social-media-follow') {
+          
+          break;
+          }
+          case 'social-media-follow': {
             el = 'socialmediafollow';
-          } else if (el === 'social-media-share') {
+          
+          break;
+          }
+          case 'social-media-share': {
             el = 'socialmediashare';
-          } else if (el === 'footer-harmonised') {
+          
+          break;
+          }
+          case 'footer-harmonised': {
             el = 'harmonised';
-          } else if (el === 'footer-core') {
+          
+          break;
+          }
+          case 'footer-core': {
             el = 'core';
-          } else if (el === 'footer-standardised') {
+          
+          break;
+          }
+          case 'footer-standardised': {
             el = 'standardised';
-          } else if (el === 'site-header-standardised') {
+          
+          break;
+          }
+          case 'site-header-standardised': {
             el = 'standardised';
-          } else if (el === 'site-header-harmonised') {
+          
+          break;
+          }
+          case 'site-header-harmonised': {
             el = 'harmonised';
-          } else if (el === 'site-header-core') {
+          
+          break;
+          }
+          case 'site-header-core': {
             el = 'core';
-          } else if (el === 'page-header-core') {
+          
+          break;
+          }
+          case 'page-header-core': {
             el = 'core';
-          } else if (el === 'page-header-harmonised') {
+          
+          break;
+          }
+          case 'page-header-harmonised': {
             el = 'harmonised';
-          } else if (el === 'page-header-standardised') {
+          
+          break;
+          }
+          case 'page-header-standardised': {
             el = 'standardised';
-          } else if (el === 'expandable') {
+          
+          break;
+          }
+          case 'expandable': {
             el = 'expandables';
-          } else if (el === 'inpage-navigation') {
+          
+          break;
+          }
+          case 'inpage-navigation': {
             el = 'in-page-navigation';
-          } else if (el === 'language-list') {
+          
+          break;
+          }
+          case 'language-list': {
             el = 'languagelist';
-          } else if (el === 'ordered-list' || el === 'unordered-list') {
+          
+          break;
+          }
+          case 'ordered-list': 
+          case 'unordered-list': {
             el = 'list';
-          } else if (el === 'page-header') {
+          
+          break;
+          }
+          case 'page-header': {
             el = 'pageheader';
+          
+          break;
+          }
+          // No default
           }
           if (eclVersion > '2.21.0') {
             if (el === 'footer') {

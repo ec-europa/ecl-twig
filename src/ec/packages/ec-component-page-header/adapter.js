@@ -16,12 +16,12 @@ const adapter = (initialData) => {
   // Copy reference specification demo data.
   const adaptedData = JSON.parse(JSON.stringify(initialData));
   if (adaptedData.infos && Array.isArray(adaptedData.infos)) {
-    adaptedData.infos.forEach((info) => {
+    for (const info of adaptedData.infos) {
       const iconName = info.icon;
       info.icon = {};
       info.icon.name = iconName;
       info.icon.path = '/icons.svg';
-    });
+    }
   }
 
   if (adaptedData.isHomepage) {

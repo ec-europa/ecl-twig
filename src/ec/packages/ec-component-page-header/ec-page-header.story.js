@@ -24,7 +24,7 @@ const preparePageHeader = (data, variant) => {
   data.meta = text('meta', data.meta, tabLabels.optional);
 
   if (variant === 'event') {
-    data.infos.forEach((info, i) => {
+    for (const [i, info] of data.infos.entries()) {
       info.text = text(`infos[${i}].text`, info.text, tabLabels.required);
       info.icon.name = select(
         `infos[${i}].icon.name`,
@@ -44,7 +44,7 @@ const preparePageHeader = (data, variant) => {
         info.icon.type,
         tabLabels.required
       );
-    });
+    }
   }
 
   if (variant === 'img') {
@@ -75,7 +75,7 @@ const preparePageHeader = (data, variant) => {
     defaultSprite,
     tabLabels.required
   );
-  data.breadcrumb.links.forEach((item, i) => {
+  for (const [i, item] of data.breadcrumb.links.entries()) {
     item.label = text(
       `data.breadcrumb.links[${i}].label`,
       item.label,
@@ -86,7 +86,7 @@ const preparePageHeader = (data, variant) => {
       item.path,
       tabLabels.required
     );
-  });
+  }
 
   getExtraKnobs(data);
   getComplianceKnob(data);

@@ -43,11 +43,11 @@ export const withDiff = makeDecorator({
       // Check whether we wrapped the story just for the demo.
       if (rootEl.hasAttribute('demo_only')) {
         const demoChildren = rootEl.childNodes;
-        demoChildren.forEach(function refillNode(v, i) {
-          htmlElement.appendChild(demoChildren[i]);
-        });
+        for (const [i, v] of demoChildren.entries()) {
+          htmlElement.append(demoChildren[i]);
+        }
       } else {
-        htmlElement.appendChild(phpRendered);
+        htmlElement.append(phpRendered);
       }
       phpRendered = htmlElement.innerHTML;
     } else if (story instanceof Node) {
@@ -56,11 +56,7 @@ export const withDiff = makeDecorator({
 
     const diff = htmlDiffer.diffHtml(jsmarkup, phpRendered);
     const isEqual = htmlDiffer.isEqual(jsmarkup, phpRendered);
-    if (isEqual) {
-      res = 'Perfectly matching!';
-    } else {
-      res = logger.getDiffText(diff, { charsAroundDiff: 40 });
-    }
+    res = isEqual ? 'Perfectly matching!' : logger.getDiffText(diff, { charsAroundDiff: 40 });
     channel.emit('ecl/diff/add_code', res);
 
     return getStory(context);

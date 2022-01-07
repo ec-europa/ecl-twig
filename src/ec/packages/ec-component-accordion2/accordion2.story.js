@@ -14,7 +14,7 @@ import accordion2 from './ecl-accordion2.html.twig';
 import notes from './README.md';
 
 const prepareAccordion2 = (data) => {
-  data.items.forEach((item, index) => {
+  for (const [index, item] of data.items.entries()) {
     const levels = [1, 2, 3, 4, 5, 6];
     const { id, level, toggle, content } = item;
     item.id = text(`items[${index}].id`, id, tabLabels.required);
@@ -39,7 +39,7 @@ const prepareAccordion2 = (data) => {
       level,
       tabLabels.optional
     );
-  });
+  }
 
   getExtraKnobs(data);
   getComplianceKnob(data);

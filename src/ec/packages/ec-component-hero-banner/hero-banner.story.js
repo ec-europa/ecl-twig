@@ -26,9 +26,9 @@ import heroBanner from './ecl-hero-banner.html.twig';
 import notes from './README.md';
 
 const icons = { none: '' };
-uiIcons.forEach((icon) => {
+for (const icon of uiIcons) {
   icons[icon] = icon;
-});
+}
 
 // Preserve the adapted specs.
 let simplePrimaryData = { ...bannerDataSimplePrimary };

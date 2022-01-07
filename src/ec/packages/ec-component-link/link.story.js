@@ -19,9 +19,9 @@ import notes from './README.md';
 const iconsList = {};
 iconsList.none = '';
 
-uiIcons.forEach((icon) => {
+for (const icon of uiIcons) {
   iconsList[icon] = icon;
-});
+}
 
 const prepareLink = (data) => {
   let typeLabel = tabLabels.required;
@@ -65,7 +65,7 @@ export const Default = () => {
   wrapper.className = 'ecl-u-type-paragraph';
   wrapper.setAttribute('demo_only', true);
   wrapper.innerHTML = link(dataStory);
-  demo.appendChild(wrapper);
+  demo.append(wrapper);
 
   return demo;
 };

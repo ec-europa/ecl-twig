@@ -17,7 +17,7 @@ import notes from './README.md';
 const prepareSocialMediaShare = (data) => {
   data.description = text('description', data.description, tabLabels.required);
 
-  data.links.forEach((link, i) => {
+  for (const [i, link] of data.links.entries()) {
     let label = tabLabels.optional;
     // Firt item we make it mandatory and not removable.
     if (i === 0) {
@@ -35,7 +35,7 @@ const prepareSocialMediaShare = (data) => {
         link.icon_position,
         label
       );
-      link.icon.forEach((icon, j) => {
+      for (const [j, icon] of link.icon.entries()) {
         let knobLabel = `links[${i}].icon[${j}].name`;
         let options = getBrandedIconsOptions(false);
         if (j === 1) {
@@ -56,7 +56,7 @@ const prepareSocialMediaShare = (data) => {
           icon.extra_classes,
           label
         );
-      });
+      }
     } else {
       // All the other items.
       if (data.links[i].label && data.links[i].path) {
@@ -85,7 +85,7 @@ const prepareSocialMediaShare = (data) => {
           link.icon_position,
           label
         );
-        link.icon.forEach((icon, k) => {
+        for (const [k, icon] of link.icon.entries()) {
           let knobLabel = `links[${i}].icon[${k}].name`;
           let iconOptions = getBrandedIconsOptions(false, true);
           if (k === 1) {
@@ -118,10 +118,10 @@ const prepareSocialMediaShare = (data) => {
             data.links[i].path = '';
             data.links[i].icon = {};
           }
-        });
+        }
       }
     }
-  });
+  }
 
   getExtraKnobs(data);
   getComplianceKnob(data);

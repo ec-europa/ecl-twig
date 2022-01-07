@@ -124,16 +124,8 @@ const prepareSiteHeaderHarmonised = (data, variant) => {
       tabLabels.required
     );
   }
-  if (variant === 'group3') {
-    data.site_name = text('site_name', data.site_name, tabLabels.required);
-  } else {
-    data.site_name = text('site_name', data.site_name, tabLabels.optional);
-  }
-  if (data.group) {
-    data.group = select('group', [data.group], data.group, tabLabels.required);
-  } else {
-    data.group = select('group', ['group1'], 'group1', tabLabels.optional);
-  }
+  data.site_name = variant === 'group3' ? text('site_name', data.site_name, tabLabels.required) : text('site_name', data.site_name, tabLabels.optional);
+  data.group = data.group ? select('group', [data.group], data.group, tabLabels.required) : select('group', ['group1'], 'group1', tabLabels.optional);
   if (variant === 'group1' && data.banner_top && data.banner_top.link) {
     data.banner_top.link.label = text(
       'banner_top.link.label',

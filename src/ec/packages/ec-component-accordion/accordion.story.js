@@ -14,7 +14,7 @@ import accordion from './ecl-accordion.html.twig';
 import notes from './README.md';
 
 const prepareAccordion = (data) => {
-  data.items.forEach((item, index) => {
+  for (const [index, item] of data.items.entries()) {
     const { id, level, toggle, content } = item;
     item.id = text(`items[${index}].id`, id, tabLabels.required);
     item.content = he.decode(
@@ -40,7 +40,7 @@ const prepareAccordion = (data) => {
       level,
       tabLabels.optional
     );
-  });
+  }
 
   getExtraKnobs(data);
   getComplianceKnob(data);

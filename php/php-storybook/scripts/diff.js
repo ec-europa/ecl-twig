@@ -30,10 +30,10 @@ let totalComponents = 0;
 let totalVariants = 0;
 const failed = [];
 
-components.forEach((component) => {
+for (const component of components) {
   // Our validation component.
   if (component === 'ecl-compliance') {
-    return;
+    continue;
   }
 
   totalComponents += 1;
@@ -46,11 +46,11 @@ components.forEach((component) => {
   const dataFiles = fs.readdirSync(`${systemFolder}/${component}/specs`);
   const markup = [];
 
-  dataFiles.forEach((dataFile) => {
+  for (const dataFile of dataFiles) {
     totalVariants += 1;
     const filenames = [];
 
-    ['js', 'php'].forEach((lang) => {
+    for (const lang of ['js', 'php']) {
       const extension = `.${lang}.html`;
       const js = lang === 'js' ? lang : '';
       const fileName =
@@ -59,7 +59,7 @@ components.forEach((component) => {
       markup.lang = fs
         .readFileSync(`${systemFolder}/${component}/${js}/${fileName}`, 'utf-8')
         .toString();
-    });
+    }
 
     const diff = htmlDiffer.diffHtml(markup.js, markup.php);
     const isEqual = htmlDiffer.isEqual(markup.js, markup.php);
@@ -74,8 +74,8 @@ components.forEach((component) => {
     }
     console.log(`Comparing ${filenames.join(' with ')}:`);
     console.log(`${res}`);
-  });
-});
+  }
+}
 
 const percent = (100 * matches) / totalVariants;
 percent.toFixed(2);
@@ -85,7 +85,7 @@ console.log(
 );
 console.log(`With ${matches} perfect* matches, the ${percent}%.`);
 if (failed.length > 0) {
-  console.log(`You might want to check: ${failed.join()}`);
+  console.log(`You might want to check: ${failed.join(',')}`);
 }
 console.log(`\n* The files we check are formatted with https://www.npmjs.com/package/prettier,
   for the diff we use https://www.npmjs.com/package/html-differ, with this conf:`);

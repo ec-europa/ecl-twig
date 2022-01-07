@@ -22,19 +22,11 @@ const createDataFiles = ({
   let euFiles = [];
   let files = [];
   if (system === 'eu') {
-    euFiles = allFiles.filter((file) => {
-      return file.startsWith('eu-');
-    });
+    euFiles = allFiles.filter((file) => file.startsWith('eu-'));
   }
-  if (euFiles.length < 1) {
-    files = allFiles.filter((file) => {
-      return !file.startsWith('eu-');
-    });
-  } else {
-    files = euFiles;
-  }
+  files = euFiles.length < 1 ? allFiles.filter((file) => !file.startsWith('eu-')) : euFiles;
 
-  files.forEach((file) => {
+  for (const file of files) {
     // require() is necessary at all cases.
     // Sometimes files contain results of adaptation.
     const dataImport = require(`${readLocation}/${file}`);
@@ -44,7 +36,7 @@ const createDataFiles = ({
     const filePath = path.resolve(`${saveLocation}/${fileName}`);
 
     fse.outputFileSync(filePath, JSON.stringify(data));
-  });
+  }
 };
 
 let readLocation = '';
@@ -66,28 +58,22 @@ if (args[1]) {
   listRender = [`@ecl-twig/ec-component-${args[1]}`];
 }
 // Loop in the identified components.
-systems.forEach((system) => {
-  listRender.forEach((pkg) => {
+for (const system of systems) {
+  for (const pkg of listRender) {
     const componentRootName = pkg.split(`@ecl-twig/ec-component-`)[1];
     const packageLocation = `${nodeModules}/${pkg}`;
     let specLocation = '';
     if (componentRootName === 'ecl-compliance') {
-      return;
+      continue;
     }
-    if (
-      componentRootName === 'ordered-list' ||
-      componentRootName === 'unordered-list'
-    ) {
-      specLocation = packageLocation.replace(
+    specLocation = componentRootName === 'ordered-list' ||
+      componentRootName === 'unordered-list' ? packageLocation.replace(
         `@ecl-twig/ec-component-${componentRootName}`,
         `@ecl/ec-specs-list`
-      );
-    } else {
-      specLocation = packageLocation.replace(
+      ) : packageLocation.replace(
         `@ecl-twig/ec-component-${componentRootName}`,
         `@ecl/ec-specs-${componentRootName}`
       );
-    }
 
     const eclTwigPath = path.resolve(packageLocation);
     const eclSpecPath = path.resolve(specLocation);
@@ -120,5 +106,5 @@ systems.forEach((system) => {
         system,
       });
     }
-  });
-});
+  }
+}

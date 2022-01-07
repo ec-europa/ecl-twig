@@ -31,12 +31,10 @@ const adapter = (initialData) => {
   }
 
   if (initialData.sections) {
-    adaptedData.sections = initialData.sections.map((s) => {
-      return {
+    adaptedData.sections = initialData.sections.map((s) => ({
         title: s.title,
         links: s.links.map((item) => formatLink(item)),
-      };
-    });
+      }));
   }
 
   if (initialData.common) {

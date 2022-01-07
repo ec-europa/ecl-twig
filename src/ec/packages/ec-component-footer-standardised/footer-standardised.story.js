@@ -18,24 +18,24 @@ import footerStandardised from './ecl-footer-standardised.html.twig';
 import notes from './README.md';
 
 // Icons.
-specs.sections.forEach((section) => {
+for (let section of specs.sections) {
   if (!Array.isArray(section)) {
     section = [section];
   }
 
-  section.forEach((s) => {
+  for (const s of section) {
     if (section.title && section.title.icon) {
       section.title.icon.path = defaultSprite;
     }
     if (s.links && Array.isArray(s.links)) {
-      s.links.forEach((l) => {
+      for (const l of s.links) {
         if (l.icon) {
           l.icon.path = defaultSprite;
         }
-      });
+      }
     }
-  });
-});
+  }
+}
 
 // Handle the EU demo.
 const system = process.env.STORYBOOK_SYSTEM
@@ -172,7 +172,7 @@ const prepareFooterStandardised = (data) => {
     button('Reset the layout', resetBtnToggler, tabLabels.cases);
   }
 
-  data.sections.forEach((section, i) => {
+  for (const [i, section] of data.sections.entries()) {
     if (!Array.isArray(section)) {
       if (section.title && typeof section.title === 'object') {
         section.title.link = {
@@ -250,7 +250,7 @@ const prepareFooterStandardised = (data) => {
         );
       }
       if (section.links) {
-        section.links.forEach((linkItem, j) => {
+        for (const [j, linkItem] of section.links.entries()) {
           linkItem.link.label = he.decode(
             text(
               `sections[${i}].links[${j}].link.label`,
@@ -285,10 +285,10 @@ const prepareFooterStandardised = (data) => {
               tabLabels.required
             );
           }
-        });
+        }
       }
     } else {
-      section.forEach((sectionItem, j) => {
+      for (const [j, sectionItem] of section.entries()) {
         if (sectionItem.content_before) {
           sectionItem.content_before = he.decode(
             text(
@@ -313,7 +313,7 @@ const prepareFooterStandardised = (data) => {
               tabLabels.optional
             )
           );
-          sectionItem.links.forEach((linkItem, k) => {
+          for (const [k, linkItem] of sectionItem.links.entries()) {
             linkItem.link.label = text(
               `sections[${i}][${j}].links[${k}].link.label`,
               linkItem.link.label,
@@ -346,11 +346,11 @@ const prepareFooterStandardised = (data) => {
                 tabLabels.optional
               );
             }
-          });
+          }
         }
-      });
+      }
     }
-  });
+  }
   // Swap the columns when needed.
   if (
     !system &&

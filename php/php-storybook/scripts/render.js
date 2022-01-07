@@ -12,16 +12,16 @@ const distFolder = `${rootFolder}/php`;
 const args = process.argv.slice(2);
 const systems = args[0] ? [args[0]] : ['ec', 'eu'];
 
-systems.forEach((system) => {
+for (const system of systems) {
   const systemFolder = `${distFolder}/packages/${system}`;
   const components = args[1] ? [args[1]] : fs.readdirSync(systemFolder);
   // Loop in each component found.
-  components.forEach((component) => {
+  for (const component of components) {
     const pkg = `ec-component-${component}`;
     let componentTemplate = component;
     // Our validation component.
     if (component === 'ecl-compliance') {
-      return;
+      continue;
     }
     // Two known exceptions..
     if (component === 'checkbox' || component === 'radio') {
@@ -31,7 +31,7 @@ systems.forEach((system) => {
     const template = `@ecl-twig/${pkg}/ecl-${componentTemplate}.${extension}`;
     const dataFiles = fs.readdirSync(`${systemFolder}/${component}/specs`);
 
-    dataFiles.forEach((dataFile) => {
+    for (const dataFile of dataFiles) {
       const variant = path
         .basename(dataFile)
         .replace(/.json/, '')
@@ -44,9 +44,9 @@ systems.forEach((system) => {
 
       if (component === 'inpage-navigation') {
         let pageFillerHtml = '';
-        data.links.forEach((content) => {
+        for (const content of data.links) {
           pageFillerHtml += content.item;
-        });
+        }
         html = `<div class="ecl-container">
                   <div class="ecl-row ecl-u-mt-l" data-ecl-inpage-navigation-container>
                     <div class="ecl-col-md-3">${html}</div><div class="ecl-col-md-9">
@@ -63,6 +63,6 @@ systems.forEach((system) => {
           if (err) throw err;
         }
       );
-    });
-  });
-});
+    }
+  }
+}

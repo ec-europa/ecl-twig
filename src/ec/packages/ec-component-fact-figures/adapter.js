@@ -6,9 +6,9 @@ const adapter = (initialData) => {
   adaptedData.view_all = formatLink(adaptedData.viewAll);
   delete adaptedData.viewAll;
 
-  adaptedData.items.forEach((item) => {
+  for (const item of adaptedData.items) {
     item.icon = formatIcon(item.icon);
-  });
+  }
   adaptedData.display_icons = true;
   return adaptedData;
 };

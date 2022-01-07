@@ -82,9 +82,9 @@ export const Default = () => {
   button(btnIdRemoveLabel, btnIdRemoveHandler, tabLabels.cases);
 
   let pageFillerHtml = '';
-  demoData.links.forEach((content) => {
+  for (const content of demoData.links) {
     pageFillerHtml += content.item;
-  });
+  }
 
   const fullDemoData = { ...demoData, icon_path: iconPath };
   const html = inpageNavigation(fullDemoData);
@@ -102,7 +102,7 @@ export const Default = () => {
                               </div>
                             </div>
                           </div>`;
-  demo.appendChild(htmlElement.firstChild);
+  demo.append(htmlElement.firstChild);
 
   return demo;
 };

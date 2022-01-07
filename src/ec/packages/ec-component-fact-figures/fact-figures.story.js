@@ -23,9 +23,9 @@ import factFigures from './ecl-fact-figures.html.twig';
 import notes from './README.md';
 
 const iconsList = [];
-generalIcons.forEach((icon) => {
+for (const icon of generalIcons) {
   iconsList.push(icon);
-});
+}
 
 // Preserve original data.
 const items3 = JSON.parse(JSON.stringify(data3Col.items));
@@ -43,23 +43,15 @@ const viewAll4Toggler = () => {
 };
 // 3 Columns.
 const desc3Toggler = () => {
-  data3.items.forEach((item, i) => {
-    if (item.description) {
-      item.description = '';
-    } else {
-      item.description = items3[i].description;
-    }
-  });
+  for (const [i, item] of data3.items.entries()) {
+    item.description = item.description ? '' : items3[i].description;
+  }
 };
 // 4 Columns.
 const desc4Toggler = () => {
-  data4.items.forEach((item, i) => {
-    if (item.description) {
-      item.description = '';
-    } else {
-      item.description = items4[i].description;
-    }
-  });
+  for (const [i, item] of data4.items.entries()) {
+    item.description = item.description ? '' : items4[i].description;
+  }
 };
 // Knobs for the items.
 const formatItem = (item, index) => {

@@ -2,9 +2,9 @@ import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 
 import demoData from './demo/data';
 
-demoData.items.forEach((item) => {
+for (const item of demoData.items) {
   item.toggle.icon.path = 'static/icons';
-});
+}
 
 describe('EC - Accordion', () => {
   const template = '@ecl-twig/ec-component-accordion/ecl-accordion.html.twig';

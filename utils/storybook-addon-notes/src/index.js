@@ -48,32 +48,32 @@ function renderMarkdown(text, options, json) {
     }
     if (json.items) {
       example.items = [...json.items];
-      example.items.forEach((item, i) => {
+      for (const [i, item] of example.items.entries()) {
         if (item.label === '' && item.path === '') {
           example.items[i] = {};
         }
-      });
+      }
       example.items = example.items.filter(
-        (value) => Object.keys(value).length !== 0
+        (value) => Object.keys(value).length > 0
       );
     }
     if (json.links) {
       example.links = [...json.links];
-      example.links.forEach((link, i) => {
+      for (const [i, link] of example.links.entries()) {
         if (link.label === '' && link.path === '') {
           example.links[i] = {};
         }
-      });
+      }
       example.links = example.links.filter(
-        (value) => Object.keys(value).length !== 0
+        (value) => Object.keys(value).length > 0
       );
     }
     // Fixing the econding of ', mainly
-    Object.keys(example).forEach((e) => {
+    for (const e of Object.keys(example)) {
       if (typeof example[e] === 'string') {
         example[e] = he.decode(example[e]);
       }
-    });
+    }
     // Ehm, this is the best format we could get.
     let specs = JSON.stringify(example, undefined, '\n..');
     // We only replace the existing example.s

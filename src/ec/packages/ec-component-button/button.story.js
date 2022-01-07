@@ -22,9 +22,9 @@ import notes from './README.md';
 const iconsList = {};
 iconsList.none = '';
 
-uiIcons.forEach((icon) => {
+for (const icon of uiIcons) {
   iconsList[icon] = icon;
-});
+}
 
 // Preserve the adapted specs.
 const prepareButton = (data, type) => {
