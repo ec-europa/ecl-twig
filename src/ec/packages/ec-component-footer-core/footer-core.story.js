@@ -26,7 +26,7 @@ if (process.env.STORYBOOK_SYSTEM === 'EU') {
 
 // Prepare the knobs.
 const formatFooter = (data) => {
-  data.sections.forEach((section, i) => {
+  for (const [i, section] of data.sections.entries()) {
     if (!Array.isArray(section)) {
       if (section.title) {
         if (typeof section.title === 'object') {
@@ -118,7 +118,7 @@ const formatFooter = (data) => {
         );
       }
       if (section.links) {
-        section.links.forEach((link, j) => {
+        for (const [j, link] of section.links.entries()) {
           link.link.label = he.decode(
             text(
               `sections[${i}].links[${j}].link.label`,
@@ -153,10 +153,10 @@ const formatFooter = (data) => {
               tabLabels.required
             );
           }
-        });
+        }
       }
     } else {
-      section.forEach((sectionItem, j) => {
+      for (const [j, sectionItem] of section.entries()) {
         if (sectionItem.content_before) {
           sectionItem.content_before = he.decode(
             text(
@@ -188,7 +188,7 @@ const formatFooter = (data) => {
               tabLabels.optional
             )
           );
-          sectionItem.links.forEach((linkItem, k) => {
+          for (const [k, linkItem] of sectionItem.links.entries()) {
             linkItem.link.label = he.decode(
               text(
                 `sections[${i}][${j}].links[${k}].link.label`,
@@ -223,11 +223,11 @@ const formatFooter = (data) => {
                 tabLabels.optional
               );
             }
-          });
+          }
         }
-      });
+      }
     }
-  });
+  }
 
   getExtraKnobs(data);
   // Not in EU.

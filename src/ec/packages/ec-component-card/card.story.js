@@ -27,9 +27,9 @@ import notes from './README.md';
 dataCardTileTaxonomy.card.type = 'tile';
 
 const iconsList = [];
-generalIcons.forEach((icon) => {
+for (const icon of generalIcons) {
   iconsList.push(icon);
-});
+}
 
 const prepareCard = (data) => {
   if (data.card.title) {
@@ -58,11 +58,11 @@ const prepareCard = (data) => {
     );
   }
   if (data.card.tags) {
-    data.card.tags.forEach((tag, i) => {
+    for (const [i, tag] of data.card.tags.entries()) {
       tag.label = he.decode(
         text(`card.tags[${i}].label`, tag.label, tabLabels.optional)
       );
-    });
+    }
   }
   data.icon_path = optionsKnob(
     'icon_path',
@@ -72,7 +72,7 @@ const prepareCard = (data) => {
     tabLabels.optional
   );
   if (data.card.infos) {
-    data.card.infos.forEach((info, i) => {
+    for (const [i, info] of data.card.infos.entries()) {
       info.label = text(
         `card.infos[${i}].label`,
         info.label,
@@ -105,16 +105,16 @@ const prepareCard = (data) => {
           tabLabels.optional
         );
       }
-    });
+    }
   }
   if (data.card.links) {
-    data.card.links.forEach((link, i) => {
+    for (const [i, link] of data.card.links.entries()) {
       link.label = text(
         `card.links[${i}].label`,
         link.label,
         tabLabels.optional
       );
-    });
+    }
   }
   if (data.card.image) {
     data.card.image.alt = text(
@@ -129,13 +129,13 @@ const prepareCard = (data) => {
     );
   }
   if (data.card.lists) {
-    data.card.lists.forEach((list, j) => {
+    for (const [j, list] of data.card.lists.entries()) {
       list.variant = text(
         `card.lists[${j}].variant`,
         list.variant,
         tabLabels.optional
       );
-      list.items.forEach((item, k) => {
+      for (const [k, item] of list.items.entries()) {
         item.term = text(
           `card.lists[${j}].items[${k}].term`,
           item.term,
@@ -148,7 +148,7 @@ const prepareCard = (data) => {
             tabLabels.optional
           );
         } else {
-          item.definition.forEach((def, l) => {
+          for (const [l, def] of item.definition.entries()) {
             def.label = text(
               `card.lists[${j}].items[${k}].definition[${l}].label`,
               def.label,
@@ -159,10 +159,10 @@ const prepareCard = (data) => {
               def.variant,
               tabLabels.optional
             );
-          });
+          }
         }
-      });
-    });
+      }
+    }
   }
 
   getExtraKnobs(data);

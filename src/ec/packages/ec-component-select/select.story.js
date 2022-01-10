@@ -46,7 +46,7 @@ const prepareSelect = (data, multi) => {
     );
   }
 
-  data.options.forEach((option, i) => {
+  for (const [i, option] of data.options.entries()) {
     option.label = text(
       `options[${i}].label`,
       option.label,
@@ -71,7 +71,7 @@ const prepareSelect = (data, multi) => {
         tabLabels.optional
       );
     }
-  });
+  }
 
   getExtraKnobs(data);
   getComplianceKnob(data);

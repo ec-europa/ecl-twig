@@ -4,7 +4,7 @@ import specData from '@ecl/ec-specs-social-media-share/demo/data';
 const adapter = (initialData) => {
   const adaptedData = JSON.parse(JSON.stringify(initialData));
 
-  adaptedData.links.forEach((link) => {
+  for (const link of adaptedData.links) {
     // Corrections on links.
     link.path = link.href;
     delete link.href;
@@ -17,7 +17,7 @@ const adapter = (initialData) => {
     delete link.className;
     // Corrections on the icons inside the link.
     if (link.icon) {
-      link.icon.forEach((icon) => {
+      for (const icon of link.icon) {
         icon.name = icon.shape;
         icon.path = '/icons-social.svg';
         // Place common-sense defaults if spec is not concrete about it.
@@ -26,9 +26,9 @@ const adapter = (initialData) => {
           : 'ecl-social-media-share__icon';
         delete icon.className;
         delete icon.shape;
-      });
+      }
     }
-  });
+  }
 
   return adaptedData;
 };

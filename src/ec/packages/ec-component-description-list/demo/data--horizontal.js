@@ -2,4 +2,4 @@ import specsHorizontal from '@ecl/ec-specs-description-list/demo/data--horizonta
 
 specsHorizontal.variant = 'horizontal';
 
-export default specsHorizontal;
+export { default } from '@ecl/ec-specs-description-list/demo/data--horizontal';

@@ -23,19 +23,19 @@ const prepareUnorderedList = (data) => {
       tabLabels.required
     );
   }
-  data.items.forEach((item, i) => {
+  for (const [i, item] of data.items.entries()) {
     item.label = he.decode(
       text(`items[${i}].label`, item.label, tabLabels.required)
     );
 
     if (item.nested) {
-      item.nested.forEach((n, ind) => {
+      for (const [ind, n] of item.nested.entries()) {
         n.label = he.decode(
           text(`items[${i}].nested[${ind}].label`, n.label, tabLabels.optional)
         );
-      });
+      }
     }
-  });
+  }
 
   getExtraKnobs(data);
   getComplianceKnob(data);

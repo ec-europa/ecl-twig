@@ -19,14 +19,14 @@ const prepareCheckbox = (data) => {
 
   getFormItemKnobs(data, true);
 
-  data.items.forEach((item, i) => {
+  for (const [i, item] of data.items.entries()) {
     item.icon_path = select(
       `items[${i}].icon_path`,
       [defaultSprite],
       defaultSprite,
       tabLabels.required
     );
-  });
+  }
 
   getExtraKnobs(data, true);
   getComplianceKnob(data);

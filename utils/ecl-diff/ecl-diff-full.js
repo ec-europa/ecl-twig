@@ -17,9 +17,9 @@ const getBase = (element) => {
 
 // We build a list of components by their root name.
 const packages = [];
-fullPackages.forEach((pack) => {
+for (const pack of fullPackages) {
   packages.push(getBase(pack));
-});
+}
 
 // But we need to exclude some for each system.
 const exclusions = [

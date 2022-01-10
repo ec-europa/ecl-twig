@@ -1,3 +1,1 @@
-import dataDefault from '@ecl/ec-specs-list/demo/data--text';
-
-export default dataDefault;
+export { default } from '@ecl/ec-specs-list/demo/data--text';

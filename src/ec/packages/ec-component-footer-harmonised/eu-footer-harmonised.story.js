@@ -12,26 +12,26 @@ import footerHarmonised from './ecl-footer-harmonised.html.twig';
 import notes from './README.md';
 
 // Icons.
-dataEu.sections.forEach((section) => {
+for (let section of dataEu.sections) {
   if (!Array.isArray(section)) {
     section = [section];
   }
-  section.forEach((s) => {
+  for (const s of section) {
     if (s.links && Array.isArray(s.links)) {
-      s.links.forEach((l) => {
+      for (const l of s.links) {
         if (l.icon) {
           l.icon.path = defaultSprite;
         }
-      });
+      }
     }
     if (s.title && s.title.icon) {
       s.title.icon.path = defaultSprite;
     }
-  });
-});
+  }
+}
 
 const prepareFooterHarmonised = (data) => {
-  data.sections.forEach((section, i) => {
+  for (const [i, section] of data.sections.entries()) {
     if (!Array.isArray(section)) {
       if (section.logo) {
         section.logo.path = text(`sections[${i}].logo.path`, section.logo.path);
@@ -80,7 +80,7 @@ const prepareFooterHarmonised = (data) => {
         );
       }
       if (section.links) {
-        section.links.forEach((linkItem, j) => {
+        for (const [j, linkItem] of section.links.entries()) {
           linkItem.link.label = text(
             `sections[${i}].links[${j}].link.label`,
             linkItem.link.label
@@ -103,10 +103,10 @@ const prepareFooterHarmonised = (data) => {
               linkItem.icon.size
             );
           }
-        });
+        }
       }
     } else {
-      section.forEach((sectionItem, j) => {
+      for (const [j, sectionItem] of section.entries()) {
         if (sectionItem.content_before) {
           sectionItem.content_before = text(
             `sections[${i}][${j}].content_before`,
@@ -124,7 +124,7 @@ const prepareFooterHarmonised = (data) => {
             `sections[${i}][${j}].title`,
             sectionItem.title
           );
-          sectionItem.links.forEach((linkItem, k) => {
+          for (const [k, linkItem] of sectionItem.links.entries()) {
             linkItem.link.label = text(
               `sections[${i}][${j}].links[${k}].link.label`,
               linkItem.link.label
@@ -147,11 +147,11 @@ const prepareFooterHarmonised = (data) => {
                 linkItem.icon.size
               );
             }
-          });
+          }
         }
-      });
+      }
     }
-  });
+  }
 
   getExtraKnobs(data);
   // Return the full specs.

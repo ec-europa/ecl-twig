@@ -56,7 +56,7 @@ const preparePageHeaderStandardised = (data, desc, meta) => {
     data.breadcrumb.navigation_text,
     tabLabels.required
   );
-  data.breadcrumb.links.forEach((item, i) => {
+  for (const [i, item] of data.breadcrumb.links.entries()) {
     item.label = text(
       `data.breadcrumb.links[${i}].label`,
       item.label,
@@ -67,7 +67,7 @@ const preparePageHeaderStandardised = (data, desc, meta) => {
       item.path,
       tabLabels.required
     );
-  });
+  }
 
   getExtraKnobs(data);
   if (!system) {

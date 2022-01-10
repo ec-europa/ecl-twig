@@ -16,12 +16,12 @@ const getData = (component, system) => {
   );
 
   const variants = [];
-  twigFiles.forEach((twigFile) => {
+  for (const twigFile of twigFiles) {
     const variant = twigFile.includes('--')
       ? twigFile.replace(`${component}--`, '').slice(0, -9)
       : 'default';
     variants.push({ variant, file: twigFile, component });
-  });
+  }
 
   return variants;
 };

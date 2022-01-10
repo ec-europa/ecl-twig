@@ -5,10 +5,10 @@ const adapter = (initialData) => {
   // Copy reference specification demo data.
   const adaptedData = JSON.parse(JSON.stringify(initialData));
   if (adaptedData.tracks && Array.isArray(adaptedData.tracks)) {
-    adaptedData.tracks.forEach((track) => {
+    for (const track of adaptedData.tracks) {
       track.src_lang = track.srcLang;
       delete track.srcLang;
-    });
+    }
   }
 
   return adaptedData;

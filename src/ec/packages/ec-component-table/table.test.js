@@ -54,9 +54,9 @@ describe('EC - Table', () => {
       expect.assertions(1);
 
       const withRowExtraAttributes = dataDefault;
-      withRowExtraAttributes.rows.forEach((row) => {
+      for (const row of withRowExtraAttributes.rows) {
         row.extra_attributes = 'data-test data-test-another'; // eslint-disable-line no-param-reassign
-      });
+      }
 
       return expect(render(withRowExtraAttributes)).resolves.toMatchSnapshot();
     });
@@ -65,9 +65,9 @@ describe('EC - Table', () => {
       expect.assertions(1);
 
       const withRowExtraClasses = dataDefault;
-      withRowExtraClasses.rows.forEach((row) => {
+      for (const row of withRowExtraClasses.rows) {
         row.extra_classes = 'row-extra-class'; // eslint-disable-line no-param-reassign
-      });
+      }
 
       return expect(render(withRowExtraClasses)).resolves.toMatchSnapshot();
     });

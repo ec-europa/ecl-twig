@@ -5,7 +5,7 @@ const adapter = (initialData) => {
   // Copy reference specification demo data.
   const adaptedData = JSON.parse(JSON.stringify(initialData));
 
-  adaptedData.items.forEach((item) => {
+  for (const item of adaptedData.items) {
     item.id = `${item.id}-content`;
     const { toggle } = item;
     const [type, name] = toggle.iconShape.split('--');
@@ -16,7 +16,7 @@ const adapter = (initialData) => {
       path: '/icons.svg',
       size: 's',
     };
-  });
+  }
 
   return adaptedData;
 };

@@ -22,15 +22,15 @@ const prepareMenuLegacy = (data) => {
     { display: 'inline-radio' },
     tabLabels.required
   );
-  data.items.forEach((item, i) => {
+  for (const [i, item] of data.items.entries()) {
     item.label = he.decode(
       text(`items[${i}].label`, item.label, tabLabels.required)
     );
     item.href = text(`items[${i}].href`, item.href, tabLabels.required);
 
     if (item.children) {
-      item.children.forEach((column, j) => {
-        column.items.forEach((subItem, k) => {
+      for (const [j, column] of item.children.entries()) {
+        for (const [k, subItem] of column.items.entries()) {
           subItem.label = text(
             `items[${i}].children[${j}].items[${k}].label`,
             subItem.label,
@@ -41,10 +41,10 @@ const prepareMenuLegacy = (data) => {
             subItem.href,
             tabLabels.optional
           );
-        });
-      });
+        }
+      }
     }
-  });
+  }
 
   getExtraKnobs(data);
   getComplianceKnob(data);

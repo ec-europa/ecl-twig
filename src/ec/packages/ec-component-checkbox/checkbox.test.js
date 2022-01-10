@@ -42,9 +42,9 @@ describe('EC - checkbox', () => {
     test('renders correctly when required', () => {
       expect.assertions(1);
 
-      dataDefault.items.forEach((item) => {
+      for (const item of dataDefault.items) {
         item.required = true; // eslint-disable-line no-param-reassign
-      });
+      }
 
       return expect(render(dataDefault)).resolves.toMatchSnapshot();
     });

@@ -26,11 +26,11 @@ const prepareDropdown = (data) => {
     { display: 'inline-radio' },
     tabLabels.required
   );
-  data.list.items.forEach((item, i) => {
+  for (const [i, item] of data.list.items.entries()) {
     item.label = he.decode(
       text(`list.items[${i}].label`, item.label, tabLabels.required)
     );
-  });
+  }
 
   getExtraKnobs(data);
   getComplianceKnob(data);

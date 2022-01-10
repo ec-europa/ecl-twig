@@ -16,9 +16,9 @@ import footer from './ecl-footer.html.twig';
 import notes from './README.md';
 
 const iconsList = ['external'];
-brandedIcons.forEach((icon) => {
+for (const icon of brandedIcons) {
   iconsList.push(icon);
-});
+}
 
 const prepareFooter = (data) => {
   if (data.identity) {
@@ -32,7 +32,7 @@ const prepareFooter = (data) => {
       data.identity.follow.label,
       tabLabels.required
     );
-    data.identity.follow.links.forEach((linkItem, i) => {
+    for (const [i, linkItem] of data.identity.follow.links.entries()) {
       linkItem.link.label = text(
         `identity.follow.links[${i}].link.label`,
         linkItem.link.label,
@@ -61,11 +61,11 @@ const prepareFooter = (data) => {
           );
         }
       }
-    });
+    }
   }
 
-  data.sections.forEach((section, i) => {
-    section.links.forEach((linkItem, j) => {
+  for (const [i, section] of data.sections.entries()) {
+    for (const [j, linkItem] of section.links.entries()) {
       linkItem.link.label = text(
         `sections[${i}].links[${j}].link.label`,
         linkItem.link.label,
@@ -93,10 +93,10 @@ const prepareFooter = (data) => {
           );
         }
       }
-    });
-  });
+    }
+  }
 
-  data.common.forEach((linkItem, i) => {
+  for (const [i, linkItem] of data.common.entries()) {
     linkItem.link.label = he.decode(
       text(`common[${i}].link.label`, linkItem.link.label, tabLabels.required)
     );
@@ -105,7 +105,7 @@ const prepareFooter = (data) => {
       linkItem.link.path,
       tabLabels.required
     );
-  });
+  }
 
   getExtraKnobs(data);
   getComplianceKnob(data);

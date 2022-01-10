@@ -26,10 +26,10 @@ const adapter = (initialData) => {
   }
   if (adaptedData.tags) {
     adaptedData.card.tags = adaptedData.tags;
-    adaptedData.card.tags.forEach((item) => {
+    for (const item of adaptedData.card.tags) {
       item.path = item.href;
       delete item.href;
-    });
+    }
     delete adaptedData.tags;
   }
   if (adaptedData.image) {
@@ -38,13 +38,13 @@ const adapter = (initialData) => {
   }
   if (adaptedData.infos) {
     adaptedData.card.infos = adaptedData.infos;
-    adaptedData.card.infos.forEach((info) => {
+    for (const info of adaptedData.card.infos) {
       info.icon.path = '/icons.svg';
       const [type, name] = info.icon.shape.split('--');
       info.icon.name = name;
       info.icon.type = type;
       delete info.icon.shape;
-    });
+    }
     delete adaptedData.infos;
   }
   if (adaptedData.links) {

@@ -25,14 +25,14 @@ const prepareMenu = (data) => {
     { display: 'inline-radio' },
     tabLabels.required
   );
-  data.items.forEach((item, i) => {
+  for (const [i, item] of data.items.entries()) {
     item.label = he.decode(
       text(`items[${i}].label`, item.label, tabLabels.required)
     );
     item.path = text(`items[${i}].path`, item.path, tabLabels.required);
 
     if (item.children) {
-      item.children.forEach((subitem, j) => {
+      for (const [j, subitem] of item.children.entries()) {
         subitem.label = he.decode(
           text(
             `items[${i}].children[${j}].label`,
@@ -45,9 +45,9 @@ const prepareMenu = (data) => {
           subitem.path,
           tabLabels.optional
         );
-      });
+      }
     }
-  });
+  }
 
   getExtraKnobs(data);
   getComplianceKnob(data);

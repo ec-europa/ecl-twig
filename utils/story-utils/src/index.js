@@ -57,7 +57,7 @@ export const getExtraKnobs = (data, nested) => {
   }
 
   if (nested) {
-    data.items.forEach((item, i) => {
+    for (const [i, item] of data.items.entries()) {
       item.extra_classes = text(
         `items[${i}].extra_classes`,
         item.extra_classes,
@@ -105,7 +105,7 @@ export const getExtraKnobs = (data, nested) => {
       } else {
         data.items[i].extra_attributes = undefined;
       }
-    });
+    }
   }
 
   return data;
@@ -237,15 +237,11 @@ export const getFormKnobs = (data, required) => {
   data.disabled = boolean('disabled', false, tabLabels.states);
   data.required = boolean('required', required, tabLabels.states);
   data.label = text('label', data.label, tabLabels.required);
-  if (data.invalid) {
-    data.invalid_text = he.decode(
+  data.invalid_text = data.invalid ? he.decode(
       text('invalid_text', data.invalid_text, tabLabels.required)
-    );
-  } else {
-    data.invalid_text = he.decode(
+    ) : he.decode(
       text('invalid_text', data.invalid_text, tabLabels.optional)
     );
-  }
   if (data.required) {
     data.required_text = text(
       'required_text',
@@ -308,15 +304,11 @@ export const getFormGroupKnobs = (data) => {
       tabLabels.optional
     );
   }
-  if (data.invalid) {
-    data.invalid_text = he.decode(
+  data.invalid_text = data.invalid ? he.decode(
       text('invalid_text', data.invalid_text, tabLabels.required)
-    );
-  } else {
-    data.invalid_text = he.decode(
+    ) : he.decode(
       text('invalid_text', data.invalid_text, tabLabels.optional)
     );
-  }
 
   data.helper_text = he.decode(
     text('helper_text', helperTextDefault, tabLabels.optional)
@@ -326,7 +318,7 @@ export const getFormGroupKnobs = (data) => {
 };
 
 export const getFormItemKnobs = (data, disabled) => {
-  data.items.forEach((item, i) => {
+  for (const [i, item] of data.items.entries()) {
     let helperTextDefault = '';
     if (item.helper_text) {
       helperTextDefault = item.helper_text;
@@ -361,7 +353,7 @@ export const getFormItemKnobs = (data, disabled) => {
     item.helper_text = he.decode(
       text(`items[${i}].helper_text`, helperTextDefault, tabLabels.optional)
     );
-  });
+  }
 
   return data;
 };
@@ -500,7 +492,7 @@ export const getBrandedIconsOptions = (labels, none, hover) => {
     options.push('Other social networks');
   }
 
-  brandedIcons.forEach((icon) => {
+  for (let icon of brandedIcons) {
     if (labels) {
       icon = icon.charAt(0).toUpperCase() + icon.slice(1);
     } else if (hover) {
@@ -508,16 +500,16 @@ export const getBrandedIconsOptions = (labels, none, hover) => {
     }
 
     options.push(icon);
-  });
+  }
 
   return options;
 };
 
 export const getLinkKnobs = (data) => {
-  data.links.forEach((link, i) => {
+  for (const [i, link] of data.links.entries()) {
     link.label = text(`links[${i}].label`, link.label, tabLabels.required);
     link.path = text(`links[${i}].path`, link.path, tabLabels.required);
-  });
+  }
 
   return data;
 };

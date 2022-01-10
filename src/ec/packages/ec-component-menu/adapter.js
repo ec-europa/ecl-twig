@@ -7,7 +7,7 @@ const adapter = (initialData) => {
   adaptedData.menu_link = adaptedData.menuLink;
   delete adaptedData.menuLink;
   if (adaptedData.items && Array.isArray(adaptedData.items)) {
-    adaptedData.items.forEach((mainItem) => {
+    for (const mainItem of adaptedData.items) {
       mainItem.path = mainItem.href;
       delete mainItem.href;
       if (mainItem.hasSubmenuLabel) {
@@ -22,16 +22,16 @@ const adapter = (initialData) => {
       if (Array.isArray(mainItem.subItems)) {
         mainItem.children = mainItem.subItems;
         delete mainItem.subItems;
-        mainItem.children.forEach((item) => {
+        for (const item of mainItem.children) {
           item.path = item.href;
           delete item.href;
           if (item.isCurrent) {
             item.is_current = item.isCurrent;
             delete item.isCurrent;
           }
-        });
+        }
       }
-    });
+    }
   }
 
   return adaptedData;

@@ -8,10 +8,10 @@ const adapter = (initialData) => {
   adaptedData.items_limit = 3;
 
   // Correct link path attributes.
-  adaptedData.items.forEach((item) => {
+  for (const item of adaptedData.items) {
     item.path = item.href;
     item.type = item.variant;
-  });
+  }
 
   // Correct read more button.
   adaptedData.item_more = adaptedData.itemMore;
