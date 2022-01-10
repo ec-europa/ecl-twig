@@ -29,13 +29,13 @@ const adapter = (initialData) => {
         path: '/icons.svg',
       },
     };
-    adaptedData.translation.items.forEach((item) => {
+    for (const item of adaptedData.translation.items) {
       item.lang_full = item.langFull;
       delete item.langFull;
       item.download = formatLink(item.download);
       item.download.icon = {};
       item.download.icon.path = '/icons.svg';
-    });
+    }
   }
   delete adaptedData.ariaLabel;
   if (adaptedData.taxonomy) {

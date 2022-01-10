@@ -17,11 +17,11 @@ const withCode = makeDecorator({
       // Check whether we wrapped the story just for the demo.
       if (rootEl.hasAttribute('demo_only')) {
         const demoChildren = rootEl.childNodes;
-        demoChildren.forEach(function refillNode(v, i) {
-          htmlElement.appendChild(demoChildren[i]);
-        });
+        for (const [i, v] of demoChildren.entries()) {
+          htmlElement.append(demoChildren[i]);
+        }
       } else {
-        htmlElement.appendChild(code);
+        htmlElement.append(code);
       }
       code = he.decode(htmlElement.innerHTML);
     } else if (story instanceof Node) {

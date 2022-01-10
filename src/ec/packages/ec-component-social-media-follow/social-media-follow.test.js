@@ -3,13 +3,13 @@ import { merge, renderTwigFileAsNode } from '@ecl-twig/test-utils';
 import demoData from './demo/data';
 
 // Set fake paths for svgs to render for tests.
-demoData.links.forEach((link) => {
+for (const link of demoData.links) {
   if (link.icon) {
-    link.icon.forEach((icon) => {
+    for (const icon of link.icon) {
       icon.path = 'example'; // eslint-disable-line no-param-reassign
-    });
+    }
   }
-});
+}
 
 describe('EC - Social Media Follow', () => {
   const template =

@@ -13,7 +13,7 @@ describe('EC - Icon', () => {
   const render = (params) => renderTwigFileAsNode(template, params);
 
   describe('Branded', () => {
-    brandedIcons.forEach((icon) => {
+    for (const icon of brandedIcons) {
       test(`- icon ${icon} renders correctly`, () => {
         expect.assertions(1);
 
@@ -25,11 +25,11 @@ describe('EC - Icon', () => {
 
         return expect(render(options)).resolves.toMatchSnapshot();
       });
-    });
+    }
   });
 
   describe('Notifications', () => {
-    notificationsIcons.forEach((icon) => {
+    for (const icon of notificationsIcons) {
       test(`- icon ${icon} renders correctly`, () => {
         expect.assertions(1);
 
@@ -41,11 +41,11 @@ describe('EC - Icon', () => {
 
         return expect(render(options)).resolves.toMatchSnapshot();
       });
-    });
+    }
   });
 
   describe('General', () => {
-    generalIcons.forEach((icon) => {
+    for (const icon of generalIcons) {
       test(`- icon ${icon} renders correctly`, () => {
         expect.assertions(1);
 
@@ -58,11 +58,11 @@ describe('EC - Icon', () => {
 
         return expect(render(options)).resolves.toMatchSnapshot();
       });
-    });
+    }
   });
 
   describe('UI', () => {
-    uiIcons.forEach((icon) => {
+    for (const icon of uiIcons) {
       test(`- icon ${icon} renders correctly`, () => {
         expect.assertions(1);
 
@@ -74,7 +74,7 @@ describe('EC - Icon', () => {
 
         return expect(render(options)).resolves.toMatchSnapshot();
       });
-    });
+    }
   });
 
   describe('Generic tests - Any icon', () => {

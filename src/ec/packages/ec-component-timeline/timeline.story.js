@@ -16,11 +16,7 @@ import notes from './README.md';
 const prepareTimeline = (data) => {
   const { from, to } = data.hide;
   let hiddenCount = 0;
-  if (to > 0) {
-    hiddenCount = to - from;
-  } else {
-    hiddenCount = data.items.length + to - from;
-  }
+  hiddenCount = to > 0 ? to - from : data.items.length + to - from;
   data.toggle_collapsed = text(
     'toggle_collapsed',
     `Show ${hiddenCount} more items`,
@@ -42,7 +38,7 @@ const prepareTimeline = (data) => {
   data.hide.from = number('hide.from', data.hide.from, {}, tabLabels.optional);
   data.hide.to = number('hide.to', data.hide.to, {}, tabLabels.optional);
 
-  data.items.forEach((item, i) => {
+  for (const [i, item] of data.items.entries()) {
     const { id, label, title, content } = item;
     item.label = text(`items[${i}].label`, label, tabLabels.required);
     item.title = text(`items[${i}].title`, title, tabLabels.required);
@@ -50,7 +46,7 @@ const prepareTimeline = (data) => {
     item.content = he.decode(
       text(`items[${i}].content`, content, tabLabels.optional)
     );
-  });
+  }
 
   getExtraKnobs(data);
   getComplianceKnob(data);

@@ -74,7 +74,7 @@ const preparePageHeaderCore = (data, desc, meta, img) => {
     data.breadcrumb.navigation_text,
     tabLabels.required
   );
-  data.breadcrumb.links.forEach((item, i) => {
+  for (const [i, item] of data.breadcrumb.links.entries()) {
     item.label = text(
       `data.breadcrumb.links[${i}].label`,
       item.label,
@@ -85,7 +85,7 @@ const preparePageHeaderCore = (data, desc, meta, img) => {
       item.path,
       tabLabels.required
     );
-  });
+  }
   getExtraKnobs(data);
   getComplianceKnob(data);
 

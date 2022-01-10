@@ -20,9 +20,9 @@ export const Default = () => {
 
   // This needs to be in the scope of this function.
   // Called on knob's change of value.
-  demoData.items.forEach((item, key) => {
+  for (const [key, item] of demoData.items.entries()) {
     item.label = text(`Item ${key} label:`, item.label);
-  });
+  }
 
   return contextualNavigation(demoData);
 };

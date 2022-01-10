@@ -42,9 +42,7 @@ export default {
   title: 'Components/Forms/Datepicker',
 };
 
-export const Default = () => {
-  return datepicker(prepareDatePicker(dataDefault));
-};
+export const Default = () => datepicker(prepareDatePicker(dataDefault));
 
 Default.storyName = 'default';
 Default.parameters = { notes: { markdown: notes, json: dataDefault } };

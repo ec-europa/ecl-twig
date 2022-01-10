@@ -6,8 +6,7 @@ const eclDiffComponent = require('./ecl-diff-component');
 
 const rootFolder = process.cwd();
 
-module.exports = (system, components) => {
-  return new Promise((resolve) => {
+module.exports = (system, components) => new Promise((resolve) => {
     // We run the promises sequentially to avoid memory leaks,
     // the reduce here will concatenate the Promise.all for
     // each component.
@@ -38,4 +37,3 @@ module.exports = (system, components) => {
         resolve(res);
       });
   });
-};

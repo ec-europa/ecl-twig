@@ -139,11 +139,7 @@ const eclComponents = (component, variant, system) => {
       }
       break;
     case 'media-container':
-      if (system === 'eu' && variant === 'embed-video') {
-        eclPath = false;
-      } else {
-        eclPath = `components-mediacontainer--${variant}`;
-      }
+      eclPath = system === 'eu' && variant === 'embed-video' ? false : `components-mediacontainer--${variant}`;
       break;
     case 'menu':
       switch (variant) {

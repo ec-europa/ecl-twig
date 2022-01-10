@@ -16,7 +16,7 @@ const formatSection = (section, name) => {
     innerSections = true;
   }
 
-  section.forEach((s, i) => {
+  for (const [i, s] of section.entries()) {
     switch (name) {
       case 'siteName':
         s.section_id = '1';
@@ -96,21 +96,21 @@ const formatSection = (section, name) => {
       }
     }
     if (s.links && Array.isArray(s.links)) {
-      s.links.forEach((l, j) => {
+      for (const [j, l] of s.links.entries()) {
         if (!l.link) {
           s.links[j] = formatLink(l);
           if (l.icon) {
             l.icon.path = '/icons.svg';
           }
         }
-      });
+      }
     }
     if (innerSections) {
       innerSectionsArray.push(s);
     } else {
       innerSectionsArray = s;
     }
-  });
+  }
 
   sections.push(innerSectionsArray);
 
@@ -120,7 +120,7 @@ const formatSection = (section, name) => {
 const adapter = (initialData) => {
   const adaptedData = {};
   adaptedData.sections = [];
-  Object.keys(initialData.sections).forEach((section) => {
+  for (const section of Object.keys(initialData.sections)) {
     if (section === 'siteName') {
       adaptedData.sections.push(
         ...formatSection(initialData.sections.siteName, section)
@@ -184,7 +184,7 @@ const adapter = (initialData) => {
         ...formatSection(initialData.sections.ecLogo, section)
       );
     }
-  });
+  }
 
   adaptedData.group = initialData.group;
 

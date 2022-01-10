@@ -76,21 +76,17 @@ const run = async () => {
 
     const siteDeployment = await siteDeploymentResponse.json();
 
-    if (DRONE_COMMIT_BRANCH && DRONE_COMMIT_BRANCH === 'master') {
-      payload = {
+    payload = DRONE_COMMIT_BRANCH && DRONE_COMMIT_BRANCH === 'master' ? {
         state: 'success',
         target_url: siteDeployment.deploy_ssl_url,
         description: 'Production deployment completed!',
         context,
-      };
-    } else {
-      payload = {
+      } : {
         state: 'success',
         target_url: siteDeployment.deploy_ssl_url,
         description: 'Preview ready!',
         context,
       };
-    }
   } catch {
     payload = {
       state: 'error',

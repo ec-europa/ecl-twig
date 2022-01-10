@@ -22,20 +22,20 @@ const prepareList = (data) => {
       tabLabels.required
     );
   }
-  data.items.forEach((item, i) => {
+  for (const [i, item] of data.items.entries()) {
     if (Array.isArray(item.term)) {
-      item.term.forEach((termItem, j) => {
+      for (const [j, termItem] of item.term.entries()) {
         data.items[i].term[j] = text(
           `items[${i}].term[${j}]`,
           termItem,
           tabLabels.required
         );
-      });
+      }
     } else {
       item.term = text(`items[${i}].term`, item.term, tabLabels.required);
     }
     if (Array.isArray(item.definition)) {
-      item.definition.forEach((def, k) => {
+      for (let [k, def] of item.definition.entries()) {
         if (!def.label) {
           def = text(`items[${i}].definition[${k}]`, def, tabLabels.required);
         } else {
@@ -50,7 +50,7 @@ const prepareList = (data) => {
             tabLabels.required
           );
         }
-      });
+      }
     } else {
       item.definition = text(
         `items[${i}].definition`,
@@ -58,7 +58,7 @@ const prepareList = (data) => {
         tabLabels.required
       );
     }
-  });
+  }
 
   getExtraKnobs(data);
   getComplianceKnob(data);

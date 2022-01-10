@@ -25,8 +25,8 @@ const prepareTable = (data, attr) => {
 
   data.zebra = boolean('zebra', data.zebra, tabLabels.cases);
   data.sortable = boolean('sortable', data.sortable, tabLabels.cases);
-  data.headers.forEach((headers, i) => {
-    headers.forEach((header, ind) => {
+  for (const [i, headers] of data.headers.entries()) {
+    for (const [ind, header] of headers.entries()) {
       header.label = he.decode(
         text(`headers[${i}][${ind}].label`, header.label, tabLabels.required)
       );
@@ -35,10 +35,10 @@ const prepareTable = (data, attr) => {
         header.colspan,
         tabLabels.optional
       );
-    });
-  });
+    }
+  }
 
-  data.rows.forEach((row, i) => {
+  for (const [i, row] of data.rows.entries()) {
     row.extra_classes = text(
       `rows[${i}].extra_classes`,
       row.extra_classes,
@@ -49,7 +49,7 @@ const prepareTable = (data, attr) => {
       defaultAttr,
       tabLabels.optional
     );
-    row.forEach((cell, ind) => {
+    for (const [ind, cell] of row.entries()) {
       cell.label = he.decode(
         text(`rows[${i}][${ind}].label`, cell.label, tabLabels.required)
       );
@@ -68,8 +68,8 @@ const prepareTable = (data, attr) => {
         cell['data-ecl-table-header-group'],
         tabLabels.optional
       );
-    });
-  });
+    }
+  }
 
   getExtraKnobs(data);
   getComplianceKnob(data);

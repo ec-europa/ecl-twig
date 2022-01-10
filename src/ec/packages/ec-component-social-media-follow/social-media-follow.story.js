@@ -28,7 +28,7 @@ const prepareSocialMediaFollow = (data, vertical) => {
     delete data.variant;
   }
 
-  data.links.forEach((link, i) => {
+  for (const [i, link] of data.links.entries()) {
     let label = tabLabels.optional;
     // Firt item we make it mandatory and not removable.
     if (i === 0) {
@@ -46,7 +46,7 @@ const prepareSocialMediaFollow = (data, vertical) => {
         link.icon_position,
         label
       );
-      link.icon.forEach((icon, j) => {
+      for (const [j, icon] of link.icon.entries()) {
         let knobLabel = `links[${i}].icon[${j}].name`;
         let options = getBrandedIconsOptions(false);
         if (j === 1) {
@@ -67,7 +67,7 @@ const prepareSocialMediaFollow = (data, vertical) => {
           icon.extra_classes,
           label
         );
-      });
+      }
     } else {
       // All the other items.
       if (data.links[i].label && data.links[i].path) {
@@ -96,7 +96,7 @@ const prepareSocialMediaFollow = (data, vertical) => {
           link.icon_position,
           label
         );
-        link.icon.forEach((icon, k) => {
+        for (const [k, icon] of link.icon.entries()) {
           let knobLabel = `links[${i}].icon[${k}].name`;
           let iconOptions = getBrandedIconsOptions(false, true);
           if (k === 1) {
@@ -129,10 +129,10 @@ const prepareSocialMediaFollow = (data, vertical) => {
             data.links[i].path = '';
             data.links[i].icon = {};
           }
-        });
+        }
       }
     }
-  });
+  }
 
   getExtraKnobs(data);
   getComplianceKnob(data);

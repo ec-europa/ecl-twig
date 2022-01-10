@@ -11,10 +11,10 @@ function formatItem(i) {
   };
 
   if (i.video && i.video.tracks && Array.isArray(i.video.tracks)) {
-    i.video.tracks.forEach((track) => {
+    for (const track of i.video.tracks) {
       track.src_lang = track.srcLang;
       delete track.srcLang;
-    });
+    }
   } else if (!i.image || !i.image.alt) {
     // Fallback to previous structure
     item.path = i.src;

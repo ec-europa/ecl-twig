@@ -15,7 +15,7 @@ import dataDefault from './demo/data';
 import notes from './README.md';
 
 const prepareGallery = (data) => {
-  data.items.forEach((item, i) => {
+  for (const [i, item] of data.items.entries()) {
     if (item.image) {
       item.image.src = text(
         `items[${i}].image.src`,
@@ -100,7 +100,7 @@ const prepareGallery = (data) => {
         item.video.poster,
         tabLabels.optional
       );
-      item.video.sources.forEach((source, j) => {
+      for (const [j, source] of item.video.sources.entries()) {
         source.src = text(
           `items[${i}].video.sources[${j}].src`,
           source.src,
@@ -111,8 +111,8 @@ const prepareGallery = (data) => {
           source.type,
           tabLabels.required
         );
-      });
-      item.video.tracks.forEach((track, k) => {
+      }
+      for (const [k, track] of item.video.tracks.entries()) {
         track.src = text(
           `items[${i}].video.tracks[${k}].src`,
           track.src,
@@ -133,9 +133,9 @@ const prepareGallery = (data) => {
           track.kind,
           tabLabels.optional
         );
-      });
+      }
     }
-  });
+  }
   data.footer.link.label = text(
     'footer.link.label',
     data.footer.link.label,

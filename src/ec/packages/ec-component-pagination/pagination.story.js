@@ -22,7 +22,7 @@ const preparePagination = (data) => {
     { display: 'inline-radio' },
     tabLabels.optional
   );
-  data.items.forEach((item, i) => {
+  for (const [i, item] of data.items.entries()) {
     if (item.type) {
       item.type = select(
         `items[${i}].type`,
@@ -87,7 +87,7 @@ const preparePagination = (data) => {
         );
       }
     }
-  });
+  }
 
   getExtraKnobs(data);
   getComplianceKnob(data);

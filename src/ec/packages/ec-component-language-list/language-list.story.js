@@ -80,7 +80,7 @@ const prepareLanguageList = (data) => {
   data.non_eu_category = he.decode(
     text('non_eu_category', data.non_eu_category, tabLabels.optional)
   );
-  data.items.forEach((item, i) => {
+  for (const [i, item] of data.items.entries()) {
     if (item.label && item.path) {
       item.label = select(
         `items[${i}].label`,
@@ -107,9 +107,9 @@ const prepareLanguageList = (data) => {
       item.label = '';
       item.path = '';
     }
-  });
+  }
 
-  data.non_eu_items.forEach((item, i) => {
+  for (const [i, item] of data.non_eu_items.entries()) {
     if (item.label && item.path) {
       item.label = select(
         `non_eu_items[${i}].label`,
@@ -136,7 +136,7 @@ const prepareLanguageList = (data) => {
       item.label = '';
       item.path = '';
     }
-  });
+  }
 
   getExtraKnobs(data);
   getComplianceKnob(data);

@@ -91,13 +91,13 @@ const prepareFile = (data, variant) => {
       tabLabels.required
     );
     if (data.lists) {
-      data.lists.forEach((list, j) => {
+      for (const [j, list] of data.lists.entries()) {
         list.variant = text(
           `lists[${j}].variant`,
           list.variant,
           tabLabels.optional
         );
-        list.items.forEach((item, k) => {
+        for (const [k, item] of list.items.entries()) {
           item.term = text(
             `lists[${j}].items[${k}].term`,
             item.term,
@@ -110,7 +110,7 @@ const prepareFile = (data, variant) => {
               tabLabels.optional
             );
           } else {
-            item.definition.forEach((def, l) => {
+            for (const [l, def] of item.definition.entries()) {
               def.label = text(
                 `lists[${j}].items[${k}].definition[${l}].label`,
                 def.label,
@@ -121,12 +121,12 @@ const prepareFile = (data, variant) => {
                 def.variant,
                 tabLabels.optional
               );
-            });
+            }
           }
-        });
-      });
+        }
+      }
     }
-    data.translation.items.forEach((item, i) => {
+    for (const [i, item] of data.translation.items.entries()) {
       data.translation.items[i].title = text(
         `data.translation.items[${i}].title`,
         data.translation.items[i].title,
@@ -166,7 +166,7 @@ const prepareFile = (data, variant) => {
         { display: 'inline-radio' },
         tabLabels.required
       );
-    });
+    }
   }
 
   getExtraKnobs(data);

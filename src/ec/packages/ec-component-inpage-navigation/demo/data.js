@@ -7,10 +7,10 @@ const loremIpsum =
 const adapter = (initialData) => {
   // Copy reference specification demo data.
   const adaptedData = JSON.parse(JSON.stringify(initialData));
-  adaptedData.links.forEach((link) => {
+  for (const link of adaptedData.links) {
     link.hash = link.href.replace('#', '');
     link.item = `<h2 class="ecl-u-type-heading-2" id="${link.hash}">${link.label}</h2><p class="ecl-u-type-paragraph-m">${loremIpsum}</p><p class="ecl-u-type-paragraph-m">${loremIpsum}</p>`;
-  });
+  }
 
   return adaptedData;
 };

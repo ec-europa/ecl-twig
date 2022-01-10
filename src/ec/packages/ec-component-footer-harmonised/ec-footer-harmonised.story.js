@@ -18,25 +18,25 @@ import notes from './README.md';
 
 // Icons.
 const groups = [dataGroup1, dataGroup2];
-groups.forEach((g) => {
-  g.sections.forEach((section) => {
+for (const g of groups) {
+  for (let section of g.sections) {
     if (!Array.isArray(section)) {
       section = [section];
     }
-    section.forEach((s) => {
+    for (const s of section) {
       if (s.links && Array.isArray(s.links)) {
-        s.links.forEach((l) => {
+        for (const l of s.links) {
           if (l.icon) {
             l.icon.path = defaultSprite;
           }
-        });
+        }
       }
       if (s.title && s.title.icon) {
         s.title.icon.path = defaultSprite;
       }
-    });
-  });
-});
+    }
+  }
+}
 
 // Preserve the original data.
 const logo0 = JSON.parse(JSON.stringify(dataGroup3.sections[1].logos[0]));
@@ -194,7 +194,7 @@ const prepareFooterHarmonisedG3 = (data) => {
     tabLabels.cases
   );
   button('Reset the layout', resetG3BtnToggler, tabLabels.cases);
-  dataG3.sections.forEach((section, i) => {
+  for (const [i, section] of dataG3.sections.entries()) {
     if (section.title) {
       section.title = he.decode(
         text(`sections[${i}].title`, section.title, tabLabels.required)
@@ -202,7 +202,7 @@ const prepareFooterHarmonisedG3 = (data) => {
     }
 
     if (section.logos && Array.isArray(section.logos)) {
-      section.logos.forEach((logo, j) => {
+      for (const [j, logo] of section.logos.entries()) {
         let label = tabLabels.optional;
         let logoSrc = section.logos[j].logo.src;
         if (j === 2) {
@@ -226,9 +226,9 @@ const prepareFooterHarmonisedG3 = (data) => {
             label
           );
         }
-      });
+      }
     }
-  });
+  }
 
   getExtraKnobs(data);
   getComplianceKnob(data);
@@ -238,7 +238,7 @@ const prepareFooterHarmonisedG3 = (data) => {
 
 // Prepare the knobs for group2.
 const prepareFooterHarmonisedG2 = (data) => {
-  dataG2.sections.forEach((section, i) => {
+  for (const [i, section] of dataG2.sections.entries()) {
     if (section.title) {
       section.title.link = {
         label: text(
@@ -254,7 +254,7 @@ const prepareFooterHarmonisedG2 = (data) => {
       };
     }
     if (section.links) {
-      section.links.forEach((linkItem, j) => {
+      for (const [j, linkItem] of section.links.entries()) {
         linkItem.link.label = text(
           `sections[${i}].links[${j}].link.label`,
           linkItem.link.label,
@@ -265,9 +265,9 @@ const prepareFooterHarmonisedG2 = (data) => {
           linkItem.link.path,
           tabLabels.required
         );
-      });
+      }
     }
-  });
+  }
 
   getExtraKnobs(dataG2);
   getComplianceKnob(dataG2);
@@ -313,7 +313,7 @@ const prepareFooterHarmonisedG1 = (data) => {
     dataG1.sections[2][1] = { section_id: 3 };
   }
 
-  dataG1.sections.forEach((section, i) => {
+  for (const [i, section] of dataG1.sections.entries()) {
     if (!Array.isArray(section)) {
       let label = tabLabels.required;
       if (i === 3) {
@@ -353,7 +353,7 @@ const prepareFooterHarmonisedG1 = (data) => {
         );
       }
       if (section.links) {
-        section.links.forEach((linkItem, j) => {
+        for (const [j, linkItem] of section.links.entries()) {
           linkItem.link.label = text(
             `sections[${i}].links[${j}].link.label`,
             linkItem.link.label,
@@ -381,10 +381,10 @@ const prepareFooterHarmonisedG1 = (data) => {
               label
             );
           }
-        });
+        }
       }
     } else {
-      section.forEach((sectionItem, j) => {
+      for (const [j, sectionItem] of section.entries()) {
         if (sectionItem.content_before) {
           sectionItem.content_before = text(
             `sections[${i}][${j}].content_before`,
@@ -405,7 +405,7 @@ const prepareFooterHarmonisedG1 = (data) => {
             sectionItem.title,
             tabLabels.optional
           );
-          sectionItem.links.forEach((linkItem, k) => {
+          for (const [k, linkItem] of sectionItem.links.entries()) {
             linkItem.link.label = text(
               `sections[${i}][${j}].links[${k}].link.label`,
               linkItem.link.label,
@@ -433,11 +433,11 @@ const prepareFooterHarmonisedG1 = (data) => {
                 tabLabels.optional
               );
             }
-          });
+          }
         }
-      });
+      }
     }
-  });
+  }
 
   getExtraKnobs(dataG1);
   getComplianceKnob(dataG1);
